@@ -12,6 +12,8 @@ and which constraints should survive implementation changes.
 - [Development process](DEVELOPMENT.md) — the evidence-driven workflow, change gates, and definitions of done.
 - [Monorepo strategy](MONOREPO.md) — why the project stays together and what would justify a split.
 - [Roadmap](ROADMAP.md) — capability-oriented stages from personal dogfooding to a public protocol.
+- [Design drafts](drafts/README.md) — non-normative recovered context,
+  alternatives, research snapshots, and investigation backlog.
 
 Project-wide design decisions are proposed and recorded under
 [`rfcs/`](../rfcs/). The future normative specification belongs under
@@ -34,3 +36,7 @@ Until a versioned specification exists:
 When prose, schemas, and implementation disagree, the disagreement is a defect
 to expose and resolve—not an invitation to infer a convenient truth from the
 running code.
+
+Documents under [`docs/drafts/`](drafts/README.md) have no authority in this
+order. They preserve reasoning and options until a focused issue, experiment,
+or RFC deliberately promotes a result.
