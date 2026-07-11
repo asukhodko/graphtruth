@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+repository_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$repository_root"
+
+npm ci --cache "$repository_root/.cache/npm" --ignore-scripts --no-audit --no-fund
+
+markdown_files=()
+while IFS= read -r -d '' markdown_file; do
+  markdown_files[${#markdown_files[@]}]="$markdown_file"
+done < <(node tooling/check.mjs --list-markdown)
+if ((${#markdown_files[@]} > 0)); then
+  ./node_modules/.bin/markdownlint-cli2 "${markdown_files[@]}"
+fi
+
+node tooling/check.mjs

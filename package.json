@@ -1,0 +1,12 @@
+{
+  "name": "graphtruth-repository-tooling",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Repository-local development tooling for GraphTruth",
+  "engines": {
+    "node": ">=24"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "0.23.0"
+  }
+}

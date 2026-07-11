@@ -147,7 +147,8 @@ would make the protocol less durable, so the design may change substantially
 while the project is pre-alpha.
 
 The capability-oriented stages and their exit evidence are described in the
-[roadmap](docs/ROADMAP.md).
+[roadmap](docs/ROADMAP.md). Changes are developed through the
+[evidence-driven development process](docs/DEVELOPMENT.md).
 
 Issues that discuss the model and design may be useful, but please do not submit
 code or data contributions until licensing, contribution terms, and the initial
