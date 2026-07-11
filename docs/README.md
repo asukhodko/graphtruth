@@ -9,6 +9,7 @@ and which constraints should survive implementation changes.
 - [Principles](PRINCIPLES.md) — durable design commitments and non-negotiable boundaries.
 - [Architecture](ARCHITECTURE.md) — the three zones, canonical data, derived views, and data flow.
 - [Glossary](GLOSSARY.md) — the project's current vocabulary.
+- [Development process](DEVELOPMENT.md) — the evidence-driven workflow, change gates, and definitions of done.
 - [Monorepo strategy](MONOREPO.md) — why the project stays together and what would justify a split.
 - [Roadmap](ROADMAP.md) — capability-oriented stages from personal dogfooding to a public protocol.
 

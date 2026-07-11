@@ -1,0 +1,27 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+.direnv/
+
+# Private and disposable GraphTruth state
+.graphtruth/
+corpus/
+private/
+dogfood/
+
+# Dependencies
+node_modules/
+.cache/
+
+# Editor state
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Operating-system noise
+.DS_Store
+Thumbs.db
+Desktop.ini
