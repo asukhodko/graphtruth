@@ -99,6 +99,9 @@ observed second writer or independent corpus
 - **Stop condition:** examples require a universal ontology or private data;
   reduce the domain and synthesize the case.
 - **Dependencies:** none.
+- **Active experiment:** [Issue #6](https://github.com/asukhodko/graphtruth/issues/6)
+  uses a future-reveal private pilot and a separately authored synthetic twin to
+  discover the smallest honest journey before any normative promotion.
 
 ### GT-D002 — Minimal record and bundle envelope
 
@@ -190,6 +193,9 @@ observed second writer or independent corpus
 - **Exit evidence:** an algorithm or schema change can be compared without using
   node counts, prose volume, or subjective fluency as the success measure.
 - **Dependencies:** GT-D001.
+- **Active experiment:** [Issue #6](https://github.com/asukhodko/graphtruth/issues/6)
+  predeclares corpus horizons, query tasks, baselines, privacy boundaries, and
+  trajectory/cost measures for the first local replay harness.
 
 ## P1 — smallest executable ledger and access loop
 
