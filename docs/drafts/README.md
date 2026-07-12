@@ -1,7 +1,8 @@
 # GraphTruth design drafts
 
 > **Status:** Non-normative design archive.
-> **Captured:** 2026-07-11.
+> **Archive established:** 2026-07-11.
+> **Latest expansion:** 2026-07-12.
 > **Authority:** None. These notes do not define GraphTruth conformance and do
 > not amend an accepted RFC, the specification, schemas, or project principles.
 
@@ -97,6 +98,7 @@ and then reconcile summaries and cross-links elsewhere.
 | Versioning, extensions, migrations, conformance, and governance | [Protocol longevity](PROTOCOL-LONGEVITY.md) |
 | EoL rehearsal and ambiguous zone placement | [EoL recovery drill](EOL-RECOVERY-DRILL.md) and [zone boundary cases](ZONE-BOUNDARY-CASES.md) |
 | Full algorithm inventory and authority placement | [Algorithm capability map](ALGORITHM-CAPABILITY-MAP.md) |
+| Future-reveal corpus replay and experiment methodology | [Corpus replay experiment harness](CORPUS-REPLAY-EXPERIMENT-HARNESS.md) |
 | Contradiction, dark-zone, question, and acquisition loop | [Contradictions, gaps, and acquisition](CONTRADICTIONS-GAPS-ACQUISITION.md) |
 | Search, expansion, context budgets, and dossiers | [Retrieval and dossiers](RETRIEVAL-AND-DOSSIERS.md) |
 | Episodes, causal claims, mechanisms, and transfer | [Experience, causality, and transfer](EXPERIENCE-CAUSALITY-TRANSFER.md) |
@@ -125,6 +127,10 @@ and then reconcile summaries and cross-links elsewhere.
   among protocol semantics, reference tooling, and product policy.
 - [Algorithm capability map](ALGORITHM-CAPABILITY-MAP.md) — end-to-end algorithm
   slots, authority, inputs, outputs, failure modes, and evaluation.
+- [Corpus replay experiment harness](CORPUS-REPLAY-EXPERIMENT-HARNESS.md) —
+  future-reveal processing of private project documents, reproducible runs,
+  checkpoints, baselines, metrics, privacy controls, and the first walking
+  skeleton.
 - [Contradictions, gaps, and acquisition](CONTRADICTIONS-GAPS-ACQUISITION.md) —
   candidate taxonomies and the closed loop from uncertainty to the next useful
   question, observation, or experiment.
