@@ -160,6 +160,23 @@ for stochastic or externally hosted models, GraphTruth preserves the retained
 output and available inputs, model identity, configuration, and provenance, but
 does not promise byte-identical regeneration.
 
+### Domain organization evolves with the corpus
+
+GraphTruth does not assume or require a closed or predeclared set of knowledge
+domains. Domain organization is a purpose-relative view over the corpus, not a
+partition imposed on evidence before capture. A record may remain unclassified
+or appear in several domain views without duplicating or changing its canonical
+meaning.
+
+The current organization should be continuously actualized as events,
+corrections, vocabulary, and relationships arrive. Each topology generation is
+attributable to a corpus horizon, method, configuration, policy, and producer.
+A newly observed missing link may justify a sharp reorganization—such as domain
+birth, overlap, reparenting, split, merge, or retirement—but the new generation
+does not rewrite earlier memberships or make the latest picture retrospectively
+true. The system should expose what changed, why, which views or queries are
+affected, and what alternatives or unknowns remain.
+
 ## From captured fragments to usable knowledge
 
 GraphTruth is intended to support an end-to-end knowledge cycle:
@@ -169,20 +186,22 @@ GraphTruth is intended to support an end-to-end knowledge cycle:
 2. **Normalize reversibly.** Establish identifiers, formats, times, and exact
    evidence spans while retaining the source version, except for controlled
    retention or redaction actions.
-3. **Propose structure.** Detect entities, candidate classifications,
-   assertions, questions, decisions, and experience episodes as attributable
-   candidates.
+3. **Propose structure.** Detect entities, candidate classifications, domain
+   views and memberships, assertions, questions, decisions, and experience
+   episodes as attributable candidates.
 4. **Reconcile without erasing disagreement.** Resolve identities where
    justified, connect support, detect incompatible claims, and preserve
    alternatives.
 5. **Derive views.** Apply explicit trust, time, privacy, and relevance policies
-   to create useful projections.
+   to create useful projections, including versioned purpose-relative domain
+   organizations.
 6. **Retrieve dossiers.** Assemble a relevant body of evidence and context
    rather than return a fragment in isolation.
 7. **Acquire actively.** Turn contradictions, low-confidence assertions, and
    dark regions into ranked questions, observations, or experiments.
 8. **Learn from the result.** Add the new evidence and experience to the same
-   ledger, including failures and surprises.
+   ledger, including failures and surprises, then invalidate or refresh affected
+   analysis and access views without rewriting prior horizons.
 
 No single machine-learning technique defines this cycle. Deterministic rules,
 graph algorithms, information retrieval, statistics, causal inference, language
@@ -303,6 +322,9 @@ GraphTruth succeeds when:
 - a correction preserves, rather than falsifies, history;
 - retrieval returns sufficient context to judge applicability;
 - the system turns important gaps into answerable acquisition tasks;
+- initially unknown, overlapping domain structures can emerge and change, and a
+  missing-link reorganization remains explainable without falsifying earlier
+  memberships or historical views;
 - an experience can be compared with other episodes by mechanism rather than
   vocabulary alone;
 - an independent implementation supporting the recorded profiles can validate

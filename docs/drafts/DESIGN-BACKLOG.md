@@ -3,7 +3,7 @@
 > **Status:** Recovered design context — non-normative backlog.
 > **Captured:** 2026-07-11.
 > **Expanded:** 2026-07-12 after the cross-surface algorithm completeness
-> review.
+> review and the continuous domain-topology design in Issue #8.
 > **Authority:** The identifiers below organize ideas; they are not accepted
 > roadmap commitments or protocol requirements.
 > **Promotion:** Create a focused Issue or Draft RFC only when its prerequisite
@@ -69,7 +69,7 @@ baseline retrieval + expectations + questions
   │    └─ measurement return + answer assimilation
   │         └─ decision sensitivity + adaptive planning
   └─ domain representation bake-off
-       ├─ ontology drift rehearsal
+       ├─ continuous topology and structural-shock rehearsal
        └─ generated-view invalidation
             └─ code-domain pressure test
 
@@ -464,10 +464,12 @@ observed second writer or independent corpus
 
 ### GT-D037 — Multi-corpus protocol pressure test
 
-- **Deliverable:** use substantially different personal or synthetic domains to
-  expose owner-specific assumptions before stabilization.
-- **Exit evidence:** the core remains small and differences fit profiles rather
-  than universal ontology growth.
+- **Deliverable:** use at least three substantially different personal or
+  synthetic domains, including cross-domain records, to expose owner-specific,
+  closed-taxonomy, and vocabulary assumptions before stabilization.
+- **Exit evidence:** the core remains small; records survive without forced
+  single-domain classification; differences fit profiles and attributable views
+  rather than universal ontology growth.
 - **Dependencies:** a useful personal v0 and privacy-safe corpora.
 
 ## P5 — earn richer ontology and generated views
@@ -482,30 +484,57 @@ for the full alternatives, failure modes, and retained open questions.
 - **Evidence needed:** flat tags and baseline retrieval fail to organize a real
   corpus well enough for navigation or judgment.
 - **Deliverable:** compare a prescribed taxonomy, learned clustering, Formal
-  Concept Analysis, typed-core-plus-candidates, and domains-as-named-views on
-  the same synthetic or privacy-safe slice.
+  Concept Analysis, typed-core-plus-candidates, and domains-as-named-views on the
+  same synthetic or privacy-safe future-reveal slice. Hide domain names and
+  counts; require explicit unclassified/ambiguous states, discovery of a novel
+  domain, and soft `0..N` membership without a seeded closed taxonomy.
 - **Exit evidence:** measured navigation value, stability, review effort,
-  explainability, and treatment of multi-membership and unknown material.
+  explainability, abstention quality, and treatment of multi-membership, novel
+  domains, and unknown material.
 - **Stop condition:** ordinary facets and saved queries perform as well with
   materially less complexity.
 - **Dependencies:** GT-D001, GT-D009, GT-D015, GT-D018, GT-D020, GT-D021,
   and a representative corpus.
 
-### GT-D039 — Ontology drift, split, and merge rehearsal
+### GT-D039 — Continuous domain-topology and structural-shock rehearsal
 
 - **Evidence needed:** repeated domain or concept changes make old links,
-  citations, or views misleading.
-- **Deliverable:** replay additions and corrections that rename, split, merge,
-  nest, or retire candidate concepts while retaining provenance and historical
-  interpretation; detect unsatisfiable concepts, contradictory or circular
-  definitions, and domain/range/cardinality/disjointness violations; compare
-  competency-query behavior before and after minimal repair candidates with
-  impact preview.
-- **Exit evidence:** every change is attributable; old horizons remain
-  interpretable; derived memberships can be invalidated and rebuilt.
+  citations, memberships, queries, or views misleading, and a late missing link
+  can justify a discontinuous reorganization.
+- **Deliverable:** future-reveal additions and corrections that produce domain
+  birth, rename, broaden/narrow, reparent, split, merge, bridge, retirement, and
+  a no-safe-mapping case. Interleave at least three hidden domains, a novel
+  domain, ambiguous and multi-domain records, a withheld bridge that triggers a
+  material structural-shock candidate, stable distractors, a late-recorded
+  source about an earlier valid interval, and a later counterexample. Build
+  immutable attributed topology generations and retain every selected result
+  plus selection/supersession history; compare fixed-method incremental versus
+  clean maintenance separately from heuristic periodic and shock-triggered
+  paths at checkpoints; retain bitemporal scope, lineage,
+  alternative repairs, stability/fragility evidence, downstream retrieval,
+  dark-zone and generated-view impact previews, and access scope. Also detect
+  unsatisfiable concepts, contradictory or circular definitions, and
+  domain/range/cardinality/disjointness violations, then compare predeclared
+  competency-query behavior before and after repair candidates.
+- **Exit evidence:** every change is attributable; no record is forced into a
+  domain; old selected generations and as-of horizons remain interpretable;
+  late evidence, valid-time change, recorded-time discovery, and retrospective
+  reclassification are distinguished; selected stochastic history survives
+  producer removal; derived memberships invalidate and rebuild; declared
+  deterministic incremental semantics match same-method clean output;
+  the bridge is detected without unstable normal-period churn; decisive
+  cross-domain evidence stays retrievable; a simulated-acquisition fork measures
+  whether a discriminating question advances discovery safely; review/discovery
+  cost is measured. Shock statistic, false-alarm controls, baselines, budgets,
+  ablations, and settling/reversal criteria are frozen before reveal.
 - **Stop condition:** the test requires a universal ontology before a local
-  view has demonstrated value.
+  view has demonstrated value, ordinary facets/search perform as well at lower
+  cost, topology churn overwhelms review, or the shock cannot be distinguished
+  from model/configuration change and retrospective storytelling.
 - **Dependencies:** GT-D038 and stable revision/time semantics.
+- **Active design:** [Issue #8](https://github.com/asukhodko/graphtruth/issues/8)
+  owns the continuous actualization and missing-link structural-shock hypothesis
+  without adding a duplicate GT-D task.
 
 ### GT-D040 — Generated-view invalidation and circularity test
 

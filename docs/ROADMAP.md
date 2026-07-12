@@ -12,7 +12,9 @@ This roadmap is ordered by evidence and maturity, not dates. It deliberately avo
 - Separate normative protocol behavior from replaceable product policy.
 - Preserve source material, uncertainty, disagreement, and history instead of prematurely manufacturing a single truth.
 - Add automation only where its output can be inspected, traced, and corrected. Retain valuable analysis as attributed canonical records; require supported projections to be rebuildable without promising byte-identical reproduction from unavailable models.
-- Let recurring use reveal the ontology; do not design a universal ontology in advance.
+- Let recurring use reveal and continuously revise purpose-relative domain
+  structure; do not require a closed domain list or design a universal ontology
+  in advance.
 
 ## Stage 0 — Foundation
 
@@ -74,6 +76,10 @@ Outcomes may include:
 - active questions that prioritize valuable missing knowledge;
 - experience records connecting situations, decisions, interventions, observations, and outcomes;
 - mechanism-oriented and cross-context retrieval;
+- discovery of initially unknown domains, soft multi-membership, and explicit
+  unclassified states;
+- versioned continuous domain-topology updates, including impact-previewed
+  abrupt restructuring when new evidence bridges or separates earlier regions;
 - operational diagnostics, backups, repair tools, and migration rehearsal.
 
 This stage is expected to invalidate parts of the initial data model. Such corrections are progress when migrations preserve history and the specification records why the change was needed.
@@ -81,6 +87,8 @@ This stage is expected to invalidate parts of the initial data model. Such corre
 Exit evidence:
 
 - several substantially different real workflows fit without product-specific changes to core semantics;
+- a future-reveal corpus demonstrates domain birth, multi-membership, drift, and
+  at least one missing-link structural shock while preserving prior as-of views;
 - false merges, false contradictions, and misleading confidence displays are measurable and correctable;
 - the system remains useful when inference or embedding providers are removed or replaced;
 - extension mechanisms have been exercised without weakening core invariants.

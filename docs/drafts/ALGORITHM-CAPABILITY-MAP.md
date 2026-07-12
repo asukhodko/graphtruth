@@ -7,6 +7,8 @@
 > **Completeness review:** 2026-07-12. The inventory was independently checked
 > across ingestion/modeling, retrieval/acquisition/causality, and
 > protocol/operations/safety surfaces; the resulting gaps were incorporated.
+> Family 14 was further expanded for continuous emergent domain topology in
+> [Issue #8](https://github.com/asukhodko/graphtruth/issues/8).
 >
 > **Authority / Promotion:** This draft preserves design hypotheses and a
 > capability inventory. It neither defines protocol semantics nor selects an
@@ -687,22 +689,49 @@ The detailed owner is
 [`ONTOLOGY-AND-DOCUMENT-VIEWS.md`](ONTOLOGY-AND-DOCUMENT-VIEWS.md). The family
 includes:
 
+- open-set novelty and domain-birth detection that distinguishes new domain,
+  subdomain, changed sense, boundary case, outlier, and noise and can abstain;
 - terminology, definition, predicate, synonym, and relation candidates;
 - polysemy, homonymy, abbreviation, and multilingual-sense resolution;
-- attributed multi-membership and named-domain-view construction;
+- attributed soft `0..N` multi-membership, explicit unclassified states, and
+  named purpose-relative domain-structure construction;
 - clustering, community, facet, hierarchy, polyhierarchy, and concept-lattice
   candidates;
-- stable concept and view identity across rename, split, merge, and retirement;
+- immutable topology generations and conservative lineage across birth, rename,
+  broaden, narrow, reparent, split, merge, bridge, retirement, revival, and
+  no-safe-mapping;
+- dependency-driven continuous reclassification, view invalidation, atomic
+  generation selection, rollback, and scheduled or shock-triggered clean
+  rediscovery;
+- retention of every selected topology result plus attributed
+  selection/supersession history so stochastic historical views survive model
+  or runtime removal;
+- change-point and structural-surprise analysis over membership, relations,
+  competency queries, invalidation reach, and downstream access behavior;
+- hysteresis, persistence, complexity and churn budgets, ensemble stability,
+  source-lineage fragility checks, and explicit abstention without suppressing a
+  well-evidenced large change;
 - domain/range, cardinality, disjointness, satisfiability, definition-cycle, and
   competency-query checks;
 - minimal ontology repair proposals with semantic and navigation impact preview;
-- active selection of ambiguous classifications for review;
+- active selection of ambiguous classifications, boundaries, bridges, and
+  competing topology hypotheses for review or discriminating acquisition;
 - view dependency extraction, citation verification, circularity prevention,
   invalidation, and clean rebuild;
-- evaluation on real navigation and query tasks, not only clustering scores.
+- bitemporal topology reconstruction by claimed valid scope and recorded-as-of
+  horizon, plus explicit retrospective reclassification under a later
+  generation;
+- evaluation of discovery lag, abstention, membership calibration, topology
+  lineage, churn, clean-rebuild divergence, cross-domain recall, negative
+  transfer, review burden, and real navigation/query value—not only clustering
+  scores.
 
-Inferred organization remains a view or candidate until an attributed decision
-accepts it for a purpose. It must not silently enlarge the universal core.
+Inferred organization remains an attributable analysis or view even after a
+named policy selects one topology generation for navigation or retrieval.
+Selection does not accept every membership or classification. If a purpose ever
+requires acceptance of a view or individual classification, that uses separate,
+explicitly scoped semantics and authority. No selection or acceptance may
+silently enlarge the universal core.
 
 ### 15. Review, assessment, and acceptance workflow
 
@@ -947,10 +976,14 @@ but does not replace, the evidence-based stages in
 
 - Compare named views, facets, clustering, typed vocabularies, and Formal
   Concept Analysis on the same corpus and navigation tasks.
+- Hide domain names and counts in an open-set future-reveal corpus; permit
+  `0..N` memberships and compare incremental, clean, and shock-triggered
+  topology generations.
 - Preserve inferred membership, hierarchy, labels, and repairs as attributable
   candidates.
-- Rehearse concept/view rename, split, merge, retirement, invalidation, and
-  semantic before/after comparison.
+- Rehearse domain birth, concept/view rename, reparent, split, merge, bridge,
+  retirement, invalidation, abrupt missing-link restructuring, and semantic
+  before/after comparison without rewriting earlier horizons.
 - Verify generated pages cite canonical dependencies, cannot self-confirm, and
   become stale deterministically.
 - Promote only the minimum portable view or vocabulary semantics demonstrated by
@@ -995,6 +1028,15 @@ The evaluation corpus should deliberately include:
 - confidence that is high but miscalibrated;
 - prompt injection or policy instructions inside source content;
 - stale indexes after revision, split, or redaction;
+- a novel domain forced into a confident existing class instead of remaining
+  unclassified;
+- every new item causing topology churn, or stability controls suppressing a
+  justified missing-link structural shock;
+- a rename hiding semantic drift, or a split/merge silently rewriting prior
+  memberships and historical views;
+- a domain label, count, bridge, or membership leaking inaccessible material;
+- a mutable hierarchy path breaking stable access or hiding decisive evidence
+  behind a domain filter;
 - retrieval that omits decisive counterevidence;
 - a fluent answer unsupported by its evidence;
 - a gap inferred from absence without an expectation;
