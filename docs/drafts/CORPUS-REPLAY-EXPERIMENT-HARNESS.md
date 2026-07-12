@@ -502,7 +502,7 @@ observations.
 
 ## Eventual experiment suite
 
-Sections A–H define the coverage expected before calling the harness mature.
+Sections A–I define the coverage expected before calling the harness mature.
 They are not all acceptance criteria for the first time-boxed walking skeleton;
 that exact subset is declared below.
 
@@ -566,6 +566,81 @@ eligible-query denominator, severe-error classes, per-query rubric, decision
 threshold, uncertainty method, exclusions, and missing-data handling. Report all
 eligible queries, not only wins. A useful finding may explain a result, but one
 cherry-picked dossier cannot pass a many-query comparison.
+
+### I. Hidden-domain topology shock
+
+Exercise continuous domain-structure actualization as a successor experiment,
+not as an expansion of the first walking skeleton. Interleave at least three
+latent domains while withholding their names, count, membership labels, future
+filenames, and oracle topology from the SUT. Include:
+
+- records with zero, one, and several plausible memberships;
+- a genuinely new domain that should remain unclassified until supported;
+- vocabulary or sense drift;
+- a withheld missing link whose reveal should cause a material bridge,
+  reparenting, split, merge, or overlapping reorganization;
+- stable-phase distractors and a late-recorded source that claims an older
+  valid-time structure;
+- an independent confirmation and a later counterexample that prevents or
+  reverses an over-merge;
+- fixed cross-domain queries, decisive counterevidence, and at least one
+  discriminating question the system could ask before the bridge arrives.
+
+The evaluation oracle is not one gold tree. It declares required and forbidden
+memberships, acceptable alternative purpose-relative structures, intended
+lineage events, bridge and counterexample evidence, and competency queries.
+Give every online comparator the same step-scoped bundle and predeclared human,
+time, compute, and review budgets. Compare raw Markdown plus `rg`; online
+human-maintained facets/tags; a purely incremental candidate; scheduled clean
+rediscovery; and a hybrid that triggers a clean candidate after structural
+surprise. Keep a full-information curated topology only as a labeled comparator.
+Report setup/annotation separately from per-item maintenance, query, and review
+cost. Run historical, bridge-early, bridge-late, and shuffled orders.
+
+Separate two axes: incremental-versus-clean maintenance for one fixed method and
+its declared deterministic semantics, and performance/path-dependence comparison
+among different heuristic methods. Only the first can have a deterministic
+semantic-equivalence gate; heuristic structures use predeclared material-
+divergence and utility criteria.
+
+Every checkpoint records the selected topology generation, predecessor, input
+horizon, claimed valid-time scope and uncertainty, memberships, lineage
+proposals, change explanation, impact and privacy diff, dependent projection
+frontier, and stable-versus-shock metrics. Verify earlier generations remain
+reconstructible; distinguish the then-visible topology from a later topology
+applied retrospectively to the same old corpus horizon; and ensure late-recorded
+historical evidence revises the appropriate valid interval rather than being
+reported as a present-world change.
+
+Before reveal, freeze the lineage-aligned structural-displacement statistic over
+membership/relation change, competency-query delta, and invalidation reach; its
+stable/null calibration and shock threshold; model/features/configuration;
+false-alarm budget; source-family ablation; settling/reversal criteria; and
+allowed heuristic divergence. Distractor arrivals are negative controls.
+
+Add a simulated-acquisition fork. Only a topology-discriminating question that
+meets frozen answer criteria, policy, authorization, and budget may reveal a
+minimal withheld answer. The responder cannot disclose labels, counts, future
+metadata, or unrelated oracle structure. Compare with the passive scheduled
+lane and measure discovery advance, realized information gain, wrong/redundant
+questions, interruption cost, and privacy exposure.
+
+Zero-tolerance failures include future-label leakage, forced confident
+classification, implicit acceptance, canonical or historical rewrite,
+authorization leakage through domain existence or counts, a domain filter hiding
+decisive evidence, and deterministic incremental semantics for the same fixed
+method that cannot match a clean rebuild. Candidate measures include discovery
+delay, abstention and soft
+membership quality, topology-lineage accuracy, stable-period churn,
+structural-shock delay and fragility, cross-domain and counterevidence recall,
+query value, negative transfer, and review cost.
+
+Detailed design and learning remain in
+[Issue #8](https://github.com/asukhodko/graphtruth/issues/8), `GT-D037`–`GT-D039`,
+and [Ontology and document views](ONTOLOGY-AND-DOCUMENT-VIEWS.md). Continuous
+event-driven invalidation does not contradict the first experiment's non-goal of
+full-corpus reanalysis after every item; bounded incremental work plus scheduled
+or shock-triggered clean comparison is the intended distinction.
 
 ## Order comparison and convergence
 
@@ -912,6 +987,8 @@ items are complete. It primarily:
 - begins one-source ingestion from `GT-D019`;
 - exercises baseline access from `GT-D021`;
 - creates an algorithm-replacement substrate for `GT-D025`;
+- provides a successor hidden-domain experiment for `GT-D037`–`GT-D039`
+  without adding ontology work to the first walking skeleton;
 - tests source-snapshot completeness from `GT-D042`;
 - prepares answer assimilation from `GT-D049`;
 - discovers whether runtime orchestration from `GT-D054` is actually needed.

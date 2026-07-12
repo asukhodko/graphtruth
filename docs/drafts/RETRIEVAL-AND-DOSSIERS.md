@@ -4,6 +4,9 @@
 >
 > **Captured:** 2026-07-11
 >
+> **Expanded:** 2026-07-12 for domain-topology-aware retrieval in
+> [Issue #8](https://github.com/asukhodko/graphtruth/issues/8).
+>
 > **Authority / Promotion:** This draft records access goals, candidate
 > algorithms, and evaluation hypotheses. It does not define a ranking function,
 > query language, chunk format, or portable dossier profile. Promote portable
@@ -85,6 +88,9 @@ user to know where or how an item was stored:
 - experience and outcome lookup;
 - causal, mechanistic, and “why/how might this work?” lookup;
 - cross-context structural analogy and transfer lookup;
+- navigation across overlapping current or historical domain structures,
+  including records that remain unclassified, without requiring the user to
+  know the right domain name first;
 - natural-language, structured, faceted, and graph-oriented discovery;
 - direct descent from any derived result to the smallest available exact
   evidence.
@@ -104,6 +110,8 @@ ranking cannot be recreated. Candidate request context includes:
 - named acceptance, visibility, ranking, or dossier policy;
 - enabled protocol profiles and extensions;
 - entity or vocabulary mappings applied;
+- named domain structure, topology generation, membership/expansion policy, and
+  whether the request uses the then-visible or a retrospective organization;
 - requested result type, context budget, and completeness expectations;
 - index, embedding, model, and algorithm versions used;
 - privacy and disclosure boundaries;
@@ -182,6 +190,21 @@ Structured filters can target claimant, source, record role, status, context,
 policy, evidence availability, question state, uncertainty, location, or enabled
 profile fields.
 
+#### Domain-structure expansion
+
+Named domain views, soft memberships, typed domain relations, and bridge
+candidates may route or expand a request across vocabulary and structural
+boundaries. The query need not select one domain, and overlapping structures may
+offer different useful paths.
+
+Domain membership is an attributable, generation-relative signal—not an
+implicit exclusion boundary or truth label. Unclassified material remains in a
+searchable pool. Unless the user explicitly requests a domain-scoped view, a
+domain candidate may affect ranking or diversity but must not hide decisive
+evidence or counterevidence. Even an explicit scope should report the structure,
+generation, and omissions. It may disclose that broader search found protected
+material only when the applicable policy permits existence disclosure.
+
 #### Structural and analogical retrieval
 
 Episode shape, constraints, forces, state transitions, mechanisms, and role
@@ -209,6 +232,7 @@ runtime should account for:
 - assertion revision lifecycle;
 - context, population, scope, modality, and purpose;
 - identity and vocabulary mapping uncertainty;
+- domain-membership, topology-generation, and lineage uncertainty;
 - applicable `AcceptanceDecision` records when the query requests an accepted
   view;
 - required extension support.
@@ -251,6 +275,8 @@ Seed hits need context. Candidate expansion steps include:
 - unresolved questions and dark zones;
 - decisions, interventions, observations, and outcomes;
 - mechanisms, examples, counterexamples, and transfer attempts;
+- relevant domain memberships, alternative organizations, bridges, and earlier
+  topology generations when their change affects interpretation;
 - applicability conditions and known failure boundaries.
 
 Expansion requires limits to prevent a high-degree entity or provenance ancestor
@@ -367,8 +393,10 @@ A query-specific dossier may include:
 10. relevant experience episodes and outcomes;
 11. causal claims, mechanisms, assumptions, and alternatives;
 12. applicability conditions, important mismatches, and failure boundaries;
-13. omitted, unavailable, redacted, or unauthorized material;
-14. retrieval explanation and canonical locators.
+13. applicable domain structures, topology generation, multi-membership,
+    bridges, alternatives, and unclassified material;
+14. omitted, unavailable, redacted, or unauthorized material;
+15. retrieval explanation and canonical locators.
 
 Not every query needs every section. A dossier profile or policy should determine
 which omissions are harmless and which make the result incomplete for purpose.
@@ -377,7 +405,8 @@ which omissions are harmless and which make the result incomplete for purpose.
 
 1. Fix query interpretation, actor, access scope, policy, profiles, and time.
 2. Retrieve high-recall seeds through complementary channels.
-3. align entities, vocabulary, context, units, and temporal state;
+3. Align entities, vocabulary, domain structures, context, units, and temporal
+   state without forcing one organization;
 4. select a diverse set of relevant assertion and event seeds;
 5. expand exact evidence, provenance, revision, support, and counterclaim
    neighborhoods;
@@ -436,6 +465,8 @@ The diff may distinguish:
 - question lifecycle and acquisition-result changes;
 - changed `AcceptanceDecision` applicability under the named policy;
 - new episodes, outcomes, mechanism boundaries, or transfer attempts;
+- domain birth, rename, reparent, split, merge, bridge, retirement, membership,
+  or selected-topology-generation changes and their query impact;
 - changes caused only by ranking, budget, model, index, authorization, or an
   unsupported extension.
 
@@ -486,7 +517,9 @@ database:
 - vector or learned semantic retrieval;
 - contradiction, question, and gap work queues;
 - episode, mechanism, and structural analogy retrieval;
-- cached dossier fragments or materialized views.
+- generation- and access-scoped record-to-domain membership, domain-to-record,
+  typed domain relation, topology lineage, bridge, and impact-dependency lookup;
+- cached dossier fragments or materialized views;
 - saved-query checkpoints and semantic-diff materializations where their
   invalidation and access scope are explicit.
 
@@ -501,6 +534,9 @@ Candidate maintenance algorithms include:
 - idempotent projection updates;
 - dependency-driven invalidation;
 - revision, merge, split, and redaction propagation;
+- dependency-driven domain-membership and topology-generation invalidation;
+- side-by-side incremental, shock-triggered, and clean topology builds followed
+  by validated atomic generation switching;
 - stale embedding detection after model or source change;
 - background rebuild and atomic generation switching;
 - per-index checkpoints and recovery;
@@ -522,6 +558,9 @@ and it must report changed model-dependent behavior.
   capabilities.
 - Keep existence leakage, snippets, counts, facets, autocomplete, logs, and
   timing side channels in the access model.
+- Build domain topology only from the authorized input slice. Domain labels,
+  counts, memberships, bridges, churn, and change timing are sensitive derived
+  information and must not leak through a global topology filtered late.
 - Propagate redaction, retention, merge, split, and access changes to every
   dependent projection.
 - Mark partial results caused by authorization without revealing protected
@@ -544,7 +583,12 @@ and it must report changed model-dependent behavior.
 - stale index entries survive correction or redaction;
 - access control is applied after a remote embedding or model call;
 - a fluent answer hides an empty, weak, or incomplete support set;
-- cross-domain analogy hides material mismatches and causes negative transfer.
+- cross-domain analogy hides material mismatches and causes negative transfer;
+- a mutable hierarchy path breaks a bookmark or silently changes query meaning;
+- a domain filter hides decisive evidence, counterevidence, or unclassified
+  material;
+- a current topology is backdated as if it were visible at an earlier decision;
+- evidence-driven domain change is confused with model/configuration churn;
 - a one-shot interpretation silently guesses a material ambiguity that a short
   clarification would have resolved;
 - implicit clicks or dwell time are trained as correctness or acceptance;
@@ -560,7 +604,8 @@ and it must report changed model-dependent behavior.
 - precision, reciprocal rank, discounted cumulative gain, or task-specific
   ranking measures;
 - entity, temporal, scope, and policy filter correctness;
-- retrieval latency and index freshness.
+- retrieval latency and index freshness;
+- cross-domain and unclassified-pool recall under a fixed budget;
 - clarification rate, reformulation success, and user effort to correct a query
   plan.
 
@@ -581,6 +626,8 @@ These standard measures are necessary but insufficient.
 - semantic-diff precision for canonical, policy, analysis, projection, and
   authorization changes;
 - useful-change notification rate, duplicate alert rate, and interruption cost.
+- accuracy of topology-generation attribution and explanations for why a bridge
+  or alternative domain path affected the dossier;
 
 ### Candidate resilience metrics
 
@@ -592,7 +639,9 @@ These standard measures are necessary but insufficient.
 - comparison of old and replacement algorithms on fixed fixtures;
 - usefulness when vector or graph indexes are unavailable.
 - stability of retained query meaning and semantic diffs across a model or
-  index replacement.
+  index replacement;
+- stale-domain-view invalidation latency, old-generation query reconstruction,
+  and incremental-versus-clean topology-dependent retrieval equivalence.
 
 ### Dogfood evidence
 

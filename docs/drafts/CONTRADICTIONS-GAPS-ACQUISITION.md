@@ -4,6 +4,9 @@
 >
 > **Captured:** 2026-07-11
 >
+> **Expanded:** 2026-07-12 for domain-boundary and missing-link acquisition in
+> [Issue #8](https://github.com/asukhodko/graphtruth/issues/8).
+>
 > **Authority / Promotion:** This draft records candidate taxonomies, analysis
 > pipelines, and product policies. It defines neither a contradiction ontology
 > nor an autonomous acquisition capability. Promote portable semantics through
@@ -49,6 +52,9 @@ A candidate contradiction, dark zone, or generated question should be traceable
 to:
 
 - the canonical records and ledger horizon analyzed;
+- the named domain structure, topology generation, organization purpose,
+  membership policy, and access scope when domain organization affects the
+  analysis;
 - the relevant valid-time window, context, scope, modality, and policy;
 - the algorithm, model, ruleset, version, parameters, and producer;
 - the expectation or constraint against which a gap or conflict was detected;
@@ -378,6 +384,37 @@ Candidate measurements include:
 - user dismissal, refinement, and question-promotion rates;
 - latency of refreshing a gap after new evidence arrives.
 
+### Domain-boundary uncertainty and missing-link acquisition
+
+A domain topology is itself an attributable analysis horizon. A membership,
+bridge, split, or merge candidate can change which expectations, contradictions,
+and gaps are visible, but it cannot silently create a universal expectation.
+When a topology generation changes, dependent analyses should be invalidated and
+re-evaluated against both the new generation and any retained as-of generation
+needed for historical reconstruction.
+
+Competing domain organizations can expose a concrete acquisition target. The
+system may ask for a definition, identity distinction, bridge provenance,
+counterexample, scope boundary, temporal boundary, or observation that would
+discriminate among hypotheses such as:
+
+- one new domain versus a subdomain or changed vocabulary sense;
+- two independent regions versus a shared mechanism with a bridge;
+- one broad domain versus a split whose boundary matters to a decision;
+- an actual structural shock versus model, configuration, or access-scope drift.
+
+Question ranking may include expected reduction in topology uncertainty,
+competency-query error, negative-transfer risk, and downstream decision loss,
+divided by acquisition, interruption, privacy, and review cost. A large expected
+topology change increases impact and scrutiny; it is not permission to seek
+restricted evidence or to publish a merge automatically.
+
+An answer re-enters capture as an attributable event. The runtime then creates a
+new topology candidate and analysis generation. It does not mutate the previous
+structure directly or mark a topology hypothesis true merely because the system
+asked the question. Detailed topology ownership remains in
+[Ontology and document views](ONTOLOGY-AND-DOCUMENT-VIEWS.md).
+
 ## From dark zones to questions
 
 ### Question construction
@@ -628,12 +665,16 @@ Candidate measures include:
 - proportion with explicit answer and stopping criteria;
 - ranking agreement with declared decision priorities;
 - estimated versus realized information gain;
+- usefulness of questions that distinguish domain birth, boundary, bridge,
+  split, and merge hypotheses;
+- structural-shock detection delay and topology uncertainty reduced after an
+  acquired missing link or counterexample;
 - resolution, partial-answer, refusal, and reopen rates;
 - cost, latency, human attention, and privacy exposure per useful answer;
 - percentage of suggestions requiring but lacking authorization;
 - safety violations or near misses, with a zero-tolerance class where relevant;
 - downstream correction, decision improvement, or avoided uncertainty;
-- retention of negative and inconclusive acquisition outcomes.
+- retention of negative and inconclusive acquisition outcomes;
 - accuracy and calibration of answer-state proposals, including reopen events;
 - portfolio value and duplicated acquisition cost versus one-question ranking;
 - decision-boundary changes and realized value compared with predicted impact;
