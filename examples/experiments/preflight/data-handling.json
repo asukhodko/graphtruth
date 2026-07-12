@@ -1,0 +1,21 @@
+{
+  "format": "graphtruth.experimental.data-handling/0",
+  "classification": "public-synthetic",
+  "containsPrivateData": false,
+  "hashScope": "public-synthetic-only",
+  "rights": {
+    "basis": "project-authored-synthetic-fixture",
+    "publicationAllowed": true,
+    "note": "No third-party documentation or project records are included."
+  },
+  "retention": {
+    "inputs": "retained with repository history",
+    "isolatedRunOutputs": "delete after evaluation unless attached as reviewed public evidence",
+    "logs": "retain metadata-only learning records with the run decision"
+  },
+  "deletion": {
+    "procedure": "Remove the isolated run root and all projection generations.",
+    "verification": "Confirm the run root, mounts, child processes, and temporary bundles are absent.",
+    "wholeRunPurgeSupported": true
+  }
+}

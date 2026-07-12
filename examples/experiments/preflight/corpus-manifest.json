@@ -1,0 +1,84 @@
+{
+  "format": "graphtruth.experimental.corpus-manifest/0",
+  "corpusId": "lantern-public-synthetic-v0",
+  "frozen": true,
+  "visibility": "public-synthetic",
+  "chronology": "declared-synthetic",
+  "digestAlgorithm": "sha256",
+  "corpusBoundary": {
+    "samplingFrame": "The exact four project-authored Project Lantern sources listed in this manifest.",
+    "coverage": "Closed synthetic fixture covering reveal steps one through four; no unlisted Project Lantern source is in scope.",
+    "inclusions": [
+      "initial plan",
+      "connector decision",
+      "stale copied handoff note",
+      "authoritative handoff correction"
+    ],
+    "exclusions": [
+      "oracle, task, policy, and negative-fixture material",
+      "the unavailable early checklist declared in item-0003 lineage",
+      "all sources not listed in this manifest"
+    ],
+    "preStepOneKnowledge": [],
+    "leftCensoring": "The early checklist behind item-0003 is unavailable and must not be reconstructed as observed evidence.",
+    "terminalEvaluationStep": 4,
+    "absenceJudgmentBasis": "Closed-world absence claims are allowed only for topics explicitly declared permanently out of scope.",
+    "permanentlyUnanswerableTopics": [
+      "production-capacity-target"
+    ]
+  },
+  "items": [
+    {
+      "id": "item-0001",
+      "order": 1,
+      "path": "sources/0001-plan.md",
+      "sha256": "66af1ccc2c9b74d3c9d8bb84d5aa85a506f193b965a03b808a74c4586f652b4b",
+      "bytes": 414,
+      "sourceLineage": {
+        "family": "lantern-planning",
+        "parents": [],
+        "relationship": "origin",
+        "unavailableAncestors": []
+      }
+    },
+    {
+      "id": "item-0002",
+      "order": 2,
+      "path": "sources/0002-decision.md",
+      "sha256": "5f52071b202918566450ddf81c217a2737600ce505402cf1844e1a81e5ddd3ad",
+      "bytes": 392,
+      "sourceLineage": {
+        "family": "lantern-planning",
+        "parents": ["item-0001"],
+        "relationship": "decision-from-plan",
+        "unavailableAncestors": []
+      }
+    },
+    {
+      "id": "item-0003",
+      "order": 3,
+      "path": "sources/0003-stale-copy.md",
+      "sha256": "0741217410d9cf08018ded1f89b1d4fb6d3448072e9a5b7c2eaa6f9832a4da65",
+      "bytes": 385,
+      "sourceLineage": {
+        "family": "lantern-handoff",
+        "parents": [],
+        "relationship": "copy-from-unavailable-source",
+        "unavailableAncestors": ["early-checklist"]
+      }
+    },
+    {
+      "id": "item-0004",
+      "order": 4,
+      "path": "sources/0004-correction.md",
+      "sha256": "e5066cda70922cb222676e6dbe095e5ef07139e6f3b5fd53a1b9f7c4f7823e48",
+      "bytes": 382,
+      "sourceLineage": {
+        "family": "lantern-handoff",
+        "parents": ["item-0003"],
+        "relationship": "authoritative-correction",
+        "unavailableAncestors": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "format": "graphtruth.experimental.exposure-plan/0",
+  "frozen": true,
+  "claimWhenRolesOverlap": "exploratory-only",
+  "roleAssignments": [
+    {
+      "role": "controller",
+      "actorRef": "fixture-controller",
+      "inputsVisible": [
+        "complete corpus manifest",
+        "reveal schedule",
+        "future reveal bundles"
+      ],
+      "overlapsWith": []
+    },
+    {
+      "role": "curator",
+      "actorRef": "fixture-curator",
+      "inputsVisible": [
+        "complete synthetic corpus",
+        "corpus boundary"
+      ],
+      "overlapsWith": []
+    },
+    {
+      "role": "sutOperator",
+      "actorRef": "fixture-sut-operator",
+      "inputsVisible": [
+        "current reveal bundle",
+        "frozen task at evaluation horizon"
+      ],
+      "overlapsWith": []
+    },
+    {
+      "role": "oracleAuthor",
+      "actorRef": "fixture-oracle-author",
+      "inputsVisible": [
+        "complete synthetic corpus",
+        "task pack",
+        "oracle"
+      ],
+      "overlapsWith": []
+    },
+    {
+      "role": "ordinaryBaselineOperator",
+      "actorRef": "fixture-current-workflow-operator",
+      "inputsVisible": [
+        "same current reveal bundle",
+        "same frozen task at evaluation horizon"
+      ],
+      "overlapsWith": []
+    },
+    {
+      "role": "minimalBaselineOperator",
+      "actorRef": "fixture-files-search-operator",
+      "inputsVisible": [
+        "same current reveal bundle",
+        "same frozen task at evaluation horizon"
+      ],
+      "overlapsWith": []
+    },
+    {
+      "role": "scorer",
+      "actorRef": "fixture-blinded-scorer",
+      "inputsVisible": [
+        "frozen answers before system identity",
+        "oracle only after answer freeze"
+      ],
+      "overlapsWith": []
+    }
+  ],
+  "taskExposures": [
+    {
+      "taskId": "task-selected-connector",
+      "presentation": 1,
+      "firstPresentation": true,
+      "armOrder": [
+        "graphtruth",
+        "ordinary-current-workflow",
+        "files-plus-search"
+      ],
+      "familiarityByActor": {
+        "fixture-sut-operator": "unknown",
+        "fixture-current-workflow-operator": "unknown",
+        "fixture-files-search-operator": "unknown",
+        "fixture-blinded-scorer": "unknown"
+      }
+    },
+    {
+      "taskId": "task-current-handoff",
+      "presentation": 1,
+      "firstPresentation": true,
+      "armOrder": [
+        "files-plus-search",
+        "graphtruth",
+        "ordinary-current-workflow"
+      ],
+      "familiarityByActor": {
+        "fixture-sut-operator": "unknown",
+        "fixture-current-workflow-operator": "unknown",
+        "fixture-files-search-operator": "unknown",
+        "fixture-blinded-scorer": "unknown"
+      }
+    },
+    {
+      "taskId": "task-corrected-handoff",
+      "presentation": 1,
+      "firstPresentation": true,
+      "armOrder": [
+        "ordinary-current-workflow",
+        "files-plus-search",
+        "graphtruth"
+      ],
+      "familiarityByActor": {
+        "fixture-sut-operator": "unknown",
+        "fixture-current-workflow-operator": "unknown",
+        "fixture-files-search-operator": "unknown",
+        "fixture-blinded-scorer": "unknown"
+      }
+    },
+    {
+      "taskId": "task-production-capacity",
+      "presentation": 1,
+      "firstPresentation": true,
+      "armOrder": [
+        "graphtruth",
+        "files-plus-search",
+        "ordinary-current-workflow"
+      ],
+      "familiarityByActor": {
+        "fixture-sut-operator": "unknown",
+        "fixture-current-workflow-operator": "unknown",
+        "fixture-files-search-operator": "unknown",
+        "fixture-blinded-scorer": "unknown"
+      }
+    }
+  ]
+}

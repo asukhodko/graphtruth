@@ -858,6 +858,68 @@ resolved uncertainty. No real person, service, or intervention is contacted.
 
 Each transition has a separate privacy, authority, usefulness, and cost gate.
 
+## Executable preflight gate
+
+No real or private corpus enters the walking skeleton until two independent
+parts of the preflight gate pass.
+
+First, `./tooling/preflight` statically validates the checked-in
+[public synthetic preflight pack](../../examples/experiments/preflight/). The
+ordinary `./tooling/check` quality gate runs that validation plus negative
+mutations against the frozen contract. Together they catch incomplete or
+internally inconsistent manifests, digests, tasks, or policy declarations. They
+do not execute a reveal controller, create an operating-system sandbox, test
+egress, prove non-disclosure, or exercise crash/resume and deletion.
+
+Second, the actual runner must complete a separately recorded end-to-end
+synthetic dress rehearsal inside the same isolation shape intended for the real
+run. A human signs off the observed boundary checks and deletion closure. Both
+parts are non-normative Zone 3 laboratory work, not protocol conformance or
+evidence that an arbitrary environment is safe.
+
+Before execution, freeze one reviewable pack containing at least:
+
+- the synthetic corpus and its explicit reveal order;
+- a corpus manifest with digests, source-family lineage, sensitivity, allowed
+  use, exclusions, and the declared pre-step-one knowledge boundary;
+- a run card with the hypothesis, primary endpoint, denominator, severe-error
+  classes, budgets, missing-data rules, and `keep / shrink / stop` decision;
+- a task pack, separately withheld oracle, answer rubric, and baseline policy;
+- the data-handling matrix, sandbox profile, retention/deletion policy, and
+  incident-response instructions;
+- append-only deviation and failure diaries.
+
+The frozen pack receives an identity and digest before reveal. Any later change
+to its corpus, order, oracle, query tasks, thresholds, policy, configuration, or
+code creates a new pack or run identity; it cannot silently repair the active
+run. The rehearsal must at minimum exercise future-filename, manifest, and
+oracle canaries; input/output isolation; rejected unsafe paths; deterministic
+inventory; first-item reveal; abort/resume; and deletion followed by a clean
+rerun. A failed zero-tolerance boundary invalidates the rehearsal rather than
+becoming an accepted deviation.
+
+Human information leakage is part of the boundary. Record who curated the
+corpus, operated the SUT, prepared the oracle, used the baseline, and scored the
+answers, plus each person's prior familiarity with the tasks. Keep the oracle
+unavailable to both the SUT and first-exposure baseline operator. Prefer
+independent roles; when one person must hold several roles, freeze materials
+before output is viewed, use only first exposure for the primary comparison,
+record `known / vaguely remembered / forgotten / unknown` per task, and label
+the resulting comparison exploratory.
+
+Real data is admitted only after the static synthetic command and the recorded
+runtime rehearsal pass, the run-specific pack is frozen, and privacy,
+authorization, retention, sandbox, and role checks are explicitly signed off.
+The gate must be repeated when a relevant boundary, runner, fixture, or policy
+changes. Passing it authorizes only the already bounded S0–S1 experiment; it
+does not add capabilities, enlarge the 3–5 item pilot, introduce a model, or
+promote any experimental format into Zones 1 or 2.
+
+The static pack and validator are tracked in
+[Issue #10 — Experiment preflight pack](https://github.com/asukhodko/graphtruth/issues/10).
+The runner and observed runtime rehearsal remain in
+[Issue #6 — Corpus replay walking skeleton](https://github.com/asukhodko/graphtruth/issues/6).
+
 ## First walking-skeleton experiment
 
 ### Corpus

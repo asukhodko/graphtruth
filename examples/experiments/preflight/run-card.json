@@ -1,0 +1,187 @@
+{
+  "format": "graphtruth.experimental.run-card/0",
+  "runId": "replay-preflight-v0",
+  "hypothesis": "A frozen sequential corpus contract can distinguish supported answers, required abstention, and superseding evidence without future leakage.",
+  "decisionThisRunCanChange": "Whether the same boundary shape is ready for a separately approved three-to-five-item private walking-skeleton pilot.",
+  "explicitNonClaims": [
+    "product value",
+    "superiority over an ordinary workflow",
+    "generality beyond this synthetic fixture",
+    "runtime sandbox enforcement",
+    "protocol or format stability"
+  ],
+  "state": "frozen",
+  "stateHistory": [
+    {
+      "state": "planned",
+      "at": "2026-07-12T00:00:00Z",
+      "actor": "fixture-controller",
+      "reason": "Synthetic preflight contract created."
+    },
+    {
+      "state": "frozen",
+      "at": "2026-07-12T00:01:00Z",
+      "actor": "fixture-controller",
+      "reason": "Immutable inputs sealed before any evaluated reveal."
+    }
+  ],
+  "digestAlgorithm": "sha256",
+  "freezeSealPath": "pack-lock.json",
+  "frozenInputs": [
+    {
+      "path": "corpus-manifest.json",
+      "sha256": "4988ac7bef7a9817e372b37d65cc9faf58ac4fa25d86220856b7d48c349f9960"
+    },
+    {
+      "path": "task-pack.json",
+      "sha256": "99f428a266adbc9b797403ef3795e5d438ea5cd45de6ff1bc6663bdce16ba4cb"
+    },
+    {
+      "path": "oracle.json",
+      "sha256": "01d201917ae5fe09ed255d214d6b976e8e3794a3b36dd6be38e9496d98c1414b"
+    },
+    {
+      "path": "data-handling.json",
+      "sha256": "4a1842c9327073fb5839ba94b93d20a9ae2770f9c54fadf1a613a4b733e71250"
+    },
+    {
+      "path": "sandbox-policy.json",
+      "sha256": "24f9afd320f43b2ab5fd0c343077bebdbf512b923165529fc938c925fc6e8a19"
+    },
+    {
+      "path": "review-rubric.json",
+      "sha256": "4c5ff455284b2fddada2bae984b8d714ae26d926feb0b64801365b72073ee87f"
+    },
+    {
+      "path": "exposure-plan.json",
+      "sha256": "bb62eaccb1daf200b455e5ba7f1311522de2e691bea1003def87a0077116ddf9"
+    },
+    {
+      "path": "incident-response.md",
+      "sha256": "8637c5a561d7770a0ecdf58a832f71ea044dd08e47d0a568b64d8bfa5d128e78"
+    }
+  ],
+  "roles": {
+    "controller": "fixture-controller",
+    "curator": "fixture-curator",
+    "sutOperator": "fixture-sut-operator",
+    "oracleAuthor": "fixture-oracle-author",
+    "ordinaryBaselineOperator": "fixture-current-workflow-operator",
+    "minimalBaselineOperator": "fixture-files-search-operator",
+    "scorer": "fixture-blinded-scorer",
+    "separationMode": "distinct-logical-actors-and-process-views",
+    "singleOperatorDisclosure": "If one person fills multiple roles, the run becomes exploratory-only and per-task familiarity is recorded before first presentation."
+  },
+  "inferenceBoundary": {
+    "futureRevealEnforced": true,
+    "completeManifestControllerOnly": true,
+    "oracleWithheldFromSut": true,
+    "futureNamesHidden": true,
+    "sutReadableRoots": [
+      "current-reveal-bundle",
+      "permitted-ledger-horizon",
+      "isolated-workdir"
+    ]
+  },
+  "primaryEndpoint": {
+    "eligibleTaskIds": [
+      "task-selected-connector",
+      "task-current-handoff",
+      "task-corrected-handoff",
+      "task-production-capacity"
+    ],
+    "metric": "correct-disposition-with-required-evidence-or-boundary-basis",
+    "statistic": "eligible tasks scored correct divided by the fixed frozen denominator of four",
+    "direction": "higher-is-better",
+    "denominator": {
+      "type": "fixed-frozen-task-set",
+      "value": 4
+    },
+    "pairedComparison": "Compare every eligible task with both baseline arms at the same reveal horizon.",
+    "severeErrorClasses": [
+      "unsupported-assertion",
+      "future-leak",
+      "missed-required-abstention",
+      "source-instruction-execution",
+      "implicit-acceptance-or-irreversible-merge",
+      "provenance-or-history-loss",
+      "projection-only-meaning",
+      "non-idempotent-replay",
+      "rebuild-or-redaction-residue",
+      "data-boundary-breach"
+    ],
+    "missing": "retain-in-denominator-and-score-incorrect",
+    "timeout": "retain-in-denominator-score-incorrect-and-record-timeout",
+    "ties": "retain-and-report-paired-tie",
+    "abortedRun": "retain-the-frozen-denominator-mark-result-not-evaluable-and-report-abort",
+    "invalidRun": "retain-the-registered-denominator-publish-no-comparison-and-report-the-invalidating-boundary"
+  },
+  "baseline": {
+    "design": "paired-first-exposure-with-separate-operators",
+    "arms": [
+      {
+        "id": "ordinary-current-workflow",
+        "operatorRole": "ordinaryBaselineOperator",
+        "tools": [
+          "markdown-reader",
+          "editor-search"
+        ]
+      },
+      {
+        "id": "files-plus-search",
+        "operatorRole": "minimalBaselineOperator",
+        "tools": [
+          "markdown-reader",
+          "literal-search"
+        ]
+      }
+    ],
+    "sameCorpusHorizon": true,
+    "sameTaskTimeoutSeconds": 120,
+    "sameQueryBudgetPerTask": 3,
+    "allowedAssistance": "none",
+    "setupAndLearningTimeTreatment": "measure-and-include",
+    "reviewAndMaintenanceTimeTreatment": "measure-and-include",
+    "captureWorkTreatment": "charge all GraphTruth-only capture and correction work to GraphTruth",
+    "orderPolicy": "Use the frozen task-by-arm order and separate first-exposure operators in exposure-plan.json."
+  },
+  "budgets": {
+    "maxWallClockSeconds": 900,
+    "maxPerTaskSeconds": 120,
+    "maxMemoryMiB": 512,
+    "maxDiskMiB": 256,
+    "maxHumanReviewMinutes": 30,
+    "maxCorrections": 12
+  },
+  "budgetExhaustion": {
+    "maxWallClockSeconds": "abort-run-retain-denominator",
+    "maxPerTaskSeconds": "score-task-incorrect-and-continue-if-safe",
+    "maxMemoryMiB": "abort-run-and-review-boundary",
+    "maxDiskMiB": "abort-run-and-review-boundary",
+    "maxHumanReviewMinutes": "stop-review-mark-remaining-missing",
+    "maxCorrections": "stop-run-and-choose-shrink-or-stop"
+  },
+  "boundaryGate": {
+    "ready": "All declared runtime boundary cases are observed passing in the signed synthetic rehearsal with deletion closure.",
+    "notReady": "Any boundary case is unexecuted, fails, or lacks attributable observation."
+  },
+  "decisionGate": {
+    "keep": "Boundary-ready; zero run-invalidating errors; no more task-invalidating errors than either baseline; and GraphTruth either wins at least one paired eligible task without losing another or ties correctness with lower measured answer-plus-review time after capture tax.",
+    "shrink": "Boundary-ready and attributable learning exists, but the keep threshold is missed because of a bounded non-security cost or review burden with one smaller testable hypothesis.",
+    "stop": "Boundary not ready, any run-invalidating error occurs, both baselines dominate after capture tax, or no attributable smaller hypothesis remains.",
+    "maximumNextRunItems": 5
+  },
+  "policies": {
+    "dataHandling": "data-handling.json",
+    "sandbox": "sandbox-policy.json",
+    "reviewRubric": "review-rubric.json",
+    "exposurePlan": "exposure-plan.json",
+    "incidentResponse": "incident-response.md"
+  },
+  "logPaths": {
+    "stateTransitions": "logs/state-transitions.jsonl",
+    "deviations": "logs/deviations.jsonl",
+    "failureDiary": "logs/failure-diary.jsonl",
+    "learningRecord": "learning-record.md"
+  }
+}
