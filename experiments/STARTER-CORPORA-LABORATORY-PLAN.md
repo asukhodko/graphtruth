@@ -19,7 +19,8 @@
 
 Use a three-corpus public laboratory track, one corpus at a time:
 
-1. `python-annotations-semantics-v1` — causal decision evolution;
+1. `python-annotations-semantics-v1` — documented rationale and decision
+   evolution;
 2. `gitlab-ci-job-token-artifacts-18.11-v1` — applied operational knowledge;
 3. `postgresql-cte-materialization-11-12-v1` — version-scoped semantics.
 
@@ -38,13 +39,13 @@ of the first three keeps.
 The public track asks whether GraphTruth can turn small, fixed sets of real
 technical documents into order-robust, evidence-grounded, contextual knowledge
 without confusing arrival time, product time, authority, source lineage, or
-causation.
+documented rationale with independently established causation.
 
 The three corpora deliberately isolate different failure classes:
 
 | Corpus | Items | Exhaustive orders | Primary diagnostic |
 | --- | ---: | ---: | --- |
-| Python PEPs | 4 | 24 | Causality, replacement, and gaps |
+| Python PEPs | 4 | 24 | Rationale, replacement, and gaps |
 | GitLab artifacts | 4 | 24 | Conditions, roles, and dossiers |
 | PostgreSQL CTEs | 4 | 24 | Version scope and false conflicts |
 
@@ -106,6 +107,14 @@ Before inspecting GraphTruth or baseline output for a corpus:
 10. Evaluate every registered order and task cell. Do not average away a severe
     failure or retry an unfavorable order into success.
 
+Before the order-robustness successor, freeze the terminal semantic-equivalence
+relation and comparison procedure. It must identify which assertion, evidence,
+scope, time, question, contradiction, and dossier properties must agree while
+ignoring declared incidental serialization or traversal order. The initial
+S0-S1 suite remains deterministic. A later stochastic component requires a
+separate repeated-run design that distinguishes order variance from stochastic
+variance; one sample per order cannot support a convergence claim.
+
 The detailed isolation, permutation, retry, invalidation, crash, deletion, and
 baseline rules are owned by the harness and experiment templates rather than
 duplicated here.
@@ -145,10 +154,10 @@ annotations without prescribed semantics
   -> implementation work exposes underspecified cases
 ```
 
-It therefore tests GraphTruth's central causal ambition before a larger
-operational corpus adds many access-control and API conditions. The source set
-contains motivation, goals, rejected alternatives, compatibility concerns,
-replacement, dependency, and implementation refinement.
+It therefore tests whether GraphTruth preserves documented problem/solution
+rationale before a larger operational corpus adds many access-control and API
+conditions. The source set contains motivation, goals, rejected alternatives,
+compatibility concerns, replacement, dependency, and implementation refinement.
 
 ### Preparation and boundary
 
@@ -203,6 +212,9 @@ evidence.
   participants.
 - A final PEP records a decision and implementation status; it is not by itself
   runtime evidence for an arbitrary Python build.
+- One official document family records declared rationale and succession; it
+  does not independently establish the actual historical causes or outcomes of
+  the language change.
 
 ## Corpus 2: GitLab cross-project artifact access
 
@@ -386,6 +398,8 @@ reach `keep` unless:
   flattened into a single overwrite relation;
 - every declared disposable projection deletes and rebuilds from retained
   inputs with the required semantic equivalence;
+- terminal states across all 24 orders satisfy the frozen semantic-equivalence
+  relation under deterministic execution controls;
 - duplicate delivery is idempotent;
 - dark zones and unanswerable controls produce bounded questions or abstention,
   not unsupported confident answers;
