@@ -11,6 +11,19 @@ experiment starts. It operationalizes the design in [Corpus replay experiment
 harness](../docs/drafts/CORPUS-REPLAY-EXPERIMENT-HARNESS.md) and the learning
 loop in [Development process](../docs/DEVELOPMENT.md).
 
+## Starter public corpora
+
+The [starter corpora laboratory
+plan](STARTER-CORPORA-LABORATORY-PLAN.md) selects three small public
+diagnostic corpora and orders their sequential, order-robustness, and later
+multi-domain experiments. It is a candidate program, not a frozen run pack or
+benchmark. Every evaluated lane still requires the templates and integrity
+seal described below.
+
+The public track supports reproducible algorithm and replay diagnostics. It
+does not replace the private dogfood track that tests value in a real personal
+workflow.
+
 The first run asks whether a small experiment is feasible and informative. It
 cannot prove product value, superiority over existing tools, portability to
 other corpora, or durable protocol semantics.
