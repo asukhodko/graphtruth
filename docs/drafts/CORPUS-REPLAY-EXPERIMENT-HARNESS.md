@@ -521,11 +521,155 @@ and optional predictions before revealing the next item.
 Repeat, rename, copy, and redeliver sources. Verify no hidden multiplicative
 support or canonical duplication.
 
-### D. Order robustness
+### D. Order robustness and semantic convergence
 
-Run reverse, randomized, and dependency-aware permutations over a small corpus.
-History may legitimately differ. Compare terminal deterministic semantics only
-where they should be order-independent.
+This lane tests whether GraphTruth reconstructs knowledge from source meaning,
+provenance, lineage, and time rather than borrowing an accidental narrative from
+the arrival order. It complements chronological future reveal; it does not
+replace it. Historical order remains the honest lane for studying what could
+have been known and asked at each real horizon.
+
+Freeze a closed corpus, its source and event times, version lineage, coverage,
+task pack, oracle constraints, baselines, budgets, and severe errors before any
+evaluated run. Start every ordering from an empty isolated run: no ledger,
+projection, model state, or cached result may carry over. Human-scored results
+count as independent only where first exposure or independent operators prevent
+operator-memory carry-over; later exposures remain diagnostic. The system sees
+only the current reveal bundle and never receives future filenames, counts,
+inventory, or oracle material.
+
+For a three-to-five-item laboratory corpus of distinct source versions, execute
+all `n!` unique permutations: there are only 6, 24, or 120 respectively. Freeze
+the generator, enumeration rule, expected count, complete permutation-list
+digest, and run denominator. A retry is permitted only for a predeclared
+controller or infrastructure failure before the SUT receives its first reveal;
+both attempt identities remain recorded. A timeout, budget exhaustion, SUT
+crash, semantic failure, or severe error remains the result of that permutation
+slot. Cross-run state contamination, future leakage, or another boundary breach
+invalidates the entire suite generation and requires a new suite identity; it
+cannot be repaired into a pass. Larger corpora use a frozen suite containing at
+least:
+
+- the historically justified order;
+- reverse order;
+- several seeded random permutations;
+- dependency-adversarial orders, such as correction before corrected claim,
+  derivative before ancestor, duplicate copies separated widely, and decisive
+  bridge or counterevidence last.
+
+Record the exact permutation or seed with the run identity. Keep at least four
+time axes independent: valid/event time, publication/availability time,
+arrival/reveal position in this permutation, and GraphTruth recorded time.
+Random arrival changes only the last two. It never changes event time, source
+version, authority, provenance, or version precedence. A late-arriving old claim
+must not overwrite an earlier-arriving correction merely because it was ingested
+last.
+
+Evaluate two surfaces separately.
+
+#### Terminal semantic convergence
+
+After the complete corpus has been revealed:
+
+- every retained source byte, identity, locator, provenance relation, and
+  declared time remains reachable;
+- deterministic order-independent semantics match a clean rebuild after the
+  declared normalization and stable-ID alignment; byte-identical ledgers and
+  identical arrival histories are not required;
+- corrections, support, contradiction, source ancestry, uncertainty, and
+  permanently unresolved gaps have the same material interpretation wherever
+  the evidence justifies convergence. Normalization must not discard qualifiers,
+  negation, scope, authority, provenance, or valid-time differences;
+- heuristic organizations stay within frozen task-level and structural
+  tolerances. Several purpose-relative structures may be acceptable; the oracle
+  specifies required and forbidden relations and task outcomes rather than one
+  gold graph;
+- every frozen query can retrieve its decisive evidence and counterevidence at
+  least as reliably as the honest source-files-plus-search baseline.
+
+Do not optimize connected-component count, edge density, or production of one
+large cluster. A high-quality result may contain several regions, uncertain
+bridges, isolated fragments, contradictions, and explicit dark zones. The target
+is justified connectivity with bounded false merges and false relations, not
+maximum connectivity.
+
+#### Trajectory quality
+
+Terminal agreement can hide a dangerous online path. At every reveal, measure:
+
+- correct abstention before the required evidence exists;
+- unsupported assertions, false merges, and false causal or temporal order;
+- time to connect newly available support or counterevidence;
+- contradiction, correction, supersession, and stale-state resolution lag;
+- whether the system asks a discriminating question instead of inventing a
+  bridge;
+- retraction, repair, review, and capture cost caused by a bad intermediate
+  interpretation.
+
+Measure answer and detection lag from the earliest prefix at which the required
+evidence is objectively available in that permutation, not from one absolute
+document position copied across orders.
+
+Intermediate histories may legitimately differ because different evidence was
+available. Preserve them; do not rewrite every run into the same retrospective
+story.
+
+#### Non-degradation decision
+
+"Not worse than the source set" is evaluated through a frozen query and task
+pack, not through visual graph appeal. Use distinct references without confusing
+their authority:
+
+- raw files plus literal search as the primary automated non-inferiority baseline
+  over the complete factorial task matrix;
+- the ordinary current workflow with its real editor and navigation tools as the
+  primary human utility comparator over a frozen first-exposure subset;
+- optionally, all files visible at once as a labeled diagnostic comparator,
+  never an online baseline or a requirement for D to pass;
+- a clean batch GraphTruth build as an internal convergence reference, never
+  evidence of user value.
+
+Every honest baseline receives the same source horizon, time, expertise,
+assistance, and first-exposure boundary. One human cannot provide 120 independent
+first exposures; use independent operators or a frozen counterbalanced subset
+for human comparison while automated hard gates still cover every permutation.
+The subset supports conclusions only about its registered cells; it cannot prove
+human non-inferiority across unobserved permutations.
+
+Every permutation must pass zero-tolerance source-retention, provenance,
+future-leak, authority, and severe-error gates. Deterministic invariants use
+per-permutation pass/fail. Heuristic and utility measures report their full
+distribution and worst tail, not only the mean; one catastrophic ordering cannot
+be averaged away. Freeze non-inferiority margins for correctness, calibrated
+abstention, decisive-evidence and counterevidence recall, false merge/relation
+rates, answer and verification time, review cost, and capture tax before the
+first run.
+
+For stochastic heuristics, freeze the same seed schedule for every permutation
+or test repeatability separately. Required semantic and utility floors apply to
+every run and seed slot; order sensitivity must not be hidden inside model
+randomness.
+
+Freeze denominators independently. Let `P` be the permutation count (`n!` for
+three-to-five items), `S` the seed-slot count, `T` the eligible task count, and
+`A` the automated evaluated-arm count. Record at least the permutation
+denominator `P`, execution denominator `P × S`, and primary automated evaluation
+denominator `P × S × T × A`, with missing, invalid, and severe-error treatment
+for each axis. Treat that last value as the total cell inventory: freeze the
+per-arm and paired-comparison denominator `P × S × T` separately so pooled arm
+completeness cannot masquerade as the comparison statistic. Human first-exposure
+cells have a separate frozen denominator.
+
+The lane passes only when the complete registered permutation denominator is
+accounted for, all hard gates hold, deterministic terminal semantics converge
+wherever declared, every heuristic run remains above its frozen quality floor,
+and GraphTruth is non-inferior to raw files plus search on the complete automated
+primary endpoint. Human utility claims are limited to the frozen first-exposure
+subset. A quality tie with materially greater total human or system cost is
+evidence to shrink or stop, not a hidden success. A `keep` decision additionally
+requires at least one frozen task-level benefit over its declared value
+comparator without regression elsewhere, or equal correctness with lower
+answer-plus-review cost after capture tax.
 
 ### E. Full-information comparator
 
@@ -966,12 +1110,17 @@ general UI, or Zone 1 format decision is required.
 Five focused working days with a hard stop after two calendar weeks. This is the
 single major WIP item.
 
-The first time box covers S0–S1; A; B on 3–5 items and then up to 10–20 only if
-the loop already works; exact-redelivery idempotency from C; one interruption
-plus clean rebuild from G; the controller/SUT canary fixture; and the
-predeclared first-exposure comparison from H. Reverse/random order D, the
-full-information comparator E, the full adversarial/redaction matrix F, and
-exhaustive crash points from G follow only after a keep decision.
+The first time box covers S0–S1; A; B on 3–5 items; exact-redelivery idempotency
+from C; one interruption plus clean rebuild from G; the controller/SUT canary
+fixture; and the predeclared first-exposure comparison from H. This establishes
+the vertical loop. After that experiment records its evidence, reaches an
+explicit `keep`, and closes its WIP, bounded D over the same 3–5 items opens as a
+separate successor experiment with a new run card, freeze, owner, and time box.
+It must pass before expansion to 10–20 or any claim of order robustness.
+Automated invariants use all `n!` permutations; expensive human scoring may use
+a frozen representative and worst-order subset. Larger permutation suites, the
+optional full-information experiment E, the full adversarial/redaction matrix F,
+and exhaustive crash points from G follow only after the relevant keep decision.
 
 Before reveal, write a run card with at least eight eligible query tasks across
 three source roles where the corpus allows it. The primary endpoint is the count

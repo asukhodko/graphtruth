@@ -95,16 +95,30 @@ explicit rather than being silently counted as corroboration.
 
 - Chronology type: historically evidenced / declared synthetic:
 - Ordering evidence and authority:
-- Event time used for reveal:
+- Event/valid-time source, authority, and semantics:
+- Publication/availability-time source and authority:
+- Independent historical arrival/reveal schedule and authority:
 - Treatment of ties, uncertain dates, late publication, and retroactive edits:
 - Rule for known existence with unavailable content:
 - Metadata visible at each reveal:
 - Future filenames, paths, counts, and metadata withheld from the SUT:
 - Reveal-schedule digest:
+- Order-robustness suite: exhaustive / seeded sample / adversarial:
+- Distinct item count and expected permutation denominator:
+- Permutation generator and enumeration identity:
+- Permutation or seed-list digest:
+- Sealed run-card reference for execution and evaluation denominators:
+- Rule confirming that permutations never rewrite event time or version order:
 
 Filesystem order and modification time are not chronology unless their authority
 is established. When historical order cannot be recovered, label the sequence
 synthetic and limit claims accordingly.
+
+For three to five distinct items, an order-robustness claim requires all `n!`
+permutations. Seeded or adversarial sampling is reserved for larger corpora or a
+separately labeled partial diagnostic. Insufficient factorial budget requires a
+smaller corpus, `shrink`, or `reject`; it does not justify omitting orders while
+retaining the exhaustive claim.
 
 ## Coverage and knowledge boundary
 

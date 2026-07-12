@@ -89,6 +89,60 @@ Manual capture, correction, annotation, review, and maintenance are measured as
 capture tax. Give baselines comparable source visibility and labor budget, or
 declare and quantify the asymmetry.
 
+### Order robustness and semantic convergence
+
+- Closed corpus and terminal horizon:
+- Distinct item count and expected permutation denominator (`n!` for 3–5):
+- Seed-slot count and execution denominator `P × S`:
+- Eligible-task and automated-arm counts:
+- Automated evaluation-cell denominator `P × S × T × A`:
+- Per-arm and paired-comparison denominator `P × S × T`:
+- Separate human first-exposure-cell denominator:
+- Historical-order authority:
+- Permutation suite: exhaustive / seeded sample / adversarial:
+- Permutation generator and enumeration rule:
+- Exact permutation list or seed-list digest:
+- Clean empty-state procedure before every run:
+- Initial ledger, projection, cache, and learned-state identity:
+- Confirmation that future inventory and oracle remain hidden:
+- Rule separating valid/event, publication/availability, arrival/reveal, and
+  recorded time:
+- Frozen passive-lane and interactive-fork separation:
+- Clean-batch GraphTruth reference:
+- Clean-rebuild comparator:
+- Deterministic semantics expected to converge:
+- Fields explicitly excluded from semantic normalization:
+- Normalization and stable-ID alignment used for comparison:
+- Heuristic differences explicitly permitted:
+- Stochastic seed or repeat schedule:
+- Required and forbidden oracle relations or task outcomes:
+- Frozen structural and task-level tolerance:
+- Raw-files-plus-search baseline:
+- Raw baseline command, query-to-result contract, and scoring procedure:
+- Ordinary-current-workflow baseline:
+- Optional full-information comparator:
+- Primary automated non-inferiority baseline:
+- Primary human utility comparator and claim boundary:
+- Human first-exposure allocation or counterbalanced subset:
+- Terminal hard gates that every permutation must pass:
+- Trajectory measures, including abstention and resolution lag:
+- Earliest-answerable-prefix and allowed detection-lag rule:
+- Worst-order and lower-tail reporting rule:
+- Missing, aborted, invalid, and contaminated permutation rule:
+- Pre-reveal infrastructure-only retry rule and retained attempt log:
+- Whole-suite invalidation and new-generation rule:
+- Cost, review, and capture-tax threshold:
+- Order-robustness pass / shrink / stop threshold:
+
+For a corpus of three to five items, execute all `n!` permutations. If the frozen
+budget cannot support that denominator, reduce the corpus or label the run a
+partial diagnostic that cannot pass order robustness; do not silently sample.
+Random arrival must never change declared event/valid chronology, authority, or
+version precedence. Compare deterministic semantics only where order
+independence is promised; retain different arrival histories and measure their
+trajectory quality. Do not use graph density or production of one cluster as a
+success metric.
+
 ## Endpoint and adjudication
 
 - Primary endpoint:
