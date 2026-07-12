@@ -1,0 +1,204 @@
+# Corpus selection template
+
+> **Use:** Complete this record before inspecting system output or choosing
+> tasks for an evaluated run. Keep a real record in the private run root unless
+> every recorded value is approved for publication.
+>
+> **Authority:** Non-normative Zone 3 experiment metadata. This template does
+> not select a technology, define a GraphTruth protocol corpus, or establish a
+> benchmark.
+
+## Decision and use case
+
+- Selection identity:
+- Related experiment or run:
+- Decision this corpus can inform:
+- Real user workflow or decision being represented:
+- Why this workflow matters to GraphTruth:
+- Intended comparison arms:
+- Explicit non-claims:
+- Selection owner and review roles:
+
+State the use case before evaluating candidate corpora. A convenient or familiar
+documentation set is not representative merely because it is large, stable, or
+public.
+
+## Sampling frame and immutable version
+
+- Upstream corpus or documentation set:
+- Candidate population and selection unit:
+- Exact product or documentation version, tag, commit, or release:
+- Snapshot or acquisition time in UTC:
+- Acquisition method and upstream location reference:
+- Complete candidate-inventory digest and digest algorithm:
+- Upstream mutability or archival limitations:
+- Snapshot owner, freeze actor, and freeze time:
+
+Do not identify the evaluated corpus as `latest`, `current`, or another moving
+target. Preserve or reference one immutable snapshot whose bytes and inventory
+can be rechecked throughout the run.
+
+## Eligibility and selection without cherry-picking
+
+Freeze these rules before reading GraphTruth or baseline results:
+
+- Inclusion criteria:
+- Exclusion criteria:
+- Required document roles, source families, and failure shapes:
+- Selection method: exhaustive / deterministic rule / stratified sample /
+  random sample:
+- Randomization method and seed, if applicable:
+- Candidate count before selection:
+- Selected count and counts excluded by each frozen rule:
+- Treatment of missing, inaccessible, unsupported, duplicate, and withdrawn
+  items:
+- Selection log location and digest:
+- Permitted replacement rule for an unusable item:
+
+Select from the declared sampling frame, not from documents known to make either
+arm look good. Record every exclusion and replacement. Changing eligibility,
+sampling, or replacement rules after viewing output creates a new selection
+identity and normally a new run.
+
+## Rights and data handling
+
+For every source class, record:
+
+- license, terms version, and authoritative terms reference;
+- right to download, store, transform, index, and process;
+- right to redistribute original bytes, excerpts, and synthetic derivatives;
+- required attribution, notice, share-alike, or deletion behavior;
+- permission for local models, remote processors, and generated reports;
+- jurisdiction, retention, and provider restrictions;
+- actor who verified the rights and verification time.
+
+Public readability does not imply permission to redistribute, send content to a
+model, retain prompts, or publish derived material. If rights differ by file,
+record the applicable class on every manifest item.
+
+## Source families, lineage, and independence
+
+- Definition of one source family:
+- Family-assignment method and reviewer:
+- Known parent, copy, quotation, translation, summary, and template relations:
+- Treatment of unavailable or uncertain ancestors:
+- Exact-duplicate and near-duplicate policy:
+- Independence assumptions and known violations:
+- Rule preventing related descendants from crossing evaluation splits:
+- Unit used for support counts and uncertainty estimates:
+
+Copied or derived documents do not become independent evidence. Preserve both
+the item-level inventory and ancestry-adjusted view; unresolved lineage remains
+explicit rather than being silently counted as corroboration.
+
+## Reveal chronology
+
+- Chronology type: historically evidenced / declared synthetic:
+- Ordering evidence and authority:
+- Event time used for reveal:
+- Treatment of ties, uncertain dates, late publication, and retroactive edits:
+- Rule for known existence with unavailable content:
+- Metadata visible at each reveal:
+- Future filenames, paths, counts, and metadata withheld from the SUT:
+- Reveal-schedule digest:
+
+Filesystem order and modification time are not chronology unless their authority
+is established. When historical order cannot be recovered, label the sequence
+synthetic and limit claims accordingly.
+
+## Coverage and knowledge boundary
+
+- Coverage statement:
+- Explicit exclusions and known missing source classes:
+- Knowledge represented as already known before the first reveal:
+- Initial ledger or baseline horizon:
+- Left-censored: yes / no, with reason:
+- Terminal corpus and evaluation horizon:
+- Knowledge available to real participants but absent from the corpus:
+- Conclusions that cannot be drawn from this boundary:
+
+Every answer, contradiction, dark zone, and absence claim is relative to this
+boundary. A missing answer is not permanently unanswerable unless the terminal
+horizon and declared coverage justify that judgment.
+
+## Task, oracle, and human-information boundary
+
+- Corpus curator:
+- Task author:
+- Oracle author:
+- SUT operator:
+- Baseline operator:
+- Scorer:
+- Role overlaps and resulting claim limitation:
+- Rule used to derive tasks from real workflow triggers:
+- Time at which tasks, oracle, evidence requirements, and scoring were frozen:
+- Per-task familiarity record location and digest:
+- First-exposure allocation, ordering, and counterbalancing rule:
+- Oracle and future-source isolation mechanism:
+
+Record each participant's prior familiarity before presenting a task. If the
+same person selects sources, authors answers, operates an arm, or scores output,
+use only first exposure for the primary comparison and label the result
+exploratory.
+
+For public documentation, record likely human familiarity and model-pretraining
+exposure. Such a corpus can test source grounding, evidence recovery, temporal
+discipline, and workflow cost; it cannot by itself prove unaided recall, novel
+knowledge acquisition, or absence of memorization.
+
+## Size and resource budget
+
+- Maximum items, bytes, source families, and reveal steps:
+- Minimum representation by required document role or stratum:
+- Snapshot and preparation time budget:
+- Operator, baseline, and review time budgets:
+- Compute, storage, and external-processing budgets:
+- Parser and media-type limits:
+- Pilot size and frozen condition for expansion:
+- Behavior when any budget is exhausted:
+
+Corpus selection, licensing review, lineage work, task preparation, and oracle
+creation count as experiment cost. Do not expand the corpus merely because setup
+work has already been spent.
+
+## Freeze and integrity seal
+
+Record immutable identities and digests for:
+
+- upstream snapshot and complete candidate inventory;
+- frozen inclusion, exclusion, sampling, and replacement rules;
+- selected-item manifest and source-family map;
+- reveal schedule and knowledge-boundary declaration;
+- rights and processing-policy record;
+- task pack, withheld oracle, and review rubric;
+- runner code revision, configuration, and environment identity;
+- this completed selection record and the enclosing freeze seal.
+
+- Digest algorithm and byte-canonicalization rule:
+- Pack or freeze-seal identity:
+- Freeze actor and time:
+- Independent reviewer and review time:
+
+The freeze seal must live outside the material it seals or use another
+unambiguous non-self-referential construction. Any change to sealed bytes,
+selection rules, chronology, tasks, thresholds, policy, code, or environment
+creates a new identity. Never update digests in place to preserve a favorable
+run.
+
+## Selection decision
+
+- Decision: `keep` / `reject`
+- Frozen acceptance conditions:
+- Frozen rejection conditions:
+- Observed evidence for the decision:
+- Rights or boundary blockers:
+- Bias, familiarity, lineage, and coverage limitations:
+- Claim scope permitted if kept:
+- Maximum next-run scope:
+- Decision actor and time:
+
+`Keep` means only that the frozen corpus is suitable for the declared bounded
+experiment. It does not establish representativeness, product value, algorithm
+superiority, protocol semantics, or suitability for a different run. A rejected
+corpus remains in the selection log so that it cannot be silently reconsidered
+after seeing favorable evidence.

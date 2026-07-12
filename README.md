@@ -127,6 +127,7 @@ spec/          Normative protocol specification
 schemas/       Machine-readable schemas and vocabularies
 rfcs/          Proposed protocol and architecture changes
 examples/      Canonical examples and conformance fixtures
+experiments/   Non-normative Zone 3 laboratory templates and public preflight packs
 tooling/       Validators, transformers, and developer tools
 runtime/       Replaceable default runtime and personal dogfood system
 ```
@@ -134,6 +135,12 @@ runtime/       Replaceable default runtime and personal dogfood system
 These directories are module boundaries, not promises of future repositories.
 Code should be separable in design without paying the coordination cost of
 splitting it prematurely.
+
+Material under `experiments/` and experimental fixtures under
+`examples/experiments/` are deliberately replaceable laboratory support, not
+protocol authority or evidence of conformance. Public experiment packs use only
+synthetic or explicitly redistributable inputs; private dogfood corpora,
+oracles, run state, and reports remain outside the repository.
 
 The measurable split criteria and dependency rules are documented in the
 [monorepo strategy](docs/MONOREPO.md).

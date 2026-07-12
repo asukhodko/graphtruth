@@ -1,5 +1,5 @@
 import { execFile } from "node:child_process";
-import { readFile, readdir, stat } from "node:fs/promises";
+import { lstat, readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import { promisify } from "node:util";
@@ -31,6 +31,16 @@ const requiredRepositoryPaths = new Map([
   ["docs", "directory"],
   ["docs/DEVELOPMENT.md", "file"],
   ["examples", "directory"],
+  ["examples/experiments/preflight", "directory"],
+  ["experiments", "directory"],
+  ["experiments/README.md", "file"],
+  ["experiments/templates", "directory"],
+  ["experiments/templates/CORPUS-SELECTION.md", "file"],
+  ["experiments/templates/DATA-HANDLING.md", "file"],
+  ["experiments/templates/FAILURE-DIARY.md", "file"],
+  ["experiments/templates/INCIDENT-RUNBOOK.md", "file"],
+  ["experiments/templates/REVIEW-RUBRIC.md", "file"],
+  ["experiments/templates/RUN-CARD.md", "file"],
   ["rfcs", "directory"],
   ["runtime", "directory"],
   ["schemas", "directory"],
@@ -39,6 +49,9 @@ const requiredRepositoryPaths = new Map([
   ["tooling/README.md", "file"],
   ["tooling/check", "file"],
   ["tooling/check.mjs", "file"],
+  ["tooling/preflight", "file"],
+  ["tooling/preflight.mjs", "file"],
+  ["tooling/preflight.test.mjs", "file"],
   [".github/PULL_REQUEST_TEMPLATE.md", "file"],
   [".github/ISSUE_TEMPLATE/config.yml", "file"],
   [".github/ISSUE_TEMPLATE/observation.md", "file"],
@@ -109,6 +122,33 @@ function fallbackFileIsIgnored(name) {
   );
 }
 
+async function inspectRepositoryPath(absolutePath) {
+  const normalized = path.resolve(absolutePath);
+  const relative = path.relative(repositoryRoot, normalized);
+  if (relative === ".." || relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative)) {
+    return { safe: false, pathStat: null };
+  }
+
+  let current = repositoryRoot;
+  const rootStat = await lstat(current);
+  if (!rootStat.isDirectory() || rootStat.isSymbolicLink()) {
+    return { safe: false, pathStat: rootStat };
+  }
+  if (relative === "") return { safe: true, pathStat: rootStat };
+
+  const parts = relative.split(path.sep);
+  for (const [index, part] of parts.entries()) {
+    current = path.join(current, part);
+    const pathStat = await lstat(current);
+    if (pathStat.isSymbolicLink()) return { safe: false, pathStat };
+    if (index < parts.length - 1 && !pathStat.isDirectory()) {
+      return { safe: false, pathStat };
+    }
+    if (index === parts.length - 1) return { safe: true, pathStat };
+  }
+  return { safe: false, pathStat: null };
+}
+
 async function collectFallbackFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
   const files = [];
@@ -163,8 +203,10 @@ async function collectGitPublicFiles() {
   for (const repositoryPath of repositoryPaths) {
     const absolutePath = path.join(repositoryRoot, repositoryPath);
     try {
-      const pathStat = await stat(absolutePath);
-      if (pathStat.isFile()) {
+      const { safe, pathStat } = await inspectRepositoryPath(absolutePath);
+      if (!safe) {
+        report(`${repositoryPath}: symbolic links and non-directory path crossings are not allowed in the public file set`);
+      } else if (pathStat?.isFile()) {
         files.push(absolutePath);
       }
     } catch (error) {
@@ -190,8 +232,11 @@ async function checkRequiredPaths() {
     const absolutePath = path.join(repositoryRoot, repositoryPath);
 
     try {
-      const pathStat = await stat(absolutePath);
-      const matches = expectedType === "file" ? pathStat.isFile() : pathStat.isDirectory();
+      const { safe, pathStat } = await inspectRepositoryPath(absolutePath);
+      const matches =
+        safe &&
+        pathStat !== null &&
+        (expectedType === "file" ? pathStat.isFile() : pathStat.isDirectory());
       if (!matches) {
         report(`${repositoryPath}: expected a ${expectedType}`);
       }
@@ -341,7 +386,13 @@ async function checkMarkdownLinks(filePath, markdown, publicRelativePaths) {
       : path.resolve(path.dirname(filePath), decodedPath);
 
     try {
-      await stat(targetPath);
+      const { safe } = await inspectRepositoryPath(targetPath);
+      if (!safe) {
+        report(
+          `${displayPath}:${lineNumberAt(searchable, index)}: local link target crosses a symbolic link or leaves the repository: ${target}`,
+        );
+        continue;
+      }
       if (!targetIsPublic(targetPath, publicRelativePaths)) {
         report(
           `${displayPath}:${lineNumberAt(searchable, index)}: local link target is outside the public repository file set: ${target}`,

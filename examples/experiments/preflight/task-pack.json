@@ -1,0 +1,96 @@
+{
+  "format": "graphtruth.experimental.task-pack/0",
+  "taskPackId": "lantern-replay-tasks-v0",
+  "frozen": true,
+  "tasks": [
+    {
+      "id": "task-selected-connector",
+      "class": "answerable",
+      "question": "Which connector was selected for the first prototype, and why?",
+      "allowedInterpretation": "Answer only for the first prototype at the end of reveal step two.",
+      "evaluatedAtStep": 2,
+      "eligibleForPrimary": true,
+      "requiredAnswerElements": [
+        "amber connector",
+        "required offline test mode"
+      ],
+      "requiredEvidence": {
+        "minimumVisibleReferences": 1,
+        "counterevidenceRequired": false
+      },
+      "acceptableUncertainty": "Abstain only if the decision source is unavailable or fails integrity validation.",
+      "sutAllowedTools": [
+        "markdown-reader",
+        "literal-search"
+      ],
+      "timeoutSeconds": 120
+    },
+    {
+      "id": "task-current-handoff",
+      "class": "not-yet-answerable",
+      "question": "At step three, what is the confirmed current handoff day?",
+      "allowedInterpretation": "Judge only the evidence visible through reveal step three; a stale copied value is not confirmation.",
+      "evaluatedAtStep": 3,
+      "eligibleForPrimary": true,
+      "requiredAnswerElements": [
+        "abstention",
+        "stale and non-authoritative status"
+      ],
+      "requiredEvidence": {
+        "minimumVisibleReferences": 1,
+        "counterevidenceRequired": false
+      },
+      "acceptableUncertainty": "State that the current day is not yet established and identify why Friday is insufficient.",
+      "sutAllowedTools": [
+        "markdown-reader",
+        "literal-search"
+      ],
+      "timeoutSeconds": 120
+    },
+    {
+      "id": "task-corrected-handoff",
+      "class": "answerable",
+      "question": "At step four, what is the confirmed current handoff day, and which earlier statement does it supersede?",
+      "allowedInterpretation": "Use the authoritative state visible through reveal step four and preserve material counterevidence.",
+      "evaluatedAtStep": 4,
+      "eligibleForPrimary": true,
+      "requiredAnswerElements": [
+        "Monday",
+        "the stale Friday statement"
+      ],
+      "requiredEvidence": {
+        "minimumVisibleReferences": 2,
+        "counterevidenceRequired": true
+      },
+      "acceptableUncertainty": "No uncertainty is expected if both the correction and stale note pass integrity validation.",
+      "sutAllowedTools": [
+        "markdown-reader",
+        "literal-search"
+      ],
+      "timeoutSeconds": 120
+    },
+    {
+      "id": "task-production-capacity",
+      "class": "permanently-unanswerable",
+      "question": "What production capacity target was approved for Project Lantern?",
+      "allowedInterpretation": "Answer only within the closed four-item fixture and its declared corpus boundary.",
+      "evaluatedAtStep": 4,
+      "eligibleForPrimary": true,
+      "requiredAnswerElements": [
+        "abstention",
+        "closed-corpus absence basis"
+      ],
+      "requiredEvidence": {
+        "minimumVisibleReferences": 0,
+        "counterevidenceRequired": false,
+        "absenceTopic": "production-capacity-target"
+      },
+      "acceptableUncertainty": "State that the target is not established within the declared closed corpus; do not generalize beyond it.",
+      "sutAllowedTools": [
+        "markdown-reader",
+        "literal-search"
+      ],
+      "timeoutSeconds": 120
+    }
+  ]
+}

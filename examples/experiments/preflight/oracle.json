@@ -1,0 +1,92 @@
+{
+  "format": "graphtruth.experimental.oracle/0",
+  "oracleId": "lantern-replay-oracle-v0",
+  "closure": "exact",
+  "withheldFromSut": true,
+  "judgments": [
+    {
+      "taskId": "task-selected-connector",
+      "expected": {
+        "status": "answerable",
+        "answer": "The amber connector, because it supports the required offline test mode.",
+        "elements": [
+          "amber connector",
+          "required offline test mode"
+        ]
+      },
+      "evidence": [
+        {
+          "itemId": "item-0002",
+          "locator": "anchor:connector-decision",
+          "relation": "supports"
+        }
+      ]
+    },
+    {
+      "taskId": "task-current-handoff",
+      "expected": {
+        "status": "abstain",
+        "answer": null,
+        "reason": "The only visible handoff statement is explicitly stale and unconfirmed at step three.",
+        "elements": [
+          "abstention",
+          "stale and non-authoritative status"
+        ]
+      },
+      "evidence": [
+        {
+          "itemId": "item-0003",
+          "locator": "anchor:authority-warning",
+          "relation": "requires-abstention"
+        }
+      ],
+      "laterEvidence": [
+        {
+          "itemId": "item-0004",
+          "locator": "anchor:handoff-correction",
+          "relation": "becomes-answerable-after-horizon"
+        }
+      ]
+    },
+    {
+      "taskId": "task-corrected-handoff",
+      "expected": {
+        "status": "answerable",
+        "answer": "Monday; it supersedes the stale Friday statement.",
+        "elements": [
+          "Monday",
+          "the stale Friday statement"
+        ]
+      },
+      "evidence": [
+        {
+          "itemId": "item-0004",
+          "locator": "anchor:handoff-correction",
+          "relation": "supports"
+        },
+        {
+          "itemId": "item-0003",
+          "locator": "anchor:copied-handoff",
+          "relation": "counterevidence-superseded"
+        }
+      ]
+    },
+    {
+      "taskId": "task-production-capacity",
+      "expected": {
+        "status": "abstain",
+        "answer": null,
+        "reason": "The declared closed corpus permanently excludes a production capacity target.",
+        "elements": [
+          "abstention",
+          "closed-corpus absence basis"
+        ]
+      },
+      "evidence": [],
+      "absenceBasis": {
+        "boundaryField": "corpusBoundary.permanentlyUnanswerableTopics",
+        "topic": "production-capacity-target"
+      }
+    }
+  ]
+}

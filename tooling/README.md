@@ -16,6 +16,12 @@ Run the same quality gate locally that pull requests and pushes to `main` use:
 ./tooling/check
 ```
 
+The gate also validates the repository's public synthetic experiment-preflight
+pack and executes its mutation tests. This proves that the published static
+contract is internally consistent and rejects the covered invalid variants; it
+is neither GraphTruth protocol conformance nor evidence that a runner or private
+corpus is safe.
+
 The wrapper requires Node.js 24 or newer. It installs the exact dependency graph
 from `package-lock.json` with lifecycle scripts disabled, runs
 `markdownlint-cli2@0.23.0`, and then runs a dependency-free Node.js repository
@@ -42,3 +48,24 @@ synthetic-only fixture policy remain required boundaries.
 
 `Implementation status` is required to be non-empty, but it is intentionally
 not restricted to a closed vocabulary until the RFC process defines one.
+
+## Experiment preflight
+
+Validate the public synthetic preflight pack directly with:
+
+```sh
+./tooling/preflight
+```
+
+The command operates only on the checked-in
+[synthetic preflight pack](../examples/experiments/preflight/). It checks the
+frozen experiment inputs and verifies policy declarations. The broader
+`./tooling/check` gate additionally runs mutation tests for rejected invalid
+packs. Neither command executes a reveal controller, sandbox attacks,
+crash/resume, or deletion rehearsal. The preflight command must not be pointed
+at private dogfood data, and passing it does not replace the signed runtime
+rehearsal or the run-specific privacy, authorization, sandbox, retention, and
+human-leakage review required by the experiment methodology.
+
+The public pack and its runner are non-normative Zone 3 laboratory tooling.
+Their formats and behavior may change as experiments produce evidence.
