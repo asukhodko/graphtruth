@@ -269,6 +269,38 @@ The final result should state:
   unsupported semantics;
 - how to descend from summaries and chunks to canonical records and evidence.
 
+## Iterative retrieval sessions
+
+Some requests cannot be interpreted safely in one pass. A replaceable runtime
+may maintain a query-session analysis containing:
+
+- the original request and each later clarification without overwriting either;
+- alternative structured interpretations and why one was selected;
+- explicit positive, negative, and must-include examples supplied by the user;
+- revisions to entity, scope, temporal, policy, and completeness constraints;
+- result sets actually exposed before any interaction was observed;
+- progressive expansions, follow-up questions, and stopping conditions;
+- the canonical snapshot, index generation, actor scope, and policy used at each
+  turn.
+
+Candidate algorithms may ask a discriminating clarification when interpretations
+would produce materially different dossiers, reformulate a query after empty or
+overbroad results, preserve negative constraints, expand one dossier section on
+demand, or revise fusion and budget allocation using explicit feedback. They
+should allow a user to correct the structured plan directly rather than forcing
+another natural-language guess.
+
+Interaction is not automatic relevance truth. Opening a result may indicate
+surprise or disagreement; ignoring one may reflect rank position, overload, or
+lack of time. Any online learner should distinguish exposure, opening, evidence
+inspection, citation, correction, explicit relevance judgment, acceptance for a
+purpose, action, and later outcome. Position and selection bias, repeated-user
+effects, privacy, retention, and deletion must be part of its evaluation.
+
+Query sessions normally remain replaceable runtime state. A session or selected
+dossier may become a retained analysis artifact when it matters to a decision,
+audit, correction, or reproducible evaluation, without becoming source evidence.
+
 ## Knowledge chunk construction
 
 ### Candidate chunking strategies
@@ -386,6 +418,40 @@ balance:
 Any compression should identify the material left outside the budget and permit
 progressive expansion.
 
+### Dossier semantic diff and saved-query monitoring
+
+A user may need to know what materially changed since an earlier dossier, not
+merely rerun a search and compare ranks. A candidate semantic-diff algorithm
+should first align the query interpretation, actor scope, policy, enabled
+profiles, and valid-time request, then compare declared canonical horizons and
+projection generations.
+
+The diff may distinguish:
+
+- newly recorded, revised, withdrawn, or newly applicable assertions;
+- added, removed, redacted, unavailable, or methodologically reassessed
+  evidence;
+- changed provenance independence, uncertainty, or support boundaries;
+- new or resolved contradiction and dark-zone candidates;
+- question lifecycle and acquisition-result changes;
+- changed `AcceptanceDecision` applicability under the named policy;
+- new episodes, outcomes, mechanism boundaries, or transfer attempts;
+- changes caused only by ranking, budget, model, index, authorization, or an
+  unsupported extension.
+
+An item absent from the later dossier must not be described as removed from the
+world or ledger until the reason is known. The result should state which changes
+are canonical, policy-relative, analytical, projection-relative, or unexplained.
+Stable record identities and dependency manifests should be preferred over text
+diffs of generated summaries.
+
+A saved query or subscription may use this diff to propose a notification, but
+notification cadence, interruption budget, sensitive-existence disclosure, and
+delivery capability remain separately authorized Zone 3 policy. Historical
+dossiers need not all be retained if their request envelope, selected audit
+artifacts, and current canonical dependencies are sufficient for the declared
+use.
+
 ## Traceable summaries and answers
 
 A summarizer may help orient the user, but it should not become the sole retained
@@ -421,6 +487,8 @@ database:
 - contradiction, question, and gap work queues;
 - episode, mechanism, and structural analogy retrieval;
 - cached dossier fragments or materialized views.
+- saved-query checkpoints and semantic-diff materializations where their
+  invalidation and access scope are explicit.
 
 The canonical file corpus remains the reconstruction source. A graph database is
 optional even though the logical data forms a graph.
@@ -477,6 +545,12 @@ and it must report changed model-dependent behavior.
 - access control is applied after a remote embedding or model call;
 - a fluent answer hides an empty, weak, or incomplete support set;
 - cross-domain analogy hides material mismatches and causes negative transfer.
+- a one-shot interpretation silently guesses a material ambiguity that a short
+  clarification would have resolved;
+- implicit clicks or dwell time are trained as correctness or acceptance;
+- a changed ranking or authorization scope is presented as a change in
+  canonical knowledge;
+- a saved query repeatedly alerts on harmless model or index churn.
 
 ## Evaluation framework
 
@@ -487,6 +561,8 @@ and it must report changed model-dependent behavior.
   ranking measures;
 - entity, temporal, scope, and policy filter correctness;
 - retrieval latency and index freshness.
+- clarification rate, reformulation success, and user effort to correct a query
+  plan.
 
 These standard measures are necessary but insufficient.
 
@@ -502,6 +578,9 @@ These standard measures are necessary but insufficient.
 - unsupported statement and citation-misalignment rate;
 - explicit omission and unavailable-evidence reporting;
 - user effort to reach exact evidence or correct a result.
+- semantic-diff precision for canonical, policy, analysis, projection, and
+  authorization changes;
+- useful-change notification rate, duplicate alert rate, and interruption cost.
 
 ### Candidate resilience metrics
 
@@ -512,6 +591,8 @@ These standard measures are necessary but insufficient.
 - access-control and deletion leakage tests;
 - comparison of old and replacement algorithms on fixed fixtures;
 - usefulness when vector or graph indexes are unavailable.
+- stability of retained query meaning and semantic diffs across a model or
+  index replacement.
 
 ### Dogfood evidence
 
@@ -563,10 +644,13 @@ must not become the only route to durable knowledge.
 ### Zone 3 candidates
 
 - query understanding and decomposition;
+- iterative clarification, query-session state, explicit relevance feedback,
+  and progressive expansion;
 - all index technology, embedding, candidate generation, fusion, ranking, and
   context-budget policy;
 - chunk boundary selection;
 - query-specific dossier selection and traceable summarization;
+- semantic-diff policy, saved-query monitoring, and notification scheduling;
 - UI, API, cache, and operational scaling choices.
 
 ## Dependency-oriented work
@@ -594,6 +678,10 @@ must not become the only route to durable knowledge.
 ### P3
 
 - Add question, dark-zone, episode, and mechanism-aware retrieval.
+- Add iterative clarification and explicit-feedback fixtures without treating
+  interaction as truth or acceptance.
+- Compare saved-query semantic diffs across canonical, policy, authorization,
+  index, and ranking changes.
 - Exercise privacy-safe provider replacement and shadow index rebuilds.
 - Experiment with budget optimization and traceable summaries.
 
@@ -626,3 +714,9 @@ must not become the only route to durable knowledge.
     different model?
 12. Which evaluation set and severe-error budget gates replacement of a
     retrieval algorithm?
+13. What query-session state is worth retaining, and how can it expire without
+    losing a decision-relevant interpretation?
+14. Which semantic changes should a dossier diff guarantee to detect, and which
+    remain best-effort analysis?
+15. How should saved-query notifications expose meaningful change without
+    leaking restricted existence or turning model churn into interruption?

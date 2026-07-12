@@ -2,6 +2,8 @@
 
 > **Status:** Recovered design context — non-normative backlog.
 > **Captured:** 2026-07-11.
+> **Expanded:** 2026-07-12 after the cross-surface algorithm completeness
+> review.
 > **Authority:** The identifiers below organize ideas; they are not accepted
 > roadmap commitments or protocol requirements.
 > **Promotion:** Create a focused Issue or Draft RFC only when its prerequisite
@@ -43,16 +45,29 @@ synthetic golden journeys
   ├─ generic candidate/analysis provenance envelope
   └─ privacy and threat model
 
+source capture + exact evidence
+  └─ source snapshot reconciliation
+       └─ field-level semantic grounding
+            └─ assertion occurrence/revision construction
+                 └─ predicate and vocabulary resolution
+
 minimal deterministic ledger slice
   ├─ exact projections and rebuild verification
   ├─ baseline retrieval and dossier
   ├─ correction and migration
-  └─ independent minimal reader
+  ├─ independent minimal reader
+  ├─ review/assessment/acceptance workflow
+  ├─ provenance-aware derivation and repair
+  └─ archive exchange and recovery
+       ├─ redaction/erasure closure
+       └─ protocol/crypto conformance
 
 baseline retrieval + expectations + questions
   ├─ structural contradictions
   ├─ expectation-relative dark zones
   ├─ active acquisition
+  │    └─ measurement return + answer assimilation
+  │         └─ decision sensitivity + adaptive planning
   └─ domain representation bake-off
        ├─ ontology drift rehearsal
        └─ generated-view invalidation
@@ -62,6 +77,12 @@ experience episodes + prospective predictions
   └─ causal claim profile
        └─ mechanism patterns
             └─ cross-context transfer attempts
+
+operational need
+  └─ bounded runtime orchestration
+
+observed second writer or independent corpus
+  └─ deferred multi-writer/federation pressure test
 ```
 
 ## P0 — earn the first durable record
@@ -115,8 +136,9 @@ experience episodes + prospective predictions
 ### GT-D005 — Serialization and canonicalization spike
 
 - **Deliverable:** implement the same tiny corpus in at least two candidate
-  encodings; measure diffs, streaming, validation, canonical bytes, round-trip
-  preservation, standard tooling, and static human readability.
+  encodings; measure strict parsing, duplicate-key and value-model behavior,
+  diffs, streaming, validation, canonical bytes, domain-separated digests,
+  round-trip preservation, standard tooling, and static human readability.
 - **Candidates:** JSON, JSON Lines segments, JSON-LD/RDF packaging, and readable
   generated Markdown views; YAML is an authoring option, not automatically a
   safe canonical encoding.
@@ -148,8 +170,10 @@ experience episodes + prospective predictions
 ### GT-D008 — Privacy, retention, and adversarial threat model
 
 - **Deliverable:** data classes, trust boundaries, local/remote processing,
-  access filtering, prompt injection, poisoning, secret handling, redaction,
-  deletion, derived-store propagation, and audit expectations.
+  authentication versus epistemic trust, object/field/span/edge authorization,
+  label propagation, inference leakage, prompt injection, poisoning, secret
+  handling, minimization, retention/holds, redaction, deletion, key lifecycle,
+  derived-store propagation, and privacy-safe audit expectations.
 - **Exit evidence:** synthetic abuse cases and a deletion drill expose every
   retained or derived copy.
 - **RFC trigger:** any portable privacy, signature, retention, or deletion
@@ -160,7 +184,9 @@ experience episodes + prospective predictions
 
 - **Deliverable:** fixtures and measures for traceability, correction, identity,
   conflict precision, retrieval coverage, counterevidence, question usefulness,
-  rebuild integrity, time, and cost.
+  rebuild integrity, time, and cost; version datasets, splits, prompts, graders,
+  and horizons; distinguish exposure, use, correction, acceptance, action, and
+  outcome feedback and test position, selection, lineage, and temporal leakage.
 - **Exit evidence:** an algorithm or schema change can be compared without using
   node counts, prose volume, or subjective fluency as the success measure.
 - **Dependencies:** GT-D001.
@@ -188,8 +214,8 @@ experience episodes + prospective predictions
 ### GT-D012 — Profile and extension negotiation spike
 
 - **Deliverable:** required versus optional semantics, namespaced extensions,
-  dependency graph, preserve/validate capabilities, and explicit failure for
-  unknown mandatory meaning.
+  dependency closure and version constraints, preserve/read/validate/apply/refuse
+  capabilities, and explicit failure for unknown mandatory meaning.
 - **Exit evidence:** an older reader safely preserves a newer optional payload;
   it refuses a record it cannot interpret safely.
 - **Dependencies:** GT-D002, GT-D005.
@@ -206,7 +232,10 @@ experience episodes + prospective predictions
 
 - **Deliverable:** locator, reference, provenance, revision, and temporal index
   manifests containing input inventory, watermark, builder version, projection
-  schema, privacy scope, freshness, completeness, validation, and rebuild steps.
+  schema, privacy scope, freshness, completeness, validation, and rebuild steps;
+  build an isolated generation, reconcile watermarks, resume or discard an
+  interruption, atomically cut over, retain rollback, and compare clean with
+  incremental output.
 - **Exit evidence:** deleting all derived state and rebuilding preserves exact
   semantic query results for declared exact projections.
 - **Dependencies:** GT-D006, GT-D010, GT-D013.
@@ -268,7 +297,9 @@ experience episodes + prospective predictions
 ### GT-D021 — Hybrid retrieval baseline
 
 - **Deliverable:** lexical, vector, graph, and temporal candidate channels;
-  attributed fusion and reranking; access filtering before scoring.
+  attributed fusion and reranking; access filtering before scoring; iterative
+  clarification and explicit relevance feedback; saved-query monitoring and a
+  semantic dossier diff over changed evidence, policy, analyses, and indexes.
 - **Exit evidence:** compare channel ablations against GT-D015 and ordinary
   text search.
 - **Dependencies:** GT-D014, GT-D015, GT-D019.
@@ -286,7 +317,10 @@ experience episodes + prospective predictions
 
 - **Deliverable:** explicit expectation sources, coverage states, unsupported
   high-impact claims, missing outcomes, stale evidence, unresolved identity, and
-  competing hypotheses lacking a discriminator.
+  competing hypotheses lacking a discriminator; propose attributable
+  `ExpectationCandidate` records from workflows, schemas, peer cases, motifs,
+  competency questions, and episode roles with denominator and selection-bias
+  warnings before review.
 - **Exit evidence:** every reported gap states the expectation it violates and
   distinguishes unknown, absent, inapplicable, redacted, and inaccessible.
 - **Dependencies:** GT-D011, GT-D015, GT-D022.
@@ -321,7 +355,10 @@ experience episodes + prospective predictions
 ### GT-D027 — Acquisition-route selection
 
 - **Deliverable:** choose among existing-source retrieval, a human question,
-  observation, measurement, source request, or safe experiment proposal.
+  observation, measurement, source request, or safe experiment proposal; plan
+  dependency-aware multi-step or batched acquisition under shared cost, risk,
+  privacy, latency, interruption, and human-burden budgets, with replanning and
+  stop/abandon rules.
 - **Exit evidence:** route selection is explainable, cost/privacy aware, and
   never executes an unauthorized intervention.
 - **Dependencies:** GT-D024.
@@ -375,7 +412,10 @@ experience episodes + prospective predictions
 ### GT-D033 — Experience replay experiment
 
 - **Deliverable:** hide a recorded outcome, ask for a prediction and decision,
-  reveal the episode, compare prediction error, and retain the new attempt.
+  reveal the episode, compare prediction error, and retain the new attempt;
+  select and schedule cases from a learner-evidence state using spacing,
+  interleaving, near misses, counterexamples, staged reveal, and delayed near-
+  and far-transfer tests with calibrated abstention.
 - **Exit evidence:** prospective performance or later transfer improves over
   reading and recall alone.
 - **Stop condition:** it becomes quiz gamification without decision utility.
@@ -383,9 +423,13 @@ experience episodes + prospective predictions
 
 ### GT-D034 — CausalClaim candidate profile
 
-- **Deliverable:** intervention/exposure, comparator, outcome, horizon,
-  population/scope, assumptions, confounders, mediators, uncertainty, model,
-  evidence, and alternative explanations.
+- **Deliverable:** separate task contracts for effect estimation, causal
+  discovery, root-cause attribution, counterfactual explanation, mediation,
+  transportability, and experiment design; each states intervention/exposure,
+  comparator, outcome, horizon, population/scope, assumptions, measurement and
+  missingness, overlap/positivity, consistency/treatment versions, interference,
+  selection and time-varying confounding, uncertainty, falsification controls,
+  evidence, and alternative explanations as applicable.
 - **Exit evidence:** the system refuses to create a bare `causes` edge from
   sequence or correlation.
 - **Dependencies:** GT-D032, prospective cases, causal-method mapping.
@@ -394,7 +438,8 @@ experience episodes + prospective predictions
 
 - **Deliverable:** problem shape, forces, constraints, intervention, state
   transformation, mechanism, operating conditions, side effects, examples,
-  counterexamples, and failure boundaries.
+  counterexamples, and failure boundaries; rehearse split, merge, narrow,
+  version, and retirement under new cases while preserving lineage.
 - **Exit evidence:** structural retrieval beats vocabulary-only matching on a
   small set of cross-domain cases.
 - **Dependencies:** multiple episodes and causal candidates.
@@ -403,7 +448,10 @@ experience episodes + prospective predictions
 
 - **Deliverable:** source-to-target role mapping, mismatches, adaptation,
   prospective prediction, action, result, negative transfer, and revised
-  applicability boundary.
+  applicability boundary; compose compatible mechanism candidates through
+  explicit role/state interfaces, constraints, resources, feedback loops,
+  predicted interactions, side effects, and counterexample search, retaining
+  the composition as a design hypothesis until safely tested.
 - **Exit evidence:** successful and failed prospective transfers are both
   retained; one success does not imply universal mastery.
 - **Dependencies:** GT-D033–GT-D035.
@@ -443,7 +491,10 @@ for the full alternatives, failure modes, and retained open questions.
   citations, or views misleading.
 - **Deliverable:** replay additions and corrections that rename, split, merge,
   nest, or retire candidate concepts while retaining provenance and historical
-  interpretation.
+  interpretation; detect unsatisfiable concepts, contradictory or circular
+  definitions, and domain/range/cardinality/disjointness violations; compare
+  competency-query behavior before and after minimal repair candidates with
+  impact preview.
 - **Exit evidence:** every change is attributable; old horizons remain
   interpretable; derived memberships can be invalidated and rebuilt.
 - **Stop condition:** the test requires a universal ontology before a local
@@ -480,6 +531,179 @@ for the full alternatives, failure modes, and retained open questions.
   requires proprietary corpus data.
 - **Dependencies:** GT-D029 and GT-D038–GT-D040.
 
+## P6 — close cross-cutting algorithm contracts
+
+This is a completeness bucket, not a promise to implement these items after P5.
+Pull an item into the active WIP slot only when a real workflow, severe failure,
+or dependency requires it. Several tasks will likely run earlier than richer
+ontology or causal profiles.
+
+### GT-D042 — Source snapshot reconciliation and reprocessing
+
+- **Evidence needed:** a paginated, nested, or concurrently changing source can
+  make incomplete capture look like absence or deletion.
+- **Deliverable:** fixtures for source closure, frontiers, version skew,
+  pagination gaps, attachments, inaccessible members, typed change sets, and a
+  coverage manifest; classify old spans and analyses as surviving, moved,
+  changed, deleted, stale, or unresolved after a source revision.
+- **Exit evidence:** downstream gap detection can distinguish `absent`,
+  `deleted`, `not fetched`, `inaccessible`, `redacted`, `unsupported`, and
+  `unknown`; old spans are never retargeted to new bytes.
+- **Dependencies:** GT-D003, GT-D006, GT-D009, GT-D019.
+
+### GT-D043 — Field-level evidence grounding and false-citation corpus
+
+- **Deliverable:** align every material proposition field to evidence that
+  states, supports, challenges, mentions, contextualizes, or fails to cover it;
+  retain multi-span composition, alternatives, and unsupported qualifiers.
+- **Exit evidence:** negative fixtures catch valid locators whose content does
+  not ground claimant, negation, unit, condition, temporal scope, or argument;
+  extractor/OCR replacement triggers re-evaluation.
+- **Stop condition:** grounding is represented as an unexplained scalar score;
+  keep typed relations and inspectable evidence.
+- **Dependencies:** GT-D003, GT-D007, GT-D019, GT-D042.
+
+### GT-D044 — Assertion occurrence and revision-construction spike
+
+- **Deliverable:** preserve occurrence, proposition, attribution chain, copy or
+  quotation relation, ambiguity, and proposed lifecycle relation; distinguish
+  independent testimony, restatement, clarification, correction, supersession,
+  and claimant withdrawal.
+- **Exit evidence:** changed documents and copied occurrences cannot silently
+  fabricate authorial revision lineage; candidate retention, `Assessment`, and
+  `AcceptanceDecision` remain separate.
+- **Dependencies:** GT-D010, GT-D019, GT-D043.
+
+### GT-D045 — Predicate and vocabulary resolution lifecycle
+
+- **Deliverable:** resolve predicate sense, roles, direction, arity, inverse or
+  qualified form, constraints, version, and scope; represent equivalent,
+  broader, narrower, conditional, partial, one-to-many, lossy, rejected, and
+  unresolved mappings with evidence and impact preview.
+- **Exit evidence:** mapping revision invalidates affected contradiction,
+  classification, derivation, and query results; forced lexical equivalence is a
+  negative fixture.
+- **Dependencies:** GT-D020, GT-D044.
+
+### GT-D046 — Review, Assessment, and Acceptance workflow boundary
+
+- **Deliverable:** risk/impact-aware review queues, authorized assignment,
+  balanced dossiers, sampling and disagreement records, attributable
+  adjudication, policy-execution validation, and downstream impact preview.
+- **Exit evidence:** a score can prioritize review but cannot retain a candidate,
+  issue an `Assessment`, or create an `AcceptanceDecision` implicitly; conflicting
+  reviews coexist.
+- **Dependencies:** GT-D011, GT-D015, GT-D020, GT-D045.
+
+### GT-D047 — Observation and measurement return path
+
+- **Deliverable:** ingest instrument/procedure/calibration/environment identity,
+  sampling and observation time, original and normalized units, precision,
+  detection limits, censoring, missingness, aggregation windows, raw values,
+  derived metrics, and uncertainty.
+- **Exit evidence:** anomaly or cleaning candidates never overwrite raw
+  observations, and measurement/sampling limitations survive into assertions,
+  causal analysis, and dossiers.
+- **Dependencies:** GT-D003, GT-D007, GT-D027.
+
+### GT-D048 — Provenance-aware derivation, explanation, and repair
+
+- **Deliverable:** retain explicit derivations with inputs, rule/model, horizon,
+  assumptions, intermediate support where available, alternatives, uncertainty,
+  cycle/self-support checks, dependency invalidation, minimal proof/support sets,
+  and ranked repair candidates with impact preview.
+- **Exit evidence:** changed evidence, identity, mapping, policy, or rule marks
+  every dependent result stale or invalid; contradictions do not trigger
+  unrestricted logical explosion; repair does not rewrite source history.
+- **RFC trigger:** only deterministic rule/proof semantics required across
+  implementations; abduction and repair ranking remain replaceable.
+- **Dependencies:** GT-D007, GT-D010, GT-D011, GT-D045.
+
+### GT-D049 — Answer assimilation and Question-state reducer
+
+- **Deliverable:** link acquired evidence and attempts to the originating
+  question, evaluate named answer criteria after identity/scope/time alignment,
+  classify sufficient, partial, conflicting, negative, inconclusive,
+  unavailable, or refused outcomes, record costs, update dependencies, reopen
+  questions, and recompute affected gaps and contradictions.
+- **Exit evidence:** ingestion success alone cannot close a question, and a
+  later revision predictably reopens dependent states.
+- **Dependencies:** GT-D024, GT-D027, GT-D042, GT-D047.
+
+### GT-D050 — Decision dependencies, sensitivity, and adaptive acquisition
+
+- **Deliverable:** extend and reuse the GT-D027 route/portfolio planner while
+  representing goal, options, criteria, constraints, deadline,
+  claims and assumptions feeding a decision; compare sensitivity, robustness,
+  regret, and decision-bound information value; plan and replan multi-step
+  acquisition under shared budgets and stopping rules.
+- **Exit evidence:** priority changes are explainable and robust to plausible
+  alternatives; the algorithm surfaces consequences but never chooses or
+  accepts on the user's behalf.
+- **Dependencies:** GT-D024, GT-D027, GT-D049.
+
+### GT-D051 — Disclosure-scoped archive exchange and recovery
+
+- **Deliverable:** compute export dependency closure and explicit omissions;
+  pack and verify a self-describing bundle; quarantine an import, resolve
+  versions offline, validate integrity/signatures, map ID collisions without
+  identity merges, preserve provenance, integrate atomically or refuse, restore,
+  rebuild, and render a human fallback.
+- **Exit evidence:** an independent clean environment reconstructs the declared
+  semantic horizon without runtime databases or network services; partial import
+  and accidental disclosure fail visibly.
+- **Dependencies:** GT-D008, GT-D012–GT-D018, GT-D030.
+
+### GT-D052 — Redaction, erasure, and disclosure-closure drill
+
+- **Deliverable:** evaluate policy before every retrieval/traversal/model/action;
+  propagate sensitivity and retention labels; trace authorized redaction or
+  erasure through canonical references, indexes, embeddings, caches, prompts,
+  logs, backups, imports, exports, and publications; verify residue and record
+  unavoidable evidence unavailability.
+- **Exit evidence:** protected existence is not leaked through graph paths,
+  scores, counts, errors, or stale artifacts under the declared threat model;
+  hold conflicts and non-removable copies are explicit.
+- **Dependencies:** GT-D008, GT-D014, GT-D051.
+
+### GT-D053 — Protocol and cryptographic conformance matrix
+
+- **Deliverable:** fixtures for strict parse/value rules, canonicalization and
+  digest domains, digest upgrade maps, signature envelopes, cryptographic
+  validity versus trust/time/revocation policy, stable diagnostics, capability
+  modes, and resumable migration reports.
+- **Exit evidence:** independent tools agree where bytes or observable behavior
+  must match and clearly disagree or refuse where local trust policy differs.
+- **Dependencies:** GT-D005, GT-D012, GT-D013, GT-D051.
+
+### GT-D054 — Runtime orchestration and resource-governance drill
+
+- **Evidence needed:** background enrichment, providers, or multiple projection
+  jobs make a serial manual runner unreliable or unbounded.
+- **Deliverable:** job DAGs, leases, idempotent retries, checkpoints, dead-letter
+  state, backpressure, admission and rate limits, priorities, deadlines, cost and
+  token budgets, circuit breakers, degraded modes, watermarks, health, tracing,
+  integrity scrubs, and crash/queue/provider-loss replay.
+- **Exit evidence:** duplicate delivery cannot duplicate canonical or external
+  action; budget exhaustion and overload fail boundedly; an operator can explain
+  lag and recover without hidden durable state.
+- **Stop condition:** a single-process synchronous loop remains simpler and
+  sufficient; do not build a distributed control plane early.
+- **Dependencies:** GT-D006, GT-D014, GT-D019, GT-D021, GT-D025, GT-D027.
+
+### GT-D055 — Deferred multi-writer and federation pressure test
+
+- **Evidence needed:** a second writer, independently governed corpus, partial
+  replica, or extension author creates a real ordering or authority conflict.
+- **Deliverable:** compare leases/CAS, commit-DAG ancestry and merge bases,
+  semantic conflict preservation, replicated-set reconciliation, partial
+  replication, namespace/capability negotiation, and recorded-order models.
+- **Exit evidence:** identity, acceptance authority, privacy, and history remain
+  explicit under concurrent or federated change; unsupported semantics refuse
+  safely.
+- **Deferred:** do not schedule from hypothetical scale alone.
+- **Dependencies:** GT-D017, GT-D037, GT-D051, GT-D053.
+
 ## Candidate RFC sequence
 
 The order below is a dependency hypothesis, not an allocation of RFC numbers:
@@ -492,9 +716,12 @@ The order below is a dependency hypothesis, not an allocation of RFC numbers:
 6. profiles, extensions, capabilities, and version negotiation;
 7. migrations, conformance roles, and diagnostic stability;
 8. privacy, retention, redaction, and deletion propagation;
-9. optional portable dossier contract;
-10. optional portable named-view or materialization-manifest contract;
-11. optional experience, causal, mechanism, and transfer profiles.
+9. archive/export/import completeness and offline recovery;
+10. optional portable measurement and derivation profiles;
+11. optional portable dossier contract;
+12. optional portable named-view or materialization-manifest contract;
+13. optional experience, causal, mechanism, and transfer profiles;
+14. multi-writer or federation semantics only after observed need.
 
 Each RFC should be split when its examples, compatibility surface, or
 implementation schedule cannot be reviewed coherently.

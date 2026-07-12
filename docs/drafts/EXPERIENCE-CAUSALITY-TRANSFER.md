@@ -203,6 +203,44 @@ outcome recorded.
 Replay is a Zone 3 product hypothesis. It must respect privacy and must not
 convert a historical case into an unsafe real-world experiment.
 
+### Adaptive practice and curriculum selection
+
+One replay does not establish durable or transferable understanding. A
+replaceable practice policy may maintain an evidence-based learner state that
+records observed attempts without declaring that a person “knows” a mechanism.
+Candidate algorithmic tasks include:
+
+- select a target mechanism, decision skill, uncertainty type, or transfer
+  boundary rather than optimize generic engagement;
+- choose a case and decision point whose evidence is sufficiently complete for
+  the exercise;
+- schedule spacing, interleaving, and delayed outcome checks while respecting
+  attention and interruption budgets;
+- vary vocabulary, domain, surface form, and irrelevant details to test
+  structural recognition rather than memorization;
+- alternate examples with counterexamples, near misses, boundary cases, and
+  cases where the correct response is to abstain;
+- adapt reveal order, scaffolding, and difficulty using prospective performance,
+  calibration, rationale, and requested help;
+- classify errors such as missing evidence, hindsight leakage, wrong causal
+  assumption, poor role mapping, ignored mismatch, or overconfidence;
+- revisit a failed or lucky attempt after enough delay to distinguish correction
+  from immediate recall;
+- retain the attempt and feedback as attributed evidence, including uncertainty
+  about what the exercise measured.
+
+Opening, completing, enjoying, or repeating a case is not evidence of reusable
+understanding. Evaluation should compare delayed retention, calibration,
+appropriate refusal, near transfer, and genuinely different-domain transfer
+against baselines such as reading, ordinary retrieval practice, and a generic
+quiz. Case-selection models must avoid training and evaluation leakage, repeated-
+case memorization, and a curriculum that exposes only successful mechanisms.
+
+Learner-state and practice history may be sensitive personal data. They remain
+Zone 3 policy and should support inspection, correction, retention limits, and
+deletion. No scalar mastery score should become protocol truth or an
+`AcceptanceDecision`.
+
 ## CausalClaim hypothesis
 
 ### Required conceptual boundary
@@ -231,24 +269,88 @@ Candidate content includes:
 The exact portable vocabulary and whether it belongs in one or several profiles
 remain open.
 
+### Causal task taxonomy and task-specific gates
+
+“Causal analysis” is not one interchangeable algorithm. Before selecting a
+method, the runtime should identify which task is being attempted. Candidate
+classes include:
+
+- **effect estimation:** estimate how an intervention relative to a comparator
+  changes an outcome for a declared population and horizon;
+- **causal discovery or model revision:** propose edges, orientations, latent
+  alternatives, or changes to a causal structure from observational,
+  experimental, temporal, or mechanistic evidence;
+- **attribution or root-cause analysis:** explain a particular observed outcome
+  or failure among candidate contributing conditions;
+- **counterfactual explanation:** ask what a named model predicts would differ
+  for a particular case under another intervention;
+- **mediation or pathway analysis:** characterize intermediate processes and how
+  an effect may be transmitted or moderated;
+- **transportability or generalization:** assess whether a scoped result may
+  apply to a different population, environment, time, or intervention version;
+- **experiment or measurement design:** choose observations or interventions
+  capable of discriminating hypotheses under cost, power, safety, and
+  authorization constraints.
+
+These tasks have different targets, assumptions, evidence requirements, and
+valid failure responses. A root-cause candidate must not be presented as a
+population treatment effect; a predictive model is not automatically a causal
+discovery result; a counterfactual explanation is not an observed alternative
+history.
+
+Before emitting a result, a task-specific gate should inspect as applicable:
+
+- target estimand or qualitative question, unit of analysis, population,
+  comparator, horizon, and intended use;
+- study or event design and whether the data can identify the requested target
+  under the named assumptions;
+- measurement validity, error, resolution, provenance, and changes in
+  instrumentation;
+- missing-data and censoring mechanisms, attrition, nonresponse, and delayed
+  outcomes;
+- treatment or intervention versions, actual exposure, adherence, and
+  consistency assumptions;
+- positivity or overlap and whether the requested comparison has support;
+- interference, spillovers, feedback loops, and dependencies between units;
+- baseline, time-varying, and unmeasured confounding; mediation, colliders,
+  post-treatment adjustment, selection, and survivorship bias;
+- model equivalence, sensitivity to plausible alternatives, and uncertainty not
+  captured by the fitted model;
+- falsification opportunities such as negative controls, placebo tests,
+  pre-trend checks, or held-out prospective predictions;
+- effect modification, target-population differences, and evidence required to
+  transport a conclusion beyond its source scope;
+- safety, privacy, sample-size or precision limits, stopping rules, and
+  authorization for any prospective design.
+
+Failure of a gate should produce a scoped diagnostic, missing-evidence question,
+alternative task, or abstention. It must not be hidden by selecting a more
+fluent method. These gates are candidate analysis responsibilities, not generic
+normative causal rules for Zone 1.
+
 ### Candidate causal analysis pipeline
 
-1. Define the causal question before choosing a technique.
-2. Identify intervention, actual exposure, comparator, outcome, scope, and
-   horizon.
+1. Define the causal question and task class before choosing a technique.
+2. Identify the task-specific target, intervention or condition, actual
+   exposure, comparator, outcome, scope, and horizon as applicable.
 3. Assemble relevant observations and provenance without double-counting copied
    sources.
-4. Construct or select an explicit causal model.
-5. Identify confounders, mediators, colliders, selection effects, and measurement
-   limitations considered by that model.
-6. Check temporal feasibility without treating precedence as sufficient.
-7. Assess whether the available design identifies the intended effect under its
-   assumptions.
-8. Estimate or characterize the effect and uncertainty if justified.
-9. Perform sensitivity, robustness, or alternative-model analysis.
-10. Generate competing explanations and discriminating questions.
-11. Produce an attributed `CausalClaim` or analysis candidate.
-12. Keep assessment and any acceptance for purpose separate.
+4. Audit measurement, missingness, selection, exposure, temporal, and target-
+   population limitations relevant to that task.
+5. Construct or select an explicit causal model and competing structures.
+6. Identify confounders, mediators, colliders, selection effects, interference,
+   and measurement limitations considered by that model.
+7. Check temporal feasibility without treating precedence as sufficient.
+8. Apply the task-specific identification, overlap, transport, falsification,
+   safety, and authorization gates that can be evaluated.
+9. Estimate or characterize the effect, attribution, path, counterfactual, or
+   design only if justified.
+10. Perform sensitivity, robustness, negative-control, or alternative-model
+    analysis where the evidence permits it.
+11. Generate competing explanations and discriminating questions.
+12. Produce an attributed `CausalClaim`, model, design, or analysis candidate
+    whose role matches the task actually performed.
+13. Keep assessment and any acceptance for purpose separate.
 
 Possible techniques include randomized or quasi-experimental analysis,
 potential-outcomes methods, structural causal models, graphical adjustment,
@@ -277,6 +379,10 @@ observation. A retained counterfactual should state:
 - observational association presented as intervention effect;
 - actual exposure differs from intended action but is not measured;
 - comparator, population, horizon, or outcome is omitted;
+- a root-cause attribution, transported effect, counterfactual explanation, and
+  population intervention effect are treated as interchangeable outputs;
+- missingness, measurement error, weak overlap, interference, or selection bias
+  is hidden behind a precise estimate;
 - confounder adjustment includes a collider or post-treatment variable;
 - copied evidence appears independent;
 - model assumptions are hidden behind a precise estimate;
@@ -293,6 +399,13 @@ Candidate evaluation includes:
 - ability to distinguish sequence, association, rationale, and causal claim;
 - calibration and interval coverage where quantitative estimates exist;
 - robustness to plausible alternative models and unmeasured confounding;
+- task-class correctness and refusal when identification or data support is
+  inadequate;
+- sensitivity to measurement, missingness, overlap, interference, and selection
+  failures;
+- transport accuracy and visibility of source-to-target population differences;
+- falsification, negative-control, or prospective-check coverage where
+  applicable;
 - prospective prediction error;
 - rate of unsupported causal language;
 - reviewer correction and disagreement by failure class;
@@ -345,6 +458,48 @@ inductive logic, graph motif mining, minimum-description-length hypotheses,
 representation learning, analogy models, and language models. All produce
 reviewable candidates.
 
+### Pattern lifecycle, revision, and composition
+
+A useful pattern must evolve as cases accumulate without erasing the abstraction
+that motivated earlier use. Candidate lifecycle algorithms may:
+
+- attach new examples, failures, near misses, counterexamples, and transfer
+  outcomes with source-to-pattern mappings;
+- test whether new evidence changes an operating condition, failure boundary,
+  intermediate state, expected outcome, or alternative mechanism;
+- propose narrowing, broadening, splitting, merging, deprecating, or retiring a
+  pattern while retaining revision lineage and historical applicability;
+- detect corpus, vocabulary, environment, or intervention drift that makes an
+  old abstraction misleading;
+- invalidate dependent structural indexes, dossiers, recommendations, and
+  acquisition questions after a material revision;
+- preserve disagreement between competing abstractions instead of averaging
+  them into one confidence score.
+
+Mechanism composition is a separate invention-support hypothesis. Given a target
+problem, a runtime may:
+
+1. retrieve candidate patterns whose roles, input states, outputs, or operating
+   conditions could form part of a solution;
+2. align the output state of one pattern with the required input or enabling
+   state of another;
+3. check compatibility of assumptions, resources, actors, timescales,
+   incentives, safety constraints, and applicability boundaries;
+4. detect contradictory interventions, duplicated effects, circular dependence,
+   unstable feedback, bottlenecks, and side effects created by interaction;
+5. construct a candidate state-transition or causal chain and retain every
+   source-to-composition mapping;
+6. search for counterexamples, failed combinations, omitted roles, and target
+   conditions absent from the source cases;
+7. predict outcomes, interactions, uncertainty, and failure signals before use;
+8. emit a design hypothesis with explicit mismatches, missing evidence, and a
+   safe observation, simulation, or prospective test proposal.
+
+A composition is not evidence that the mechanisms work together, an established
+invention, or a novelty claim beyond the searched corpus. It remains a Zone 3
+proposal until prospectively tested and assessed. Consequential action requires
+separate authorization.
+
 ### Mechanism failure modes
 
 - compressing correlation into a plausible story;
@@ -356,6 +511,14 @@ reviewable candidates.
 - retaining so much source detail that the pattern cannot transfer;
 - abstracting so aggressively that every case appears to match;
 - presenting a model-generated pattern without source mappings.
+- revising a pattern in place so earlier transfers appear to have used knowledge
+  learned only later;
+- merging patterns whose surface form agrees while operating conditions or
+  mechanisms conflict;
+- composing locally plausible mechanisms into an unstable feedback loop or an
+  unsafe intervention;
+- describing corpus-relative novelty as proof of invention or freedom to
+  operate.
 
 Candidate metrics include held-out case fit, counterexample retrieval, mapping
 quality, reviewer agreement on operating conditions, prospective prediction,
@@ -545,8 +708,14 @@ replacement discipline is:
 
 - episode segmentation and role extraction;
 - decision-time replay and practice scheduling;
+- adaptive curriculum, case selection, feedback interpretation, and delayed-
+  transfer evaluation;
 - causal discovery, estimation, root-cause analysis, and hypothesis generation;
+- causal task classification, validity gates, transport analysis, and
+  experiment-design proposals;
 - mechanism induction and counterexample discovery;
+- mechanism lifecycle proposals, composition, interaction checks, and design
+  hypotheses;
 - structural retrieval, analogy, role mapping, and adaptation proposals;
 - transfer and experiment ranking, UI, and orchestration;
 - all learned models, thresholds, and local acceptance or safety policies.
@@ -572,11 +741,15 @@ replacement discipline is:
 - Detect missing predictions, actual exposure, outcomes, and retrospective
   contamination.
 - Dogfood experience replay on well-evidenced cases.
+- Compare adaptive case selection, delayed retention, and near or far transfer
+  with reading and simpler retrieval-practice baselines.
 
 ### P3
 
 - Experiment with explicitly scoped causal candidates, alternative explanations,
   and discriminating questions.
+- Use task-specific fixtures for effect estimation, root cause, counterfactual,
+  transport, and experiment design, including gate failures and abstention.
 - Evaluate prospective predictions and sensitivity reporting.
 - Keep causal discovery outside acceptance authority.
 
@@ -585,6 +758,10 @@ replacement discipline is:
 - Draft Experience, then Causality, Mechanism, and Transfer RFCs only as repeated
   use stabilizes their boundaries.
 - Test mechanism abstraction using successes, failures, and counterexamples.
+- Rehearse pattern narrowing, split, merge, retirement, and dependency
+  invalidation as later cases arrive.
+- Compose two compatible and two deceptively incompatible patterns into
+  inspectable design hypotheses before any action.
 - Test structural retrieval and prospective transfer with mismatch display.
 - Promote interoperable fields only after fixtures and more than one consumer
   demonstrate stable meaning.
@@ -611,6 +788,16 @@ Fixtures and dogfood cases should include:
 - a dangerous transfer suggestion produced without authorization;
 - an unavailable model whose retained analysis remains interpretable but cannot
   be reproduced exactly.
+- an engaging replay curriculum that improves immediate recall but not delayed
+  prediction or far transfer;
+- a causal effect request with no overlap, transport support, or reliable
+  measurement that should be refused;
+- the same evidence incorrectly processed as effect estimation, root cause, and
+  counterfactual explanation without changing the target or assumptions;
+- a pattern revision that should split success and failure regimes rather than
+  average them;
+- two individually plausible mechanisms whose composition creates a feedback
+  loop, resource conflict, or unsafe side effect.
 
 ## Open design questions
 
@@ -638,3 +825,15 @@ Fixtures and dogfood cases should include:
     represented?
 12. Which replay and transfer metrics provide evidence of reusable understanding
     rather than recall of the original text?
+13. What learner evidence is useful for curriculum selection without creating a
+    context-free mastery score or invasive permanent profile?
+14. Which delayed, near-transfer, and far-transfer baselines are practical for
+    personal dogfood?
+15. Which causal task classes need distinct retained artifact roles rather than
+    one broad `CausalClaim`?
+16. Which identification, measurement, transport, and falsification diagnostics
+    are portable enough to share across domain profiles?
+17. When should new cases revise, split, merge, or retire a mechanism pattern,
+    and who authorizes the durable change?
+18. What minimum composition trace makes an invention-support hypothesis
+    inspectable without implying that the combination is established or novel?

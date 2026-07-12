@@ -216,6 +216,31 @@ useful, not merely list frequent words.
 - navigation optimization based on real retrieval paths;
 - drift alarms when membership or meaning changes materially.
 
+### Semantic consistency and repair candidates
+
+- detect unsatisfiable concepts under the declared vocabulary and constraints;
+- detect incompatible domain, range, cardinality, disjointness, and relation
+  constraints without treating every local exception as a universal error;
+- find contradictory definitions, circular definitions, and definition chains
+  whose meaning depends only on one another;
+- execute declared competency queries against a fixed corpus snapshot to test
+  whether the ontology supports the distinctions and access tasks for which it
+  was introduced;
+- compute minimal inconsistent or unsatisfied constraint sets and propose the
+  smallest candidate repairs;
+- preview which classifications, assertions, named views, queries, and
+  generated documents each repair would change or invalidate;
+- compare semantic behavior before and after a proposed repair, including query
+  results, accepted classifications, detected gaps, and newly unsupported
+  material;
+- retain rejected alternatives, reviewer decisions, assumptions, and the exact
+  ontology and corpus versions used by every check.
+
+These checks produce attributed analyses and repair proposals. They do not
+silently rewrite a vocabulary, classification, or accepted view. A reported
+inconsistency is relative to declared semantics and scope; it is not proof that
+one universal ontology is required.
+
 ### Cross-domain insight candidates
 
 - link prediction with explicit evidence paths;
@@ -365,6 +390,21 @@ graph.
 Plant two episodes with different vocabulary but the same relational mechanism.
 Compare topic/embedding similarity with role-constrained structure mapping.
 Require a prospective transfer prediction before calling the result useful.
+
+### Experiment O5 — semantic consistency and repair rehearsal
+
+Create a small versioned vocabulary and corpus containing an unsatisfiable
+concept, incompatible domain/range and cardinality constraints, contradictory
+definitions, and a circular definition chain. Declare competency queries before
+running the check. For each detected problem, generate minimal repair candidates
+with impact previews, then compare the query results, classifications, dark-zone
+signals, and generated views before and after each repair.
+
+Success requires the checker to identify the seeded problems without rewriting
+the ontology, to expose materially different consequences of competing repairs,
+and to preserve the original and repaired horizons. Stop or narrow the approach
+if its diagnostics depend on undeclared semantics or if the repair machinery is
+more complex than the demonstrated navigation or reasoning benefit.
 
 ## Promotion and ownership questions
 

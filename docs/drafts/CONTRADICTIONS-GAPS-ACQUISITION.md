@@ -235,6 +235,36 @@ The expectation itself needs identity, version, provenance, applicability, and
 policy. Otherwise a gap cannot be reproduced after the detecting runtime is
 replaced.
 
+### Attributable expectation induction
+
+An explicit expectation need not begin as a manually written rule. A runtime
+may propose an `ExpectationCandidate` from repeated or neighboring structure,
+but that proposal must become inspectable input to gap analysis rather than an
+invisible assumption. Candidate sources include:
+
+- roles that recur across comparable episodes, entities, workflows, or dossier
+  requests;
+- frequently observed graph motifs, dependency paths, state transitions, or
+  outcome-capture obligations;
+- competency questions, declared goals, decision models, and failure checklists;
+- peer-group or historical coverage differences under a stated comparison
+  cohort;
+- counterexamples where an apparently optional element proved decision-critical;
+- domain-profile, ontology-view, or mechanism candidates with their own
+  provenance and uncertainty.
+
+A candidate induction algorithm should state the population or denominator it
+examined, the comparison cohort, minimum support, exceptions, access scope, and
+the observations that would reject the expectation. It should test for capture,
+selection, survivorship, and authorization bias: a pattern in visible records
+may reflect what was easy to collect rather than what ought to exist.
+
+Before an induced expectation drives a dark-zone alert or acquisition action,
+it should be reviewed or enabled by a named local policy. Promotion does not
+make it a universal ontology rule. Revision, split, retirement, and invalidation
+of the expectation must re-evaluate dependent gap candidates without rewriting
+their historical analysis horizon.
+
 ### Candidate dark-zone taxonomy
 
 #### Missing required structure
@@ -404,12 +434,39 @@ score:
 - value of a negative or inconclusive result.
 
 Possible ranking methods include explicit weighted policies, Pareto frontiers,
-expected value of information, Bayesian experimental design, active learning,
+expected value of information, Bayesian experimental design, adaptive
+acquisition,
 submodular selection, or constrained optimization. Every method embeds
 assumptions. The displayed result should expose decisive dimensions and permit a
 human to override it.
 
 Priority never grants authority to perform the acquisition.
+
+## Decision dependency and sensitivity
+
+Several priority dimensions, especially decision impact and expected value of
+information, require more than a graph-centrality score. A replaceable runtime
+may construct a decision-analysis candidate containing:
+
+- the goal, decision horizon, owner, stakes, and success or failure criteria;
+- alternatives currently considered, including defer or preserve uncertainty;
+- hard constraints, preferences, resources, deadlines, and reversibility;
+- assertions, assumptions, predictions, and unknowns on which each alternative
+  depends;
+- outcomes or thresholds at which the preferred alternative would change;
+- uncertainty about the decision model itself and material omitted factors.
+
+Candidate algorithms may trace question-to-claim-to-decision dependencies,
+perform local sensitivity or robustness analysis, identify decision boundaries,
+compare regret under plausible states, and estimate value of information under
+a named model. They should also preserve user-assigned impact separately from
+inferred downstream impact.
+
+A decision model is an analysis aid, not authority to choose or execute an
+alternative. If utilities, probabilities, alternatives, or dependencies are
+missing, the runtime should expose that limitation or generate a question
+instead of producing a precise but unsupported impact or information-gain
+score.
 
 ## Acquisition route selection
 
@@ -429,6 +486,32 @@ Route selection should consider expected evidential value, provenance quality,
 cost, latency, privacy, safety, authorization, and reversibility. The system may
 draft or propose an action; actual messaging, purchase, disclosure, measurement,
 or intervention requires a separately authorized capability.
+
+### Acquisition plans, portfolios, and replanning
+
+Important unknowns may require several dependent acquisitions rather than one
+ranked question. A candidate planner may:
+
+1. construct a dependency graph of questions, answer criteria, routes, and
+   decisions that could be unlocked;
+2. identify one source, review, observation, or measurement that could address
+   several questions without double-counting its evidence;
+3. select a portfolio under monetary, compute, latency, attention, privacy, and
+   risk budgets;
+4. schedule prerequisites, mutually exclusive routes, freshness windows, and
+   delayed outcome capture;
+5. reserve budget for replication, counterevidence, or an alternative
+   explanation instead of spending everything on a favored hypothesis;
+6. replan after a partial answer, refusal, source failure, unexpected outcome,
+   or changed decision deadline;
+7. apply cooldown, batching, and burden limits when people would be interrupted;
+8. stop, defer, or abandon a plan when marginal value falls below declared cost
+   or risk limits.
+
+The plan, budget assumptions, and decisive dependencies should remain
+inspectable. Expected information gain is a model-dependent forecast, not a
+promise that the acquisition will resolve uncertainty. Planning never grants
+the capabilities needed to execute any route.
 
 ### Safe experiment proposal
 
@@ -469,6 +552,37 @@ was unavailable, who declined, what it cost, whether a measurement failed, and
 why an inconclusive result remained inconclusive. Keeping only the final answer
 would recreate the loss of context GraphTruth is intended to prevent.
 
+## Assimilating acquisition results
+
+Re-ingesting an acquisition result does not by itself answer a question. A
+candidate answer-assimilation and question-reduction pipeline should:
+
+1. anchor the returned source, response, observation, or measurement to exact
+   evidence and the acquisition attempt that produced it;
+2. retrieve open and historical questions it may address without assuming that
+   the route's target question is the only affected one;
+3. align identity, scope, context, valid time, modality, units, and answer
+   criteria before judging relevance or sufficiency;
+4. classify the result as sufficient for purpose, partial, conflicting,
+   negative within a stated search or measurement boundary, inconclusive,
+   unavailable, refused, or unrelated;
+5. preserve competing candidate answers and their provenance independence;
+6. evaluate named answer and stopping criteria without treating one matching
+   assertion, a fluent summary, or silence as resolution;
+7. propose attributable lifecycle changes such as partially answered, answered
+   for purpose, blocked, expired, or reopened;
+8. update dependent questions, contradiction candidates, dark zones, decision
+   sensitivities, and acquisition plans;
+9. retain attempt cost, latency, disclosure, deviations, measurement quality,
+   and reasons for non-resolution;
+10. re-evaluate the same result when identity, evidence, expectation, policy, or
+    answer criteria later change.
+
+Where a portable Question profile eventually specifies deterministic lifecycle
+semantics, a Zone 2 reducer may apply an explicit authorized decision. Semantic
+answer matching, sufficiency judgment, and policy selection remain attributable
+proposals unless an RFC establishes narrower interoperable behavior.
+
 ## Acquisition failure modes
 
 - leading questions encode a desired answer;
@@ -480,8 +594,30 @@ would recreate the loss of context GraphTruth is intended to prevent.
 - an observation is treated as an intervention or an action as actual exposure;
 - an experiment records only the successful outcome;
 - a partial answer silently closes the broader question;
+- a response is linked only to the question that caused the acquisition even
+  though it resolves or contradicts other questions;
+- silence, search failure, or inaccessible evidence is presented as a negative
+  answer about the world;
+- a multi-step plan spends its budget before a discriminating or replication
+  step;
 - model-generated text is mistaken for newly acquired external evidence;
 - question priority is interpreted as permission to act.
+
+## Feedback semantics
+
+Behavioral feedback is evidence about the product interaction, not a truth
+label. The runtime should distinguish at least display, opening, evidence
+inspection, citation, dismissal, correction, explicit assessment, acceptance
+for a purpose, action taken, later outcome, and question reopening. A click may
+mean curiosity; no click may mean poor ranking, lack of time, or lack of access.
+
+Any feedback-driven ranking or learning algorithm should retain the query and
+exposure context, account for position, selection, survivorship, and repeated-
+user bias, and avoid training directly on policy-generated outputs as if they
+were independent judgments. Private feedback needs the same retention,
+redaction, and disclosure controls as the underlying knowledge. Reviewed labels
+and downstream outcomes should remain distinguishable from implicit behavior
+and from `AcceptanceDecision` records.
 
 ## Active-acquisition evaluation
 
@@ -498,6 +634,11 @@ Candidate measures include:
 - safety violations or near misses, with a zero-tolerance class where relevant;
 - downstream correction, decision improvement, or avoided uncertainty;
 - retention of negative and inconclusive acquisition outcomes.
+- accuracy and calibration of answer-state proposals, including reopen events;
+- portfolio value and duplicated acquisition cost versus one-question ranking;
+- decision-boundary changes and realized value compared with predicted impact;
+- feedback coverage and bias by exposure position, route, actor, and question
+  class.
 
 ## Zone placement hypothesis
 
@@ -523,7 +664,11 @@ Candidate measures include:
 - candidate blocking and semantic contradiction classification;
 - gap discovery beyond explicit structural constraints;
 - question generation, decomposition, ranking, and deduplication;
+- expectation-candidate induction and review routing;
+- decision-dependency, sensitivity, and value-of-information analysis;
+- answer matching, sufficiency proposals, and question-state recommendations;
 - expected-information-gain and acquisition-route policy;
+- dependency-aware acquisition planning, budgeting, and replanning;
 - external-source, observation, review, or experiment orchestration;
 - all learned models and product-specific thresholds.
 
@@ -547,6 +692,8 @@ Candidate measures include:
 - Add high-precision candidate blocking, unit and interval conflicts, missing
   evidence, missing outcome, and broken-reference gaps.
 - Add transparent multi-dimensional question ranking.
+- Add answer-assimilation fixtures covering partial, conflicting, negative,
+  inconclusive, refused, and question-reopening outcomes.
 - Dogfood false-alarm and correction costs.
 
 ### P3
@@ -554,6 +701,8 @@ Candidate measures include:
 - Experiment with semantic conflict and abductive question generation behind
   review.
 - Add constrained acquisition-route proposals and safe experiment templates.
+- Compare one-question ranking with budgeted, dependency-aware acquisition
+  plans on a bounded workflow.
 - Measure realized information gain and privacy or attention cost.
 
 ### P4
@@ -583,3 +732,13 @@ Candidate measures include:
 11. How can expected information gain be estimated without false precision?
 12. Which acquisition routes can be automated locally, and which always require
     explicit authorization?
+13. What evidence is sufficient to promote an induced expectation into a named
+    local coverage policy?
+14. What is the smallest useful decision-dependency model that does not turn
+    GraphTruth into a universal decision engine?
+15. Which answer-state transitions can be deterministic, and which always need
+    an attributable assessment or explicit decision?
+16. How should answer assimilation represent bounded negative evidence without
+    confusing it with absence in the world?
+17. When does a multi-step acquisition plan outperform transparent independent
+    question ranking enough to justify its complexity?
