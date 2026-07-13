@@ -25,14 +25,20 @@ Use a three-corpus public laboratory track, one corpus at a time:
 3. `postgresql-cte-materialization-11-12-v1` — version-scoped semantics.
 
 Each initial corpus contains four source items. A first sequential lane precedes
-the separately frozen order-robustness successor. If the first lane reaches its
-bounded `keep`, the successor executes all 24 permutations from clean state.
-The next corpus does not start until the active corpus is kept, shrunk, rejected,
-or deliberately paused under the project's one-major-WIP rule.
+the separately frozen order-robustness successor. Call its decision
+`sequential keep`, `sequential shrink`, or `sequential stop`. A sequential
+keep authorizes only the successor; it is not a corpus-level keep. The successor
+executes all 24 permutations from clean state and records a separate
+`order-robustness keep`, `order-robustness shrink`, or
+`order-robustness stop`. Only its keep is the public corpus-level keep.
 
-After all three corpora produce bounded evidence, a separate multi-domain
-successor may combine them under Issue #8. The combined experiment is not part
-of the first three keeps.
+The next public corpus does not start until the active public corpus reaches that
+corpus-level keep, is stopped or rejected, or is deliberately paused under the
+project's one-major-WIP rule.
+
+After all three corpora produce bounded corpus-level keeps, a separate
+multi-domain successor may combine them under Issue #8. The combined experiment
+is not part of the first three corpus-level keeps.
 
 ## Purpose and program hypothesis
 
@@ -196,12 +202,14 @@ The final task pack should cover at least:
 - why PEP 749 was needed after PEP 649 was accepted;
 - replacement versus supplementation: PEP 563, PEP 649, and PEP 749;
 - version-scoped answers rather than one timeless annotation behavior;
-- the missing link between general annotations and standardized type hints;
+- PEP 484 details and primary evidence outside the corpus, including the exact
+  standardization scope and compatibility history;
 - abstention about current runtime behavior not established by this corpus.
 
-PEP 484 is a predeclared dark-zone control. A useful question should identify
-the missing transition without importing remembered PEP 484 content as corpus
-evidence.
+PEP 484 is a predeclared dark-zone control. The corpus already names the
+type-hinting transition, so a useful question should identify which PEP 484
+details or primary evidence are absent. It must not treat the transition's
+existence as unknown or import remembered PEP 484 content as corpus evidence.
 
 ### Python limitations
 
@@ -373,21 +381,27 @@ WIP:
 4. **First comparison** — run the frozen tasks against GraphTruth and the same
    files plus ordinary search under the registered information and labor
    budgets.
-5. **Decision** — record `keep`, `shrink`, or `stop`, including all failures and
-   costs. Close or deliberately pause the lane before successor work.
-6. **Order-robustness successor** — create a new freeze and run identity, start
-   every order clean, enumerate all 24 permutations, and report the worst order
-   and complete denominator.
-7. **Learning record** — add expected, observed, learned, and the permitted next
-   scope to the owning issue.
+5. **Sequential decision** — record `sequential keep`, `sequential shrink`,
+   or `sequential stop`, including all failures and costs. Close or deliberately
+   pause the lane before successor work. A sequential keep authorizes only the
+   order-robustness successor.
+6. **Order-robustness successor and decision** — create a new freeze and run
+   identity, start every order clean, enumerate all 24 permutations, report the
+   worst order and complete denominator, and record `order-robustness keep`,
+   `order-robustness shrink`, or `order-robustness stop`. Only this keep is the
+   public corpus-level keep.
+7. **Learning record** — add expected, observed, learned, both decisions, and the
+   permitted next scope to the owning issue.
 
 No corpus advances automatically because preparation cost has already been
 spent or because another corpus passed.
 
-## Shared acceptance conditions
+## Shared order-robustness acceptance conditions
 
-The exact thresholds belong in each sealed run card. At minimum, a corpus cannot
-reach `keep` unless:
+The exact thresholds belong in each sealed run card. The sequential lane has its
+own bounded gates in the harness and can reach only a sequential decision. At
+minimum, an order-robustness successor cannot reach `order-robustness keep`,
+the public corpus-level keep, unless:
 
 - every displayed claim resolves to exact retained evidence;
 - no future item or metadata appears before reveal;
@@ -437,8 +451,8 @@ by replacing the corpus with an easier one.
 
 ## Derived multi-domain successor
 
-After bounded keeps on all three isolated corpora, Issue #8 may open a separate
-hidden-domain experiment over their composition.
+After bounded order-robustness keeps on all three isolated corpora, Issue #8 may
+open a separate hidden-domain experiment over their composition.
 
 The system under test must not receive curated domain labels, future item names,
 bridge identity, or oracle structure. It should be able to retain unclassified
@@ -491,9 +505,12 @@ transform, process, or redistribute material.
 
 ## Immediate deliverables
 
-Only the first corpus is active after this plan is merged:
+Merging this plan does not activate a public corpus. Issue #6's private S0-S1
+walking skeleton remains the single major WIP until it records a decision and
+closes, or the project explicitly records that it is paused or re-scoped. The
+first queued public corpus is then `python-annotations-semantics-v1`:
 
-1. complete a `python-annotations-semantics-v1` corpus-selection record;
+1. complete its corpus-selection record;
 2. verify per-file rights and acquire the four pinned originals outside the
    checkout;
 3. choose and pin the RST-to-Markdown transformation or shrink before adding
@@ -502,7 +519,9 @@ Only the first corpus is active after this plan is merged:
    and an oracle outside SUT reach;
 5. freeze the sequential run card and baseline budget;
 6. implement only the S0-S1 vertical slice required to execute it;
-7. record `keep`, `shrink`, or `stop` before opening factorial or corpus-2 work.
+7. record `sequential keep`, `sequential shrink`, or `sequential stop`;
+8. after a sequential keep, open only the 24-order successor and record its
+   order-robustness decision before corpus 2 starts.
 
 GitLab, PostgreSQL, multi-domain composition, public benchmark packaging, and
 model-assisted automation remain queued rather than parallel WIP.
