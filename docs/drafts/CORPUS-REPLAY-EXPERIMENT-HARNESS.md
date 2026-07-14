@@ -1107,8 +1107,12 @@ general UI, or Zone 1 format decision is required.
 
 ### Time box
 
-Five focused working days with a hard stop after two calendar weeks. This is the
-single major WIP item.
+Five working days with a hard stop after two calendar weeks. For this
+experiment, one working day is one distinct Europe/Moscow date with material
+GraphTruth repository activity on or after the issue was opened. Multiple
+events on one date count once; a date with no repository activity counts zero.
+The counted-date ledger is retained in Issue #6. This is the single major WIP
+item.
 
 The first time box covers S0–S1; A; B on 3–5 items; exact-redelivery idempotency
 from C; one interruption plus clean rebuild from G; the controller/SUT canary
