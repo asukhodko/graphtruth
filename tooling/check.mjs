@@ -5,9 +5,37 @@ import process from "node:process";
 import { promisify } from "node:util";
 import { fileURLToPath } from "node:url";
 
+import { parseStrictJson } from "./private-pack-lock.mjs";
+
 const execFileAsync = promisify(execFile);
 const toolingDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.resolve(toolingDirectory, "..");
+const publicG1ReceiptTemplatePath = "experiments/templates/PUBLIC-G1-RECEIPT.json";
+const publicG1ReceiptPath = "experiments/receipts/g1-evidence-contract-v1.json";
+const publicG1AttestationKeys = [
+  "eligibleEpisodeSelected",
+  "sourceSetWithinApprovedBound",
+  "allSourcesImmutableMarkdown",
+  "knowledgeBoundaryAndRevealOrderFrozen",
+  "taskDenominatorClosedAndMeetsMinimum",
+  "oracleWithheld",
+  "baselineExposureEvaluationAndDecisionFrozen",
+  "dataHandlingAndIncidentRulesApproved",
+  "publicationSafeSyntheticTwinReviewed",
+  "privatePackInventoryVerified",
+  "nonCircularPrivateSealAnchoredOutsidePack",
+  "finalConfirmationsBoundToSealedPack",
+  "ownerReviewCompleted",
+  "independentReviewCompleted",
+  "noEvaluatedRunPerformed",
+  "noContractPrivateMaterialPublishedOrSharedWithAssistants",
+];
+const publicG1ClaimBoundary = [
+  "Attests only that the G1 evidence-contract controls were completed.",
+  "Does not identify, quote, hash, or commit to private material publicly.",
+  "Does not admit a runtime to private data.",
+  "Does not report an experiment result or establish GraphTruth usefulness.",
+];
 
 const fallbackIgnoredDirectories = new Set([
   ".cache",
@@ -45,6 +73,7 @@ const requiredRepositoryPaths = new Map([
   ["experiments/templates/DATA-HANDLING.md", "file"],
   ["experiments/templates/EVIDENCE-CONTRACT.md", "file"],
   ["experiments/templates/FAILURE-DIARY.md", "file"],
+  ["experiments/templates/G1-EVIDENCE-CONTRACT.md", "file"],
   ["experiments/templates/INCIDENT-RUNBOOK.md", "file"],
   ["experiments/templates/REVIEW-RUBRIC.md", "file"],
   ["experiments/templates/RUN-CARD.md", "file"],
@@ -57,11 +86,15 @@ const requiredRepositoryPaths = new Map([
   ["tooling/README.md", "file"],
   ["tooling/check", "file"],
   ["tooling/check.mjs", "file"],
+  ["tooling/check.test.mjs", "file"],
   ["tooling/opskarta", "file"],
   ["tooling/opskarta-requirements.in", "file"],
   ["tooling/opskarta_validate.py", "file"],
   ["tooling/opskarta-requirements.txt", "file"],
   ["tooling/opskarta.test.mjs", "file"],
+  ["tooling/private-pack-lock", "file"],
+  ["tooling/private-pack-lock.mjs", "file"],
+  ["tooling/private-pack-lock.test.mjs", "file"],
   ["tooling/preflight", "file"],
   ["tooling/preflight.mjs", "file"],
   ["tooling/preflight.test.mjs", "file"],
@@ -472,6 +505,87 @@ function validIsoDate(value) {
   return !Number.isNaN(date.valueOf()) && date.toISOString().startsWith(value);
 }
 
+function hasExactKeys(value, expectedKeys) {
+  if (value === null || typeof value !== "object" || Array.isArray(value)) return false;
+  const actualKeys = Object.keys(value).sort();
+  const sortedExpectedKeys = [...expectedKeys].sort();
+  return (
+    actualKeys.length === sortedExpectedKeys.length &&
+    actualKeys.every((key, index) => key === sortedExpectedKeys[index])
+  );
+}
+
+function checkPublicG1Receipt(filePath, content, isTemplate) {
+  const displayPath = relativePath(filePath);
+  let receipt;
+  try {
+    receipt = parseStrictJson(content);
+  } catch {
+    report(`${displayPath}: receipt must be strict JSON without duplicate keys`);
+    return;
+  }
+
+  if (
+    !hasExactKeys(receipt, [
+      "documentKind",
+      "gate",
+      "status",
+      "attestedOn",
+      "trustBasis",
+      "publicBounds",
+      "attestations",
+      "claimBoundary",
+    ]) ||
+    receipt.documentKind !== "graphtruth.public-g1-receipt/1" ||
+    receipt.gate !== "G1" ||
+    receipt.trustBasis !== "owner-and-independent-reviewer-attestation" ||
+    !hasExactKeys(receipt.publicBounds, ["sources", "tasks"]) ||
+    receipt.publicBounds.sources !== "three-to-five-confirmed" ||
+    receipt.publicBounds.tasks !== "closed-T-at-least-eight-confirmed" ||
+    !hasExactKeys(receipt.attestations, publicG1AttestationKeys) ||
+    !Array.isArray(receipt.claimBoundary) ||
+    receipt.claimBoundary.length !== publicG1ClaimBoundary.length ||
+    receipt.claimBoundary.some((value, index) => value !== publicG1ClaimBoundary[index])
+  ) {
+    report(`${displayPath}: receipt keys and fixed public claims must match the v1 allowlist`);
+    return;
+  }
+
+  const expectedBoolean = !isTemplate;
+  if (
+    publicG1AttestationKeys.some(
+      (key) =>
+        typeof receipt.attestations[key] !== "boolean" ||
+        receipt.attestations[key] !== expectedBoolean,
+    )
+  ) {
+    report(
+      `${displayPath}: every attestation must be ${expectedBoolean} for this receipt state`,
+    );
+  }
+
+  if (isTemplate) {
+    if (receipt.status !== "template-only-not-attested" || receipt.attestedOn !== null) {
+      report(`${displayPath}: the public template must remain explicitly unattested`);
+    }
+  } else if (receipt.status !== "attested" || !validIsoDate(receipt.attestedOn)) {
+    report(`${displayPath}: an attested receipt requires status 'attested' and a valid date`);
+  }
+}
+
+export function classifyPublicG1ReceiptPath(displayPath, isText) {
+  if (displayPath === publicG1ReceiptTemplatePath) {
+    return isText ? "template" : "registered-non-text";
+  }
+  if (displayPath === publicG1ReceiptPath) {
+    return isText ? "attested" : "registered-non-text";
+  }
+  if (displayPath.startsWith("experiments/receipts/")) {
+    return "unregistered";
+  }
+  return null;
+}
+
 function checkRfc(filePath, markdown) {
   const displayPath = relativePath(filePath);
   const filename = path.basename(filePath);
@@ -513,55 +627,77 @@ function checkRfc(filePath, markdown) {
   }
 }
 
-const command = process.argv[2] ?? "check";
-if (!new Set(["check", "--list-markdown"]).has(command) || process.argv.length > 3) {
-  console.error("Usage: node tooling/check.mjs [--list-markdown]");
-  process.exit(2);
+async function main() {
+  const command = process.argv[2] ?? "check";
+  if (!new Set(["check", "--list-markdown"]).has(command) || process.argv.length > 3) {
+    console.error("Usage: node tooling/check.mjs [--list-markdown]");
+    process.exit(2);
+  }
+
+  const files = await collectPublicFiles();
+  if (command === "--list-markdown") {
+    const markdownPaths = files
+      .filter((filePath) => path.extname(filePath).toLowerCase() === ".md")
+      .map((filePath) => `./${relativePath(filePath)}`);
+    if (markdownPaths.length > 0) {
+      process.stdout.write(`${markdownPaths.join("\0")}\0`);
+    }
+    process.exit(0);
+  }
+
+  await checkRequiredPaths();
+
+  const publicRelativePaths = new Set(files.map((filePath) => relativePath(filePath)));
+  for (const filePath of files) {
+    const buffer = await readFile(filePath);
+    const displayPath = relativePath(filePath);
+    const isText = isProbablyText(buffer);
+    const receiptDisposition = classifyPublicG1ReceiptPath(displayPath, isText);
+    if (!isText) {
+      if (receiptDisposition === "registered-non-text") {
+        report(`${displayPath}: a registered public G1 receipt must be strict text JSON`);
+      } else if (receiptDisposition === "unregistered") {
+        report(`${displayPath}: unregistered public experiment receipt path`);
+      }
+      continue;
+    }
+
+    const content = buffer.toString("utf8");
+    checkTextHygiene(filePath, content);
+    checkHighConfidenceSecrets(filePath, content);
+
+    if (path.extname(filePath).toLowerCase() === ".md") {
+      await checkMarkdownLinks(filePath, content, publicRelativePaths);
+    }
+
+    if (receiptDisposition === "template") {
+      checkPublicG1Receipt(filePath, content, true);
+    } else if (receiptDisposition === "attested") {
+      checkPublicG1Receipt(filePath, content, false);
+    } else if (receiptDisposition === "unregistered") {
+      report(`${displayPath}: unregistered public experiment receipt path`);
+    }
+
+    if (
+      path.dirname(filePath) === path.join(repositoryRoot, "rfcs") &&
+      path.basename(filePath) !== "README.md" &&
+      path.extname(filePath).toLowerCase() === ".md"
+    ) {
+      checkRfc(filePath, content);
+    }
+  }
+
+  if (errors.length > 0) {
+    console.error(`Repository quality checks failed with ${errors.length} error(s):`);
+    for (const error of errors.sort()) {
+      console.error(`- ${error}`);
+    }
+    process.exitCode = 1;
+  } else {
+    console.log(`Repository quality checks passed (${files.length} public files inspected).`);
+  }
 }
 
-const files = await collectPublicFiles();
-if (command === "--list-markdown") {
-  const markdownPaths = files
-    .filter((filePath) => path.extname(filePath).toLowerCase() === ".md")
-    .map((filePath) => `./${relativePath(filePath)}`);
-  if (markdownPaths.length > 0) {
-    process.stdout.write(`${markdownPaths.join("\0")}\0`);
-  }
-  process.exit(0);
-}
-
-await checkRequiredPaths();
-
-const publicRelativePaths = new Set(files.map((filePath) => relativePath(filePath)));
-for (const filePath of files) {
-  const buffer = await readFile(filePath);
-  if (!isProbablyText(buffer)) {
-    continue;
-  }
-
-  const content = buffer.toString("utf8");
-  checkTextHygiene(filePath, content);
-  checkHighConfidenceSecrets(filePath, content);
-
-  if (path.extname(filePath).toLowerCase() === ".md") {
-    await checkMarkdownLinks(filePath, content, publicRelativePaths);
-  }
-
-  if (
-    path.dirname(filePath) === path.join(repositoryRoot, "rfcs") &&
-    path.basename(filePath) !== "README.md" &&
-    path.extname(filePath).toLowerCase() === ".md"
-  ) {
-    checkRfc(filePath, content);
-  }
-}
-
-if (errors.length > 0) {
-  console.error(`Repository quality checks failed with ${errors.length} error(s):`);
-  for (const error of errors.sort()) {
-    console.error(`- ${error}`);
-  }
-  process.exitCode = 1;
-} else {
-  console.log(`Repository quality checks passed (${files.length} public files inspected).`);
-}
+const invokedAsScript =
+  process.argv[1] !== undefined && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (invokedAsScript) await main();

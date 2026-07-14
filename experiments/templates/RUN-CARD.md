@@ -91,6 +91,10 @@ declare and quantify the asymmetry.
 
 ### Order robustness and semantic convergence
 
+For the first chronological S0-S1 comparison, record this entire section as
+`Deferred successor` and do not claim order robustness. Complete it only for
+the separate post-`keep` successor run; no field may remain silently blank.
+
 - Closed corpus and terminal horizon:
 - Distinct item count and expected permutation denominator (`n!` for 3–5):
 - Seed-slot count and execution denominator `P × S`:

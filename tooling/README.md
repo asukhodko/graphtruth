@@ -81,6 +81,84 @@ review required by the experiment methodology.
 The public pack and its runner are non-normative Zone 3 laboratory tooling.
 Their formats and behavior may change as experiments produce evidence.
 
+## Private G1 pack lock
+
+`./tooling/private-pack-lock` is the one repository command designed to inspect
+a private G1 `PACK`. Run it only from a history-disabled local Terminal after
+Codex, model clients, synchronizers, and other unapproved processors are closed
+and the encrypted owner-only volume has passed the
+[freeze-guide checks](../experiments/templates/EVIDENCE-CONTRACT.md). It uses
+Node built-ins plus the fixed macOS `/usr/bin/xattr` reader, opens no network
+connection, and emits only a generic success or rejection code; it never prints
+paths, content, counts, roles, or digests. Private seal evidence is supported
+only on macOS. Other platforms may run the exported algorithm tests, but the
+command fails closed there.
+
+The pack must contain `artifact-roles.json` with this strict shape:
+
+```json
+{
+  "format": "graphtruth.private-g1-artifact-roles/1",
+  "artifacts": [
+    {
+      "path": "artifact-roles.json",
+      "role": "artifact-role-map"
+    }
+  ]
+}
+```
+
+Replace the example list with all and only regular files in the candidate pack,
+including the role map itself and excluding the future lock. Every path
+component, role, and contract identity must use only ASCII letters, digits,
+period, underscore, or hyphen and must start with a letter or digit. A path
+component is at most 255 bytes, a role or contract identity at most 128 bytes,
+a complete relative path at most 1,024 bytes and 64 components. The tool rejects
+undeclared or missing files, duplicate JSON keys, non-canonical locks, wrong
+owners, group or other access, ACLs, symlinks, hard links, special files,
+nested devices, path escapes, resource forks and extended attributes outside
+the sealed `darwin-provenance-11-byte-only` policy, unstable reads, and changes
+during verification. The lock binds the `owner-only-no-acl-v1` policy, and the
+process performing create or verify must have the same effective user ID as
+`PACK`.
+Current macOS may add its fixed 11-byte `com.apple.provenance` attribute to a
+fresh copy; the tool treats that one platform attribute as opaque, local, and
+non-semantic, excludes its value from the digest, and rejects every other
+attribute. Each filesystem object may have no xattr or exactly one
+`com.apple.provenance` value decoding to 11 bytes. An OS change that produces
+another name or length stops the seal; do not widen the allowlist during an
+attempt. Rebuild a rejected candidate from fresh copies instead of recursively
+repairing its permissions, ACLs, or metadata.
+
+Audit one canonical absolute Node executable before private access and record
+its version and SHA-256 with the checked-in wrapper and module hashes. In the
+empty-environment shell from the freeze guide, set that path and run the wrapper
+through another empty environment. Calling the module directly is not a valid
+private seal operation:
+
+```sh
+/usr/bin/env -i \
+  LC_ALL=C \
+  PATH=/usr/bin:/bin:/usr/sbin:/sbin \
+  /bin/sh "$LOCK_TOOL" "$NODE_TOOL" create "$PACK" "$LOCK" "$CONTRACT_ID"
+/usr/bin/env -i \
+  LC_ALL=C \
+  PATH=/usr/bin:/bin:/usr/sbin:/sbin \
+  /bin/sh "$LOCK_TOOL" "$NODE_TOOL" verify "$PACK" "$LOCK" "$CONTRACT_ID"
+```
+
+`create` refuses to replace an existing lock. `verify` is read-only and checks
+the exact all-and-only inventory, roles, raw-byte SHA-256 values, byte lengths,
+sorting, and self-exclusion. The lock format is private experimental evidence,
+not a GraphTruth protocol or supported interchange format.
+
+The command does not prove encryption, mounting, authorization, reviewer
+independence, process isolation, backups, or safe disclosure. It must not run in
+CI or through an assistant against a real private `PACK`, or against an attached
+private volume while such a processor is open. The repository gate is allowed
+to run only its generated synthetic fixtures. Follow the freeze guide for the
+remaining controls, external lock-anchor, and two final confirmations.
+
 ## Operational plan validation
 
 Validate the repository's current work map with:

@@ -7,7 +7,8 @@
 
 ## Evaluation claim
 
-- Run identity:
+- G1 evidence-contract identity:
+- Later M2 run identity: `Pending M2`
 - Decision supported by this review:
 - Primary endpoint and denominator:
 - Objective ground truth available:
@@ -35,7 +36,9 @@ For every task record privately:
 - reviewer prior knowledge.
 
 Do not rewrite tasks, oracle, thresholds, or required citations after seeing a
-result. A corrected evaluation design creates a new run identity.
+result. Before execution, a corrected evaluation design creates a new G1
+evidence-contract identity; after M2 binds a runtime, it also creates a new run
+identity.
 
 ## Per-task scoring
 
@@ -98,7 +101,12 @@ When the same person curates, operates, answers, and scores, label the compariso
 exploratory. It can expose failures and workflow cost, but it cannot establish
 superiority.
 
-## Result
+## Later result record
+
+The sealed G1 rubric defines the fields below but never receives their observed
+values. At G1 record them as `Pending evaluated run`. M3 creates a separate
+mutable evaluation report under `WORK`; do not edit the sealed rubric after
+results are visible.
 
 - Primary endpoint result with denominator:
 - Severe errors:
