@@ -1,0 +1,107 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+repository_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+venv_root="$repository_root/.cache/opskarta-v3-venv"
+requirements="$repository_root/tooling/opskarta-requirements.txt"
+requirements_input="$repository_root/tooling/opskarta-requirements.in"
+
+bootstrap_python=""
+for candidate in python3.12 python3; do
+  if command -v "$candidate" >/dev/null 2>&1 &&
+    "$candidate" -c 'import sys; raise SystemExit(sys.version_info < (3, 12))'; then
+    bootstrap_python="$candidate"
+    break
+  fi
+done
+
+if [[ -z "$bootstrap_python" ]]; then
+  echo "opskarta: Python 3.12 or newer is required" >&2
+  exit 2
+fi
+
+export PYTHONDONTWRITEBYTECODE=1
+
+"$bootstrap_python" - "$requirements_input" "$requirements" <<'PY'
+from pathlib import Path
+import re
+import sys
+
+
+def pins(path: str) -> dict[str, str]:
+    result = {}
+    for raw_line in Path(path).read_text(encoding="utf-8").splitlines():
+        line = raw_line.partition("#")[0].strip()
+        if "==" not in line:
+            continue
+        name, expected = line.split("==", 1)
+        normalized = re.sub(r"[-_.]+", "-", name).lower()
+        result[normalized] = expected.split()[0]
+    return result
+
+
+def direct_lock_pins(path: str) -> dict[str, str]:
+    result = {}
+    current = None
+    for raw_line in Path(path).read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if line and not line.startswith(("#", "-")) and "==" in line:
+            name, expected = line.split("==", 1)
+            current = re.sub(r"[-_.]+", "-", name).lower()
+            version = expected.split()[0]
+        elif current and re.search(r"-r\s+\S*opskarta-requirements\.in\b", line):
+            result[current] = version
+    return result
+
+
+direct = pins(sys.argv[1])
+locked_direct = direct_lock_pins(sys.argv[2])
+if direct != locked_direct:
+    print("opskarta: requirements lock is out of date", file=sys.stderr)
+    raise SystemExit(2)
+PY
+
+requirements_digest="$(shasum -a 256 "$requirements" | awk '{print $1}')"
+python_version="$($bootstrap_python -c 'import platform; print(platform.python_version())')"
+environment_fingerprint="$python_version:$requirements_digest"
+environment_stamp="$venv_root/.graphtruth-opskarta-environment"
+
+dependencies_match() {
+  [[ -r "$environment_stamp" ]] || return 1
+  [[ "$(<"$environment_stamp")" == "$environment_fingerprint" ]] || return 1
+  "$venv_root/bin/python" - "$requirements" <<'PY'
+from importlib.metadata import PackageNotFoundError, version
+from pathlib import Path
+import sys
+
+for raw_line in Path(sys.argv[1]).read_text(encoding="utf-8").splitlines():
+    line = raw_line.partition("#")[0].strip()
+    if "==" not in line:
+        continue
+    name, expected = line.split("==", 1)
+    expected = expected.split()[0]
+    try:
+        installed = version(name)
+    except PackageNotFoundError:
+        raise SystemExit(1)
+    if installed != expected:
+        raise SystemExit(1)
+PY
+}
+
+if [[ ! -x "$venv_root/bin/python" ]] || ! dependencies_match; then
+  "$bootstrap_python" -m venv --clear "$venv_root"
+  "$venv_root/bin/python" -m pip install \
+    --disable-pip-version-check \
+    --only-binary=:all: \
+    --quiet \
+    --require-hashes \
+    --requirement "$requirements"
+  "$venv_root/bin/python" -m pip check --disable-pip-version-check --quiet
+  printf '%s\n' "$environment_fingerprint" >"$environment_stamp"
+fi
+
+export PYTHONNOUSERSITE=1
+export PYTHONPATH="$repository_root/tooling/vendor/opskarta"
+exec "$venv_root/bin/python" "$repository_root/tooling/opskarta_validate.py" "$@"

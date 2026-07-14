@@ -35,6 +35,12 @@ The monorepo is not permission to build a monolith. It is a coordination boundar
 
 These boundaries should remain recognizable even if the concrete directory layout later gains packages, applications, or language-specific subtrees.
 
+Repository-maintenance utilities do not acquire Zone 2 authority merely by
+living under `tooling/`. In particular, the vendored OpsKarta subset and its
+adapter validate only the operational project map. They may be used by the
+quality gate and planning tests, but must not be imported by `spec/`,
+`schemas/`, `rfcs/`, or `runtime/`.
+
 ## Dependency rules
 
 Dependencies point from replaceable implementation details toward stable contracts:

@@ -28,8 +28,12 @@ const requiredRepositoryPaths = new Map([
   [".markdownlint-cli2.yaml", "file"],
   ["package.json", "file"],
   ["package-lock.json", "file"],
+  ["THIRD_PARTY_NOTICES.md", "file"],
   ["docs", "directory"],
   ["docs/DEVELOPMENT.md", "file"],
+  ["docs/planning", "directory"],
+  ["docs/planning/README.md", "file"],
+  ["docs/planning/graphtruth.plan.yaml", "file"],
   ["examples", "directory"],
   ["examples/experiments/preflight", "directory"],
   ["experiments", "directory"],
@@ -49,9 +53,16 @@ const requiredRepositoryPaths = new Map([
   ["tooling/README.md", "file"],
   ["tooling/check", "file"],
   ["tooling/check.mjs", "file"],
+  ["tooling/opskarta", "file"],
+  ["tooling/opskarta-requirements.in", "file"],
+  ["tooling/opskarta_validate.py", "file"],
+  ["tooling/opskarta-requirements.txt", "file"],
+  ["tooling/opskarta.test.mjs", "file"],
   ["tooling/preflight", "file"],
   ["tooling/preflight.mjs", "file"],
   ["tooling/preflight.test.mjs", "file"],
+  ["tooling/vendor/opskarta/UPSTREAM.md", "file"],
+  ["tooling/vendor/opskarta/UPSTREAM.sha256", "file"],
   [".github/PULL_REQUEST_TEMPLATE.md", "file"],
   [".github/ISSUE_TEMPLATE/config.yml", "file"],
   [".github/ISSUE_TEMPLATE/observation.md", "file"],
@@ -75,6 +86,11 @@ const requiredRfcMetadata = [
   "Superseded by",
 ];
 const secretAllowMarker = "graphtruth-secret-scan: allow";
+const unchangedVendorFilesWithTrailingWhitespace = new Set([
+  "tooling/vendor/opskarta/specs/v3/tools/loader.py",
+  "tooling/vendor/opskarta/specs/v3/tools/models.py",
+  "tooling/vendor/opskarta/specs/v3/tools/validator.py",
+]);
 const highConfidenceSecretPatterns = [
   {
     name: "PEM private key",
@@ -254,15 +270,20 @@ function isProbablyText(buffer) {
   return !buffer.includes(0);
 }
 
+function allowsVendoredTrailingWhitespace(filePath) {
+  return unchangedVendorFilesWithTrailingWhitespace.has(relativePath(filePath));
+}
+
 function checkTextHygiene(filePath, content) {
   const displayPath = relativePath(filePath);
   const lines = content.split("\n");
   const conflictMarker = /^(?:<{7}(?: .*)?|\|{7}(?: .*)?|={7}|>{7}(?: .*)?)$/;
+  const allowTrailingWhitespace = allowsVendoredTrailingWhitespace(filePath);
 
   for (const [index, rawLine] of lines.entries()) {
     const line = rawLine.endsWith("\r") ? rawLine.slice(0, -1) : rawLine;
 
-    if (/[\t ]+$/.test(line)) {
+    if (!allowTrailingWhitespace && /[\t ]+$/.test(line)) {
       report(`${displayPath}:${index + 1}: trailing whitespace`);
     }
     if (conflictMarker.test(line)) {

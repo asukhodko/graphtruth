@@ -6,7 +6,9 @@
 > complete personal system. The repository is public so that its design can
 > develop in the open, but it currently has **no license** and is **not accepting
 > code contributions**. No permission to use, modify, or redistribute the work
-> is granted beyond applicable law and GitHub's terms.
+> is granted beyond applicable law and GitHub's terms. Explicitly identified
+> vendored components remain under their own licenses; see
+> [third-party notices](THIRD_PARTY_NOTICES.md).
 
 GraphTruth is a file-first protocol and toolkit for turning incomplete events,
 documents, observations, and fragments of experience into durable epistemic
@@ -154,8 +156,9 @@ would make the protocol less durable, so the design may change substantially
 while the project is pre-alpha.
 
 The capability-oriented stages and their exit evidence are described in the
-[roadmap](docs/ROADMAP.md). Changes are developed through the
-[evidence-driven development process](docs/DEVELOPMENT.md).
+[roadmap](docs/ROADMAP.md). The current work sequence and decision gates live
+in the [operational plan](docs/planning/README.md). Changes are developed
+through the [evidence-driven development process](docs/DEVELOPMENT.md).
 
 Issues that discuss the model and design may be useful, but please do not submit
 code or data contributions until licensing, contribution terms, and the initial

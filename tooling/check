@@ -17,4 +17,27 @@ fi
 
 node tooling/check.mjs
 ./tooling/preflight
-node --test tooling/preflight.test.mjs runtime/lib.test.mjs runtime/replay.test.mjs
+expected_vendor_inventory() {
+  awk '{print $2}' tooling/vendor/opskarta/UPSTREAM.sha256
+  printf '%s\n' \
+    tooling/vendor/opskarta/UPSTREAM.md \
+    tooling/vendor/opskarta/UPSTREAM.sha256
+}
+
+actual_vendor_inventory() {
+  find tooling/vendor/opskarta \( -type f -o -type l \) -print
+}
+
+if ! diff -u \
+  <(expected_vendor_inventory | LC_ALL=C sort) \
+  <(actual_vendor_inventory | LC_ALL=C sort); then
+  echo "Vendored OpsKarta inventory differs from the closed manifest" >&2
+  exit 1
+fi
+shasum -a 256 --check tooling/vendor/opskarta/UPSTREAM.sha256
+./tooling/opskarta --strict docs/planning/graphtruth.plan.yaml
+node --test \
+  tooling/preflight.test.mjs \
+  tooling/opskarta.test.mjs \
+  runtime/lib.test.mjs \
+  runtime/replay.test.mjs

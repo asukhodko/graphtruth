@@ -69,3 +69,37 @@ human-leakage review required by the experiment methodology.
 
 The public pack and its runner are non-normative Zone 3 laboratory tooling.
 Their formats and behavior may change as experiments produce evidence.
+
+## Operational plan validation
+
+Validate the repository's current work map with:
+
+```sh
+./tooling/opskarta --strict docs/planning/graphtruth.plan.yaml
+```
+
+This is repository-maintenance infrastructure, not GraphTruth protocol tooling.
+The wrapper selects Python 3.12 or newer, creates an ignored virtual environment
+under `.cache/`, and installs the fully pinned, hash-checked binary distributions
+in [`opskarta-requirements.txt`](opskarta-requirements.txt). It then runs a small
+GraphTruth adapter over an unchanged, pinned validation subset of OpsKarta v3.
+The adapter accepts one closed plan file, rejects YAML aliases, duplicate or
+non-string keys, and non-finite numbers, applies the upstream fragment and
+merged-plan schemas, runs semantic validation, and requires a named plan. The
+quality gate rejects extra vendor files and checks every imported-file hash. The
+three unchanged upstream Python files that contain trailing whitespace are
+explicitly exempt from that one local rule so their bytes and recorded digests
+remain intact; merge-marker, secret, and planning checks still apply.
+
+Direct Python requirements live in
+[`opskarta-requirements.in`](opskarta-requirements.in). Regenerate the lock with
+Python 3.12 and `pip-tools==7.5.3`, review the resolved versions and hashes, then
+exercise a clean bootstrap. Source distributions are refused; a platform
+without a hash-listed wheel fails closed. The managed environment is rebuilt
+when the lock or Python patch version changes, and an out-of-date direct-input
+lock is rejected.
+
+See [operational planning](../docs/planning/README.md) for the three planning
+layers and [the vendor record](vendor/opskarta/UPSTREAM.md) for source,
+licensing, inventory, and update procedure. OpsKarta code must not be imported
+from `spec/`, `schemas/`, `rfcs/`, or `runtime/`.
