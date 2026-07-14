@@ -53,6 +53,10 @@ maintained artifact.
 - Update execution facts and gate statuses together with their evidence.
 - Account for one issue-wide time box across all of its plan phases; never reset
   a budget by renaming or decomposing the work.
+- For Issue #6, count one working day per distinct Europe/Moscow date with
+  material GraphTruth repository activity on or after the issue was opened.
+  Multiple events on one date count once; a date with no repository activity
+  counts zero. Keep the counted-date ledger in Issue #6 and the roadmap.
 - Revise the textual roadmap only when capability ordering or transition
   evidence changes; routine task movement belongs here and in the relevant
   issue.

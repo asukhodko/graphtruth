@@ -34,11 +34,16 @@ admission gate.
 
 ## Time box
 
-Issue #6 has one five-focused-day budget and a hard stop on 2026-07-26. PR #18
-used the fourth accounted day to publish this procedure and the pre-private
-twin. One day remains. Before consuming it, the owner must separately choose to
+Issue #6 has one five-day budget and a hard stop on 2026-07-26. Count one day
+per distinct Europe/Moscow date with material GraphTruth repository activity
+on or after the issue was opened; multiple events on one date count once, while
+an inactive date counts zero. Foundation work on 2026-07-11 predates the issue
+and is excluded. Repository history accounts for 2026-07-12, 2026-07-13, and
+2026-07-14 as days one through three. PR #18 occurred on the already counted
+third date and did not consume a separate day. Two active dates remain. Before
+project activity starts on day five, the owner must separately choose to
 continue, shrink the contract, or stop. If the decision is `continue`, the
-complete remaining private freeze must fit that final day; renaming or
+complete remaining private freeze must fit the remaining budget; renaming or
 splitting the work never resets either limit.
 
 ## Existing material and its limit

@@ -67,10 +67,24 @@ manifest, exact private task set and oracle, two closed reviews, and external
 private seal remain pending; no evaluated run has occurred.
 
 The existing Issue #6 budget covers integration through the chronological
-decision in steps 1–4: five focused working days with a hard stop after two
-calendar weeks. Four of the five days are now accounted for. Before consuming
-the final day, the owner must explicitly choose to continue, shrink the
-contract, or stop. Subdividing the work does not restart either clock. The
+decision in steps 1–4: five working days with a hard stop after two calendar
+weeks. A working day is one distinct Europe/Moscow date with material
+GraphTruth repository activity on or after Issue #6 was opened. Multiple
+commits, pull requests, or substantive issue updates on the same date count
+once; a date with no repository activity counts zero. Foundation work on
+2026-07-11 predates the issue and is outside its budget. The current ledger is:
+
+| Day | Active date | Retained repository evidence |
+| ---: | --- | --- |
+| 1 | 2026-07-12 | Issue #6, experiment design, and preflight |
+| 2 | 2026-07-13 | starter-corpora plan |
+| 3 | 2026-07-14 | runtime rehearsal integration, hardening, G1 twin, and state synchronization |
+
+Therefore three of five days are accounted for and two remain. Further work on
+2026-07-14 remains inside day three; the next new active date is day four.
+Before the first project activity on day five, the owner must explicitly choose
+to continue, shrink the contract, or stop. Subdividing the work does not reset
+the activity-day budget. The 2026-07-26 calendar stop remains independent. The
 order successor after `keep` starts under a new issue and time box. If the
 current budget is exhausted before its decision, record the learning and close
 or explicitly replace the experiment before continuing.
