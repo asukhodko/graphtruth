@@ -145,12 +145,13 @@ nodes:
     notes: |
       Select and seal one private 3-5 item decision or incident lineage before
       private-lane implementation is allowed to adapt to its outcomes. The
-      public twin and owner-only procedure are anchored in PR #18, but no
-      private episode has been selected or sealed. Work on 2026-07-14 remains
-      inside the already counted third active date. One more distinct active
-      date may begin within the budget. Before project activity starts on the
-      fifth date, the owner must explicitly continue, shrink, or stop; the
-      2026-07-26 hard stop remains fixed.
+      public twin is anchored in PR #18. PR #21 adds the exact G1 record,
+      fail-closed owner-only pack lock, two-review seal procedure, and strict
+      public receipt gate, but no private episode has been selected or sealed.
+      Work on 2026-07-14 remains inside the already counted third active date.
+      One more distinct active date may begin within the budget. Before project
+      activity starts on the fifth date, the owner must explicitly continue,
+      shrink, or stop; the 2026-07-26 hard stop remains fixed.
 
   m1-select-episode:
     title: "Select one real episode and its knowledge boundary"
@@ -241,7 +242,8 @@ nodes:
       and rehearsal evidence are bound later in the final run card. The owner
       and an independent reviewer must privately compare the public twin with
       the closed episode and record only `safe` or `reject`; the mapping itself
-      is never published.
+      is never published. PR #21 supplies the owner-only all-and-only lock and
+      the single allowlisted receipt path; it is preparation, not seal evidence.
 
   g1-evidence-contract-frozen:
     title: "Gate: private evidence contract frozen"
@@ -696,7 +698,7 @@ x:
         kind: main
         mgmt:
           health: yellow
-          sync_note: "PR #18 anchored the safe twin, but no private episode is sealed; Issue #6 repo activity on 2026-07-12 through 2026-07-14 accounts for three of five distinct active dates."
+          sync_note: "PR #18 anchored the safe twin and PR #21 hardened the owner-only seal and receipt gate, but no private episode is sealed; Issue #6 repo activity on 2026-07-12 through 2026-07-14 accounts for three of five distinct active dates."
           next_sync_goal: "Finish G1 within the two remaining active dates; obtain the owner's continue, shrink, or stop decision before any work on the fifth distinct date."
       private-lane:
         title: "Private S0-S1 lane"
