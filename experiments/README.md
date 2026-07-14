@@ -75,22 +75,36 @@ guide](templates/EVIDENCE-CONTRACT.md) to close G1 before implementing or
 admitting a private runner. The guide reuses the records below while keeping
 the exact runtime identity and full synthetic dress rehearsal in M2.
 
-Copy these templates into the private run root and complete them there:
+Copy the G1 records into the immutable private `PACK` and complete their G1
+fields there. The run card belongs to the later M2 freeze. The failure diary
+and any incident record are mutable execution evidence under `WORK`; they must
+not be added to the G1 lock.
 
-| Template | Decision it freezes |
-| --- | --- |
-| [Corpus selection](templates/CORPUS-SELECTION.md) | Sampling frame, snapshot, rights, coverage, and anti-cherry-picking rules |
-| [Run card](templates/RUN-CARD.md) | Hypothesis, comparison, budgets, endpoints, state, and decision gate |
-| [Data handling](templates/DATA-HANDLING.md) | Authority, isolation, processing, retention, and deletion |
-| [Review rubric](templates/REVIEW-RUBRIC.md) | Tasks, oracle, scoring, severe errors, and baseline fairness |
-| [Incident runbook](templates/INCIDENT-RUNBOOK.md) | Containment and recovery after a boundary failure |
-| [Failure diary](templates/FAILURE-DIARY.md) | Append-only friction, deviations, failures, and surprises |
+| Template | Used in | Decision or evidence it records |
+| --- | --- | --- |
+| [G1 evidence contract](templates/G1-EVIDENCE-CONTRACT.md) | G1 `PACK` | Closed artifact set, baseline, exposure, evaluation, budgets, decision, and explicit M2 boundary |
+| [Corpus selection](templates/CORPUS-SELECTION.md) | G1 `PACK` | Sampling frame, snapshot, rights, coverage, and anti-cherry-picking rules |
+| [Data handling](templates/DATA-HANDLING.md) | G1 `PACK` | Authority, intended isolation, processing, retention, and deletion policy |
+| [Review rubric](templates/REVIEW-RUBRIC.md) | G1 `PACK` | Tasks, oracle, scoring, severe errors, and baseline fairness |
+| [Incident runbook](templates/INCIDENT-RUNBOOK.md) | G1 `PACK` | Frozen triggers, containment, assessment, recovery, and closure procedure |
+| [Run card](templates/RUN-CARD.md) | M2 immutable pack | Exact runtime identity, comparison, budgets, endpoints, state, and admission gate |
+| [Failure diary](templates/FAILURE-DIARY.md) | M3 `WORK` | Append-only friction, deviations, failures, and surprises during execution |
+
+G1 also requires a private `artifact-roles.json` that names all and only the
+regular files in `PACK`. It is run-specific, so no prefilled public copy exists.
+The owner-only [`private-pack-lock`](../tooling/README.md#private-g1-pack-lock)
+command checks that role map and creates the non-circular lock after every
+assistant and unapproved processor is closed.
 
 The [public G1 receipt](templates/PUBLIC-G1-RECEIPT.json) is an intentionally
 unfilled publication example. It is not part of the private pack and is not
 evidence that G1 occurred. After a successful private seal and two reviews,
-publish only coarse safe attestations: never private paths, names, exact counts,
-digests, task or oracle content, excerpts, or failure details.
+the first attested instance may exist only at
+`experiments/receipts/g1-evidence-contract-v1.json`. The repository gate rejects
+extra keys, false attestations, non-date timestamps, or changes to the fixed
+public claims. Publish only coarse safe attestations: never private paths,
+names, exact counts, digests, task or oracle content, excerpts, or failure
+details.
 
 The later M2 run must not enter `frozen` until the run card, corpus manifest,
 task pack, oracle, rubric, data-handling plan, sandbox policy, budgets, and

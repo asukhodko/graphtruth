@@ -5,6 +5,23 @@
 >
 > **Authority:** Non-normative Zone 3 operational guidance.
 
+At G1, freeze this procedure and its run-specific authority fields inside
+`PACK`. If an incident occurs later, create a separate append-only incident
+record under `WORK`; never write assessment or closure evidence back into the
+sealed runbook.
+
+## Run-specific authority
+
+- G1 evidence-contract identity:
+- Later M2 run identity: `Pending M2`
+- Data authority and incident owner:
+- Approved private contact path:
+- Containment boundary and allowed actors:
+- Minimum metadata permitted in an incident record:
+- Notification rule and applicable deadline:
+- Retention and deletion rule for incident evidence:
+- External processors allowed during response: denied / exact authorization:
+
 ## Trigger conditions
 
 Treat any of these as an incident:
@@ -36,7 +53,10 @@ When uncertain, stop and classify. Continuing cannot repair a compromised run.
 Do not paste details into GitHub, CI, chat, email, or a model unless that channel
 is explicitly authorized for the affected data class.
 
-## Assessment
+## Later incident assessment record
+
+The following fields define the later record; keep their G1 values as
+`Pending incident`:
 
 - Incident reference:
 - Detection time and detector:
@@ -64,7 +84,9 @@ temporary files, and provider retention until each is ruled out.
 
 Never resume the compromised run or edit its history to appear valid.
 
-## Closure
+## Later incident closure record
+
+These fields also remain `Pending incident` in the G1 runbook:
 
 - Root cause:
 - Copies deleted and verification method:

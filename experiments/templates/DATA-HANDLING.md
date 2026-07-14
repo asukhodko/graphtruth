@@ -7,7 +7,8 @@
 
 ## Authority and purpose
 
-- Run identity:
+- G1 evidence-contract identity:
+- Later M2 run identity: `Pending M2`
 - Data owner or controlling authority:
 - Evidence of the right to store and process each source class:
 - Approved experiment purpose:
@@ -23,7 +24,8 @@ for a new purpose.
 ## Data inventory
 
 For each class, record sensitivity, purpose, allowed actors, allowed processing,
-retention, and disposal proof:
+retention, and disposal procedure. At G1, source and contract classes exist;
+runtime-derived classes remain `Pending M2` and must not be claimed as created:
 
 - source snapshot;
 - manifest and reveal order;
@@ -40,6 +42,9 @@ existence as data. They can disclose answers even without source bytes.
 ## Physical storage boundary
 
 - Private root location class:
+- Sealed G1 pack boundary:
+- Mutable M2 work boundary:
+- External lock-anchor boundary and protection:
 - Confirmation that it is outside checkout and Git worktrees:
 - Confirmation that it is outside cloud synchronization:
 - Access-control mechanism:
@@ -47,12 +52,16 @@ existence as data. They can disclose answers even without source bytes.
 - Encryption in transit, if any:
 - Backup boundary and access:
 - Host and removable-media restrictions:
+- Independent-review access path and copy prohibition:
 
 `.gitignore` is not a security boundary. Private run material must never enter
 Git history, repository attachments, issues, pull requests, CI, public artifact
 stores, or an editor or assistant service that is not explicitly approved.
 
 ## Sandbox and disclosure boundary
+
+At G1 these fields freeze the intended policy. Runtime enforcement and test
+evidence remain `Pending M2`:
 
 - Controller isolation:
 - Evaluator and oracle isolation:
@@ -78,7 +87,7 @@ prompts, responses, oracle answers, environment values, credentials, and
 personal identifiers.
 
 - Log schema and allowed fields:
-- Redaction test:
+- Redaction test: `Pending M2`, with intended test rule:
 - Log readers:
 - Report disclosure review:
 - Debug escalation procedure:
@@ -91,7 +100,7 @@ smallest synthetic reproduction.
 
 - Retention start and end conditions:
 - Backup frequency and expiry:
-- Restore test:
+- Restore test: `Pending M2`, with intended procedure:
 - Deletion method by data class:
 - Whole-run purge command or procedure:
 - Verification of snapshot, projection, logs, prompts, reports, and backup
@@ -100,15 +109,28 @@ smallest synthetic reproduction.
 - Responsible actor:
 
 A run is not deletable if undisclosed copies survive in caches, model-provider
-retention, logs, backups, editor history, temporary storage, or reports. Test
-deletion closure with synthetic material before using real data.
+retention, logs, backups, editor history, temporary storage, or reports. M2 must
+test deletion closure with synthetic material before any runtime receives real
+data. G1 freezes that requirement but does not claim the test passed.
 
 ## Approval
+
+Required to approve the G1 handling plan:
 
 - [ ] Rights and purpose are explicit for every data class.
 - [ ] Least-privilege access was verified.
 - [ ] External processing is denied or specifically authorized.
-- [ ] Metadata-only logging was tested.
-- [ ] Restore and whole-run purge were exercised synthetically.
+- [ ] The metadata-only logging allowlist and debug escalation are frozen.
+- [ ] Backup, restore, whole-run purge, and deletion procedures are frozen.
 - [ ] The [incident runbook](INCIDENT-RUNBOOK.md) matches this boundary.
 - Approval actor and time:
+
+Runtime-dependent evidence remains explicitly pending at G1:
+
+- [ ] `Pending M2`: metadata-only logging was tested against the exact runtime.
+- [ ] `Pending M2`: restore and whole-run purge were exercised synthetically.
+- [ ] `Pending M2`: sandbox, egress, filesystem, and process isolation passed
+      for the exact runtime identity.
+
+Do not check a `Pending M2` box during G1. The completed G1 plan seals the
+intended behavior and the fact that these exercises have not yet passed.

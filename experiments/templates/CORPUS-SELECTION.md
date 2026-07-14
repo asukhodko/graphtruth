@@ -8,6 +8,11 @@
 > not select a technology, define a GraphTruth protocol corpus, or establish a
 > benchmark.
 
+For G1, complete every applicable selection field and mark later controls
+explicitly `Pending M2` or `Deferred successor`; do not leave them blank and do
+not treat them as G1 evidence. The
+[G1 evidence-contract record](G1-EVIDENCE-CONTRACT.md) defines that boundary.
+
 ## Decision and use case
 
 - Selection identity:
@@ -30,6 +35,7 @@ public.
 - Exact product or documentation version, tag, commit, or release:
 - Snapshot or acquisition time in UTC:
 - Acquisition method and upstream location reference:
+- Confirmation that every selected source is immutable Markdown:
 - Complete candidate-inventory digest and digest algorithm:
 - Upstream mutability or archival limitations:
 - Snapshot owner, freeze actor, and freeze time:
@@ -96,6 +102,7 @@ explicit rather than being silently counted as corroboration.
 - Chronology type: historically evidenced / declared synthetic:
 - Ordering evidence and authority:
 - Event/valid-time source, authority, and semantics:
+- File timestamp recorded separately from event time, with provenance:
 - Publication/availability-time source and authority:
 - Independent historical arrival/reveal schedule and authority:
 - Treatment of ties, uncertain dates, late publication, and retroactive edits:
@@ -103,22 +110,29 @@ explicit rather than being silently counted as corroboration.
 - Metadata visible at each reveal:
 - Future filenames, paths, counts, and metadata withheld from the SUT:
 - Reveal-schedule digest:
-- Order-robustness suite: exhaustive / seeded sample / adversarial:
-- Distinct item count and expected permutation denominator:
-- Permutation generator and enumeration identity:
-- Permutation or seed-list digest:
-- Sealed run-card reference for execution and evaluation denominators:
+- Order-robustness suite: `Deferred successor` for the first G1 contract;
+  otherwise exhaustive / seeded sample / adversarial:
+- Distinct item count and expected permutation denominator: `Deferred
+  successor` for G1, or exact value:
+- Permutation generator and enumeration identity: `Deferred successor` for G1,
+  or exact identity:
+- Permutation or seed-list digest: `Deferred successor` for G1, or digest:
+- Sealed run-card reference for execution and evaluation denominators: `Pending
+  M2` for G1, or reference:
 - Rule confirming that permutations never rewrite event time or version order:
+  `Deferred successor` for G1, or rule:
 
 Filesystem order and modification time are not chronology unless their authority
 is established. When historical order cannot be recovered, label the sequence
 synthetic and limit claims accordingly.
 
-For three to five distinct items, an order-robustness claim requires all `n!`
-permutations. Seeded or adversarial sampling is reserved for larger corpora or a
-separately labeled partial diagnostic. Insufficient factorial budget requires a
-smaller corpus, `shrink`, or `reject`; it does not justify omitting orders while
-retaining the exhaustive claim.
+The first G1 contract records order robustness as `Deferred successor` and does
+not freeze or claim a permutation suite. For a later three-to-five-item
+order-robustness claim, all `n!` permutations are required. Seeded or adversarial
+sampling is reserved for larger corpora or a separately labeled partial
+diagnostic. Insufficient factorial budget requires a smaller corpus, `shrink`,
+or `reject`; it does not justify omitting orders while retaining the exhaustive
+claim.
 
 ## Coverage and knowledge boundary
 
@@ -168,7 +182,9 @@ knowledge acquisition, or absence of memorization.
 - Operator, baseline, and review time budgets:
 - Compute, storage, and external-processing budgets:
 - Parser and media-type limits:
-- Pilot size and frozen condition for expansion:
+- Non-Markdown handling: `reject` for the first G1 contract:
+- Pilot size and frozen condition for expansion: `Deferred successor`; the G1
+  source count remains closed at three to five:
 - Behavior when any budget is exhausted:
 
 Corpus selection, licensing review, lineage work, task preparation, and oracle
@@ -177,7 +193,7 @@ work has already been spent.
 
 ## Freeze and integrity seal
 
-Record immutable identities and digests for:
+At G1, record immutable identities and digests for:
 
 - upstream snapshot and complete candidate inventory;
 - frozen inclusion, exclusion, sampling, and replacement rules;
@@ -185,19 +201,31 @@ Record immutable identities and digests for:
 - reveal schedule and knowledge-boundary declaration;
 - rights and processing-policy record;
 - task pack, withheld oracle, and review rubric;
-- runner code revision, configuration, and environment identity;
 - this completed selection record and the enclosing freeze seal.
 
-- Digest algorithm and byte-canonicalization rule:
-- Pack or freeze-seal identity:
-- Freeze actor and time:
-- Independent reviewer and review time:
+Record these exact controls as `Pending M2`; they are not G1 inputs and must
+not be inserted into the G1 seal as if a runtime had been admitted:
 
-The freeze seal must live outside the material it seals or use another
-unambiguous non-self-referential construction. Any change to sealed bytes,
-selection rules, chronology, tasks, thresholds, policy, code, or environment
-creates a new identity. Never update digests in place to preserve a favorable
-run.
+- runner code revision;
+- configuration and dependency identity;
+- environment and sandbox identity;
+- fresh rehearsal evidence and final run card.
+
+- Digest algorithm and byte-canonicalization rule:
+- Candidate pack identity before lock creation:
+- Candidate finalization actor and time:
+- Pre-seal selection reviewer and review time:
+
+These fields record review of the selection and candidate contents. They are
+not the final owner and independent confirmations, which occur only after the
+completed lock makes the pack immutable and are stored outside the pack.
+
+The G1 pack lock excludes its own bytes and is anchored outside the sealed pack.
+Any change to G1-sealed bytes, selection rules, chronology, tasks, thresholds,
+or handling creates a new evidence-contract identity. M2 later creates a
+separate final run identity that also binds code, configuration, environment,
+sandbox policy, and rehearsal evidence. Never update either seal in place to
+preserve a favorable result.
 
 ## Selection decision
 
