@@ -45,13 +45,23 @@ complete:
 2. **In progress 2026-07-14:** freeze one external private evidence contract of
    three to five sources with at least eight tasks, withheld oracle, Markdown
    plus `rg` baseline, capture-tax accounting, handling rules, and a
-   predeclared `keep / shrink / stop` gate;
+   predeclared `keep / shrink / stop` gate. G1 uses owner attestation plus a
+   fresh isolated Codex review, with explicit authorization for external OpenAI
+   processing. The sealed input includes the complete byte snapshot of the
+   public twin anchored by commit
+   `234bf9edc7a67cb3f1847e6d60cfe05ddbd13a01`: the owner completes the private
+   comparison before sealing, then Codex checks the sealed snapshot and result.
+   The retained public qualification exercises the exact zero-tool model
+   command on synthetic input. After seal, a fresh local identity-and-config
+   preflight must also pass before the single private Codex call;
 3. implement only the private chronological lane needed for that pack, repeat
    the isolated runtime-boundary rehearsal because the runtime identity and
    attack surface changed, and then complete the full synthetic dress rehearsal,
    including declared budget-exhaustion behavior; before revealing private
    bytes, bind the exact admitted code, configuration, policy, and rehearsal
-   report to the frozen contract in a final run card;
+   report to the frozen contract in a final run card. The entire M2 lane remains
+   deterministic and contains no LLM or embedding calls; the G1 Codex reviewer
+   is outside the evaluated runtime;
 4. run the frozen baseline and GraphTruth lanes plus a separate correction
    fork, score the full denominator, and record **expected / observed /
    learned**;
@@ -59,21 +69,84 @@ complete:
    select one smaller hypothesis or stop. Only then choose the next major work
    track.
 
-Preparation for step 2 is complete. PR #18 published and independently checked
-a sealed four-source, eight-task fictional twin before any private episode was
-selected. PR #21 added the exact G1 record, fail-closed owner-only pack lock,
-encrypted-volume procedure, two-review seal, and strict allowlisted public
-receipt. These controls strengthen the non-derivation and disclosure boundaries
-but do not complete step 2. The real episode, manifest, exact private task set
-and oracle, two closed reviews, and external private seal remain pending; no
-evaluated run has occurred.
+The publication-safe twin and native review boundary for step 2 are prepared.
+PR #18 published and
+independently checked a sealed four-source, eight-task fictional twin before any
+private episode was selected. PR #21 then added an owner-only pack lock, an
+encrypted-volume and two-human-review procedure, and a strict allowlisted public
+receipt. The current G1 route supersedes that review mechanism with a simpler
+native `codex exec` permission profile: the owner explicitly authorizes the
+closed material sent to OpenAI, and a fresh isolated Codex session performs the
+model review. The public receipt records
+`trustBasis = owner-and-fresh-isolated-codex-review` and
+`freshIsolatedCodexReviewAccepted = true`. This is model review and does not
+claim independent human attestation. Docker is excluded from the main path and
+remains only a fallback if the run-specific threat boundary requires isolation
+from the Codex client, same-UID processes, Keychain, IPC, or the host
+filesystem.
 
-After the owner copies the reviewed receipt and proves the private image is
-detached, the closing public change has a fixed scope: add only that receipt,
-mark M1 and G1 done, move M2 to `ready` rather than `current`, update this step,
-Issue #6 and current project notes, and narrow an invariant gap only if the
-receipt supports it. It must not change the frozen twin, admit a runtime, expose
-private metadata, or claim usefulness.
+The native [permission-profile preflight](../tooling/codex-sandbox-preflight)
+passed its retained public synthetic qualification on 2026-07-14. The exact
+[report](../tooling/rehearsal/observed.json) and its
+[expected / observed / learned record](../tooling/rehearsal/observed.md) bind
+Codex CLI `0.144.4`, model `gpt-5.6-sol`, the controller, profile, exact
+zero-tool command, workspace shape, UTC time, and the allowed JSONL trace. The
+qualification rejects any tool event. Shell and unified execution, code,
+agents, MCP, apps, plugins, browser, and web capabilities are disabled. The
+stock `update_plan`, `apply_patch`, and `view_image` entries remain declared but
+are not authorized. Model-tool filesystem access is default-deny except for the
+public-schema input, and model-tool networking is denied. The report proves
+only that synthetic shape; it is not a chroot or a sandbox for the Codex client
+itself. The pinned CLI and model, their host filesystem access, platform and
+system instructions, macOS, same-UID processes, Keychain, IPC, and OpenAI
+remain trusted.
+
+The retained public report cannot admit a later private review by itself. The
+fail-closed [`codex-g1-review`](../tooling/codex-g1-review) command and its fixed
+public prompt, control, and result schema are implemented and synthetically
+tested. For an actual attempt it runs a fresh local identity-and-config
+preflight, verifies the sealed lock before constructing the review envelope,
+makes one private, non-resumable Codex call, and verifies the lock again after
+that call. The model workspace is ephemeral and contains only the byte-exact
+public result schema. The persistent `PACK` remains outside staging. Each
+attempt uses a byte-exact read-only copy in the temporary review root, verified
+against the external lock anchor; that copy also remains controller-only and
+travels to the model solely in standard input. One disposable state root contains
+`CODEX_HOME`, `HOME`, and `TMPDIR`. Review, attempt-anchor, authorization, and
+state staging must be strict canonical descendants of `realpath(os.tmpdir())`;
+the persistent private `PACK` and common `ANCHOR` remain outside the repository
+and synchronization roots. The post-seal preflight contacts no model and makes
+no new boundary claim; the retained public model qualification remains the
+boundary evidence for the pinned zero-tool command.
+
+The controller reads the complete sealed attempt copy as strict UTF-8, with at
+most 256 artifacts, and constructs one fixed-prompt plus canonical-JSON standard
+input envelope no larger than 1 MiB (1,048,576 bytes). It never truncates or
+summarizes the pack. The fixed public prompt is the only task-specific
+instruction admitted from `PACK`; platform and system instructions and the
+pinned CLI and model are trusted controls. The private command accepts only the
+exact allowed JSONL trace, rejects every tool event, validates the structured
+decision, and writes the result itself. A populated common anchor or earlier
+attempt cannot be reused. The real episode, manifest, exact private task set and
+oracle, fixed public-twin snapshot, owner's pre-seal comparison, accepted fresh
+isolated-Codex review, owner final acceptance, and external private seal remain
+pending; no private or evaluated run has occurred.
+
+After that run-specific preflight and review pass, the sealed pack is verified
+unchanged, and the owner accepts the exact result. The owner then copies the
+reviewed v2 receipt to
+`experiments/receipts/g1-evidence-contract-v2.json`, the closing public change
+has a fixed scope: add only that receipt, mark M1 and G1 done, move M2 to `ready`
+rather than `current`, update this step, Issue #6 and current project notes, and
+narrow an invariant gap only if the receipt supports it. It must not change the
+frozen twin, admit a runtime, expose private metadata, claim human review, or
+claim usefulness. The sealed G1 documents record requirements only. Actual
+preflight, review, cleanup, and final acceptance facts belong to the later
+attempt and owner records.
+
+Docker remains a separately qualified fallback when the native threat boundary
+is insufficient. It is not selected automatically and does not solve a review
+input that exceeds the fixed context envelope.
 
 The existing Issue #6 budget covers integration through the chronological
 decision in steps 1–4: five working days with a hard stop after two calendar

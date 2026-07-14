@@ -1,0 +1,135 @@
+{
+  "title": "GraphTruth G1 isolated review result",
+  "type": "object",
+  "required": [
+    "documentKind",
+    "contractId",
+    "packLockSha256",
+    "decision",
+    "checklist",
+    "evaluatedRunPerformed",
+    "independentHumanReview",
+    "issues"
+  ],
+  "properties": {
+    "documentKind": {
+      "type": "string",
+      "enum": [
+        "graphtruth.g1-review-result/1"
+      ]
+    },
+    "contractId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"
+    },
+    "packLockSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "accept",
+        "reject"
+      ]
+    },
+    "checklist": {
+      "type": "object",
+      "required": [
+        "control-exact-and-authorized",
+        "pack-lock-verified",
+        "closed-artifact-set-complete",
+        "evidence-contract-complete-and-consistent",
+        "public-twin-and-owner-comparison-safe",
+        "rights-and-data-handling-approved",
+        "g1-review-boundary-preserved",
+        "m2-boundary-pending"
+      ],
+      "properties": {
+        "control-exact-and-authorized": {
+          "type": "boolean"
+        },
+        "pack-lock-verified": {
+          "type": "boolean"
+        },
+        "closed-artifact-set-complete": {
+          "type": "boolean"
+        },
+        "evidence-contract-complete-and-consistent": {
+          "type": "boolean"
+        },
+        "public-twin-and-owner-comparison-safe": {
+          "type": "boolean"
+        },
+        "rights-and-data-handling-approved": {
+          "type": "boolean"
+        },
+        "g1-review-boundary-preserved": {
+          "type": "boolean"
+        },
+        "m2-boundary-pending": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "evaluatedRunPerformed": {
+      "type": "boolean",
+      "enum": [
+        false
+      ]
+    },
+    "independentHumanReview": {
+      "type": "boolean",
+      "enum": [
+        false
+      ]
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "checkId",
+          "code"
+        ],
+        "properties": {
+          "checkId": {
+            "type": "string",
+            "enum": [
+              "control-exact-and-authorized",
+              "pack-lock-verified",
+              "closed-artifact-set-complete",
+              "evidence-contract-complete-and-consistent",
+              "public-twin-and-owner-comparison-safe",
+              "rights-and-data-handling-approved",
+              "g1-review-boundary-preserved",
+              "m2-boundary-pending"
+            ]
+          },
+          "code": {
+            "type": "string",
+            "enum": [
+              "authorization-missing",
+              "control-invalid",
+              "identity-mismatch",
+              "artifact-missing",
+              "artifact-invalid",
+              "contract-incomplete",
+              "contract-contradictory",
+              "public-twin-mismatch",
+              "non-derivation-not-safe",
+              "handling-rule-violated",
+              "review-boundary-violated",
+              "evaluated-run-detected",
+              "m2-boundary-violated",
+              "uncertainty"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

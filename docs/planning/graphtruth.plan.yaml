@@ -25,14 +25,21 @@ nodes:
     status: current
     notes: |
       Pre-alpha. Foundation, the synthetic S0-S1 boundary rehearsal, repository
-      hardening, and the publication-safe G1 twin are complete. Real private
-      utility remains untested. Three of the five distinct Europe/Moscow dates
-      with Issue #6 repository activity are accounted for: 2026-07-12 through
-      2026-07-14. Multiple events on one date count once and inactive dates count
-      zero. The 2026-07-11 foundation work predates Issue #6 and is excluded.
-      Two future active dates remain before the 2026-07-26 calendar stop; the
-      fifth requires an explicit owner decision to continue, shrink, or stop.
-      Moving between phases never resets that limit.
+      hardening, and the publication-safe G1 twin are complete. G1 now uses
+      owner attestation plus a fresh isolated Codex review with explicit OpenAI
+      processing authorization. The native permission profile passed its
+      retained public synthetic qualification with the exact zero-tool model
+      command, and the fail-closed review command is implemented and tested on
+      synthetic fixtures. Each attempt adds a local identity-and-config
+      preflight and makes one private Codex call. Docker is only a separately
+      qualified fallback. The private episode, post-seal review, owner
+      acceptance, and real utility remain untested. Three of the five distinct
+      Europe/Moscow dates with Issue #6 repository activity are accounted for:
+      2026-07-12 through 2026-07-14. Multiple events on one date count once and
+      inactive dates count zero. The 2026-07-11 foundation work predates Issue
+      #6 and is excluded. Two future active dates remain before the 2026-07-26
+      calendar stop; the fifth requires an explicit owner decision to continue,
+      shrink, or stop. Moving between phases never resets that limit.
 
   m0-rehearsal-integration:
     title: "Integrate the runtime-boundary rehearsal evidence"
@@ -145,13 +152,20 @@ nodes:
     notes: |
       Select and seal one private 3-5 item decision or incident lineage before
       private-lane implementation is allowed to adapt to its outcomes. The
-      public twin is anchored in PR #18. PR #21 adds the exact G1 record,
-      fail-closed owner-only pack lock, two-review seal procedure, and strict
-      public receipt gate, but no private episode has been selected or sealed.
-      Work on 2026-07-14 remains inside the already counted third active date.
-      One more distinct active date may begin within the budget. Before project
-      activity starts on the fifth date, the owner must explicitly continue,
-      shrink, or stop; the 2026-07-26 hard stop remains fixed.
+      public twin is anchored in PR #18. PR #21 supplied the previous
+      owner-only lock, two-human-review seal, and public receipt gate. The
+      current G1 route replaces that review mechanism with owner attestation and
+      a fresh isolated Codex review, explicitly authorizes external OpenAI
+      processing, and requires both a retained public qualification and a fresh
+      local post-seal identity-and-config preflight before private access.
+      The public qualification and fail-closed review tooling are complete;
+      Docker requires a separate qualification if the native boundary fails and
+      cannot solve a context-limit failure. No private episode has been selected,
+      sealed, or reviewed. Work on 2026-07-14
+      remains inside the already counted third active date. One more distinct
+      active date may begin within the budget. Before project activity starts
+      on the fifth date, the owner must explicitly continue, shrink, or stop;
+      the 2026-07-26 hard stop remains fixed.
 
   m1-select-episode:
     title: "Select one real episode and its knowledge boundary"
@@ -166,13 +180,63 @@ nodes:
       fourth distinct repo-active date. Starting work on the fifth requires the
       owner's explicit continue, shrink, or stop decision.
 
-  m1-private-root:
-    title: "Prepare the access-controlled private root"
+  m1-native-codex-preflight:
+    title: "Qualify the native Codex review permission profile"
     kind: task
     parent: m1-evidence-contract-freeze
-    deps: [m1-select-episode]
+    deps: [g0-rehearsal-integrated]
+    status: done
+    notes: |
+      `tooling/codex-sandbox-preflight` passed with synthetic canaries and its
+      regenerated exact report is retained under `tooling/rehearsal/`. It pins
+      the CLI, model, permission profile, controller, workspace shape, exact
+      zero-tool model command, and allowed JSONL trace. It rejects any tool
+      event. Model-tool filesystem access is default-deny except for the public
+      schema, and model-tool networking is denied. This is not a chroot or a
+      sandbox for the Codex client itself. The retained report qualifies the
+      public synthetic shape only. Each private attempt still requires a local
+      post-seal identity-and-config check; that check contacts no model and does
+      not replace the public boundary evidence.
+
+  m1-native-codex-review-tooling:
+    title: "Implement the fail-closed native Codex G1 review command"
+    kind: task
+    parent: m1-evidence-contract-freeze
+    deps: [m1-native-codex-preflight]
+    status: done
+    notes: |
+      The checked-in command runs the local identity-and-config preflight,
+      verifies the sealed pack before constructing the private envelope and
+      again after the model call, requires the fixed prompt, control, and result
+      schema, and writes only validated structured evidence. It reads the
+      complete strict-UTF-8 pack, permits at most 256 artifacts, and rejects a
+      fixed-prompt plus canonical-JSON stdin envelope above 1 MiB rather than
+      truncating or summarizing it. Each attempt uses one disposable
+      `CODEX_HOME` / `HOME` / `TMPDIR` state root for one private model call.
+      Tool-capable features are disabled, the allowed JSONL trace is exact, and
+      any tool event rejects the attempt. Synthetic tests exercise accept,
+      reject, state cleanup, lock mutation, and wrapper boundaries. No private
+      review has run.
+
+  m1-private-root:
+    title: "Prepare the persistent private roots and staging policy"
+    kind: task
+    parent: m1-evidence-contract-freeze
+    deps:
+      - m1-select-episode
+      - m1-native-codex-preflight
+      - m1-native-codex-review-tooling
     status: planned
-    notes: "Keep source bytes, oracle, state, logs, and reports outside Git and synchronized public paths."
+    notes: |
+      Keep the persistent private `PACK`, common `ANCHOR`, oracle, logs, and
+      reports outside Git and synchronized paths. Freeze the rule that later
+      review, attempt-anchor, authorization, and disposable state staging may
+      exist only as fresh strict canonical descendants of
+      `realpath(os.tmpdir())`. Do not create the attempt copy before the pack is
+      sealed. The later attempt keeps both copies controller-only; its ephemeral
+      model workspace contains only the exact public result schema, and the
+      complete private envelope travels through standard input. The controller
+      and Codex client retain their explicitly trusted host access.
 
   m1-freeze-manifest:
     title: "Freeze source bytes, identity, order, lineage, and exclusions"
@@ -210,6 +274,12 @@ nodes:
     parent: m1-evidence-contract-freeze
     deps: [m1-private-root]
     status: planned
+    notes: |
+      The owner must explicitly authorize sending the closed review input to
+      OpenAI, define retention and purge rules, and record incidents. Local
+      filesystem isolation does not imply that processing stays on the Mac. The
+      authorization covers one private Codex call for the complete admitted
+      stdin envelope, not other assistants, tools, or later runtimes.
 
   m1-synthetic-twin:
     title: "Create a publication-safe synthetic twin"
@@ -220,8 +290,13 @@ nodes:
     notes: |
       PR #18 anchors four fictional sources and eight closed tasks created
       before private episode access. The public-content disclosure review is
-      safe. The later private comparison remains part of the contract seal and
-      cannot be completed or published before owner and independent review.
+      safe. Before sealing, the owner copies every regular blob from that fixed
+      Git tree into `PACK`, verifies the embedded and closed snapshot manifests,
+      and completes the private non-derivation comparison. After sealing, fresh
+      isolated Codex checks the same snapshot and owner result in the complete
+      controller-built standard-input envelope. G1 remains open until Codex
+      accepts and the owner records final acceptance. This trust basis does not
+      claim independent human review.
       Runtime binding and execution remain M2 work.
 
   m1-seal-evidence-contract:
@@ -235,28 +310,79 @@ nodes:
       - m1-freeze-decision
       - m1-data-handling
       - m1-synthetic-twin
+      - m1-native-codex-preflight
+      - m1-native-codex-review-tooling
     status: planned
     notes: |
       Any later source, task, oracle, baseline, threshold, order, or handling
       change creates a new evidence-contract identity. Exact code, configuration,
       and rehearsal evidence are bound later in the final run card. The owner
-      and an independent reviewer must privately compare the public twin with
-      the closed episode and record only `safe` or `reject`; the mapping itself
-      is never published. PR #21 supplies the owner-only all-and-only lock and
-      the single allowlisted receipt path; it is preparation, not seal evidence.
+      completes the private comparison against the byte-exact snapshot of
+      public-twin commit `234bf9edc7a67cb3f1847e6d60cfe05ddbd13a01`
+      before seal. Fresh isolated Codex then checks that comparison against the
+      same sealed bytes; the mapping itself is never published. The owner must
+      authorize this external OpenAI processing before access. Receipt
+      `graphtruth.public-g1-receipt/2` records
+      `trustBasis = owner-and-fresh-isolated-codex-review` and
+      `freshIsolatedCodexReviewAccepted = true`; it must not imply independent
+      human attestation.
+
+  m1-run-isolated-codex-review:
+    title: "Run the post-seal native Codex contract review"
+    kind: task
+    parent: m1-evidence-contract-freeze
+    deps: [m1-seal-evidence-contract]
+    status: planned
+    notes: |
+      Create fresh review, attempt-anchor, authorization, and state staging as
+      strict canonical descendants of `realpath(os.tmpdir())`; do not pass the
+      populated persistent common `ANCHOR`. Copy the sealed pack byte for byte
+      into the read-only review input and verify it against the external lock
+      anchor. The command runs and retains a local post-seal
+      identity-and-config preflight with no model call, verifies the attempt
+      copy's lock, builds the complete bounded strict-UTF-8 review envelope, and makes
+      one private Codex call with one disposable state root. It accepts only the
+      exact allowed JSONL trace, rejects any tool event, verifies the unchanged
+      pack for the second time after the call, validates the decision, and
+      writes the result. The public qualification and any earlier attempt
+      cannot substitute for this attempt's local check, private call, or
+      evidence. No baseline,
+      GraphTruth lane, task reveal, scoring, or other evaluated work is
+      authorized.
+
+  m1-owner-final-acceptance:
+    title: "Verify the exact review evidence and record owner acceptance"
+    kind: task
+    parent: m1-evidence-contract-freeze
+    deps: [m1-run-isolated-codex-review]
+    status: planned
+    notes: |
+      The owner reruns the verifier against the persistent sealed pack, inspects
+      the attempt identity-and-config preflight, exact allowed trace, validated
+      Codex result, cleanup evidence, and run record, and may accept only an
+      unchanged pack with a Codex `accept`. The private final owner record is
+      bound to those identities. The sealed documents record requirements;
+      these later attempt and owner records establish what actually occurred.
+      The owner then creates the safe v2 receipt without publishing private paths, names,
+      counts, hashes, tasks, oracle material, excerpts, or failure details.
 
   g1-evidence-contract-frozen:
     title: "Gate: private evidence contract frozen"
     kind: milestone
     milestone: true
     parent: m1-evidence-contract-freeze
-    deps: [m1-seal-evidence-contract]
+    deps: [m1-owner-final-acceptance]
     status: planned
     notes: |
       Three to five sources and the complete task denominator are sealed; future
       material and oracle are withheld; baseline, capture tax, decision gates,
-      roles, authorization, retention, and the safe twin are reviewable. The
-      exact executable identity is deliberately not frozen yet.
+      roles, authorization, retention, the fixed public-twin byte snapshot, and
+      the owner's pre-seal comparison are reviewable. Owner attestation,
+      accepted fresh isolated Codex review, explicit external OpenAI processing
+      authorization, and the admitted native permission-profile identity are
+      recorded without claiming independent human review. The exact M2
+      executable identity is deliberately not frozen yet. No private G1 review
+      or evaluated run has occurred in the current repository state.
 
   m2-private-lane:
     title: "Implement the minimal private chronological lane"
@@ -268,6 +394,9 @@ nodes:
     notes: |
       Extend only Zone 3. Keep the public synthetic validator unchanged and do
       not promote experimental private formats into spec, schemas, or RFCs.
+      The entire M2 lane remains deterministic and contains no LLM or embedding
+      calls. The G1 review model is not part of the evaluated runtime; any later
+      model-assisted successor requires a separate gate and plan change.
 
   m2-private-policy:
     title: "Add a separate strict private-run policy and lifecycle"
@@ -647,6 +776,18 @@ execution:
       actual_finish: "2026-07-14"
       updated_at: "2026-07-14T13:01:48+03:00"
       note: "PR #18 published and checked the pre-private evidence-contract twin on the already counted third active date, 2026-07-14; private comparison remains pending."
+    m1-native-codex-preflight:
+      progress: 1.0
+      actual_start: "2026-07-14"
+      actual_finish: "2026-07-14"
+      updated_at: "2026-07-14T20:34:25+03:00"
+      note: "The regenerated retained synthetic qualification passed the exact zero-tool model command and trace policy; it does not attest to a private review."
+    m1-native-codex-review-tooling:
+      progress: 1.0
+      actual_start: "2026-07-14"
+      actual_finish: "2026-07-14"
+      updated_at: "2026-07-14T20:34:25+03:00"
+      note: "Fail-closed owner-plus-Codex tooling passed synthetic tests with a local identity-and-config attempt preflight and one bounded zero-tool private model call; no private bytes were used."
 
 views:
   current-work:
@@ -673,7 +814,7 @@ x:
   exec:
     program:
       nearest_goal: "Complete Issue #6 with a decision from one real private chronological replay."
-      success_by_next_sync: "Freeze the remaining private evidence contract within at most two remaining repo-active dates, or record the owner's shrink or stop decision before the fifth date starts."
+      success_by_next_sync: "Select and freeze the private evidence contract, run the post-seal identity-and-config preflight and single private Codex review, and record owner acceptance within at most two remaining repo-active dates, or record the owner's shrink or stop decision before the fifth date starts."
     defaults:
       status_progress:
         done: 1.0
@@ -698,16 +839,16 @@ x:
         kind: main
         mgmt:
           health: yellow
-          sync_note: "PR #18 anchored the safe twin and PR #21 hardened the owner-only seal and receipt gate, but no private episode is sealed; Issue #6 repo activity on 2026-07-12 through 2026-07-14 accounts for three of five distinct active dates."
-          next_sync_goal: "Finish G1 within the two remaining active dates; obtain the owner's continue, shrink, or stop decision before any work on the fifth distinct date."
+          sync_note: "The regenerated native public qualification passed the exact zero-tool model command, and the fail-closed owner-plus-Codex review command is synthetically tested. The private episode, seal, post-seal identity-and-config preflight, single private review, and owner acceptance remain open. Docker is only a separately qualified fallback. Issue #6 repository activity on 2026-07-12 through 2026-07-14 accounts for three of five distinct active dates."
+          next_sync_goal: "Freeze the private contract, run the post-seal identity-and-config preflight and single private review, and record owner acceptance within the two remaining active dates; obtain the owner's continue, shrink, or stop decision before any work on the fifth distinct date."
       private-lane:
         title: "Private S0-S1 lane"
         scope_nodes: [m2-private-lane]
         kind: main
         mgmt:
           health: neutral
-          sync_note: "The current command covers the runtime boundary, not a private runner or full dress rehearsal."
-          next_sync_goal: "Implement only the frozen contract, then repeat the boundary run and complete the full synthetic dress rehearsal."
+          sync_note: "The current command covers the runtime boundary, not an evaluated GraphTruth/SUT runtime or full dress rehearsal."
+          next_sync_goal: "Implement only the frozen contract with deterministic, no-LLM intake and scoring, then repeat the boundary run and complete the full synthetic dress rehearsal."
       chronological-pilot:
         title: "Chronological pilot"
         scope_nodes: [m3-chronological-pilot]

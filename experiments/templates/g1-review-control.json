@@ -1,0 +1,9 @@
+{
+  "documentKind": "graphtruth.g1-review-control/1",
+  "contractId": "replace-with-private-contract-id",
+  "externalOpenAIProcessingSpecificallyAuthorized": true,
+  "independentHumanReview": false,
+  "evaluatedRunAuthorized": false,
+  "reviewTransport": "controller-serialized-full-pack-stdin-v1",
+  "modelToolCallsAuthorized": false
+}
