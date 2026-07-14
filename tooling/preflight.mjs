@@ -121,6 +121,149 @@ function isPositiveNumber(value) {
   return typeof value === "number" && Number.isFinite(value) && value > 0;
 }
 
+class DuplicateJsonKeyError extends SyntaxError {
+  constructor() {
+    super("duplicate JSON object key");
+    this.code = "JSON_DUPLICATE_KEY";
+  }
+}
+
+export function parseStrictJson(text) {
+  let index = 0;
+
+  const fail = () => {
+    throw new SyntaxError("invalid JSON");
+  };
+  const skipWhitespace = () => {
+    while (index < text.length && /[\x20\x09\x0a\x0d]/.test(text[index])) index += 1;
+  };
+  const parseString = () => {
+    if (text[index] !== '"') fail();
+    const start = index;
+    index += 1;
+    while (index < text.length) {
+      const character = text[index];
+      index += 1;
+      if (character === '"') return JSON.parse(text.slice(start, index));
+      if (character === "\\") {
+        if (index >= text.length) fail();
+        const escape = text[index];
+        index += 1;
+        if (escape === "u") {
+          if (!/^[a-fA-F0-9]{4}$/.test(text.slice(index, index + 4))) fail();
+          index += 4;
+        } else if (!'"\\/bfnrt'.includes(escape)) {
+          fail();
+        }
+      } else if (character.charCodeAt(0) <= 0x1f) {
+        fail();
+      }
+    }
+    fail();
+  };
+  const parseNumber = () => {
+    const match = /^-?(?:0|[1-9]\d*)(?:\.\d+)?(?:[eE][+-]?\d+)?/.exec(text.slice(index));
+    if (!match || !Number.isFinite(Number(match[0]))) fail();
+    index += match[0].length;
+  };
+  const parseValue = (depth = 0) => {
+    if (depth > 256) fail();
+    skipWhitespace();
+    if (text[index] === "{") {
+      index += 1;
+      skipWhitespace();
+      const keys = new Set();
+      if (text[index] === "}") {
+        index += 1;
+        return;
+      }
+      while (index < text.length) {
+        const key = parseString();
+        if (keys.has(key)) throw new DuplicateJsonKeyError();
+        keys.add(key);
+        skipWhitespace();
+        if (text[index] !== ":") fail();
+        index += 1;
+        parseValue(depth + 1);
+        skipWhitespace();
+        if (text[index] === "}") {
+          index += 1;
+          return;
+        }
+        if (text[index] !== ",") fail();
+        index += 1;
+        skipWhitespace();
+      }
+      fail();
+    }
+    if (text[index] === "[") {
+      index += 1;
+      skipWhitespace();
+      if (text[index] === "]") {
+        index += 1;
+        return;
+      }
+      while (index < text.length) {
+        parseValue(depth + 1);
+        skipWhitespace();
+        if (text[index] === "]") {
+          index += 1;
+          return;
+        }
+        if (text[index] !== ",") fail();
+        index += 1;
+      }
+      fail();
+    }
+    if (text[index] === '"') {
+      parseString();
+      return;
+    }
+    for (const literal of ["true", "false", "null"]) {
+      if (text.startsWith(literal, index)) {
+        index += literal.length;
+        return;
+      }
+    }
+    parseNumber();
+  };
+
+  parseValue();
+  skipWhitespace();
+  if (index !== text.length) fail();
+  return JSON.parse(text);
+}
+
+function normalizeUtcRfc3339Timestamp(value) {
+  if (typeof value !== "string") return null;
+  const match = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(?:\.(\d{1,9}))?Z$/.exec(value);
+  if (!match) return null;
+  const [, yearText, monthText, dayText, hourText, minuteText, secondText, fraction = ""] = match;
+  const year = Number(yearText);
+  const month = Number(monthText);
+  const day = Number(dayText);
+  const hour = Number(hourText);
+  const minute = Number(minuteText);
+  const second = Number(secondText);
+  const leapYear = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+  const daysInMonth = [31, leapYear ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  const valid =
+    month >= 1 &&
+    month <= 12 &&
+    day >= 1 &&
+    day <= daysInMonth[month - 1] &&
+    hour <= 23 &&
+    minute <= 59 &&
+    second <= 59;
+  return valid
+    ? `${yearText}${monthText}${dayText}${hourText}${minuteText}${secondText}${fraction.padEnd(9, "0")}`
+    : null;
+}
+
+function isUtcRfc3339Timestamp(value) {
+  return normalizeUtcRfc3339Timestamp(value) !== null;
+}
+
 function isSha256(value) {
   return typeof value === "string" && /^[a-f0-9]{64}$/.test(value);
 }
@@ -251,14 +394,20 @@ async function readJson(root, relative, add) {
   const decoded = decodeUtf8(content, relative, add);
   if (decoded === null) return null;
   try {
-    const value = JSON.parse(decoded);
+    const value = parseStrictJson(decoded);
     if (!isObject(value)) {
       add("JSON_SHAPE", relative, "top-level JSON value must be an object");
       return null;
     }
     return value;
-  } catch {
-    add("JSON_PARSE", relative, "file is not valid JSON");
+  } catch (error) {
+    add(
+      error.code === "JSON_DUPLICATE_KEY" ? "JSON_DUPLICATE_KEY" : "JSON_PARSE",
+      relative,
+      error.code === "JSON_DUPLICATE_KEY"
+        ? "JSON object keys must be unique"
+        : "file is not valid JSON",
+    );
     return null;
   }
 }
@@ -806,12 +955,12 @@ async function validateRun(root, run, taskById, rubric, add) {
     run.stateHistory[1]?.state !== "frozen" ||
     !run.stateHistory.every(
       (entry) =>
-        isNonEmptyString(entry?.at) &&
-        !Number.isNaN(Date.parse(entry.at)) &&
+        isUtcRfc3339Timestamp(entry?.at) &&
         isNonEmptyString(entry?.actor) &&
         isNonEmptyString(entry?.reason),
     ) ||
-    Date.parse(run.stateHistory[0]?.at) > Date.parse(run.stateHistory[1]?.at)
+    normalizeUtcRfc3339Timestamp(run.stateHistory[0]?.at) >
+      normalizeUtcRfc3339Timestamp(run.stateHistory[1]?.at)
   ) {
     add("RUN_HISTORY", "run-card.json", "ordered planned-to-frozen history with time, actor, and reason is required");
   }
@@ -1087,10 +1236,6 @@ function isOpaqueLogToken(value) {
   return typeof value === "string" && /^[a-z0-9][a-z0-9-]{0,63}$/.test(value);
 }
 
-function isIsoTimestamp(value) {
-  return isNonEmptyString(value) && !Number.isNaN(Date.parse(value));
-}
-
 async function validateLog(root, relative, expectedFormat, runId, add) {
   const content = await readRegular(root, relative, add);
   if (content === null) return [];
@@ -1103,9 +1248,15 @@ async function validateLog(root, relative, expectedFormat, runId, add) {
   for (const [index, line] of lines.entries()) {
     let record;
     try {
-      record = JSON.parse(line);
-    } catch {
-      add("LOG_RECORD", `${relative}#${index + 1}`, "each non-empty JSONL line must be valid JSON");
+      record = parseStrictJson(line);
+    } catch (error) {
+      add(
+        error.code === "JSON_DUPLICATE_KEY" ? "LOG_DUPLICATE_KEY" : "LOG_RECORD",
+        `${relative}#${index + 1}`,
+        error.code === "JSON_DUPLICATE_KEY"
+          ? "JSONL object keys must be unique"
+          : "each non-empty JSONL line must be valid JSON",
+      );
       continue;
     }
     if (!isObject(record)) {
@@ -1120,10 +1271,9 @@ async function validateLog(root, relative, expectedFormat, runId, add) {
         record.recordType !== "header" ||
         record.runId !== runId ||
         record.appendOnly !== true ||
-        !isNonEmptyString(record.createdAt) ||
-        Number.isNaN(Date.parse(record.createdAt))
+        !isUtcRfc3339Timestamp(record.createdAt)
       ) {
-        add("LOG_HEADER", relative, "JSONL header format, run ID, append-only flag, and creation time are required");
+        add("LOG_HEADER", relative, "JSONL header format, run ID, append-only flag, and UTC RFC3339 creation time are required");
       }
     } else {
       const allowedFields = logRecordFields.get(expectedFormat);
@@ -1156,18 +1306,17 @@ async function validateLog(root, relative, expectedFormat, runId, add) {
           record.recordType !== "state-transition" ||
           record.from !== previousState ||
           !allowedTransitions.has(`${record.from === null ? "null" : record.from}->${record.to}`) ||
-          !isNonEmptyString(record.at) ||
-          Number.isNaN(Date.parse(record.at)) ||
+          !isUtcRfc3339Timestamp(record.at) ||
           !isNonEmptyString(record.actor) ||
           !isNonEmptyString(record.reason)
         ) {
-          add("STATE_TRANSITION", `${relative}#${index + 1}`, "state transition must follow the frozen lifecycle with time, actor, and reason");
+          add("STATE_TRANSITION", `${relative}#${index + 1}`, "state transition must follow the frozen lifecycle with UTC RFC3339 time, actor, and reason");
         }
         previousState = record.to;
       } else if (expectedFormat === "graphtruth.experimental.deviation-log/0") {
         if (
           record.recordType !== "deviation" ||
-          !isIsoTimestamp(record.at) ||
+          !isUtcRfc3339Timestamp(record.at) ||
           !["planned", "frozen", "running", "completed", "aborted", "invalid"].includes(record.state) ||
           ![
             record.stepRef,
@@ -1183,7 +1332,7 @@ async function validateLog(root, relative, expectedFormat, runId, add) {
       } else if (expectedFormat === "graphtruth.experimental.failure-diary/0") {
         if (
           record.recordType !== "failure-event" ||
-          !isIsoTimestamp(record.observedAt) ||
+          !isUtcRfc3339Timestamp(record.observedAt) ||
           !["planned", "frozen", "running", "completed", "aborted", "invalid"].includes(record.state) ||
           !["graphtruth", "ordinary-current-workflow", "files-plus-search", "controller"].includes(record.arm) ||
           ![

@@ -80,16 +80,27 @@ not applicable.
 GraphTruth is currently pre-alpha and has no license. Until a contribution
 policy and license are adopted, pull requests are limited to the project owner
 and explicitly authorized collaborators. Do not contribute external code,
-datasets, corpus excerpts, fixtures, or other third-party material.
+datasets, corpus excerpts, fixtures, or other third-party material unless it is
+an explicitly reviewed, minimal vendored dependency whose license permits the
+intended use and redistribution.
 
 - [ ] I am the project owner or an explicitly authorized collaborator.
 - [ ] This PR incorporates no code, data, or prose copied from an external
-      project or submitted by an external contributor. Generated lockfile
-      metadata for explicitly declared dependencies is permitted; vendored
-      dependency code is not.
+      project or submitted by an external contributor, except generated
+      lockfile metadata or controlled vendoring declared below.
+- [ ] For every vendored component, or `N/A`, the PR records the permitted
+      license, exact upstream source and revision, closed imported-file
+      inventory, integrity digests, and required license and notice files.
 - [ ] This PR contains no secrets, credentials, personal data, confidential
       material, or private GraphTruth corpus content.
 - [ ] Any committed example or fixture is synthetic and safe to publish.
+
+### Controlled vendoring, if applicable
+
+- Upstream source and exact revision:
+- Imported-file inventory and digest record:
+- License and notice files:
+- Why the minimal vendored subset is necessary:
 
 ## Learning record
 

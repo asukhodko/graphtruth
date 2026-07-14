@@ -73,14 +73,14 @@ async function main() {
   await mkdir(path.dirname(jsonPath), { recursive: true });
   await writeFile(reportPath, formatRehearsalMarkdown(report));
   await writeFile(jsonPath, prettyJson(report));
-  process.stdout.write(`Synthetic rehearsal passed.\nReport: ${path.relative(repositoryRoot, reportPath)}\n`);
+  process.stdout.write(`Runtime-boundary rehearsal passed.\nReport: ${path.relative(repositoryRoot, reportPath)}\n`);
 }
 
 try {
   await main();
 } catch (error) {
   process.stderr.write(
-    `Synthetic rehearsal failed (${error.name}; error digest ${sha256(String(error.message))}).\n`,
+    `Runtime-boundary rehearsal failed (${error.name}; error digest ${sha256(String(error.message))}).\n`,
   );
   if (error.preservedAttemptRoot) {
     process.stderr.write(

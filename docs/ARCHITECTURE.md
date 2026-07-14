@@ -46,6 +46,10 @@ must outlive any current database, index, model, service, or GraphTruth runtime.
     Logical boundaries are enforced from the start even while specification,
     tooling, and runtime evolve together in one repository.
 
+The [invariant map](INVARIANTS.md) tracks which of these commitments currently
+have executable evidence and which still need specification, conformance, or
+runtime proof.
+
 ## Three architectural zones
 
 GraphTruth is divided by semantic authority and replacement cost rather than by

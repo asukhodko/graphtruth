@@ -2,6 +2,13 @@
   "confirmationMethod": "conversation record; not a cryptographic signature",
   "evidenceCommit": "68cc70390db5eec3a86e8192355733305a6c4512",
   "format": "graphtruth.experimental.runtime-rehearsal-owner-signoff/0",
+  "publication": {
+    "mergeCommit": "560bb91a5d8bdbb6f1ec85c42b7df04734887400",
+    "pullRequest": 14,
+    "pullRequestHeadCommit": "162459d767be0e66e9ec4eac8565756a8f6d603f",
+    "pullRequestHeadRef": "refs/pull/14/head",
+    "url": "https://github.com/asukhodko/graphtruth/pull/14"
+  },
   "recordedAt": "2026-07-14T03:34:20Z",
   "reports": [
     {

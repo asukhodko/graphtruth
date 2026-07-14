@@ -27,12 +27,18 @@ fixtures.
 The first Zone 3 walking skeleton is intentionally narrower than the eventual
 default runtime and implements the executable preparation slice of
 [Issue #6](https://github.com/asukhodko/graphtruth/issues/6). On a supported
-Darwin host, run the complete public synthetic rehearsal from the repository
-root:
+Darwin host, run the isolated public S0-S1 runtime-boundary rehearsal from the
+repository root:
 
 ```sh
 ./runtime/replay
 ```
+
+This command rehearses the runtime boundary, not the complete synthetic
+experiment workflow. It does not run the comparison baselines and scorer or
+deliberately exhaust every declared wall-clock, task, memory, disk, review, and
+correction budget. Those cases belong to the full synthetic dress rehearsal
+required for the exact changed runtime before it may receive private bytes.
 
 The controller captures the frozen public pack before reveal, validates a
 private materialization of those exact captured bytes, and checks its closed
@@ -89,10 +95,14 @@ remain in their controller-only temporary root and keep the runtime identity
 record written before reveal plus a metadata-only failure record. The supported
 session parent is `/tmp` or one of its descendants; the sandbox fails closed on
 an unsupported placement. Runtime and projection formats are provisional
-laboratory formats. Passing this synthetic rehearsal does not admit a private
-corpus until the owner separately confirms the observed isolation and deletion
-closure. The generated report retains that confirmation as `pending` because it
-records the state at run time. The subsequent confirmation is stored separately
-in [`rehearsal/owner-signoff.json`](rehearsal/owner-signoff.json), bound to the
-exact report bytes, and is a conversation record rather than a cryptographic
-signature.
+laboratory formats. Passing this runtime-boundary rehearsal does not admit a
+private corpus, even after the owner confirms the observed isolation and
+deletion closure. The exact changed runtime must also pass the full synthetic
+dress rehearsal and run-specific review. The generated report retains owner
+confirmation as `pending` because it records the state at run time. The
+subsequent confirmation is stored separately in
+[`rehearsal/owner-signoff.json`](rehearsal/owner-signoff.json), bound to the exact
+report bytes, and is a conversation record rather than a cryptographic
+signature. Its publication block also records the pull-request ref and squash
+merge commit that keep the pre-merge evidence commit attributable after the
+feature branch is deleted.

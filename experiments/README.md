@@ -45,14 +45,22 @@ The intended public preflight pack lives at
 checked-in synthetic pack and its declarations. The current command is
 deliberately not a private-pack validator: it does not enforce an operating
 system sandbox, execute the reveal controller, or prove that a boundary is
-safe. Review every private-run item below manually and complete the signed
-runtime rehearsal before admitting real data.
+safe. Review every private-run item below manually and complete both an
+owner-confirmed runtime-boundary rehearsal and the full synthetic dress
+rehearsal before admitting real data.
 
-The separate Zone 3 command `./runtime/replay` now executes that public
-synthetic rehearsal in the intended local isolation shape. Its checked-in
-observations are linked from the runtime README. This does not turn
+The separate Zone 3 command `./runtime/replay` executes the public
+runtime-boundary rehearsal in the intended local isolation shape. Its checked-in
+observations are linked from the runtime README. That command does not execute
+the baselines, scoring, decision, or deliberate budget-exhaustion cases required
+by the full synthetic dress rehearsal. It also does not turn
 `./tooling/preflight` into a private-pack validator or remove the owner's
-run-specific sign-off.
+run-specific confirmation.
+
+The frozen v0 run card uses the legacy phrase `signed synthetic rehearsal`.
+Because it is a sealed input, that wording remains unchanged: here `signed`
+means an owner-confirmed conversation record bound to the report, not a
+cryptographic signature or evidence that the full dress rehearsal passed.
 
 ## Required pack
 

@@ -35,8 +35,9 @@ epistemic ledger, plus tools that let independent implementations validate,
 transform, index, and use it.
 
 Read [the vision](docs/VISION.md) for the full problem statement and destination,
-and [the principles](docs/PRINCIPLES.md) for the constraints that guide design
-decisions.
+[the principles](docs/PRINCIPLES.md) for the constraints that guide design
+decisions, and [the invariant map](docs/INVARIANTS.md) for the current link from
+those constraints to executable evidence and open gaps.
 
 ## The central idea
 
