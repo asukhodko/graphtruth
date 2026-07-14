@@ -17,4 +17,4 @@ fi
 
 node tooling/check.mjs
 ./tooling/preflight
-node --test tooling/preflight.test.mjs
+node --test tooling/preflight.test.mjs runtime/lib.test.mjs runtime/replay.test.mjs
