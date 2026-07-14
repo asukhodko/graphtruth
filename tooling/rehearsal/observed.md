@@ -1,12 +1,12 @@
 # Native Codex zero-tool qualification
 
 - Status: `adversarial-passed`
-- Observed at: `2026-07-14T18:57:56.915Z`
+- Observed at: `2026-07-14T19:35:41.584Z`
 - Scope: retained public synthetic zero-tool qualification only
 - Private G1 review: `not started`
 - Report: [`observed.json`](observed.json)
 - Report SHA-256:
-  `7bf72f5406e64cc71680e41f99bd3978f33f571f441149ea80c4e9a10814b91e`
+  `7083c410e36126cccf601c62411933cbf259fb8c7728cf0ebd510ec80c181922`
 - Codex CLI: `0.144.4`
 - Model: `gpt-5.6-sol` through provider `openai`
 - Permission profile: `graphtruth-zero-tools`

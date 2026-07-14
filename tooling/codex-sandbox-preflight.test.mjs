@@ -502,6 +502,13 @@ test("a dedicated Codex home exposes only an owner-only auth symlink target", as
     await symlink(authTarget, path.join(codexHome, "auth.json"));
     assert.equal(await validateDedicatedCodexHome(codexHome, workspace), await realpath(codexHome));
 
+    await chmod(authTarget, 0o640);
+    await assert.rejects(
+      () => validateDedicatedCodexHome(codexHome, workspace),
+      (error) => error.code === "DEDICATED_AUTH_ACCESS",
+    );
+    await chmod(authTarget, 0o600);
+
     if (process.platform === "darwin") {
       await execFileAsync("/bin/chmod", ["+a", "everyone allow read", authTarget]);
       await assert.rejects(

@@ -981,10 +981,17 @@ async function readAndValidateSealedControl(layout, dependencies) {
   };
 }
 
-function assertFreshIdentityPreflight(report, tooling, retainedQualification) {
+function assertFreshIdentityPreflight(
+  report,
+  tooling,
+  retainedQualification,
+  effectiveUserId,
+) {
   const lifecycle = report?.commandBoundary?.modelStateLifecycle;
   const observedAgeMilliseconds = Date.now() - Date.parse(report?.observedAt);
   if (
+    !Number.isInteger(effectiveUserId) ||
+    effectiveUserId < 0 ||
     report?.documentKind !== "graphtruth.codex-sandbox-preflight-report/2" ||
     report.status !== "identity-and-config-passed" ||
     report.claimBoundary !== "identity-and-config-preflight-only" ||
@@ -993,7 +1000,7 @@ function assertFreshIdentityPreflight(report, tooling, retainedQualification) {
     !isCanonicalUtcTimestamp(report.observedAt) ||
     observedAgeMilliseconds < -5_000 ||
     observedAgeMilliseconds > 10 * 60_000 ||
-    report.host?.effectiveUserId !== process.geteuid() ||
+    report.host?.effectiveUserId !== effectiveUserId ||
     report.host?.effectiveUserId !==
       retainedQualification.host?.effectiveUserId ||
     report.host?.productVersion !== retainedQualification.host?.productVersion ||
@@ -1354,6 +1361,7 @@ async function createNeutralModelWorkspace(state, schemaBytes) {
 
 const defaultDependencies = Object.freeze({
   captureCodexIdentity,
+  effectiveUserId: () => process.geteuid(),
   runPreflight,
   spawnWithInput,
   verifyPackLock,
@@ -1414,6 +1422,7 @@ export async function runG1Review(options, dependencyOverrides = {}) {
       preflightReport,
       toolingBefore,
       retainedQualification,
+      dependencies.effectiveUserId(),
     );
   } catch (error) {
     if (error instanceof G1ReviewError) throw error;

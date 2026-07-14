@@ -1,6 +1,6 @@
 {
   "documentKind": "graphtruth.codex-sandbox-preflight-report/2",
-  "observedAt": "2026-07-14T18:57:56.915Z",
+  "observedAt": "2026-07-14T19:35:41.584Z",
   "status": "adversarial-passed",
   "claimBoundary": "synthetic-zero-tool-preflight-only",
   "privateReviewCompleted": false,
@@ -17,7 +17,7 @@
   },
   "tooling": {
     "wrapperSha256": "9db03904e928dad9ef229568eba281ffd86b8cd29ad5abe82abc251103629bb1",
-    "moduleSha256": "24b819e7d6a531bac709f1af7db78be92d63a26778edef53fe99a699a2b85ae7"
+    "moduleSha256": "28a821f843d71489974bfa65ed931de8a304eea3dff5ab570ea02f5a1d596025"
   },
   "permissionProfile": {
     "name": "graphtruth-zero-tools",
@@ -105,7 +105,7 @@
     "model": "gpt-5.6-sol",
     "provider": "openai",
     "identitySource": "pinned-command-and-strict-config",
-    "promptSha256": "6f2f22ee4846659d9c38493b3367990fe14254ef901a1a375eef1fe0da481b56",
+    "promptSha256": "1119161184ddb55dc9682e90dc53bf402425940e2e8ede70d06e46579a63caf3",
     "resultSchemaSha256": "05c6a95c100b1466b448fbd1783f0b79cb974b84248e23525be17cdb58b1f177",
     "result": {
       "protocol": "graphtruth.codex-zero-tool-preflight/1",

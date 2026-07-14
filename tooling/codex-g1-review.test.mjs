@@ -67,6 +67,15 @@ const schemaTemplate = path.join(
   "templates",
   "g1-review-result.schema.json",
 );
+const retainedQualification = JSON.parse(
+  await readFile(
+    path.join(toolingDirectory, "rehearsal", "observed.json"),
+    "utf8",
+  ),
+);
+const admittedRunnerPlatform =
+  process.platform === "darwin" && process.arch === "arm64";
+const darwinRunnerTest = admittedRunnerPlatform ? test : test.skip;
 
 function sha256(buffer) {
   return createHash("sha256").update(buffer).digest("hex");
@@ -239,12 +248,7 @@ async function fakePreflightReport() {
     claimBoundary: "identity-and-config-preflight-only",
     privateReviewCompleted: false,
     platform: "darwin-arm64",
-    host: {
-      effectiveUserId: process.geteuid(),
-      productVersion: "26.5.1",
-      buildVersion: "25F80",
-      kernelRelease: "25.5.0",
-    },
+    host: structuredClone(retainedQualification.host),
     codex: {
       version: admittedCodexVersion,
       binarySha256: admittedCodexSha256,
@@ -334,6 +338,7 @@ function makeFakeDependencies(fixture, decision, mutations = {}) {
     stdoutTraces,
     calls,
     overrides: {
+      effectiveUserId: () => retainedQualification.host.effectiveUserId,
       async captureCodexIdentity(executable) {
         const observed = await observedCodexIdentity(executable);
         codexIdentities.push(observed);
@@ -360,6 +365,9 @@ function makeFakeDependencies(fixture, decision, mutations = {}) {
         const report = await fakePreflightReport();
         if (mutations.preflightPlatformDrift === true) {
           report.host.buildVersion = "synthetic-drift";
+        }
+        if (mutations.preflightUserIdDrift === true) {
+          report.host.effectiveUserId += 1;
         }
         return report;
       },
@@ -714,6 +722,21 @@ test("the CLI surface is fixed and uses no model or prompt option", () => {
   }
 });
 
+test(
+  "the runner rejects an unsupported host before reading private input",
+  { skip: admittedRunnerPlatform },
+  async () => {
+    const expectedCode =
+      process.platform === "darwin"
+        ? "UNSUPPORTED_ARCHITECTURE"
+        : "UNSUPPORTED_PLATFORM";
+    await assert.rejects(
+      () => runG1Review({}),
+      (error) => error.code === expectedCode,
+    );
+  },
+);
+
 test("review root inside the repository is rejected before private work", async () => {
   if (process.platform !== "darwin" || process.arch !== "arm64") return;
   const fixture = await makeFixture({ temporaryParent: repositoryRoot });
@@ -826,7 +849,9 @@ test("result semantics bind accept and reject to the fixed checklist", () => {
 });
 
 for (const decision of ["accept", "reject"]) {
-  test("synthetic runner records a strict " + decision + " with one model call", async () => {
+  darwinRunnerTest(
+    "synthetic runner records a strict " + decision + " with one model call",
+    async () => {
     const fixture = await makeFixture();
     const fake = makeFakeDependencies(fixture, decision);
     const reviewInput = await buildFixtureReviewInput(fixture);
@@ -922,7 +947,8 @@ for (const decision of ["accept", "reject"]) {
       process.chdir(previousCwd);
       await fixture.cleanup();
     }
-  });
+    },
+  );
 }
 
 for (const [label, mutations, code] of [
@@ -932,7 +958,9 @@ for (const [label, mutations, code] of [
   ["an extra JSONL event", { extraEvent: true }, "MODEL_EVENT_TRACE"],
   ["model-side output prepopulation", { prepopulateOutput: true }, "OUTPUT_INVENTORY"],
 ]) {
-  test("runner rejects " + label + " before controller output", async () => {
+  darwinRunnerTest(
+    "runner rejects " + label + " before controller output",
+    async () => {
     const fixture = await makeFixture();
     const fake = makeFakeDependencies(fixture, "accept", mutations);
     const previousCwd = process.cwd();
@@ -965,10 +993,13 @@ for (const [label, mutations, code] of [
       process.chdir(previousCwd);
       await fixture.cleanup();
     }
-  });
+    },
+  );
 }
 
-test("runner rejects fresh platform drift before model state or private spawn", async () => {
+darwinRunnerTest(
+  "runner rejects fresh platform drift before model state or private spawn",
+  async () => {
   const fixture = await makeFixture();
   const fake = makeFakeDependencies(fixture, "accept", {
     preflightPlatformDrift: true,
@@ -996,9 +1027,45 @@ test("runner rejects fresh platform drift before model state or private spawn", 
     process.chdir(previousCwd);
     await fixture.cleanup();
   }
-});
+  },
+);
 
-test("runner rejects a prepopulated output before preflight or model state", async () => {
+darwinRunnerTest(
+  "runner rejects fresh user identity drift before model state or private spawn",
+  async () => {
+    const fixture = await makeFixture();
+    const fake = makeFakeDependencies(fixture, "accept", {
+      preflightUserIdDrift: true,
+    });
+    const previousCwd = process.cwd();
+    try {
+      process.chdir(fixture.reviewRoot);
+      const nodePath = await realpath(process.execPath);
+      await assert.rejects(
+        () =>
+          runG1Review(
+            {
+              codexPath: nodePath,
+              codexHomePath: fixture.authCarrier,
+              anchorPath: fixture.anchor,
+              confirmOpenAIProcessingAuthorized: true,
+            },
+            fake.overrides,
+          ),
+        (error) => error.code === "PREFLIGHT_MISMATCH",
+      );
+      assert.deepEqual(fake.calls, { preflight: 1, state: 0, spawn: 0 });
+      assert.deepEqual(await readdir(fixture.anchor), []);
+    } finally {
+      process.chdir(previousCwd);
+      await fixture.cleanup();
+    }
+  },
+);
+
+darwinRunnerTest(
+  "runner rejects a prepopulated output before preflight or model state",
+  async () => {
   const fixture = await makeFixture();
   const fake = makeFakeDependencies(fixture, "accept");
   const previousCwd = process.cwd();
@@ -1026,9 +1093,12 @@ test("runner rejects a prepopulated output before preflight or model state", asy
     process.chdir(previousCwd);
     await fixture.cleanup();
   }
-});
+  },
+);
 
-test("post-review lock verification overrides a synthetic model success", async () => {
+darwinRunnerTest(
+  "post-review lock verification overrides a synthetic model success",
+  async () => {
   const fixture = await makeFixture();
   const fake = makeFakeDependencies(fixture, "accept", { mutateInput: true });
   const previousCwd = process.cwd();
@@ -1065,9 +1135,12 @@ test("post-review lock verification overrides a synthetic model success", async 
     process.chdir(previousCwd);
     await fixture.cleanup();
   }
-});
+  },
+);
 
-test("post-review lock verification still runs when Codex identity capture fails", async () => {
+darwinRunnerTest(
+  "post-review lock verification still runs when Codex identity capture fails",
+  async () => {
   const fixture = await makeFixture();
   const fake = makeFakeDependencies(fixture, "accept", {
     mutateInput: true,
@@ -1095,9 +1168,12 @@ test("post-review lock verification still runs when Codex identity capture fails
     process.chdir(previousCwd);
     await fixture.cleanup();
   }
-});
+  },
+);
 
-test("post-review layout mode drift prevents result consumption and run anchoring", async () => {
+darwinRunnerTest(
+  "post-review layout mode drift prevents result consumption and run anchoring",
+  async () => {
   const fixture = await makeFixture();
   const fake = makeFakeDependencies(fixture, "accept", {
     mutateReviewMode: true,
@@ -1127,9 +1203,12 @@ test("post-review layout mode drift prevents result consumption and run anchorin
     process.chdir(previousCwd);
     await fixture.cleanup();
   }
-});
+  },
+);
 
-test("Codex binary drift after private spawn prevents run anchoring", async () => {
+darwinRunnerTest(
+  "Codex binary drift after private spawn prevents run anchoring",
+  async () => {
   const fixture = await makeFixture();
   const fake = makeFakeDependencies(fixture, "accept", {
     mutateCodexBinary: true,
@@ -1164,12 +1243,14 @@ test("Codex binary drift after private spawn prevents run anchoring", async () =
     process.chdir(previousCwd);
     await fixture.cleanup();
   }
-});
+  },
+);
 
 test(
   "the admitted installed Codex rejects an intentionally incomplete synthetic contract",
   {
     skip:
+      !admittedRunnerPlatform ||
       process.env.GRAPHTRUTH_TEST_CODEX_PATH === undefined ||
       process.env.GRAPHTRUTH_TEST_CODEX_AUTH_CARRIER === undefined,
   },

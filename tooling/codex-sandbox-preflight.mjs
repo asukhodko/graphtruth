@@ -456,6 +456,7 @@ async function assertNoDiscoverableAgents(start) {
 }
 
 async function assertNoDarwinAcl(absolute) {
+  if (process.platform !== "darwin") return;
   let observed;
   try {
     observed = await execFileAsync("/bin/ls", ["-lde", absolute], {

@@ -14,10 +14,10 @@ import {
 
 export const admittedAdversarialModel = admittedCodexModel;
 export const codexSandboxPreflightEvidencePins = Object.freeze({
-  reportSha256: "7bf72f5406e64cc71680e41f99bd3978f33f571f441149ea80c4e9a10814b91e",
+  reportSha256: "7083c410e36126cccf601c62411933cbf259fb8c7728cf0ebd510ec80c181922",
   wrapperSha256: "9db03904e928dad9ef229568eba281ffd86b8cd29ad5abe82abc251103629bb1",
-  moduleSha256: "24b819e7d6a531bac709f1af7db78be92d63a26778edef53fe99a699a2b85ae7",
-  promptSha256: "6f2f22ee4846659d9c38493b3367990fe14254ef901a1a375eef1fe0da481b56",
+  moduleSha256: "28a821f843d71489974bfa65ed931de8a304eea3dff5ab570ea02f5a1d596025",
+  promptSha256: "1119161184ddb55dc9682e90dc53bf402425940e2e8ede70d06e46579a63caf3",
   resultSchemaSha256: "05c6a95c100b1466b448fbd1783f0b79cb974b84248e23525be17cdb58b1f177",
 });
 
