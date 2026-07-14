@@ -1,0 +1,33 @@
+{
+  "_warning": "Unfilled example only. This file is not evidence that G1 occurred.",
+  "documentKind": "public-g1-receipt-template",
+  "gate": "G1",
+  "status": "template-only-not-attested",
+  "attestedOn": null,
+  "trustBasis": "owner-and-independent-reviewer-attestation",
+  "publicBounds": {
+    "sources": "three-to-five-confirmed",
+    "tasks": "closed-T-at-least-eight-confirmed"
+  },
+  "attestations": {
+    "eligibleEpisodeSelected": false,
+    "sourceSetWithinApprovedBound": false,
+    "knowledgeBoundaryAndRevealOrderFrozen": false,
+    "taskDenominatorClosedAndMeetsMinimum": false,
+    "oracleWithheld": false,
+    "baselineExposureEvaluationAndDecisionFrozen": false,
+    "dataHandlingAndIncidentRulesApproved": false,
+    "publicationSafeSyntheticTwinReviewed": false,
+    "nonCircularPrivateSealExternallyAnchored": false,
+    "ownerReviewCompleted": false,
+    "independentReviewCompleted": false,
+    "noEvaluatedRunPerformed": false,
+    "noContractPrivateMaterialPublishedOrSharedWithAssistants": false
+  },
+  "claimBoundary": [
+    "Attests only that the G1 evidence-contract controls were completed.",
+    "Does not identify, quote, hash, or commit to private material publicly.",
+    "Does not admit a runtime to private data.",
+    "Does not report an experiment result or establish GraphTruth usefulness."
+  ]
+}

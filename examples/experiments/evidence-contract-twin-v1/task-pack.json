@@ -1,0 +1,192 @@
+{
+  "format": "graphtruth.experimental.task-pack/0",
+  "taskPackId": "aster-evidence-contract-tasks-v1",
+  "frozen": true,
+  "tasks": [
+    {
+      "id": "task-offline-constraint",
+      "class": "answerable",
+      "genericTaskForm": "early-answerable",
+      "question": "Which operating constraint must the Project Aster prototype satisfy?",
+      "allowedInterpretation": "Answer only from the brief visible at reveal step one.",
+      "evaluatedAtStep": 1,
+      "eligibleForPrimary": true,
+      "requiredAnswerElements": [
+        "verify records while disconnected from every network"
+      ],
+      "requiredEvidence": {
+        "minimumVisibleReferences": 1,
+        "counterevidenceRequired": false
+      },
+      "acceptableUncertainty": "Abstain only if the brief is unavailable or fails integrity validation.",
+      "sutAllowedTools": [
+        "markdown-reader",
+        "rg-literal-search"
+      ],
+      "timeoutSeconds": 120
+    },
+    {
+      "id": "task-selected-adapter",
+      "class": "answerable",
+      "genericTaskForm": "early-answerable",
+      "question": "Which adapter was selected for the prototype, and why?",
+      "allowedInterpretation": "Answer for the prototype at the end of reveal step two.",
+      "evaluatedAtStep": 2,
+      "eligibleForPrimary": true,
+      "requiredAnswerElements": [
+        "cobalt adapter",
+        "offline signature verification"
+      ],
+      "requiredEvidence": {
+        "minimumVisibleReferences": 1,
+        "counterevidenceRequired": false
+      },
+      "acceptableUncertainty": "Abstain only if the decision source is unavailable or fails integrity validation.",
+      "sutAllowedTools": [
+        "markdown-reader",
+        "rg-literal-search"
+      ],
+      "timeoutSeconds": 120
+    },
+    {
+      "id": "task-pending-release-day",
+      "class": "not-yet-answerable",
+      "genericTaskForm": "pre-evidence-abstention",
+      "question": "At step three, what is the confirmed prototype release day?",
+      "allowedInterpretation": "Judge only evidence visible through step three; a stale copied value is not confirmation.",
+      "evaluatedAtStep": 3,
+      "eligibleForPrimary": true,
+      "requiredAnswerElements": [
+        "abstention",
+        "stale and non-authoritative release day"
+      ],
+      "requiredEvidence": {
+        "minimumVisibleReferences": 1,
+        "counterevidenceRequired": false
+      },
+      "acceptableUncertainty": "State that the day is not yet established and explain why Thursday is insufficient.",
+      "sutAllowedTools": [
+        "markdown-reader",
+        "rg-literal-search"
+      ],
+      "timeoutSeconds": 120
+    },
+    {
+      "id": "task-pending-retention",
+      "class": "not-yet-answerable",
+      "genericTaskForm": "pre-evidence-abstention",
+      "question": "At step three, what is the confirmed local retention period?",
+      "allowedInterpretation": "Judge only evidence visible through step three; a stale copied value is not confirmation.",
+      "evaluatedAtStep": 3,
+      "eligibleForPrimary": true,
+      "requiredAnswerElements": [
+        "abstention",
+        "stale and non-authoritative retention period"
+      ],
+      "requiredEvidence": {
+        "minimumVisibleReferences": 1,
+        "counterevidenceRequired": false
+      },
+      "acceptableUncertainty": "State that the period is not yet established and explain why twenty-one days is insufficient.",
+      "sutAllowedTools": [
+        "markdown-reader",
+        "rg-literal-search"
+      ],
+      "timeoutSeconds": 120
+    },
+    {
+      "id": "task-corrected-release-day",
+      "class": "answerable",
+      "genericTaskForm": "correction-after-counterevidence",
+      "question": "At step four, what is the confirmed release day, and which earlier statement does it supersede?",
+      "allowedInterpretation": "Use the authoritative state visible through step four and preserve the material counterevidence.",
+      "evaluatedAtStep": 4,
+      "eligibleForPrimary": true,
+      "requiredAnswerElements": [
+        "Tuesday",
+        "the stale Thursday statement"
+      ],
+      "requiredEvidence": {
+        "minimumVisibleReferences": 2,
+        "counterevidenceRequired": true
+      },
+      "acceptableUncertainty": "No uncertainty is expected if both the correction and stale note pass integrity validation.",
+      "sutAllowedTools": [
+        "markdown-reader",
+        "rg-literal-search"
+      ],
+      "timeoutSeconds": 120
+    },
+    {
+      "id": "task-corrected-retention",
+      "class": "answerable",
+      "genericTaskForm": "correction-after-counterevidence",
+      "question": "At step four, what is the confirmed retention period, and which earlier statement does it supersede?",
+      "allowedInterpretation": "Use the authoritative state visible through step four and preserve the material counterevidence.",
+      "evaluatedAtStep": 4,
+      "eligibleForPrimary": true,
+      "requiredAnswerElements": [
+        "nine days",
+        "the stale twenty-one-day statement"
+      ],
+      "requiredEvidence": {
+        "minimumVisibleReferences": 2,
+        "counterevidenceRequired": true
+      },
+      "acceptableUncertainty": "No uncertainty is expected if both the correction and stale note pass integrity validation.",
+      "sutAllowedTools": [
+        "markdown-reader",
+        "rg-literal-search"
+      ],
+      "timeoutSeconds": 120
+    },
+    {
+      "id": "task-deployment-capacity",
+      "class": "permanently-unanswerable",
+      "genericTaskForm": "terminal-closed-corpus-abstention",
+      "question": "What deployment capacity was approved for Project Aster?",
+      "allowedInterpretation": "Answer only within the closed four-item fixture and its declared corpus boundary.",
+      "evaluatedAtStep": 4,
+      "eligibleForPrimary": true,
+      "requiredAnswerElements": [
+        "abstention",
+        "closed-corpus absence of deployment capacity"
+      ],
+      "requiredEvidence": {
+        "minimumVisibleReferences": 0,
+        "counterevidenceRequired": false,
+        "absenceTopic": "deployment-capacity"
+      },
+      "acceptableUncertainty": "State that capacity is not established within the declared closed corpus; do not generalize beyond it.",
+      "sutAllowedTools": [
+        "markdown-reader",
+        "rg-literal-search"
+      ],
+      "timeoutSeconds": 120
+    },
+    {
+      "id": "task-budget-approver",
+      "class": "permanently-unanswerable",
+      "genericTaskForm": "terminal-closed-corpus-abstention",
+      "question": "Who approved the launch budget for Project Aster?",
+      "allowedInterpretation": "Answer only within the closed four-item fixture and its declared corpus boundary.",
+      "evaluatedAtStep": 4,
+      "eligibleForPrimary": true,
+      "requiredAnswerElements": [
+        "abstention",
+        "closed-corpus absence of a launch-budget approver"
+      ],
+      "requiredEvidence": {
+        "minimumVisibleReferences": 0,
+        "counterevidenceRequired": false,
+        "absenceTopic": "launch-budget-approver"
+      },
+      "acceptableUncertainty": "State that an approver is not established within the declared closed corpus; do not infer a person.",
+      "sutAllowedTools": [
+        "markdown-reader",
+        "rg-literal-search"
+      ],
+      "timeoutSeconds": 120
+    }
+  ]
+}

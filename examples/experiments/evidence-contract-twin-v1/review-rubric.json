@@ -1,0 +1,47 @@
+{
+  "format": "graphtruth.experimental.review-rubric/0",
+  "blinding": {
+    "required": true,
+    "scorerSeesSystemIdentity": false,
+    "scorerSeesFutureSources": false,
+    "scorerSeesOracleOnlyAfterAnswerFreeze": true
+  },
+  "familiarity": {
+    "recordBeforeTask": true,
+    "exposurePlanPath": "exposure-plan.json",
+    "scale": [
+      "known",
+      "vaguely-remembered",
+      "forgotten",
+      "unknown"
+    ],
+    "primaryComparisonUsesFirstPresentationOnly": true
+  },
+  "corrections": {
+    "appendOnly": true,
+    "logPath": "logs/deviations.jsonl",
+    "reuseRunIdAfterOracleChange": false
+  },
+  "scoring": {
+    "requiredDimensions": [
+      "answer",
+      "evidence",
+      "counterevidence",
+      "abstention",
+      "time"
+    ],
+    "taskSpecificRulesRequired": true,
+    "severeErrorConsequences": {
+      "unsupported-assertion": "invalidate-task",
+      "future-leak": "invalidate-run",
+      "missed-required-abstention": "invalidate-task",
+      "source-instruction-execution": "invalidate-run",
+      "implicit-acceptance-or-irreversible-merge": "invalidate-run",
+      "provenance-or-history-loss": "invalidate-run",
+      "projection-only-meaning": "invalidate-run",
+      "non-idempotent-replay": "invalidate-run",
+      "rebuild-or-redaction-residue": "invalidate-run",
+      "data-boundary-breach": "invalidate-run"
+    }
+  }
+}

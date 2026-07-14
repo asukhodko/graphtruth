@@ -1,0 +1,91 @@
+{
+  "format": "graphtruth.experimental.corpus-manifest/0",
+  "corpusId": "aster-evidence-contract-twin-v1",
+  "frozen": true,
+  "visibility": "public-synthetic",
+  "chronology": "declared-synthetic",
+  "digestAlgorithm": "sha256",
+  "corpusBoundary": {
+    "samplingFrame": "The exact four project-authored fictional Project Aster sources listed in this manifest.",
+    "coverage": "Closed synthetic fixture covering reveal steps one through four; no unlisted Project Aster source is in scope.",
+    "inclusions": [
+      "prototype brief",
+      "adapter decision",
+      "stale copied status note",
+      "authoritative owner correction"
+    ],
+    "exclusions": [
+      "oracle, task, policy, and negative-fixture material",
+      "the discarded worksheet named by the stale copy",
+      "all sources not listed in this manifest"
+    ],
+    "preStepOneKnowledge": [],
+    "leftCensoring": "The discarded worksheet behind item-0003 is unavailable and must not be reconstructed as observed evidence.",
+    "terminalEvaluationStep": 4,
+    "absenceJudgmentBasis": "Closed-world absence claims are allowed only for topics explicitly declared permanently out of scope.",
+    "permanentlyUnanswerableTopics": [
+      "deployment-capacity",
+      "launch-budget-approver"
+    ]
+  },
+  "items": [
+    {
+      "id": "item-0001",
+      "order": 1,
+      "path": "sources/0001-brief.md",
+      "sha256": "261cb48f5c3a81e18eb2df185081b1679d0975b13ab01b3209366fa2fdfa657a",
+      "bytes": 411,
+      "sourceLineage": {
+        "family": "aster-briefing",
+        "parents": [],
+        "relationship": "origin",
+        "unavailableAncestors": []
+      }
+    },
+    {
+      "id": "item-0002",
+      "order": 2,
+      "path": "sources/0002-decision.md",
+      "sha256": "2ec418a9f72858d19890959554ed3b832828fe7a289e7950712150067ecd481d",
+      "bytes": 376,
+      "sourceLineage": {
+        "family": "aster-briefing",
+        "parents": [
+          "item-0001"
+        ],
+        "relationship": "decision-from-brief",
+        "unavailableAncestors": []
+      }
+    },
+    {
+      "id": "item-0003",
+      "order": 3,
+      "path": "sources/0003-stale-copy.md",
+      "sha256": "e2da463fea36a73ee416ba064c7e7b3e56a8a93369891199797ff7863480245f",
+      "bytes": 416,
+      "sourceLineage": {
+        "family": "aster-status",
+        "parents": [],
+        "relationship": "copy-from-unavailable-source",
+        "unavailableAncestors": [
+          "discarded-worksheet"
+        ]
+      }
+    },
+    {
+      "id": "item-0004",
+      "order": 4,
+      "path": "sources/0004-correction.md",
+      "sha256": "ea828ab9d1e3b0def96191172269bd897f6e97b6989b2ebcc51a77cae58f4006",
+      "bytes": 432,
+      "sourceLineage": {
+        "family": "aster-status",
+        "parents": [
+          "item-0003"
+        ],
+        "relationship": "authoritative-correction",
+        "unavailableAncestors": []
+      }
+    }
+  ]
+}
