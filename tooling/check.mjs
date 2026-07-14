@@ -515,14 +515,12 @@ function hasExactKeys(value, expectedKeys) {
   );
 }
 
-function checkPublicG1Receipt(filePath, content, isTemplate) {
-  const displayPath = relativePath(filePath);
+export function validatePublicG1ReceiptContent(content, isTemplate) {
   let receipt;
   try {
     receipt = parseStrictJson(content);
   } catch {
-    report(`${displayPath}: receipt must be strict JSON without duplicate keys`);
-    return;
+    return ["strict-json"];
   }
 
   if (
@@ -547,10 +545,10 @@ function checkPublicG1Receipt(filePath, content, isTemplate) {
     receipt.claimBoundary.length !== publicG1ClaimBoundary.length ||
     receipt.claimBoundary.some((value, index) => value !== publicG1ClaimBoundary[index])
   ) {
-    report(`${displayPath}: receipt keys and fixed public claims must match the v1 allowlist`);
-    return;
+    return ["fixed-claims"];
   }
 
+  const validationErrors = [];
   const expectedBoolean = !isTemplate;
   if (
     publicG1AttestationKeys.some(
@@ -559,17 +557,30 @@ function checkPublicG1Receipt(filePath, content, isTemplate) {
         receipt.attestations[key] !== expectedBoolean,
     )
   ) {
-    report(
-      `${displayPath}: every attestation must be ${expectedBoolean} for this receipt state`,
-    );
+    validationErrors.push("attestations");
   }
 
   if (isTemplate) {
     if (receipt.status !== "template-only-not-attested" || receipt.attestedOn !== null) {
-      report(`${displayPath}: the public template must remain explicitly unattested`);
+      validationErrors.push("template-state");
     }
   } else if (receipt.status !== "attested" || !validIsoDate(receipt.attestedOn)) {
-    report(`${displayPath}: an attested receipt requires status 'attested' and a valid date`);
+    validationErrors.push("attested-state");
+  }
+  return validationErrors;
+}
+
+function checkPublicG1Receipt(filePath, content, isTemplate) {
+  const displayPath = relativePath(filePath);
+  const messages = {
+    "strict-json": "receipt must be strict JSON without duplicate keys",
+    "fixed-claims": "receipt keys and fixed public claims must match the v1 allowlist",
+    attestations: `every attestation must be ${!isTemplate} for this receipt state`,
+    "template-state": "the public template must remain explicitly unattested",
+    "attested-state": "an attested receipt requires status 'attested' and a valid date",
+  };
+  for (const validationError of validatePublicG1ReceiptContent(content, isTemplate)) {
+    report(`${displayPath}: ${messages[validationError]}`);
   }
 }
 

@@ -4,7 +4,23 @@ import { readFile } from "node:fs/promises";
 import process from "node:process";
 import test from "node:test";
 
-import { classifyPublicG1ReceiptPath } from "./check.mjs";
+import {
+  classifyPublicG1ReceiptPath,
+  validatePublicG1ReceiptContent,
+} from "./check.mjs";
+
+async function attestedReceipt() {
+  const template = JSON.parse(
+    await readFile(
+      new URL("../experiments/templates/PUBLIC-G1-RECEIPT.json", import.meta.url),
+      "utf8",
+    ),
+  );
+  template.status = "attested";
+  template.attestedOn = "2026-07-14";
+  for (const key of Object.keys(template.attestations)) template.attestations[key] = true;
+  return template;
+}
 
 test("a binary canonical G1 receipt is classified for rejection", () => {
   assert.equal(
@@ -36,6 +52,49 @@ test("only the template and one attested receipt path are registered", () => {
     "attested",
   );
   assert.equal(classifyPublicG1ReceiptPath("experiments/other.json", true), null);
+});
+
+test("the exact attested public G1 receipt is accepted", async () => {
+  assert.deepEqual(
+    validatePublicG1ReceiptContent(`${JSON.stringify(await attestedReceipt(), null, 2)}\n`, false),
+    [],
+  );
+});
+
+test("attested public G1 receipts fail closed on unsafe mutations", async () => {
+  const falseAttestation = await attestedReceipt();
+  falseAttestation.attestations.ownerReviewCompleted = false;
+  assert.deepEqual(
+    validatePublicG1ReceiptContent(JSON.stringify(falseAttestation), false),
+    ["attestations"],
+  );
+
+  const changedClaim = await attestedReceipt();
+  changedClaim.trustBasis = "self-attestation";
+  assert.deepEqual(
+    validatePublicG1ReceiptContent(JSON.stringify(changedClaim), false),
+    ["fixed-claims"],
+  );
+
+  const extraKey = await attestedReceipt();
+  extraKey.privateCorrelation = "forbidden";
+  assert.deepEqual(
+    validatePublicG1ReceiptContent(JSON.stringify(extraKey), false),
+    ["fixed-claims"],
+  );
+
+  const invalidDate = await attestedReceipt();
+  invalidDate.attestedOn = "2026-02-30";
+  assert.deepEqual(
+    validatePublicG1ReceiptContent(JSON.stringify(invalidDate), false),
+    ["attested-state"],
+  );
+
+  const duplicateKey = `${JSON.stringify(await attestedReceipt()).replace(
+    '"status":"attested"',
+    '"status":"attested","status":"attested"',
+  )}\n`;
+  assert.deepEqual(validatePublicG1ReceiptContent(duplicateKey, false), ["strict-json"]);
 });
 
 test("private freeze shell fragments parse and cleanup preserves failure", async (context) => {

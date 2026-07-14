@@ -59,12 +59,21 @@ complete:
    select one smaller hypothesis or stop. Only then choose the next major work
    track.
 
-Preparation for step 2 is complete: PR #18 published and independently checked
-a sealed four-source, eight-task fictional twin plus the owner-only freeze
-procedure before any private episode was selected. This strengthens the
-non-derivation boundary but does not complete step 2. The real episode,
-manifest, exact private task set and oracle, two closed reviews, and external
-private seal remain pending; no evaluated run has occurred.
+Preparation for step 2 is complete. PR #18 published and independently checked
+a sealed four-source, eight-task fictional twin before any private episode was
+selected. PR #21 added the exact G1 record, fail-closed owner-only pack lock,
+encrypted-volume procedure, two-review seal, and strict allowlisted public
+receipt. These controls strengthen the non-derivation and disclosure boundaries
+but do not complete step 2. The real episode, manifest, exact private task set
+and oracle, two closed reviews, and external private seal remain pending; no
+evaluated run has occurred.
+
+After the owner copies the reviewed receipt and proves the private image is
+detached, the closing public change has a fixed scope: add only that receipt,
+mark M1 and G1 done, move M2 to `ready` rather than `current`, update this step,
+Issue #6 and current project notes, and narrow an invariant gap only if the
+receipt supports it. It must not change the frozen twin, admit a runtime, expose
+private metadata, or claim usefulness.
 
 The existing Issue #6 budget covers integration through the chronological
 decision in steps 1–4: five working days with a hard stop after two calendar
