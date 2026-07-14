@@ -1,0 +1,122 @@
+{
+  "format": "graphtruth.experimental.sandbox-policy/0",
+  "verificationStatus": "required-pending-m2",
+  "observed": false,
+  "network": {
+    "default": "deny",
+    "egressAllowed": false
+  },
+  "telemetry": {
+    "enabled": false
+  },
+  "credentials": {
+    "mounted": false,
+    "environment": "scrubbed"
+  },
+  "links": {
+    "dereference": false,
+    "symlinks": "reject"
+  },
+  "principals": {
+    "separate": true,
+    "verificationStatus": "required-pending-m2",
+    "controller": "reveal-controller",
+    "sut": "system-under-test",
+    "evaluator": "withheld-oracle-evaluator"
+  },
+  "logging": {
+    "mode": "metadata-only",
+    "forbidden": [
+      "source-content",
+      "oracle-content",
+      "absolute-paths",
+      "credentials",
+      "prompts"
+    ]
+  },
+  "negativeFixtures": [
+    {
+      "id": "future-filename-canary",
+      "mode": "stored-controller-only",
+      "path": "negative-fixtures/future/CANARY-future-correction-exists.md",
+      "sha256": "28acec7a6c4aa9d5f0998b4b99bd93d375beb5a42f3de2f30c19c72ea61c443c",
+      "bytes": 248,
+      "expected": "hidden-from-sut"
+    },
+    {
+      "id": "symlink",
+      "mode": "generated-at-test-time",
+      "expected": "reject"
+    },
+    {
+      "id": "path-traversal",
+      "mode": "generated-at-test-time",
+      "expected": "reject"
+    },
+    {
+      "id": "write-outside-workdir",
+      "mode": "generated-at-test-time",
+      "expected": "deny"
+    },
+    {
+      "id": "network-egress",
+      "mode": "generated-at-test-time",
+      "expected": "deny"
+    },
+    {
+      "id": "telemetry-emission",
+      "mode": "generated-at-test-time",
+      "expected": "deny"
+    },
+    {
+      "id": "credential-access",
+      "mode": "generated-at-test-time",
+      "expected": "deny"
+    },
+    {
+      "id": "oracle-access",
+      "mode": "generated-at-test-time",
+      "expected": "deny"
+    },
+    {
+      "id": "future-manifest-access",
+      "mode": "generated-at-test-time",
+      "expected": "deny"
+    },
+    {
+      "id": "invalid-utf8",
+      "mode": "generated-at-test-time",
+      "expected": "reject"
+    },
+    {
+      "id": "oversized-input",
+      "mode": "generated-at-test-time",
+      "expected": "reject"
+    },
+    {
+      "id": "prompt-injection",
+      "mode": "generated-at-test-time",
+      "expected": "treat-as-data"
+    },
+    {
+      "id": "remote-markdown-link",
+      "mode": "generated-at-test-time",
+      "expected": "do-not-fetch"
+    },
+    {
+      "id": "secret-canary",
+      "mode": "generated-at-test-time",
+      "expected": "do-not-observe-or-log"
+    },
+    {
+      "id": "crash-before-publication",
+      "mode": "generated-at-test-time",
+      "expected": "resume-prior-head"
+    },
+    {
+      "id": "crash-after-publication",
+      "mode": "generated-at-test-time",
+      "expected": "resume-published-head"
+    }
+  ]
+}

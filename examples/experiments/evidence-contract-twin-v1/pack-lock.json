@@ -1,0 +1,134 @@
+{
+  "format": "graphtruth.experimental.pack-lock/0",
+  "packId": "aster-evidence-contract-twin-v1",
+  "runId": "aster-evidence-contract-twin-v1",
+  "digestAlgorithm": "sha256",
+  "selfExcludedPath": "pack-lock.json",
+  "lockConstruction": "This lock hashes every other regular file in the closed pack inventory and is itself anchored by the containing Git commit.",
+  "externalAnchorRequired": true,
+  "publicExternalAnchor": "The Git commit containing this exact pack-lock.json is the public fixture anchor.",
+  "privateRunExternalAnchorRule": "A later private run records its own completed lock digest in a protected append-only controller record outside the mutable run pack before reveal.",
+  "toolingIdentity": {
+    "validatorContract": "graphtruth-static-preflight-v0",
+    "runtime": "Node.js 24 or newer with built-in modules only",
+    "runnerIdentity": "not-yet-bound-g1-contract-only",
+    "configurationIdentity": "All public evidence-contract configuration in this pack is covered by immutable file digests."
+  },
+  "immutableFiles": [
+    {
+      "path": "README.md",
+      "purpose": "scope, task forms, and G1 limitations",
+      "sha256": "cf8a7db6d8314a90220759219748f3035f9a914478fd417f8dd777479e4202b4"
+    },
+    {
+      "path": "corpus-manifest.json",
+      "purpose": "closed fictional corpus inventory, chronology, lineage, and knowledge boundary",
+      "sha256": "025e23aa3ffe7f8abec468d1c1906fd665040fbc55361b4851babe548567abf1"
+    },
+    {
+      "path": "data-handling.json",
+      "purpose": "public-fiction rights, retention, and deletion declarations",
+      "sha256": "669546e5999ded4bacd103ff44cfe4f3a235212d51c714b25ced27c3a0be2569"
+    },
+    {
+      "path": "disclosure-review.md",
+      "purpose": "construction independence, public safety review, and pending private comparison",
+      "sha256": "2809196cfbf3b3eb21e63ef275cae869d6c37f09036fa8b60f2b499f33a4d4fc"
+    },
+    {
+      "path": "exposure-plan.json",
+      "purpose": "role separation, first exposure, arm order, and familiarity",
+      "sha256": "5986c87bf00cf457e339ea6efbcdd4ec7417156373c172b66aed1fe000664da7"
+    },
+    {
+      "path": "incident-response.md",
+      "purpose": "synthetic incident response policy",
+      "sha256": "6c754356791ed9e86e360488a98d79df62e92468fb0c97193fb769251b525b5e"
+    },
+    {
+      "path": "negative-fixtures/README.md",
+      "purpose": "negative-fixture execution boundary",
+      "sha256": "4dcbeb24b1be168975e5ea5f8bc944042ffa0ed781663745ad0bf0f221e0c885"
+    },
+    {
+      "path": "negative-fixtures/future/CANARY-future-correction-exists.md",
+      "purpose": "controller-only future-filename canary",
+      "sha256": "28acec7a6c4aa9d5f0998b4b99bd93d375beb5a42f3de2f30c19c72ea61c443c"
+    },
+    {
+      "path": "oracle.json",
+      "purpose": "withheld exact eight-task judgments and anchored evidence",
+      "sha256": "34f66dffec1a376923e1c777cda66e2b05f8a0e233efe856eac358ee2a04a544"
+    },
+    {
+      "path": "review-rubric.json",
+      "purpose": "blinding, scoring, correction, and severe-error policy",
+      "sha256": "4c5ff455284b2fddada2bae984b8d714ae26d926feb0b64801365b72073ee87f"
+    },
+    {
+      "path": "run-card.json",
+      "purpose": "hypothesis, endpoint, baselines, capture tax, budgets, decision gates, roles, and M2 boundary",
+      "sha256": "e285688aac6f1f3ede4148936d20460b55904d2ee7be65a91f4cce07a75ff5ea"
+    },
+    {
+      "path": "sandbox-policy.json",
+      "purpose": "declared isolation obligations awaiting M2 execution",
+      "sha256": "2a0b8a4131395878d2725b4b45d41b8c5a306812c94bfbbfece24ee8a4f8fbaa"
+    },
+    {
+      "path": "sources/0001-brief.md",
+      "purpose": "fictional reveal source one",
+      "sha256": "261cb48f5c3a81e18eb2df185081b1679d0975b13ab01b3209366fa2fdfa657a"
+    },
+    {
+      "path": "sources/0002-decision.md",
+      "purpose": "fictional reveal source two",
+      "sha256": "2ec418a9f72858d19890959554ed3b832828fe7a289e7950712150067ecd481d"
+    },
+    {
+      "path": "sources/0003-stale-copy.md",
+      "purpose": "fictional reveal source three",
+      "sha256": "e2da463fea36a73ee416ba064c7e7b3e56a8a93369891199797ff7863480245f"
+    },
+    {
+      "path": "sources/0004-correction.md",
+      "purpose": "fictional reveal source four",
+      "sha256": "ea828ab9d1e3b0def96191172269bd897f6e97b6989b2ebcc51a77cae58f4006"
+    },
+    {
+      "path": "task-pack.json",
+      "purpose": "frozen eight-task interpretations, evidence requirements, and horizons",
+      "sha256": "43c7ac952745ac9212e009d115ee252b0a939c764938c15e8232cb69b5d74a3e"
+    }
+  ],
+  "mutableFiles": [
+    {
+      "path": "learning-record.md",
+      "purpose": "reviewed expected, observed, learned, and decision report",
+      "mutation": "append-only",
+      "initialBytes": 496,
+      "initialSha256": "832691c33ab8a92b7d0fd3e51def4063c74b3b0e8746c285f7ee0888c325a24c"
+    },
+    {
+      "path": "logs/deviations.jsonl",
+      "purpose": "append-only metadata-only deviations",
+      "mutation": "append-only",
+      "initialBytes": 170,
+      "initialSha256": "35a8a01e94481deeb0f39c35c7a65b37e1ace864d30d7eacfe3b63fbd86f3d66"
+    },
+    {
+      "path": "logs/failure-diary.jsonl",
+      "purpose": "append-only metadata-only failures, friction, and capture tax",
+      "mutation": "append-only",
+      "initialBytes": 170,
+      "initialSha256": "5524441b5f749da1592b5a0d5a9b6dd4a3f9dc657f4ea8dedd5a0b1c97f73b63"
+    },
+    {
+      "path": "logs/state-transitions.jsonl",
+      "purpose": "append-only trusted-controller lifecycle",
+      "mutation": "append-only",
+      "initialBytes": 637,
+      "initialSha256": "545aa06c3d729b1f6401dd2b0714311bba207165f6f129185a834414c0ca632d"
+    }
+  ]
+}

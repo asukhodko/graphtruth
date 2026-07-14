@@ -1,0 +1,202 @@
+{
+  "format": "graphtruth.experimental.exposure-plan/0",
+  "frozen": true,
+  "claimWhenRolesOverlap": "exploratory-only",
+  "roleAssignments": [
+    {
+      "role": "controller",
+      "actorRef": "twin-controller",
+      "inputsVisible": [
+        "complete corpus manifest",
+        "reveal schedule",
+        "future reveal bundles"
+      ],
+      "overlapsWith": []
+    },
+    {
+      "role": "curator",
+      "actorRef": "twin-curator",
+      "inputsVisible": [
+        "complete synthetic corpus",
+        "corpus boundary"
+      ],
+      "overlapsWith": []
+    },
+    {
+      "role": "sutOperator",
+      "actorRef": "twin-sut-operator",
+      "inputsVisible": [
+        "current reveal bundle",
+        "frozen task at evaluation horizon"
+      ],
+      "overlapsWith": []
+    },
+    {
+      "role": "oracleAuthor",
+      "actorRef": "twin-oracle-author",
+      "inputsVisible": [
+        "complete synthetic corpus",
+        "task pack",
+        "oracle"
+      ],
+      "overlapsWith": []
+    },
+    {
+      "role": "ordinaryBaselineOperator",
+      "actorRef": "twin-current-workflow-operator",
+      "inputsVisible": [
+        "same current reveal bundle",
+        "same frozen task at evaluation horizon"
+      ],
+      "overlapsWith": []
+    },
+    {
+      "role": "minimalBaselineOperator",
+      "actorRef": "twin-markdown-rg-operator",
+      "inputsVisible": [
+        "same current reveal bundle",
+        "same frozen task at evaluation horizon"
+      ],
+      "overlapsWith": []
+    },
+    {
+      "role": "scorer",
+      "actorRef": "twin-blinded-scorer",
+      "inputsVisible": [
+        "frozen answers before system identity",
+        "oracle only after answer freeze"
+      ],
+      "overlapsWith": []
+    }
+  ],
+  "taskExposures": [
+    {
+      "taskId": "task-offline-constraint",
+      "presentation": 1,
+      "firstPresentation": true,
+      "armOrder": [
+        "graphtruth",
+        "files-plus-search",
+        "ordinary-current-workflow"
+      ],
+      "familiarityByActor": {
+        "twin-sut-operator": "unknown",
+        "twin-current-workflow-operator": "unknown",
+        "twin-markdown-rg-operator": "unknown",
+        "twin-blinded-scorer": "unknown"
+      }
+    },
+    {
+      "taskId": "task-selected-adapter",
+      "presentation": 1,
+      "firstPresentation": true,
+      "armOrder": [
+        "files-plus-search",
+        "ordinary-current-workflow",
+        "graphtruth"
+      ],
+      "familiarityByActor": {
+        "twin-sut-operator": "unknown",
+        "twin-current-workflow-operator": "unknown",
+        "twin-markdown-rg-operator": "unknown",
+        "twin-blinded-scorer": "unknown"
+      }
+    },
+    {
+      "taskId": "task-pending-release-day",
+      "presentation": 1,
+      "firstPresentation": true,
+      "armOrder": [
+        "ordinary-current-workflow",
+        "graphtruth",
+        "files-plus-search"
+      ],
+      "familiarityByActor": {
+        "twin-sut-operator": "unknown",
+        "twin-current-workflow-operator": "unknown",
+        "twin-markdown-rg-operator": "unknown",
+        "twin-blinded-scorer": "unknown"
+      }
+    },
+    {
+      "taskId": "task-pending-retention",
+      "presentation": 1,
+      "firstPresentation": true,
+      "armOrder": [
+        "graphtruth",
+        "ordinary-current-workflow",
+        "files-plus-search"
+      ],
+      "familiarityByActor": {
+        "twin-sut-operator": "unknown",
+        "twin-current-workflow-operator": "unknown",
+        "twin-markdown-rg-operator": "unknown",
+        "twin-blinded-scorer": "unknown"
+      }
+    },
+    {
+      "taskId": "task-corrected-release-day",
+      "presentation": 1,
+      "firstPresentation": true,
+      "armOrder": [
+        "files-plus-search",
+        "graphtruth",
+        "ordinary-current-workflow"
+      ],
+      "familiarityByActor": {
+        "twin-sut-operator": "unknown",
+        "twin-current-workflow-operator": "unknown",
+        "twin-markdown-rg-operator": "unknown",
+        "twin-blinded-scorer": "unknown"
+      }
+    },
+    {
+      "taskId": "task-corrected-retention",
+      "presentation": 1,
+      "firstPresentation": true,
+      "armOrder": [
+        "ordinary-current-workflow",
+        "files-plus-search",
+        "graphtruth"
+      ],
+      "familiarityByActor": {
+        "twin-sut-operator": "unknown",
+        "twin-current-workflow-operator": "unknown",
+        "twin-markdown-rg-operator": "unknown",
+        "twin-blinded-scorer": "unknown"
+      }
+    },
+    {
+      "taskId": "task-deployment-capacity",
+      "presentation": 1,
+      "firstPresentation": true,
+      "armOrder": [
+        "graphtruth",
+        "files-plus-search",
+        "ordinary-current-workflow"
+      ],
+      "familiarityByActor": {
+        "twin-sut-operator": "unknown",
+        "twin-current-workflow-operator": "unknown",
+        "twin-markdown-rg-operator": "unknown",
+        "twin-blinded-scorer": "unknown"
+      }
+    },
+    {
+      "taskId": "task-budget-approver",
+      "presentation": 1,
+      "firstPresentation": true,
+      "armOrder": [
+        "files-plus-search",
+        "ordinary-current-workflow",
+        "graphtruth"
+      ],
+      "familiarityByActor": {
+        "twin-sut-operator": "unknown",
+        "twin-current-workflow-operator": "unknown",
+        "twin-markdown-rg-operator": "unknown",
+        "twin-blinded-scorer": "unknown"
+      }
+    }
+  ]
+}

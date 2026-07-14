@@ -16,11 +16,11 @@ Run the same quality gate locally that pull requests and pushes to `main` use:
 ./tooling/check
 ```
 
-The gate also validates the repository's public synthetic experiment-preflight
-pack and executes its mutation tests. This proves that the published static
-contract is internally consistent and rejects the covered invalid variants; it
-is neither GraphTruth protocol conformance nor evidence that a runner or private
-corpus is safe.
+The gate also validates the repository's two public synthetic experiment packs
+and executes the preflight mutation and G1-shape tests. This proves that the
+published static contracts are internally consistent and rejects the covered
+invalid variants; it is neither GraphTruth protocol conformance nor evidence
+that a runner or private corpus is safe.
 
 The complete gate requires Node.js 24 and Python 3.12 or newer. It installs the
 exact Node.js dependency graph from `package-lock.json` with lifecycle scripts
@@ -59,13 +59,21 @@ Validate the public synthetic preflight pack directly with:
 ./tooling/preflight
 ```
 
-The command operates only on the checked-in
-[synthetic preflight pack](../examples/experiments/preflight/). It checks the
-frozen experiment inputs and verifies policy declarations. The broader
-`./tooling/check` gate additionally runs mutation tests for rejected invalid
-packs. Neither command executes a reveal controller, sandbox attacks,
-crash/resume, or deletion rehearsal. The preflight command must not be pointed
-at private dogfood data, and passing it does not replace the owner-confirmed
+Validate the publication-safe G1 evidence-contract twin with:
+
+```sh
+./tooling/preflight --twin
+```
+
+Both modes operate only on fixed checked-in public packs: the
+[synthetic preflight pack](../examples/experiments/preflight/) and the
+[evidence-contract twin](../examples/experiments/evidence-contract-twin-v1/).
+They check frozen inputs and policy declarations. The broader
+`./tooling/check` gate additionally runs mutation tests and verifies that the
+twin closes the required three-to-five-source and eight-task G1 shape. Neither
+mode executes a reveal controller, sandbox attacks, crash/resume, or deletion
+rehearsal. The command accepts no arbitrary pack path and must not be adapted or
+pointed at private dogfood data. Passing it does not replace the owner-confirmed
 runtime-boundary rehearsal, the full synthetic dress rehearsal, or the
 run-specific privacy, authorization, sandbox, retention, and human-leakage
 review required by the experiment methodology.

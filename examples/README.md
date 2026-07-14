@@ -21,6 +21,14 @@ budget exhaustion, real private utility, operating-system or power-loss
 durability, and the changed private lane remain untested. None of these shapes
 is a canonical example or conformance fixture yet.
 
+The separate [G1 evidence-contract twin](experiments/evidence-contract-twin-v1/)
+freezes four fictional sources and eight tasks across early answer, required
+abstention, correction with counterevidence, and terminal closed-corpus
+abstention. It was created without private episode access and binds no runtime,
+rehearsal result, or usefulness claim. Run `./tooling/preflight --twin` to check
+its sealed public inventory; the repository quality gate also checks its G1
+shape.
+
 If repeated experiments demonstrate stable portable semantics, a separately
 reviewed minimal example may later be promoted into this directory under an
 applicable specification version. Copying the laboratory files here does not

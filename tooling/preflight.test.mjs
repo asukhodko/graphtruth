@@ -6,6 +6,7 @@ import test from "node:test";
 
 import {
   defaultPackDirectory,
+  evidenceContractTwinDirectory,
   formatHumanResult,
   parseStrictJson,
   validatePack,
@@ -38,6 +39,59 @@ async function updateJson(pack, relative, update) {
 test("the frozen public synthetic pack passes preflight", async () => {
   const result = await validatePack();
   assert.deepEqual(result, { ok: true, diagnostics: [] });
+});
+
+test("the frozen evidence-contract twin passes and closes the G1 shape", async () => {
+  const result = await validatePack(evidenceContractTwinDirectory);
+  assert.deepEqual(result, { ok: true, diagnostics: [] });
+
+  const readJson = async (relative) => JSON.parse(
+    await readFile(path.join(evidenceContractTwinDirectory, relative), "utf8"),
+  );
+  const [corpus, taskPack, oracle, run] = await Promise.all([
+    readJson("corpus-manifest.json"),
+    readJson("task-pack.json"),
+    readJson("oracle.json"),
+    readJson("run-card.json"),
+  ]);
+  const learningRecord = await readFile(
+    path.join(evidenceContractTwinDirectory, "learning-record.md"),
+    "utf8",
+  );
+
+  assert.ok(corpus.items.length >= 3 && corpus.items.length <= 5);
+  assert.ok(corpus.corpusBoundary.inclusions.length >= 3);
+  assert.equal(taskPack.tasks.length, 8);
+  assert.ok(taskPack.tasks.every((task) => task.eligibleForPrimary === true));
+  assert.equal(oracle.judgments.length, taskPack.tasks.length);
+  assert.equal(run.primaryEndpoint.denominator.value, taskPack.tasks.length);
+  const expectedForms = new Set([
+    "early-answerable",
+    "pre-evidence-abstention",
+    "correction-after-counterevidence",
+    "terminal-closed-corpus-abstention",
+  ]);
+  assert.deepEqual(new Set(taskPack.tasks.map((task) => task.genericTaskForm)), expectedForms);
+  for (const form of expectedForms) {
+    assert.equal(taskPack.tasks.filter((task) => task.genericTaskForm === form).length, 2);
+  }
+  assert.ok(taskPack.tasks.some(
+    (task) => task.class === "answerable" && task.evaluatedAtStep < corpus.items.length,
+  ));
+  assert.ok(taskPack.tasks.some((task) => task.class === "not-yet-answerable"));
+  assert.ok(taskPack.tasks.some(
+    (task) => task.class === "answerable" && task.requiredEvidence.counterevidenceRequired,
+  ));
+  assert.ok(taskPack.tasks.some((task) => task.class === "permanently-unanswerable"));
+  assert.ok(run.baseline.arms.some(
+    (arm) => arm.id === "files-plus-search" && arm.tools.includes("rg-fixed-string-search"),
+  ));
+  assert.match(run.decisionGate.keep, /at least two/);
+  assert.match(run.decisionGate.keep, /25 percent lower/);
+  assert.equal(run.executionBinding.runnerIdentity, "not-yet-bound");
+  assert.equal(run.executionBinding.fullSyntheticDressRehearsal, "pending-m2");
+  assert.equal(run.executionBinding.supportsUsefulnessClaim, false);
+  assert.match(learningRecord, /Observed\n\nNot run\./);
 });
 
 test("strict JSON parsing rejects decoded duplicate keys at any depth", () => {

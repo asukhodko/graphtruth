@@ -1,0 +1,175 @@
+{
+  "format": "graphtruth.experimental.oracle/0",
+  "oracleId": "aster-evidence-contract-oracle-v1",
+  "closure": "exact",
+  "withheldFromSut": true,
+  "judgments": [
+    {
+      "taskId": "task-offline-constraint",
+      "expected": {
+        "status": "answerable",
+        "answer": "The prototype must verify records while disconnected from every network.",
+        "elements": [
+          "verify records while disconnected from every network"
+        ]
+      },
+      "evidence": [
+        {
+          "itemId": "item-0001",
+          "locator": "anchor:offline-constraint",
+          "relation": "supports"
+        }
+      ]
+    },
+    {
+      "taskId": "task-selected-adapter",
+      "expected": {
+        "status": "answerable",
+        "answer": "The cobalt adapter, because it supports offline signature verification.",
+        "elements": [
+          "cobalt adapter",
+          "offline signature verification"
+        ]
+      },
+      "evidence": [
+        {
+          "itemId": "item-0002",
+          "locator": "anchor:adapter-decision",
+          "relation": "supports"
+        }
+      ]
+    },
+    {
+      "taskId": "task-pending-release-day",
+      "expected": {
+        "status": "abstain",
+        "answer": null,
+        "reason": "The only visible release-day value is explicitly stale and non-authoritative at step three.",
+        "elements": [
+          "abstention",
+          "stale and non-authoritative release day"
+        ]
+      },
+      "evidence": [
+        {
+          "itemId": "item-0003",
+          "locator": "anchor:stale-warning",
+          "relation": "requires-abstention"
+        }
+      ],
+      "laterEvidence": [
+        {
+          "itemId": "item-0004",
+          "locator": "anchor:status-correction",
+          "relation": "becomes-answerable-after-horizon"
+        }
+      ]
+    },
+    {
+      "taskId": "task-pending-retention",
+      "expected": {
+        "status": "abstain",
+        "answer": null,
+        "reason": "The only visible retention value is explicitly stale and non-authoritative at step three.",
+        "elements": [
+          "abstention",
+          "stale and non-authoritative retention period"
+        ]
+      },
+      "evidence": [
+        {
+          "itemId": "item-0003",
+          "locator": "anchor:stale-warning",
+          "relation": "requires-abstention"
+        }
+      ],
+      "laterEvidence": [
+        {
+          "itemId": "item-0004",
+          "locator": "anchor:status-correction",
+          "relation": "becomes-answerable-after-horizon"
+        }
+      ]
+    },
+    {
+      "taskId": "task-corrected-release-day",
+      "expected": {
+        "status": "answerable",
+        "answer": "Tuesday; it supersedes the stale Thursday statement.",
+        "elements": [
+          "Tuesday",
+          "the stale Thursday statement"
+        ]
+      },
+      "evidence": [
+        {
+          "itemId": "item-0004",
+          "locator": "anchor:status-correction",
+          "relation": "supports"
+        },
+        {
+          "itemId": "item-0003",
+          "locator": "anchor:copied-status",
+          "relation": "counterevidence-superseded"
+        }
+      ]
+    },
+    {
+      "taskId": "task-corrected-retention",
+      "expected": {
+        "status": "answerable",
+        "answer": "Nine days; it supersedes the stale twenty-one-day statement.",
+        "elements": [
+          "nine days",
+          "the stale twenty-one-day statement"
+        ]
+      },
+      "evidence": [
+        {
+          "itemId": "item-0004",
+          "locator": "anchor:status-correction",
+          "relation": "supports"
+        },
+        {
+          "itemId": "item-0003",
+          "locator": "anchor:copied-status",
+          "relation": "counterevidence-superseded"
+        }
+      ]
+    },
+    {
+      "taskId": "task-deployment-capacity",
+      "expected": {
+        "status": "abstain",
+        "answer": null,
+        "reason": "The declared closed corpus permanently excludes deployment capacity.",
+        "elements": [
+          "abstention",
+          "closed-corpus absence of deployment capacity"
+        ]
+      },
+      "evidence": [],
+      "absenceBasis": {
+        "boundaryField": "corpusBoundary.permanentlyUnanswerableTopics",
+        "topic": "deployment-capacity"
+      }
+    },
+    {
+      "taskId": "task-budget-approver",
+      "expected": {
+        "status": "abstain",
+        "answer": null,
+        "reason": "The declared closed corpus permanently excludes the launch-budget approver.",
+        "elements": [
+          "abstention",
+          "closed-corpus absence of a launch-budget approver"
+        ]
+      },
+      "evidence": [],
+      "absenceBasis": {
+        "boundaryField": "corpusBoundary.permanentlyUnanswerableTopics",
+        "topic": "launch-budget-approver"
+      }
+    }
+  ]
+}

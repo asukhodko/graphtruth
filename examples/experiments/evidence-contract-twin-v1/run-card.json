@@ -1,0 +1,219 @@
+{
+  "format": "graphtruth.experimental.run-card/0",
+  "runId": "aster-evidence-contract-twin-v1",
+  "hypothesis": "A frozen eight-task synthetic contract can distinguish early supported answers, required abstention, authoritative correction with counterevidence, and terminal closed-corpus abstention.",
+  "decisionThisRunCanChange": "Whether this public evidence-contract shape is ready to be bound to a separately implemented and rehearsed M2 runtime.",
+  "explicitNonClaims": [
+    "product value",
+    "superiority over Markdown plus rg",
+    "generality beyond this fictional fixture",
+    "runtime sandbox enforcement",
+    "private-data admission",
+    "protocol or format stability"
+  ],
+  "state": "frozen",
+  "stateHistory": [
+    {
+      "state": "planned",
+      "at": "2026-07-14T09:40:00Z",
+      "actor": "twin-controller",
+      "reason": "Public fictional evidence contract created."
+    },
+    {
+      "state": "frozen",
+      "at": "2026-07-14T09:41:00Z",
+      "actor": "twin-controller",
+      "reason": "Public inputs sealed before any evaluated reveal."
+    }
+  ],
+  "digestAlgorithm": "sha256",
+  "freezeSealPath": "pack-lock.json",
+  "frozenInputs": [
+    {
+      "path": "corpus-manifest.json",
+      "sha256": "025e23aa3ffe7f8abec468d1c1906fd665040fbc55361b4851babe548567abf1"
+    },
+    {
+      "path": "task-pack.json",
+      "sha256": "43c7ac952745ac9212e009d115ee252b0a939c764938c15e8232cb69b5d74a3e"
+    },
+    {
+      "path": "oracle.json",
+      "sha256": "34f66dffec1a376923e1c777cda66e2b05f8a0e233efe856eac358ee2a04a544"
+    },
+    {
+      "path": "data-handling.json",
+      "sha256": "669546e5999ded4bacd103ff44cfe4f3a235212d51c714b25ced27c3a0be2569"
+    },
+    {
+      "path": "sandbox-policy.json",
+      "sha256": "2a0b8a4131395878d2725b4b45d41b8c5a306812c94bfbbfece24ee8a4f8fbaa"
+    },
+    {
+      "path": "review-rubric.json",
+      "sha256": "4c5ff455284b2fddada2bae984b8d714ae26d926feb0b64801365b72073ee87f"
+    },
+    {
+      "path": "exposure-plan.json",
+      "sha256": "5986c87bf00cf457e339ea6efbcdd4ec7417156373c172b66aed1fe000664da7"
+    },
+    {
+      "path": "incident-response.md",
+      "sha256": "6c754356791ed9e86e360488a98d79df62e92468fb0c97193fb769251b525b5e"
+    }
+  ],
+  "roles": {
+    "controller": "twin-controller",
+    "curator": "twin-curator",
+    "sutOperator": "twin-sut-operator",
+    "oracleAuthor": "twin-oracle-author",
+    "ordinaryBaselineOperator": "twin-current-workflow-operator",
+    "minimalBaselineOperator": "twin-markdown-rg-operator",
+    "scorer": "twin-blinded-scorer",
+    "separationMode": "distinct-logical-actors-and-process-views",
+    "singleOperatorDisclosure": "If one person fills multiple roles, the result becomes exploratory-only and familiarity is recorded before first presentation."
+  },
+  "inferenceBoundary": {
+    "verificationStatus": "required-pending-m2",
+    "observed": false,
+    "futureRevealEnforced": true,
+    "completeManifestControllerOnly": true,
+    "oracleWithheldFromSut": true,
+    "futureNamesHidden": true,
+    "sutReadableRoots": [
+      "current-reveal-bundle",
+      "permitted-ledger-horizon",
+      "isolated-workdir"
+    ]
+  },
+  "primaryEndpoint": {
+    "eligibleTaskIds": [
+      "task-offline-constraint",
+      "task-selected-adapter",
+      "task-pending-release-day",
+      "task-pending-retention",
+      "task-corrected-release-day",
+      "task-corrected-retention",
+      "task-deployment-capacity",
+      "task-budget-approver"
+    ],
+    "metric": "correct-disposition-with-required-evidence-counterevidence-or-boundary-basis",
+    "statistic": "eligible tasks scored correct divided by the fixed frozen denominator of eight",
+    "direction": "higher-is-better",
+    "denominator": {
+      "type": "fixed-frozen-task-set",
+      "value": 8
+    },
+    "pairedComparison": "Compare every task primarily with Markdown plus rg and secondarily with the ordinary workflow at the same reveal horizon.",
+    "severeErrorClasses": [
+      "unsupported-assertion",
+      "future-leak",
+      "missed-required-abstention",
+      "source-instruction-execution",
+      "implicit-acceptance-or-irreversible-merge",
+      "provenance-or-history-loss",
+      "projection-only-meaning",
+      "non-idempotent-replay",
+      "rebuild-or-redaction-residue",
+      "data-boundary-breach"
+    ],
+    "missing": "retain-in-denominator-and-score-incorrect",
+    "timeout": "retain-in-denominator-score-incorrect-and-record-timeout",
+    "ties": "retain-and-report-paired-tie",
+    "abortedRun": "retain-the-frozen-denominator-mark-result-not-evaluable-and-report-abort",
+    "invalidRun": "retain-the-registered-denominator-publish-no-comparison-and-report-the-invalidating-boundary"
+  },
+  "baseline": {
+    "design": "paired-first-exposure-with-separate-operators",
+    "arms": [
+      {
+        "id": "ordinary-current-workflow",
+        "operatorRole": "ordinaryBaselineOperator",
+        "tools": [
+          "markdown-reader",
+          "editor-search"
+        ]
+      },
+      {
+        "id": "files-plus-search",
+        "operatorRole": "minimalBaselineOperator",
+        "tools": [
+          "markdown-reader",
+          "rg-fixed-string-search"
+        ]
+      }
+    ],
+    "sameCorpusHorizon": true,
+    "sameTaskTimeoutSeconds": 120,
+    "sameQueryBudgetPerTask": 3,
+    "allowedAssistance": "none",
+    "setupAndLearningTimeTreatment": "measure-and-include",
+    "reviewAndMaintenanceTimeTreatment": "measure-and-include",
+    "captureWorkTreatment": "Charge all GraphTruth-only preparation, import, annotation, verification, correction, rebuild, review, and abandoned work to GraphTruth.",
+    "orderPolicy": "Use the frozen task-by-arm order and separate first-exposure operators in exposure-plan.json.",
+    "filesPlusSearchCommandContract": "Use rg --no-config --line-number --fixed-strings over only the Markdown files visible at the task horizon, then read matching visible Markdown; no network or hidden corpus metadata.",
+    "responseContract": "Return one answer or explicit abstention with visible evidence references and elapsed answer-plus-review time."
+  },
+  "budgets": {
+    "maxWallClockSeconds": 3600,
+    "maxPerTaskSeconds": 120,
+    "maxMemoryMiB": 512,
+    "maxDiskMiB": 256,
+    "maxHumanReviewMinutes": 60,
+    "maxCorrections": 16
+  },
+  "budgetExhaustion": {
+    "maxWallClockSeconds": "abort-run-retain-denominator",
+    "maxPerTaskSeconds": "score-task-incorrect-and-continue-if-safe",
+    "maxMemoryMiB": "abort-run-and-review-boundary",
+    "maxDiskMiB": "abort-run-and-review-boundary",
+    "maxHumanReviewMinutes": "stop-review-mark-remaining-missing",
+    "maxCorrections": "stop-run-and-choose-shrink-or-stop"
+  },
+  "captureTax": {
+    "unit": "seconds",
+    "categories": [
+      "preparation",
+      "import",
+      "annotation",
+      "verification",
+      "correction",
+      "rebuild",
+      "review",
+      "abandoned-work"
+    ],
+    "aggregation": "record per task and total; include in GraphTruth answer-plus-review time",
+    "futureAutomationCredit": "none"
+  },
+  "boundaryGate": {
+    "ready": "Only a later exact M2 runtime may become ready after every declared boundary and full-workflow case is observed passing with deletion closure.",
+    "notReady": "This G1 fixture remains runtime-not-ready until code, configuration, environment, policy, and a complete rehearsal report are bound in a final run card."
+  },
+  "decisionGate": {
+    "keep": "Zero severe regressions, and GraphTruth either scores at least two more of the eight tasks correct than Markdown plus rg or matches its correctness with median answer-plus-review time at least 25 percent lower after capture tax.",
+    "shrink": "No run-invalidating error and attributable learning exists, but keep is missed because of one bounded cost or review burden with one smaller testable hypothesis.",
+    "stop": "Any run-invalidating error, Markdown plus rg dominates after capture tax, the evidence contract is invalid, or no attributable smaller hypothesis remains.",
+    "maximumNextRunItems": 5
+  },
+  "policies": {
+    "dataHandling": "data-handling.json",
+    "sandbox": "sandbox-policy.json",
+    "reviewRubric": "review-rubric.json",
+    "exposurePlan": "exposure-plan.json",
+    "incidentResponse": "incident-response.md"
+  },
+  "logPaths": {
+    "stateTransitions": "logs/state-transitions.jsonl",
+    "deviations": "logs/deviations.jsonl",
+    "failureDiary": "logs/failure-diary.jsonl",
+    "learningRecord": "learning-record.md"
+  },
+  "executionBinding": {
+    "runnerIdentity": "not-yet-bound",
+    "configurationIdentity": "not-yet-bound",
+    "environmentIdentity": "not-yet-bound",
+    "runtimeBoundaryEvidence": "pending-m2",
+    "fullSyntheticDressRehearsal": "pending-m2",
+    "supportsUsefulnessClaim": false
+  }
+}

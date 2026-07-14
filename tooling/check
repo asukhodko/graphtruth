@@ -17,6 +17,7 @@ fi
 
 node tooling/check.mjs
 ./tooling/preflight
+./tooling/preflight --twin
 expected_vendor_inventory() {
   awk '{print $2}' tooling/vendor/opskarta/UPSTREAM.sha256
   printf '%s\n' \

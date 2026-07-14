@@ -14,6 +14,13 @@ export const defaultPackDirectory = path.join(
   "preflight",
 );
 
+export const evidenceContractTwinDirectory = path.join(
+  repositoryRoot,
+  "examples",
+  "experiments",
+  "evidence-contract-twin-v1",
+);
+
 const requiredFiles = [
   "README.md",
   "corpus-manifest.json",
@@ -1477,7 +1484,7 @@ export async function validatePack(packDirectory = defaultPackDirectory) {
 }
 
 function usage() {
-  return "Usage: tooling/preflight [--json]";
+  return "Usage: tooling/preflight [--twin] [--json]";
 }
 
 export function formatHumanResult(result) {
@@ -1492,16 +1499,21 @@ export function formatHumanResult(result) {
 async function main() {
   const args = process.argv.slice(2);
   const json = args.includes("--json");
+  const twin = args.includes("--twin");
   if (args.includes("--help")) {
     process.stdout.write(`${usage()}\n`);
     return;
   }
-  if (args.some((arg) => arg !== "--json") || args.filter((arg) => arg === "--json").length > 1) {
+  if (
+    args.some((arg) => !["--json", "--twin"].includes(arg)) ||
+    args.filter((arg) => arg === "--json").length > 1 ||
+    args.filter((arg) => arg === "--twin").length > 1
+  ) {
     process.stderr.write(`${usage()}\n`);
     process.exitCode = 2;
     return;
   }
-  const result = await validatePack(defaultPackDirectory);
+  const result = await validatePack(twin ? evidenceContractTwinDirectory : defaultPackDirectory);
   if (json) {
     process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
   } else {
