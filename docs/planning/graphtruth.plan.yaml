@@ -25,10 +25,11 @@ nodes:
     status: current
     notes: |
       Pre-alpha. Foundation, the synthetic S0-S1 boundary rehearsal, repository
-      hardening, and project-state synchronization are complete. Real private
-      utility remains untested. Three of the five focused days in Issue #6 are
-      conservatively accounted for; at most two remain before the 2026-07-26
-      calendar stop. Moving between phases never resets that limit.
+      hardening, and the publication-safe G1 twin are complete. Real private
+      utility remains untested. Four of the five focused days in Issue #6 are
+      accounted for; one remains before the 2026-07-26 calendar stop. Starting
+      that final day requires an explicit owner decision to continue, shrink,
+      or stop. Moving between phases never resets that limit.
 
   m0-rehearsal-integration:
     title: "Integrate the runtime-boundary rehearsal evidence"
@@ -100,10 +101,10 @@ nodes:
     status: done
     issue: "https://github.com/asukhodko/graphtruth/issues/6"
     notes: |
-      Issue #6 records PR #14 and PR #15, the completed boundary capabilities,
-      the pending full dress rehearsal and private utility work, and the
-      conservative three-of-five-focused-day accounting. At most two focused
-      days remain, with a hard calendar stop on 2026-07-26.
+      At G0 closure, Issue #6 recorded PR #14 and PR #15, the completed boundary
+      capabilities, the pending full dress rehearsal and private utility work,
+      and the conservative three-of-five-focused-day accounting. Two focused
+      days remained at that checkpoint, with a hard stop on 2026-07-26.
 
   m0-sync-project-state:
     title: "Synchronize repository docs and Obsidian project state"
@@ -140,18 +141,23 @@ nodes:
     issue: "https://github.com/asukhodko/graphtruth/issues/6"
     notes: |
       Select and seal one private 3-5 item decision or incident lineage before
-      private-lane implementation is allowed to adapt to its outcomes. Work must
-      fit the at-most-two remaining focused days and the 2026-07-26 hard stop.
+      private-lane implementation is allowed to adapt to its outcomes. The
+      public twin and owner-only procedure are anchored in PR #18, but no
+      private episode has been selected or sealed. Any work that consumes the
+      final focused day requires the owner's explicit continue, shrink, or stop
+      decision; the 2026-07-26 hard stop remains fixed.
 
   m1-select-episode:
     title: "Select one real episode and its knowledge boundary"
     kind: task
     parent: m1-evidence-contract-freeze
     deps: [g0-rehearsal-integrated]
-    status: ready
+    status: conditional
     notes: |
       Record inclusion, exclusion, lineage, chronology, prior familiarity, and
-      why the episode can test useful retrieval or reconstruction.
+      why the episode can test useful retrieval or reconstruction. Continuing
+      beyond the already charged fourth day requires the owner's explicit
+      continue, shrink, or stop decision before selection work resumes.
 
   m1-private-root:
     title: "Prepare the access-controlled private root"
@@ -202,9 +208,14 @@ nodes:
     title: "Create a publication-safe synthetic twin"
     kind: task
     parent: m1-evidence-contract-freeze
-    deps: [m1-freeze-manifest, m1-freeze-tasks]
-    status: planned
-    notes: "Reproduce the failure shape without private wording, values, identities, or re-identifying structure."
+    deps: [g0-rehearsal-integrated]
+    status: done
+    notes: |
+      PR #18 anchors four fictional sources and eight closed tasks created
+      before private episode access. The public-content disclosure review is
+      safe. The later private comparison remains part of the contract seal and
+      cannot be completed or published before owner and independent review.
+      Runtime binding and execution remain M2 work.
 
   m1-seal-evidence-contract:
     title: "Seal the private inputs and decision contract"
@@ -221,7 +232,10 @@ nodes:
     notes: |
       Any later source, task, oracle, baseline, threshold, order, or handling
       change creates a new evidence-contract identity. Exact code, configuration,
-      and rehearsal evidence are bound later in the final run card.
+      and rehearsal evidence are bound later in the final run card. The owner
+      and an independent reviewer must privately compare the public twin with
+      the closed episode and record only `safe` or `reject`; the mapping itself
+      is never published.
 
   g1-evidence-contract-frozen:
     title: "Gate: private evidence contract frozen"
@@ -600,7 +614,7 @@ execution:
       actual_start: "2026-07-14"
       actual_finish: "2026-07-14"
       updated_at: "2026-07-14T10:44:49+03:00"
-      note: "Issue #6 now separates completed boundary evidence from pending private utility and accounts for three of five focused days."
+      note: "At G0 closure, Issue #6 separated completed boundary evidence from pending private utility and accounted for three of five focused days."
     m0-sync-project-state:
       progress: 1.0
       actual_start: "2026-07-14"
@@ -619,6 +633,12 @@ execution:
       actual_finish: "2026-07-14"
       updated_at: "2026-07-14T10:48:39+03:00"
       note: "The boundary-rehearsal integration gate is closed without a private run or usefulness claim."
+    m1-synthetic-twin:
+      progress: 1.0
+      actual_start: "2026-07-14"
+      actual_finish: "2026-07-14"
+      updated_at: "2026-07-14T13:01:48+03:00"
+      note: "PR #18 published and checked the pre-private evidence-contract twin, accounting for focused day four of five; private comparison remains pending."
 
 views:
   current-work:
@@ -645,7 +665,7 @@ x:
   exec:
     program:
       nearest_goal: "Complete Issue #6 with a decision from one real private chronological replay."
-      success_by_next_sync: "Freeze the private evidence contract within the remaining Issue #6 budget."
+      success_by_next_sync: "Freeze the remaining private evidence contract within the one-day Issue #6 budget, or record the owner's shrink or stop decision."
     defaults:
       status_progress:
         done: 1.0
@@ -662,7 +682,7 @@ x:
         kind: main
         mgmt:
           health: green
-          sync_note: "PR #14 evidence, PR #15 hardening, Issue #6 accounting, and current personal notes are aligned."
+          sync_note: "G0 closed with PR #14 evidence, PR #15 hardening, Issue #6 accounting, and the then-current personal notes aligned."
           next_sync_goal: "Keep the integrated evidence immutable while the private contract is frozen."
       pack-freeze:
         title: "Private evidence-contract freeze"
@@ -670,8 +690,8 @@ x:
         kind: main
         mgmt:
           health: yellow
-          sync_note: "Unblocked, but no private episode is sealed; three of five focused Issue #6 days are already accounted for."
-          next_sync_goal: "Freeze the episode, tasks, baseline, policy, and safe twin within the remaining two focused days."
+          sync_note: "PR #18 anchored the safe twin, but no private episode is sealed; four of five focused Issue #6 days are accounted for."
+          next_sync_goal: "Obtain the owner's continue, shrink, or stop decision; on continue, finish the entire private G1 freeze within the final focused day."
       private-lane:
         title: "Private S0-S1 lane"
         scope_nodes: [m2-private-lane]

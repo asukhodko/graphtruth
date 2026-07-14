@@ -42,10 +42,10 @@ complete:
    boundary-rehearsal evidence published in PR #14 and the hardening and
    integration completed in PR #15–16, including focused time already consumed
    from the issue-wide time box;
-2. freeze one external private evidence contract of three to five sources with
-   at least eight tasks, withheld oracle, Markdown plus `rg` baseline,
-   capture-tax accounting, handling rules, and a predeclared
-   `keep / shrink / stop` gate;
+2. **In progress 2026-07-14:** freeze one external private evidence contract of
+   three to five sources with at least eight tasks, withheld oracle, Markdown
+   plus `rg` baseline, capture-tax accounting, handling rules, and a
+   predeclared `keep / shrink / stop` gate;
 3. implement only the private chronological lane needed for that pack, repeat
    the isolated runtime-boundary rehearsal because the runtime identity and
    attack surface changed, and then complete the full synthetic dress rehearsal,
@@ -59,12 +59,21 @@ complete:
    select one smaller hypothesis or stop. Only then choose the next major work
    track.
 
+Preparation for step 2 is complete: PR #18 published and independently checked
+a sealed four-source, eight-task fictional twin plus the owner-only freeze
+procedure before any private episode was selected. This strengthens the
+non-derivation boundary but does not complete step 2. The real episode,
+manifest, exact private task set and oracle, two closed reviews, and external
+private seal remain pending; no evaluated run has occurred.
+
 The existing Issue #6 budget covers integration through the chronological
 decision in steps 1–4: five focused working days with a hard stop after two
-calendar weeks. Subdividing the work does not restart either clock. The order
-successor after `keep` starts under a new issue and time box. If integration
-shows the current budget is exhausted before its decision, record the learning
-and close or explicitly replace the experiment before continuing.
+calendar weeks. Four of the five days are now accounted for. Before consuming
+the final day, the owner must explicitly choose to continue, shrink the
+contract, or stop. Subdividing the work does not restart either clock. The
+order successor after `keep` starts under a new issue and time box. If the
+current budget is exhausted before its decision, record the learning and close
+or explicitly replace the experiment before continuing.
 
 The validated [OpsKarta work map](planning/graphtruth.plan.yaml) decomposes this
 near path and leaves later capabilities as sparse horizons. Its milestone names

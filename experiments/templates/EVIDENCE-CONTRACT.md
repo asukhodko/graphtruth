@@ -34,11 +34,12 @@ admission gate.
 
 ## Time box
 
-Issue #6 has one five-focused-day budget and a hard stop on 2026-07-26. Three
-days were already accounted for before G1. This freeze targets one additional
-focused day. Starting the fifth and final day requires a separate owner
-decision to continue, shrink the contract, or stop; renaming or splitting the
-work never resets either limit.
+Issue #6 has one five-focused-day budget and a hard stop on 2026-07-26. PR #18
+used the fourth accounted day to publish this procedure and the pre-private
+twin. One day remains. Before consuming it, the owner must separately choose to
+continue, shrink the contract, or stop. If the decision is `continue`, the
+complete remaining private freeze must fit that final day; renaming or
+splitting the work never resets either limit.
 
 ## Existing material and its limit
 
