@@ -12,6 +12,8 @@ and which constraints should survive implementation changes.
 - [Development process](DEVELOPMENT.md) — the evidence-driven workflow, change gates, and definitions of done.
 - [Monorepo strategy](MONOREPO.md) — why the project stays together and what would justify a split.
 - [Roadmap](ROADMAP.md) — capability-oriented stages from personal dogfooding to a public protocol.
+- [Operational planning](planning/README.md) — current work, decision gates, and
+  the validated OpsKarta map.
 - [Design drafts](drafts/README.md) — non-normative recovered context,
   alternatives, research snapshots, and investigation backlog.
 

@@ -13,9 +13,12 @@ The repository's first executable synthetic example is the
 3 laboratory pack for rehearsing the corpus-replay experiment boundary before
 real or private data is admitted. It deliberately tests experimental manifests,
 digests, reveal-order declarations, withheld-material policy, task closure, and
-rejected invalid packs. Runtime failure handling and rebuild behavior remain
-obligations for the later isolated dress rehearsal; none of these shapes is a
-canonical example or conformance fixture yet.
+rejected invalid packs. The later
+[isolated synthetic rehearsal](../runtime/rehearsal/observed.md) exercised the
+declared process-failure, exact-redelivery, rebuild, and controlled-deletion
+paths. Real private utility, operating-system or power-loss durability, and the
+changed private lane remain untested. None of these shapes is a canonical
+example or conformance fixture yet.
 
 If repeated experiments demonstrate stable portable semantics, a separately
 reviewed minimal example may later be promoted into this directory under an

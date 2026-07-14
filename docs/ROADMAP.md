@@ -16,6 +16,53 @@ This roadmap is ordered by evidence and maturity, not dates. It deliberately avo
   structure; do not require a closed domain list or design a universal ontology
   in advance.
 
+## Current evidence checkpoint — 2026-07-14
+
+GraphTruth is moving from foundation work toward its first real utility test.
+The foundation documents, experiment method, public synthetic preflight, and an
+isolated S0-S1 runtime rehearsal exist. Stage 0 has not formally exited: its
+independent-review and invariant-to-conformance evidence is not yet complete.
+
+The [recorded synthetic rehearsal](../runtime/rehearsal/observed.md) passed its
+declared boundary, crash/resume, rebuild, and controlled-deletion checks, and
+the [owner confirmed the exact report](../runtime/rehearsal/owner-signoff.json)
+separately. That result admits continued experiment preparation. It does not
+show that GraphTruth is useful on real work, admit private bytes to a changed
+runner, or satisfy Stage 1.
+
+The next evidence ladder is deliberately narrow:
+
+1. integrate the rehearsal evidence through the normal repository workflow and
+   make Issue #6 and project notes match the shared Git state, including focused
+   time already consumed from the issue-wide time box;
+2. freeze one external private evidence contract of three to five sources with
+   at least eight tasks, withheld oracle, Markdown plus `rg` baseline,
+   capture-tax accounting, handling rules, and a predeclared
+   `keep / shrink / stop` gate;
+3. implement only the private chronological lane needed for that pack, then
+   repeat the synthetic rehearsal because the runtime identity and attack
+   surface changed; before revealing private bytes, bind the exact admitted
+   code, configuration, policy, and rehearsal report to the frozen contract in
+   a final run card;
+4. run the frozen baseline and GraphTruth lanes plus a separate correction
+   fork, score the full denominator, and record **expected / observed /
+   learned**;
+5. if the result is `keep`, run the bounded order-robustness successor; otherwise
+   select one smaller hypothesis or stop. Only then choose the next major work
+   track.
+
+The existing Issue #6 budget covers integration through the chronological
+decision in steps 1–4: five focused working days with a hard stop after two
+calendar weeks. Subdividing the work does not restart either clock. The order
+successor after `keep` starts under a new issue and time box. If integration
+shows the current budget is exhausted before its decision, record the learning
+and close or explicitly replace the experiment before continuing.
+
+The validated [OpsKarta work map](planning/graphtruth.plan.yaml) decomposes this
+near path and leaves later capabilities as sparse horizons. Its milestone names
+are operational identifiers; the numbered stages below remain the authority
+for capability maturity.
+
 ## Stage 0 — Foundation
 
 Establish the decisions that future implementation work must not accidentally obscure.

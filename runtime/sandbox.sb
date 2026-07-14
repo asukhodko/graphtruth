@@ -1,0 +1,36 @@
+(version 1)
+(deny default)
+
+(allow file-read*
+  (literal "/")
+  (subpath "/System")
+  (subpath "/usr/lib")
+  (subpath "/usr/share")
+  (subpath "/Library/Apple")
+  (subpath "/opt/homebrew/Cellar")
+  (subpath "/opt/homebrew/opt")
+  (literal "/dev/null")
+  (literal "/dev/random")
+  (literal "/dev/urandom")
+  (subpath (param "RUNTIME_DIR"))
+  (subpath (param "REVEAL_DIR"))
+  (subpath (param "WORK_DIR")))
+
+(allow file-read-metadata
+  (literal "/private")
+  (literal "/private/tmp")
+  (literal (param "SESSION_PARENT"))
+  (literal (param "RUN_PARENT"))
+  (literal (param "RUN_ROOT")))
+
+(allow file-write*
+  (subpath (param "WORK_DIR"))
+  (literal "/dev/null"))
+
+(allow process-exec (literal (param "NODE_BIN")))
+(allow process-info*)
+(allow sysctl-read)
+(allow mach-lookup
+  (global-name "com.apple.system.opendirectoryd.libinfo"))
+
+(deny network*)

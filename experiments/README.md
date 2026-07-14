@@ -48,6 +48,12 @@ system sandbox, execute the reveal controller, or prove that a boundary is
 safe. Review every private-run item below manually and complete the signed
 runtime rehearsal before admitting real data.
 
+The separate Zone 3 command `./runtime/replay` now executes that public
+synthetic rehearsal in the intended local isolation shape. Its checked-in
+observations are linked from the runtime README. This does not turn
+`./tooling/preflight` into a private-pack validator or remove the owner's
+run-specific sign-off.
+
 ## Required pack
 
 Copy these templates into the private run root and complete them there:

@@ -151,6 +151,10 @@ invalidate, or deliberately pause the current learning loop before starting the
 next. Use one milestone for the current roadmap stage; add a project board only
 when issue volume makes it necessary.
 
+The [operational work map](planning/README.md) decomposes that single major
+path and its decision gates. It coordinates work but does not replace issues,
+review, or the evidence required to mark a learning loop complete.
+
 ## Private dogfood boundary
 
 - Keep the personal canonical corpus, credentials, raw logs, and backups outside

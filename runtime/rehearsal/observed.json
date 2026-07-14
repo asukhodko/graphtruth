@@ -1,0 +1,344 @@
+{
+  "command": "./runtime/replay rehearse --seed first-recorded-rehearsal-v0",
+  "deviations": [],
+  "environment": {
+    "architecture": "arm64",
+    "gitHead": "44fd2dd974d8a902ce2087df4dac0941fdbdd24c",
+    "gitWorktree": {
+      "dirty": false,
+      "entryCount": 0,
+      "statusDigest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "isolationProfileVersion": "darwin-seatbelt-deny-default-v0",
+    "kernelRelease": "25.5.0",
+    "node": "v24.4.1",
+    "platform": "darwin"
+  },
+  "expected": [
+    "validate the exact captured pack bytes and reveal sources in declared chronological order",
+    "deny future, oracle, manifest, credential, network, and outside-workdir access",
+    "publish an exact-evidence hash chain anchored outside the worker boundary",
+    "resume both declared crash points without semantic duplication",
+    "delete and rebuild the disposable projection without semantic change",
+    "delete the complete run and reproduce the same state from a clean rerun",
+    "run a freshly generated sealed pack without checked-fixture assumptions"
+  ],
+  "format": "graphtruth.experimental.runtime-rehearsal-report/0",
+  "generatedFactsDigest": "94bcb86eb1ac2e37c5b51e6f44f8cf77067ea3873f36db8630681c500acd772a",
+  "generatedSeed": "first-recorded-rehearsal-v0",
+  "learned": [
+    "The checked-in static pack can drive a real isolated reveal loop from a validated byte snapshot.",
+    "Anchored passages are sufficient provisional deterministic candidates for the first runtime boundary test.",
+    "Controller-only head anchors make self-consistent rewriting of earlier worker commits detectable.",
+    "The exercised crash boundary is process termination, not operating-system or power-loss durability.",
+    "Projection rebuild has no concurrent reader or atomic generation switch in this first skeleton.",
+    "Trusted stable local code and input roots are a precondition; a malicious concurrent same-UID race is outside this rehearsal.",
+    "Runtime formats remain Zone 3 laboratory artifacts and carry no protocol authority."
+  ],
+  "observedAt": "2026-07-14T03:22:48.399Z",
+  "ownerSignoff": {
+    "isolationAndDeletion": "pending",
+    "note": "Owner confirmation is required before any private corpus is admitted."
+  },
+  "runs": [
+    {
+      "candidateCount": 8,
+      "commitCount": 4,
+      "head": "b7b7ec4a4ab0c91ce89d56731aff7d8cfddc51715bb3dcc4fe4de10483b5d473",
+      "identity": {
+        "codeDigest": "c20cb93366672118bfa60032a1dc688022afea72203eeee96879523009eb3238",
+        "configurationDigest": "8576231589854e88d5f049ad4059b5086432b6d4159ab47299c3ac3b8c9dbfb5",
+        "files": [
+          {
+            "bytes": 143,
+            "path": "runtime/replay",
+            "sha256": "0d6ce2b79ff3d8ba8c36ee1b0cf9e5a1b9e0165efae6707a1a246c0e74fb78bb"
+          },
+          {
+            "bytes": 3230,
+            "path": "runtime/replay.mjs",
+            "sha256": "e96059849d173d220266c648c49dbe52094797e0d2b0d4838dc4c743ebbf7fac"
+          },
+          {
+            "bytes": 847,
+            "path": "runtime/sandbox.sb",
+            "sha256": "3fd12bb0dfe4204cb9e7676655524f8b1944b2ed308776de45aefc821bed424b"
+          },
+          {
+            "bytes": 42098,
+            "path": "runtime/src/controller.mjs",
+            "sha256": "79b92acc932002a5c4cec53990d72739f9a3cc0a43a43a92665f8df2a4d74a4e"
+          },
+          {
+            "bytes": 7085,
+            "path": "runtime/src/generated-pack.mjs",
+            "sha256": "c6b2a5ddda4f008eae23a246f396531679da24e469f4079cfe8be2c185649e66"
+          },
+          {
+            "bytes": 9281,
+            "path": "runtime/src/lib.mjs",
+            "sha256": "29f8f5497c7189f9fd33489bae2819625516bcaf9ddc0dd3ad57e4c55c511586"
+          },
+          {
+            "bytes": 5266,
+            "path": "runtime/src/sandbox.mjs",
+            "sha256": "c49fd89c8a5f9d9efa692768f105bfcb74ef0a64bd8ec3ef30b5d0c1a8465f04"
+          },
+          {
+            "bytes": 19339,
+            "path": "runtime/src/worker.mjs",
+            "sha256": "021c44e42faae463862a875b40d3b139a7a1fc6838c2bc8deac232e7cbde3604"
+          },
+          {
+            "bytes": 53482,
+            "path": "tooling/preflight.mjs",
+            "sha256": "003a183708e00f57ac0d9367e8e03cb2f3a396fff296c533a3a8169d4289e361"
+          }
+        ],
+        "isolationProfileVersion": "darwin-seatbelt-deny-default-v0",
+        "packLockDigest": "b31978c667288f3db4b0cef262955ffc9b7a12327835f15b8439266523c0d45e",
+        "runId": "runtime-6112252e9c9aa6db52b6"
+      },
+      "label": "checked",
+      "observations": [
+        {
+          "controllerCanariesAbsent": true,
+          "environmentScrubbed": true,
+          "id": "sandbox-boundary",
+          "networkDenied": true,
+          "passed": true,
+          "readsDenied": [
+            "future",
+            "manifest",
+            "oracle",
+            "credential"
+          ],
+          "writesDenied": [
+            "input",
+            "outside-workdir",
+            "symlink-escape"
+          ]
+        },
+        {
+          "id": "deterministic-order-and-first-reveal",
+          "passed": true
+        },
+        {
+          "id": "future-boundary-step-1",
+          "passed": true
+        },
+        {
+          "commitCount": 2,
+          "id": "exact-redelivery",
+          "passed": true
+        },
+        {
+          "id": "future-boundary-step-2",
+          "passed": true
+        },
+        {
+          "id": "crash-before-publication",
+          "passed": true,
+          "priorHeadPreserved": true,
+          "processTermination": "SIGKILL",
+          "publishedCommitPreserved": false,
+          "selectorAdvancedBeforeRecovery": false
+        },
+        {
+          "id": "future-boundary-step-3",
+          "passed": true
+        },
+        {
+          "id": "crash-after-publication",
+          "passed": true,
+          "priorHeadPreserved": false,
+          "processTermination": "SIGKILL",
+          "publishedCommitPreserved": true,
+          "selectorAdvancedBeforeRecovery": false
+        },
+        {
+          "id": "future-boundary-step-4",
+          "passed": true
+        },
+        {
+          "id": "projection-delete-rebuild",
+          "passed": true
+        },
+        {
+          "count": 4,
+          "id": "controller-only-history-anchors",
+          "passed": true
+        },
+        {
+          "id": "temporary-bundle-cleanup",
+          "passed": true
+        },
+        {
+          "id": "child-processes-joined",
+          "passed": true
+        },
+        {
+          "id": "whole-run-deletion",
+          "passed": true
+        },
+        {
+          "id": "clean-rerun-equivalence",
+          "passed": true
+        }
+      ],
+      "packId": "replay-preflight-v0",
+      "packLockDigest": "b31978c667288f3db4b0cef262955ffc9b7a12327835f15b8439266523c0d45e",
+      "semanticDigest": "96412cbca1cf2aaea3029cd5f322a2bc24228882630d320fcdbf8379b688e4ae"
+    },
+    {
+      "candidateCount": 8,
+      "commitCount": 4,
+      "head": "705984d182baa5ee783065dbddd1e6e162ad07ad57ac5bd1b0ade8ab9ba50c2f",
+      "identity": {
+        "codeDigest": "c20cb93366672118bfa60032a1dc688022afea72203eeee96879523009eb3238",
+        "configurationDigest": "8576231589854e88d5f049ad4059b5086432b6d4159ab47299c3ac3b8c9dbfb5",
+        "files": [
+          {
+            "bytes": 143,
+            "path": "runtime/replay",
+            "sha256": "0d6ce2b79ff3d8ba8c36ee1b0cf9e5a1b9e0165efae6707a1a246c0e74fb78bb"
+          },
+          {
+            "bytes": 3230,
+            "path": "runtime/replay.mjs",
+            "sha256": "e96059849d173d220266c648c49dbe52094797e0d2b0d4838dc4c743ebbf7fac"
+          },
+          {
+            "bytes": 847,
+            "path": "runtime/sandbox.sb",
+            "sha256": "3fd12bb0dfe4204cb9e7676655524f8b1944b2ed308776de45aefc821bed424b"
+          },
+          {
+            "bytes": 42098,
+            "path": "runtime/src/controller.mjs",
+            "sha256": "79b92acc932002a5c4cec53990d72739f9a3cc0a43a43a92665f8df2a4d74a4e"
+          },
+          {
+            "bytes": 7085,
+            "path": "runtime/src/generated-pack.mjs",
+            "sha256": "c6b2a5ddda4f008eae23a246f396531679da24e469f4079cfe8be2c185649e66"
+          },
+          {
+            "bytes": 9281,
+            "path": "runtime/src/lib.mjs",
+            "sha256": "29f8f5497c7189f9fd33489bae2819625516bcaf9ddc0dd3ad57e4c55c511586"
+          },
+          {
+            "bytes": 5266,
+            "path": "runtime/src/sandbox.mjs",
+            "sha256": "c49fd89c8a5f9d9efa692768f105bfcb74ef0a64bd8ec3ef30b5d0c1a8465f04"
+          },
+          {
+            "bytes": 19339,
+            "path": "runtime/src/worker.mjs",
+            "sha256": "021c44e42faae463862a875b40d3b139a7a1fc6838c2bc8deac232e7cbde3604"
+          },
+          {
+            "bytes": 53482,
+            "path": "tooling/preflight.mjs",
+            "sha256": "003a183708e00f57ac0d9367e8e03cb2f3a396fff296c533a3a8169d4289e361"
+          }
+        ],
+        "isolationProfileVersion": "darwin-seatbelt-deny-default-v0",
+        "packLockDigest": "ab200635a12b9e3a4881cb518e8e063168273fb74919a8c823e0fe42d20e8911",
+        "runId": "runtime-c2db3b80334ce4bd6c91"
+      },
+      "label": "generated",
+      "observations": [
+        {
+          "controllerCanariesAbsent": true,
+          "environmentScrubbed": true,
+          "id": "sandbox-boundary",
+          "networkDenied": true,
+          "passed": true,
+          "readsDenied": [
+            "future",
+            "manifest",
+            "oracle",
+            "credential"
+          ],
+          "writesDenied": [
+            "input",
+            "outside-workdir",
+            "symlink-escape"
+          ]
+        },
+        {
+          "id": "deterministic-order-and-first-reveal",
+          "passed": true
+        },
+        {
+          "id": "future-boundary-step-1",
+          "passed": true
+        },
+        {
+          "commitCount": 2,
+          "id": "exact-redelivery",
+          "passed": true
+        },
+        {
+          "id": "future-boundary-step-2",
+          "passed": true
+        },
+        {
+          "id": "crash-before-publication",
+          "passed": true,
+          "priorHeadPreserved": true,
+          "processTermination": "SIGKILL",
+          "publishedCommitPreserved": false,
+          "selectorAdvancedBeforeRecovery": false
+        },
+        {
+          "id": "future-boundary-step-3",
+          "passed": true
+        },
+        {
+          "id": "crash-after-publication",
+          "passed": true,
+          "priorHeadPreserved": false,
+          "processTermination": "SIGKILL",
+          "publishedCommitPreserved": true,
+          "selectorAdvancedBeforeRecovery": false
+        },
+        {
+          "id": "future-boundary-step-4",
+          "passed": true
+        },
+        {
+          "id": "projection-delete-rebuild",
+          "passed": true
+        },
+        {
+          "count": 4,
+          "id": "controller-only-history-anchors",
+          "passed": true
+        },
+        {
+          "id": "temporary-bundle-cleanup",
+          "passed": true
+        },
+        {
+          "id": "child-processes-joined",
+          "passed": true
+        },
+        {
+          "id": "whole-run-deletion",
+          "passed": true
+        },
+        {
+          "id": "clean-rerun-equivalence",
+          "passed": true
+        }
+      ],
+      "packId": "generated-run-63d20692d781",
+      "packLockDigest": "ab200635a12b9e3a4881cb518e8e063168273fb74919a8c823e0fe42d20e8911",
+      "semanticDigest": "6e01ff535b7e5faf9df1e02eeaade71777aae8a376bbcd64b69f1e0be3109ee0"
+    }
+  ],
+  "status": "passed"
+}

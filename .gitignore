@@ -13,6 +13,8 @@ dogfood/
 # Dependencies
 node_modules/
 .cache/
+__pycache__/
+*.py[cod]
 
 # Editor state
 .idea/

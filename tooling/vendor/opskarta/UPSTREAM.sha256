@@ -1,0 +1,9 @@
+c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4  tooling/vendor/opskarta/LICENSE
+9ca4b97f04b03ab20775d5e22c8441cbcf3dc181d749288700feda2ed5b30a0e  tooling/vendor/opskarta/NOTICE
+66433e198af49dbe89fadca028c66233b453138413da69984e33b4c99ba83422  tooling/vendor/opskarta/specs/v3/ru/SPEC.min.md
+752cd22263b5fe90bd6021a4aa7555907c6ad9c04bba62b10b6fdf1c1d37570f  tooling/vendor/opskarta/specs/v3/schemas/fragment.schema.json
+49e05d11b2b23274b2d842f1b0b4ac3cc8aa8f8a58e8de6f7706edec99317b00  tooling/vendor/opskarta/specs/v3/schemas/merged-plan.schema.json
+16b8df59d9194768a4ee3229d635e21cd788e1f67e5166b5d5e66e1d332bcbdf  tooling/vendor/opskarta/specs/v3/tools/__init__.py
+b33fc173590d3624ced642be0b7b4a4cdf115333bf1b7d7c390bd50d451155a3  tooling/vendor/opskarta/specs/v3/tools/loader.py
+de2f1959d8a91f90bc23b5a34db88712dcbf3694972cec3b964869567185d02f  tooling/vendor/opskarta/specs/v3/tools/models.py
+ed0276fd0cf9d7bce6da15548ebdf482401a7f81fc364d6df8ac1e1522a21da0  tooling/vendor/opskarta/specs/v3/tools/validator.py
