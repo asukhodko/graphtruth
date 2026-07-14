@@ -182,6 +182,11 @@ knowledge acquisition, or absence of memorization.
 - Operator, baseline, and review time budgets:
 - Compute, storage, and external-processing budgets:
 - Parser and media-type limits:
+- G1 review-envelope limit: every sealed artifact is strict UTF-8; at most 256
+  artifacts; complete fixed-prompt plus canonical-JSON standard input at most
+  1 MiB (1,048,576 bytes); reject rather than truncate or summarize:
+- G1 external-processing limit: one specifically authorized private Codex call
+  after the local post-seal identity-and-config preflight:
 - Non-Markdown handling: `reject` for the first G1 contract:
 - Pilot size and frozen condition for expansion: `Deferred successor`; the G1
   source count remains closed at three to five:
@@ -214,11 +219,23 @@ not be inserted into the G1 seal as if a runtime had been admitted:
 - Digest algorithm and byte-canonicalization rule:
 - Candidate pack identity before lock creation:
 - Candidate finalization actor and time:
-- Pre-seal selection reviewer and review time:
+- Owner pre-seal selection review and time:
 
-These fields record review of the selection and candidate contents. They are
-not the final owner and independent confirmations, which occur only after the
-completed lock makes the pack immutable and are stored outside the pack.
+These fields record the owner's review of the selection and candidate contents.
+They are not the later fresh isolated Codex review or the owner's final
+acceptance. Those occur against the completed immutable lock and are stored
+outside the pack.
+
+The persistent sealed `PACK` and common `ANCHOR` stay outside the repository and
+synchronization roots. During the later attempt, a byte-exact read-only pack
+copy verified against the external lock anchor remains controller-only; review,
+attempt-anchor, authorization, and state staging are strict canonical
+descendants of `realpath(os.tmpdir())`, and the ephemeral model workspace
+contains only the byte-exact public result schema. The controller sends the
+complete private envelope through standard input. The post-seal
+identity-and-config report, exact JSONL trace, validated result, cleanup
+evidence, and owner acceptance are later facts and do not belong in this sealed
+selection record.
 
 The G1 pack lock excludes its own bytes and is anchored outside the sealed pack.
 Any change to G1-sealed bytes, selection rules, chronology, tasks, thresholds,

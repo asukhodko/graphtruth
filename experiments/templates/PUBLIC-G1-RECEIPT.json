@@ -1,9 +1,9 @@
 {
-  "documentKind": "graphtruth.public-g1-receipt/1",
+  "documentKind": "graphtruth.public-g1-receipt/2",
   "gate": "G1",
   "status": "template-only-not-attested",
   "attestedOn": null,
-  "trustBasis": "owner-and-independent-reviewer-attestation",
+  "trustBasis": "owner-and-fresh-isolated-codex-review",
   "publicBounds": {
     "sources": "three-to-five-confirmed",
     "tasks": "closed-T-at-least-eight-confirmed"
@@ -20,15 +20,20 @@
     "publicationSafeSyntheticTwinReviewed": false,
     "privatePackInventoryVerified": false,
     "nonCircularPrivateSealAnchoredOutsidePack": false,
-    "finalConfirmationsBoundToSealedPack": false,
-    "ownerReviewCompleted": false,
-    "independentReviewCompleted": false,
+    "runSpecificPostSealIdentityAndConfigPreflightPassed": false,
+    "externalOpenAIProcessingSpecificallyAuthorized": false,
+    "freshIsolatedCodexReviewAccepted": false,
+    "privateReviewCompletedWithoutToolCalls": false,
+    "ownerFinalAcceptanceBoundToSealedPack": false,
+    "independentHumanReview": false,
     "noEvaluatedRunPerformed": false,
-    "noContractPrivateMaterialPublishedOrSharedWithAssistants": false
+    "noContractPrivateMaterialPublished": false
   },
   "claimBoundary": [
     "Attests only that the G1 evidence-contract controls were completed.",
     "Does not identify, quote, hash, or commit to private material publicly.",
+    "Records authorized OpenAI processing and does not claim local-only processing or provider-side deletion.",
+    "Records an accepted model-assisted review and does not claim independent human review.",
     "Does not admit a runtime to private data.",
     "Does not report an experiment result or establish GraphTruth usefulness."
   ]

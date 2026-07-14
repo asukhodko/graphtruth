@@ -1,0 +1,47 @@
+#!/usr/bin/env -S -i LC_ALL=C PATH=/usr/bin:/bin:/usr/sbin:/sbin /bin/sh
+
+set -eu
+umask 077
+
+reject_runtime() {
+  /usr/bin/printf '%s\n' 'codex-g1-review: rejected (TRUSTED_RUNTIME)' >&2
+  exit 1
+}
+
+usage() {
+  /usr/bin/printf '%s\n' \
+    'usage: codex-g1-review ABSOLUTE_NODE --codex ABSOLUTE_CODEX --codex-home ABSOLUTE_AUTH_CARRIER --anchor ABSOLUTE_EMPTY_ATTEMPT_ANCHOR --confirm-openai-processing-authorized' >&2
+  exit 2
+}
+
+/bin/test ! -L "$0" || reject_runtime
+wrapper_path="$(/bin/realpath "$0" 2>/dev/null)" || reject_runtime
+/bin/test -f "$wrapper_path" || reject_runtime
+/bin/test "$(/usr/bin/uname -s 2>/dev/null)" = Darwin || reject_runtime
+/bin/test "$(/usr/bin/uname -m 2>/dev/null)" = arm64 || reject_runtime
+
+node_tool="${1-}"
+/bin/test "$#" -ge 1 || usage
+shift
+case "$node_tool" in
+  /*) ;;
+  *) usage ;;
+esac
+node_path="$(/bin/realpath "$node_tool" 2>/dev/null)" || reject_runtime
+/bin/test "$node_path" = "$node_tool" || reject_runtime
+/bin/test -f "$node_path" || reject_runtime
+/bin/test -x "$node_path" || reject_runtime
+/bin/test ! -L "$node_path" || reject_runtime
+
+tooling_directory="$(
+  CDPATH= command cd -P -- "$(/usr/bin/dirname "$wrapper_path")" &&
+    command pwd -P
+)" || reject_runtime
+module_path="$tooling_directory/codex-g1-review.mjs"
+/bin/test -f "$module_path" || reject_runtime
+/bin/test ! -L "$module_path" || reject_runtime
+
+exec /usr/bin/env -i \
+  LC_ALL=C \
+  PATH=/usr/bin:/bin:/usr/sbin:/sbin \
+  "$node_path" "$module_path" "$@"

@@ -1,17 +1,27 @@
 import { execFile } from "node:child_process";
+import { createHash } from "node:crypto";
 import { lstat, readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import { promisify } from "node:util";
 import { fileURLToPath } from "node:url";
 
+import {
+  codexSandboxPreflightEvidencePins,
+  validateCodexSandboxPreflightReportContent,
+} from "./codex-sandbox-qualification.mjs";
 import { parseStrictJson } from "./private-pack-lock.mjs";
+export {
+  codexSandboxPreflightEvidencePins,
+  validateCodexSandboxPreflightReportContent,
+} from "./codex-sandbox-qualification.mjs";
 
 const execFileAsync = promisify(execFile);
 const toolingDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.resolve(toolingDirectory, "..");
 const publicG1ReceiptTemplatePath = "experiments/templates/PUBLIC-G1-RECEIPT.json";
-const publicG1ReceiptPath = "experiments/receipts/g1-evidence-contract-v1.json";
+const publicG1ReceiptPath = "experiments/receipts/g1-evidence-contract-v2.json";
+const codexSandboxPreflightReportPath = "tooling/rehearsal/observed.json";
 const publicG1AttestationKeys = [
   "eligibleEpisodeSelected",
   "sourceSetWithinApprovedBound",
@@ -24,15 +34,25 @@ const publicG1AttestationKeys = [
   "publicationSafeSyntheticTwinReviewed",
   "privatePackInventoryVerified",
   "nonCircularPrivateSealAnchoredOutsidePack",
-  "finalConfirmationsBoundToSealedPack",
-  "ownerReviewCompleted",
-  "independentReviewCompleted",
+  "runSpecificPostSealIdentityAndConfigPreflightPassed",
+  "externalOpenAIProcessingSpecificallyAuthorized",
+  "freshIsolatedCodexReviewAccepted",
+  "privateReviewCompletedWithoutToolCalls",
+  "ownerFinalAcceptanceBoundToSealedPack",
+  "independentHumanReview",
   "noEvaluatedRunPerformed",
-  "noContractPrivateMaterialPublishedOrSharedWithAssistants",
+  "noContractPrivateMaterialPublished",
 ];
+const publicG1AttestedValues = Object.freeze(
+  Object.fromEntries(
+    publicG1AttestationKeys.map((key) => [key, key !== "independentHumanReview"]),
+  ),
+);
 const publicG1ClaimBoundary = [
   "Attests only that the G1 evidence-contract controls were completed.",
   "Does not identify, quote, hash, or commit to private material publicly.",
+  "Records authorized OpenAI processing and does not claim local-only processing or provider-side deletion.",
+  "Records an accepted model-assisted review and does not claim independent human review.",
   "Does not admit a runtime to private data.",
   "Does not report an experiment result or establish GraphTruth usefulness.",
 ];
@@ -74,6 +94,9 @@ const requiredRepositoryPaths = new Map([
   ["experiments/templates/EVIDENCE-CONTRACT.md", "file"],
   ["experiments/templates/FAILURE-DIARY.md", "file"],
   ["experiments/templates/G1-EVIDENCE-CONTRACT.md", "file"],
+  ["experiments/templates/g1-review-control.json", "file"],
+  ["experiments/templates/g1-review-prompt.md", "file"],
+  ["experiments/templates/g1-review-result.schema.json", "file"],
   ["experiments/templates/INCIDENT-RUNBOOK.md", "file"],
   ["experiments/templates/REVIEW-RUBRIC.md", "file"],
   ["experiments/templates/RUN-CARD.md", "file"],
@@ -87,6 +110,16 @@ const requiredRepositoryPaths = new Map([
   ["tooling/check", "file"],
   ["tooling/check.mjs", "file"],
   ["tooling/check.test.mjs", "file"],
+  ["tooling/codex-g1-review", "file"],
+  ["tooling/codex-g1-review.mjs", "file"],
+  ["tooling/codex-g1-review.test.mjs", "file"],
+  ["tooling/codex-sandbox-preflight", "file"],
+  ["tooling/codex-sandbox-preflight.mjs", "file"],
+  ["tooling/codex-sandbox-qualification.mjs", "file"],
+  ["tooling/codex-sandbox-preflight.test.mjs", "file"],
+  ["tooling/rehearsal", "directory"],
+  ["tooling/rehearsal/observed.json", "file"],
+  ["tooling/rehearsal/observed.md", "file"],
   ["tooling/opskarta", "file"],
   ["tooling/opskarta-requirements.in", "file"],
   ["tooling/opskarta_validate.py", "file"],
@@ -515,6 +548,43 @@ function hasExactKeys(value, expectedKeys) {
   );
 }
 
+function sha256Bytes(value) {
+  return createHash("sha256").update(value).digest("hex");
+}
+
+async function checkCodexSandboxPreflightReport(filePath, content) {
+  const displayPath = relativePath(filePath);
+  const messages = {
+    "evidence-digest": "report bytes do not match the retained rehearsal evidence",
+    "strict-json": "report must be strict JSON without duplicate keys",
+    "fixed-claims": "report scope, status, time, platform, and host must match the observed run",
+    "tool-identities": "report Codex or controller identity is not admitted",
+    "permission-profile": "report permission-profile identity or boundary changed",
+    "command-boundary": "report command or workspace boundary changed",
+    "adversarial-probe": "report zero-tool synthetic probe result or identity changed",
+  };
+  for (const validationError of validateCodexSandboxPreflightReportContent(content)) {
+    report(`${displayPath}: ${messages[validationError]}`);
+  }
+
+  let reportValue;
+  try {
+    reportValue = parseStrictJson(content);
+  } catch {
+    return;
+  }
+  const [wrapperBytes, moduleBytes] = await Promise.all([
+    readFile(path.join(repositoryRoot, "tooling/codex-sandbox-preflight")),
+    readFile(path.join(repositoryRoot, "tooling/codex-sandbox-preflight.mjs")),
+  ]);
+  if (
+    reportValue?.tooling?.wrapperSha256 !== sha256Bytes(wrapperBytes) ||
+    reportValue?.tooling?.moduleSha256 !== sha256Bytes(moduleBytes)
+  ) {
+    report(`${displayPath}: retained report no longer matches the checked-in controller bytes`);
+  }
+}
+
 export function validatePublicG1ReceiptContent(content, isTemplate) {
   let receipt;
   try {
@@ -534,9 +604,9 @@ export function validatePublicG1ReceiptContent(content, isTemplate) {
       "attestations",
       "claimBoundary",
     ]) ||
-    receipt.documentKind !== "graphtruth.public-g1-receipt/1" ||
+    receipt.documentKind !== "graphtruth.public-g1-receipt/2" ||
     receipt.gate !== "G1" ||
-    receipt.trustBasis !== "owner-and-independent-reviewer-attestation" ||
+    receipt.trustBasis !== "owner-and-fresh-isolated-codex-review" ||
     !hasExactKeys(receipt.publicBounds, ["sources", "tasks"]) ||
     receipt.publicBounds.sources !== "three-to-five-confirmed" ||
     receipt.publicBounds.tasks !== "closed-T-at-least-eight-confirmed" ||
@@ -549,12 +619,12 @@ export function validatePublicG1ReceiptContent(content, isTemplate) {
   }
 
   const validationErrors = [];
-  const expectedBoolean = !isTemplate;
   if (
     publicG1AttestationKeys.some(
       (key) =>
         typeof receipt.attestations[key] !== "boolean" ||
-        receipt.attestations[key] !== expectedBoolean,
+        receipt.attestations[key] !==
+          (isTemplate ? false : publicG1AttestedValues[key]),
     )
   ) {
     validationErrors.push("attestations");
@@ -574,8 +644,8 @@ function checkPublicG1Receipt(filePath, content, isTemplate) {
   const displayPath = relativePath(filePath);
   const messages = {
     "strict-json": "receipt must be strict JSON without duplicate keys",
-    "fixed-claims": "receipt keys and fixed public claims must match the v1 allowlist",
-    attestations: `every attestation must be ${!isTemplate} for this receipt state`,
+    "fixed-claims": "receipt keys and fixed public claims must match the v2 allowlist",
+    attestations: "receipt attestations must match the exact template or attested v2 state",
     "template-state": "the public template must remain explicitly unattested",
     "attested-state": "an attested receipt requires status 'attested' and a valid date",
   };
@@ -676,6 +746,10 @@ async function main() {
     const content = buffer.toString("utf8");
     checkTextHygiene(filePath, content);
     checkHighConfidenceSecrets(filePath, content);
+
+    if (displayPath === codexSandboxPreflightReportPath) {
+      await checkCodexSandboxPreflightReport(filePath, content);
+    }
 
     if (path.extname(filePath).toLowerCase() === ".md") {
       await checkMarkdownLinks(filePath, content, publicRelativePaths);
