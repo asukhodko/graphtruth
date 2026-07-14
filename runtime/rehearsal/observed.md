@@ -1,9 +1,9 @@
 # Synthetic runtime rehearsal
 
 - Status: `passed`
-- Observed at: `2026-07-13T20:35:19.668Z`
-- Git head: `d05c1c16f09cda90132357646317e77d9040055f`
-- Git worktree: `dirty` (`72b73eb760db81a5eb392aa0885b0dc4e6a38ee9c56d2b065ef199263e86a6ad`)
+- Observed at: `2026-07-14T03:22:48.399Z`
+- Git head: `44fd2dd974d8a902ce2087df4dac0941fdbdd24c`
+- Git worktree: `clean` (`4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945`)
 - Runtime: `v24.4.1` on `darwin/arm64`
 - Kernel release: `25.5.0`
 - Isolation: `darwin-seatbelt-deny-default-v0`
@@ -75,7 +75,7 @@
 
 ## Deviations
 
-- Recorded from a dirty worktree; runtime identity binds the exact executable bytes, while gitHead alone does not contain them.
+None.
 
 ## Owner sign-off
 
