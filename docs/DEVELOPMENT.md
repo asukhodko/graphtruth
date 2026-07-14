@@ -219,14 +219,15 @@ manually:
 - [x] Allow only **Squash merging** and enable automatic deletion of merged
       branches.
 - [x] Allow pull-request branches to be updated with `main`.
-- [ ] Create a `main-integrity` ruleset requiring pull requests, linear history,
+- [x] Create a `main-integrity` ruleset requiring pull requests, linear history,
       and resolution of review conversations; block force pushes and deletion of
       `main`.
-- [ ] Require zero approvals while the project has one maintainer, but retain a
+- [x] Require zero approvals while the project has one maintainer, but retain a
       deliberate self-review. Restrict administrator bypass to emergency
       recovery.
-- [ ] Add `quality-gate` as a required check only after its workflow has first
-      landed on `main` and completed successfully.
+- [x] Add `quality-gate` and `darwin-gate`, pinned to GitHub Actions as their
+      source, as required checks after both workflows have landed on `main` and
+      completed successfully.
 - [x] Verify GitHub secret scanning and push protection are enabled when the
       repository plan and platform support them; local pattern checks remain
       defense in depth, not proof that public history is safe.
