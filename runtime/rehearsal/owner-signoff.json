@@ -1,0 +1,28 @@
+{
+  "confirmationMethod": "conversation record; not a cryptographic signature",
+  "evidenceCommit": "68cc70390db5eec3a86e8192355733305a6c4512",
+  "format": "graphtruth.experimental.runtime-rehearsal-owner-signoff/0",
+  "recordedAt": "2026-07-14T03:34:20Z",
+  "reports": [
+    {
+      "path": "runtime/rehearsal/observed.json",
+      "sha256": "ade697fcd4f79545affbecc64804414a170245e3b84922ab7bd116974531aab3"
+    },
+    {
+      "path": "runtime/rehearsal/observed.md",
+      "sha256": "2dc036207d50be38fc49ce41bfd895f18c7d370206fb658d0a24e54145aeed55"
+    }
+  ],
+  "scope": {
+    "excludes": [
+      "physical-media erasure",
+      "filesystem snapshots",
+      "backups",
+      "swap",
+      "copies outside the rehearsal-controlled roots",
+      "malicious concurrent same-UID processes",
+      "operating-system or power-loss durability"
+    ],
+    "statement": "Подтверждаю изоляцию и удаление всех контролируемых временных файлов и процессов репетиции."
+  }
+}

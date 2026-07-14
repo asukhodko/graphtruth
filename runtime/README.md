@@ -91,4 +91,8 @@ session parent is `/tmp` or one of its descendants; the sandbox fails closed on
 an unsupported placement. Runtime and projection formats are provisional
 laboratory formats. Passing this synthetic rehearsal does not admit a private
 corpus until the owner separately confirms the observed isolation and deletion
-closure.
+closure. The generated report retains that confirmation as `pending` because it
+records the state at run time. The subsequent confirmation is stored separately
+in [`rehearsal/owner-signoff.json`](rehearsal/owner-signoff.json), bound to the
+exact report bytes, and is a conversation record rather than a cryptographic
+signature.

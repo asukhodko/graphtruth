@@ -406,6 +406,44 @@ test("checked-in rehearsal evidence matches the current runner identity", async 
   assert.equal(report.ownerSignoff.isolationAndDeletion, "pending");
 });
 
+test("owner sign-off is bound to the checked-in rehearsal evidence", async () => {
+  const confirmation = JSON.parse(await readFile(
+    new URL("./rehearsal/owner-signoff.json", import.meta.url),
+    "utf8",
+  ));
+  const expectedPaths = [
+    "runtime/rehearsal/observed.json",
+    "runtime/rehearsal/observed.md",
+  ];
+  assert.equal(
+    confirmation.format,
+    "graphtruth.experimental.runtime-rehearsal-owner-signoff/0",
+  );
+  assert.equal(confirmation.confirmationMethod, "conversation record; not a cryptographic signature");
+  assert.equal(confirmation.evidenceCommit, "68cc70390db5eec3a86e8192355733305a6c4512");
+  assert.match(confirmation.recordedAt, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/);
+  assert.equal(Number.isNaN(Date.parse(confirmation.recordedAt)), false);
+  assert.equal(
+    confirmation.scope.statement,
+    "Подтверждаю изоляцию и удаление всех контролируемых временных файлов и процессов репетиции.",
+  );
+  assert.deepEqual(confirmation.scope.excludes, [
+    "physical-media erasure",
+    "filesystem snapshots",
+    "backups",
+    "swap",
+    "copies outside the rehearsal-controlled roots",
+    "malicious concurrent same-UID processes",
+    "operating-system or power-loss durability",
+  ]);
+  assert.deepEqual(confirmation.reports.map(({ path: reportPath }) => reportPath), expectedPaths);
+  assert.equal(new Set(expectedPaths).size, confirmation.reports.length);
+  for (const report of confirmation.reports) {
+    const relative = report.path.replace(/^runtime\//, "./");
+    assert.equal(report.sha256, sha256(await readFile(new URL(relative, import.meta.url))));
+  }
+});
+
 test(
   "Darwin rehearsal reproduces the recorded semantic results",
   { skip: process.platform !== "darwin" },
