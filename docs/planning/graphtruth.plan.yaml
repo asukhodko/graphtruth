@@ -24,21 +24,25 @@ nodes:
     kind: summary
     status: current
     notes: |
-      Pre-alpha. Foundation is substantially documented, the synthetic S0-S1
-      boundary rehearsal passed, and real private utility remains untested. The
-      five-focused-day, two-calendar-week limit belongs to all of Issue #6;
-      moving between phases never resets it.
+      Pre-alpha. Foundation, the synthetic S0-S1 boundary rehearsal, repository
+      hardening, and project-state synchronization are complete. Real private
+      utility remains untested. Three of the five focused days in Issue #6 are
+      conservatively accounted for; at most two remain before the 2026-07-26
+      calendar stop. Moving between phases never resets that limit.
 
   m0-rehearsal-integration:
     title: "Integrate the runtime-boundary rehearsal evidence"
     kind: phase
     parent: graphtruth
-    status: current
+    status: done
     issue: "https://github.com/asukhodko/graphtruth/issues/6"
     notes: |
-      The runner, clean boundary report, limitations, and owner confirmation are
-      merged. Align Issue #6 and project notes next. This integration phase does
-      not authorize private data or claim a full synthetic dress rehearsal.
+      PR #14 published the runner and frozen boundary evidence. PR #15 hardened
+      validation, runtime-boundary checks, and the required Linux and Darwin
+      gates. Its clean boundary rerun is not a new owner confirmation and does
+      not admit the changed runtime identity. Issue #6 and the current project
+      notes now match that state. No private data was introduced and no full
+      synthetic dress rehearsal is claimed.
 
   m0-foundation-docs:
     title: "Establish project foundation and evidence-driven process"
@@ -93,25 +97,24 @@ nodes:
     kind: task
     parent: m0-rehearsal-integration
     deps: [m0-publish-rehearsal]
-    status: current
+    status: done
     issue: "https://github.com/asukhodko/graphtruth/issues/6"
     notes: |
-      Mark the boundary runner, privacy fixtures, crash/idempotency, lexical
-      rebuild, report, and PR #14 as complete. Keep the full synthetic dress
-      rehearsal, private lane, baseline utility, correction fork, and private
-      decision pending. Record focused time already spent and the remaining
-      Issue #6 budget before more implementation.
+      Issue #6 records PR #14 and PR #15, the completed boundary capabilities,
+      the pending full dress rehearsal and private utility work, and the
+      conservative three-of-five-focused-day accounting. At most two focused
+      days remain, with a hard calendar stop on 2026-07-26.
 
   m0-sync-project-state:
     title: "Synchronize repository docs and Obsidian project state"
     kind: task
     parent: m0-rehearsal-integration
     deps: [m0-update-issue, m0-planning-layers]
-    status: planned
+    status: done
     notes: |
-      Repository docs now distinguish the completed runtime-boundary rehearsal
-      from the pending full dress rehearsal. After Issue #6 is updated, align
-      personal project notes with the integrated repository revision.
+      Repository docs distinguish the completed runtime-boundary rehearsal from
+      the pending full dress rehearsal. The three current Obsidian project notes
+      were aligned through kb PR #1; historical notes remain historical.
 
   g0-rehearsal-integrated:
     title: "Gate: boundary-rehearsal evidence integrated"
@@ -119,29 +122,32 @@ nodes:
     milestone: true
     parent: m0-rehearsal-integration
     deps: [m0-publish-rehearsal, m0-update-issue, m0-sync-project-state]
-    status: planned
+    status: done
     notes: |
-      Code and evidence are visible in the shared Git state, the quality gate is
-      green, Issue #6 matches reality and accounts for its used time box, and no
-      private material was introduced.
+      Code and frozen evidence are visible in shared Git state, both required
+      checks are green, Issue #6 matches reality and accounts for its used time
+      box, current personal notes are aligned, and no private material was
+      introduced. This state-integration gate does not replace the full dress
+      rehearsal or admit the current runtime identity.
 
   m1-evidence-contract-freeze:
     title: "Freeze the first private evidence contract"
     kind: phase
     parent: graphtruth
     deps: [g0-rehearsal-integrated]
-    status: planned
+    status: current
     issue: "https://github.com/asukhodko/graphtruth/issues/6"
     notes: |
       Select and seal one private 3-5 item decision or incident lineage before
-      private-lane implementation is allowed to adapt to its outcomes.
+      private-lane implementation is allowed to adapt to its outcomes. Work must
+      fit the at-most-two remaining focused days and the 2026-07-26 hard stop.
 
   m1-select-episode:
     title: "Select one real episode and its knowledge boundary"
     kind: task
     parent: m1-evidence-contract-freeze
     deps: [g0-rehearsal-integrated]
-    status: planned
+    status: ready
     notes: |
       Record inclusion, exclusion, lineage, chronology, prior familiarity, and
       why the episode can test useful retrieval or reconstruction.
@@ -588,6 +594,30 @@ execution:
       actual_finish: "2026-07-14"
       updated_at: "2026-07-14T10:19:49+03:00"
       note: "PR #14 merged; evidence artifacts retained unchanged."
+    m0-update-issue:
+      progress: 1.0
+      actual_start: "2026-07-14"
+      actual_finish: "2026-07-14"
+      updated_at: "2026-07-14T10:44:49+03:00"
+      note: "Issue #6 now separates completed boundary evidence from pending private utility and accounts for three of five focused days."
+    m0-sync-project-state:
+      progress: 1.0
+      actual_start: "2026-07-14"
+      actual_finish: "2026-07-14"
+      updated_at: "2026-07-14T10:48:39+03:00"
+      note: "Repository docs and the three current Obsidian project notes were aligned through kb PR #1; historical notes were preserved."
+    g0-rehearsal-integrated:
+      progress: 1.0
+      actual_start: "2026-07-14"
+      actual_finish: "2026-07-14"
+      updated_at: "2026-07-14T10:48:39+03:00"
+      note: "PR #14 evidence, PR #15 hardening, Issue #6 accounting, and project-note synchronization are complete."
+    m0-rehearsal-integration:
+      progress: 1.0
+      actual_start: "2026-07-13"
+      actual_finish: "2026-07-14"
+      updated_at: "2026-07-14T10:48:39+03:00"
+      note: "The boundary-rehearsal integration gate is closed without a private run or usefulness claim."
 
 views:
   current-work:
@@ -614,7 +644,7 @@ x:
   exec:
     program:
       nearest_goal: "Complete Issue #6 with a decision from one real private chronological replay."
-      success_by_next_sync: "Align Issue #6 with PR #14 and record consumed and remaining experiment budget."
+      success_by_next_sync: "Freeze the private evidence contract within the remaining Issue #6 budget."
     defaults:
       status_progress:
         done: 1.0
@@ -630,17 +660,17 @@ x:
         scope_nodes: [m0-rehearsal-integration]
         kind: main
         mgmt:
-          health: yellow
-          sync_note: "PR #14 is merged; Issue #6 and personal project notes still describe the older state."
-          next_sync_goal: "Update Issue #6, account for its budget, and then align personal project notes."
+          health: green
+          sync_note: "PR #14 evidence, PR #15 hardening, Issue #6 accounting, and current personal notes are aligned."
+          next_sync_goal: "Keep the integrated evidence immutable while the private contract is frozen."
       pack-freeze:
         title: "Private evidence-contract freeze"
         scope_nodes: [m1-evidence-contract-freeze]
         kind: main
         mgmt:
-          health: neutral
-          sync_note: "Blocked by integration; no private corpus has been selected."
-          next_sync_goal: "Freeze the episode, tasks, baseline, policy, and safe twin before implementation adapts."
+          health: yellow
+          sync_note: "Unblocked, but no private episode is sealed; three of five focused Issue #6 days are already accounted for."
+          next_sync_goal: "Freeze the episode, tasks, baseline, policy, and safe twin within the remaining two focused days."
       private-lane:
         title: "Private S0-S1 lane"
         scope_nodes: [m2-private-lane]
@@ -686,7 +716,7 @@ x:
         show_progress: false
         show_gate_date: false
         wrap_title_lines: 2
-        caption: "Current evidence path: integrate, freeze, admit, decide."
+        caption: "Boundary evidence integrated; freeze, admit, decide."
         blocks: [integration, pack-freeze, private-lane, chronological-pilot]
       exec-active-tracks:
         direction: TB
