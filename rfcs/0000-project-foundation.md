@@ -1,7 +1,7 @@
 # RFC 0000: Project Foundation
 
 - Decision status: Accepted
-- Implementation status: Not realized
+- Implementation status: Partially realized
 - Created: 2026-07-11
 - Supersedes: none
 - Superseded by: none
@@ -11,6 +11,12 @@
 GraphTruth will be developed as a file-first protocol for durable epistemic memory, accompanied by core tooling and a replaceable default implementation. It will begin as a personal, fully working system in a monorepository. The protocol preserves claims, evidence, provenance, uncertainty, disagreement, questions, and change over time without delegating truth to a database, language model, or search index.
 
 This RFC records the project's foundational decisions. It intentionally leaves serialization details, exact schemas, and implementation technologies open.
+
+The implementation status is partial: the repository boundaries, development
+process, synthetic preflight, and a narrow Zone 3 runtime-boundary rehearsal
+exist. The acceptance criteria remain open because there is no versioned
+specification, maintained schema set, independent conformance evidence, or
+complete personal v0 loop.
 
 ## Motivation
 

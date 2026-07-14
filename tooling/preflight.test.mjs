@@ -4,7 +4,12 @@ import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 
-import { defaultPackDirectory, formatHumanResult, validatePack } from "./preflight.mjs";
+import {
+  defaultPackDirectory,
+  formatHumanResult,
+  parseStrictJson,
+  validatePack,
+} from "./preflight.mjs";
 
 async function withPack(mutate, expectedCode) {
   const temporaryRoot = await mkdtemp(path.join(os.tmpdir(), "graphtruth-preflight-"));
@@ -33,6 +38,47 @@ async function updateJson(pack, relative, update) {
 test("the frozen public synthetic pack passes preflight", async () => {
   const result = await validatePack();
   assert.deepEqual(result, { ok: true, diagnostics: [] });
+});
+
+test("strict JSON parsing rejects decoded duplicate keys at any depth", () => {
+  assert.throws(
+    () => parseStrictJson('{"outer":{"alpha":1,"\\u0061lpha":2}}'),
+    (error) => error.code === "JSON_DUPLICATE_KEY",
+  );
+  assert.throws(() => parseStrictJson('{"overflow":1e400}'), /invalid JSON/);
+});
+
+test("a pack JSON document with duplicate keys is rejected", async () => {
+  await withPack(async (pack) => {
+    const filename = path.join(pack, "corpus-manifest.json");
+    const content = await readFile(filename, "utf8");
+    await writeFile(filename, content.replace(
+      '  "corpusId": "lantern-public-synthetic-v0",',
+      '  "corpusId": "lantern-public-synthetic-v0",\n  "corpusId": "duplicate",',
+    ));
+  }, "JSON_DUPLICATE_KEY");
+});
+
+test("run history timestamps must be valid UTC RFC3339 values", async () => {
+  await withPack(
+    (pack) => updateJson(pack, "run-card.json", (value) => {
+      value.stateHistory[0].at = "2026-07-12T03:00:00+03:00";
+    }),
+    "RUN_HISTORY",
+  );
+  await withPack(
+    (pack) => updateJson(pack, "run-card.json", (value) => {
+      value.stateHistory[0].at = "2026-02-30T00:00:00Z";
+    }),
+    "RUN_HISTORY",
+  );
+  await withPack(
+    (pack) => updateJson(pack, "run-card.json", (value) => {
+      value.stateHistory[0].at = "2026-07-12T00:00:00.000000002Z";
+      value.stateHistory[1].at = "2026-07-12T00:00:00.000000001Z";
+    }),
+    "RUN_HISTORY",
+  );
 });
 
 test("a changed source fails its frozen digest", async () => {
@@ -181,6 +227,34 @@ test("a malformed appended log record is rejected", async () => {
     const log = path.join(pack, "logs", "deviations.jsonl");
     await writeFile(log, `${await readFile(log, "utf8")}not-json\n`);
   }, "LOG_RECORD");
+});
+
+test("an appended JSONL record with duplicate keys is rejected", async () => {
+  await withPack(async (pack) => {
+    const log = path.join(pack, "logs", "deviations.jsonl");
+    const duplicate = '{"recordType":"deviation","runId":"replay-preflight-v0","sequence":1,"sequence":2}';
+    await writeFile(log, `${await readFile(log, "utf8")}${duplicate}\n`);
+  }, "LOG_DUPLICATE_KEY");
+});
+
+test("JSONL timestamps must use valid UTC RFC3339 values", async () => {
+  await withPack(async (pack) => {
+    const log = path.join(pack, "logs", "deviations.jsonl");
+    const record = {
+      recordType: "deviation",
+      runId: "replay-preflight-v0",
+      sequence: 1,
+      at: "2026-07-12T03:02:00+03:00",
+      state: "frozen",
+      stepRef: "step-0001",
+      departureClass: "none",
+      causeClass: "synthetic-self-test",
+      validityImpact: "none",
+      decision: "continue",
+      actorRole: "controller",
+    };
+    await writeFile(log, `${await readFile(log, "utf8")}${JSON.stringify(record)}\n`);
+  }, "LOG_METADATA");
 });
 
 test("a schema-valid append preserves the initial pack lock", async () => {

@@ -1,14 +1,18 @@
 import assert from "node:assert/strict";
-import { cp, mkdir, mkdtemp, readFile, readdir, rename, rm, symlink, writeFile } from "node:fs/promises";
+import { spawn } from "node:child_process";
+import { once } from "node:events";
+import { access, cp, mkdir, mkdtemp, readFile, readdir, rename, rm, symlink, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 
 import { defaultPackDirectory, validatePack } from "../tooling/preflight.mjs";
 import {
-  computeRuntimeIdentity,
+  evaluateSyntheticRehearsalBudgets,
+  formatRehearsalMarkdown,
   materializePackFiles,
   projectTaskForSut,
+  repositoryRoot,
   runPackAttempt,
   runRecordedRehearsal,
   snapshotFrozenPack,
@@ -22,7 +26,7 @@ import {
   readRegularFile,
   sha256,
 } from "./src/lib.mjs";
-import { runSandboxedWorker } from "./src/sandbox.mjs";
+import { activeSandboxChildren, runSandboxedWorker } from "./src/sandbox.mjs";
 import { rebuildProjection, runWorker } from "./src/worker.mjs";
 
 async function withTemporaryRoot(prefix, action) {
@@ -40,6 +44,34 @@ async function treeDigest(root) {
     inventory.push({ relative, digest: sha256(await readFile(path.join(root, relative))) });
   }
   return sha256(canonicalJson(inventory));
+}
+
+async function waitForAttemptIdentity(sessionParent, timeoutMs = 5_000) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    const sessions = await readdir(sessionParent).catch((error) => {
+      if (error.code === "ENOENT") return [];
+      throw error;
+    });
+    for (const session of sessions.filter((name) => name.startsWith("runtime-rehearsal-"))) {
+      const sessionRoot = path.join(sessionParent, session);
+      const attempts = await readdir(sessionRoot).catch((error) => {
+        if (error.code === "ENOENT") return [];
+        throw error;
+      });
+      for (const attempt of attempts.filter((name) => name.startsWith("attempt-"))) {
+        const identity = path.join(sessionRoot, attempt, "controller", "run-identity.json");
+        try {
+          await access(identity);
+          return sessionRoot;
+        } catch (error) {
+          if (error.code !== "ENOENT") throw error;
+        }
+      }
+    }
+    await new Promise((resolve) => setTimeout(resolve, 10));
+  }
+  throw new Error("timed out waiting for the rehearsal attempt identity");
 }
 
 async function resealPack(packRoot) {
@@ -127,6 +159,46 @@ async function rewriteRunIdentityFrom(commitsRoot, firstChangedSequence, runId) 
   }
   return terminal;
 }
+
+test("runtime-boundary budget policy measures only the end-to-end wall clock", () => {
+  const budgets = {
+    maxWallClockSeconds: 5,
+    maxPerTaskSeconds: 2,
+    maxMemoryMiB: 512,
+    maxDiskMiB: 256,
+    maxHumanReviewMinutes: 30,
+    maxCorrections: 12,
+  };
+  const budgetExhaustion = Object.fromEntries(
+    Object.keys(budgets).map((name) => [name, `decision-${name}`]),
+  );
+  const within = evaluateSyntheticRehearsalBudgets({
+    budgets,
+    budgetExhaustion,
+    elapsedMilliseconds: 4_999.1,
+  });
+  assert.equal(within.passed, true);
+  assert.equal(within.supportsUsefulnessClaim, false);
+  assert.equal(within.measured[0].budget, "maxWallClockSeconds");
+  assert.equal(within.measured[0].observedMilliseconds, 5_000);
+  assert.deepEqual(
+    within.notMeasured.map(({ budget }) => budget),
+    [
+      "maxPerTaskSeconds",
+      "maxMemoryMiB",
+      "maxDiskMiB",
+      "maxHumanReviewMinutes",
+      "maxCorrections",
+    ],
+  );
+  const exhausted = evaluateSyntheticRehearsalBudgets({
+    budgets,
+    budgetExhaustion,
+    elapsedMilliseconds: 5_000.1,
+  });
+  assert.equal(exhausted.passed, false);
+  assert.equal(exhausted.measured[0].status, "exhausted");
+});
 
 test("anchored candidates retain exact UTF-8 evidence and treat instructions as data", () => {
   const source = Buffer.from(
@@ -314,6 +386,131 @@ test("runtime snapshot rejects packs under globally readable sandbox roots", asy
 });
 
 test(
+  "Darwin boundary probe denies directory enumeration and metadata access",
+  { skip: process.platform !== "darwin" },
+  async () => {
+    const root = await mkdtemp("/tmp/graphtruth-runtime-boundary-metadata-");
+    try {
+      const pack = await snapshotFrozenPack(defaultPackDirectory);
+      const runRoot = path.join(root, "attempt");
+      const result = await runPackAttempt({
+        pack,
+        runRoot,
+        exerciseFaults: false,
+        boundaryProbe: true,
+      });
+      const observation = result.observations.find(({ id }) => id === "sandbox-boundary");
+      assert.deepEqual(observation.directoryMetadataDenied, ["controller", "forbidden"]);
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  },
+);
+
+test(
+  "Darwin sandbox output overflow fails closed and joins the worker",
+  { skip: process.platform !== "darwin" },
+  async () => {
+    const root = await mkdtemp("/tmp/graphtruth-runtime-output-limit-");
+    try {
+      const runRoot = path.join(root, "attempt");
+      const controllerRoot = path.join(runRoot, "controller");
+      const bundleRoot = path.join(controllerRoot, "probe");
+      const stateRoot = path.join(runRoot, "sut");
+      const workerRuntime = path.join(runRoot, "worker-runtime");
+      await mkdir(bundleRoot, { recursive: true });
+      await mkdir(stateRoot, { recursive: true });
+      await mkdir(workerRuntime, { recursive: true });
+      await cp(path.join(repositoryRoot, "runtime", "src", "worker.mjs"), path.join(workerRuntime, "worker.mjs"));
+      await cp(path.join(repositoryRoot, "runtime", "src", "lib.mjs"), path.join(workerRuntime, "lib.mjs"));
+      await cp(path.join(repositoryRoot, "runtime", "sandbox.sb"), path.join(workerRuntime, "sandbox.sb"));
+      const forbidden = path.join(controllerRoot, "forbidden");
+      await writeFile(forbidden, "synthetic forbidden input\n");
+      await writeFile(path.join(bundleRoot, "source.md"), "synthetic probe input\n");
+      await writeFile(path.join(bundleRoot, "probe.json"), prettyJson({
+        forbiddenReads: Array.from({ length: 1_024 }, (_, index) => ({
+          label: `overflow-${String(index).padStart(4, "0")}-${"x".repeat(80)}`,
+          path: forbidden,
+        })),
+        forbiddenDirectories: [],
+        outsideWrite: path.join(controllerRoot, "outside-write"),
+        symlinkWrite: path.join(controllerRoot, "outside-symlink"),
+        listenerPort: 9,
+      }));
+      await assert.rejects(
+        () => runSandboxedWorker({
+          action: "probe",
+          bundle: bundleRoot,
+          state: stateRoot,
+          runRoot,
+          workerRuntime,
+        }),
+        /sandboxed worker output exceeded its limit/,
+      );
+      assert.equal(activeSandboxChildren(), 0);
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  },
+);
+
+test(
+  "Darwin SIGTERM stops the rehearsal before report publication",
+  { skip: process.platform !== "darwin" },
+  async () => {
+    const root = await mkdtemp("/tmp/graphtruth-runtime-sigterm-");
+    const reportPath = path.join(root, "observed.md");
+    const jsonPath = path.join(root, "observed.json");
+    const child = spawn(process.execPath, [
+      path.join(repositoryRoot, "runtime", "replay.mjs"),
+      "rehearse",
+      "--seed",
+      "sigterm-test-v0",
+      "--session-parent",
+      root,
+      "--report",
+      reportPath,
+      "--json-report",
+      jsonPath,
+    ], {
+      cwd: repositoryRoot,
+      stdio: ["ignore", "pipe", "pipe"],
+    });
+    let stdout = "";
+    let stderr = "";
+    child.stdout.setEncoding("utf8");
+    child.stderr.setEncoding("utf8");
+    child.stdout.on("data", (chunk) => {
+      stdout += chunk;
+    });
+    child.stderr.on("data", (chunk) => {
+      stderr += chunk;
+    });
+    try {
+      const sessionRoot = await waitForAttemptIdentity(root);
+      assert.equal(child.kill("SIGTERM"), true);
+      const [code, signal] = await once(child, "close");
+      assert.equal(code, 143);
+      assert.equal(signal, null);
+      await assert.rejects(() => access(reportPath), { code: "ENOENT" });
+      await assert.rejects(() => access(jsonPath), { code: "ENOENT" });
+      const failure = JSON.parse(await readFile(path.join(sessionRoot, "failure.json"), "utf8"));
+      assert.equal(failure.status, "failed");
+      assert.equal(failure.preserved, true);
+      assert.match(failure.errorDigest, /^[a-f0-9]{64}$/);
+      assert.equal(stdout, "");
+      assert.match(stderr, /^Runtime-boundary rehearsal failed \(Error; error digest [a-f0-9]{64}\)\./);
+    } finally {
+      if (child.exitCode === null && child.signalCode === null) {
+        child.kill("SIGKILL");
+        await once(child, "close");
+      }
+      await rm(root, { recursive: true, force: true });
+    }
+  },
+);
+
+test(
   "failed Darwin rehearsal preserves metadata-only identity evidence",
   { skip: process.platform !== "darwin" },
   async () => {
@@ -362,14 +559,11 @@ test(
   },
 );
 
-test("checked-in rehearsal evidence matches the current runner identity", async () => {
+test("checked-in historical rehearsal evidence is internally consistent", async () => {
   const report = JSON.parse(await readFile(new URL("./rehearsal/observed.json", import.meta.url), "utf8"));
-  const pack = await snapshotFrozenPack(defaultPackDirectory);
-  const identity = await computeRuntimeIdentity(pack.lockDigest);
   assert.equal(report.format, "graphtruth.experimental.runtime-rehearsal-report/0");
   assert.equal(report.status, "passed");
   assert.equal(report.runs.length, 2);
-  assert.deepEqual(report.runs[0].identity, identity);
   assert.deepEqual(report.runs[0].identity.files.map(({ path: filePath }) => filePath), [
     "runtime/replay",
     "runtime/replay.mjs",
@@ -381,8 +575,22 @@ test("checked-in rehearsal evidence matches the current runner identity", async 
     "runtime/src/worker.mjs",
     "tooling/preflight.mjs",
   ]);
-  assert.equal(report.runs[1].identity.codeDigest, identity.codeDigest);
-  assert.equal(report.runs[1].identity.configurationDigest, identity.configurationDigest);
+  for (const { identity } of report.runs) {
+    assert.equal(identity.codeDigest, sha256(canonicalJson(identity.files)));
+    const identityInput = {
+      packLockDigest: identity.packLockDigest,
+      codeDigest: identity.codeDigest,
+      configurationDigest: identity.configurationDigest,
+      isolationProfileVersion: identity.isolationProfileVersion,
+    };
+    assert.equal(identity.runId, `runtime-${sha256(canonicalJson(identityInput)).slice(0, 20)}`);
+  }
+  assert.equal(report.runs[1].identity.codeDigest, report.runs[0].identity.codeDigest);
+  assert.equal(
+    report.runs[1].identity.configurationDigest,
+    report.runs[0].identity.configurationDigest,
+  );
+  assert.deepEqual(report.runs[1].identity.files, report.runs[0].identity.files);
   assert.notEqual(report.runs[0].semanticDigest, report.runs[1].semanticDigest);
   assert.ok(report.runs.every((run) => run.observations.every(({ passed }) => passed)));
   const requiredObservations = [
@@ -421,6 +629,13 @@ test("owner sign-off is bound to the checked-in rehearsal evidence", async () =>
   );
   assert.equal(confirmation.confirmationMethod, "conversation record; not a cryptographic signature");
   assert.equal(confirmation.evidenceCommit, "68cc70390db5eec3a86e8192355733305a6c4512");
+  assert.deepEqual(confirmation.publication, {
+    mergeCommit: "560bb91a5d8bdbb6f1ec85c42b7df04734887400",
+    pullRequest: 14,
+    pullRequestHeadCommit: "162459d767be0e66e9ec4eac8565756a8f6d603f",
+    pullRequestHeadRef: "refs/pull/14/head",
+    url: "https://github.com/asukhodko/graphtruth/pull/14",
+  });
   assert.match(confirmation.recordedAt, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/);
   assert.equal(Number.isNaN(Date.parse(confirmation.recordedAt)), false);
   assert.equal(
@@ -445,23 +660,34 @@ test("owner sign-off is bound to the checked-in rehearsal evidence", async () =>
 });
 
 test(
-  "Darwin rehearsal reproduces the recorded semantic results",
+  "Darwin rehearsal replays the recorded packs under the current runtime",
   { skip: process.platform !== "darwin" },
   async () => {
     const recorded = JSON.parse(await readFile(new URL("./rehearsal/observed.json", import.meta.url), "utf8"));
     const rerun = await runRecordedRehearsal({ seed: recorded.generatedSeed });
+    assert.equal(rerun.budgetPolicy.passed, true);
+    assert.equal(rerun.budgetPolicy.supportsUsefulnessClaim, false);
+    assert.deepEqual(rerun.budgetPolicy.measured.map(({ budget }) => budget), [
+      "maxWallClockSeconds",
+    ]);
+    assert.equal(rerun.budgetPolicy.notMeasured.length, 5);
+    const markdown = formatRehearsalMarkdown(rerun);
+    assert.match(markdown, /## Budget policy/);
+    assert.match(markdown, /Supports a usefulness claim: `no`/);
+    for (const { budget } of rerun.budgetPolicy.notMeasured) {
+      assert.equal(markdown.includes(`- \`${budget}\``), true, budget);
+    }
+    assert.equal(rerun.generatedFactsDigest, recorded.generatedFactsDigest);
     assert.deepEqual(
-      rerun.runs.map(({ identity, semanticDigest, head, commitCount, candidateCount }) => ({
-        identity,
-        semanticDigest,
-        head,
+      rerun.runs.map(({ packId, packLockDigest, commitCount, candidateCount }) => ({
+        packId,
+        packLockDigest,
         commitCount,
         candidateCount,
       })),
-      recorded.runs.map(({ identity, semanticDigest, head, commitCount, candidateCount }) => ({
-        identity,
-        semanticDigest,
-        head,
+      recorded.runs.map(({ packId, packLockDigest, commitCount, candidateCount }) => ({
+        packId,
+        packLockDigest,
         commitCount,
         candidateCount,
       })),

@@ -30,15 +30,15 @@ nodes:
       moving between phases never resets it.
 
   m0-rehearsal-integration:
-    title: "Integrate the synthetic rehearsal evidence"
+    title: "Integrate the runtime-boundary rehearsal evidence"
     kind: phase
     parent: graphtruth
     status: current
     issue: "https://github.com/asukhodko/graphtruth/issues/6"
     notes: |
-      Make the local runner, clean report, limitations, and owner confirmation
-      visible through the normal repository process. This is integration work,
-      not authorization to ingest private data.
+      The runner, clean boundary report, limitations, and owner confirmation are
+      merged. Align Issue #6 and project notes next. This integration phase does
+      not authorize private data or claim a full synthetic dress rehearsal.
 
   m0-foundation-docs:
     title: "Establish project foundation and evidence-driven process"
@@ -63,42 +63,44 @@ nodes:
     issue: "https://github.com/asukhodko/graphtruth/issues/6"
     notes: |
       Clean Darwin Seatbelt run, two independent synthetic packs, crash/resume,
-      exact redelivery, projection rebuild, purge, and owner confirmation.
+      exact redelivery, projection rebuild, purge, and owner confirmation. This
+      closes the runtime-boundary rehearsal, not the full synthetic dress
+      rehearsal or its budget-exhaustion cases.
 
   m0-planning-layers:
     title: "Adopt the three planning layers and OpsKarta validation"
     kind: task
     parent: m0-rehearsal-integration
     deps: [m0-runtime-rehearsal]
-    status: current
+    status: done
     notes: |
-      Keep stable ideas, the capability roadmap, and the operational work map
-      separate while linking them explicitly.
+      Stable ideas, the capability roadmap, and the validated operational work
+      map were separated and linked in PR #14.
 
   m0-publish-rehearsal:
-    title: "Publish the rehearsal change through the repository workflow"
+    title: "Publish the boundary-rehearsal change through the repository workflow"
     kind: task
     parent: m0-rehearsal-integration
     deps: [m0-runtime-rehearsal]
-    status: ready
+    status: done
     issue: "https://github.com/asukhodko/graphtruth/issues/6"
     notes: |
-      The local main is ahead of origin. Preserve the local change set on a
-      short-lived branch, open a focused PR, run the gates, and integrate
-      without rewriting the evidence artifacts.
+      Merged as PR #14 after the repository gates passed. The frozen evidence
+      artifacts were integrated without rewriting their recorded observations.
 
   m0-update-issue:
-    title: "Update Issue #6 with the synthetic observed and learned record"
+    title: "Update Issue #6 with the merged boundary-rehearsal evidence"
     kind: task
     parent: m0-rehearsal-integration
     deps: [m0-publish-rehearsal]
-    status: planned
+    status: current
     issue: "https://github.com/asukhodko/graphtruth/issues/6"
     notes: |
-      Mark the synthetic runner, privacy fixtures, crash/idempotency, lexical
-      rebuild, and report as implemented. Leave private lane, baseline utility,
-      correction fork, and private decision pending. Record focused time already
-      spent and the remaining Issue #6 budget before more implementation.
+      Mark the boundary runner, privacy fixtures, crash/idempotency, lexical
+      rebuild, report, and PR #14 as complete. Keep the full synthetic dress
+      rehearsal, private lane, baseline utility, correction fork, and private
+      decision pending. Record focused time already spent and the remaining
+      Issue #6 budget before more implementation.
 
   m0-sync-project-state:
     title: "Synchronize repository docs and Obsidian project state"
@@ -107,11 +109,12 @@ nodes:
     deps: [m0-update-issue, m0-planning-layers]
     status: planned
     notes: |
-      Remove claims that no runtime exists, retain the synthetic-only limitation,
-      and point personal project notes at the integrated repository revision.
+      Repository docs now distinguish the completed runtime-boundary rehearsal
+      from the pending full dress rehearsal. After Issue #6 is updated, align
+      personal project notes with the integrated repository revision.
 
   g0-rehearsal-integrated:
-    title: "Gate: rehearsal evidence integrated"
+    title: "Gate: boundary-rehearsal evidence integrated"
     kind: milestone
     milestone: true
     parent: m0-rehearsal-integration
@@ -267,6 +270,10 @@ nodes:
     parent: m2-private-lane
     deps: [m2-candidate-intake]
     status: planned
+    notes: |
+      Keep the identity-bound integrity head separate from an
+      identity-independent content-semantic digest suitable for comparisons
+      across runtime revisions and baseline arms.
 
   m2-private-recovery:
     title: "Exercise private crash/resume, rebuild, termination, and purge"
@@ -283,17 +290,34 @@ nodes:
     status: planned
 
   m2-repeat-rehearsal:
-    title: "Repeat the synthetic rehearsal for the changed runtime identity"
+    title: "Repeat the isolated runtime-boundary rehearsal"
     kind: task
     parent: m2-private-lane
     deps: [m2-private-tests]
     status: planned
+    notes: |
+      Re-run isolation, future/oracle/credential/network denial, crash/resume,
+      rebuild, termination, and purge for the exact changed runtime identity.
+      Passing this task alone does not complete the full synthetic dress
+      rehearsal or admit private bytes.
+
+  m2-full-dress-rehearsal:
+    title: "Complete the full synthetic dress rehearsal"
+    kind: task
+    parent: m2-private-lane
+    deps: [m2-repeat-rehearsal]
+    status: planned
+    notes: |
+      Exercise the synthetic twin through the complete frozen workflow,
+      including baselines, scoring, decision handling, and deliberate exhaustion
+      of every admitted budget. Preserve the current frozen v0 artifacts; this
+      task uses a new run identity and records its own evidence.
 
   m2-owner-confirmation:
     title: "Obtain owner confirmation for the new exact report"
     kind: task
     parent: m2-private-lane
-    deps: [m2-repeat-rehearsal]
+    deps: [m2-full-dress-rehearsal]
     status: planned
 
   m2-seal-final-run:
@@ -315,9 +339,11 @@ nodes:
     deps: [m2-seal-final-run]
     status: planned
     notes: |
-      The exact changed runner passes future/oracle/credential/network boundaries,
-      crash/resume, rebuild and purge; its report is confirmed by the owner and
-      the final run card binds it to the frozen private evidence contract.
+      The exact changed runner passes future/oracle/credential/network
+      boundaries, crash/resume, rebuild and purge, plus the full synthetic
+      workflow and declared budget-exhaustion cases. Its evidence is confirmed
+      by the owner, and the final run card binds it to the frozen private
+      evidence contract.
 
   m3-chronological-pilot:
     title: "Run the first private chronological S0-S1 pilot"
@@ -551,10 +577,17 @@ execution:
       actual_finish: "2026-07-14"
       updated_at: "2026-07-14T07:48:00+03:00"
     m0-planning-layers:
-      progress: 0.9
+      progress: 1.0
       actual_start: "2026-07-14"
-      updated_at: "2026-07-14T07:48:00+03:00"
-      note: "Authored and validated locally; repository integration remains."
+      actual_finish: "2026-07-14"
+      updated_at: "2026-07-14T10:19:49+03:00"
+      note: "Merged in PR #14 with strict OpsKarta validation."
+    m0-publish-rehearsal:
+      progress: 1.0
+      actual_start: "2026-07-14"
+      actual_finish: "2026-07-14"
+      updated_at: "2026-07-14T10:19:49+03:00"
+      note: "PR #14 merged; evidence artifacts retained unchanged."
 
 views:
   current-work:
@@ -581,7 +614,7 @@ x:
   exec:
     program:
       nearest_goal: "Complete Issue #6 with a decision from one real private chronological replay."
-      success_by_next_sync: "Publish the rehearsal and record consumed and remaining Issue #6 budget."
+      success_by_next_sync: "Align Issue #6 with PR #14 and record consumed and remaining experiment budget."
     defaults:
       status_progress:
         done: 1.0
@@ -598,8 +631,8 @@ x:
         kind: main
         mgmt:
           health: yellow
-          sync_note: "The local rehearsal is green; origin and Issue #6 still describe the older state."
-          next_sync_goal: "Publish the evidence and align the public project state."
+          sync_note: "PR #14 is merged; Issue #6 and personal project notes still describe the older state."
+          next_sync_goal: "Update Issue #6, account for its budget, and then align personal project notes."
       pack-freeze:
         title: "Private evidence-contract freeze"
         scope_nodes: [m1-evidence-contract-freeze]
@@ -614,8 +647,8 @@ x:
         kind: main
         mgmt:
           health: neutral
-          sync_note: "The current command is a synthetic rehearsal, not a private experiment runner."
-          next_sync_goal: "Implement only the capabilities required by the frozen evidence contract, then repeat the rehearsal."
+          sync_note: "The current command covers the runtime boundary, not a private runner or full dress rehearsal."
+          next_sync_goal: "Implement only the frozen contract, then repeat the boundary run and complete the full synthetic dress rehearsal."
       chronological-pilot:
         title: "Chronological pilot"
         scope_nodes: [m3-chronological-pilot]

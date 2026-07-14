@@ -20,30 +20,36 @@ This roadmap is ordered by evidence and maturity, not dates. It deliberately avo
 
 GraphTruth is moving from foundation work toward its first real utility test.
 The foundation documents, experiment method, public synthetic preflight, and an
-isolated S0-S1 runtime rehearsal exist. Stage 0 has not formally exited: its
-independent-review and invariant-to-conformance evidence is not yet complete.
+isolated S0-S1 runtime-boundary rehearsal exist. Stage 0 has not formally exited:
+its independent-review and invariant-to-conformance evidence is not yet
+complete. The [current invariant map](INVARIANTS.md) makes those implemented
+mechanisms and missing proofs explicit.
 
-The [recorded synthetic rehearsal](../runtime/rehearsal/observed.md) passed its
-declared boundary, crash/resume, rebuild, and controlled-deletion checks, and
-the [owner confirmed the exact report](../runtime/rehearsal/owner-signoff.json)
-separately. That result admits continued experiment preparation. It does not
-show that GraphTruth is useful on real work, admit private bytes to a changed
-runner, or satisfy Stage 1.
+The [recorded runtime-boundary rehearsal](../runtime/rehearsal/observed.md)
+passed its declared isolation, crash/resume, rebuild, and controlled-deletion
+checks, and the
+[owner confirmed the exact report](../runtime/rehearsal/owner-signoff.json)
+separately. It was not the full synthetic dress rehearsal required before a
+private run: it did not deliberately exhaust every declared budget or execute
+the frozen baseline, scoring, and decision workflow. The result admits continued
+experiment preparation. It does not show that GraphTruth is useful on real work,
+admit private bytes to a changed runner, or satisfy Stage 1.
 
 The next evidence ladder is deliberately narrow:
 
-1. integrate the rehearsal evidence through the normal repository workflow and
-   make Issue #6 and project notes match the shared Git state, including focused
-   time already consumed from the issue-wide time box;
+1. make Issue #6 and project notes match the boundary-rehearsal evidence already
+   published through PR #14, including focused time already consumed from the
+   issue-wide time box;
 2. freeze one external private evidence contract of three to five sources with
    at least eight tasks, withheld oracle, Markdown plus `rg` baseline,
    capture-tax accounting, handling rules, and a predeclared
    `keep / shrink / stop` gate;
-3. implement only the private chronological lane needed for that pack, then
-   repeat the synthetic rehearsal because the runtime identity and attack
-   surface changed; before revealing private bytes, bind the exact admitted
-   code, configuration, policy, and rehearsal report to the frozen contract in
-   a final run card;
+3. implement only the private chronological lane needed for that pack, repeat
+   the isolated runtime-boundary rehearsal because the runtime identity and
+   attack surface changed, and then complete the full synthetic dress rehearsal,
+   including declared budget-exhaustion behavior; before revealing private
+   bytes, bind the exact admitted code, configuration, policy, and rehearsal
+   report to the frozen contract in a final run card;
 4. run the frozen baseline and GraphTruth lanes plus a separate correction
    fork, score the full denominator, and record **expected / observed /
    learned**;

@@ -31,6 +31,7 @@ const requiredRepositoryPaths = new Map([
   ["THIRD_PARTY_NOTICES.md", "file"],
   ["docs", "directory"],
   ["docs/DEVELOPMENT.md", "file"],
+  ["docs/INVARIANTS.md", "file"],
   ["docs/planning", "directory"],
   ["docs/planning/README.md", "file"],
   ["docs/planning/graphtruth.plan.yaml", "file"],

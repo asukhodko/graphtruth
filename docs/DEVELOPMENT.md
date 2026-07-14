@@ -216,9 +216,9 @@ the normal quality gate and self-review.
 Until repository administration is automated, apply and verify these settings
 manually:
 
-- [ ] Allow only **Squash merging** and enable automatic deletion of merged
+- [x] Allow only **Squash merging** and enable automatic deletion of merged
       branches.
-- [ ] Allow pull-request branches to be updated with `main`.
+- [x] Allow pull-request branches to be updated with `main`.
 - [ ] Create a `main-integrity` ruleset requiring pull requests, linear history,
       and resolution of review conversations; block force pushes and deletion of
       `main`.
@@ -227,12 +227,12 @@ manually:
       recovery.
 - [ ] Add `quality-gate` as a required check only after its workflow has first
       landed on `main` and completed successfully.
-- [ ] Verify GitHub secret scanning and push protection are enabled when the
+- [x] Verify GitHub secret scanning and push protection are enabled when the
       repository plan and platform support them; local pattern checks remain
       defense in depth, not proof that public history is safe.
-- [ ] Create the `Stage 0 — Foundation` milestone and the minimal labels:
+- [x] Create the `Stage 0 — Foundation` milestone and the minimal labels:
       `kind/observation`, `kind/bug`, `kind/experiment`, `kind/design`,
       `zone/protocol`, `zone/tooling`, `zone/runtime`, `zone/repository`,
       `needs-rfc`, `needs-dogfood`, `privacy`, `breaking`, and `blocked`.
-- [ ] Delete the merged process branch and confirm the repository has no stale
+- [x] Delete the merged process branch and confirm the repository has no stale
       long-lived development branches.

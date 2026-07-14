@@ -53,8 +53,10 @@ function capture(command, args, options, timeoutMs = defaultTimeoutMs) {
     activeChildGroups.set(child.pid, child);
     const append = (current, chunk) => {
       if (Buffer.byteLength(current) + Buffer.byteLength(chunk) > maximumCapturedBytes) {
-        overflow = true;
-        killGroup(child.pid);
+        if (!overflow) {
+          overflow = true;
+          killGroup(child.pid);
+        }
         return current;
       }
       return current + chunk;

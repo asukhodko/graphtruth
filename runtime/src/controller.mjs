@@ -16,6 +16,7 @@ import {
 import net from "node:net";
 import os from "node:os";
 import path from "node:path";
+import { performance } from "node:perf_hooks";
 import process from "node:process";
 import { promisify } from "node:util";
 import { fileURLToPath } from "node:url";
@@ -171,6 +172,7 @@ export async function snapshotFrozenPack(packRoot) {
   }
   const manifest = parseJsonBytes(files, "corpus-manifest.json");
   const taskPack = parseJsonBytes(files, "task-pack.json");
+  const runCard = parseJsonBytes(files, "run-card.json");
   const sandboxPolicy = parseJsonBytes(files, "sandbox-policy.json");
   const dataHandling = parseJsonBytes(files, "data-handling.json");
   const items = [...manifest.items].sort((left, right) => left.order - right.order);
@@ -181,9 +183,54 @@ export async function snapshotFrozenPack(packRoot) {
     lockDigest: sha256(files.get("pack-lock.json")),
     manifest,
     taskPack,
+    runCard,
     sandboxPolicy,
     dataHandling,
     items,
+  };
+}
+
+export function evaluateSyntheticRehearsalBudgets({
+  budgets,
+  budgetExhaustion,
+  elapsedMilliseconds,
+}) {
+  if (
+    !Number.isFinite(elapsedMilliseconds) ||
+    elapsedMilliseconds < 0 ||
+    !Number.isInteger(budgets?.maxWallClockSeconds) ||
+    budgets.maxWallClockSeconds <= 0
+  ) {
+    throw new Error("synthetic rehearsal wall-clock budget declaration is invalid");
+  }
+  const limitMilliseconds = budgets.maxWallClockSeconds * 1000;
+  const exhausted = elapsedMilliseconds > limitMilliseconds;
+  const notMeasuredReasons = {
+    maxPerTaskSeconds: "the boundary rehearsal has no task-answer executor",
+    maxMemoryMiB: "whole process-tree peak memory is not collected",
+    maxDiskMiB: "peak filesystem allocation is not collected",
+    maxHumanReviewMinutes: "owner review is outside the automated rehearsal",
+    maxCorrections: "the rehearsal does not execute the interactive correction fork",
+  };
+  return {
+    format: "graphtruth.experimental.synthetic-runtime-boundary-budget-policy/0",
+    scope: "automated synthetic boundary rehearsal through both cleaned reruns",
+    supportsUsefulnessClaim: false,
+    passed: !exhausted,
+    measured: [{
+      budget: "maxWallClockSeconds",
+      limit: budgets.maxWallClockSeconds,
+      observedMilliseconds: Math.ceil(elapsedMilliseconds),
+      status: exhausted ? "exhausted" : "within-budget",
+      check: "post-run fail-closed observation",
+      exhaustionDecision: budgetExhaustion?.maxWallClockSeconds ?? null,
+    }],
+    notMeasured: Object.entries(notMeasuredReasons).map(([budget, reason]) => ({
+      budget,
+      declaredLimit: budgets?.[budget] ?? null,
+      exhaustionDecision: budgetExhaustion?.[budget] ?? null,
+      reason,
+    })),
   };
 }
 
@@ -300,10 +347,15 @@ async function runBoundaryProbe({ runRoot, workerRuntime, controllerRoot }) {
     label,
     path: path.join(forbiddenRoot, label),
   }));
+  const forbiddenDirectories = [
+    { label: "controller", path: controllerRoot },
+    { label: "forbidden", path: forbiddenRoot },
+  ];
   await writeFile(
     path.join(probeBundle, "probe.json"),
     prettyJson({
       forbiddenReads,
+      forbiddenDirectories,
       outsideWrite: outsideTarget,
       symlinkWrite: escapeLink,
       listenerPort: listener.port,
@@ -329,6 +381,14 @@ async function runBoundaryProbe({ runRoot, workerRuntime, controllerRoot }) {
   const value = result.value;
   const allReadsDenied = value.reads.length === forbiddenReads.length &&
     value.reads.every(({ denied, code }) => denied && code === "EPERM");
+  const allDirectoryMetadataDenied =
+    value.directoryMetadata.length === forbiddenDirectories.length &&
+    value.directoryMetadata.every((result, index) =>
+      result.label === forbiddenDirectories[index].label &&
+      [result.readdir, result.stat, result.lstat].every(
+        ({ denied, code }) => denied && code === "EPERM",
+      )
+    );
   const writesDenied = [value.inputWrite, value.outsideWrite, value.symlinkWrite].every(
     ({ denied, code }) => denied && code === "EPERM",
   );
@@ -336,7 +396,13 @@ async function runBoundaryProbe({ runRoot, workerRuntime, controllerRoot }) {
     listener.connections() === 0;
   const environmentScrubbed = value.environment.credentialCanaryVisible === false &&
     value.environment.homeIsScrubbed === true;
-  if (!allReadsDenied || !writesDenied || !networkDenied || !environmentScrubbed) {
+  if (
+    !allReadsDenied ||
+    !allDirectoryMetadataDenied ||
+    !writesDenied ||
+    !networkDenied ||
+    !environmentScrubbed
+  ) {
     throw new Error("sandbox boundary self-test failed closed");
   }
   await rm(escapeLink, { force: true });
@@ -347,6 +413,7 @@ async function runBoundaryProbe({ runRoot, workerRuntime, controllerRoot }) {
   return {
     passed: true,
     readsDenied: forbiddenReads.map(({ label }) => label),
+    directoryMetadataDenied: forbiddenDirectories.map(({ label }) => label),
     writesDenied: ["input", "outside-workdir", "symlink-escape"],
     networkDenied: true,
     environmentScrubbed: true,
@@ -895,6 +962,7 @@ async function gitWorktreeState() {
 }
 
 export async function runRecordedRehearsal(options = {}) {
+  const startedAt = performance.now();
   await assertIsolationAvailable();
   const requestedSessionParent = options.sessionParent ?? "/tmp";
   await mkdir(requestedSessionParent, { recursive: true, mode: 0o700 });
@@ -948,6 +1016,14 @@ export async function runRecordedRehearsal(options = {}) {
     ) {
       throw new Error("runtime implementation changed between pack attempts");
     }
+    const budgetPolicy = evaluateSyntheticRehearsalBudgets({
+      budgets: checkedPack.runCard.budgets,
+      budgetExhaustion: checkedPack.runCard.budgetExhaustion,
+      elapsedMilliseconds: performance.now() - startedAt,
+    });
+    if (!budgetPolicy.passed) {
+      throw new Error("synthetic rehearsal exhausted its declared wall-clock budget");
+    }
     const worktree = await gitWorktreeState();
     const result = {
       format: "graphtruth.experimental.runtime-rehearsal-report/0",
@@ -972,6 +1048,7 @@ export async function runRecordedRehearsal(options = {}) {
         sourceMarkers: generatedInfo.sourceMarkers,
         futureCanary: generatedInfo.futureCanary,
       })),
+      budgetPolicy,
       runs: [checked, generated],
       expected: [
         "validate the exact captured pack bytes and reveal sources in declared chronological order",
@@ -981,6 +1058,8 @@ export async function runRecordedRehearsal(options = {}) {
         "delete and rebuild the disposable projection without semantic change",
         "delete the complete run and reproduce the same state from a clean rerun",
         "run a freshly generated sealed pack without checked-fixture assumptions",
+        "measure the end-to-end automated boundary-rehearsal wall clock and block report publication " +
+          "when its declared limit is exceeded",
       ],
       learned: [
         "The checked-in static pack can drive a real isolated reveal loop from a validated byte snapshot.",
@@ -990,13 +1069,16 @@ export async function runRecordedRehearsal(options = {}) {
         "Projection rebuild has no concurrent reader or atomic generation switch in this first skeleton.",
         "Trusted stable local code and input roots are a precondition; a malicious concurrent same-UID race is outside this rehearsal.",
         "Runtime formats remain Zone 3 laboratory artifacts and carry no protocol authority.",
+        "Only the end-to-end wall clock for this boundary rehearsal is measured here; per-task, memory, disk, " +
+          "human-review, and correction budgets remain explicitly unmeasured.",
       ],
       deviations: worktree.dirty === true
         ? ["Recorded from a dirty worktree; runtime identity binds the exact executable bytes, while gitHead alone does not contain them."]
         : [],
       ownerSignoff: {
         isolationAndDeletion: "pending",
-        note: "Owner confirmation is required before any private corpus is admitted.",
+        note: "Private admission requires owner confirmation, a passing full synthetic " +
+          "dress rehearsal, and a run-specific review.",
       },
     };
     assertNotCancelled(options.isCancelled);
@@ -1032,7 +1114,7 @@ function yesNo(value) {
 
 export function formatRehearsalMarkdown(report) {
   const lines = [
-    "# Synthetic runtime rehearsal",
+    "# Synthetic runtime-boundary rehearsal",
     "",
     `- Status: \`${report.status}\``,
     `- Observed at: \`${report.observedAt}\``,
@@ -1066,6 +1148,21 @@ export function formatRehearsalMarkdown(report) {
     lines.push("");
   }
   lines.push(
+    "## Budget policy",
+    "",
+    ...report.budgetPolicy.measured.map((measurement) =>
+      `- ${measurement.status === "within-budget" ? "PASS" : "FAIL"} — ` +
+      `\`${measurement.budget}\`: ${measurement.observedMilliseconds} ms observed; ` +
+      `limit ${measurement.limit} s; ${measurement.check}.`
+    ),
+    `- Supports a usefulness claim: \`${report.budgetPolicy.supportsUsefulnessClaim ? "yes" : "no"}\`.`,
+    "",
+    "Not measured by this automated boundary rehearsal:",
+    "",
+    ...report.budgetPolicy.notMeasured.map((measurement) =>
+      `- \`${measurement.budget}\` (declared limit: ${measurement.declaredLimit}): ${measurement.reason}.`
+    ),
+    "",
     "## Learned",
     "",
     ...report.learned.map((value) => `- ${value}`),

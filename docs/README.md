@@ -7,6 +7,8 @@ and which constraints should survive implementation changes.
 
 - [Vision](VISION.md) — the problem, mission, central idea, and intended outcome.
 - [Principles](PRINCIPLES.md) — durable design commitments and non-negotiable boundaries.
+- [Invariant map](INVARIANTS.md) — current mechanisms, evidence, and gaps for
+  the foundational invariants.
 - [Architecture](ARCHITECTURE.md) — the three zones, canonical data, derived views, and data flow.
 - [Glossary](GLOSSARY.md) — the project's current vocabulary.
 - [Development process](DEVELOPMENT.md) — the evidence-driven workflow, change gates, and definitions of done.

@@ -6,6 +6,7 @@ import {
   readdir,
   rename,
   rm,
+  stat,
   writeFile,
 } from "node:fs/promises";
 import net from "node:net";
@@ -457,6 +458,15 @@ async function probe(bundleRoot) {
   for (const target of config.forbiddenReads) {
     reads.push(await attempt(target.label, () => readFile(target.path)));
   }
+  const directoryMetadata = [];
+  for (const target of config.forbiddenDirectories) {
+    directoryMetadata.push({
+      label: target.label,
+      readdir: await attempt("readdir", () => readdir(target.path)),
+      stat: await attempt("stat", () => stat(target.path)),
+      lstat: await attempt("lstat", () => lstat(target.path)),
+    });
+  }
   const inputWrite = await attempt("input-write", () => writeFile(path.join(bundleRoot, "source.md"), "changed"));
   const outsideWrite = await attempt("outside-write", () => writeFile(config.outsideWrite, "changed"));
   const symlinkWrite = await attempt("symlink-write", () => writeFile(config.symlinkWrite, "changed"));
@@ -464,6 +474,7 @@ async function probe(bundleRoot) {
   return {
     action: "boundary-probe",
     reads,
+    directoryMetadata,
     inputWrite,
     outsideWrite,
     symlinkWrite,

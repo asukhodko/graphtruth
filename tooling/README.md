@@ -22,13 +22,15 @@ contract is internally consistent and rejects the covered invalid variants; it
 is neither GraphTruth protocol conformance nor evidence that a runner or private
 corpus is safe.
 
-The wrapper requires Node.js 24 or newer. It installs the exact dependency graph
-from `package-lock.json` with lifecycle scripts disabled, runs
+The complete gate requires Node.js 24 and Python 3.12 or newer. It installs the
+exact Node.js dependency graph from `package-lock.json` with lifecycle scripts
+disabled, runs
 `markdownlint-cli2@0.23.0`, and then runs a dependency-free Node.js repository
 checker. Both operate only on tracked files and non-ignored public working-tree
 files. If Git metadata is unavailable, a conservative fallback excludes the
 repository's private, dogfood, dependency, cache, secret-configuration, and
-editor paths before reading files.
+editor paths before reading files. Python runs the pinned OpsKarta plan
+validation described below.
 
 The checker verifies:
 
@@ -63,9 +65,10 @@ frozen experiment inputs and verifies policy declarations. The broader
 `./tooling/check` gate additionally runs mutation tests for rejected invalid
 packs. Neither command executes a reveal controller, sandbox attacks,
 crash/resume, or deletion rehearsal. The preflight command must not be pointed
-at private dogfood data, and passing it does not replace the signed runtime
-rehearsal or the run-specific privacy, authorization, sandbox, retention, and
-human-leakage review required by the experiment methodology.
+at private dogfood data, and passing it does not replace the owner-confirmed
+runtime-boundary rehearsal, the full synthetic dress rehearsal, or the
+run-specific privacy, authorization, sandbox, retention, and human-leakage
+review required by the experiment methodology.
 
 The public pack and its runner are non-normative Zone 3 laboratory tooling.
 Their formats and behavior may change as experiments produce evidence.
