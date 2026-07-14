@@ -114,7 +114,8 @@ nodes:
     notes: |
       Repository docs distinguish the completed runtime-boundary rehearsal from
       the pending full dress rehearsal. The three current Obsidian project notes
-      were aligned through kb PR #1; historical notes remain historical.
+      were aligned in kb/main through kb PR #1 and finalized against the closed
+      G0 state in follow-up kb PR #2; historical notes remain historical.
 
   g0-rehearsal-integrated:
     title: "Gate: boundary-rehearsal evidence integrated"
@@ -171,7 +172,7 @@ nodes:
     title: "Freeze at least eight tasks, evidence requirements, oracle, and rubric"
     kind: task
     parent: m1-evidence-contract-freeze
-    deps: [m1-select-episode]
+    deps: [m1-freeze-manifest]
     status: planned
     notes: "Keep oracle structure and all future answers outside SUT visibility."
 
@@ -605,7 +606,7 @@ execution:
       actual_start: "2026-07-14"
       actual_finish: "2026-07-14"
       updated_at: "2026-07-14T10:48:39+03:00"
-      note: "Repository docs and the three current Obsidian project notes were aligned through kb PR #1; historical notes were preserved."
+      note: "Repository docs and the three current Obsidian project notes were aligned through kb PR #1 and finalized against the closed G0 state in follow-up kb PR #2; historical notes were preserved."
     g0-rehearsal-integrated:
       progress: 1.0
       actual_start: "2026-07-14"

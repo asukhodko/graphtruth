@@ -35,11 +35,13 @@ the frozen baseline, scoring, and decision workflow. The result admits continued
 experiment preparation. It does not show that GraphTruth is useful on real work,
 admit private bytes to a changed runner, or satisfy Stage 1.
 
-The next evidence ladder is deliberately narrow:
+The evidence ladder remains deliberately narrow. Its integration step is
+complete:
 
-1. make Issue #6 and project notes match the boundary-rehearsal evidence already
-   published through PR #14, including focused time already consumed from the
-   issue-wide time box;
+1. **Completed 2026-07-14:** align Issue #6 and project notes with the
+   boundary-rehearsal evidence published in PR #14 and the hardening and
+   integration completed in PR #15–16, including focused time already consumed
+   from the issue-wide time box;
 2. freeze one external private evidence contract of three to five sources with
    at least eight tasks, withheld oracle, Markdown plus `rg` baseline,
    capture-tax accounting, handling rules, and a predeclared
