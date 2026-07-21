@@ -45,7 +45,8 @@ maintained artifact.
 
 ## Maintenance rules
 
-- Keep the current Issue #6 path detailed through its next decision gates.
+- Keep the current Issue #24 Python sequential path detailed through its
+  selection, freeze, rehearsal, run, and decision gates.
 - Keep later capabilities as horizon nodes until one becomes the single major
   work item.
 - Do not copy private corpus names, paths, tasks, answers, or metrics into the
@@ -53,10 +54,14 @@ maintained artifact.
 - Update execution facts and gate statuses together with their evidence.
 - Account for one issue-wide time box across all of its plan phases; never reset
   a budget by renaming or decomposing the work.
-- For Issue #6, count one working day per distinct Europe/Moscow date with
-  material GraphTruth repository activity on or after the issue was opened.
-  Multiple events on one date count once; a date with no repository activity
-  counts zero. Keep the counted-date ledger in Issue #6 and the roadmap.
+- Issue #6 is closed at stop with four counted dates: 2026-07-12, 2026-07-13,
+  2026-07-14, and 2026-07-21. Do not reuse its remaining nominal day.
+- For Issue #24, count one working day per distinct Europe/Moscow date with
+  material GraphTruth repository or issue activity on or after the issue was
+  opened. Multiple events on one date count once; a date with no activity
+  counts zero. Keep the ledger in Issue #24 and the roadmap. Day 1 is
+  2026-07-21; require an explicit owner continue/shrink/stop decision before
+  day 5 begins, and retain the independent 2026-08-04 hard stop.
 - Revise the textual roadmap only when capability ordering or transition
   evidence changes; routine task movement belongs here and in the relevant
   issue.

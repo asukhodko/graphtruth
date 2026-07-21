@@ -1,11 +1,14 @@
 # Starter corpora laboratory plan
 
-> **Status:** Non-normative Zone 3 laboratory plan.
+> **Status:** Non-normative Zone 3 laboratory plan; the first Python sequential
+> lane is active under Issue #24, but its run pack is not yet frozen.
 >
 > **Created:** 2026-07-12.
 >
-> **Related work:** [Issue #6 — Local future-reveal corpus replay
-> harness](https://github.com/asukhodko/graphtruth/issues/6) and
+> **Related work:** [Issue #24 — Python annotation semantics sequential corpus
+> replay](https://github.com/asukhodko/graphtruth/issues/24), the stopped
+> [Issue #6 — Local future-reveal corpus replay
+> harness](https://github.com/asukhodko/graphtruth/issues/6), and
 > [Issue #8 — Continuous emergent domain
 > topology](https://github.com/asukhodko/graphtruth/issues/8).
 >
@@ -63,8 +66,11 @@ value in a personal workflow.
 
 ## Relationship to private dogfood
 
-This plan adds a public laboratory track; it does not replace the private
-dogfood track in Issue #6.
+This plan adds a public laboratory track; it does not replace private dogfood
+evidence. Issue #6 stopped before producing an admissible frozen private
+contract or an evaluated private run. Its terminal local states are preserved
+outside this track and are not inputs to it. A later private dogfood successor
+requires a new identity, issue, threat review, and evidence contract.
 
 - The public track uses redistributable or privately retained public-source
   snapshots to make algorithm and replay failures reproducible.
@@ -505,10 +511,10 @@ transform, process, or redistribute material.
 
 ## Immediate deliverables
 
-Merging this plan does not activate a public corpus. Issue #6's private S0-S1
-walking skeleton remains the single major WIP until it records a decision and
-closes, or the project explicitly records that it is paused or re-scoped. The
-first queued public corpus is then `python-annotations-semantics-v1`:
+The owner recorded a project-level `stop` for Issue #6, and Issue #24 activates
+`python-annotations-semantics-v1` as the single major WIP. Activation selects
+the bounded corpus and sequence; it does not freeze rights, source bytes,
+projection, tasks, oracle, baseline, budgets, or a run identity:
 
 1. complete its corpus-selection record;
 2. verify per-file rights and acquire the four pinned originals outside the

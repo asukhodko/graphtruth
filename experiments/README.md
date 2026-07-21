@@ -20,6 +20,12 @@ multi-domain experiments. It is a candidate program, not a frozen run pack or
 benchmark. Every evaluated lane still requires the templates and integrity
 seal described below.
 
+Issue #24 activates the first sequential lane,
+`python-annotations-semantics-v1`, as the single major WIP. Its corpus-selection
+record, rights, acquired bytes, projection, tasks, oracle, baseline, budgets,
+and run identity remain unfrozen. Activation is authority to prepare those
+records, not to inspect output or start the evaluated lane.
+
 The public track supports reproducible algorithm and replay diagnostics. It
 does not replace the private dogfood track that tests value in a real personal
 workflow.
@@ -34,6 +40,19 @@ The first run asks whether a small experiment is feasible and informative. It
 cannot prove product value, superiority over existing tools, portability to
 other corpora, or durable protocol semantics.
 
+## Current private-path status
+
+Issue #6 stopped on 2026-07-21 before an admissible frozen private evidence
+contract or evaluated private run existed. Its public synthetic artifacts and
+tooling remain useful references, but its private G1 path is no longer current
+and authorizes no read, retry, receipt, or successor. Terminal local states are
+preserved outside the repository and must not enter the public Python lane.
+
+The private-pack instructions below document the stopped design and reusable
+public preparation. A future private dogfood attempt must explicitly supersede
+them under a new issue, identity, threat review, evidence contract, and owner
+authorization. Nothing in this file grants that authority.
+
 ## Private material never belongs here
 
 Keep every real run pack outside the repository checkout, Git worktrees, and
@@ -41,10 +60,12 @@ cloud-synchronized folders. This includes source documents, manifests, task
 answers, oracle material, run cards, reports, prompts, logs, embeddings,
 checkpoints, and backups.
 
-The G1 path permits one explicitly authorized private Codex call to review the
-sealed contract. This is external OpenAI processing, not independent human
-review or local-only processing. No other assistant, session, processor, model
-call, or tool execution is implicitly approved.
+The stopped Issue #6 G1 design permitted one explicitly authorized private
+Codex call to review a sealed contract. That design is retained for historical
+clarity; its authority is consumed and cannot be reused. Such processing would
+be external OpenAI processing, not independent human review or local-only
+processing. No assistant, session, processor, model call, or tool execution is
+currently approved for private material.
 
 `.gitignore` is a convenience, not a privacy or security boundary. An ignored
 file can still be copied, synchronized, logged, attached, or force-added. The
@@ -75,11 +96,11 @@ cryptographic signature or evidence that the full dress rehearsal passed.
 
 ## Required pack
 
-Follow the [private evidence-contract freeze
-guide](templates/EVIDENCE-CONTRACT.md) to close G1 before implementing or
-admitting the evaluated GraphTruth/SUT runtime. The guide reuses the records
-below while keeping the exact runtime identity and full synthetic dress
-rehearsal in M2.
+The stopped Issue #6 design used the [private evidence-contract freeze
+guide](templates/EVIDENCE-CONTRACT.md) before implementing or admitting an
+evaluated GraphTruth/SUT runtime. The guide and records below are retained as
+historical preparation; do not use them to close G1 or access private material
+under Issue #6.
 
 Copy the G1 records, [review-control template](templates/g1-review-control.json),
 [fixed review prompt](templates/g1-review-prompt.md), and
@@ -204,6 +225,9 @@ baseline an equivalent budget. Record baseline wins and correct abstentions,
 not only GraphTruth successes.
 
 ## Preflight sequence
+
+This sequence records the stopped private design. It is not the current
+Issue #24 path and cannot be executed without a new private successor decision.
 
 1. Close G1: rely on the retained public synthetic qualification only to admit
    this tooling path; then select the real episode, authorize OpenAI processing,

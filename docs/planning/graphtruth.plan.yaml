@@ -7,6 +7,7 @@ meta:
 
 statuses:
   done: { label: "Done", color: "#22c55e" }
+  stopped: { label: "Stopped", color: "#ef4444" }
   current: { label: "Current", color: "#0ea5e9" }
   ready: { label: "Ready", color: "#f59e0b" }
   planned: { label: "Planned", color: "#9ca3af" }
@@ -24,22 +25,18 @@ nodes:
     kind: summary
     status: current
     notes: |
-      Pre-alpha. Foundation, the synthetic S0-S1 boundary rehearsal, repository
-      hardening, and the publication-safe G1 twin are complete. G1 now uses
-      owner attestation plus a fresh isolated Codex review with explicit OpenAI
-      processing authorization. The native permission profile passed its
-      retained public synthetic qualification with the exact zero-tool model
-      command, and the fail-closed review command is implemented and tested on
-      synthetic fixtures. Each attempt adds a local identity-and-config
-      preflight and makes one private Codex call. Docker is only a separately
-      qualified fallback. The private episode, post-seal review, owner
-      acceptance, and real utility remain untested. Three of the five distinct
-      Europe/Moscow dates with Issue #6 repository activity are accounted for:
-      2026-07-12 through 2026-07-14. Multiple events on one date count once and
-      inactive dates count zero. The 2026-07-11 foundation work predates Issue
-      #6 and is excluded. Two future active dates remain before the 2026-07-26
-      calendar stop; the fifth requires an explicit owner decision to continue,
-      shrink, or stop. Moving between phases never resets that limit.
+      Pre-alpha. Foundation, the public synthetic S0-S1 boundary rehearsal,
+      repository hardening, the publication-safe G1 twin, and native review
+      tooling are retained. Issue #6 stopped before an admissible private
+      evidence contract or evaluated private run existed; its fourth and final
+      repo-active date is the 2026-07-21 stop synchronization. Terminal local
+      states remain outside the repository and later work must not inspect,
+      repair, delete, retry, or reuse them. Issue #24 now owns the single major
+      WIP: the public `python-annotations-semantics-v1` sequential lane. Its
+      five-date budget starts on 2026-07-21, requires an owner decision before
+      day five, and has an independent 2026-08-04 hard stop. This public lane
+      can produce reproducible algorithm evidence but cannot replace the still
+      missing private dogfood usefulness evidence.
 
   m0-rehearsal-integration:
     title: "Integrate the runtime-boundary rehearsal evidence"
@@ -147,38 +144,29 @@ nodes:
     kind: phase
     parent: graphtruth
     deps: [g0-rehearsal-integrated]
-    status: current
+    status: stopped
     issue: "https://github.com/asukhodko/graphtruth/issues/6"
     notes: |
-      Select and seal one private 3-5 item decision or incident lineage before
-      private-lane implementation is allowed to adapt to its outcomes. The
-      public twin is anchored in PR #18. PR #21 supplied the previous
-      owner-only lock, two-human-review seal, and public receipt gate. The
-      current G1 route replaces that review mechanism with owner attestation and
-      a fresh isolated Codex review, explicitly authorizes external OpenAI
-      processing, and requires both a retained public qualification and a fresh
-      local post-seal identity-and-config preflight before private access.
-      The public qualification and fail-closed review tooling are complete;
-      Docker requires a separate qualification if the native boundary fails and
-      cannot solve a context-limit failure. No private episode has been selected,
-      sealed, or reviewed. Work on 2026-07-14
-      remains inside the already counted third active date. One more distinct
-      active date may begin within the budget. Before project activity starts
-      on the fifth date, the owner must explicitly continue, shrink, or stop;
-      the 2026-07-26 hard stop remains fixed.
+      Issue #6 stopped before this gate. Public preparation, the synthetic twin,
+      native permission-profile qualification, and fail-closed review tooling
+      remain retained outputs. A private selection/finalization process did not
+      yield an admissible frozen evidence contract or evaluated run. Its
+      terminal local states are preserved outside the repository and are not
+      inputs to later work. Four Issue #6 repository-active dates were used:
+      2026-07-12, 2026-07-13, 2026-07-14, and the 2026-07-21 stop
+      synchronization. No G1 receipt may be published from this stopped path.
 
   m1-select-episode:
     title: "Select one real episode and its knowledge boundary"
     kind: task
     parent: m1-evidence-contract-freeze
     deps: [g0-rehearsal-integrated]
-    status: ready
+    status: stopped
     notes: |
-      Record inclusion, exclusion, lineage, chronology, prior familiarity, and
-      why the episode can test useful retrieval or reconstruction. Continuing
-      on 2026-07-14 does not consume another day. Selection may also use the
-      fourth distinct repo-active date. Starting work on the fifth requires the
-      owner's explicit continue, shrink, or stop decision.
+      The private selection path terminated without an accepted corpus identity
+      or publication-safe receipt. No private identity, path, count, digest,
+      content, participant information, or failure detail is published. Its
+      terminal state must not be inspected, repaired, retried, or reused.
 
   m1-native-codex-preflight:
     title: "Qualify the native Codex review permission profile"
@@ -226,7 +214,7 @@ nodes:
       - m1-select-episode
       - m1-native-codex-preflight
       - m1-native-codex-review-tooling
-    status: planned
+    status: deferred
     notes: |
       Keep the persistent private `PACK`, common `ANCHOR`, oracle, logs, and
       reports outside Git and synchronized paths. Freeze the rule that later
@@ -243,14 +231,14 @@ nodes:
     kind: task
     parent: m1-evidence-contract-freeze
     deps: [m1-private-root]
-    status: planned
+    status: deferred
 
   m1-freeze-tasks:
     title: "Freeze at least eight tasks, evidence requirements, oracle, and rubric"
     kind: task
     parent: m1-evidence-contract-freeze
     deps: [m1-freeze-manifest]
-    status: planned
+    status: deferred
     notes: "Keep oracle structure and all future answers outside SUT visibility."
 
   m1-freeze-baseline:
@@ -258,7 +246,7 @@ nodes:
     kind: task
     parent: m1-evidence-contract-freeze
     deps: [m1-freeze-tasks]
-    status: planned
+    status: deferred
     notes: "Use equal source visibility and count GraphTruth-only annotation as capture tax."
 
   m1-freeze-decision:
@@ -266,14 +254,14 @@ nodes:
     kind: task
     parent: m1-evidence-contract-freeze
     deps: [m1-freeze-baseline]
-    status: planned
+    status: deferred
 
   m1-data-handling:
     title: "Approve run-specific handling, retention, purge, and incident rules"
     kind: task
     parent: m1-evidence-contract-freeze
     deps: [m1-private-root]
-    status: planned
+    status: deferred
     notes: |
       The owner must explicitly authorize sending the closed review input to
       OpenAI, define retention and purge rules, and record incidents. Local
@@ -294,9 +282,10 @@ nodes:
       Git tree into `PACK`, verifies the embedded and closed snapshot manifests,
       and completes the private non-derivation comparison. After sealing, fresh
       isolated Codex checks the same snapshot and owner result in the complete
-      controller-built standard-input envelope. G1 remains open until Codex
-      accepts and the owner records final acceptance. This trust basis does not
-      claim independent human review.
+      controller-built standard-input envelope. At PR #18 time, G1 would have
+      remained open until Codex accepted and the owner recorded final
+      acceptance. Issue #6 later stopped before that gate. This trust basis does
+      not claim independent human review.
       Runtime binding and execution remain M2 work.
 
   m1-seal-evidence-contract:
@@ -312,7 +301,7 @@ nodes:
       - m1-synthetic-twin
       - m1-native-codex-preflight
       - m1-native-codex-review-tooling
-    status: planned
+    status: deferred
     notes: |
       Any later source, task, oracle, baseline, threshold, order, or handling
       change creates a new evidence-contract identity. Exact code, configuration,
@@ -332,7 +321,7 @@ nodes:
     kind: task
     parent: m1-evidence-contract-freeze
     deps: [m1-seal-evidence-contract]
-    status: planned
+    status: deferred
     notes: |
       Create fresh review, attempt-anchor, authorization, and state staging as
       strict canonical descendants of `realpath(os.tmpdir())`; do not pass the
@@ -355,7 +344,7 @@ nodes:
     kind: task
     parent: m1-evidence-contract-freeze
     deps: [m1-run-isolated-codex-review]
-    status: planned
+    status: deferred
     notes: |
       The owner reruns the verifier against the persistent sealed pack, inspects
       the attempt identity-and-config preflight, exact allowed trace, validated
@@ -372,24 +361,44 @@ nodes:
     milestone: true
     parent: m1-evidence-contract-freeze
     deps: [m1-owner-final-acceptance]
-    status: planned
+    status: stopped
     notes: |
-      Three to five sources and the complete task denominator are sealed; future
-      material and oracle are withheld; baseline, capture tax, decision gates,
-      roles, authorization, retention, the fixed public-twin byte snapshot, and
-      the owner's pre-seal comparison are reviewable. Owner attestation,
-      accepted fresh isolated Codex review, explicit external OpenAI processing
-      authorization, and the admitted native permission-profile identity are
-      recorded without claiming independent human review. The exact M2
-      executable identity is deliberately not frozen yet. No private G1 review
-      or evaluated run has occurred in the current repository state.
+      This gate did not pass. No accepted private contract, safe public receipt,
+      private runtime admission, or evaluated run exists. The stopped path is
+      retained as learning and must not be represented as frozen or complete.
+
+  m1-stop-decision:
+    title: "Record the private M1 stop and publication-safe learning"
+    kind: task
+    parent: graphtruth
+    deps: [g0-rehearsal-integrated]
+    status: done
+    issue: "https://github.com/asukhodko/graphtruth/issues/6"
+    notes: |
+      The owner chose stop after the private preparation path and its separate
+      read-only failure audit both ended without an admissible evidence-contract
+      or classified verdict. Only aggregate publication-safe facts enter the
+      repository. Terminal state remains preserved outside Git and is never a
+      dependency of the public successor.
+
+  g1-private-path-disposed:
+    title: "Gate: private M1 path disposed without an evaluated run"
+    kind: milestone
+    milestone: true
+    parent: graphtruth
+    deps: [m1-stop-decision]
+    status: done
+    notes: |
+      Issue #6 closes at 4/5 repo-active dates with stop. G1, M2, M3, and their
+      order successor did not pass. A later private dogfood attempt requires a
+      wholly new issue, identity, threat review, and contract.
 
   m2-private-lane:
     title: "Implement the minimal private chronological lane"
     kind: phase
     parent: graphtruth
     deps: [g1-evidence-contract-frozen]
-    status: planned
+    status: deferred
     issue: "https://github.com/asukhodko/graphtruth/issues/6"
     notes: |
       Extend only Zone 3. Keep the public synthetic validator unchanged and do
@@ -403,7 +412,7 @@ nodes:
     kind: task
     parent: m2-private-lane
     deps: [g1-evidence-contract-frozen]
-    status: planned
+    status: deferred
     notes: "Support planned, frozen, running, completed, aborted, and invalid states explicitly."
 
   m2-step-runner:
@@ -411,7 +420,7 @@ nodes:
     kind: task
     parent: m2-private-lane
     deps: [m2-private-policy]
-    status: planned
+    status: deferred
     notes: "Pause before every next reveal; do not generate a private-derived twin or delete evidence prematurely."
 
   m2-candidate-intake:
@@ -419,7 +428,7 @@ nodes:
     kind: task
     parent: m2-private-lane
     deps: [m2-step-runner]
-    status: planned
+    status: deferred
     notes: "Use manual or deterministic evidence-aligned input and count its cost. No LLM or embeddings."
 
   m2-query-measurement:
@@ -427,7 +436,7 @@ nodes:
     kind: task
     parent: m2-private-lane
     deps: [m2-candidate-intake]
-    status: planned
+    status: deferred
     notes: |
       Keep the identity-bound integrity head separate from an
       identity-independent content-semantic digest suitable for comparisons
@@ -438,21 +447,21 @@ nodes:
     kind: task
     parent: m2-private-lane
     deps: [m2-step-runner]
-    status: planned
+    status: deferred
 
   m2-private-tests:
     title: "Add synthetic private-lane boundary and failure fixtures"
     kind: task
     parent: m2-private-lane
     deps: [m2-query-measurement, m2-private-recovery]
-    status: planned
+    status: deferred
 
   m2-repeat-rehearsal:
     title: "Repeat the isolated runtime-boundary rehearsal"
     kind: task
     parent: m2-private-lane
     deps: [m2-private-tests]
-    status: planned
+    status: deferred
     notes: |
       Re-run isolation, future/oracle/credential/network denial, crash/resume,
       rebuild, termination, and purge for the exact changed runtime identity.
@@ -464,7 +473,7 @@ nodes:
     kind: task
     parent: m2-private-lane
     deps: [m2-repeat-rehearsal]
-    status: planned
+    status: deferred
     notes: |
       Exercise the synthetic twin through the complete frozen workflow,
       including baselines, scoring, decision handling, and deliberate exhaustion
@@ -476,14 +485,14 @@ nodes:
     kind: task
     parent: m2-private-lane
     deps: [m2-full-dress-rehearsal]
-    status: planned
+    status: deferred
 
   m2-seal-final-run:
     title: "Bind the frozen contract to the exact admitted runtime"
     kind: task
     parent: m2-private-lane
     deps: [m2-owner-confirmation]
-    status: planned
+    status: deferred
     notes: |
       Seal the final run card with code revision, runtime identity,
       configuration, policy, budgets, and confirmed rehearsal-report hashes.
@@ -495,7 +504,7 @@ nodes:
     milestone: true
     parent: m2-private-lane
     deps: [m2-seal-final-run]
-    status: planned
+    status: deferred
     notes: |
       The exact changed runner passes future/oracle/credential/network
       boundaries, crash/resume, rebuild and purge, plus the full synthetic
@@ -508,18 +517,19 @@ nodes:
     kind: phase
     parent: graphtruth
     deps: [g2-runtime-admitted]
-    status: planned
+    status: deferred
     issue: "https://github.com/asukhodko/graphtruth/issues/6"
     notes: |
-      Use only the remaining registered Issue #6 budget. This phase does not
-      start a fresh five-repo-active-date or two-calendar-week clock.
+      Historical private successor phase. Issue #6 stopped before this work and
+      its unused nominal day is not reusable. Any revived private experiment
+      requires a new issue, authority, freeze, and budget.
 
   m3-execute-frozen-comparison:
     title: "Execute the predeclared first-exposure baseline and frozen SUT lanes"
     kind: task
     parent: m3-chronological-pilot
     deps: [g2-runtime-admitted]
-    status: planned
+    status: deferred
     notes: "Follow the frozen role order; do not repair an active lane after viewing output."
 
   m3-correction-fork:
@@ -527,7 +537,7 @@ nodes:
     kind: task
     parent: m3-chronological-pilot
     deps: [m3-execute-frozen-comparison]
-    status: planned
+    status: deferred
     notes: "Corrections append attributable records and preserve the frozen history."
 
   m3-score-denominator:
@@ -535,14 +545,14 @@ nodes:
     kind: task
     parent: m3-chronological-pilot
     deps: [m3-execute-frozen-comparison, m3-correction-fork]
-    status: planned
+    status: deferred
 
   m3-learning-record:
     title: "Record expected, observed, learned, failures, and generalized fixtures"
     kind: task
     parent: m3-chronological-pilot
     deps: [m3-score-denominator]
-    status: planned
+    status: deferred
     issue: "https://github.com/asukhodko/graphtruth/issues/6"
 
   m3-decision:
@@ -550,7 +560,7 @@ nodes:
     kind: task
     parent: m3-chronological-pilot
     deps: [m3-learning-record]
-    status: planned
+    status: deferred
     notes: |
       Keep requires zero severe boundary/history failures and the frozen utility
       threshold. Shrink preserves the safe useful core. Stop remains a valid
@@ -562,17 +572,18 @@ nodes:
     milestone: true
     parent: m3-chronological-pilot
     deps: [m3-decision]
-    status: planned
+    status: deferred
     notes: |
-      Issue #6 becomes learning-complete and closes for keep, shrink, or stop.
-      Any order successor or smaller replacement hypothesis gets a new issue.
+      This gate is retained as historical design and was not reached. Issue #6
+      stopped earlier. Any revived private chronological hypothesis needs a new
+      issue and authority.
 
   m4-order-successor:
     title: "Run the bounded order-robustness successor"
     kind: phase
     parent: graphtruth
     deps: [g3-chronological-decision]
-    status: conditional
+    status: deferred
     notes: |
       Starts only after chronological keep, under a new issue, time box, run
       card, owner, and identity.
@@ -604,7 +615,7 @@ nodes:
     milestone: true
     parent: m4-order-successor
     deps: [m4-order-decision]
-    status: conditional
+    status: deferred
 
   g4-order-path-disposed:
     title: "Gate: order-successor path disposed"
@@ -619,7 +630,7 @@ nodes:
         type: fs
         hard: false
         note: "Required only when the chronological decision is keep."
-    status: planned
+    status: deferred
     notes: |
       After keep, close this gate only through g4-order-decision. After shrink
       or stop, record order robustness as not applicable before closing it.
@@ -628,21 +639,22 @@ nodes:
     title: "Select exactly one next major evidence track"
     kind: phase
     parent: graphtruth
-    deps: [g4-order-path-disposed]
-    status: planned
+    deps: [g1-private-path-disposed]
+    status: done
     notes: |
-      Choose personal-v0 depth, the first public reproducibility corpus, or a
-      smaller replacement hypothesis. Do not open parallel major WIP.
+      The owner selected the first public reproducibility corpus after the
+      private preparation path stopped. Do not open parallel major WIP.
 
   m5-record-choice:
     title: "Record the evidence-based next-track choice"
     kind: task
     parent: m5-next-track
-    deps: [g4-order-path-disposed]
-    status: planned
+    deps: [g1-private-path-disposed]
+    status: done
     notes: |
-      Compare the completed decision record with the remaining Stage 1 exit
-      evidence. Select one bounded hypothesis, owner, issue, and decision gate.
+      `python-annotations-semantics-v1` is selected under Issue #24 with a new
+      owner, five-date budget, run identity, and sequential decision gate. It
+      does not replace missing private dogfood evidence.
 
   g5-next-track-selected:
     title: "Gate: next major track selected"
@@ -650,7 +662,131 @@ nodes:
     milestone: true
     parent: m5-next-track
     deps: [m5-record-choice]
+    status: done
+
+  m6-python-sequential:
+    title: "Run the Python annotation-semantics sequential experiment"
+    kind: phase
+    parent: graphtruth
+    deps: [g5-next-track-selected]
+    status: current
+    issue: "https://github.com/asukhodko/graphtruth/issues/24"
+    notes: |
+      Single major WIP. The four-item public PEP decision lineage tests
+      reproducible deterministic S0-S1 capture, chronology, rationale,
+      replacement, supplementation, gaps, retrieval, rebuild, and comparison
+      cost. It cannot establish private dogfood utility or current Python
+      behavior beyond the retained corpus. The five-date budget starts on
+      2026-07-21; owner decision is required before day five and the independent
+      hard stop is 2026-08-04.
+
+  m6-freeze-selection-rights:
+    title: "Freeze Python corpus selection, chronology, rights, and boundary"
+    kind: task
+    parent: m6-python-sequential
+    deps: [g5-next-track-selected]
+    status: ready
+    issue: "https://github.com/asukhodko/graphtruth/issues/24"
+    notes: |
+      Before inspecting GraphTruth or baseline output, close the candidate
+      population, inclusion/exclusion, source-family dependence, four time axes,
+      per-file notices, acquisition and publication policy, PEP 484 dark-zone
+      role, and participant familiarity limits.
+
+  m6-acquire-originals:
+    title: "Acquire and pin the four exact PEP originals outside the checkout"
+    kind: task
+    parent: m6-python-sequential
+    deps: [m6-freeze-selection-rights]
     status: planned
+    notes: |
+      Bind individual upstream blob identities, acquisition UTC, exact bytes,
+      SHA-256, size, media type, notices, and owner-only storage boundary at
+      `python/peps@339af2b4776a66eab0f88a2800adffdb0c0650e1`.
+
+  m6-freeze-projection:
+    title: "Choose and pin the deterministic RST projection"
+    kind: task
+    parent: m6-python-sequential
+    deps: [m6-acquire-originals]
+    status: planned
+    notes: |
+      Retain originals and transformer identity separately. Stop or shrink if
+      an oracle-relevant construct cannot be projected without undeclared loss.
+
+  m6-freeze-evaluation:
+    title: "Freeze tasks, oracle, baseline, budgets, and decision gate"
+    kind: task
+    parent: m6-python-sequential
+    deps: [m6-freeze-projection]
+    status: planned
+    notes: |
+      Register at least eight tasks, evidence requirements, dark-zone controls,
+      scoring, severe errors, complete denominator, first-exposure roles,
+      Markdown-plus-search baseline, capture tax, resource budgets, and exact
+      sequential keep/shrink/stop thresholds before output is seen.
+
+  m6-implement-lane:
+    title: "Implement only the deterministic S0-S1 lane required by the freeze"
+    kind: task
+    parent: m6-python-sequential
+    deps: [m6-freeze-evaluation]
+    status: planned
+    notes: |
+      Keep work in Zone 3. No LLM, embeddings, protocol promotion, public API,
+      plugin framework, graph/vector database, or UI is admitted.
+
+  m6-rehearse-runner:
+    title: "Pass the exact synthetic rehearsal and budget-failure cases"
+    kind: task
+    parent: m6-python-sequential
+    deps: [m6-implement-lane]
+    status: planned
+    notes: |
+      Recheck future/oracle/network boundaries, source-instruction handling,
+      crash/resume, exact redelivery, clean rebuild, deletion, and every frozen
+      resource-budget exhaustion behavior for the exact runner identity.
+
+  m6-run-comparison:
+    title: "Run the sequential GraphTruth and files-plus-search comparison"
+    kind: task
+    parent: m6-python-sequential
+    deps: [m6-rehearse-runner]
+    status: planned
+    notes: |
+      Reveal one item at a time, preserve all registered cells and failures,
+      keep the oracle outside SUT reach, and do not retry an unfavorable result
+      into success.
+
+  m6-score-decision:
+    title: "Score the full denominator and record expected, observed, learned"
+    kind: task
+    parent: m6-python-sequential
+    deps: [m6-run-comparison]
+    status: planned
+    notes: |
+      Record `sequential keep`, `sequential shrink`, or `sequential stop` plus
+      costs and generalized failures. Keep admits only the separate 24-order
+      successor; it is not a corpus-level keep.
+
+  g6-python-sequential-decision:
+    title: "Gate: Python sequential decision recorded"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [m6-score-decision]
+    status: planned
+
+  m7-python-order-successor:
+    title: "Run the separately frozen 24-order Python successor"
+    kind: phase
+    parent: graphtruth
+    deps: [g6-python-sequential-decision]
+    status: conditional
+    notes: |
+      Eligible only after `sequential keep`, under a new issue, budget, run
+      identity, semantic-equivalence freeze, and worst-order gate. Shrink or
+      stop disposes this path without execution.
 
   h-personal-v0:
     title: "Horizon: complete personal v0"
@@ -788,6 +924,39 @@ execution:
       actual_finish: "2026-07-14"
       updated_at: "2026-07-14T20:34:25+03:00"
       note: "Fail-closed owner-plus-Codex tooling passed synthetic tests with a local identity-and-config attempt preflight and one bounded zero-tool private model call; no private bytes were used."
+    m1-stop-decision:
+      progress: 1.0
+      actual_start: "2026-07-21"
+      actual_finish: "2026-07-21"
+      updated_at: "2026-07-21T08:03:17+03:00"
+      note: "Owner chose stop; only aggregate publication-safe learning is retained."
+    g1-private-path-disposed:
+      progress: 1.0
+      actual_start: "2026-07-21"
+      actual_finish: "2026-07-21"
+      updated_at: "2026-07-21T08:03:17+03:00"
+      note: "Private M1 ended without an admissible frozen contract or evaluated run."
+    m5-next-track:
+      progress: 1.0
+      actual_start: "2026-07-21"
+      actual_finish: "2026-07-21"
+      updated_at: "2026-07-21T08:03:17+03:00"
+    m5-record-choice:
+      progress: 1.0
+      actual_start: "2026-07-21"
+      actual_finish: "2026-07-21"
+      updated_at: "2026-07-21T08:03:17+03:00"
+      note: "Issue #24 owns the selected public Python sequential experiment."
+    g5-next-track-selected:
+      progress: 1.0
+      actual_start: "2026-07-21"
+      actual_finish: "2026-07-21"
+      updated_at: "2026-07-21T08:03:17+03:00"
+    m6-python-sequential:
+      progress: 0.0
+      actual_start: "2026-07-21"
+      updated_at: "2026-07-21T08:03:17+03:00"
+      note: "Issue #24 opened; day 1 of 5 freezes scope and budget before corpus acquisition."
 
 views:
   current-work:
@@ -796,7 +965,7 @@ views:
       status: [current, ready]
     order_by: status
   near-decision-path:
-    title: "Near decision path through next-track selection"
+    title: "Near public Python decision path"
     where:
       parent: graphtruth
       status: [current, ready, planned, conditional]
@@ -813,11 +982,12 @@ views:
 x:
   exec:
     program:
-      nearest_goal: "Complete Issue #6 with a decision from one real private chronological replay."
-      success_by_next_sync: "Select and freeze the private evidence contract, run the post-seal identity-and-config preflight and single private Codex review, and record owner acceptance within at most two remaining repo-active dates, or record the owner's shrink or stop decision before the fifth date starts."
+      nearest_goal: "Freeze the public Python corpus boundary and rights without inspecting experiment output."
+      success_by_next_sync: "Close Issue #6 at stop, merge the authoritative rescope, and complete Issue #24's exact four-file selection and rights preflight before source acquisition."
     defaults:
       status_progress:
         done: 1.0
+        stopped: 0.0
         current: 0.5
         ready: 0.0
         planned: 0.0
@@ -832,52 +1002,41 @@ x:
         mgmt:
           health: green
           sync_note: "G0 closed with PR #14 evidence, PR #15 hardening, Issue #6 accounting, and the then-current personal notes aligned."
-          next_sync_goal: "Keep the integrated evidence immutable while the private contract is frozen."
-      pack-freeze:
-        title: "Private evidence-contract freeze"
-        scope_nodes: [m1-evidence-contract-freeze]
+          next_sync_goal: "Keep the retained boundary evidence immutable while the public experiment uses a new identity."
+      private-stop:
+        title: "Private M1 disposition"
+        scope_nodes: [g1-private-path-disposed]
+        kind: main
+        mgmt:
+          health: green
+          sync_note: "Owner chose stop. Issue #6 closes on repo-active day 4 without an admissible private contract, evaluated run, or usefulness claim."
+          next_sync_goal: "Preserve all terminal local states and keep them outside every successor dependency."
+      python-sequential:
+        title: "Python sequential experiment"
+        scope_nodes: [m6-python-sequential]
         kind: main
         mgmt:
           health: yellow
-          sync_note: "The regenerated native public qualification passed the exact zero-tool model command, and the fail-closed owner-plus-Codex review command is synthetically tested. The private episode, seal, post-seal identity-and-config preflight, single private review, and owner acceptance remain open. Docker is only a separately qualified fallback. Issue #6 repository activity on 2026-07-12 through 2026-07-14 accounts for three of five distinct active dates."
-          next_sync_goal: "Freeze the private contract, run the post-seal identity-and-config preflight and single private review, and record owner acceptance within the two remaining active dates; obtain the owner's continue, shrink, or stop decision before any work on the fifth distinct date."
-      private-lane:
-        title: "Private S0-S1 lane"
-        scope_nodes: [m2-private-lane]
-        kind: main
-        mgmt:
-          health: neutral
-          sync_note: "The current command covers the runtime boundary, not an evaluated GraphTruth/SUT runtime or full dress rehearsal."
-          next_sync_goal: "Implement only the frozen contract with deterministic, no-LLM intake and scoring, then repeat the boundary run and complete the full synthetic dress rehearsal."
-      chronological-pilot:
-        title: "Chronological pilot"
-        scope_nodes: [m3-chronological-pilot]
-        kind: main
-        mgmt:
-          health: neutral
-          sync_note: "Waiting for a newly admitted runtime identity."
-          next_sync_goal: "Produce a complete keep, shrink, or stop decision over the frozen denominator."
-      order-successor:
-        title: "Order successor"
-        scope_nodes: [m4-order-successor]
+          sync_note: "Issue #24 is the single major WIP. Day 1 of 5 freezes the public corpus identity, claim boundary, budget, and stop gates; no source acquisition or output inspection has occurred."
+          next_sync_goal: "Complete per-file rights and selection preflight for the four pinned PEP originals."
+      python-order-successor:
+        title: "Python 24-order successor"
+        scope_nodes: [m7-python-order-successor]
         kind: risk_sidecar
         mgmt:
           health: neutral
-          sync_note: "Conditional on chronological keep and a new experiment identity."
+          sync_note: "Conditional on sequential keep and a separate issue, budget, freeze, and identity."
     edges:
       - from: integration
-        to: pack-freeze
+        to: private-stop
         type: required
-      - from: pack-freeze
-        to: private-lane
+      - from: private-stop
+        to: python-sequential
         type: required
-      - from: private-lane
-        to: chronological-pilot
-        type: required
-      - from: chronological-pilot
-        to: order-successor
+      - from: python-sequential
+        to: python-order-successor
         type: context
-        label: "only after keep"
+        label: "only after sequential keep"
     views:
       exec-top:
         direction: LR
@@ -886,12 +1045,12 @@ x:
         show_progress: false
         show_gate_date: false
         wrap_title_lines: 2
-        caption: "Boundary evidence integrated; freeze, admit, decide."
-        blocks: [integration, pack-freeze, private-lane, chronological-pilot]
+        caption: "Private path stopped; public Python selection and rights freeze is current."
+        blocks: [integration, private-stop, python-sequential]
       exec-active-tracks:
         direction: TB
         color_mode: mgmt_hybrid
         highlight_current: true
         show_progress: false
         show_gate_date: false
-        blocks: [integration, pack-freeze, private-lane, chronological-pilot, order-successor]
+        blocks: [integration, private-stop, python-sequential, python-order-successor]

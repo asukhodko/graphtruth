@@ -1,9 +1,13 @@
 # Private evidence-contract freeze guide
 
-> **Use:** Follow this guide locally to close GraphTruth gate G1. Keep private
-> values out of this repository, issues, pull requests, CI, Obsidian, logs, and
-> every processor not explicitly authorized in the completed data-handling
-> plan.
+> **Status:** Stopped Issue #6 design. It authorizes no private read, seal,
+> review, retry, receipt, or successor. A future private dogfood attempt must
+> explicitly supersede it under a new issue and identity.
+>
+> **Historical use:** This guide was prepared to close GraphTruth gate G1. Keep
+> private values out of this repository, issues, pull requests, CI, Obsidian,
+> logs, and every processor not explicitly authorized in the completed
+> data-handling plan.
 >
 > **Authority:** Non-normative Zone 3 experiment control. This guide freezes
 > evidence and evaluation; it neither defines GraphTruth protocol semantics nor
@@ -68,13 +72,10 @@ processing into local-only processing.
 ## Work budget and immediate stop rules
 
 The canonical Issue #6 ledger is maintained in the
-[roadmap](../../docs/ROADMAP.md). As of 2026-07-14,
-three of five repo-active dates are used and two remain. A date counts only when
-the repository has activity; more work on an already counted date does not spend
-another date. Before the first project activity on date five, the owner must
-explicitly choose `continue`, `shrink`, or `stop`. The independent calendar hard
-stop is 2026-07-26. Neither splitting work nor rebuilding a rejected candidate
-resets either limit.
+[roadmap](../../docs/ROADMAP.md). Issue #6 stopped at 4/5 repo-active dates:
+2026-07-12, 2026-07-13, 2026-07-14, and 2026-07-21. Its remaining nominal day
+and 2026-07-26 calendar window are closed and cannot be reused. Any future
+private successor requires a newly frozen budget and stop gate.
 
 Stop and reject the current candidate immediately if any of these occurs:
 
