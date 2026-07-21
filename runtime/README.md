@@ -24,11 +24,13 @@ fixtures.
 
 ## Experimental S0-S1 replay
 
-The first Zone 3 walking skeleton is intentionally narrower than the eventual
-default runtime and implements the executable preparation slice of
-[Issue #6](https://github.com/asukhodko/graphtruth/issues/6). On a supported
-Darwin host, run the isolated public S0-S1 runtime-boundary rehearsal from the
-repository root:
+This retained Zone 3 walking skeleton is intentionally narrower than the
+eventual default runtime. It implements the public synthetic preparation slice
+of the stopped [Issue #6](https://github.com/asukhodko/graphtruth/issues/6)
+path. It is incompatible with the accepted byte-identical RST projection for
+Issue #24 and grants no authority to read or process that corpus. On a supported
+Darwin host, the preserved synthetic runtime-boundary rehearsal still runs from
+the repository root:
 
 ```sh
 ./runtime/replay
@@ -37,8 +39,10 @@ repository root:
 This command rehearses the runtime boundary, not the complete synthetic
 experiment workflow. It does not run the comparison baselines and scorer or
 deliberately exhaust every declared wall-clock, task, memory, disk, review, and
-correction budget. Those cases belong to the full synthetic dress rehearsal
-required for the exact changed runtime before it may receive private bytes.
+correction budget. Issue #6 stopped before any changed runtime was admitted to
+private bytes. A future private or public successor must use a new explicit
+authorization and repeat the required exact-runner rehearsal; this command may
+continue to use only its checked-in synthetic packs.
 
 The controller captures the frozen public pack before reveal, validates a
 private materialization of those exact captured bytes, and checks its closed

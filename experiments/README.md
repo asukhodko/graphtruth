@@ -38,9 +38,14 @@ owner accepted that exact manifest and the actual output boundary, closing
 `m6-freeze-projection`; the separate [acceptance
 receipt](corpora/python-annotations-semantics-v1/PROJECTION-ACCEPTANCE.json)
 preserves the decision without changing the accepted manifest. The current
-runtime is incompatible by design. `m6-freeze-evaluation`, tasks, oracle, model
-processing of acquired or projected bytes, runtime adaptation, SUT, baseline,
-and an experimental run remain unauthorized.
+gate state comes from that receipt and Issue #24; any pre-acceptance status text
+inside the byte-frozen contract or manifest is historical evidence, not a
+current authorization. The selection record's earlier Markdown option is also
+historical; the accepted common input for this run is byte-identical RST in both
+GraphTruth and the files-plus-search baseline. The current runtime is
+incompatible by design. `m6-freeze-evaluation`, tasks, oracle, model processing
+of acquired or projected bytes, runtime adaptation, SUT, baseline, and an
+experimental run remain unauthorized.
 
 The public track supports reproducible algorithm and replay diagnostics. It
 does not replace the private dogfood track that tests value in a real personal

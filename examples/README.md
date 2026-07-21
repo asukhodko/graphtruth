@@ -18,8 +18,9 @@ rejected invalid packs. The later
 the declared process-failure, exact-redelivery, rebuild, and
 controlled-deletion paths. The full synthetic dress rehearsal, deliberate
 budget exhaustion, real private utility, operating-system or power-loss
-durability, and the changed private lane remain untested. None of these shapes
-is a canonical example or conformance fixture yet.
+durability remain untested. Issue #6 stopped before the changed private lane was
+admitted; any future private successor requires a new identity and authority.
+None of these shapes is a canonical example or conformance fixture yet.
 
 The separate [G1 evidence-contract twin](experiments/evidence-contract-twin-v1/)
 freezes four fictional sources and eight tasks across early answer, required

@@ -139,6 +139,20 @@ nodes:
       introduced. This state-integration gate does not replace the full dress
       rehearsal or admit the current runtime identity.
 
+  g0-foundation-exit:
+    title: "Gate: Stage 0 foundation evidence complete"
+    kind: milestone
+    milestone: true
+    parent: graphtruth
+    deps: [g0-rehearsal-integrated]
+    status: deferred
+    notes: |
+      Stage 0 remains open until two independent human reviewers can distinguish
+      protocol concepts from implementation choices, every foundational
+      invariant has an intended validation or conformance mechanism, and open
+      design questions remain explicit. Zone 3 experiments may continue while
+      this gate is open, but they do not acquire protocol authority.
+
   m1-evidence-contract-freeze:
     title: "Freeze the first private evidence contract"
     kind: phase
@@ -728,15 +742,28 @@ nodes:
       receipt closes only this gate. Tasks, oracle, model processing, runtime
       adaptation, SUT, baseline, and a run remain unauthorized.
 
-  m6-freeze-evaluation:
-    title: "Freeze tasks, oracle, baseline, budgets, and decision gate"
-    kind: task
+  g6-evaluation-freeze-authorized:
+    title: "Gate: evaluation freeze authorized"
+    kind: milestone
+    milestone: true
     parent: m6-python-sequential
     deps: [m6-freeze-projection]
     status: planned
     notes: |
-      This dependency is satisfied, but the gate remains unauthorized until a
-      separate owner decision.
+      Complete only when the owner explicitly authorizes m6-freeze-evaluation
+      against the accepted projection identity. This gate may admit bounded task,
+      oracle, baseline-specification, rubric, budget, and decision-contract work
+      under the declared role and processing boundaries. It does not authorize
+      runtime adaptation, SUT or baseline execution, rehearsal, scoring, or an
+      evaluated run.
+
+  m6-freeze-evaluation:
+    title: "Freeze tasks, oracle, baseline, budgets, and decision gate"
+    kind: task
+    parent: m6-python-sequential
+    deps: [g6-evaluation-freeze-authorized]
+    status: planned
+    notes: |
       Register at least eight tasks, evidence requirements, dark-zone controls,
       scoring, severe errors, complete denominator, first-exposure roles,
       same-verbatim-RST-plus-search baseline, capture tax, resource budgets,
@@ -833,7 +860,7 @@ nodes:
     kind: milestone
     milestone: true
     parent: graphtruth
-    deps: [g5-next-track-selected]
+    deps: [g0-foundation-exit, g5-next-track-selected]
     status: deferred
     notes: "Regular use, correction, second access path, backup/restore, migration, and rebuild without a parallel notebook."
 
@@ -994,8 +1021,14 @@ execution:
       updated_at: "2026-07-21T08:03:17+03:00"
     m6-python-sequential:
       actual_start: "2026-07-21"
-      updated_at: "2026-07-21T12:33:32+03:00"
-      note: "Selection, acquisition, and projection are closed; no next gate is authorized."
+      updated_at: "2026-07-21T13:46:03+03:00"
+      note: "Selection, acquisition, and projection are closed on repo-active date 1/5; no next gate is authorized."
+    m6-freeze-selection-rights:
+      progress: 1.0
+      actual_start: "2026-07-21"
+      actual_finish: "2026-07-21"
+      updated_at: "2026-07-21T10:34:20+03:00"
+      note: "Owner accepted the frozen four-PEP selection and rights boundary; merged in PR #26 at public anchor 66d8a9b."
     m6-acquire-originals:
       progress: 1.0
       actual_start: "2026-07-21"
@@ -1018,15 +1051,16 @@ views:
   near-decision-path:
     title: "Near public Python decision path"
     where:
-      parent: graphtruth
-      status: [current, ready, planned, conditional]
+      parent: m6-python-sequential
+      status: [done, current, ready, planned, conditional]
+    order_by: status
   decision-gates:
     title: "Decision gates"
     where:
       kind: [milestone]
       status: [planned, conditional]
   future-horizons:
-    title: "Deferred horizons"
+    title: "Deferred gates and horizons"
     where:
       status: [deferred]
 
@@ -1034,7 +1068,7 @@ x:
   exec:
     program:
       nearest_goal: "Keep the completed projection freeze stable until the owner decides whether to authorize evaluation freeze."
-      success_by_next_sync: "Close PR #28 and preserve a clean hold with evaluation, runtime, baseline, and run work unauthorized."
+      success_by_next_sync: "Record an explicit owner decision on evaluation freeze; if authorized, close only that freeze and keep implementation, rehearsal, and the evaluated run separately gated."
     defaults:
       status_progress:
         done: 1.0

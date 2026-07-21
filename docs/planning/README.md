@@ -43,6 +43,19 @@ enter GraphTruth's protocol, schemas, runtime, or RFC authority chain. Rendering
 tools are not vendored because no generated planning view is currently a
 maintained artifact.
 
+## Current hold — 2026-07-21
+
+Issue #24 is the single major WIP. Selection, source acquisition, and the
+byte-identical RST projection are complete and owner-accepted. The issue has
+used one of five repository-active dates. The technical dependency for
+`m6-freeze-evaluation` is satisfied, but the authorization gate is not: tasks,
+oracle, model processing of the accepted bytes, runtime adaptation, SUT,
+baseline, rehearsal, and an evaluated run remain closed.
+
+The next project decision is whether to authorize only the evaluation freeze,
+shrink the experiment, or stop it. A satisfied dependency never substitutes
+for an explicit authorization milestone in the plan.
+
 ## Maintenance rules
 
 - Keep the current Issue #24 Python sequential path detailed through its
@@ -52,6 +65,8 @@ maintained artifact.
 - Do not copy private corpus names, paths, tasks, answers, or metrics into the
   public map.
 - Update execution facts and gate statuses together with their evidence.
+- Represent every owner authorization that changes the permitted work boundary
+  as its own milestone; completing a prerequisite never grants that authority.
 - Account for one issue-wide time box across all of its plan phases; never reset
   a budget by renaming or decomposing the work.
 - Issue #6 is closed at stop with four counted dates: 2026-07-12, 2026-07-13,
