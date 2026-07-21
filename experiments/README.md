@@ -21,10 +21,13 @@ benchmark. Every evaluated lane still requires the templates and integrity
 seal described below.
 
 Issue #24 activates the first sequential lane,
-`python-annotations-semantics-v1`, as the single major WIP. Its corpus-selection
-record, rights, acquired bytes, projection, tasks, oracle, baseline, budgets,
-and run identity remain unfrozen. Activation is authority to prepare those
-records, not to inspect output or start the evaluated lane.
+`python-annotations-semantics-v1`, as the single major WIP. Its public
+[corpus-selection and rights record](corpora/python-annotations-semantics-v1/CORPUS-SELECTION.md)
+freezes the exact four-item frame, synthetic chronology, one-family treatment,
+dark zone, handling policy, and familiarity limits. Exact acquired bytes,
+projection, tasks, oracle, baseline, operator and compute budgets, and run
+identity remain unfrozen. The selection decision authorizes acquisition only,
+not output inspection or an evaluated lane.
 
 The public track supports reproducible algorithm and replay diagnostics. It
 does not replace the private dogfood track that tests value in a real personal

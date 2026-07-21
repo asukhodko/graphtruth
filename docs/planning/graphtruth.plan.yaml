@@ -685,20 +685,22 @@ nodes:
     kind: task
     parent: m6-python-sequential
     deps: [g5-next-track-selected]
-    status: ready
+    status: done
     issue: "https://github.com/asukhodko/graphtruth/issues/24"
     notes: |
       Before inspecting GraphTruth or baseline output, close the candidate
       population, inclusion/exclusion, source-family dependence, four time axes,
       per-file notices, acquisition and publication policy, PEP 484 dark-zone
-      role, and participant familiarity limits.
+      role, and participant familiarity limits. Frozen in
+      `experiments/corpora/python-annotations-semantics-v1/CORPUS-SELECTION.md`;
+      this gate authorizes acquisition only.
 
   m6-acquire-originals:
     title: "Acquire and pin the four exact PEP originals outside the checkout"
     kind: task
     parent: m6-python-sequential
     deps: [m6-freeze-selection-rights]
-    status: planned
+    status: ready
     notes: |
       Bind individual upstream blob identities, acquisition UTC, exact bytes,
       SHA-256, size, media type, notices, and owner-only storage boundary at
@@ -982,8 +984,8 @@ views:
 x:
   exec:
     program:
-      nearest_goal: "Freeze the public Python corpus boundary and rights without inspecting experiment output."
-      success_by_next_sync: "Close Issue #6 at stop, merge the authoritative rescope, and complete Issue #24's exact four-file selection and rights preflight before source acquisition."
+      nearest_goal: "Acquire and verify the four pinned PEP originals outside the checkout without inspecting experiment output."
+      success_by_next_sync: "Bind each acquired original to its pinned Git blob, raw-byte SHA-256, size, media type, notice, acquisition UTC, and owner-only storage boundary."
     defaults:
       status_progress:
         done: 1.0
@@ -1017,8 +1019,8 @@ x:
         kind: main
         mgmt:
           health: yellow
-          sync_note: "Issue #24 is the single major WIP. Day 1 of 5 freezes the public corpus identity, claim boundary, budget, and stop gates; no source acquisition or output inspection has occurred."
-          next_sync_goal: "Complete per-file rights and selection preflight for the four pinned PEP originals."
+          sync_note: "Issue #24 is the single major WIP. Day 1 of 5 froze the public four-item selection, synthetic chronology, rights policy, and claim boundary; no source acquisition or output inspection has occurred."
+          next_sync_goal: "Acquire the four exact PEP originals outside the checkout and publish only their safe manifest metadata."
       python-order-successor:
         title: "Python 24-order successor"
         scope_nodes: [m7-python-order-successor]
@@ -1045,7 +1047,7 @@ x:
         show_progress: false
         show_gate_date: false
         wrap_title_lines: 2
-        caption: "Private path stopped; public Python selection and rights freeze is current."
+        caption: "Private path stopped; public Python source acquisition is current."
         blocks: [integration, private-stop, python-sequential]
       exec-active-tracks:
         direction: TB

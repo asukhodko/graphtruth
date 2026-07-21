@@ -57,9 +57,11 @@ the independent hard stop is 2026-08-04.
 
 Its near path is:
 
-1. freeze the corpus-selection and rights boundary for the four exact PEP files;
-2. acquire and hash the pinned originals outside the checkout, retaining each
-   file's notice and upstream blob identity;
+1. use the frozen [corpus-selection and rights
+   record](../experiments/corpora/python-annotations-semantics-v1/CORPUS-SELECTION.md)
+   for the four exact PEP files;
+2. next, acquire and hash the pinned originals outside the checkout, retaining
+   each file's notice and upstream blob identity;
 3. choose and pin a deterministic RST-to-Markdown or text projection;
 4. freeze at least eight tasks, evidence requirements, PEP 484 dark-zone
    controls, oracle, baseline, budgets, severe errors, and decision threshold;
