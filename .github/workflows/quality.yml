@@ -43,7 +43,7 @@ jobs:
 
   darwin-gate:
     name: darwin-gate
-    runs-on: macos-15
+    runs-on: macos-26
     timeout-minutes: 15
     steps:
       - name: Check out repository
