@@ -62,15 +62,15 @@ Its near path is:
    for the four exact PEP files;
 2. use the publication-safe [source
    manifest](../experiments/corpora/python-annotations-semantics-v1/SOURCE-MANIFEST.json)
-   for the acquired owner-only originals and their verified identities;
-3. next, obtain owner acceptance of that exact manifest and authorization for
-   projection only;
-4. choose and pin a deterministic RST-to-Markdown or text projection;
-5. freeze at least eight tasks, evidence requirements, PEP 484 dark-zone
-   controls, oracle, baseline, budgets, severe errors, and decision threshold;
-6. rehearse the exact deterministic runner, then execute and score one
-   sequential future-reveal lane;
-7. record `sequential keep`, `sequential shrink`, or `sequential stop` over the
+   for the acquired owner-only originals and their verified identities; the
+   owner accepted its pre-acceptance SHA-256 and actual storage boundary;
+3. now, choose and pin a deterministic RST-to-Markdown or text projection;
+4. after separate authorization, freeze at least eight tasks, evidence
+   requirements, PEP 484 dark-zone controls, oracle, baseline, budgets, severe
+   errors, and decision threshold;
+5. after separate authorization, rehearse the exact deterministic runner, then
+   execute and score one sequential future-reveal lane;
+6. record `sequential keep`, `sequential shrink`, or `sequential stop` over the
    complete denominator.
 
 The public lane can test reproducible capture, grounding, chronology,

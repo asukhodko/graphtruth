@@ -29,8 +29,10 @@ dark zone, handling policy, and familiarity limits. Its publication-safe
 binds the four owner-only originals retained outside the checkout to their Git
 blob OIDs, raw-byte SHA-256 digests, sizes, media type, notices, and acquisition
 interval. Projection, tasks, oracle, baseline, operator and compute budgets, and
-run identity remain unfrozen. Technical acquisition verification is complete;
-the owner must accept this exact manifest before projection work is authorized.
+run identity remain unfrozen. The owner accepted the exact acquisition manifest
+and actual owner-only storage boundary, closed `m6-acquire-originals`, and
+authorized only `m6-freeze-projection`. Tasks, oracle, model processing of the
+acquired bytes, SUT, baseline, and an experimental run remain unauthorized.
 
 The public track supports reproducible algorithm and replay diagnostics. It
 does not replace the private dogfood track that tests value in a real personal

@@ -700,24 +700,28 @@ nodes:
     kind: task
     parent: m6-python-sequential
     deps: [m6-freeze-selection-rights]
-    status: current
+    status: done
     notes: |
       Bind individual upstream blob identities, acquisition UTC, exact bytes,
       SHA-256, size, media type, notices, and owner-only storage boundary at
       `python/peps@339af2b4776a66eab0f88a2800adffdb0c0650e1`.
       Publication-safe evidence is in
       `experiments/corpora/python-annotations-semantics-v1/SOURCE-MANIFEST.json`;
-      original bytes remain outside the checkout.
+      original bytes remain outside the checkout. The owner accepted the exact
+      pre-acceptance manifest SHA-256 and actual owner-only storage boundary in
+      Issue #24, closing this gate.
 
   m6-freeze-projection:
     title: "Choose and pin the deterministic RST projection"
     kind: task
     parent: m6-python-sequential
     deps: [m6-acquire-originals]
-    status: planned
+    status: ready
     notes: |
       Retain originals and transformer identity separately. Stop or shrink if
       an oracle-relevant construct cannot be projected without undeclared loss.
+      This is the only currently authorized gate; tasks, oracle, model processing
+      of acquired bytes, SUT, baseline, and a run remain unauthorized.
 
   m6-freeze-evaluation:
     title: "Freeze tasks, oracle, baseline, budgets, and decision gate"
@@ -958,10 +962,15 @@ execution:
       actual_finish: "2026-07-21"
       updated_at: "2026-07-21T08:03:17+03:00"
     m6-python-sequential:
-      progress: 0.0
       actual_start: "2026-07-21"
-      updated_at: "2026-07-21T08:03:17+03:00"
-      note: "Issue #24 opened; day 1 of 5 freezes scope and budget before corpus acquisition."
+      updated_at: "2026-07-21T10:57:04+03:00"
+      note: "Selection and acquisition are closed; deterministic projection freeze is the only authorized next gate."
+    m6-acquire-originals:
+      progress: 1.0
+      actual_start: "2026-07-21"
+      actual_finish: "2026-07-21"
+      updated_at: "2026-07-21T10:57:04+03:00"
+      note: "Owner accepted manifest SHA-256 ad63ca3cad51ec67b6e5d8fd2c62dcdfc3ed6a291f47a6809a819eadfa29ff99 and the actual owner-only storage boundary."
 
 views:
   current-work:
@@ -987,8 +996,8 @@ views:
 x:
   exec:
     program:
-      nearest_goal: "Obtain owner acceptance of the exact source manifest and authorization for projection only."
-      success_by_next_sync: "Bind the owner's decision, UTC time, and Issue #24 record to the acquisition manifest before changing the projection gate."
+      nearest_goal: "Freeze the deterministic RST projection without admitting later experiment work."
+      success_by_next_sync: "Pin transformer identity, prove deterministic rebuild and declared-loss behavior locally, and publish only safe projection metadata."
     defaults:
       status_progress:
         done: 1.0
@@ -1022,8 +1031,8 @@ x:
         kind: main
         mgmt:
           health: yellow
-          sync_note: "Issue #24 is the single major WIP. Day 1 of 5 froze selection and rights, then technically verified four owner-only originals; the safe manifest awaits owner acceptance and no output was inspected."
-          next_sync_goal: "Accept or reject the exact source manifest; only acceptance may authorize projection freeze."
+          sync_note: "Issue #24 is the single major WIP. Day 1 of 5 froze selection and rights; the owner then accepted the verified acquisition manifest and owner-only boundary. No projection or evaluated output exists."
+          next_sync_goal: "Freeze only the deterministic projection and keep tasks, oracle, SUT, baseline, and run work closed."
       python-order-successor:
         title: "Python 24-order successor"
         scope_nodes: [m7-python-order-successor]
@@ -1050,7 +1059,7 @@ x:
         show_progress: false
         show_gate_date: false
         wrap_title_lines: 2
-        caption: "Private path stopped; public Python acquisition acceptance is current."
+        caption: "Private path stopped; public Python projection freeze is ready."
         blocks: [integration, private-stop, python-sequential]
       exec-active-tracks:
         direction: TB

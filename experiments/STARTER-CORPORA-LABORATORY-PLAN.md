@@ -2,8 +2,8 @@
 
 > **Status:** Non-normative Zone 3 laboratory plan; the first Python sequential
 > lane is active under Issue #24. Its corpus selection and rights are frozen;
-> original source acquisition is verified and awaits owner acceptance before
-> projection or the later run pack may proceed.
+> original source acquisition is verified and accepted. Only the deterministic
+> projection freeze is now authorized; the later run pack is not.
 >
 > **Created:** 2026-07-12.
 >
@@ -160,7 +160,9 @@ limits. The pinned Git identities are not substitutes for acquired-byte
 SHA-256 digests, sizes, notices, and acquisition UTC. The publication-safe
 [source manifest](corpora/python-annotations-semantics-v1/SOURCE-MANIFEST.json)
 records those checks for the four owner-only originals retained outside the
-checkout. No source bytes or local paths are published.
+checkout. The owner accepted the manifest and actual storage boundary in the
+[Issue #24 decision record](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5031512080).
+No source bytes or local paths are published.
 
 ### Why it is first
 
@@ -524,18 +526,22 @@ selection record freezes the bounded corpus, synthetic sequence, rights and
 handling policy, knowledge boundary, and familiarity limits. It does not freeze
 projection, tasks, oracle, baseline, evaluation budgets, or a run identity. The
 source manifest records the technically verified acquisition and
-publication-safe metadata. The owner must accept that exact manifest before
-remaining work is admitted:
+publication-safe metadata. The owner accepted its pre-acceptance SHA-256
+`ad63ca3cad51ec67b6e5d8fd2c62dcdfc3ed6a291f47a6809a819eadfa29ff99`
+and the actual owner-only boundary, closing `m6-acquire-originals`. The only
+admitted work is now:
 
-1. accept the source manifest and authorize only the projection freeze;
-2. choose and pin the RST-to-Markdown transformation or shrink before adding
+1. choose and pin the RST-to-Markdown transformation or shrink before adding
    parser scope;
-3. freeze at least eight task cases, evidence requirements, dark-zone controls,
+
+The later progression remains planned but requires separate authorization:
+
+1. freeze at least eight task cases, evidence requirements, dark-zone controls,
    and an oracle outside SUT reach;
-4. freeze the sequential run card and baseline budget;
-5. implement only the S0-S1 vertical slice required to execute it;
-6. record `sequential keep`, `sequential shrink`, or `sequential stop`;
-7. after a sequential keep, open only the 24-order successor and record its
+2. freeze the sequential run card and baseline budget;
+3. implement only the S0-S1 vertical slice required to execute it;
+4. record `sequential keep`, `sequential shrink`, or `sequential stop`;
+5. after a sequential keep, open only the 24-order successor and record its
    order-robustness decision before corpus 2 starts.
 
 GitLab, PostgreSQL, multi-domain composition, public benchmark packaging, and

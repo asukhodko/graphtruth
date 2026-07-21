@@ -35,7 +35,25 @@
     "sutOutputInspected": false,
     "baselineOutputInspected": false,
     "projectionCreated": false,
-    "ownerAcceptanceRequiredForNextGate": true
+    "ownerAcceptanceRequiredForNextGate": false
+  },
+  "ownerAcceptance": {
+    "actor": "asukhodko",
+    "acceptedAtUtc": "2026-07-21T07:57:04Z",
+    "acceptedManifestSha256": "ad63ca3cad51ec67b6e5d8fd2c62dcdfc3ed6a291f47a6809a819eadfa29ff99",
+    "record": "https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5031512080",
+    "actualOwnerOnlyStorageBoundaryAccepted": true,
+    "closedGate": "m6-acquire-originals",
+    "authorizedNextGate": "m6-freeze-projection",
+    "authorizationScope": "projection freeze only",
+    "notAuthorized": [
+      "task construction",
+      "oracle construction",
+      "model processing of acquired bytes",
+      "SUT work",
+      "baseline work",
+      "experimental run"
+    ]
   },
   "limits": {
     "maximumBytesPerItem": 524288,
