@@ -8,6 +8,7 @@ import {
   codexSandboxPreflightEvidencePins,
   pythonProjectionEvidencePins,
   validateCodexSandboxPreflightReportContent,
+  validatePythonProjectionAcceptanceEvidence,
   validatePythonProjectionManifestEvidence,
   validatePublicG1ReceiptContent,
 } from "./check.mjs";
@@ -119,6 +120,10 @@ async function pythonProjectionEvidence() {
       "projectionBytes",
       "../experiments/corpora/python-annotations-semantics-v1/PROJECTION-MANIFEST.json",
     ],
+    [
+      "receiptBytes",
+      "../experiments/corpora/python-annotations-semantics-v1/PROJECTION-ACCEPTANCE.json",
+    ],
     ["builderBytes", "./project-verbatim-rst.mjs"],
     [
       "contractBytes",
@@ -140,6 +145,15 @@ function mutateProjection(evidence, mutate) {
   return {
     ...evidence,
     projectionBytes: Buffer.from(`${JSON.stringify(projection, null, 2)}\n`),
+  };
+}
+
+function mutateProjectionAcceptance(evidence, mutate) {
+  const receipt = JSON.parse(evidence.receiptBytes.toString("utf8"));
+  mutate(receipt);
+  return {
+    ...evidence,
+    receiptBytes: Buffer.from(`${JSON.stringify(receipt, null, 2)}\n`),
   };
 }
 
@@ -236,6 +250,68 @@ test("Python projection evidence requires strict JSON", async () => {
       .replace('"schemaVersion": 1,', '"schemaVersion": 1,\n  "schemaVersion": 1,'),
   );
   assert.deepEqual(validatePythonProjectionManifestEvidence(evidence), ["strict-json"]);
+});
+
+test("the exact Python projection acceptance is bound to the immutable manifest", async () => {
+  assert.deepEqual(
+    validatePythonProjectionAcceptanceEvidence(await pythonProjectionEvidence()),
+    [],
+  );
+});
+
+test("Python projection acceptance requires both strict JSON inputs", async () => {
+  const missing = await pythonProjectionEvidence();
+  delete missing.receiptBytes;
+  assert.deepEqual(validatePythonProjectionAcceptanceEvidence(missing), ["missing-evidence"]);
+
+  const duplicate = await pythonProjectionEvidence();
+  duplicate.receiptBytes = Buffer.from(
+    duplicate.receiptBytes
+      .toString("utf8")
+      .replace(
+        '"documentKind": "graphtruth.projection-acceptance-receipt/1",',
+        '"documentKind": "graphtruth.projection-acceptance-receipt/1",\n  "documentKind": "duplicate",',
+      ),
+  );
+  assert.deepEqual(validatePythonProjectionAcceptanceEvidence(duplicate), ["strict-json"]);
+});
+
+test("Python projection acceptance rejects binding and owner-decision mutations", async () => {
+  const evidence = await pythonProjectionEvidence();
+  const changedCommit = mutateProjectionAcceptance(evidence, (receipt) => {
+    receipt.acceptedManifest.candidateGitCommit = "0".repeat(40);
+  });
+  assert.ok(validatePythonProjectionAcceptanceEvidence(changedCommit).includes("manifest-binding"));
+
+  const authorizedNextGate = mutateProjectionAcceptance(evidence, (receipt) => {
+    receipt.ownerDecision.nextGateAuthorized = true;
+  });
+  assert.ok(
+    validatePythonProjectionAcceptanceEvidence(authorizedNextGate).includes("owner-decision"),
+  );
+
+  const changedBoundary = mutateProjectionAcceptance(evidence, (receipt) => {
+    receipt.ownerDecision.acceptedStorageBoundaryReference = "another-generation";
+  });
+  assert.ok(validatePythonProjectionAcceptanceEvidence(changedBoundary).includes("owner-decision"));
+
+  const extraKey = mutateProjectionAcceptance(evidence, (receipt) => {
+    receipt.privatePath = "must fail closed";
+  });
+  assert.ok(validatePythonProjectionAcceptanceEvidence(extraKey).includes("fixed-structure"));
+});
+
+test("joint projection and acceptance rewrites do not move the accepted anchor", async () => {
+  const evidence = await pythonProjectionEvidence();
+  const projection = JSON.parse(evidence.projectionBytes.toString("utf8"));
+  projection.projection.currentRuntimeCompatible = true;
+  const projectionBytes = Buffer.from(`${JSON.stringify(projection, null, 2)}\n`);
+  const rewritten = mutateProjectionAcceptance({ ...evidence, projectionBytes }, (receipt) => {
+    receipt.acceptedManifest.sha256 = createHash("sha256").update(projectionBytes).digest("hex");
+  });
+  const errors = validatePythonProjectionAcceptanceEvidence(rewritten);
+  assert.ok(errors.includes("receipt-digest"));
+  assert.ok(errors.includes("manifest-binding"));
 });
 
 test("a binary canonical G1 receipt is classified for rejection", () => {

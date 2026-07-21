@@ -2,9 +2,9 @@
 
 > **Status:** Non-normative Zone 3 laboratory plan; the first Python sequential
 > lane is active under Issue #24. Its corpus selection and rights are frozen;
-> original source acquisition is verified and accepted. The byte-identical RST
-> text projection is technically verified and awaits owner acceptance; the
-> later evaluation and run pack remain unauthorized.
+> original source acquisition and the byte-identical RST text projection are
+> verified and accepted. The later evaluation and run pack remain
+> unauthorized.
 >
 > **Created:** 2026-07-12.
 >
@@ -166,10 +166,11 @@ checkout. The owner accepted the manifest and actual storage boundary in the
 The [projection contract](corpora/python-annotations-semantics-v1/PROJECTION-CONTRACT.md)
 and [projection
 manifest](corpora/python-annotations-semantics-v1/PROJECTION-MANIFEST.json)
-record the proposed byte-identical RST text projection and two verified clean
-builds. Its exact manifest and actual output boundary still require owner
-acceptance. No source bytes, projection bytes, or private-material paths are
-published.
+record the byte-identical RST text projection and two verified clean builds.
+The owner accepted its exact SHA-256 and actual output boundary in the
+[separate receipt](corpora/python-annotations-semantics-v1/PROJECTION-ACCEPTANCE.json),
+closing only `m6-freeze-projection`. No source bytes, projection bytes, or
+private-material paths are published.
 
 ### Why it is first
 
@@ -538,18 +539,21 @@ publication-safe metadata. The owner accepted its pre-acceptance SHA-256
 and the actual owner-only boundary, closing `m6-acquire-originals`. The
 projection contract and safe manifest now bind a byte-identical RST text
 strategy, two verified clean builds, no declared losses, and explicit current
-runtime incompatibility. The only admitted work is now:
-
-1. accept or reject the exact projection manifest and actual output boundary;
+runtime incompatibility. The owner accepted the exact manifest and actual
+output boundary, closing `m6-freeze-projection`. No later experiment work is
+currently admitted.
 
 The later progression remains planned but requires separate authorization:
 
 1. freeze at least eight task cases, evidence requirements, dark-zone controls,
    and an oracle outside SUT reach;
 2. freeze the sequential run card and baseline budget;
-3. implement only the S0-S1 vertical slice required to execute it;
-4. record `sequential keep`, `sequential shrink`, or `sequential stop`;
-5. after a sequential keep, open only the 24-order successor and record its
+3. accept that exact evaluation freeze and separately authorize implementation;
+4. implement and rehearse only the S0-S1 vertical slice required to execute it;
+5. accept the exact rehearsal and separately authorize one evaluated run;
+6. execute, score the full denominator, and record `sequential keep`,
+   `sequential shrink`, or `sequential stop`;
+7. after a sequential keep, open only the 24-order successor and record its
    order-robustness decision before corpus 2 starts.
 
 GitLab, PostgreSQL, multi-domain composition, public benchmark packaging, and
@@ -557,8 +561,7 @@ model-assisted automation remain queued rather than parallel WIP.
 
 ## Open decisions before the evaluated-run freeze
 
-1. Will the owner accept the exact byte-identical projection manifest and
-   actual output boundary?
+1. Will the owner separately authorize `m6-freeze-evaluation`?
 2. Which PEP metadata dates are treated as event, publication, valid/effective,
    and retrospective record updates?
 3. Which eight or more workflow-triggered tasks form the first denominator?

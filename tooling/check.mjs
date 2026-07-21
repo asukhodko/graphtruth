@@ -25,7 +25,9 @@ const codexSandboxPreflightReportPath = "tooling/rehearsal/observed.json";
 const pythonCorpusRoot = "experiments/corpora/python-annotations-semantics-v1";
 const pythonSourceManifestPath = `${pythonCorpusRoot}/SOURCE-MANIFEST.json`;
 const pythonProjectionManifestPath = `${pythonCorpusRoot}/PROJECTION-MANIFEST.json`;
+const pythonProjectionAcceptancePath = `${pythonCorpusRoot}/PROJECTION-ACCEPTANCE.json`;
 export const pythonProjectionEvidencePins = Object.freeze({
+  projectionAcceptanceSha256: "4b15e68f9fca0d83f2cd87c3b9a072ae363eb0d9d4234cf2e3cb1437f9f1d435",
   projectionManifestSha256: "5aba6ebea40066ec1a12e6aa54913b5d39638d3b9a9e8807c1436a6b8e40cb6a",
   sourceManifestSha256: "c030ca505e7e43799daf1f065291598cd964b520a4d93f68aa52e60ba1cb384b",
   sourceManifestAnchorCommit: "e32b2b257374f4ec7570fd6df2bd630e8d0e7921",
@@ -36,6 +38,8 @@ export const pythonProjectionEvidencePins = Object.freeze({
   testsSha256: "f9a67b3e60ea2c5627d60ff144d672b1ca96d04fcc800e03fb78564c6e6165cb",
   strictJsonSha256: "603553be7d0ca32cb11ccce7eadfb711277dc6ae9c55d2d68f08abafd9e5750b",
   ownerRecord: "https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5031512080",
+  projectionAcceptanceRecord:
+    "https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5032376897",
 });
 const publicG1AttestationKeys = [
   "eligibleEpisodeSelected",
@@ -105,6 +109,7 @@ const requiredRepositoryPaths = new Map([
   ["experiments/corpora/python-annotations-semantics-v1", "directory"],
   ["experiments/corpora/python-annotations-semantics-v1/CANDIDATE-INVENTORY.json", "file"],
   ["experiments/corpora/python-annotations-semantics-v1/CORPUS-SELECTION.md", "file"],
+  ["experiments/corpora/python-annotations-semantics-v1/PROJECTION-ACCEPTANCE.json", "file"],
   ["experiments/corpora/python-annotations-semantics-v1/PROJECTION-CONTRACT.md", "file"],
   ["experiments/corpora/python-annotations-semantics-v1/PROJECTION-MANIFEST.json", "file"],
   ["experiments/corpora/python-annotations-semantics-v1/SOURCE-MANIFEST.json", "file"],
@@ -912,6 +917,101 @@ export function validatePythonProjectionManifestEvidence(evidence) {
   return validationErrors;
 }
 
+export function validatePythonProjectionAcceptanceEvidence(evidence) {
+  if (
+    evidence === null ||
+    typeof evidence !== "object" ||
+    !Buffer.isBuffer(evidence.projectionBytes) ||
+    !Buffer.isBuffer(evidence.receiptBytes)
+  ) {
+    return ["missing-evidence"];
+  }
+
+  const { projectionBytes, receiptBytes } = evidence;
+  let projection;
+  let receipt;
+  try {
+    projection = parseStrictJson(projectionBytes.toString("utf8"));
+    receipt = parseStrictJson(receiptBytes.toString("utf8"));
+  } catch {
+    return ["strict-json"];
+  }
+
+  const validationErrors = [];
+  const addError = (code) => {
+    if (!validationErrors.includes(code)) validationErrors.push(code);
+  };
+  if (sha256Bytes(receiptBytes) !== pythonProjectionEvidencePins.projectionAcceptanceSha256) {
+    addError("receipt-digest");
+  }
+
+  const acceptedManifest = receipt?.acceptedManifest;
+  if (
+    sha256Bytes(projectionBytes) !== pythonProjectionEvidencePins.projectionManifestSha256 ||
+    receipt?.selectionIdentity !== projection?.selectionIdentity ||
+    receipt?.projectionIdentity !== projection?.projectionIdentity ||
+    acceptedManifest?.path !== "PROJECTION-MANIFEST.json" ||
+    acceptedManifest?.sha256 !== pythonProjectionEvidencePins.projectionManifestSha256 ||
+    acceptedManifest?.candidateGitCommit !== "53695d6641fab1a1245668ab4e85f579f4c0fe31"
+  ) {
+    addError("manifest-binding");
+  }
+
+  const ownerDecision = receipt?.ownerDecision;
+  if (
+    !hasExactKeys(receipt, [
+      "documentKind",
+      "selectionIdentity",
+      "projectionIdentity",
+      "acceptedManifest",
+      "ownerDecision",
+    ]) ||
+    !hasExactKeys(acceptedManifest, ["path", "sha256", "candidateGitCommit"]) ||
+    !hasExactKeys(ownerDecision, [
+      "actor",
+      "decision",
+      "acceptedAtUtc",
+      "record",
+      "actualOwnerOnlyStorageBoundaryAccepted",
+      "acceptedStorageBoundaryReference",
+      "closedGate",
+      "nextGateAuthorized",
+      "notAuthorized",
+    ]) ||
+    receipt?.documentKind !== "graphtruth.projection-acceptance-receipt/1"
+  ) {
+    addError("fixed-structure");
+  }
+
+  const expectedNotAuthorized = [
+    "m6-freeze-evaluation",
+    "task construction",
+    "oracle construction",
+    "model processing of acquired or projected bytes",
+    "SUT work",
+    "baseline work",
+    "runtime adaptation",
+    "experimental run",
+  ];
+  if (
+    ownerDecision?.actor !== "asukhodko" ||
+    ownerDecision?.decision !== "accept" ||
+    ownerDecision?.acceptedAtUtc !== "2026-07-21T09:33:32Z" ||
+    ownerDecision?.record !== pythonProjectionEvidencePins.projectionAcceptanceRecord ||
+    ownerDecision?.actualOwnerOnlyStorageBoundaryAccepted !== true ||
+    ownerDecision?.acceptedStorageBoundaryReference !== "projection-v1" ||
+    ownerDecision?.closedGate !== "m6-freeze-projection" ||
+    ownerDecision?.nextGateAuthorized !== false ||
+    !Array.isArray(ownerDecision?.notAuthorized) ||
+    ownerDecision.notAuthorized.length !== expectedNotAuthorized.length ||
+    ownerDecision.notAuthorized.some((value, index) => value !== expectedNotAuthorized[index])
+  ) {
+    addError("owner-decision");
+  }
+
+  return validationErrors;
+}
+
 async function checkPythonProjectionManifest() {
   const absolute = (relative) => path.join(repositoryRoot, relative);
   let evidence;
@@ -949,6 +1049,33 @@ async function checkPythonProjectionManifest() {
   };
   for (const validationError of validatePythonProjectionManifestEvidence(evidence)) {
     report(`${pythonProjectionManifestPath}: ${messages[validationError]}`);
+  }
+}
+
+async function checkPythonProjectionAcceptance() {
+  let evidence;
+  try {
+    const [projectionBytes, receiptBytes] = await Promise.all([
+      readFile(path.join(repositoryRoot, pythonProjectionManifestPath)),
+      readFile(path.join(repositoryRoot, pythonProjectionAcceptancePath)),
+    ]);
+    evidence = { projectionBytes, receiptBytes };
+  } catch (error) {
+    const code = typeof error?.code === "string" ? error.code : "unknown error";
+    report(`${pythonProjectionAcceptancePath}: acceptance evidence cannot be read (${code})`);
+    return;
+  }
+
+  const messages = {
+    "missing-evidence": "projection acceptance evidence is incomplete",
+    "strict-json": "projection manifest and acceptance receipt must be strict JSON",
+    "receipt-digest": "acceptance receipt bytes changed from the owner decision record",
+    "manifest-binding": "acceptance receipt is not bound to the reviewed projection candidate",
+    "fixed-structure": "acceptance receipt keys differ from the closed structure",
+    "owner-decision": "acceptance receipt changes the owner decision or authorization boundary",
+  };
+  for (const validationError of validatePythonProjectionAcceptanceEvidence(evidence)) {
+    report(`${pythonProjectionAcceptancePath}: ${messages[validationError]}`);
   }
 }
 
@@ -1128,6 +1255,7 @@ async function main() {
 
   await checkRequiredPaths();
   await checkPythonProjectionManifest();
+  await checkPythonProjectionAcceptance();
 
   const publicRelativePaths = new Set(files.map((filePath) => relativePath(filePath)));
   for (const filePath of files) {

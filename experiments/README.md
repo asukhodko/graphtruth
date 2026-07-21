@@ -29,15 +29,18 @@ dark zone, handling policy, and familiarity limits. Its publication-safe
 binds the four owner-only originals retained outside the checkout to their Git
 blob OIDs, raw-byte SHA-256 digests, sizes, media type, notices, and acquisition
 interval. The owner accepted the exact acquisition manifest and actual
-owner-only storage boundary, closing `m6-acquire-originals`. The proposed
+owner-only storage boundary, closing `m6-acquire-originals`. The frozen
 [projection contract](corpora/python-annotations-semantics-v1/PROJECTION-CONTRACT.md)
 and publication-safe [projection
 manifest](corpora/python-annotations-semantics-v1/PROJECTION-MANIFEST.json)
-bind two verified clean builds of a byte-identical RST text projection. Owner
-acceptance of that exact manifest and actual output boundary is still pending.
-The current runtime is incompatible by design; tasks, oracle, model processing
-of acquired or projected bytes, runtime adaptation, SUT, baseline, and an
-experimental run remain unauthorized.
+bind two verified clean builds of a byte-identical RST text projection. The
+owner accepted that exact manifest and the actual output boundary, closing
+`m6-freeze-projection`; the separate [acceptance
+receipt](corpora/python-annotations-semantics-v1/PROJECTION-ACCEPTANCE.json)
+preserves the decision without changing the accepted manifest. The current
+runtime is incompatible by design. `m6-freeze-evaluation`, tasks, oracle, model
+processing of acquired or projected bytes, runtime adaptation, SUT, baseline,
+and an experimental run remain unauthorized.
 
 The public track supports reproducible algorithm and replay diagnostics. It
 does not replace the private dogfood track that tests value in a real personal
