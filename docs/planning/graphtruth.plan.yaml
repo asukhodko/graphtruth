@@ -700,11 +700,14 @@ nodes:
     kind: task
     parent: m6-python-sequential
     deps: [m6-freeze-selection-rights]
-    status: ready
+    status: current
     notes: |
       Bind individual upstream blob identities, acquisition UTC, exact bytes,
       SHA-256, size, media type, notices, and owner-only storage boundary at
       `python/peps@339af2b4776a66eab0f88a2800adffdb0c0650e1`.
+      Publication-safe evidence is in
+      `experiments/corpora/python-annotations-semantics-v1/SOURCE-MANIFEST.json`;
+      original bytes remain outside the checkout.
 
   m6-freeze-projection:
     title: "Choose and pin the deterministic RST projection"
@@ -984,8 +987,8 @@ views:
 x:
   exec:
     program:
-      nearest_goal: "Acquire and verify the four pinned PEP originals outside the checkout without inspecting experiment output."
-      success_by_next_sync: "Bind each acquired original to its pinned Git blob, raw-byte SHA-256, size, media type, notice, acquisition UTC, and owner-only storage boundary."
+      nearest_goal: "Obtain owner acceptance of the exact source manifest and authorization for projection only."
+      success_by_next_sync: "Bind the owner's decision, UTC time, and Issue #24 record to the acquisition manifest before changing the projection gate."
     defaults:
       status_progress:
         done: 1.0
@@ -1019,8 +1022,8 @@ x:
         kind: main
         mgmt:
           health: yellow
-          sync_note: "Issue #24 is the single major WIP. Day 1 of 5 froze the public four-item selection, synthetic chronology, rights policy, and claim boundary; no source acquisition or output inspection has occurred."
-          next_sync_goal: "Acquire the four exact PEP originals outside the checkout and publish only their safe manifest metadata."
+          sync_note: "Issue #24 is the single major WIP. Day 1 of 5 froze selection and rights, then technically verified four owner-only originals; the safe manifest awaits owner acceptance and no output was inspected."
+          next_sync_goal: "Accept or reject the exact source manifest; only acceptance may authorize projection freeze."
       python-order-successor:
         title: "Python 24-order successor"
         scope_nodes: [m7-python-order-successor]
@@ -1047,7 +1050,7 @@ x:
         show_progress: false
         show_gate_date: false
         wrap_title_lines: 2
-        caption: "Private path stopped; public Python source acquisition is current."
+        caption: "Private path stopped; public Python acquisition acceptance is current."
         blocks: [integration, private-stop, python-sequential]
       exec-active-tracks:
         direction: TB
