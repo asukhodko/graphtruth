@@ -1,0 +1,30 @@
+{
+  "documentKind": "graphtruth.projection-acceptance-receipt/1",
+  "selectionIdentity": "python-annotations-semantics-v1",
+  "projectionIdentity": "python-annotations-semantics-v1-verbatim-rst-v1",
+  "acceptedManifest": {
+    "path": "PROJECTION-MANIFEST.json",
+    "sha256": "5aba6ebea40066ec1a12e6aa54913b5d39638d3b9a9e8807c1436a6b8e40cb6a",
+    "candidateGitCommit": "53695d6641fab1a1245668ab4e85f579f4c0fe31"
+  },
+  "ownerDecision": {
+    "actor": "asukhodko",
+    "decision": "accept",
+    "acceptedAtUtc": "2026-07-21T09:33:32Z",
+    "record": "https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5032376897",
+    "actualOwnerOnlyStorageBoundaryAccepted": true,
+    "acceptedStorageBoundaryReference": "projection-v1",
+    "closedGate": "m6-freeze-projection",
+    "nextGateAuthorized": false,
+    "notAuthorized": [
+      "m6-freeze-evaluation",
+      "task construction",
+      "oracle construction",
+      "model processing of acquired or projected bytes",
+      "SUT work",
+      "baseline work",
+      "runtime adaptation",
+      "experimental run"
+    ]
+  }
+}

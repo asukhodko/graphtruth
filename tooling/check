@@ -42,6 +42,7 @@ node --test \
   tooling/codex-sandbox-preflight.test.mjs \
   tooling/check.test.mjs \
   tooling/private-pack-lock.test.mjs \
+  tooling/project-verbatim-rst.test.mjs \
   tooling/preflight.test.mjs \
   tooling/opskarta.test.mjs \
   runtime/lib.test.mjs \

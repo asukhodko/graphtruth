@@ -22,6 +22,25 @@ const repositoryRoot = path.resolve(toolingDirectory, "..");
 const publicG1ReceiptTemplatePath = "experiments/templates/PUBLIC-G1-RECEIPT.json";
 const publicG1ReceiptPath = "experiments/receipts/g1-evidence-contract-v2.json";
 const codexSandboxPreflightReportPath = "tooling/rehearsal/observed.json";
+const pythonCorpusRoot = "experiments/corpora/python-annotations-semantics-v1";
+const pythonSourceManifestPath = `${pythonCorpusRoot}/SOURCE-MANIFEST.json`;
+const pythonProjectionManifestPath = `${pythonCorpusRoot}/PROJECTION-MANIFEST.json`;
+const pythonProjectionAcceptancePath = `${pythonCorpusRoot}/PROJECTION-ACCEPTANCE.json`;
+export const pythonProjectionEvidencePins = Object.freeze({
+  projectionAcceptanceSha256: "4b15e68f9fca0d83f2cd87c3b9a072ae363eb0d9d4234cf2e3cb1437f9f1d435",
+  projectionManifestSha256: "5aba6ebea40066ec1a12e6aa54913b5d39638d3b9a9e8807c1436a6b8e40cb6a",
+  sourceManifestSha256: "c030ca505e7e43799daf1f065291598cd964b520a4d93f68aa52e60ba1cb384b",
+  sourceManifestAnchorCommit: "e32b2b257374f4ec7570fd6df2bd630e8d0e7921",
+  sourcePreAcceptanceSha256: "ad63ca3cad51ec67b6e5d8fd2c62dcdfc3ed6a291f47a6809a819eadfa29ff99",
+  builderGitCommit: "957ea8aa1621bb776b0adb30c70435374e2854df",
+  builderSha256: "810080806bc932a41837b5f549b158a0adfc0d75c8d25b0e0118ea18ba5954fd",
+  contractSha256: "fefe4a940ffd64432cbefe32837556b75b85d8b17907c6ea1d35b0d0e3fd2c3d",
+  testsSha256: "f9a67b3e60ea2c5627d60ff144d672b1ca96d04fcc800e03fb78564c6e6165cb",
+  strictJsonSha256: "603553be7d0ca32cb11ccce7eadfb711277dc6ae9c55d2d68f08abafd9e5750b",
+  ownerRecord: "https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5031512080",
+  projectionAcceptanceRecord:
+    "https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5032376897",
+});
 const publicG1AttestationKeys = [
   "eligibleEpisodeSelected",
   "sourceSetWithinApprovedBound",
@@ -87,6 +106,13 @@ const requiredRepositoryPaths = new Map([
   ["examples/experiments/evidence-contract-twin-v1", "directory"],
   ["examples/experiments/preflight", "directory"],
   ["experiments", "directory"],
+  ["experiments/corpora/python-annotations-semantics-v1", "directory"],
+  ["experiments/corpora/python-annotations-semantics-v1/CANDIDATE-INVENTORY.json", "file"],
+  ["experiments/corpora/python-annotations-semantics-v1/CORPUS-SELECTION.md", "file"],
+  ["experiments/corpora/python-annotations-semantics-v1/PROJECTION-ACCEPTANCE.json", "file"],
+  ["experiments/corpora/python-annotations-semantics-v1/PROJECTION-CONTRACT.md", "file"],
+  ["experiments/corpora/python-annotations-semantics-v1/PROJECTION-MANIFEST.json", "file"],
+  ["experiments/corpora/python-annotations-semantics-v1/SOURCE-MANIFEST.json", "file"],
   ["experiments/README.md", "file"],
   ["experiments/templates", "directory"],
   ["experiments/templates/CORPUS-SELECTION.md", "file"],
@@ -128,6 +154,8 @@ const requiredRepositoryPaths = new Map([
   ["tooling/private-pack-lock", "file"],
   ["tooling/private-pack-lock.mjs", "file"],
   ["tooling/private-pack-lock.test.mjs", "file"],
+  ["tooling/project-verbatim-rst.mjs", "file"],
+  ["tooling/project-verbatim-rst.test.mjs", "file"],
   ["tooling/preflight", "file"],
   ["tooling/preflight.mjs", "file"],
   ["tooling/preflight.test.mjs", "file"],
@@ -552,6 +580,505 @@ function sha256Bytes(value) {
   return createHash("sha256").update(value).digest("hex");
 }
 
+const pythonProjectionDependencyPaths = Object.freeze({
+  builder: "tooling/project-verbatim-rst.mjs",
+  contract: `${pythonCorpusRoot}/PROJECTION-CONTRACT.md`,
+  tests: "tooling/project-verbatim-rst.test.mjs",
+  strictJson: "tooling/private-pack-lock.mjs",
+});
+
+export function validatePythonProjectionManifestEvidence(evidence) {
+  const requiredEvidenceKeys = [
+    "sourceBytes",
+    "projectionBytes",
+    "builderBytes",
+    "contractBytes",
+    "testBytes",
+    "strictJsonBytes",
+  ];
+  if (
+    evidence === null ||
+    typeof evidence !== "object" ||
+    requiredEvidenceKeys.some((key) => !Buffer.isBuffer(evidence[key]))
+  ) {
+    return ["missing-evidence"];
+  }
+
+  const { sourceBytes, projectionBytes, builderBytes, contractBytes, testBytes, strictJsonBytes } =
+    evidence;
+  let source;
+  let projection;
+  try {
+    source = parseStrictJson(sourceBytes.toString("utf8"));
+    projection = parseStrictJson(projectionBytes.toString("utf8"));
+  } catch {
+    return ["strict-json"];
+  }
+
+  const validationErrors = [];
+  const addError = (code) => {
+    if (!validationErrors.includes(code)) validationErrors.push(code);
+  };
+  if (sha256Bytes(projectionBytes) !== pythonProjectionEvidencePins.projectionManifestSha256) {
+    addError("projection-manifest-digest");
+  }
+  if (
+    sha256Bytes(sourceBytes) !== pythonProjectionEvidencePins.sourceManifestSha256 ||
+    source?.ownerAcceptance?.acceptedPreAcceptanceManifestSha256 !==
+      pythonProjectionEvidencePins.sourcePreAcceptanceSha256
+  ) {
+    addError("source-manifest-anchor");
+  }
+
+  const digestBindings = [
+    [projection?.sourceManifest?.path, "SOURCE-MANIFEST.json", "source manifest path"],
+    [projection?.sourceManifest?.sha256, pythonProjectionEvidencePins.sourceManifestSha256, "source manifest digest"],
+    [projection?.builder?.path, pythonProjectionDependencyPaths.builder, "builder path"],
+    [projection?.builder?.sha256, pythonProjectionEvidencePins.builderSha256, "builder digest"],
+    [projection?.builder?.contract?.path, pythonProjectionDependencyPaths.contract, "contract path"],
+    [projection?.builder?.contract?.sha256, pythonProjectionEvidencePins.contractSha256, "contract digest"],
+    [projection?.builder?.syntheticTests?.path, pythonProjectionDependencyPaths.tests, "test path"],
+    [projection?.builder?.syntheticTests?.sha256, pythonProjectionEvidencePins.testsSha256, "test digest"],
+    [
+      projection?.builder?.strictJsonDependency?.path,
+      pythonProjectionDependencyPaths.strictJson,
+      "strict JSON dependency path",
+    ],
+    [
+      projection?.builder?.strictJsonDependency?.sha256,
+      pythonProjectionEvidencePins.strictJsonSha256,
+      "strict JSON dependency digest",
+    ],
+  ];
+  if (
+    digestBindings.some(([actual, expected]) => actual !== expected) ||
+    sha256Bytes(builderBytes) !== pythonProjectionEvidencePins.builderSha256 ||
+    sha256Bytes(contractBytes) !== pythonProjectionEvidencePins.contractSha256 ||
+    sha256Bytes(testBytes) !== pythonProjectionEvidencePins.testsSha256 ||
+    sha256Bytes(strictJsonBytes) !== pythonProjectionEvidencePins.strictJsonSha256
+  ) {
+    addError("dependency-bindings");
+  }
+
+  const projectionPolicy = projection?.projection;
+  const fixedStructureValid =
+    hasExactKeys(projection, [
+      "schemaVersion",
+      "projectionIdentity",
+      "selectionIdentity",
+      "sourceManifest",
+      "projection",
+      "builder",
+      "materialization",
+      "totalProjectionByteSize",
+      "items",
+      "authorization",
+      "publication",
+    ]) &&
+    hasExactKeys(projection?.sourceManifest, ["path", "sha256", "graphtruthAnchorCommit"]) &&
+    hasExactKeys(projectionPolicy, [
+      "kind",
+      "payloadGuarantee",
+      "outputMediaType",
+      "outputNaming",
+      "normalizations",
+      "insertedBytes",
+      "removedBytes",
+      "declaredLosses",
+      "rstParsedOrRendered",
+      "directivesOrIncludesExpanded",
+      "currentRuntimeCompatible",
+      "futureRuntimeRequirement",
+    ]) &&
+    hasExactKeys(projection?.builder, [
+      "path",
+      "gitCommit",
+      "sha256",
+      "strictJsonDependency",
+      "contract",
+      "syntheticTests",
+      "runtime",
+    ]) &&
+    hasExactKeys(projection?.builder?.strictJsonDependency, ["path", "sha256"]) &&
+    hasExactKeys(projection?.builder?.contract, ["path", "sha256"]) &&
+    hasExactKeys(projection?.builder?.syntheticTests, ["path", "sha256", "passed", "failed"]) &&
+    hasExactKeys(projection?.builder?.runtime, [
+      "name",
+      "version",
+      "environmentCleared",
+      "pathValue",
+      "homeWasNonexistent",
+    ]) &&
+    hasExactKeys(projection?.materialization, [
+      "completedAtUtc",
+      "actor",
+      "evidenceBasis",
+      "storageBoundary",
+      "cleanBuilds",
+      "successfulVerifyPasses",
+      "temporaryRebuildRemoved",
+      "persistentProjectionRetained",
+      "sourceInventoryChanged",
+      "projectionInventoryMatched",
+      "allProjectionBytesEqualSourceBytes",
+      "allProjectionSha256EqualSourceSha256",
+      "allProjectionSizesEqualSourceSizes",
+      "strictUtf8Verified",
+      "networkOperationPerformed",
+      "subprocessSpawnPerformedByBuilder",
+      "modelProcessingOfSourceOrProjectionBytes",
+      "sourceOrProjectionExcerptProduced",
+      "taskOrOracleCreated",
+      "sutOrBaselineWorkPerformed",
+      "experimentalRunPerformed",
+    ]) &&
+    hasExactKeys(projection?.materialization?.storageBoundary, [
+      "class",
+      "outsideRepositoryCheckout",
+      "outsideGitWorktrees",
+      "localPathPublished",
+      "builderVerifiedOwnerUidAndModes",
+      "directoryMode",
+      "fileMode",
+      "aclAbsenceVerifiedByBuilder",
+      "synchronizationAndMountBoundaryVerifiedByBuilder",
+      "ownerAcceptanceRequired",
+    ]) &&
+    Array.isArray(projection?.items) &&
+    projection.items.every((item) =>
+      hasExactKeys(item, [
+        "id",
+        "revealOrder",
+        "projectionName",
+        "sourceGitBlobOid",
+        "sourceSha256",
+        "sourceByteSize",
+        "projectionSha256",
+        "projectionByteSize",
+        "byteIdentical",
+      ]),
+    ) &&
+    hasExactKeys(projection?.authorization, [
+      "ownerRecord",
+      "authorizedGate",
+      "ownerAcceptanceRequiredToCloseGate",
+      "nextGateAuthorized",
+      "notAuthorized",
+    ]) &&
+    hasExactKeys(projection?.publication, [
+      "containsSourceBytes",
+      "containsProjectionBytes",
+      "containsPrivateMaterialPaths",
+      "containsSourceExcerpts",
+      "allowedUse",
+    ]);
+  if (!fixedStructureValid) addError("fixed-structure");
+
+  if (
+    projection?.schemaVersion !== 1 ||
+    projection?.projectionIdentity !== "python-annotations-semantics-v1-verbatim-rst-v1" ||
+    projection?.selectionIdentity !== source?.selectionIdentity ||
+    projection?.sourceManifest?.graphtruthAnchorCommit !==
+      pythonProjectionEvidencePins.sourceManifestAnchorCommit ||
+    projectionPolicy?.kind !== "verbatim-rst-text/1" ||
+    projectionPolicy?.payloadGuarantee !== "byte-identical" ||
+    projectionPolicy?.outputMediaType !== "text/x-rst; charset=utf-8" ||
+    projectionPolicy?.outputNaming !== "item-%04d.rst by reveal order" ||
+    !Array.isArray(projectionPolicy?.normalizations) ||
+    projectionPolicy.normalizations.length !== 0 ||
+    !Array.isArray(projectionPolicy?.declaredLosses) ||
+    projectionPolicy.declaredLosses.length !== 0 ||
+    projectionPolicy?.insertedBytes !== 0 ||
+    projectionPolicy?.removedBytes !== 0 ||
+    projectionPolicy?.rstParsedOrRendered !== false ||
+    projectionPolicy?.directivesOrIncludesExpanded !== false ||
+    projectionPolicy?.currentRuntimeCompatible !== false ||
+    projectionPolicy?.futureRuntimeRequirement !==
+      "a separately authorized whole-document candidate adapter that preserves payload bytes, byte offsets, and RST media type"
+  ) {
+    addError("projection-policy");
+  }
+
+  const builder = projection?.builder;
+  if (
+    builder?.gitCommit !== pythonProjectionEvidencePins.builderGitCommit ||
+    builder?.syntheticTests?.passed !== 15 ||
+    builder?.syntheticTests?.failed !== 0 ||
+    builder?.runtime?.name !== "Node.js" ||
+    builder?.runtime?.version !== "v24.4.1" ||
+    builder?.runtime?.environmentCleared !== true ||
+    builder?.runtime?.pathValue !== "/usr/bin:/bin" ||
+    builder?.runtime?.homeWasNonexistent !== true
+  ) {
+    addError("builder-attestation");
+  }
+
+  const sourceItems = Array.isArray(source?.items) ? source.items : [];
+  const projectionItems = Array.isArray(projection?.items) ? projection.items : [];
+  if (sourceItems.length === 0 || projectionItems.length !== sourceItems.length) {
+    addError("item-bindings");
+  } else {
+    for (const [index, sourceItem] of sourceItems.entries()) {
+      const item = projectionItems[index];
+      if (
+        item?.id !== sourceItem.id ||
+        item?.revealOrder !== sourceItem.revealOrder ||
+        item?.projectionName !== `item-${String(sourceItem.revealOrder).padStart(4, "0")}.rst` ||
+        item?.sourceGitBlobOid !== sourceItem.gitBlobOid ||
+        item?.sourceSha256 !== sourceItem.sha256 ||
+        item?.sourceByteSize !== sourceItem.byteSize ||
+        item?.projectionSha256 !== sourceItem.sha256 ||
+        item?.projectionByteSize !== sourceItem.byteSize ||
+        item?.byteIdentical !== true
+      ) {
+        addError("item-bindings");
+      }
+    }
+  }
+  if (projection?.totalProjectionByteSize !== source?.totalByteSize) {
+    addError("item-bindings");
+  }
+
+  const materialization = projection?.materialization;
+  if (
+    materialization?.completedAtUtc !== "2026-07-21T08:29:18Z" ||
+    materialization?.actor !==
+      "GraphTruth Codex session launching the pinned local deterministic builder" ||
+    materialization?.evidenceBasis !==
+      "session attestation over generic builder statuses and publication-safe metadata" ||
+    materialization?.cleanBuilds !== 2 ||
+    materialization?.successfulVerifyPasses !== 2 ||
+    materialization?.temporaryRebuildRemoved !== true ||
+    materialization?.persistentProjectionRetained !== true ||
+    materialization?.sourceInventoryChanged !== false ||
+    materialization?.projectionInventoryMatched !== true ||
+    materialization?.allProjectionBytesEqualSourceBytes !== true ||
+    materialization?.allProjectionSha256EqualSourceSha256 !== true ||
+    materialization?.allProjectionSizesEqualSourceSizes !== true ||
+    materialization?.strictUtf8Verified !== true ||
+    materialization?.networkOperationPerformed !== false ||
+    materialization?.subprocessSpawnPerformedByBuilder !== false ||
+    materialization?.modelProcessingOfSourceOrProjectionBytes !== false ||
+    materialization?.sourceOrProjectionExcerptProduced !== false ||
+    materialization?.taskOrOracleCreated !== false ||
+    materialization?.sutOrBaselineWorkPerformed !== false ||
+    materialization?.experimentalRunPerformed !== false
+  ) {
+    addError("materialization-attestation");
+  }
+  const boundary = materialization?.storageBoundary;
+  if (
+    boundary?.class !== "owner-only local experiment root" ||
+    boundary?.outsideRepositoryCheckout !== true ||
+    boundary?.outsideGitWorktrees !== true ||
+    boundary?.localPathPublished !== false ||
+    boundary?.builderVerifiedOwnerUidAndModes !== true ||
+    boundary?.directoryMode !== "0700" ||
+    boundary?.fileMode !== "0600" ||
+    boundary?.aclAbsenceVerifiedByBuilder !== false ||
+    boundary?.synchronizationAndMountBoundaryVerifiedByBuilder !== false ||
+    boundary?.ownerAcceptanceRequired !== true
+  ) {
+    addError("storage-boundary");
+  }
+
+  const authorization = projection?.authorization;
+  const expectedNotAuthorized = [
+    "task construction",
+    "oracle construction",
+    "model processing of acquired or projected bytes",
+    "SUT work",
+    "baseline work",
+    "runtime adaptation",
+    "experimental run",
+  ];
+  if (
+    authorization?.ownerRecord !== pythonProjectionEvidencePins.ownerRecord ||
+    authorization?.authorizedGate !== "m6-freeze-projection" ||
+    authorization?.ownerAcceptanceRequiredToCloseGate !== true ||
+    authorization?.nextGateAuthorized !== false ||
+    !Array.isArray(authorization?.notAuthorized) ||
+    authorization.notAuthorized.length !== expectedNotAuthorized.length ||
+    authorization.notAuthorized.some((value, index) => value !== expectedNotAuthorized[index])
+  ) {
+    addError("authorization");
+  }
+  if (
+    projection?.publication?.containsSourceBytes !== false ||
+    projection?.publication?.containsProjectionBytes !== false ||
+    projection?.publication?.containsPrivateMaterialPaths !== false ||
+    projection?.publication?.containsSourceExcerpts !== false ||
+    projection?.publication?.allowedUse !==
+      "publication-safe projection identity, materialization evidence, and owner review only"
+  ) {
+    addError("publication-boundary");
+  }
+
+  return validationErrors;
+}
+
+export function validatePythonProjectionAcceptanceEvidence(evidence) {
+  if (
+    evidence === null ||
+    typeof evidence !== "object" ||
+    !Buffer.isBuffer(evidence.projectionBytes) ||
+    !Buffer.isBuffer(evidence.receiptBytes)
+  ) {
+    return ["missing-evidence"];
+  }
+
+  const { projectionBytes, receiptBytes } = evidence;
+  let projection;
+  let receipt;
+  try {
+    projection = parseStrictJson(projectionBytes.toString("utf8"));
+    receipt = parseStrictJson(receiptBytes.toString("utf8"));
+  } catch {
+    return ["strict-json"];
+  }
+
+  const validationErrors = [];
+  const addError = (code) => {
+    if (!validationErrors.includes(code)) validationErrors.push(code);
+  };
+  if (sha256Bytes(receiptBytes) !== pythonProjectionEvidencePins.projectionAcceptanceSha256) {
+    addError("receipt-digest");
+  }
+
+  const acceptedManifest = receipt?.acceptedManifest;
+  if (
+    sha256Bytes(projectionBytes) !== pythonProjectionEvidencePins.projectionManifestSha256 ||
+    receipt?.selectionIdentity !== projection?.selectionIdentity ||
+    receipt?.projectionIdentity !== projection?.projectionIdentity ||
+    acceptedManifest?.path !== "PROJECTION-MANIFEST.json" ||
+    acceptedManifest?.sha256 !== pythonProjectionEvidencePins.projectionManifestSha256 ||
+    acceptedManifest?.candidateGitCommit !== "53695d6641fab1a1245668ab4e85f579f4c0fe31"
+  ) {
+    addError("manifest-binding");
+  }
+
+  const ownerDecision = receipt?.ownerDecision;
+  if (
+    !hasExactKeys(receipt, [
+      "documentKind",
+      "selectionIdentity",
+      "projectionIdentity",
+      "acceptedManifest",
+      "ownerDecision",
+    ]) ||
+    !hasExactKeys(acceptedManifest, ["path", "sha256", "candidateGitCommit"]) ||
+    !hasExactKeys(ownerDecision, [
+      "actor",
+      "decision",
+      "acceptedAtUtc",
+      "record",
+      "actualOwnerOnlyStorageBoundaryAccepted",
+      "acceptedStorageBoundaryReference",
+      "closedGate",
+      "nextGateAuthorized",
+      "notAuthorized",
+    ]) ||
+    receipt?.documentKind !== "graphtruth.projection-acceptance-receipt/1"
+  ) {
+    addError("fixed-structure");
+  }
+
+  const expectedNotAuthorized = [
+    "m6-freeze-evaluation",
+    "task construction",
+    "oracle construction",
+    "model processing of acquired or projected bytes",
+    "SUT work",
+    "baseline work",
+    "runtime adaptation",
+    "experimental run",
+  ];
+  if (
+    ownerDecision?.actor !== "asukhodko" ||
+    ownerDecision?.decision !== "accept" ||
+    ownerDecision?.acceptedAtUtc !== "2026-07-21T09:33:32Z" ||
+    ownerDecision?.record !== pythonProjectionEvidencePins.projectionAcceptanceRecord ||
+    ownerDecision?.actualOwnerOnlyStorageBoundaryAccepted !== true ||
+    ownerDecision?.acceptedStorageBoundaryReference !== "projection-v1" ||
+    ownerDecision?.closedGate !== "m6-freeze-projection" ||
+    ownerDecision?.nextGateAuthorized !== false ||
+    !Array.isArray(ownerDecision?.notAuthorized) ||
+    ownerDecision.notAuthorized.length !== expectedNotAuthorized.length ||
+    ownerDecision.notAuthorized.some((value, index) => value !== expectedNotAuthorized[index])
+  ) {
+    addError("owner-decision");
+  }
+
+  return validationErrors;
+}
+
+async function checkPythonProjectionManifest() {
+  const absolute = (relative) => path.join(repositoryRoot, relative);
+  let evidence;
+  try {
+    const [sourceBytes, projectionBytes, builderBytes, contractBytes, testBytes, strictJsonBytes] =
+      await Promise.all([
+        readFile(absolute(pythonSourceManifestPath)),
+        readFile(absolute(pythonProjectionManifestPath)),
+        readFile(absolute(pythonProjectionDependencyPaths.builder)),
+        readFile(absolute(pythonProjectionDependencyPaths.contract)),
+        readFile(absolute(pythonProjectionDependencyPaths.tests)),
+        readFile(absolute(pythonProjectionDependencyPaths.strictJson)),
+      ]);
+    evidence = { sourceBytes, projectionBytes, builderBytes, contractBytes, testBytes, strictJsonBytes };
+  } catch (error) {
+    const code = typeof error?.code === "string" ? error.code : "unknown error";
+    report(`${pythonProjectionManifestPath}: projection evidence cannot be read (${code})`);
+    return;
+  }
+
+  const messages = {
+    "missing-evidence": "projection evidence is incomplete",
+    "strict-json": "source and projection manifests must be strict JSON",
+    "projection-manifest-digest": "projection manifest bytes changed from the reviewed candidate",
+    "source-manifest-anchor": "source manifest no longer matches the owner-accepted acquisition",
+    "dependency-bindings": "builder or dependency identity does not match the reviewed bytes",
+    "fixed-structure": "projection manifest keys differ from the closed publication-safe structure",
+    "projection-policy": "projection identity or byte-preservation policy changed",
+    "builder-attestation": "builder commit, tests, or cleared runtime identity changed",
+    "item-bindings": "projection inventory is not bound verbatim to the source manifest",
+    "materialization-attestation": "technical session attestation is incomplete or broadened",
+    "storage-boundary": "storage-boundary evidence overclaims or omits the owner gate",
+    authorization: "projection authorization exceeds the current owner decision",
+    "publication-boundary": "publication boundary is incomplete",
+  };
+  for (const validationError of validatePythonProjectionManifestEvidence(evidence)) {
+    report(`${pythonProjectionManifestPath}: ${messages[validationError]}`);
+  }
+}
+
+async function checkPythonProjectionAcceptance() {
+  let evidence;
+  try {
+    const [projectionBytes, receiptBytes] = await Promise.all([
+      readFile(path.join(repositoryRoot, pythonProjectionManifestPath)),
+      readFile(path.join(repositoryRoot, pythonProjectionAcceptancePath)),
+    ]);
+    evidence = { projectionBytes, receiptBytes };
+  } catch (error) {
+    const code = typeof error?.code === "string" ? error.code : "unknown error";
+    report(`${pythonProjectionAcceptancePath}: acceptance evidence cannot be read (${code})`);
+    return;
+  }
+
+  const messages = {
+    "missing-evidence": "projection acceptance evidence is incomplete",
+    "strict-json": "projection manifest and acceptance receipt must be strict JSON",
+    "receipt-digest": "acceptance receipt bytes changed from the owner decision record",
+    "manifest-binding": "acceptance receipt is not bound to the reviewed projection candidate",
+    "fixed-structure": "acceptance receipt keys differ from the closed structure",
+    "owner-decision": "acceptance receipt changes the owner decision or authorization boundary",
+  };
+  for (const validationError of validatePythonProjectionAcceptanceEvidence(evidence)) {
+    report(`${pythonProjectionAcceptancePath}: ${messages[validationError]}`);
+  }
+}
+
 async function checkCodexSandboxPreflightReport(filePath, content) {
   const displayPath = relativePath(filePath);
   const messages = {
@@ -727,6 +1254,8 @@ async function main() {
   }
 
   await checkRequiredPaths();
+  await checkPythonProjectionManifest();
+  await checkPythonProjectionAcceptance();
 
   const publicRelativePaths = new Set(files.map((filePath) => relativePath(filePath)));
   for (const filePath of files) {

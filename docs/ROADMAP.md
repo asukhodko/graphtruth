@@ -64,14 +64,27 @@ Its near path is:
    manifest](../experiments/corpora/python-annotations-semantics-v1/SOURCE-MANIFEST.json)
    for the acquired owner-only originals and their verified identities; the
    owner accepted its pre-acceptance SHA-256 and actual storage boundary;
-3. now, choose and pin a deterministic RST-to-Markdown or text projection;
+3. use the byte-identical RST [projection
+   contract](../experiments/corpora/python-annotations-semantics-v1/PROJECTION-CONTRACT.md)
+   and publication-safe [projection
+   manifest](../experiments/corpora/python-annotations-semantics-v1/PROJECTION-MANIFEST.json),
+   which record two verified clean builds and no declared byte loss; the owner
+   accepted its exact SHA-256 and actual output boundary in the separate
+   [acceptance receipt](../experiments/corpora/python-annotations-semantics-v1/PROJECTION-ACCEPTANCE.json);
 4. after separate authorization, freeze at least eight tasks, evidence
    requirements, PEP 484 dark-zone controls, oracle, baseline, budgets, severe
    errors, and decision threshold;
-5. after separate authorization, rehearse the exact deterministic runner, then
-   execute and score one sequential future-reveal lane;
-6. record `sequential keep`, `sequential shrink`, or `sequential stop` over the
+5. after the owner accepts that exact evaluation freeze and separately
+   authorizes implementation, adapt the deterministic whole-document runner;
+6. rehearse that exact runner against the frozen boundaries and every declared
+   budget-failure case;
+7. only after the owner accepts the rehearsal and separately authorizes the
+   evaluated run, execute and score one sequential future-reveal lane;
+8. record `sequential keep`, `sequential shrink`, or `sequential stop` over the
    complete denominator.
+
+The owner closed only the projection gate. Step 4 and every later step remain
+planned but unauthorized.
 
 The public lane can test reproducible capture, grounding, chronology,
 replacement, supplementation, retrieval, gaps, rebuild, and comparison cost.
