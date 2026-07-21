@@ -99,9 +99,11 @@ observed second writer or independent corpus
 - **Stop condition:** examples require a universal ontology or private data;
   reduce the domain and synthesize the case.
 - **Dependencies:** none.
-- **Active experiment:** [Issue #6](https://github.com/asukhodko/graphtruth/issues/6)
-  uses a future-reveal private pilot and a separately authored synthetic twin to
-  discover the smallest honest journey before any normative promotion.
+- **Experiment history:** [Issue #6](https://github.com/asukhodko/graphtruth/issues/6)
+  retained the synthetic twin and boundary evidence, then stopped before an
+  admissible private contract or evaluated run. [Issue
+  #24](https://github.com/asukhodko/graphtruth/issues/24) now tests the first
+  public sequential journey before any normative promotion.
 
 ### GT-D002 — Minimal record and bundle envelope
 
@@ -193,9 +195,11 @@ observed second writer or independent corpus
 - **Exit evidence:** an algorithm or schema change can be compared without using
   node counts, prose volume, or subjective fluency as the success measure.
 - **Dependencies:** GT-D001.
-- **Active experiment:** [Issue #6](https://github.com/asukhodko/graphtruth/issues/6)
-  predeclares corpus horizons, query tasks, baselines, privacy boundaries, and
-  trajectory/cost measures for the first local replay harness.
+- **Current experiment:** [Issue
+  #24](https://github.com/asukhodko/graphtruth/issues/24) freezes a public Python
+  corpus, tasks, oracle, baseline, budgets, and sequential comparison. [Issue
+  #6](https://github.com/asukhodko/graphtruth/issues/6) remains the stopped
+  private-path predecessor and supplies no utility result.
 
 ## P1 — smallest executable ledger and access loop
 

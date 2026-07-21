@@ -1,11 +1,15 @@
 # Corpus Replay Experiment Harness
 
-> **Status:** Non-normative experiment design.
+> **Status:** Non-normative experiment design. Its Issue #6 private execution
+> path stopped on 2026-07-21 before an admissible frozen contract or evaluated
+> run. It is retained as design history, not current execution authority.
 >
 > **Created:** 2026-07-12.
 >
-> **Related work:** [Issue #6 — Local future-reveal corpus replay
-> harness](https://github.com/asukhodko/graphtruth/issues/6).
+> **Related work:** [Issue #6 — stopped local future-reveal corpus replay
+> harness](https://github.com/asukhodko/graphtruth/issues/6); [Issue #24 — current
+> public Python annotation-semantics sequential
+> experiment](https://github.com/asukhodko/graphtruth/issues/24).
 >
 > **Authority / promotion:** This draft describes a Zone 3 laboratory and a
 > reversible dogfood method. Its file layouts, manifests, commands, metrics,
@@ -1111,8 +1115,9 @@ Five working days with a hard stop after two calendar weeks. For this
 experiment, one working day is one distinct Europe/Moscow date with material
 GraphTruth repository activity on or after the issue was opened. Multiple
 events on one date count once; a date with no repository activity counts zero.
-The counted-date ledger is retained in Issue #6. This is the single major WIP
-item.
+The historical counted-date ledger is retained in Issue #6. That experiment
+stopped after four of five repo-active dates; its unused nominal day is not
+reused. Issue #24 is now the single major WIP item and owns a separate budget.
 
 The first time box covers S0–S1; A; B on 3–5 items; exact-redelivery idempotency
 from C; one interruption plus clean rebuild from G; the controller/SUT canary
@@ -1212,7 +1217,12 @@ It does not complete those tasks automatically. Subsequent work should promote
 only fields and behaviors demonstrated by the run. The cross-document task owner
 remains [Design backlog](DESIGN-BACKLOG.md).
 
-## Expected learning sequence
+## Historical Issue #6 learning sequence
+
+The sequence below is retained to explain the stopped private design. It is not
+authorized work. The current public route is defined by the [starter-corpora
+laboratory plan](../../experiments/STARTER-CORPORA-LABORATORY-PLAN.md) and
+Issue #24.
 
 1. Run S0 and S1 on the synthetic twin.
 2. Run the private frozen chronological lane.
@@ -1225,9 +1235,9 @@ remains [Design backlog](DESIGN-BACKLOG.md).
    experiments should follow.
 
 At the creation of this draft on 2026-07-12, Issue #6 was the focused experiment
-seeded from the recovered archive and linked to the development-loop work. All
-mutable progress and completion state belongs in GitHub issues rather than this
-durable methodology document.
+seeded from the recovered archive and linked to the development-loop work. It
+later stopped before private execution. All mutable progress and completion
+state belongs in GitHub issues rather than this durable methodology document.
 
 ## Open questions
 

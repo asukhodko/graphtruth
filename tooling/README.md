@@ -83,6 +83,13 @@ Their formats and behavior may change as experiments produce evidence.
 
 ## Private G1 pack lock
 
+> **Stopped path:** Issue #6 ended before an admissible private G1 contract or
+> evaluated run existed. The commands and controls in this section remain
+> retained public tooling and historical design evidence; they authorize no
+> private read, seal, review, retry, or receipt. A future private successor must
+> explicitly supersede this path under a new issue, identity, threat review,
+> evidence contract, and owner authorization.
+
 `./tooling/private-pack-lock` is the owner-only repository command for creating
 and verifying the private G1 `PACK` lock. The only other repository command
 designed to read a sealed pack is the fail-closed
@@ -583,7 +590,8 @@ allowlisted v2 public receipt be attested. The procedure authorizes the Codex
 client to send the sealed review material to OpenAI; it does not claim local-only
 processing, independent human review, provider-side deletion, or isolation from
 same-UID processes, Keychain, IPC, or macOS. No private G1 review has yet been
-accepted, so G1 remains open.
+accepted. Issue #6 subsequently stopped before G1; this retained procedure is
+not current authority and must not be run against its terminal local state.
 
 Docker is a fallback only after its own command, filesystem, network, state,
 credential, and event-trace boundaries have been separately qualified. It is

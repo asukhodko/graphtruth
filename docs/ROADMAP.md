@@ -16,7 +16,75 @@ This roadmap is ordered by evidence and maturity, not dates. It deliberately avo
   structure; do not require a closed domain list or design a universal ontology
   in advance.
 
-## Current evidence checkpoint — 2026-07-14
+## Current evidence checkpoint — 2026-07-21
+
+Issue #6 has reached a project-level `stop` before its private evidence-contract
+gate. The repository foundation, public synthetic fixtures, native permission
+profile, and fail-closed review tooling remain useful retained work. A private
+selection and finalization process did not produce an admissible frozen
+evidence contract or an evaluated GraphTruth run. Its terminal local states are
+preserved outside the repository and are not inputs to, evidence for, or
+authority over later work. They must not be inspected, repaired, deleted,
+normalized, moved, retried, or reused.
+
+The Issue #6 learning record is deliberately narrow:
+
+- **Expected:** freeze one real private 3–5 source contract, admit the smallest
+  deterministic S0–S1 lane, and reach a bounded utility decision against files
+  plus search.
+- **Observed:** the public preparation and runtime-boundary evidence completed,
+  but the private contract never reached an admissible frozen gate; no private
+  reveal, baseline, scoring, correction fork, or usefulness evaluation ran.
+- **Learned:** secrecy and selection assurance can dominate the experiment when
+  they are coupled to first-run admission. Opaque terminal failures are safe but
+  produce no experiment evidence. The next algorithm experiment should use a
+  fully public, reproducible corpus while private dogfood remains a separate
+  missing evidence class.
+
+Issue #6 used four distinct Europe/Moscow repository-active dates:
+2026-07-12, 2026-07-13, 2026-07-14, and the 2026-07-21 stop synchronization.
+It closes at 4/5 rather than spending the remaining day on another private
+recovery layer. Work performed only in the local recovery area did not count as
+repository activity and is not publication evidence.
+
+The new single major WIP is
+[`python-annotations-semantics-v1`](https://github.com/asukhodko/graphtruth/issues/24),
+the first public corpus already selected by the
+[starter-corpora laboratory plan](../experiments/STARTER-CORPORA-LABORATORY-PLAN.md).
+Issue #24 has its own five repo-active-date budget: 2026-07-21 is day 1, the
+owner must explicitly choose continue, shrink, or stop before day 5 begins, and
+the independent hard stop is 2026-08-04.
+
+Its near path is:
+
+1. freeze the corpus-selection and rights boundary for the four exact PEP files;
+2. acquire and hash the pinned originals outside the checkout, retaining each
+   file's notice and upstream blob identity;
+3. choose and pin a deterministic RST-to-Markdown or text projection;
+4. freeze at least eight tasks, evidence requirements, PEP 484 dark-zone
+   controls, oracle, baseline, budgets, severe errors, and decision threshold;
+5. rehearse the exact deterministic runner, then execute and score one
+   sequential future-reveal lane;
+6. record `sequential keep`, `sequential shrink`, or `sequential stop` over the
+   complete denominator.
+
+The public lane can test reproducible capture, grounding, chronology,
+replacement, supplementation, retrieval, gaps, rebuild, and comparison cost.
+It cannot establish personal usefulness, private novelty, universal algorithm
+quality, historical causation, or current Python behavior beyond the retained
+sources. A 24-order successor remains a separate issue admitted only by
+`sequential keep`.
+
+Stage 0 still has not formally exited: its independent-review and complete
+invariant-to-conformance evidence remain open. The public experiment is Zone 3
+learning and does not silently promote experimental formats into protocol
+authority.
+
+## Historical preparation checkpoint — 2026-07-14
+
+The remainder of this checkpoint is retained as the plan that was current on
+that date. Its future-tense G1 statements are historical and are superseded by
+the 2026-07-21 checkpoint above.
 
 GraphTruth is moving from foundation work toward its first real utility test.
 The foundation documents, experiment method, public synthetic preflight, and an
