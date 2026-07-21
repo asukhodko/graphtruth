@@ -79,12 +79,20 @@ Its near path is:
 6. rehearse that exact runner against the frozen boundaries and every declared
    budget-failure case;
 7. only after the owner accepts the rehearsal and separately authorizes the
-   evaluated run, execute and score one sequential future-reveal lane;
-8. record `sequential keep`, `sequential shrink`, or `sequential stop` over the
-   complete denominator.
+   evaluated run, execute one sequential future-reveal lane and its frozen
+   files-plus-search baseline;
+8. score the complete denominator and record `sequential keep`, `sequential
+   shrink`, or `sequential stop`.
 
 The owner closed only the projection gate. Step 4 and every later step remain
 planned but unauthorized.
+
+The selection record, projection contract, and projection manifest remain
+byte-for-byte records of their freeze points. Their earlier Markdown option and
+pre-acceptance status text are historical: the accepted projection narrows this
+run to byte-identical RST for both GraphTruth and the files-plus-search baseline.
+The separate acceptance receipt and Issue #24 are the current authority for the
+gate state; the frozen files must not be rewritten to look current.
 
 The public lane can test reproducible capture, grounding, chronology,
 replacement, supplementation, retrieval, gaps, rebuild, and comparison cost.

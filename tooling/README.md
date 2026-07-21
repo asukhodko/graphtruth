@@ -608,11 +608,13 @@ inventory, then copies each input buffer unchanged into a new owner-only output
 root. `verify` rechecks both inventories and direct byte equality. Success and
 failure diagnostics contain no source text, digest, or local path.
 
-The exact experiment command and its authorization boundary live in the
-[projection contract](../experiments/corpora/python-annotations-semantics-v1/PROJECTION-CONTRACT.md).
-The normal quality gate uses synthetic RST only. It does not materialize or
-inspect the acquired PEPs, and passing it does not authorize tasks, oracle,
-SUT, baseline, runner adaptation, or an experiment.
+The [projection contract](../experiments/corpora/python-annotations-semantics-v1/PROJECTION-CONTRACT.md)
+preserves the exact one-time materialization command and its then-current
+authorization boundary. That authority was consumed when the projection gate
+closed; the contract is now immutable evidence, not permission to materialize
+the real PEPs again. The normal quality gate uses synthetic RST only. It does
+not materialize or inspect the acquired PEPs, and passing it does not authorize
+tasks, oracle, SUT, baseline, runner adaptation, or an experiment.
 
 ## Operational plan validation
 

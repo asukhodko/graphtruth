@@ -191,14 +191,12 @@ compatibility concerns, replacement, dependency, and implementation refinement.
 
 ### Preparation and boundary
 
-The originals are RST. If the first runner accepts only Markdown, create a
-deterministic projection with a pinned transformer and retain:
-
-- the unmodified RST input and digest;
-- transformer code and version;
-- exact command and configuration;
-- projected Markdown and digest;
-- a review record for any lossy construct.
+The accepted projection `python-annotations-semantics-v1-verbatim-rst-v1`
+retains each RST payload byte-for-byte. GraphTruth and the files-plus-search
+baseline must receive the same accepted RST bytes at each horizon. A future
+runner that accepts only Markdown must be adapted to this boundary; it must not
+silently replace or transform the common input. Any new transformation requires
+a new projection identity, fidelity review, and owner acceptance before use.
 
 The acquired originals retain verified public-domain notices in PEP 3107 and
 PEP 563, and public-domain-or-CC0 notices in PEP 649 and PEP 749. Each notice is
