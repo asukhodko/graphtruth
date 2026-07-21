@@ -599,6 +599,21 @@ not selected automatically and is not a workaround for the 256-artifact or
 1,048,576-byte limits. A pack that exceeds either limit requires an explicit
 protocol decision, not containerization, truncation, or summarization.
 
+## Verbatim RST projection builder
+
+[`project-verbatim-rst.mjs`](project-verbatim-rst.mjs) is the dependency-free,
+non-normative builder for the `python-annotations-semantics-v1` projection
+freeze. It validates the accepted source manifest and a closed owner-only RST
+inventory, then copies each input buffer unchanged into a new owner-only output
+root. `verify` rechecks both inventories and direct byte equality. Success and
+failure diagnostics contain no source text, digest, or local path.
+
+The exact experiment command and its authorization boundary live in the
+[projection contract](../experiments/corpora/python-annotations-semantics-v1/PROJECTION-CONTRACT.md).
+The normal quality gate uses synthetic RST only. It does not materialize or
+inspect the acquired PEPs, and passing it does not authorize tasks, oracle,
+SUT, baseline, runner adaptation, or an experiment.
+
 ## Operational plan validation
 
 Validate the repository's current work map with:

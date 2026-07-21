@@ -128,6 +128,8 @@ const requiredRepositoryPaths = new Map([
   ["tooling/private-pack-lock", "file"],
   ["tooling/private-pack-lock.mjs", "file"],
   ["tooling/private-pack-lock.test.mjs", "file"],
+  ["tooling/project-verbatim-rst.mjs", "file"],
+  ["tooling/project-verbatim-rst.test.mjs", "file"],
   ["tooling/preflight", "file"],
   ["tooling/preflight.mjs", "file"],
   ["tooling/preflight.test.mjs", "file"],
