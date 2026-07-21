@@ -1,7 +1,8 @@
 # Starter corpora laboratory plan
 
 > **Status:** Non-normative Zone 3 laboratory plan; the first Python sequential
-> lane is active under Issue #24, but its run pack is not yet frozen.
+> lane is active under Issue #24. Its corpus selection and rights are frozen,
+> while acquisition and the later run pack remain pending.
 >
 > **Created:** 2026-07-12.
 >
@@ -150,9 +151,13 @@ duplicated here.
   4. [PEP 749 — Implementing PEP
      649](https://github.com/python/peps/blob/339af2b4776a66eab0f88a2800adffdb0c0650e1/peps/pep-0749.rst)
 
-Resolve and record the individual blob identities during freeze. The pinned
-revision is an initial selection reference, not a substitute for acquired-byte
-digests.
+The public [corpus-selection and rights
+record](corpora/python-annotations-semantics-v1/CORPUS-SELECTION.md) binds the
+individual blob identities, closed candidate frame, synthetic reveal order,
+one-family treatment, PEP 484 dark-zone role, handling policy, and familiarity
+limits. The pinned Git identities are not substitutes for acquired-byte
+SHA-256 digests, sizes, notices, and acquisition UTC, which remain the next
+gate.
 
 ### Why it is first
 
@@ -512,13 +517,16 @@ transform, process, or redistribute material.
 ## Immediate deliverables
 
 The owner recorded a project-level `stop` for Issue #6, and Issue #24 activates
-`python-annotations-semantics-v1` as the single major WIP. Activation selects
-the bounded corpus and sequence; it does not freeze rights, source bytes,
-projection, tasks, oracle, baseline, budgets, or a run identity:
+`python-annotations-semantics-v1` as the single major WIP. Its accepted public
+selection record freezes the bounded corpus, synthetic sequence, rights and
+handling policy, knowledge boundary, and familiarity limits. It does not freeze
+source bytes, projection, tasks, oracle, baseline, evaluation budgets, or a run
+identity:
 
-1. complete its corpus-selection record;
-2. verify per-file rights and acquire the four pinned originals outside the
-   checkout;
+1. acquire the four pinned originals outside the checkout and verify per-file
+   identities, notices, digests, sizes, media types, and acquisition times;
+2. publish only the safe source-manifest metadata admitted by the selection
+   record;
 3. choose and pin the RST-to-Markdown transformation or shrink before adding
    parser scope;
 4. freeze at least eight task cases, evidence requirements, dark-zone controls,
@@ -532,7 +540,7 @@ projection, tasks, oracle, baseline, budgets, or a run identity:
 GitLab, PostgreSQL, multi-domain composition, public benchmark packaging, and
 model-assisted automation remain queued rather than parallel WIP.
 
-## Open decisions before the first freeze
+## Open decisions before the evaluated-run freeze
 
 1. Which deterministic RST-to-Markdown transformation preserves every
    oracle-relevant PEP construct with the least implementation scope?

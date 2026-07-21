@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "selectionIdentity": "python-annotations-semantics-v1",
+  "upstream": {
+    "repository": "https://github.com/python/peps",
+    "commit": "339af2b4776a66eab0f88a2800adffdb0c0650e1"
+  },
+  "populationConstruction": "purposive-theory-driven",
+  "selectionMethod": "exhaustive-closed-frame",
+  "candidateCount": 4,
+  "selectedCount": 4,
+  "candidates": [
+    {
+      "canonicalOrder": 1,
+      "revealOrder": 1,
+      "pep": 3107,
+      "path": "peps/pep-3107.rst",
+      "gitBlobOid": "403f8296fc4a709e6738d2fd7eed3beb0cee2305",
+      "selected": true,
+      "role": "original annotation syntax and deliberately unspecified semantics",
+      "noticeClass": "public-domain"
+    },
+    {
+      "canonicalOrder": 2,
+      "revealOrder": 2,
+      "pep": 563,
+      "path": "peps/pep-0563.rst",
+      "gitBlobOid": "0bdb7f2a9caa38e10ac37aeb0c795fbeea7d86a7",
+      "selected": true,
+      "role": "stringized postponed evaluation and its motivating problems",
+      "noticeClass": "public-domain"
+    },
+    {
+      "canonicalOrder": 3,
+      "revealOrder": 3,
+      "pep": 649,
+      "path": "peps/pep-0649.rst",
+      "gitBlobOid": "d4c8e792468e2b50fb207da481d4f82bbff80c6c",
+      "selected": true,
+      "role": "deferred-evaluation replacement and its trade-offs",
+      "noticeClass": "public-domain-or-cc0-1.0-whichever-is-more-permissive"
+    },
+    {
+      "canonicalOrder": 4,
+      "revealOrder": 4,
+      "pep": 749,
+      "path": "peps/pep-0749.rst",
+      "gitBlobOid": "78b07ba9032d29e708fac3d0814c6e7823e46918",
+      "selected": true,
+      "role": "implementation refinement and underspecified cases after PEP 649",
+      "noticeClass": "public-domain-or-cc0-1.0-whichever-is-more-permissive"
+    }
+  ],
+  "externalControls": [
+    {
+      "pep": 484,
+      "selected": false,
+      "role": "predeclared dark-zone control",
+      "reason": "The selected sources name the type-hinting transition but do not contain PEP 484 as primary evidence."
+    }
+  ],
+  "replacementPolicy": "none",
+  "changePolicy": "Adding, removing, replacing, or resolving any selected path to a different blob requires a new selection identity."
+}
