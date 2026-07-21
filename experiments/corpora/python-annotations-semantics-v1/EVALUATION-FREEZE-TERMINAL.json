@@ -1,0 +1,69 @@
+{
+  "auditDecision": "reject",
+  "auditManifestSha256": "b70ee8635997c3709fe7a78a1a7510a60cedd324cd9f67b54b6d1f0d6af41f1a",
+  "auditResultSha256": "872758e111dab28c3cf62245a2c8d222b5a7f17873552ac056a0b6f5a1a1c0cf",
+  "authorAndAuditorExcludedFromAnswersAndScoring": true,
+  "authorPackageSha256": "2b302bd4bd0f4a099c5538df764fd2dac2475287efbc49e347c61894a5f24f70",
+  "completedAtUtc": "2026-07-21T12:31:32.657Z",
+  "coreManifestSha256": "45ccc83c2514a136d8f69db993a65414ea16ad5731f01aeb908158f89f9def2e",
+  "counts": {
+    "arms": 2,
+    "cells": 64,
+    "coreArtifacts": 7,
+    "horizons": 4,
+    "oracleJudgments": 32,
+    "severeErrorClasses": 10,
+    "tasks": 8
+  },
+  "documentKind": "graphtruth.evaluation-freeze-public-status/1",
+  "evaluatedRunAuthorized": false,
+  "evaluationIdentity": "python-annotations-semantics-v1-evaluation-sha256-45ccc83c2514a136d8f69db993a65414ea16ad5731f01aeb908158f89f9def2e",
+  "executionIdentitySha256": "ce4139672bef37acaa5c55380ec19d798e797833e250871bbabdb5bfb864c216",
+  "experimentId": "python-annotations-semantics-v1",
+  "externalProcessing": true,
+  "implementationAuthorized": false,
+  "independentHumanReview": false,
+  "independentReadOnlyAudit": true,
+  "localOnlyProcessing": false,
+  "model": "gpt-5.6-sol",
+  "modelCalls": {
+    "maximum": 2,
+    "resumedSessions": 0,
+    "retries": 0,
+    "used": 2
+  },
+  "nextGate": "g6-evaluation-contract-accepted",
+  "nextGateAuthorized": false,
+  "ownerAcceptance": false,
+  "ownerAuthorizationRecord": "https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5033460564",
+  "projectionId": "python-annotations-semantics-v1-verbatim-rst-v1",
+  "projectionManifestSha256": "5aba6ebea40066ec1a12e6aa54913b5d39638d3b9a9e8807c1436a6b8e40cb6a",
+  "projectionReceiptSha256": "4b15e68f9fca0d83f2cd87c3b9a072ae363eb0d9d4234cf2e3cb1437f9f1d435",
+  "provider": "openai",
+  "providerSideDeletionVerified": false,
+  "rehearsalAuthorized": false,
+  "releaseSha256": null,
+  "status": "rejected",
+  "terminalSha256": "993241bce6b183468339c5f5f21515cd13eb82c253975a0ba32ed3d261dd52f1",
+  "toolchain": {
+    "codex": {
+      "binarySha256": "3302acbda5f53de1a71ebdb0c0f2aae0d47f9324aa9fb6b4e78a47014fd51c7d",
+      "model": "gpt-5.6-sol",
+      "normalizedCommandShapeSha256": "33f658eb4af9b4ece4e141d37b2a9e7877ff9614d265e26f7acdd9a589bc35a7",
+      "permissionProfileName": "graphtruth-zero-tools",
+      "permissionProfileSha256": "067bec78216284a13bb6dd9f4bd4b6a70a0a2f4d9a792f0d38a42daa8901ccf1",
+      "provider": "openai",
+      "version": "0.144.4"
+    },
+    "controllerModuleSha256": "53f951ddb3ebe82c0d1f3dd6e7fb2dd116e168e20efd9628306912a74fd5a513",
+    "nodeVersion": "v24.4.1",
+    "privatePackLockModuleSha256": "603553be7d0ca32cb11ccce7eadfb711277dc6ae9c55d2d68f08abafd9e5750b",
+    "rg": {
+      "argv0": "/opt/homebrew/bin/rg",
+      "sha256": "2fb61b6e5b3e2d89b115fe6c18fd8805670fdf4bdfde85954d40855a76830e5f",
+      "verifiedWithoutCorpusAccess": true,
+      "version": "15.1.0"
+    },
+    "sandboxPreflightModuleSha256": "28a821f843d71489974bfa65ed931de8a304eea3dff5ab570ea02f5a1d596025"
+  }
+}

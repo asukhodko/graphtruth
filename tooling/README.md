@@ -616,6 +616,50 @@ the real PEPs again. The normal quality gate uses synthetic RST only. It does
 not materialize or inspect the acquired PEPs, and passing it does not authorize
 tasks, oracle, SUT, baseline, runner adaptation, or an experiment.
 
+## Evaluation-freeze controller
+
+[`codex-evaluation-freeze`](codex-evaluation-freeze) is the owner-operated,
+single-attempt controller used to prepare and independently audit an
+evaluation-contract candidate for `python-annotations-semantics-v1`. It bound the exact
+accepted verbatim-RST projection, repository tooling, Codex binary and command
+shape, zero-tool permission profile, `rg` binary, two fresh model sessions, and
+an owner-only output root before disclosing projection bytes. Both model calls
+were external OpenAI processing. The run did not claim local-only processing,
+provider-side deletion, or independent human review.
+
+The controller allowed one author call followed by one independent read-only
+audit call. Both call slots were consumed, with no retry or resumed session.
+The author and auditor are permanently excluded from primary answers and
+scoring. The controller itself performed no GraphTruth implementation,
+rehearsal, baseline or SUT execution, scoring, or evaluated run. The normal
+quality gate exercises only generated synthetic fixtures with fake model
+dependencies; it neither reads the accepted projection bytes nor contacts a
+model provider.
+
+The completed attempt is terminal because the independent audit returned
+`reject`. It did not close `m6-freeze-evaluation`, create an accepted contract,
+or produce a release. The public status is
+[`EVALUATION-FREEZE-TERMINAL.json`](../experiments/corpora/python-annotations-semantics-v1/EVALUATION-FREEZE-TERMINAL.json),
+whose SHA-256 is
+`410a91aaca18d121a7bafbaf0e117b1f0a4cee04008fb5f717a5fa648705a7bd`.
+It exposes only fixed identities, counts, processing limits, authorization
+limits, and the rejected outcome. It contains no task or oracle material,
+source or projection bytes, answer-bearing text, or closed path.
+
+`./tooling/check` pins that terminal status and the exact wrapper, module, and
+synthetic-test bytes. It also checks the closed JSON shape, the 8-task,
+4-horizon, 2-arm, 64-cell denominator, 32 oracle judgments, 7 core artifacts,
+10 severe-error classes, the two-call budget, the recorded toolchain, and all
+processing and authorization flags. Extra keys, answer-bearing fields, task or
+oracle fields, and private paths are rejected.
+
+For this execution identity, success, retry, resume, repair, normalization, and
+reuse are forbidden. In the public status, `ownerAcceptance`,
+`nextGateAuthorized`, implementation, rehearsal, and evaluated-run
+authorization are all `false`; `g6-evaluation-contract-accepted` remains
+unpassed. A different attempt would require a new identity and explicit owner
+authority; this terminal state cannot supply either.
+
 ## Operational plan validation
 
 Validate the repository's current work map with:

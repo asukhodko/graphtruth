@@ -3,8 +3,9 @@
 > **Status:** Non-normative Zone 3 laboratory plan; the first Python sequential
 > lane is active under Issue #24. Its corpus selection and rights are frozen;
 > original source acquisition and the byte-identical RST text projection are
-> verified and accepted. The later evaluation and run pack remain
-> unauthorized.
+> verified and accepted. One separately authorized evaluation-freeze attempt
+> ended in terminal independent-audit rejection without a release. No accepted
+> evaluation or run pack exists, and every later gate remains unauthorized.
 >
 > **Created:** 2026-07-12.
 >
@@ -538,37 +539,42 @@ and the actual owner-only boundary, closing `m6-acquire-originals`. The
 projection contract and safe manifest now bind a byte-identical RST text
 strategy, two verified clean builds, no declared losses, and explicit current
 runtime incompatibility. The owner accepted the exact manifest and actual
-output boundary, closing `m6-freeze-projection`. No later experiment work is
-currently admitted.
+output boundary, closing `m6-freeze-projection`.
 
-The later progression remains planned but requires separate authorization:
+The owner then authorized one evaluation-freeze attempt and two external Codex
+calls. It created a private 8-task, 64-cell, 32-judgment core with 10 severe-error
+classes, but the independent read-only audit returned `reject`. The safe
+[terminal record](corpora/python-annotations-semantics-v1/EVALUATION-FREEZE-TERMINAL.json)
+records the outcome; no RELEASE exists. The evaluation identity is terminal and
+cannot be repaired, retried, resumed, or reused. The private audit report was not
+read or published.
 
-1. freeze at least eight task cases, evidence requirements, dark-zone controls,
-   and an oracle outside SUT reach;
-2. freeze the sequential run card and baseline budget;
-3. accept that exact evaluation freeze and separately authorize implementation;
-4. implement and rehearse only the S0-S1 vertical slice required to execute it;
-5. accept the exact rehearsal and separately authorize one evaluated run;
-6. execute, score the full denominator, and record `sequential keep`,
+The later progression is blocked on a new owner decision:
+
+1. authorize a wholly new evaluation-freeze successor with a new identity at
+   the current or a predeclared smaller scope, or stop the project-level lane;
+2. only if a successor produces an accepted freeze, accept that exact contract
+   and separately authorize implementation;
+3. implement and rehearse only the S0-S1 vertical slice required to execute it;
+4. accept the exact rehearsal and separately authorize one evaluated run;
+5. execute, score the full denominator, and record `sequential keep`,
    `sequential shrink`, or `sequential stop`;
-7. after a sequential keep, open only the 24-order successor and record its
+6. after a sequential keep, open only the 24-order successor and record its
    order-robustness decision before corpus 2 starts.
 
 GitLab, PostgreSQL, multi-domain composition, public benchmark packaging, and
 model-assisted automation remain queued rather than parallel WIP.
 
-## Open decisions before the evaluated-run freeze
+## Current decision after the rejected freeze attempt
 
-1. Will the owner separately authorize `m6-freeze-evaluation`?
-2. Which PEP metadata dates are treated as event, publication, valid/effective,
-   and retrospective record updates?
-3. Which eight or more workflow-triggered tasks form the first denominator?
-4. Which participant roles can be separated, and which familiarity overlap
-   makes the comparison exploratory?
-5. Which later whole-document adapter can preserve payload bytes, byte offsets,
-   and RST media type without changing the common input?
-6. Which exact cost and non-inferiority thresholds justify moving from the
-   sequential lane to the 24-order successor?
+1. Will the owner authorize a wholly new evaluation-freeze successor at the
+   current or a predeclared smaller scope, or stop the lane?
+2. If a successor is authorized, can it establish a fresh admissible contract
+   without reading, repairing, or reusing the terminal private state?
+3. Only after such a contract is accepted, will the owner separately authorize
+   a whole-document adapter that preserves payload bytes, byte offsets, and RST
+   media type without changing the common input?
 
-Resolving an open decision changes the run pack, not this project-wide plan,
-unless it changes corpus selection or progression policy.
+No current decision may infer the private rejection reason: the private audit
+report remains unread and unpublished. A successor changes the evaluation
+identity and requires an explicit plan and authorization update.

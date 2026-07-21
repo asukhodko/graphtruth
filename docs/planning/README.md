@@ -47,14 +47,22 @@ maintained artifact.
 
 Issue #24 is the single major WIP. Selection, source acquisition, and the
 byte-identical RST projection are complete and owner-accepted. The issue has
-used one of five repository-active dates. The technical dependency for
-`m6-freeze-evaluation` is satisfied, but the authorization gate is not: tasks,
-oracle, model processing of the accepted bytes, runtime adaptation, SUT,
-baseline, rehearsal, and an evaluated run remain closed.
+used one of five repository-active dates. The owner separately authorized one
+evaluation-freeze attempt and two external Codex calls. Its independent
+read-only audit returned `reject`; no release or accepted evaluation contract
+exists. The publication-safe
+[terminal record](../../experiments/corpora/python-annotations-semantics-v1/EVALUATION-FREEZE-TERMINAL.json)
+contains only publication-safe identities, hashes, counts, toolchain and
+processing metadata, authorization flags, and the rejected outcome. It contains
+no task or oracle material, source or projection bytes, or closed paths. The
+private audit report was not read or published.
 
-The next project decision is whether to authorize only the evaluation freeze,
-shrink the experiment, or stop it. A satisfied dependency never substitutes
-for an explicit authorization milestone in the plan.
+That evaluation identity is terminal and cannot be repaired, retried, resumed,
+or reused. `g6-evaluation-contract-accepted` remains planned and unauthorized;
+implementation, rehearsal, SUT, baseline execution, scoring, and an evaluated
+run remain closed. The next project decision is whether to authorize a wholly
+new evaluation-freeze successor at the current or a predeclared smaller scope,
+or stop the lane.
 
 ## Maintenance rules
 

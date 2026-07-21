@@ -26,6 +26,7 @@ const pythonCorpusRoot = "experiments/corpora/python-annotations-semantics-v1";
 const pythonSourceManifestPath = `${pythonCorpusRoot}/SOURCE-MANIFEST.json`;
 const pythonProjectionManifestPath = `${pythonCorpusRoot}/PROJECTION-MANIFEST.json`;
 const pythonProjectionAcceptancePath = `${pythonCorpusRoot}/PROJECTION-ACCEPTANCE.json`;
+const pythonEvaluationFreezeTerminalPath = `${pythonCorpusRoot}/EVALUATION-FREEZE-TERMINAL.json`;
 export const pythonProjectionEvidencePins = Object.freeze({
   projectionAcceptanceSha256: "4b15e68f9fca0d83f2cd87c3b9a072ae363eb0d9d4234cf2e3cb1437f9f1d435",
   projectionManifestSha256: "5aba6ebea40066ec1a12e6aa54913b5d39638d3b9a9e8807c1436a6b8e40cb6a",
@@ -40,6 +41,24 @@ export const pythonProjectionEvidencePins = Object.freeze({
   ownerRecord: "https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5031512080",
   projectionAcceptanceRecord:
     "https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5032376897",
+});
+export const pythonEvaluationFreezeEvidencePins = Object.freeze({
+  terminalFileSha256: "410a91aaca18d121a7bafbaf0e117b1f0a4cee04008fb5f717a5fa648705a7bd",
+  controllerWrapperSha256: "6e1df78fd222bf287ad03b3cef236271baf668d37bc51471bf2c87d28cba8b19",
+  controllerModuleSha256: "53f951ddb3ebe82c0d1f3dd6e7fb2dd116e168e20efd9628306912a74fd5a513",
+  controllerTestSha256: "4a5756ea4cf042dc75582eb8a98c60b45ca16c9abb38e6df06bd421aea45ad05",
+  terminalSha256: "993241bce6b183468339c5f5f21515cd13eb82c253975a0ba32ed3d261dd52f1",
+  coreManifestSha256: "45ccc83c2514a136d8f69db993a65414ea16ad5731f01aeb908158f89f9def2e",
+  authorPackageSha256: "2b302bd4bd0f4a099c5538df764fd2dac2475287efbc49e347c61894a5f24f70",
+  auditManifestSha256: "b70ee8635997c3709fe7a78a1a7510a60cedd324cd9f67b54b6d1f0d6af41f1a",
+  auditResultSha256: "872758e111dab28c3cf62245a2c8d222b5a7f17873552ac056a0b6f5a1a1c0cf",
+  executionIdentitySha256: "ce4139672bef37acaa5c55380ec19d798e797833e250871bbabdb5bfb864c216",
+  sandboxPreflightModuleSha256:
+    "28a821f843d71489974bfa65ed931de8a304eea3dff5ab570ea02f5a1d596025",
+  privatePackLockModuleSha256:
+    "603553be7d0ca32cb11ccce7eadfb711277dc6ae9c55d2d68f08abafd9e5750b",
+  ownerAuthorizationRecord:
+    "https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5033460564",
 });
 const publicG1AttestationKeys = [
   "eligibleEpisodeSelected",
@@ -111,6 +130,7 @@ const requiredRepositoryPaths = new Map([
   ["experiments/corpora/python-annotations-semantics-v1/CORPUS-SELECTION.md", "file"],
   ["experiments/corpora/python-annotations-semantics-v1/PROJECTION-ACCEPTANCE.json", "file"],
   ["experiments/corpora/python-annotations-semantics-v1/PROJECTION-CONTRACT.md", "file"],
+  ["experiments/corpora/python-annotations-semantics-v1/EVALUATION-FREEZE-TERMINAL.json", "file"],
   ["experiments/corpora/python-annotations-semantics-v1/PROJECTION-MANIFEST.json", "file"],
   ["experiments/corpora/python-annotations-semantics-v1/SOURCE-MANIFEST.json", "file"],
   ["experiments/README.md", "file"],
@@ -139,6 +159,9 @@ const requiredRepositoryPaths = new Map([
   ["tooling/codex-g1-review", "file"],
   ["tooling/codex-g1-review.mjs", "file"],
   ["tooling/codex-g1-review.test.mjs", "file"],
+  ["tooling/codex-evaluation-freeze", "file"],
+  ["tooling/codex-evaluation-freeze.mjs", "file"],
+  ["tooling/codex-evaluation-freeze.test.mjs", "file"],
   ["tooling/codex-sandbox-preflight", "file"],
   ["tooling/codex-sandbox-preflight.mjs", "file"],
   ["tooling/codex-sandbox-qualification.mjs", "file"],
@@ -1012,6 +1035,280 @@ export function validatePythonProjectionAcceptanceEvidence(evidence) {
   return validationErrors;
 }
 
+function containsUnsafeEvaluationFreezePublicContent(value, keyPath = []) {
+  if (Array.isArray(value)) {
+    return value.some((item, index) =>
+      containsUnsafeEvaluationFreezePublicContent(item, [...keyPath, String(index)]),
+    );
+  }
+  if (value !== null && typeof value === "object") {
+    const allowedSensitiveKeys = new Set([
+      "authorAndAuditorExcludedFromAnswersAndScoring",
+      "counts.oracleJudgments",
+      "counts.tasks",
+      "modelCalls.resumedSessions",
+      "toolchain.privatePackLockModuleSha256",
+    ]);
+    return Object.entries(value).some(([key, child]) => {
+      const childPath = [...keyPath, key];
+      const dottedPath = childPath.join(".");
+      const sensitiveKey =
+        /(answer|auditwork|content|counterevidence|evidence|excerpt|localpath|oracle|ownerroot|path|private|projectionbytes|prompt|question|rubric|session|sourcebytes|stateroot|task|thread|trace|transcript|workingneed|workroot)/i.test(
+          key,
+        );
+      return (
+        (sensitiveKey && !allowedSensitiveKeys.has(dottedPath)) ||
+        containsUnsafeEvaluationFreezePublicContent(child, childPath)
+      );
+    });
+  }
+  if (typeof value !== "string") return false;
+  const dottedPath = keyPath.join(".");
+  if (
+    value.startsWith("/") &&
+    !(dottedPath === "toolchain.rg.argv0" && value === "/opt/homebrew/bin/rg")
+  ) {
+    return true;
+  }
+  return (
+    value.includes("/Users/") ||
+    value.includes("/private/") ||
+    value.includes("/var/folders/") ||
+    value.includes("/.graphtruth") ||
+    value.includes(".graphtruth-recovery") ||
+    value.startsWith("file://")
+  );
+}
+
+export function validatePythonEvaluationFreezeTerminalEvidence(evidence) {
+  const requiredEvidenceKeys = [
+    "terminalBytes",
+    "controllerWrapperBytes",
+    "controllerModuleBytes",
+    "controllerTestBytes",
+  ];
+  if (
+    evidence === null ||
+    typeof evidence !== "object" ||
+    requiredEvidenceKeys.some((key) => !Buffer.isBuffer(evidence[key])) ||
+    !Number.isInteger(evidence.controllerWrapperMode)
+  ) {
+    return ["missing-evidence"];
+  }
+
+  const { terminalBytes, controllerWrapperBytes, controllerModuleBytes, controllerTestBytes } =
+    evidence;
+  let terminal;
+  try {
+    terminal = parseStrictJson(terminalBytes.toString("utf8"));
+  } catch {
+    return ["strict-json"];
+  }
+
+  const validationErrors = [];
+  const addError = (code) => {
+    if (!validationErrors.includes(code)) validationErrors.push(code);
+  };
+  if (sha256Bytes(terminalBytes) !== pythonEvaluationFreezeEvidencePins.terminalFileSha256) {
+    addError("terminal-file-digest");
+  }
+  if (
+    sha256Bytes(controllerWrapperBytes) !==
+      pythonEvaluationFreezeEvidencePins.controllerWrapperSha256 ||
+    sha256Bytes(controllerModuleBytes) !==
+      pythonEvaluationFreezeEvidencePins.controllerModuleSha256 ||
+    sha256Bytes(controllerTestBytes) !== pythonEvaluationFreezeEvidencePins.controllerTestSha256
+  ) {
+    addError("controller-digests");
+  }
+  if (evidence.controllerWrapperMode !== 0o755) {
+    addError("controller-mode");
+  }
+
+  const fixedStructureValid =
+    hasExactKeys(terminal, [
+      "auditDecision",
+      "auditManifestSha256",
+      "auditResultSha256",
+      "authorAndAuditorExcludedFromAnswersAndScoring",
+      "authorPackageSha256",
+      "completedAtUtc",
+      "coreManifestSha256",
+      "counts",
+      "documentKind",
+      "evaluatedRunAuthorized",
+      "evaluationIdentity",
+      "executionIdentitySha256",
+      "experimentId",
+      "externalProcessing",
+      "implementationAuthorized",
+      "independentHumanReview",
+      "independentReadOnlyAudit",
+      "localOnlyProcessing",
+      "model",
+      "modelCalls",
+      "nextGate",
+      "nextGateAuthorized",
+      "ownerAcceptance",
+      "ownerAuthorizationRecord",
+      "projectionId",
+      "projectionManifestSha256",
+      "projectionReceiptSha256",
+      "provider",
+      "providerSideDeletionVerified",
+      "rehearsalAuthorized",
+      "releaseSha256",
+      "status",
+      "terminalSha256",
+      "toolchain",
+    ]) &&
+    hasExactKeys(terminal?.counts, [
+      "arms",
+      "cells",
+      "coreArtifacts",
+      "horizons",
+      "oracleJudgments",
+      "severeErrorClasses",
+      "tasks",
+    ]) &&
+    hasExactKeys(terminal?.modelCalls, ["maximum", "resumedSessions", "retries", "used"]) &&
+    hasExactKeys(terminal?.toolchain, [
+      "codex",
+      "controllerModuleSha256",
+      "nodeVersion",
+      "privatePackLockModuleSha256",
+      "rg",
+      "sandboxPreflightModuleSha256",
+    ]) &&
+    hasExactKeys(terminal?.toolchain?.codex, [
+      "binarySha256",
+      "model",
+      "normalizedCommandShapeSha256",
+      "permissionProfileName",
+      "permissionProfileSha256",
+      "provider",
+      "version",
+    ]) &&
+    hasExactKeys(terminal?.toolchain?.rg, [
+      "argv0",
+      "sha256",
+      "verifiedWithoutCorpusAccess",
+      "version",
+    ]);
+  if (!fixedStructureValid) addError("fixed-structure");
+  if (containsUnsafeEvaluationFreezePublicContent(terminal)) {
+    addError("unsafe-public-content");
+  }
+
+  if (
+    terminal?.documentKind !== "graphtruth.evaluation-freeze-public-status/1" ||
+    terminal?.status !== "rejected" ||
+    terminal?.auditDecision !== "reject" ||
+    terminal?.releaseSha256 !== null ||
+    terminal?.terminalSha256 !== pythonEvaluationFreezeEvidencePins.terminalSha256
+  ) {
+    addError("terminal-state");
+  }
+  if (
+    terminal?.experimentId !== "python-annotations-semantics-v1" ||
+    terminal?.projectionId !== "python-annotations-semantics-v1-verbatim-rst-v1" ||
+    terminal?.projectionManifestSha256 !==
+      pythonProjectionEvidencePins.projectionManifestSha256 ||
+    terminal?.projectionReceiptSha256 !==
+      pythonProjectionEvidencePins.projectionAcceptanceSha256 ||
+    terminal?.evaluationIdentity !==
+      `python-annotations-semantics-v1-evaluation-sha256-${pythonEvaluationFreezeEvidencePins.coreManifestSha256}` ||
+    terminal?.coreManifestSha256 !== pythonEvaluationFreezeEvidencePins.coreManifestSha256 ||
+    terminal?.authorPackageSha256 !== pythonEvaluationFreezeEvidencePins.authorPackageSha256 ||
+    terminal?.auditManifestSha256 !== pythonEvaluationFreezeEvidencePins.auditManifestSha256 ||
+    terminal?.auditResultSha256 !== pythonEvaluationFreezeEvidencePins.auditResultSha256 ||
+    terminal?.executionIdentitySha256 !==
+      pythonEvaluationFreezeEvidencePins.executionIdentitySha256 ||
+    terminal?.completedAtUtc !== "2026-07-21T12:31:32.657Z"
+  ) {
+    addError("identity-bindings");
+  }
+
+  const counts = terminal?.counts;
+  if (
+    counts?.tasks !== 8 ||
+    counts?.cells !== 64 ||
+    counts?.horizons !== 4 ||
+    counts?.arms !== 2 ||
+    counts?.oracleJudgments !== 32 ||
+    counts?.coreArtifacts !== 7 ||
+    counts?.severeErrorClasses !== 10 ||
+    counts?.cells !== counts?.tasks * counts?.horizons * counts?.arms ||
+    counts?.oracleJudgments !== counts?.tasks * counts?.horizons
+  ) {
+    addError("counts");
+  }
+  const modelCalls = terminal?.modelCalls;
+  if (
+    modelCalls?.used !== 2 ||
+    modelCalls?.maximum !== 2 ||
+    modelCalls?.retries !== 0 ||
+    modelCalls?.resumedSessions !== 0
+  ) {
+    addError("model-calls");
+  }
+  if (
+    terminal?.externalProcessing !== true ||
+    terminal?.localOnlyProcessing !== false ||
+    terminal?.providerSideDeletionVerified !== false ||
+    terminal?.independentReadOnlyAudit !== true ||
+    terminal?.independentHumanReview !== false ||
+    terminal?.authorAndAuditorExcludedFromAnswersAndScoring !== true ||
+    terminal?.provider !== "openai" ||
+    terminal?.model !== "gpt-5.6-sol"
+  ) {
+    addError("processing-boundary");
+  }
+  if (
+    terminal?.ownerAcceptance !== false ||
+    terminal?.nextGate !== "g6-evaluation-contract-accepted" ||
+    terminal?.nextGateAuthorized !== false ||
+    terminal?.implementationAuthorized !== false ||
+    terminal?.rehearsalAuthorized !== false ||
+    terminal?.evaluatedRunAuthorized !== false ||
+    terminal?.ownerAuthorizationRecord !==
+      pythonEvaluationFreezeEvidencePins.ownerAuthorizationRecord
+  ) {
+    addError("authorization-boundary");
+  }
+
+  const toolchain = terminal?.toolchain;
+  const codex = toolchain?.codex;
+  const rg = toolchain?.rg;
+  if (
+    toolchain?.controllerModuleSha256 !==
+      pythonEvaluationFreezeEvidencePins.controllerModuleSha256 ||
+    toolchain?.nodeVersion !== "v24.4.1" ||
+    toolchain?.privatePackLockModuleSha256 !==
+      pythonEvaluationFreezeEvidencePins.privatePackLockModuleSha256 ||
+    toolchain?.sandboxPreflightModuleSha256 !==
+      pythonEvaluationFreezeEvidencePins.sandboxPreflightModuleSha256 ||
+    codex?.binarySha256 !==
+      "3302acbda5f53de1a71ebdb0c0f2aae0d47f9324aa9fb6b4e78a47014fd51c7d" ||
+    codex?.model !== "gpt-5.6-sol" ||
+    codex?.normalizedCommandShapeSha256 !==
+      "33f658eb4af9b4ece4e141d37b2a9e7877ff9614d265e26f7acdd9a589bc35a7" ||
+    codex?.permissionProfileName !== "graphtruth-zero-tools" ||
+    codex?.permissionProfileSha256 !==
+      "067bec78216284a13bb6dd9f4bd4b6a70a0a2f4d9a792f0d38a42daa8901ccf1" ||
+    codex?.provider !== "openai" ||
+    codex?.version !== "0.144.4" ||
+    rg?.argv0 !== "/opt/homebrew/bin/rg" ||
+    rg?.sha256 !== "2fb61b6e5b3e2d89b115fe6c18fd8805670fdf4bdfde85954d40855a76830e5f" ||
+    rg?.verifiedWithoutCorpusAccess !== true ||
+    rg?.version !== "15.1.0"
+  ) {
+    addError("toolchain");
+  }
+
+  return validationErrors;
+}
+
 async function checkPythonProjectionManifest() {
   const absolute = (relative) => path.join(repositoryRoot, relative);
   let evidence;
@@ -1076,6 +1373,58 @@ async function checkPythonProjectionAcceptance() {
   };
   for (const validationError of validatePythonProjectionAcceptanceEvidence(evidence)) {
     report(`${pythonProjectionAcceptancePath}: ${messages[validationError]}`);
+  }
+}
+
+async function checkPythonEvaluationFreezeTerminal() {
+  const absolute = (relative) => path.join(repositoryRoot, relative);
+  let evidence;
+  try {
+    const [
+      terminalBytes,
+      controllerWrapperBytes,
+      controllerModuleBytes,
+      controllerTestBytes,
+      controllerWrapperStat,
+    ] =
+      await Promise.all([
+        readFile(absolute(pythonEvaluationFreezeTerminalPath)),
+        readFile(absolute("tooling/codex-evaluation-freeze")),
+        readFile(absolute("tooling/codex-evaluation-freeze.mjs")),
+        readFile(absolute("tooling/codex-evaluation-freeze.test.mjs")),
+        lstat(absolute("tooling/codex-evaluation-freeze")),
+      ]);
+    evidence = {
+      terminalBytes,
+      controllerWrapperBytes,
+      controllerModuleBytes,
+      controllerTestBytes,
+      controllerWrapperMode: controllerWrapperStat.mode & 0o777,
+    };
+  } catch (error) {
+    const code = typeof error?.code === "string" ? error.code : "unknown error";
+    report(`${pythonEvaluationFreezeTerminalPath}: terminal evidence cannot be read (${code})`);
+    return;
+  }
+
+  const messages = {
+    "missing-evidence": "evaluation-freeze terminal evidence is incomplete",
+    "strict-json": "evaluation-freeze terminal status must be strict JSON",
+    "terminal-file-digest": "public terminal bytes changed from the recorded outcome",
+    "controller-digests": "evaluation-freeze controller or synthetic test bytes changed",
+    "controller-mode": "evaluation-freeze wrapper must retain mode 0755",
+    "fixed-structure": "public terminal keys differ from the closed safe structure",
+    "unsafe-public-content": "public terminal exposes a task, oracle, answer, or private path field",
+    "terminal-state": "terminal rejection, audit decision, release, or terminal anchor changed",
+    "identity-bindings": "evaluation, projection, audit, or execution identity changed",
+    counts: "frozen task, cell, horizon, arm, oracle, artifact, or severe-error count changed",
+    "model-calls": "the two-call, zero-retry, zero-resume budget changed",
+    "processing-boundary": "external-processing, review, provider, or exclusion claims changed",
+    "authorization-boundary": "owner acceptance or a later-stage authorization was broadened",
+    toolchain: "recorded controller, Codex, rg, Node, or supporting-tool identity changed",
+  };
+  for (const validationError of validatePythonEvaluationFreezeTerminalEvidence(evidence)) {
+    report(`${pythonEvaluationFreezeTerminalPath}: ${messages[validationError]}`);
   }
 }
 
@@ -1256,6 +1605,7 @@ async function main() {
   await checkRequiredPaths();
   await checkPythonProjectionManifest();
   await checkPythonProjectionAcceptance();
+  await checkPythonEvaluationFreezeTerminal();
 
   const publicRelativePaths = new Set(files.map((filePath) => relativePath(filePath)));
   for (const filePath of files) {

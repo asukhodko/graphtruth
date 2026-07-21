@@ -71,21 +71,29 @@ Its near path is:
    which record two verified clean builds and no declared byte loss; the owner
    accepted its exact SHA-256 and actual output boundary in the separate
    [acceptance receipt](../experiments/corpora/python-annotations-semantics-v1/PROJECTION-ACCEPTANCE.json);
-4. after separate authorization, freeze at least eight tasks, evidence
-   requirements, PEP 484 dark-zone controls, oracle, baseline, budgets, severe
-   errors, and decision threshold;
-5. after the owner accepts that exact evaluation freeze and separately
-   authorizes implementation, adapt the deterministic whole-document runner;
-6. rehearse that exact runner against the frozen boundaries and every declared
-   budget-failure case;
-7. only after the owner accepts the rehearsal and separately authorizes the
-   evaluated run, execute one sequential future-reveal lane and its frozen
-   files-plus-search baseline;
+4. retain the separately authorized evaluation-freeze attempt as terminally
+   rejected: its independent read-only audit rejected the 8-task, 64-cell,
+   32-judgment private core with 10 severe-error classes, so no release or
+   accepted evaluation contract exists; the publication-safe
+   [terminal record](../experiments/corpora/python-annotations-semantics-v1/EVALUATION-FREEZE-TERMINAL.json)
+   has SHA-256
+   `410a91aaca18d121a7bafbaf0e117b1f0a4cee04008fb5f717a5fa648705a7bd`;
+5. choose a wholly new, explicitly authorized evaluation-freeze successor —
+   either at the current scope or with a predeclared smaller scope — or stop
+   the project-level lane;
+6. only after a successor freeze passes, the owner accepts that exact freeze,
+   and the owner separately authorizes implementation, adapt the deterministic
+   whole-document runner;
+7. rehearse that exact runner, then obtain separate owner authorization before
+   executing the sequential GraphTruth and files-plus-search comparison;
 8. score the complete denominator and record `sequential keep`, `sequential
    shrink`, or `sequential stop`.
 
-The owner closed only the projection gate. Step 4 and every later step remain
-planned but unauthorized.
+The evaluation identity recorded in step 4 is terminal and cannot be repaired,
+retried, resumed, or reused. Both authorized model calls were consumed without
+retry or resume; the private audit report was not read or published. The owner
+has not accepted an evaluation contract or authorized any next gate,
+implementation, rehearsal, SUT, baseline execution, scoring, or evaluated run.
 
 The selection record, projection contract, and projection manifest remain
 byte-for-byte records of their freeze points. Their earlier Markdown option and
