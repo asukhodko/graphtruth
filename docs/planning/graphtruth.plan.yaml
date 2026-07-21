@@ -692,7 +692,11 @@ nodes:
       cost. It cannot establish private dogfood utility or current Python
       behavior beyond the retained corpus. The five-date budget starts on
       2026-07-21; owner decision is required before day five and the independent
-      hard stop is 2026-08-04.
+      hard stop is 2026-08-04. One separately authorized evaluation-freeze
+      attempt ended in a terminal independent-audit rejection. The phase is in a
+      safe hold pending an owner choice among a new explicitly authorized
+      successor at the current or a predeclared smaller scope, or project-level
+      stop.
 
   m6-freeze-selection-rights:
     title: "Freeze Python corpus selection, chronology, rights, and boundary"
@@ -748,26 +752,35 @@ nodes:
     milestone: true
     parent: m6-python-sequential
     deps: [m6-freeze-projection]
-    status: planned
+    status: done
     notes: |
-      Complete only when the owner explicitly authorizes m6-freeze-evaluation
-      against the accepted projection identity. This gate may admit bounded task,
-      oracle, baseline-specification, rubric, budget, and decision-contract work
-      under the declared role and processing boundaries. It does not authorize
-      runtime adaptation, SUT or baseline execution, rehearsal, scoring, or an
-      evaluated run.
+      The owner explicitly authorized one m6-freeze-evaluation attempt against
+      the accepted projection identity, including two external Codex calls. This
+      consumed authorization admitted only bounded task, oracle,
+      baseline-specification, rubric, budget, and decision-contract work. It did
+      not authorize runtime adaptation, SUT or baseline execution, rehearsal,
+      scoring, or an evaluated run.
 
   m6-freeze-evaluation:
     title: "Freeze tasks, oracle, baseline, budgets, and decision gate"
     kind: task
     parent: m6-python-sequential
     deps: [g6-evaluation-freeze-authorized]
-    status: planned
+    status: stopped
     notes: |
-      Register at least eight tasks, evidence requirements, dark-zone controls,
-      scoring, severe errors, complete denominator, first-exposure roles,
-      same-verbatim-RST-plus-search baseline, capture tax, resource budgets,
-      and exact sequential keep/shrink/stop thresholds before output is seen.
+      The attempt created an 8-task, 64-cell, 32-judgment private core with 10
+      severe-error classes, then its independent read-only audit returned
+      `reject`. No RELEASE exists. The publication-safe terminal record is
+      `experiments/corpora/python-annotations-semantics-v1/EVALUATION-FREEZE-TERMINAL.json`
+      with SHA-256
+      `410a91aaca18d121a7bafbaf0e117b1f0a4cee04008fb5f717a5fa648705a7bd`.
+      It binds core manifest SHA-256
+      `45ccc83c2514a136d8f69db993a65414ea16ad5731f01aeb908158f89f9def2e`
+      and terminal SHA-256
+      `993241bce6b183468339c5f5f21515cd13eb82c253975a0ba32ed3d261dd52f1`.
+      Both allowed calls were consumed with no retry or resume. This evaluation
+      identity is terminal and cannot be repaired, retried, resumed, or reused;
+      the private audit report was not read or published.
 
   g6-evaluation-contract-accepted:
     title: "Gate: evaluation freeze accepted and implementation authorized"
@@ -777,9 +790,11 @@ nodes:
     deps: [m6-freeze-evaluation]
     status: planned
     notes: |
-      The owner must accept the exact frozen tasks, oracle, baseline, roles,
-      budgets, and decision thresholds and separately authorize implementation.
-      A completed freeze alone does not admit runtime work.
+      This gate remains open and unauthorized. The stopped evaluation identity
+      cannot satisfy it. A wholly new successor requires its own explicit
+      authorization and identity; only a successful successor freeze followed by
+      exact owner acceptance and separate implementation authorization could
+      close this gate.
 
   m6-implement-lane:
     title: "Implement only the deterministic S0-S1 lane required by the freeze"
@@ -1021,8 +1036,8 @@ execution:
       updated_at: "2026-07-21T08:03:17+03:00"
     m6-python-sequential:
       actual_start: "2026-07-21"
-      updated_at: "2026-07-21T13:46:03+03:00"
-      note: "Selection, acquisition, and projection are closed on repo-active date 1/5; no next gate is authorized."
+      updated_at: "2026-07-21T15:31:32+03:00"
+      note: "Selection, acquisition, and projection are closed on repo-active date 1/5. The authorized evaluation-freeze attempt ended in terminal audit rejection; no next gate is authorized."
     m6-freeze-selection-rights:
       progress: 1.0
       actual_start: "2026-07-21"
@@ -1041,6 +1056,17 @@ execution:
       actual_finish: "2026-07-21"
       updated_at: "2026-07-21T12:33:32+03:00"
       note: "Owner accepted exact projection manifest SHA-256 5aba6ebea40066ec1a12e6aa54913b5d39638d3b9a9e8807c1436a6b8e40cb6a and the actual owner-only output boundary."
+    g6-evaluation-freeze-authorized:
+      progress: 1.0
+      actual_start: "2026-07-21"
+      actual_finish: "2026-07-21"
+      updated_at: "2026-07-21T15:31:32+03:00"
+      note: "Owner authorized exactly one evaluation-freeze attempt and two external Codex calls; no runtime or evaluated work was authorized."
+    m6-freeze-evaluation:
+      progress: 0.0
+      actual_start: "2026-07-21"
+      updated_at: "2026-07-21T15:31:32+03:00"
+      note: "Terminal audit rejection; no release, owner acceptance, retry, resume, repair, reuse, implementation, rehearsal, SUT, baseline execution, scoring, or run."
 
 views:
   current-work:
@@ -1052,7 +1078,7 @@ views:
     title: "Near public Python decision path"
     where:
       parent: m6-python-sequential
-      status: [done, current, ready, planned, conditional]
+      status: [done, stopped, current, ready, planned, conditional]
     order_by: status
   decision-gates:
     title: "Decision gates"
@@ -1067,8 +1093,8 @@ views:
 x:
   exec:
     program:
-      nearest_goal: "Keep the completed projection freeze stable until the owner decides whether to authorize evaluation freeze."
-      success_by_next_sync: "Record an explicit owner decision on evaluation freeze; if authorized, close only that freeze and keep implementation, rehearsal, and the evaluated run separately gated."
+      nearest_goal: "Keep the terminal evaluation identity isolated while the owner chooses a new explicitly authorized successor at the current or a predeclared smaller scope, or project-level stop."
+      success_by_next_sync: "Record that owner choice without repairing, retrying, resuming, or reusing the rejected evaluation identity; keep every later gate unauthorized."
     defaults:
       status_progress:
         done: 1.0
@@ -1102,8 +1128,8 @@ x:
         kind: main
         mgmt:
           health: yellow
-          sync_note: "Issue #24 is the single major WIP. Selection, acquisition, and the byte-identical RST projection are closed; no evaluated output exists and no next gate is authorized."
-          next_sync_goal: "Hold safely until an explicit owner decision authorizes evaluation freeze, shrinkage, or stop."
+          sync_note: "Issue #24 is the single major WIP. Selection, acquisition, and projection are closed; the one authorized evaluation-freeze attempt is terminally rejected, no evaluated output exists, and no next gate is authorized."
+          next_sync_goal: "Hold safely until the owner chooses a wholly new explicitly authorized successor at the current or a predeclared smaller scope, or project-level stop."
       python-order-successor:
         title: "Python 24-order successor"
         scope_nodes: [m7-python-order-successor]

@@ -38,6 +38,7 @@ fi
 shasum -a 256 --check tooling/vendor/opskarta/UPSTREAM.sha256
 ./tooling/opskarta --strict docs/planning/graphtruth.plan.yaml
 node --test \
+  tooling/codex-evaluation-freeze.test.mjs \
   tooling/codex-g1-review.test.mjs \
   tooling/codex-sandbox-preflight.test.mjs \
   tooling/check.test.mjs \

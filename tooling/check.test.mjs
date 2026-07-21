@@ -1,13 +1,15 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { readFile } from "node:fs/promises";
+import { lstat, readFile } from "node:fs/promises";
 import test from "node:test";
 
 import {
   classifyPublicG1ReceiptPath,
   codexSandboxPreflightEvidencePins,
+  pythonEvaluationFreezeEvidencePins,
   pythonProjectionEvidencePins,
   validateCodexSandboxPreflightReportContent,
+  validatePythonEvaluationFreezeTerminalEvidence,
   validatePythonProjectionAcceptanceEvidence,
   validatePythonProjectionManifestEvidence,
   validatePublicG1ReceiptContent,
@@ -139,6 +141,25 @@ async function pythonProjectionEvidence() {
   );
 }
 
+async function pythonEvaluationFreezeEvidence() {
+  const entries = [
+    [
+      "terminalBytes",
+      "../experiments/corpora/python-annotations-semantics-v1/EVALUATION-FREEZE-TERMINAL.json",
+    ],
+    ["controllerWrapperBytes", "./codex-evaluation-freeze"],
+    ["controllerModuleBytes", "./codex-evaluation-freeze.mjs"],
+    ["controllerTestBytes", "./codex-evaluation-freeze.test.mjs"],
+  ];
+  const evidence = Object.fromEntries(
+    await Promise.all(
+      entries.map(async ([key, relativePath]) => [key, await readFile(new URL(relativePath, import.meta.url))]),
+    ),
+  );
+  const wrapperStat = await lstat(new URL("./codex-evaluation-freeze", import.meta.url));
+  return { ...evidence, controllerWrapperMode: wrapperStat.mode & 0o777 };
+}
+
 function mutateProjection(evidence, mutate) {
   const projection = JSON.parse(evidence.projectionBytes.toString("utf8"));
   mutate(projection);
@@ -155,6 +176,19 @@ function mutateProjectionAcceptance(evidence, mutate) {
     ...evidence,
     receiptBytes: Buffer.from(`${JSON.stringify(receipt, null, 2)}\n`),
   };
+}
+
+function mutateEvaluationFreezeTerminal(evidence, mutate) {
+  const terminal = JSON.parse(evidence.terminalBytes.toString("utf8"));
+  mutate(terminal);
+  return {
+    ...evidence,
+    terminalBytes: Buffer.from(`${JSON.stringify(terminal, null, 2)}\n`),
+  };
+}
+
+function hasEvaluationFreezeValidationError(evidence, expected) {
+  assert.ok(validatePythonEvaluationFreezeTerminalEvidence(evidence).includes(expected));
 }
 
 function hasValidationError(evidence, expected) {
@@ -312,6 +346,223 @@ test("joint projection and acceptance rewrites do not move the accepted anchor",
   const errors = validatePythonProjectionAcceptanceEvidence(rewritten);
   assert.ok(errors.includes("receipt-digest"));
   assert.ok(errors.includes("manifest-binding"));
+});
+
+test("the exact evaluation-freeze terminal and controller bytes are accepted", async () => {
+  assert.deepEqual(
+    validatePythonEvaluationFreezeTerminalEvidence(await pythonEvaluationFreezeEvidence()),
+    [],
+  );
+  assert.equal(
+    pythonEvaluationFreezeEvidencePins.terminalFileSha256,
+    "410a91aaca18d121a7bafbaf0e117b1f0a4cee04008fb5f717a5fa648705a7bd",
+  );
+  assert.equal(
+    pythonEvaluationFreezeEvidencePins.controllerModuleSha256,
+    "53f951ddb3ebe82c0d1f3dd6e7fb2dd116e168e20efd9628306912a74fd5a513",
+  );
+});
+
+test("evaluation-freeze terminal evidence fails closed when any required file is absent", async () => {
+  const evidence = await pythonEvaluationFreezeEvidence();
+  for (const key of [
+    "terminalBytes",
+    "controllerWrapperBytes",
+    "controllerModuleBytes",
+    "controllerTestBytes",
+    "controllerWrapperMode",
+  ]) {
+    const incomplete = { ...evidence };
+    delete incomplete[key];
+    assert.deepEqual(validatePythonEvaluationFreezeTerminalEvidence(incomplete), [
+      "missing-evidence",
+    ]);
+  }
+});
+
+test("evaluation-freeze terminal evidence requires strict JSON", async () => {
+  const evidence = await pythonEvaluationFreezeEvidence();
+  evidence.terminalBytes = Buffer.from(
+    evidence.terminalBytes
+      .toString("utf8")
+      .replace('"status": "rejected",', '"status": "rejected",\n  "status": "accepted",'),
+  );
+  assert.deepEqual(validatePythonEvaluationFreezeTerminalEvidence(evidence), ["strict-json"]);
+});
+
+test("evaluation-freeze public status rejects extra keys and private disclosures", async () => {
+  const evidence = await pythonEvaluationFreezeEvidence();
+  for (const mutate of [
+    (terminal) => {
+      terminal.privatePath = "/Users/example/private/oracle.json";
+    },
+    (terminal) => {
+      terminal.tasks = ["task text"];
+    },
+    (terminal) => {
+      terminal.toolchain.codex.prompt = "hidden prompt";
+    },
+  ]) {
+    const changed = mutateEvaluationFreezeTerminal(evidence, mutate);
+    const errors = validatePythonEvaluationFreezeTerminalEvidence(changed);
+    assert.ok(errors.includes("fixed-structure"));
+    assert.ok(errors.includes("unsafe-public-content"));
+  }
+
+  const privateAuthorizationPath = mutateEvaluationFreezeTerminal(evidence, (terminal) => {
+    terminal.ownerAuthorizationRecord = "/private/tmp/owner-record.json";
+  });
+  assert.ok(
+    validatePythonEvaluationFreezeTerminalEvidence(privateAuthorizationPath).includes(
+      "unsafe-public-content",
+    ),
+  );
+});
+
+test("evaluation-freeze public status preserves terminal rejection and zero authorization", async () => {
+  const evidence = await pythonEvaluationFreezeEvidence();
+  for (const mutate of [
+    (terminal) => {
+      terminal.status = "accepted";
+    },
+    (terminal) => {
+      terminal.auditDecision = "accept";
+    },
+    (terminal) => {
+      terminal.releaseSha256 = "0".repeat(64);
+    },
+    (terminal) => {
+      terminal.terminalSha256 = "0".repeat(64);
+    },
+  ]) {
+    hasEvaluationFreezeValidationError(
+      mutateEvaluationFreezeTerminal(evidence, mutate),
+      "terminal-state",
+    );
+  }
+  for (const key of [
+    "ownerAcceptance",
+    "nextGateAuthorized",
+    "implementationAuthorized",
+    "rehearsalAuthorized",
+    "evaluatedRunAuthorized",
+  ]) {
+    hasEvaluationFreezeValidationError(
+      mutateEvaluationFreezeTerminal(evidence, (terminal) => {
+        terminal[key] = true;
+      }),
+      "authorization-boundary",
+    );
+  }
+});
+
+test("evaluation-freeze public status preserves denominator and model-call budgets", async () => {
+  const evidence = await pythonEvaluationFreezeEvidence();
+  hasEvaluationFreezeValidationError(
+    mutateEvaluationFreezeTerminal(evidence, (terminal) => {
+      terminal.counts.cells = 63;
+    }),
+    "counts",
+  );
+  for (const [key, value] of [
+    ["retries", 1],
+    ["resumedSessions", 1],
+    ["used", 1],
+    ["maximum", 3],
+  ]) {
+    hasEvaluationFreezeValidationError(
+      mutateEvaluationFreezeTerminal(evidence, (terminal) => {
+        terminal.modelCalls[key] = value;
+      }),
+      "model-calls",
+    );
+  }
+});
+
+test("evaluation-freeze public status preserves external-processing claims", async () => {
+  const evidence = await pythonEvaluationFreezeEvidence();
+  for (const [key, value] of [
+    ["externalProcessing", false],
+    ["localOnlyProcessing", true],
+    ["providerSideDeletionVerified", true],
+    ["independentReadOnlyAudit", false],
+    ["independentHumanReview", true],
+    ["authorAndAuditorExcludedFromAnswersAndScoring", false],
+  ]) {
+    hasEvaluationFreezeValidationError(
+      mutateEvaluationFreezeTerminal(evidence, (terminal) => {
+        terminal[key] = value;
+      }),
+      "processing-boundary",
+    );
+  }
+});
+
+test("evaluation-freeze public status preserves every identity binding", async () => {
+  const evidence = await pythonEvaluationFreezeEvidence();
+  for (const key of [
+    "projectionManifestSha256",
+    "coreManifestSha256",
+    "auditResultSha256",
+    "executionIdentitySha256",
+  ]) {
+    hasEvaluationFreezeValidationError(
+      mutateEvaluationFreezeTerminal(evidence, (terminal) => {
+        terminal[key] = "0".repeat(64);
+      }),
+      "identity-bindings",
+    );
+  }
+  hasEvaluationFreezeValidationError(
+    mutateEvaluationFreezeTerminal(evidence, (terminal) => {
+      terminal.completedAtUtc = "2026-07-21T12:31:32.658Z";
+    }),
+    "identity-bindings",
+  );
+});
+
+test("evaluation-freeze tooling pins resist file and joint terminal rewrites", async () => {
+  const evidence = await pythonEvaluationFreezeEvidence();
+  for (const key of ["controllerWrapperBytes", "controllerModuleBytes", "controllerTestBytes"]) {
+    hasEvaluationFreezeValidationError(
+      { ...evidence, [key]: Buffer.concat([evidence[key], Buffer.from("\n")]) },
+      "controller-digests",
+    );
+  }
+  hasEvaluationFreezeValidationError(
+    { ...evidence, controllerWrapperMode: 0o644 },
+    "controller-mode",
+  );
+
+  const changedModuleBytes = Buffer.concat([evidence.controllerModuleBytes, Buffer.from("\n")]);
+  const jointlyRewritten = mutateEvaluationFreezeTerminal(
+    { ...evidence, controllerModuleBytes: changedModuleBytes },
+    (terminal) => {
+      terminal.toolchain.controllerModuleSha256 = createHash("sha256")
+        .update(changedModuleBytes)
+        .digest("hex");
+    },
+  );
+  const jointErrors = validatePythonEvaluationFreezeTerminalEvidence(jointlyRewritten);
+  assert.ok(jointErrors.includes("terminal-file-digest"));
+  assert.ok(jointErrors.includes("controller-digests"));
+  assert.ok(jointErrors.includes("toolchain"));
+
+  hasEvaluationFreezeValidationError(
+    mutateEvaluationFreezeTerminal(evidence, (terminal) => {
+      terminal.toolchain.rg.version = "15.1.1";
+    }),
+    "toolchain",
+  );
+
+  const terminal = JSON.parse(evidence.terminalBytes.toString("utf8"));
+  const reformatted = {
+    ...evidence,
+    terminalBytes: Buffer.from(JSON.stringify(terminal)),
+  };
+  assert.deepEqual(validatePythonEvaluationFreezeTerminalEvidence(reformatted), [
+    "terminal-file-digest",
+  ]);
 });
 
 test("a binary canonical G1 receipt is classified for rejection", () => {

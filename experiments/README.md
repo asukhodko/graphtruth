@@ -43,9 +43,20 @@ inside the byte-frozen contract or manifest is historical evidence, not a
 current authorization. The selection record's earlier Markdown option is also
 historical; the accepted common input for this run is byte-identical RST in both
 GraphTruth and the files-plus-search baseline. The current runtime is
-incompatible by design. `m6-freeze-evaluation`, tasks, oracle, model processing
-of acquired or projected bytes, runtime adaptation, SUT, baseline, and an
-experimental run remain unauthorized.
+incompatible by design.
+
+The owner later authorized exactly one evaluation-freeze attempt and two
+external Codex calls over the accepted projection. Its independent read-only
+audit returned `reject`; no RELEASE or accepted evaluation contract exists. The
+publication-safe [terminal
+record](corpora/python-annotations-semantics-v1/EVALUATION-FREEZE-TERMINAL.json)
+contains only publication-safe identities, hashes, counts, toolchain and
+processing metadata, authorization flags, and the rejected outcome. It contains
+no task or oracle material, source or projection bytes, or closed paths. The
+private audit report was not read or published. This evaluation identity cannot
+be repaired, retried, resumed, or reused. Owner acceptance and next-gate
+authorization remain false; runtime adaptation, implementation, rehearsal, SUT,
+baseline execution, scoring, and an experimental run remain unauthorized.
 
 The public track supports reproducible algorithm and replay diagnostics. It
 does not replace the private dogfood track that tests value in a real personal
