@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "manifestIdentity": "python-annotations-semantics-v1-source-manifest-v1",
+  "selectionIdentity": "python-annotations-semantics-v1",
+  "selectionAnchorCommit": "66d8a9bb44d773fb5ff107686b7b6fa4cf62dbaf",
+  "candidateInventorySha256": "490fd484fb24b43a72df227c6feea19c8c52447873f909c43d85d6265a863f52",
+  "upstream": {
+    "repository": "https://github.com/python/peps",
+    "commit": "339af2b4776a66eab0f88a2800adffdb0c0650e1"
+  },
+  "acquisition": {
+    "startedAtUtc": "2026-07-21T07:38:02Z",
+    "completedAtUtc": "2026-07-21T07:38:49Z",
+    "method": "HTTPS GET from raw.githubusercontent.com at the pinned commit",
+    "storageBoundary": {
+      "class": "owner-only local experiment root",
+      "outsideRepositoryCheckout": true,
+      "outsideGitWorktrees": true,
+      "outsideKnownSynchronizationRoots": true,
+      "localPathPublished": false,
+      "directoryMode": "0700",
+      "fileMode": "0600",
+      "ownerControlled": true,
+      "deliberateBackupCreated": false
+    },
+    "acquiredBytesSentToExternalProcessor": false
+  },
+  "verification": {
+    "actor": "GraphTruth Codex session under owner-authorized m6-acquire-originals",
+    "completedAtUtc": "2026-07-21T07:46:39Z",
+    "gitBlobVerificationMethod": "SHA-1 of b\"blob \" + decimal byte length + b\"\\0\" + exact acquired bytes",
+    "candidateInventoryMatched": true,
+    "localStorageBoundaryVerified": true,
+    "selectionChanged": false,
+    "sutOutputInspected": false,
+    "baselineOutputInspected": false,
+    "projectionCreated": false,
+    "ownerAcceptanceRequiredForNextGate": false
+  },
+  "ownerAcceptance": {
+    "actor": "asukhodko",
+    "acceptedAtUtc": "2026-07-21T07:57:04Z",
+    "acceptedPreAcceptanceManifestSha256": "ad63ca3cad51ec67b6e5d8fd2c62dcdfc3ed6a291f47a6809a819eadfa29ff99",
+    "acceptedPreAcceptanceManifestGitCommit": "84d650ca70e83db3ca4281b9c564c2697f6458d3",
+    "record": "https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5031512080",
+    "actualOwnerOnlyStorageBoundaryAccepted": true,
+    "closedGate": "m6-acquire-originals",
+    "authorizedNextGate": "m6-freeze-projection",
+    "authorizationScope": "projection freeze only",
+    "notAuthorized": [
+      "task construction",
+      "oracle construction",
+      "model processing of acquired bytes",
+      "SUT work",
+      "baseline work",
+      "experimental run"
+    ]
+  },
+  "limits": {
+    "maximumBytesPerItem": 524288,
+    "maximumTotalBytes": 1048576,
+    "truncateOrSummarize": false
+  },
+  "totalByteSize": 157252,
+  "items": [
+    {
+      "id": "pep-3107",
+      "revealOrder": 1,
+      "upstreamPath": "peps/pep-3107.rst",
+      "retrievalUrl": "https://raw.githubusercontent.com/python/peps/339af2b4776a66eab0f88a2800adffdb0c0650e1/peps/pep-3107.rst",
+      "acquisitionUtc": {
+        "notBefore": "2026-07-21T07:38:02Z",
+        "notAfter": "2026-07-21T07:38:49Z"
+      },
+      "gitBlobOid": "403f8296fc4a709e6738d2fd7eed3beb0cee2305",
+      "gitBlobOidAlgorithm": "sha1",
+      "gitBlobOidVerifiedFromAcquiredBytes": true,
+      "sha256": "187386e223cae0a13df0f67a946428f95e6f8c9a75c01ddb3f607750b8d324f5",
+      "sha256ComputedFromAcquiredBytes": true,
+      "byteSize": 10781,
+      "mediaType": "text/x-rst; charset=utf-8",
+      "strictUtf8": true,
+      "noticeClass": "public-domain",
+      "noticeVerifiedFromAcquiredBytes": true
+    },
+    {
+      "id": "pep-0563",
+      "revealOrder": 2,
+      "upstreamPath": "peps/pep-0563.rst",
+      "retrievalUrl": "https://raw.githubusercontent.com/python/peps/339af2b4776a66eab0f88a2800adffdb0c0650e1/peps/pep-0563.rst",
+      "acquisitionUtc": {
+        "notBefore": "2026-07-21T07:38:02Z",
+        "notAfter": "2026-07-21T07:38:49Z"
+      },
+      "gitBlobOid": "0bdb7f2a9caa38e10ac37aeb0c795fbeea7d86a7",
+      "gitBlobOidAlgorithm": "sha1",
+      "gitBlobOidVerifiedFromAcquiredBytes": true,
+      "sha256": "5512e8a43ace196dcabba98ec6041459ba6843169f951e911d04e088ed7ac559",
+      "sha256ComputedFromAcquiredBytes": true,
+      "byteSize": 27736,
+      "mediaType": "text/x-rst; charset=utf-8",
+      "strictUtf8": true,
+      "noticeClass": "public-domain",
+      "noticeVerifiedFromAcquiredBytes": true
+    },
+    {
+      "id": "pep-0649",
+      "revealOrder": 3,
+      "upstreamPath": "peps/pep-0649.rst",
+      "retrievalUrl": "https://raw.githubusercontent.com/python/peps/339af2b4776a66eab0f88a2800adffdb0c0650e1/peps/pep-0649.rst",
+      "acquisitionUtc": {
+        "notBefore": "2026-07-21T07:38:02Z",
+        "notAfter": "2026-07-21T07:38:49Z"
+      },
+      "gitBlobOid": "d4c8e792468e2b50fb207da481d4f82bbff80c6c",
+      "gitBlobOidAlgorithm": "sha1",
+      "gitBlobOidVerifiedFromAcquiredBytes": true,
+      "sha256": "58948a3b8fb4b8a5cb55a12b2bf4719b7a3e89408e39daeeb48f4d3dc5be5e13",
+      "sha256ComputedFromAcquiredBytes": true,
+      "byteSize": 63824,
+      "mediaType": "text/x-rst; charset=utf-8",
+      "strictUtf8": true,
+      "noticeClass": "public-domain-or-cc0-1.0-whichever-is-more-permissive",
+      "noticeVerifiedFromAcquiredBytes": true
+    },
+    {
+      "id": "pep-0749",
+      "revealOrder": 4,
+      "upstreamPath": "peps/pep-0749.rst",
+      "retrievalUrl": "https://raw.githubusercontent.com/python/peps/339af2b4776a66eab0f88a2800adffdb0c0650e1/peps/pep-0749.rst",
+      "acquisitionUtc": {
+        "notBefore": "2026-07-21T07:38:02Z",
+        "notAfter": "2026-07-21T07:38:49Z"
+      },
+      "gitBlobOid": "78b07ba9032d29e708fac3d0814c6e7823e46918",
+      "gitBlobOidAlgorithm": "sha1",
+      "gitBlobOidVerifiedFromAcquiredBytes": true,
+      "sha256": "242e31343465e77e3f55cb1559ca24314acce5ae4533a54d06b88453144b85c5",
+      "sha256ComputedFromAcquiredBytes": true,
+      "byteSize": 54911,
+      "mediaType": "text/x-rst; charset=utf-8",
+      "strictUtf8": true,
+      "noticeClass": "public-domain-or-cc0-1.0-whichever-is-more-permissive",
+      "noticeVerifiedFromAcquiredBytes": true
+    }
+  ],
+  "publication": {
+    "containsSourceBytes": false,
+    "containsProjectionBytes": false,
+    "containsLocalPaths": false,
+    "containsPersonalFamiliarityRecords": false,
+    "allowedUse": "publication-safe identity and acquisition evidence only"
+  }
+}

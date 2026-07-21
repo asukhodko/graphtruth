@@ -24,10 +24,15 @@ Issue #24 activates the first sequential lane,
 `python-annotations-semantics-v1`, as the single major WIP. Its public
 [corpus-selection and rights record](corpora/python-annotations-semantics-v1/CORPUS-SELECTION.md)
 freezes the exact four-item frame, synthetic chronology, one-family treatment,
-dark zone, handling policy, and familiarity limits. Exact acquired bytes,
-projection, tasks, oracle, baseline, operator and compute budgets, and run
-identity remain unfrozen. The selection decision authorizes acquisition only,
-not output inspection or an evaluated lane.
+dark zone, handling policy, and familiarity limits. Its publication-safe
+[source manifest](corpora/python-annotations-semantics-v1/SOURCE-MANIFEST.json)
+binds the four owner-only originals retained outside the checkout to their Git
+blob OIDs, raw-byte SHA-256 digests, sizes, media type, notices, and acquisition
+interval. Projection, tasks, oracle, baseline, operator and compute budgets, and
+run identity remain unfrozen. The owner accepted the exact acquisition manifest
+and actual owner-only storage boundary, closed `m6-acquire-originals`, and
+authorized only `m6-freeze-projection`. Tasks, oracle, model processing of the
+acquired bytes, SUT, baseline, and an experimental run remain unauthorized.
 
 The public track supports reproducible algorithm and replay diagnostics. It
 does not replace the private dogfood track that tests value in a real personal

@@ -60,13 +60,16 @@ Its near path is:
 1. use the frozen [corpus-selection and rights
    record](../experiments/corpora/python-annotations-semantics-v1/CORPUS-SELECTION.md)
    for the four exact PEP files;
-2. next, acquire and hash the pinned originals outside the checkout, retaining
-   each file's notice and upstream blob identity;
-3. choose and pin a deterministic RST-to-Markdown or text projection;
-4. freeze at least eight tasks, evidence requirements, PEP 484 dark-zone
-   controls, oracle, baseline, budgets, severe errors, and decision threshold;
-5. rehearse the exact deterministic runner, then execute and score one
-   sequential future-reveal lane;
+2. use the publication-safe [source
+   manifest](../experiments/corpora/python-annotations-semantics-v1/SOURCE-MANIFEST.json)
+   for the acquired owner-only originals and their verified identities; the
+   owner accepted its pre-acceptance SHA-256 and actual storage boundary;
+3. now, choose and pin a deterministic RST-to-Markdown or text projection;
+4. after separate authorization, freeze at least eight tasks, evidence
+   requirements, PEP 484 dark-zone controls, oracle, baseline, budgets, severe
+   errors, and decision threshold;
+5. after separate authorization, rehearse the exact deterministic runner, then
+   execute and score one sequential future-reveal lane;
 6. record `sequential keep`, `sequential shrink`, or `sequential stop` over the
    complete denominator.
 

@@ -1,8 +1,9 @@
 # Starter corpora laboratory plan
 
 > **Status:** Non-normative Zone 3 laboratory plan; the first Python sequential
-> lane is active under Issue #24. Its corpus selection and rights are frozen,
-> while acquisition and the later run pack remain pending.
+> lane is active under Issue #24. Its corpus selection and rights are frozen;
+> original source acquisition is verified and accepted. Only the deterministic
+> projection freeze is now authorized; the later run pack is not.
 >
 > **Created:** 2026-07-12.
 >
@@ -156,8 +157,12 @@ record](corpora/python-annotations-semantics-v1/CORPUS-SELECTION.md) binds the
 individual blob identities, closed candidate frame, synthetic reveal order,
 one-family treatment, PEP 484 dark-zone role, handling policy, and familiarity
 limits. The pinned Git identities are not substitutes for acquired-byte
-SHA-256 digests, sizes, notices, and acquisition UTC, which remain the next
-gate.
+SHA-256 digests, sizes, notices, and acquisition UTC. The publication-safe
+[source manifest](corpora/python-annotations-semantics-v1/SOURCE-MANIFEST.json)
+records those checks for the four owner-only originals retained outside the
+checkout. The owner accepted the manifest and actual storage boundary in the
+[Issue #24 decision record](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5031512080).
+No source bytes or local paths are published.
 
 ### Why it is first
 
@@ -187,10 +192,9 @@ deterministic projection with a pinned transformer and retain:
 - projected Markdown and digest;
 - a review record for any lossy construct.
 
-The initial rights review finds public-domain notices in PEP 3107 and PEP 563,
-and public-domain-or-CC0 notices in PEP 649 and PEP 749. The freeze must verify
-and retain the notice from each acquired file rather than treating the family
-as one blanket license.
+The acquired originals retain verified public-domain notices in PEP 3107 and
+PEP 563, and public-domain-or-CC0 notices in PEP 649 and PEP 749. Each notice is
+bound to its file's exact digest rather than treated as one family-wide license.
 
 PEP 484 and current Python runtime documentation are deliberately outside the
 four-item corpus. Their absence is part of the knowledge boundary, not proof
@@ -520,21 +524,24 @@ The owner recorded a project-level `stop` for Issue #6, and Issue #24 activates
 `python-annotations-semantics-v1` as the single major WIP. Its accepted public
 selection record freezes the bounded corpus, synthetic sequence, rights and
 handling policy, knowledge boundary, and familiarity limits. It does not freeze
-source bytes, projection, tasks, oracle, baseline, evaluation budgets, or a run
-identity:
+projection, tasks, oracle, baseline, evaluation budgets, or a run identity. The
+source manifest records the technically verified acquisition and
+publication-safe metadata. The owner accepted its pre-acceptance SHA-256
+`ad63ca3cad51ec67b6e5d8fd2c62dcdfc3ed6a291f47a6809a819eadfa29ff99`
+and the actual owner-only boundary, closing `m6-acquire-originals`. The only
+admitted work is now:
 
-1. acquire the four pinned originals outside the checkout and verify per-file
-   identities, notices, digests, sizes, media types, and acquisition times;
-2. publish only the safe source-manifest metadata admitted by the selection
-   record;
-3. choose and pin the RST-to-Markdown transformation or shrink before adding
+1. choose and pin the RST-to-Markdown transformation or shrink before adding
    parser scope;
-4. freeze at least eight task cases, evidence requirements, dark-zone controls,
+
+The later progression remains planned but requires separate authorization:
+
+1. freeze at least eight task cases, evidence requirements, dark-zone controls,
    and an oracle outside SUT reach;
-5. freeze the sequential run card and baseline budget;
-6. implement only the S0-S1 vertical slice required to execute it;
-7. record `sequential keep`, `sequential shrink`, or `sequential stop`;
-8. after a sequential keep, open only the 24-order successor and record its
+2. freeze the sequential run card and baseline budget;
+3. implement only the S0-S1 vertical slice required to execute it;
+4. record `sequential keep`, `sequential shrink`, or `sequential stop`;
+5. after a sequential keep, open only the 24-order successor and record its
    order-robustness decision before corpus 2 starts.
 
 GitLab, PostgreSQL, multi-domain composition, public benchmark packaging, and
