@@ -40,7 +40,8 @@
   "ownerAcceptance": {
     "actor": "asukhodko",
     "acceptedAtUtc": "2026-07-21T07:57:04Z",
-    "acceptedManifestSha256": "ad63ca3cad51ec67b6e5d8fd2c62dcdfc3ed6a291f47a6809a819eadfa29ff99",
+    "acceptedPreAcceptanceManifestSha256": "ad63ca3cad51ec67b6e5d8fd2c62dcdfc3ed6a291f47a6809a819eadfa29ff99",
+    "acceptedPreAcceptanceManifestGitCommit": "84d650ca70e83db3ca4281b9c564c2697f6458d3",
     "record": "https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5031512080",
     "actualOwnerOnlyStorageBoundaryAccepted": true,
     "closedGate": "m6-acquire-originals",
