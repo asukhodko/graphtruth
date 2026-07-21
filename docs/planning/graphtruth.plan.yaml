@@ -716,12 +716,15 @@ nodes:
     kind: task
     parent: m6-python-sequential
     deps: [m6-acquire-originals]
-    status: ready
+    status: current
     notes: |
-      Retain originals and transformer identity separately. Stop or shrink if
-      an oracle-relevant construct cannot be projected without undeclared loss.
-      This is the only currently authorized gate; tasks, oracle, model processing
-      of acquired bytes, SUT, baseline, and a run remain unauthorized.
+      `python-annotations-semantics-v1-verbatim-rst-v1` retains separate
+      owner-only outputs whose payload bytes equal the acquired RST inputs.
+      Two clean builds and verification passes succeeded with no declared
+      losses; the current anchored runtime is explicitly incompatible. The
+      exact safe manifest and actual output boundary await owner acceptance.
+      Tasks, oracle, model processing, runtime adaptation, SUT, baseline, and a
+      run remain unauthorized.
 
   m6-freeze-evaluation:
     title: "Freeze tasks, oracle, baseline, budgets, and decision gate"
@@ -732,7 +735,7 @@ nodes:
     notes: |
       Register at least eight tasks, evidence requirements, dark-zone controls,
       scoring, severe errors, complete denominator, first-exposure roles,
-      Markdown-plus-search baseline, capture tax, resource budgets, and exact
+      same-verbatim-RST-plus-search baseline, capture tax, resource budgets, and exact
       sequential keep/shrink/stop thresholds before output is seen.
 
   m6-implement-lane:
@@ -963,14 +966,19 @@ execution:
       updated_at: "2026-07-21T08:03:17+03:00"
     m6-python-sequential:
       actual_start: "2026-07-21"
-      updated_at: "2026-07-21T10:57:04+03:00"
-      note: "Selection and acquisition are closed; deterministic projection freeze is the only authorized next gate."
+      updated_at: "2026-07-21T11:29:18+03:00"
+      note: "Selection and acquisition are closed; the technically verified projection awaits owner acceptance, with later gates still unauthorized."
     m6-acquire-originals:
       progress: 1.0
       actual_start: "2026-07-21"
       actual_finish: "2026-07-21"
       updated_at: "2026-07-21T10:57:04+03:00"
       note: "Owner accepted manifest SHA-256 ad63ca3cad51ec67b6e5d8fd2c62dcdfc3ed6a291f47a6809a819eadfa29ff99 and the actual owner-only storage boundary."
+    m6-freeze-projection:
+      progress: 0.5
+      actual_start: "2026-07-21"
+      updated_at: "2026-07-21T11:29:18+03:00"
+      note: "Two clean byte-identical RST builds passed; owner acceptance of the exact projection manifest and actual output boundary is pending."
 
 views:
   current-work:
@@ -996,8 +1004,8 @@ views:
 x:
   exec:
     program:
-      nearest_goal: "Freeze the deterministic RST projection without admitting later experiment work."
-      success_by_next_sync: "Pin transformer identity, prove deterministic rebuild and declared-loss behavior locally, and publish only safe projection metadata."
+      nearest_goal: "Obtain owner acceptance of the exact projection manifest and actual output boundary."
+      success_by_next_sync: "Bind the owner's decision and Issue #24 record without authorizing evaluation, runtime, baseline, or run work."
     defaults:
       status_progress:
         done: 1.0
@@ -1031,8 +1039,8 @@ x:
         kind: main
         mgmt:
           health: yellow
-          sync_note: "Issue #24 is the single major WIP. Day 1 of 5 froze selection and rights; the owner then accepted the verified acquisition manifest and owner-only boundary. No projection or evaluated output exists."
-          next_sync_goal: "Freeze only the deterministic projection and keep tasks, oracle, SUT, baseline, and run work closed."
+          sync_note: "Issue #24 is the single major WIP. Selection and acquisition are closed. A byte-identical RST projection passed two clean builds and awaits owner acceptance; no evaluated output exists."
+          next_sync_goal: "Accept or reject the exact projection manifest while every later experiment gate remains closed."
       python-order-successor:
         title: "Python 24-order successor"
         scope_nodes: [m7-python-order-successor]
@@ -1059,7 +1067,7 @@ x:
         show_progress: false
         show_gate_date: false
         wrap_title_lines: 2
-        caption: "Private path stopped; public Python projection freeze is ready."
+        caption: "Private path stopped; public Python projection acceptance is current."
         blocks: [integration, private-stop, python-sequential]
       exec-active-tracks:
         direction: TB

@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "projectionIdentity": "python-annotations-semantics-v1-verbatim-rst-v1",
+  "selectionIdentity": "python-annotations-semantics-v1",
+  "sourceManifest": {
+    "path": "SOURCE-MANIFEST.json",
+    "sha256": "c030ca505e7e43799daf1f065291598cd964b520a4d93f68aa52e60ba1cb384b",
+    "graphtruthAnchorCommit": "e32b2b257374f4ec7570fd6df2bd630e8d0e7921"
+  },
+  "projection": {
+    "kind": "verbatim-rst-text/1",
+    "payloadGuarantee": "byte-identical",
+    "outputMediaType": "text/x-rst; charset=utf-8",
+    "outputNaming": "item-%04d.rst by reveal order",
+    "normalizations": [],
+    "insertedBytes": 0,
+    "removedBytes": 0,
+    "declaredLosses": [],
+    "rstParsedOrRendered": false,
+    "directivesOrIncludesExpanded": false,
+    "currentRuntimeCompatible": false,
+    "futureRuntimeRequirement": "a separately authorized whole-document candidate adapter that preserves payload bytes, byte offsets, and RST media type"
+  },
+  "builder": {
+    "path": "tooling/project-verbatim-rst.mjs",
+    "gitCommit": "957ea8aa1621bb776b0adb30c70435374e2854df",
+    "sha256": "810080806bc932a41837b5f549b158a0adfc0d75c8d25b0e0118ea18ba5954fd",
+    "strictJsonDependency": {
+      "path": "tooling/private-pack-lock.mjs",
+      "sha256": "603553be7d0ca32cb11ccce7eadfb711277dc6ae9c55d2d68f08abafd9e5750b"
+    },
+    "contract": {
+      "path": "experiments/corpora/python-annotations-semantics-v1/PROJECTION-CONTRACT.md",
+      "sha256": "fefe4a940ffd64432cbefe32837556b75b85d8b17907c6ea1d35b0d0e3fd2c3d"
+    },
+    "syntheticTests": {
+      "path": "tooling/project-verbatim-rst.test.mjs",
+      "sha256": "f9a67b3e60ea2c5627d60ff144d672b1ca96d04fcc800e03fb78564c6e6165cb",
+      "passed": 15,
+      "failed": 0
+    },
+    "runtime": {
+      "name": "Node.js",
+      "version": "v24.4.1",
+      "environmentCleared": true,
+      "pathValue": "/usr/bin:/bin",
+      "homeWasNonexistent": true
+    }
+  },
+  "materialization": {
+    "completedAtUtc": "2026-07-21T08:29:18Z",
+    "actor": "GraphTruth Codex session launching the pinned local deterministic builder",
+    "evidenceBasis": "session attestation over generic builder statuses and publication-safe metadata",
+    "storageBoundary": {
+      "class": "owner-only local experiment root",
+      "outsideRepositoryCheckout": true,
+      "outsideGitWorktrees": true,
+      "localPathPublished": false,
+      "builderVerifiedOwnerUidAndModes": true,
+      "directoryMode": "0700",
+      "fileMode": "0600",
+      "aclAbsenceVerifiedByBuilder": false,
+      "synchronizationAndMountBoundaryVerifiedByBuilder": false,
+      "ownerAcceptanceRequired": true
+    },
+    "cleanBuilds": 2,
+    "successfulVerifyPasses": 2,
+    "temporaryRebuildRemoved": true,
+    "persistentProjectionRetained": true,
+    "sourceInventoryChanged": false,
+    "projectionInventoryMatched": true,
+    "allProjectionBytesEqualSourceBytes": true,
+    "allProjectionSha256EqualSourceSha256": true,
+    "allProjectionSizesEqualSourceSizes": true,
+    "strictUtf8Verified": true,
+    "networkOperationPerformed": false,
+    "subprocessSpawnPerformedByBuilder": false,
+    "modelProcessingOfSourceOrProjectionBytes": false,
+    "sourceOrProjectionExcerptProduced": false,
+    "taskOrOracleCreated": false,
+    "sutOrBaselineWorkPerformed": false,
+    "experimentalRunPerformed": false
+  },
+  "totalProjectionByteSize": 157252,
+  "items": [
+    {
+      "id": "pep-3107",
+      "revealOrder": 1,
+      "projectionName": "item-0001.rst",
+      "sourceGitBlobOid": "403f8296fc4a709e6738d2fd7eed3beb0cee2305",
+      "sourceSha256": "187386e223cae0a13df0f67a946428f95e6f8c9a75c01ddb3f607750b8d324f5",
+      "sourceByteSize": 10781,
+      "projectionSha256": "187386e223cae0a13df0f67a946428f95e6f8c9a75c01ddb3f607750b8d324f5",
+      "projectionByteSize": 10781,
+      "byteIdentical": true
+    },
+    {
+      "id": "pep-0563",
+      "revealOrder": 2,
+      "projectionName": "item-0002.rst",
+      "sourceGitBlobOid": "0bdb7f2a9caa38e10ac37aeb0c795fbeea7d86a7",
+      "sourceSha256": "5512e8a43ace196dcabba98ec6041459ba6843169f951e911d04e088ed7ac559",
+      "sourceByteSize": 27736,
+      "projectionSha256": "5512e8a43ace196dcabba98ec6041459ba6843169f951e911d04e088ed7ac559",
+      "projectionByteSize": 27736,
+      "byteIdentical": true
+    },
+    {
+      "id": "pep-0649",
+      "revealOrder": 3,
+      "projectionName": "item-0003.rst",
+      "sourceGitBlobOid": "d4c8e792468e2b50fb207da481d4f82bbff80c6c",
+      "sourceSha256": "58948a3b8fb4b8a5cb55a12b2bf4719b7a3e89408e39daeeb48f4d3dc5be5e13",
+      "sourceByteSize": 63824,
+      "projectionSha256": "58948a3b8fb4b8a5cb55a12b2bf4719b7a3e89408e39daeeb48f4d3dc5be5e13",
+      "projectionByteSize": 63824,
+      "byteIdentical": true
+    },
+    {
+      "id": "pep-0749",
+      "revealOrder": 4,
+      "projectionName": "item-0004.rst",
+      "sourceGitBlobOid": "78b07ba9032d29e708fac3d0814c6e7823e46918",
+      "sourceSha256": "242e31343465e77e3f55cb1559ca24314acce5ae4533a54d06b88453144b85c5",
+      "sourceByteSize": 54911,
+      "projectionSha256": "242e31343465e77e3f55cb1559ca24314acce5ae4533a54d06b88453144b85c5",
+      "projectionByteSize": 54911,
+      "byteIdentical": true
+    }
+  ],
+  "authorization": {
+    "ownerRecord": "https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5031512080",
+    "authorizedGate": "m6-freeze-projection",
+    "ownerAcceptanceRequiredToCloseGate": true,
+    "nextGateAuthorized": false,
+    "notAuthorized": [
+      "task construction",
+      "oracle construction",
+      "model processing of acquired or projected bytes",
+      "SUT work",
+      "baseline work",
+      "runtime adaptation",
+      "experimental run"
+    ]
+  },
+  "publication": {
+    "containsSourceBytes": false,
+    "containsProjectionBytes": false,
+    "containsPrivateMaterialPaths": false,
+    "containsSourceExcerpts": false,
+    "allowedUse": "publication-safe projection identity, materialization evidence, and owner review only"
+  }
+}

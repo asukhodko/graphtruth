@@ -2,8 +2,9 @@
 
 > **Status:** Non-normative Zone 3 laboratory plan; the first Python sequential
 > lane is active under Issue #24. Its corpus selection and rights are frozen;
-> original source acquisition is verified and accepted. Only the deterministic
-> projection freeze is now authorized; the later run pack is not.
+> original source acquisition is verified and accepted. The byte-identical RST
+> text projection is technically verified and awaits owner acceptance; the
+> later evaluation and run pack remain unauthorized.
 >
 > **Created:** 2026-07-12.
 >
@@ -162,7 +163,13 @@ SHA-256 digests, sizes, notices, and acquisition UTC. The publication-safe
 records those checks for the four owner-only originals retained outside the
 checkout. The owner accepted the manifest and actual storage boundary in the
 [Issue #24 decision record](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5031512080).
-No source bytes or local paths are published.
+The [projection contract](corpora/python-annotations-semantics-v1/PROJECTION-CONTRACT.md)
+and [projection
+manifest](corpora/python-annotations-semantics-v1/PROJECTION-MANIFEST.json)
+record the proposed byte-identical RST text projection and two verified clean
+builds. Its exact manifest and actual output boundary still require owner
+acceptance. No source bytes, projection bytes, or private-material paths are
+published.
 
 ### Why it is first
 
@@ -524,15 +531,16 @@ The owner recorded a project-level `stop` for Issue #6, and Issue #24 activates
 `python-annotations-semantics-v1` as the single major WIP. Its accepted public
 selection record freezes the bounded corpus, synthetic sequence, rights and
 handling policy, knowledge boundary, and familiarity limits. It does not freeze
-projection, tasks, oracle, baseline, evaluation budgets, or a run identity. The
-source manifest records the technically verified acquisition and
+tasks, oracle, baseline, evaluation budgets, or a run identity. The source
+manifest records the technically verified acquisition and
 publication-safe metadata. The owner accepted its pre-acceptance SHA-256
 `ad63ca3cad51ec67b6e5d8fd2c62dcdfc3ed6a291f47a6809a819eadfa29ff99`
-and the actual owner-only boundary, closing `m6-acquire-originals`. The only
-admitted work is now:
+and the actual owner-only boundary, closing `m6-acquire-originals`. The
+projection contract and safe manifest now bind a byte-identical RST text
+strategy, two verified clean builds, no declared losses, and explicit current
+runtime incompatibility. The only admitted work is now:
 
-1. choose and pin the RST-to-Markdown transformation or shrink before adding
-   parser scope;
+1. accept or reject the exact projection manifest and actual output boundary;
 
 The later progression remains planned but requires separate authorization:
 
@@ -549,15 +557,15 @@ model-assisted automation remain queued rather than parallel WIP.
 
 ## Open decisions before the evaluated-run freeze
 
-1. Which deterministic RST-to-Markdown transformation preserves every
-   oracle-relevant PEP construct with the least implementation scope?
+1. Will the owner accept the exact byte-identical projection manifest and
+   actual output boundary?
 2. Which PEP metadata dates are treated as event, publication, valid/effective,
    and retrospective record updates?
 3. Which eight or more workflow-triggered tasks form the first denominator?
 4. Which participant roles can be separated, and which familiarity overlap
    makes the comparison exploratory?
-5. Where will publication-safe acquisition metadata live if corpus bytes remain
-   outside Git?
+5. Which later whole-document adapter can preserve payload bytes, byte offsets,
+   and RST media type without changing the common input?
 6. Which exact cost and non-inferiority thresholds justify moving from the
    sequential lane to the 24-order successor?
 

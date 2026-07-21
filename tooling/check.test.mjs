@@ -1,11 +1,14 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 import {
   classifyPublicG1ReceiptPath,
   codexSandboxPreflightEvidencePins,
+  pythonProjectionEvidencePins,
   validateCodexSandboxPreflightReportContent,
+  validatePythonProjectionManifestEvidence,
   validatePublicG1ReceiptContent,
 } from "./check.mjs";
 import {
@@ -109,6 +112,41 @@ function withoutEvidenceDigest(errors) {
   return errors.filter((error) => error !== "evidence-digest");
 }
 
+async function pythonProjectionEvidence() {
+  const entries = [
+    ["sourceBytes", "../experiments/corpora/python-annotations-semantics-v1/SOURCE-MANIFEST.json"],
+    [
+      "projectionBytes",
+      "../experiments/corpora/python-annotations-semantics-v1/PROJECTION-MANIFEST.json",
+    ],
+    ["builderBytes", "./project-verbatim-rst.mjs"],
+    [
+      "contractBytes",
+      "../experiments/corpora/python-annotations-semantics-v1/PROJECTION-CONTRACT.md",
+    ],
+    ["testBytes", "./project-verbatim-rst.test.mjs"],
+    ["strictJsonBytes", "./private-pack-lock.mjs"],
+  ];
+  return Object.fromEntries(
+    await Promise.all(
+      entries.map(async ([key, relativePath]) => [key, await readFile(new URL(relativePath, import.meta.url))]),
+    ),
+  );
+}
+
+function mutateProjection(evidence, mutate) {
+  const projection = JSON.parse(evidence.projectionBytes.toString("utf8"));
+  mutate(projection);
+  return {
+    ...evidence,
+    projectionBytes: Buffer.from(`${JSON.stringify(projection, null, 2)}\n`),
+  };
+}
+
+function hasValidationError(evidence, expected) {
+  assert.ok(validatePythonProjectionManifestEvidence(evidence).includes(expected));
+}
+
 async function attestedReceipt() {
   const template = JSON.parse(
     await readFile(
@@ -123,6 +161,82 @@ async function attestedReceipt() {
   }
   return template;
 }
+
+test("the exact Python projection evidence is accepted", async () => {
+  assert.deepEqual(
+    validatePythonProjectionManifestEvidence(await pythonProjectionEvidence()),
+    [],
+  );
+});
+
+test("Python projection evidence fails closed when a required file is absent", async () => {
+  const evidence = await pythonProjectionEvidence();
+  delete evidence.projectionBytes;
+  assert.deepEqual(validatePythonProjectionManifestEvidence(evidence), ["missing-evidence"]);
+});
+
+test("Python projection evidence rejects a jointly rewritten source and projection", async () => {
+  const evidence = await pythonProjectionEvidence();
+  const source = JSON.parse(evidence.sourceBytes.toString("utf8"));
+  source.publication.jointRewriteProbe = true;
+  const sourceBytes = Buffer.from(`${JSON.stringify(source, null, 2)}\n`);
+  const rewritten = mutateProjection({ ...evidence, sourceBytes }, (projection) => {
+    projection.sourceManifest.sha256 = createHash("sha256").update(sourceBytes).digest("hex");
+  });
+  const errors = validatePythonProjectionManifestEvidence(rewritten);
+  assert.ok(errors.includes("source-manifest-anchor"));
+  assert.ok(errors.includes("projection-manifest-digest"));
+  assert.equal(
+    pythonProjectionEvidencePins.sourceManifestSha256,
+    "c030ca505e7e43799daf1f065291598cd964b520a4d93f68aa52e60ba1cb384b",
+  );
+});
+
+test("Python projection evidence rejects anchor, authorization, and structure mutations", async () => {
+  const evidence = await pythonProjectionEvidence();
+  hasValidationError(
+    mutateProjection(evidence, (projection) => {
+      projection.sourceManifest.graphtruthAnchorCommit = "0".repeat(40);
+    }),
+    "projection-policy",
+  );
+  hasValidationError(
+    mutateProjection(evidence, (projection) => {
+      projection.authorization.notAuthorized = Array(7).fill("something else");
+    }),
+    "authorization",
+  );
+  hasValidationError(
+    mutateProjection(evidence, (projection) => {
+      projection.privateNote = "must fail closed";
+    }),
+    "fixed-structure",
+  );
+});
+
+test("Python projection evidence rejects builder and dependency mutations", async () => {
+  const evidence = await pythonProjectionEvidence();
+  hasValidationError(
+    mutateProjection(evidence, (projection) => {
+      projection.builder.gitCommit = "0".repeat(40);
+    }),
+    "builder-attestation",
+  );
+  hasValidationError(
+    { ...evidence, builderBytes: Buffer.concat([evidence.builderBytes, Buffer.from("\n")]) },
+    "dependency-bindings",
+  );
+});
+
+test("Python projection evidence requires strict JSON", async () => {
+  const evidence = await pythonProjectionEvidence();
+  evidence.projectionBytes = Buffer.from(
+    evidence.projectionBytes
+      .toString("utf8")
+      .replace('"schemaVersion": 1,', '"schemaVersion": 1,\n  "schemaVersion": 1,'),
+  );
+  assert.deepEqual(validatePythonProjectionManifestEvidence(evidence), ["strict-json"]);
+});
 
 test("a binary canonical G1 receipt is classified for rejection", () => {
   assert.equal(

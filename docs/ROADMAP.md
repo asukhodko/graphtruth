@@ -64,13 +64,20 @@ Its near path is:
    manifest](../experiments/corpora/python-annotations-semantics-v1/SOURCE-MANIFEST.json)
    for the acquired owner-only originals and their verified identities; the
    owner accepted its pre-acceptance SHA-256 and actual storage boundary;
-3. now, choose and pin a deterministic RST-to-Markdown or text projection;
-4. after separate authorization, freeze at least eight tasks, evidence
+3. use the proposed byte-identical RST [projection
+   contract](../experiments/corpora/python-annotations-semantics-v1/PROJECTION-CONTRACT.md)
+   and publication-safe [projection
+   manifest](../experiments/corpora/python-annotations-semantics-v1/PROJECTION-MANIFEST.json),
+   which record two verified clean builds and no declared byte loss;
+4. next, obtain owner acceptance of that exact manifest and actual output
+   boundary without authorizing later work;
+5. after separate authorization, freeze at least eight tasks, evidence
    requirements, PEP 484 dark-zone controls, oracle, baseline, budgets, severe
    errors, and decision threshold;
-5. after separate authorization, rehearse the exact deterministic runner, then
+6. after separate authorization, adapt and rehearse the exact deterministic
+   runner, then
    execute and score one sequential future-reveal lane;
-6. record `sequential keep`, `sequential shrink`, or `sequential stop` over the
+7. record `sequential keep`, `sequential shrink`, or `sequential stop` over the
    complete denominator.
 
 The public lane can test reproducible capture, grounding, chronology,
