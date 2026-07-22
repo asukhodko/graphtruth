@@ -7,9 +7,11 @@ import {
   classifyPublicG1ReceiptPath,
   codexSandboxPreflightEvidencePins,
   pythonEvaluationFreezeEvidencePins,
+  pythonEvaluationFreezeV2ToolingPins,
   pythonProjectionEvidencePins,
   validateCodexSandboxPreflightReportContent,
   validatePythonEvaluationFreezeTerminalEvidence,
+  validatePythonEvaluationFreezeV2ToolingEvidence,
   validatePythonProjectionAcceptanceEvidence,
   validatePythonProjectionManifestEvidence,
   validatePublicG1ReceiptContent,
@@ -157,6 +159,24 @@ async function pythonEvaluationFreezeEvidence() {
     ),
   );
   const wrapperStat = await lstat(new URL("./codex-evaluation-freeze", import.meta.url));
+  return { ...evidence, controllerWrapperMode: wrapperStat.mode & 0o777 };
+}
+
+async function pythonEvaluationFreezeV2ToolingEvidence() {
+  const entries = [
+    ["controllerWrapperBytes", "./codex-evaluation-freeze-v2"],
+    ["controllerModuleBytes", "./codex-evaluation-freeze-v2.mjs"],
+    ["controllerTestBytes", "./codex-evaluation-freeze-v2.test.mjs"],
+  ];
+  const evidence = Object.fromEntries(
+    await Promise.all(
+      entries.map(async ([key, relativePath]) => [
+        key,
+        await readFile(new URL(relativePath, import.meta.url)),
+      ]),
+    ),
+  );
+  const wrapperStat = await lstat(new URL("./codex-evaluation-freeze-v2", import.meta.url));
   return { ...evidence, controllerWrapperMode: wrapperStat.mode & 0o777 };
 }
 
@@ -360,6 +380,57 @@ test("the exact evaluation-freeze terminal and controller bytes are accepted", a
   assert.equal(
     pythonEvaluationFreezeEvidencePins.controllerModuleSha256,
     "53f951ddb3ebe82c0d1f3dd6e7fb2dd116e168e20efd9628306912a74fd5a513",
+  );
+});
+
+test("the owner-accepted evaluation-freeze v2 tooling identity is pinned", async () => {
+  assert.deepEqual(
+    validatePythonEvaluationFreezeV2ToolingEvidence(
+      await pythonEvaluationFreezeV2ToolingEvidence(),
+    ),
+    [],
+  );
+  assert.deepEqual(pythonEvaluationFreezeV2ToolingPins, {
+    controllerWrapperSha256:
+      "8ed374fd19c2b2f3fde5663627aa50f0388918c95d5450d9fa465d2bed40d263",
+    controllerModuleSha256:
+      "6707723916f93c679112785260cfa8b472f407a4d62bc1ce51e971c5a59bc385",
+    controllerTestSha256:
+      "825044d3ceb3ab168c89e46320a60c2a22594d29b0ca8fda2f01914124da5deb",
+  });
+});
+
+test("evaluation-freeze v2 tooling pins fail closed on missing or changed evidence", async () => {
+  const evidence = await pythonEvaluationFreezeV2ToolingEvidence();
+  for (const key of [
+    "controllerWrapperBytes",
+    "controllerModuleBytes",
+    "controllerTestBytes",
+    "controllerWrapperMode",
+  ]) {
+    const incomplete = { ...evidence };
+    delete incomplete[key];
+    assert.deepEqual(validatePythonEvaluationFreezeV2ToolingEvidence(incomplete), [
+      "missing-evidence",
+    ]);
+  }
+  for (const key of [
+    "controllerWrapperBytes",
+    "controllerModuleBytes",
+    "controllerTestBytes",
+  ]) {
+    assert.ok(
+      validatePythonEvaluationFreezeV2ToolingEvidence({
+        ...evidence,
+        [key]: Buffer.concat([evidence[key], Buffer.from("\n")]),
+      }).includes("controller-digests"),
+    );
+  }
+  assert.ok(
+    validatePythonEvaluationFreezeV2ToolingEvidence({
+      ...evidence,
+      controllerWrapperMode: 0o644,
+    }).includes("controller-mode"),
   );
 });
 

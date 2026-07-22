@@ -687,10 +687,20 @@ protocol gaps by requiring:
 
 The v2 wrapper requires
 `--owner-freeze-authorization-record ISSUE_24_COMMENT_URL`. It rejects both the
-consumed v1 authorization and the v2 preparation record. A future owner must
-first accept the exact v2 tooling hashes and then create a distinct Issue #24
-comment authorizing one freeze. No such authorization exists. Do not run the
-wrapper against the accepted projection until both decisions are recorded.
+consumed v1 authorization and the v2 preparation record. The owner accepted the
+exact v2 tooling identity in
+[Issue #24](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5050777295)
+and separately authorized one attempt in a distinct
+[owner record](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5050785383).
+The only invocation stopped fail-closed with `AUTHOR_MODEL_CALL` and exit
+status `1`, before a validated author artifact or independent audit. In this
+technical-failure path the controller emitted only its fixed error code, not a
+public stdout JSON result. No release or accepted evaluation contract exists.
+The controller marked the author-call slot consumed before provider spawn; the
+auditor call was not reached. Neither slot transfers to another invocation.
+The authorization is consumed and the attempt cannot be retried, resumed,
+repaired, or reused. Any continuation requires a fresh successor identity and
+separate authorization.
 
 The normal `./tooling/check` path runs v1 and v2 only with generated synthetic
 fixtures and fake model calls. It verifies the diagnostic receipt, exact v1

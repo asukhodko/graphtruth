@@ -83,28 +83,38 @@ Its near path is:
    nine audit sections passed, while `oracle-and-rubric` failed because result
    classes were not fully defined and `baseline-parity` failed because the
    GraphTruth capture-tax rule was missing;
-6. use the separate, synthetically tested `evaluation-freeze v2` tooling, which
-   closes the ten result classes, operational capture tax, and enumerated safe
-   reject diagnostics without changing v1 or creating a real contract;
-7. obtain one owner decision accepting the exact v2 tooling identity, then a
-   separate owner record authorizing one v2 freeze; neither decision currently
-   exists;
-8. only after a v2 freeze passes, the owner accepts that exact freeze,
-   and the owner separately authorizes implementation, adapt the deterministic
-   whole-document runner;
-9. rehearse that exact runner, then obtain separate owner authorization before
-   executing the sequential GraphTruth and files-plus-search comparison;
-10. score the complete denominator and record `sequential keep`, `sequential
-   shrink`, or `sequential stop`.
+6. retain the separate, synthetically tested `evaluation-freeze v2` tooling,
+   which closes the ten result classes, operational capture tax, and enumerated
+   safe reject diagnostics without changing v1; the owner accepted its exact
+   wrapper, controller, and test identities in the
+   [tooling record](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5050777295);
+7. retain the separate
+   [one-attempt authorization](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5050785383)
+   as consumed: the only v2 invocation stopped fail-closed with fixed code
+   `AUTHOR_MODEL_CALL` and exit status `1`, before a validated author artifact
+   or independent audit; no public result JSON, release, or accepted evaluation
+   contract exists, as recorded in the
+   [terminal update](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5050811940);
+8. obtain an explicit owner disposition of `continue`, `shrink`, or `stop`;
+   continuation requires a fresh successor identity and separate authorization,
+   never a retry, resume, repair, or reuse of the terminal v2 attempt;
+9. only after a successor freeze passes, the owner accepts its exact identity,
+   and the owner separately authorizes implementation, adapt and rehearse the
+   deterministic whole-document runner, then obtain separate run authorization;
+10. execute the sequential GraphTruth and files-plus-search comparison, score
+    the complete denominator, and record `sequential keep`, `sequential shrink`,
+    or `sequential stop`.
 
 The evaluation identity recorded in step 4 is terminal and cannot be repaired,
 retried, resumed, or reused. Both authorized model calls were consumed without
 retry or resume. Its exact audit result was read once through the authorized
 deterministic extractor; only fixed checklist flags, issue codes, counts,
 identities, and no-repair/no-run flags were exposed. No closed path or report
-content is published. The owner has not accepted the v2 tooling identity, an
-evaluation contract, or any next gate,
-implementation, rehearsal, SUT, baseline execution, scoring, or evaluated run.
+content is published. The owner accepted the exact v2 tooling identity and
+authorized one attempt, but that authorization is spent and the attempt is
+terminal. The owner has not accepted an evaluation contract or authorized any
+successor gate, implementation, rehearsal, SUT, baseline execution, scoring,
+or evaluated run.
 
 The selection record, projection contract, and projection manifest remain
 byte-for-byte records of their freeze points. Their earlier Markdown option and

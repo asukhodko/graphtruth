@@ -21,11 +21,14 @@ not fully defined, and GraphTruth capture tax lacked an operational rule. The
 v1 identity cannot be repaired, retried, resumed, or reused.
 
 The separate public `evaluation-freeze v2` controller addresses those gaps and
-has passed synthetic tests only. Its preparation grants no authority to read
-the projection, create tasks or an oracle, contact a model, freeze a contract,
-implement GraphTruth, run the baseline, rehearse, score, or execute an
-experiment. The next decisions are to accept the exact v2 tooling identity and,
-separately, decide whether to authorize one new freeze.
+passed its synthetic tests. The owner then accepted the exact tooling identity
+and separately authorized one attempt. Its sole invocation stopped fail-closed
+with fixed code `AUTHOR_MODEL_CALL` and exit status `1`, before a validated
+author artifact or independent audit. It returned no public JSON and produced
+no release or accepted evaluation contract. The terminal attempt cannot be
+retried, resumed, repaired, or reused. Any continuation requires a fresh
+successor identity and separate owner authorization. Implementation, baseline,
+rehearsal, scoring, and experimental execution remain unauthorized.
 
 Any later result on this corpus remains exploratory because its diagnostic
 context has been disclosed during procedure development. The first

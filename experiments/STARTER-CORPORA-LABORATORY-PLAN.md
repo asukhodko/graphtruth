@@ -5,10 +5,13 @@
 > original source acquisition and the byte-identical RST text projection are
 > verified and accepted. One separately authorized evaluation-freeze attempt
 > ended in terminal independent-audit rejection without a release. No accepted
-> evaluation or run pack exists. Its safe diagnosis is published, and a separate
-> v2 controller is synthetically verified but not accepted or authorized for a
-> real freeze. The Python corpus is exploratory; confirmation requires a fresh
-> corpus and identity. Every later gate remains unauthorized.
+> evaluation or run pack exists. Its safe diagnosis is published. A separate
+> v2 controller was synthetically verified, accepted by exact identity, and
+> authorized for one attempt. That sole invocation stopped fail-closed with
+> `AUTHOR_MODEL_CALL` before a validated author artifact or independent audit;
+> it produced no public result JSON, release, or accepted contract. The Python
+> corpus is exploratory; confirmation requires a fresh corpus and identity.
+> Every later gate remains unauthorized.
 >
 > **Created:** 2026-07-12.
 >
@@ -558,34 +561,38 @@ missing operational GraphTruth capture-tax rule without publishing the closed
 path or report content.
 
 The separate evaluation-freeze v2 controller closes those two gaps and exposes
-future audit rejection only through fixed safe codes. It has passed public
-synthetic tests only. The later progression is blocked on two owner decisions:
+future audit rejection only through fixed safe codes. It passed public
+synthetic tests, and the owner accepted its exact wrapper, controller, and test
+identities. A separate authorization admitted one attempt. The sole invocation
+stopped fail-closed with `AUTHOR_MODEL_CALL` and exit status `1`, before a
+validated author artifact or independent audit. It returned no public JSON and
+produced no release or accepted evaluation contract. That attempt cannot be
+retried, resumed, repaired, or reused. The later progression is blocked on one
+owner disposition:
 
-1. accept the exact v2 tooling identity;
-2. separately authorize one new evaluation-freeze v2 attempt, or stop the
-   project-level lane;
-3. only if a successor produces an accepted freeze, accept that exact contract
+1. choose `continue`, `shrink`, or `stop`; any continuation requires a fresh
+   successor identity and separate authorization;
+2. only if a successor produces an accepted freeze, accept that exact contract
    and separately authorize implementation;
-4. implement and rehearse only the S0-S1 vertical slice required to execute it;
-5. accept the exact rehearsal and separately authorize one evaluated run;
-6. execute, score the full denominator, and record `sequential keep`,
+3. implement and rehearse only the S0-S1 vertical slice required to execute it;
+4. accept the exact rehearsal and separately authorize one evaluated run;
+5. execute, score the full denominator, and record `sequential keep`,
    `sequential shrink`, or `sequential stop`;
-7. after a sequential keep, open only the 24-order successor and record its
+6. after a sequential keep, open only the 24-order successor and record its
    order-robustness decision before corpus 2 starts.
 
 GitLab, PostgreSQL, multi-domain composition, public benchmark packaging, and
 model-assisted automation remain queued rather than parallel WIP.
 
-## Current decision after the rejected freeze attempt
+## Current decision after the terminal v2 attempt
 
-1. Will the owner accept the exact evaluation-freeze v2 tooling identity?
-2. If accepted, will the owner separately authorize one v2 freeze or stop the
-   lane?
-3. Can that attempt establish a fresh admissible contract without reading,
-   repairing, or reusing the terminal v1 state?
-4. Only after such a contract is accepted, will the owner separately authorize
-   a whole-document adapter that preserves payload bytes, byte offsets, and RST
-   media type without changing the common input?
+1. Will the owner choose `continue`, `shrink`, or `stop` for the Python lane?
+2. If continuing, what fresh successor identity and separately authorized scope
+   can diagnose or avoid `AUTHOR_MODEL_CALL` without reading, repairing, or
+   reusing either terminal attempt?
+3. Only after a successor contract is accepted, will the owner separately
+   authorize a whole-document adapter that preserves payload bytes, byte
+   offsets, and RST media type without changing the common input?
 
 The two safe v1 rejection codes may guide protocol design, but closed material
 remains unavailable. Python results are exploratory and cannot serve as the

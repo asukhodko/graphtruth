@@ -60,6 +60,11 @@ export const pythonEvaluationFreezeEvidencePins = Object.freeze({
   ownerAuthorizationRecord:
     "https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5033460564",
 });
+export const pythonEvaluationFreezeV2ToolingPins = Object.freeze({
+  controllerWrapperSha256: "8ed374fd19c2b2f3fde5663627aa50f0388918c95d5450d9fa465d2bed40d263",
+  controllerModuleSha256: "6707723916f93c679112785260cfa8b472f407a4d62bc1ce51e971c5a59bc385",
+  controllerTestSha256: "825044d3ceb3ab168c89e46320a60c2a22594d29b0ca8fda2f01914124da5deb",
+});
 const publicG1AttestationKeys = [
   "eligibleEpisodeSelected",
   "sourceSetWithinApprovedBound",
@@ -162,6 +167,9 @@ const requiredRepositoryPaths = new Map([
   ["tooling/codex-evaluation-freeze", "file"],
   ["tooling/codex-evaluation-freeze.mjs", "file"],
   ["tooling/codex-evaluation-freeze.test.mjs", "file"],
+  ["tooling/codex-evaluation-freeze-v2", "file"],
+  ["tooling/codex-evaluation-freeze-v2.mjs", "file"],
+  ["tooling/codex-evaluation-freeze-v2.test.mjs", "file"],
   ["tooling/codex-sandbox-preflight", "file"],
   ["tooling/codex-sandbox-preflight.mjs", "file"],
   ["tooling/codex-sandbox-qualification.mjs", "file"],
@@ -1309,6 +1317,38 @@ export function validatePythonEvaluationFreezeTerminalEvidence(evidence) {
   return validationErrors;
 }
 
+export function validatePythonEvaluationFreezeV2ToolingEvidence(evidence) {
+  const requiredEvidenceKeys = [
+    "controllerWrapperBytes",
+    "controllerModuleBytes",
+    "controllerTestBytes",
+  ];
+  if (
+    evidence === null ||
+    typeof evidence !== "object" ||
+    requiredEvidenceKeys.some((key) => !Buffer.isBuffer(evidence[key])) ||
+    !Number.isInteger(evidence.controllerWrapperMode)
+  ) {
+    return ["missing-evidence"];
+  }
+
+  const errors = [];
+  if (
+    sha256Bytes(evidence.controllerWrapperBytes) !==
+      pythonEvaluationFreezeV2ToolingPins.controllerWrapperSha256 ||
+    sha256Bytes(evidence.controllerModuleBytes) !==
+      pythonEvaluationFreezeV2ToolingPins.controllerModuleSha256 ||
+    sha256Bytes(evidence.controllerTestBytes) !==
+      pythonEvaluationFreezeV2ToolingPins.controllerTestSha256
+  ) {
+    errors.push("controller-digests");
+  }
+  if (evidence.controllerWrapperMode !== 0o755) {
+    errors.push("controller-mode");
+  }
+  return errors;
+}
+
 async function checkPythonProjectionManifest() {
   const absolute = (relative) => path.join(repositoryRoot, relative);
   let evidence;
@@ -1425,6 +1465,43 @@ async function checkPythonEvaluationFreezeTerminal() {
   };
   for (const validationError of validatePythonEvaluationFreezeTerminalEvidence(evidence)) {
     report(`${pythonEvaluationFreezeTerminalPath}: ${messages[validationError]}`);
+  }
+}
+
+async function checkPythonEvaluationFreezeV2Tooling() {
+  const absolute = (relative) => path.join(repositoryRoot, relative);
+  let evidence;
+  try {
+    const [
+      controllerWrapperBytes,
+      controllerModuleBytes,
+      controllerTestBytes,
+      controllerWrapperStat,
+    ] = await Promise.all([
+      readFile(absolute("tooling/codex-evaluation-freeze-v2")),
+      readFile(absolute("tooling/codex-evaluation-freeze-v2.mjs")),
+      readFile(absolute("tooling/codex-evaluation-freeze-v2.test.mjs")),
+      lstat(absolute("tooling/codex-evaluation-freeze-v2")),
+    ]);
+    evidence = {
+      controllerWrapperBytes,
+      controllerModuleBytes,
+      controllerTestBytes,
+      controllerWrapperMode: controllerWrapperStat.mode & 0o777,
+    };
+  } catch (error) {
+    const code = typeof error?.code === "string" ? error.code : "unknown error";
+    report(`evaluation-freeze v2 tooling cannot be read (${code})`);
+    return;
+  }
+
+  const messages = {
+    "missing-evidence": "evaluation-freeze v2 tooling evidence is incomplete",
+    "controller-digests": "accepted evaluation-freeze v2 tooling bytes changed",
+    "controller-mode": "evaluation-freeze v2 wrapper must retain mode 0755",
+  };
+  for (const validationError of validatePythonEvaluationFreezeV2ToolingEvidence(evidence)) {
+    report(`evaluation-freeze v2 tooling: ${messages[validationError]}`);
   }
 }
 
@@ -1606,6 +1683,7 @@ async function main() {
   await checkPythonProjectionManifest();
   await checkPythonProjectionAcceptance();
   await checkPythonEvaluationFreezeTerminal();
+  await checkPythonEvaluationFreezeV2Tooling();
 
   const publicRelativePaths = new Set(files.map((filePath) => relativePath(filePath)));
   for (const filePath of files) {

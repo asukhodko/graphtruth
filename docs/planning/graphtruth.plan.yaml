@@ -697,10 +697,14 @@ nodes:
       2026-07-21; owner decision is required before day five and the independent
       hard stop is 2026-08-04. Date 2/5 is 2026-07-22. One separately authorized
       evaluation-freeze v1 attempt ended in a terminal independent-audit
-      rejection. Its safe diagnosis is recorded; v2 preparation closes the two
-      protocol gaps without authorizing another freeze. Any result on this
-      disclosed Python corpus is exploratory. A first confirmatory result needs
-      a fresh corpus and identity.
+      rejection. Its safe diagnosis is recorded. The exact v2 tooling identity
+      was accepted and one separately authorized invocation stopped fail-closed
+      with `AUTHOR_MODEL_CALL` before a validated author artifact or independent
+      audit. No public result JSON, release, or accepted contract exists. The
+      next owner decision is `continue`, `shrink`, or `stop`; continuation needs
+      a fresh successor identity and authorization. Any result on this disclosed
+      Python corpus is exploratory. A first confirmatory result needs a fresh
+      corpus and identity.
 
   m6-freeze-selection-rights:
     title: "Freeze Python corpus selection, chronology, rights, and boundary"
@@ -833,11 +837,16 @@ nodes:
     milestone: true
     parent: m6-python-sequential
     deps: [m6-prepare-evaluation-freeze-v2]
-    status: planned
+    status: done
     notes: |
-      The owner must accept the published wrapper, controller, and tests by
-      exact SHA-256. This decision approves the tooling identity only and does
-      not authorize a model call or evaluation freeze.
+      The owner accepted wrapper SHA-256
+      `8ed374fd19c2b2f3fde5663627aa50f0388918c95d5450d9fa465d2bed40d263`,
+      controller SHA-256
+      `6707723916f93c679112785260cfa8b472f407a4d62bc1ce51e971c5a59bc385`,
+      and tests SHA-256
+      `825044d3ceb3ab168c89e46320a60c2a22594d29b0ca8fda2f01914124da5deb`
+      in Issue #24 comment 5050777295. This decision approved the tooling
+      identity only and did not authorize a model call or evaluation freeze.
 
   g6-evaluation-freeze-v2-authorized:
     title: "Gate: one evaluation-freeze v2 attempt authorized"
@@ -845,37 +854,71 @@ nodes:
     milestone: true
     parent: m6-python-sequential
     deps: [g6-evaluation-freeze-v2-controller-accepted]
-    status: planned
+    status: done
     notes: |
-      Requires a new explicit Issue #24 owner record that names the accepted v2
-      identity and authorizes one fresh author session plus one independent
-      read-only auditor session. The v1 authorization and v2 preparation record
-      cannot satisfy this gate.
+      Issue #24 comment 5050785383 authorized one fresh author session and one
+      independent read-only auditor session against the accepted v2 identity.
+      The controller marked the author-call slot consumed before provider spawn;
+      the auditor call was not reached. Neither slot transfers to another
+      invocation. The authorization cannot admit a retry, resume, repair, reuse,
+      or successor.
 
   m6-freeze-evaluation-v2:
     title: "Freeze and independently audit one evaluation contract with v2"
     kind: task
     parent: m6-python-sequential
     deps: [g6-evaluation-freeze-v2-authorized]
-    status: planned
+    status: stopped
     notes: |
-      A future attempt creates a new immutable identity and remains fail-closed.
-      It authorizes neither implementation nor any baseline, rehearsal, scoring,
-      or evaluated run. A public reject must expose only the predeclared safe
-      checklist and issue codes.
+      The sole authorized invocation stopped fail-closed with fixed code
+      `AUTHOR_MODEL_CALL` and exit status `1`, before a validated author artifact
+      or independent audit. It returned no public JSON and produced no release
+      or accepted evaluation contract. Issue #24 comment 5050811940 records the
+      safe terminal outcome. The author-call slot was consumed before provider
+      spawn; the auditor call was not reached, and neither slot transfers. The
+      attempt cannot be retried, resumed, repaired, or reused. It authorized
+      neither implementation nor any baseline, rehearsal, scoring, or evaluated
+      run.
+
+  g6-evaluation-freeze-v2-disposition:
+    title: "Gate: choose disposition after the terminal v2 attempt"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [m6-freeze-evaluation-v2]
+    status: ready
+    notes: |
+      The owner must choose `continue`, `shrink`, or `stop`. Continue or shrink
+      must name a fresh successor identity and receive separate authorization;
+      neither choice revives or reuses the terminal v1 or v2 state. Stop closes
+      the Python sequential lane without implementation or evaluated work.
+
+  m6-freeze-evaluation-successor:
+    title: "Conditionally freeze a fresh successor evaluation contract"
+    kind: task
+    parent: m6-python-sequential
+    deps: [g6-evaluation-freeze-v2-disposition]
+    status: conditional
+    notes: |
+      This node exists only for an explicit owner `continue` or `shrink`
+      decision that names a fresh successor evaluation and execution identity,
+      scope, call budget, and separate authorization. A new tooling identity is
+      required only if the owner chooses different tooling. This node is never a
+      retry, resume, repair, or reuse of either terminal attempt. A `stop`
+      decision makes it not applicable.
 
   g6-evaluation-contract-accepted:
     title: "Gate: evaluation freeze accepted and implementation authorized"
     kind: milestone
     milestone: true
     parent: m6-python-sequential
-    deps: [m6-freeze-evaluation-v2]
+    deps: [m6-freeze-evaluation-successor]
     status: planned
     notes: |
       This gate remains open and unauthorized. The stopped v1 identity and the
-      prepared v2 controller cannot satisfy it. Only a successful, separately
-      authorized v2 freeze followed by exact owner acceptance and separate
-      implementation authorization could close this gate.
+      terminal v2 attempt cannot satisfy it. Only a successful, separately
+      authorized fresh successor freeze followed by exact owner acceptance and
+      separate implementation authorization could close this gate.
 
   m6-implement-lane:
     title: "Implement only the deterministic S0-S1 lane required by the freeze"
@@ -1131,8 +1174,8 @@ execution:
       updated_at: "2026-07-21T08:03:17+03:00"
     m6-python-sequential:
       actual_start: "2026-07-21"
-      updated_at: "2026-07-22T18:45:00+03:00"
-      note: "Repo-active date 2/5 records the safe v1 diagnosis and synthetically verified v2 preparation. Python is exploratory; no v2 freeze or later gate is authorized."
+      updated_at: "2026-07-22T23:04:14+03:00"
+      note: "Repo-active date 2/5 records the safe v1 diagnosis, accepted v2 tooling identity, consumed one-attempt authorization, and terminal AUTHOR_MODEL_CALL outcome. Python is exploratory; no evaluation contract or later gate is authorized."
     m6-freeze-selection-rights:
       progress: 1.0
       actual_start: "2026-07-21"
@@ -1180,6 +1223,23 @@ execution:
       actual_finish: "2026-07-22"
       updated_at: "2026-07-22T18:45:00+03:00"
       note: "Separate v2 controller and mutation tests close result-class, capture-tax, and safe-reject diagnostic gaps without a real freeze."
+    g6-evaluation-freeze-v2-controller-accepted:
+      progress: 1.0
+      actual_start: "2026-07-22"
+      actual_finish: "2026-07-22"
+      updated_at: "2026-07-22T23:04:14+03:00"
+      note: "Owner accepted the exact wrapper, controller, and test SHA-256 identities in Issue #24 comment 5050777295; this did not authorize execution."
+    g6-evaluation-freeze-v2-authorized:
+      progress: 1.0
+      actual_start: "2026-07-22"
+      actual_finish: "2026-07-22"
+      updated_at: "2026-07-22T23:04:14+03:00"
+      note: "Issue #24 comment 5050785383 separately authorized one attempt. The author-call slot was consumed before provider spawn; the auditor call was not reached, and neither slot transfers."
+    m6-freeze-evaluation-v2:
+      progress: 0.0
+      actual_start: "2026-07-22"
+      updated_at: "2026-07-22T23:04:14+03:00"
+      note: "Stopped fail-closed at AUTHOR_MODEL_CALL with exit 1. The author-call slot was consumed before provider spawn; the auditor call was not reached and does not transfer. No public JSON, release, accepted contract, retry, resume, repair, or reuse."
 
 views:
   current-work:
@@ -1206,8 +1266,8 @@ views:
 x:
   exec:
     program:
-      nearest_goal: "Have the owner accept the exact evaluation-freeze v2 tooling identity, then separately decide whether to authorize one new freeze."
-      success_by_next_sync: "Record both decisions independently; do not run v2, implement GraphTruth, rehearse, execute a baseline, score, or start an evaluated run without their later gates."
+      nearest_goal: "Have the owner choose continue, shrink, or stop after the terminal evaluation-freeze v2 attempt."
+      success_by_next_sync: "Record the disposition explicitly; any continuation needs a fresh successor identity and separate authorization, while implementation, rehearsal, baseline, scoring, and evaluated execution remain closed."
     defaults:
       status_progress:
         done: 1.0
@@ -1241,8 +1301,8 @@ x:
         kind: main
         mgmt:
           health: yellow
-          sync_note: "Issue #24 is the single major WIP. Selection, acquisition, and projection are closed; the one authorized evaluation-freeze attempt is terminally rejected, no evaluated output exists, and no next gate is authorized."
-          next_sync_goal: "Hold safely until the owner chooses a wholly new explicitly authorized successor at the current or a predeclared smaller scope, or project-level stop."
+          sync_note: "Issue #24 is the single major WIP. Selection, acquisition, and projection are closed; v1 ended at audit rejection and the separately authorized v2 attempt stopped at AUTHOR_MODEL_CALL. No accepted evaluation contract or evaluated output exists."
+          next_sync_goal: "Record the owner choice of continue, shrink, or stop. A continuation must use a fresh explicitly authorized successor identity, never retry or reuse either terminal attempt."
       python-order-successor:
         title: "Python 24-order successor"
         scope_nodes: [m7-python-order-successor]
@@ -1269,7 +1329,7 @@ x:
         show_progress: false
         show_gate_date: false
         wrap_title_lines: 2
-        caption: "Private path stopped; public Python projection is frozen and later gates are closed."
+        caption: "Private path stopped; the public Python v2 freeze attempt is terminal and later gates are closed."
         blocks: [integration, private-stop, python-sequential]
       exec-active-tracks:
         direction: TB
