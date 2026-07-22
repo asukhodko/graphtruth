@@ -5,7 +5,10 @@
 > original source acquisition and the byte-identical RST text projection are
 > verified and accepted. One separately authorized evaluation-freeze attempt
 > ended in terminal independent-audit rejection without a release. No accepted
-> evaluation or run pack exists, and every later gate remains unauthorized.
+> evaluation or run pack exists. Its safe diagnosis is published, and a separate
+> v2 controller is synthetically verified but not accepted or authorized for a
+> real freeze. The Python corpus is exploratory; confirmation requires a fresh
+> corpus and identity. Every later gate remains unauthorized.
 >
 > **Created:** 2026-07-12.
 >
@@ -546,20 +549,28 @@ calls. It created a private 8-task, 64-cell, 32-judgment core with 10 severe-err
 classes, but the independent read-only audit returned `reject`. The safe
 [terminal record](corpora/python-annotations-semantics-v1/EVALUATION-FREEZE-TERMINAL.json)
 records the outcome; no RELEASE exists. The evaluation identity is terminal and
-cannot be repaired, retried, resumed, or reused. The private audit report was not
-read or published.
+cannot be repaired, retried, resumed, or reused. Its exact audit result was read
+once through the authorized deterministic extractor. The safe [diagnostic
+receipt](corpora/python-annotations-semantics-v1/EVALUATION-FREEZE-DIAGNOSTIC.json)
+records only fixed flags, enumerated issue codes, counts, identities, and
+no-repair/no-run facts. It identifies incomplete result-class semantics and a
+missing operational GraphTruth capture-tax rule without publishing the closed
+path or report content.
 
-The later progression is blocked on a new owner decision:
+The separate evaluation-freeze v2 controller closes those two gaps and exposes
+future audit rejection only through fixed safe codes. It has passed public
+synthetic tests only. The later progression is blocked on two owner decisions:
 
-1. authorize a wholly new evaluation-freeze successor with a new identity at
-   the current or a predeclared smaller scope, or stop the project-level lane;
-2. only if a successor produces an accepted freeze, accept that exact contract
+1. accept the exact v2 tooling identity;
+2. separately authorize one new evaluation-freeze v2 attempt, or stop the
+   project-level lane;
+3. only if a successor produces an accepted freeze, accept that exact contract
    and separately authorize implementation;
-3. implement and rehearse only the S0-S1 vertical slice required to execute it;
-4. accept the exact rehearsal and separately authorize one evaluated run;
-5. execute, score the full denominator, and record `sequential keep`,
+4. implement and rehearse only the S0-S1 vertical slice required to execute it;
+5. accept the exact rehearsal and separately authorize one evaluated run;
+6. execute, score the full denominator, and record `sequential keep`,
    `sequential shrink`, or `sequential stop`;
-6. after a sequential keep, open only the 24-order successor and record its
+7. after a sequential keep, open only the 24-order successor and record its
    order-robustness decision before corpus 2 starts.
 
 GitLab, PostgreSQL, multi-domain composition, public benchmark packaging, and
@@ -567,14 +578,18 @@ model-assisted automation remain queued rather than parallel WIP.
 
 ## Current decision after the rejected freeze attempt
 
-1. Will the owner authorize a wholly new evaluation-freeze successor at the
-   current or a predeclared smaller scope, or stop the lane?
-2. If a successor is authorized, can it establish a fresh admissible contract
-   without reading, repairing, or reusing the terminal private state?
-3. Only after such a contract is accepted, will the owner separately authorize
+1. Will the owner accept the exact evaluation-freeze v2 tooling identity?
+2. If accepted, will the owner separately authorize one v2 freeze or stop the
+   lane?
+3. Can that attempt establish a fresh admissible contract without reading,
+   repairing, or reusing the terminal v1 state?
+4. Only after such a contract is accepted, will the owner separately authorize
    a whole-document adapter that preserves payload bytes, byte offsets, and RST
    media type without changing the common input?
 
-No current decision may infer the private rejection reason: the private audit
-report remains unread and unpublished. A successor changes the evaluation
-identity and requires an explicit plan and authorization update.
+The two safe v1 rejection codes may guide protocol design, but closed material
+remains unavailable. Python results are exploratory and cannot serve as the
+first confirmation. That confirmation requires a fresh corpus and identity and
+must not reuse disclosed Python details in its tasks or oracle. A successor
+changes the evaluation identity and requires an explicit plan and authorization
+update.

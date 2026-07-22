@@ -616,10 +616,10 @@ the real PEPs again. The normal quality gate uses synthetic RST only. It does
 not materialize or inspect the acquired PEPs, and passing it does not authorize
 tasks, oracle, SUT, baseline, runner adaptation, or an experiment.
 
-## Evaluation-freeze controller
+## Evaluation-freeze controllers
 
 [`codex-evaluation-freeze`](codex-evaluation-freeze) is the owner-operated,
-single-attempt controller used to prepare and independently audit an
+single-attempt v1 controller used to prepare and independently audit an
 evaluation-contract candidate for `python-annotations-semantics-v1`. It bound the exact
 accepted verbatim-RST projection, repository tooling, Codex binary and command
 shape, zero-tool permission profile, `rg` binary, two fresh model sessions, and
@@ -646,6 +646,15 @@ It exposes only fixed identities, counts, processing limits, authorization
 limits, and the rejected outcome. It contains no task or oracle material,
 source or projection bytes, answer-bearing text, or closed path.
 
+One later, explicitly authorized deterministic extractor read the exact audit
+result once and returned only fixed safe fields. The public
+[`EVALUATION-FREEZE-DIAGNOSTIC.json`](../experiments/corpora/python-annotations-semantics-v1/EVALUATION-FREEZE-DIAGNOSTIC.json)
+records nine passing checklist sections and two failures:
+`result-classes-not-fully-defined` under `oracle-and-rubric`, and
+`graphtruth-capture-tax-rule-missing` under `baseline-parity`. It publishes no
+closed path, free text, task, oracle, source, or projection content. The read did
+not repair or revive v1.
+
 `./tooling/check` pins that terminal status and the exact wrapper, module, and
 synthetic-test bytes. It also checks the closed JSON shape, the 8-task,
 4-horizon, 2-arm, 64-cell denominator, 32 oracle judgments, 7 core artifacts,
@@ -659,6 +668,35 @@ reuse are forbidden. In the public status, `ownerAcceptance`,
 authorization are all `false`; `g6-evaluation-contract-accepted` remains
 unpassed. A different attempt would require a new identity and explicit owner
 authority; this terminal state cannot supply either.
+
+[`codex-evaluation-freeze-v2`](codex-evaluation-freeze-v2) is a separate
+controller identity. It leaves every v1 byte unchanged and closes the diagnosed
+protocol gaps by requiring:
+
+- a structured, closed ten-class result contract with deterministic precedence,
+  one retained class per cell, separate answer deadline and hard timeout, time
+  accounting, task aggregation, severe-error relation, and decision effect;
+- a structured GraphTruth capture-tax ledger covering capture, annotation,
+  correction, maintenance, and verification, including monotonic intervals,
+  manual work, deterministic shared-work allocation, single attribution,
+  incomplete logs, budget exhaustion, and binding to median time and the 25%
+  alternative;
+- fixed checklist IDs and a small code allowlist per checklist. Audit output has
+  no free-text or path field, and a reject status publishes the same safe
+  checklist and codes without another private read.
+
+The v2 wrapper requires
+`--owner-freeze-authorization-record ISSUE_24_COMMENT_URL`. It rejects both the
+consumed v1 authorization and the v2 preparation record. A future owner must
+first accept the exact v2 tooling hashes and then create a distinct Issue #24
+comment authorizing one freeze. No such authorization exists. Do not run the
+wrapper against the accepted projection until both decisions are recorded.
+
+The normal `./tooling/check` path runs v1 and v2 only with generated synthetic
+fixtures and fake model calls. It verifies the diagnostic receipt, exact v1
+hashes, v2 positive flow, terminal reject diagnostics, and mutations that try to
+drop or weaken a result class, capture-tax rule, audit code boundary, or no-run
+attestation. These tests create no real contract and contact no model provider.
 
 ## Operational plan validation
 

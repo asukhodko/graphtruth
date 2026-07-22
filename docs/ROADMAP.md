@@ -16,7 +16,7 @@ This roadmap is ordered by evidence and maturity, not dates. It deliberately avo
   structure; do not require a closed domain list or design a universal ontology
   in advance.
 
-## Current evidence checkpoint — 2026-07-21
+## Current evidence checkpoint — 2026-07-22
 
 Issue #6 has reached a project-level `stop` before its private evidence-contract
 gate. The repository foundation, public synthetic fixtures, native permission
@@ -51,9 +51,9 @@ The new single major WIP is
 [`python-annotations-semantics-v1`](https://github.com/asukhodko/graphtruth/issues/24),
 the first public corpus already selected by the
 [starter-corpora laboratory plan](../experiments/STARTER-CORPORA-LABORATORY-PLAN.md).
-Issue #24 has its own five repo-active-date budget: 2026-07-21 is day 1, the
-owner must explicitly choose continue, shrink, or stop before day 5 begins, and
-the independent hard stop is 2026-08-04.
+Issue #24 has its own five repo-active-date budget: 2026-07-21 is day 1 and
+2026-07-22 is day 2. The owner must explicitly choose continue, shrink, or stop
+before day 5 begins, and the independent hard stop is 2026-08-04.
 
 Its near path is:
 
@@ -78,21 +78,32 @@ Its near path is:
    [terminal record](../experiments/corpora/python-annotations-semantics-v1/EVALUATION-FREEZE-TERMINAL.json)
    has SHA-256
    `410a91aaca18d121a7bafbaf0e117b1f0a4cee04008fb5f717a5fa648705a7bd`;
-5. choose a wholly new, explicitly authorized evaluation-freeze successor —
-   either at the current scope or with a predeclared smaller scope — or stop
-   the project-level lane;
-6. only after a successor freeze passes, the owner accepts that exact freeze,
+5. retain its publication-safe [diagnostic
+   receipt](../experiments/corpora/python-annotations-semantics-v1/EVALUATION-FREEZE-DIAGNOSTIC.json):
+   nine audit sections passed, while `oracle-and-rubric` failed because result
+   classes were not fully defined and `baseline-parity` failed because the
+   GraphTruth capture-tax rule was missing;
+6. use the separate, synthetically tested `evaluation-freeze v2` tooling, which
+   closes the ten result classes, operational capture tax, and enumerated safe
+   reject diagnostics without changing v1 or creating a real contract;
+7. obtain one owner decision accepting the exact v2 tooling identity, then a
+   separate owner record authorizing one v2 freeze; neither decision currently
+   exists;
+8. only after a v2 freeze passes, the owner accepts that exact freeze,
    and the owner separately authorizes implementation, adapt the deterministic
    whole-document runner;
-7. rehearse that exact runner, then obtain separate owner authorization before
+9. rehearse that exact runner, then obtain separate owner authorization before
    executing the sequential GraphTruth and files-plus-search comparison;
-8. score the complete denominator and record `sequential keep`, `sequential
+10. score the complete denominator and record `sequential keep`, `sequential
    shrink`, or `sequential stop`.
 
 The evaluation identity recorded in step 4 is terminal and cannot be repaired,
 retried, resumed, or reused. Both authorized model calls were consumed without
-retry or resume; the private audit report was not read or published. The owner
-has not accepted an evaluation contract or authorized any next gate,
+retry or resume. Its exact audit result was read once through the authorized
+deterministic extractor; only fixed checklist flags, issue codes, counts,
+identities, and no-repair/no-run flags were exposed. No closed path or report
+content is published. The owner has not accepted the v2 tooling identity, an
+evaluation contract, or any next gate,
 implementation, rehearsal, SUT, baseline execution, scoring, or evaluated run.
 
 The selection record, projection contract, and projection manifest remain
@@ -102,12 +113,15 @@ run to byte-identical RST for both GraphTruth and the files-plus-search baseline
 The separate acceptance receipt and Issue #24 are the current authority for the
 gate state; the frozen files must not be rewritten to look current.
 
-The public lane can test reproducible capture, grounding, chronology,
-replacement, supplementation, retrieval, gaps, rebuild, and comparison cost.
-It cannot establish personal usefulness, private novelty, universal algorithm
-quality, historical causation, or current Python behavior beyond the retained
-sources. A 24-order successor remains a separate issue admitted only by
-`sequential keep`.
+The Python lane is now explicitly exploratory. It can test reproducible capture,
+grounding, chronology, replacement, supplementation, retrieval, gaps, rebuild,
+comparison cost, and the experimental procedure itself. It cannot establish
+personal usefulness, private novelty, universal algorithm quality, historical
+causation, or current Python behavior beyond the retained sources. Its results
+cannot be the first confirmation of GraphTruth: that requires a fresh corpus
+and identity, frozen without transferring disclosed Python details into its
+tasks or oracle. A 24-order Python successor remains a separate issue admitted
+only by `sequential keep`.
 
 Stage 0 still has not formally exited: its independent-review and complete
 invariant-to-conformance evidence remain open. The public experiment is Zone 3
