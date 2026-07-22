@@ -1,0 +1,81 @@
+{
+  "auditChecklist": {
+    "baseline-parity": false,
+    "hypothesis-boundary": true,
+    "identity-and-inputs": true,
+    "no-run-boundary": true,
+    "numeric-budgets-and-failures": true,
+    "oracle-and-rubric": false,
+    "roles-and-first-exposure": true,
+    "sequential-decision-rules": true,
+    "severe-errors": true,
+    "task-coverage-and-denominator": true,
+    "temporal-model": true
+  },
+  "auditDecision": "reject",
+  "auditResultSha256": "872758e111dab28c3cf62245a2c8d222b5a7f17873552ac056a0b6f5a1a1c0cf",
+  "coreManifestSha256": "45ccc83c2514a136d8f69db993a65414ea16ad5731f01aeb908158f89f9def2e",
+  "corpusStatus": {
+    "confirmatoryUseAllowed": false,
+    "exploratory": true,
+    "freshConfirmatoryCorpusRequired": true,
+    "freshConfirmatoryIdentityRequired": true,
+    "pythonDisclosureTransferAllowed": false
+  },
+  "counts": {
+    "arms": 2,
+    "cells": 64,
+    "coreArtifacts": 7,
+    "horizons": 4,
+    "oracleJudgments": 32,
+    "severeErrorClasses": 10,
+    "tasks": 8
+  },
+  "diagnosticAccess": {
+    "adjacentFilesRead": false,
+    "auditResultReads": 1,
+    "coreRead": false,
+    "exactFileOnly": true,
+    "extractorSha256": "993cf256320e441549c5658bf8ee4b6b6de297aef822e946c2161d645afb6f35",
+    "nodeVersion": "v24.4.1",
+    "oracleRead": false,
+    "privatePathPublished": false,
+    "tasksRead": false
+  },
+  "documentKind": "graphtruth.evaluation-freeze-diagnostic/1",
+  "evaluationIdentity": "python-annotations-semantics-v1-evaluation-sha256-45ccc83c2514a136d8f69db993a65414ea16ad5731f01aeb908158f89f9def2e",
+  "experimentId": "python-annotations-semantics-v1",
+  "futureAuthorization": {
+    "baselineAuthorized": false,
+    "evaluationFreezeV2Authorized": false,
+    "evaluatedRunAuthorized": false,
+    "implementationAuthorized": false,
+    "rehearsalAuthorized": false,
+    "scoringAuthorized": false
+  },
+  "issues": [
+    {
+      "checkId": "oracle-and-rubric",
+      "code": "result-classes-not-fully-defined"
+    },
+    {
+      "checkId": "baseline-parity",
+      "code": "graphtruth-capture-tax-rule-missing"
+    }
+  ],
+  "publicDecisionRecord": "https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5047992832",
+  "repairPerformed": false,
+  "runPerformed": false,
+  "terminalFileSha256": "410a91aaca18d121a7bafbaf0e117b1f0a4cee04008fb5f717a5fa648705a7bd",
+  "terminality": {
+    "repairAllowed": false,
+    "resumeAllowed": false,
+    "retryAllowed": false,
+    "reuseAllowed": false
+  },
+  "v1Evidence": {
+    "controllerSha256": "53f951ddb3ebe82c0d1f3dd6e7fb2dd116e168e20efd9628306912a74fd5a513",
+    "testsSha256": "4a5756ea4cf042dc75582eb8a98c60b45ca16c9abb38e6df06bd421aea45ad05",
+    "wrapperSha256": "6e1df78fd222bf287ad03b3cef236271baf668d37bc51471bf2c87d28cba8b19"
+  }
+}

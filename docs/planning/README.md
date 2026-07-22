@@ -43,26 +43,35 @@ enter GraphTruth's protocol, schemas, runtime, or RFC authority chain. Rendering
 tools are not vendored because no generated planning view is currently a
 maintained artifact.
 
-## Current hold — 2026-07-21
+## Current position — 2026-07-22
 
 Issue #24 is the single major WIP. Selection, source acquisition, and the
 byte-identical RST projection are complete and owner-accepted. The issue has
-used one of five repository-active dates. The owner separately authorized one
-evaluation-freeze attempt and two external Codex calls. Its independent
-read-only audit returned `reject`; no release or accepted evaluation contract
-exists. The publication-safe
+used two of five repository-active dates: 2026-07-21 and 2026-07-22. The owner
+separately authorized one evaluation-freeze v1 attempt and two external Codex
+calls. Its independent read-only audit returned `reject`; no release or accepted
+evaluation contract exists. The publication-safe
 [terminal record](../../experiments/corpora/python-annotations-semantics-v1/EVALUATION-FREEZE-TERMINAL.json)
 contains only publication-safe identities, hashes, counts, toolchain and
 processing metadata, authorization flags, and the rejected outcome. It contains
 no task or oracle material, source or projection bytes, or closed paths. The
-private audit report was not read or published.
+exact audit result was later read once through an authorized deterministic
+extractor. The publication-safe [diagnostic
+receipt](../../experiments/corpora/python-annotations-semantics-v1/EVALUATION-FREEZE-DIAGNOSTIC.json)
+records only fixed checklist flags, enumerated issue codes, counts, identities,
+and no-repair/no-run flags; no closed path or report content is published.
 
 That evaluation identity is terminal and cannot be repaired, retried, resumed,
-or reused. `g6-evaluation-contract-accepted` remains planned and unauthorized;
-implementation, rehearsal, SUT, baseline execution, scoring, and an evaluated
-run remain closed. The next project decision is whether to authorize a wholly
-new evaluation-freeze successor at the current or a predeclared smaller scope,
-or stop the lane.
+or reused. The separate evaluation-freeze v2 controller now closes the two
+diagnosed gaps with a structured ten-class result contract, complete GraphTruth
+capture-tax accounting, and closed safe audit codes. Only public synthetic tests
+ran. The Python corpus is exploratory; a first confirmatory experiment requires
+a fresh corpus and identity with no transfer of disclosed Python material.
+
+The next two decisions are separate: accept the exact v2 tooling identity, then
+decide whether to authorize one new v2 freeze. Neither is currently granted.
+`g6-evaluation-contract-accepted`, implementation, rehearsal, SUT, baseline
+execution, scoring, and an evaluated run remain planned and unauthorized.
 
 ## Maintenance rules
 

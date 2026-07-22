@@ -21,7 +21,8 @@ benchmark. Every evaluated lane still requires the templates and integrity
 seal described below.
 
 Issue #24 activates the first sequential lane,
-`python-annotations-semantics-v1`, as the single major WIP. Its public
+[`python-annotations-semantics-v1`](corpora/python-annotations-semantics-v1/README.md),
+as the single major WIP. Its public
 [corpus-selection and rights record](corpora/python-annotations-semantics-v1/CORPUS-SELECTION.md)
 freezes the exact four-item frame, synthetic chronology, one-family treatment,
 dark zone, handling policy, and familiarity limits. Its publication-safe
@@ -53,14 +54,28 @@ record](corpora/python-annotations-semantics-v1/EVALUATION-FREEZE-TERMINAL.json)
 contains only publication-safe identities, hashes, counts, toolchain and
 processing metadata, authorization flags, and the rejected outcome. It contains
 no task or oracle material, source or projection bytes, or closed paths. The
-private audit report was not read or published. This evaluation identity cannot
-be repaired, retried, resumed, or reused. Owner acceptance and next-gate
-authorization remain false; runtime adaptation, implementation, rehearsal, SUT,
+exact audit result was later read once through the authorized deterministic
+extractor. Its safe [diagnostic
+receipt](corpora/python-annotations-semantics-v1/EVALUATION-FREEZE-DIAGNOSTIC.json)
+publishes only fixed checklist flags, enumerated issue codes, counts, identities,
+and no-repair/no-run flags. It identifies incomplete result-class semantics and
+a missing operational GraphTruth capture-tax rule. No closed path or report
+content is published. This evaluation identity cannot be repaired, retried,
+resumed, or reused.
+
+The separate `evaluation-freeze v2` tooling closes both gaps and makes future
+audit rejection diagnosable through predeclared safe codes. It has run only on
+synthetic fixtures. The preparation record does not authorize a real v2 freeze;
+the owner must first accept the exact tooling identity and then separately
+authorize one attempt. Runtime adaptation, implementation, rehearsal, SUT,
 baseline execution, scoring, and an experimental run remain unauthorized.
 
-The public track supports reproducible algorithm and replay diagnostics. It
-does not replace the private dogfood track that tests value in a real personal
-workflow.
+The Python corpus is now exploratory: it supports reproducible algorithm,
+procedure, and replay diagnostics, but its result cannot be the first
+confirmation of GraphTruth. Confirmation requires a fresh corpus and identity,
+with no disclosed Python detail transferred into its tasks or oracle. The public
+track also does not replace the private dogfood track that tests value in a real
+personal workflow.
 
 The publication-safe [G1 evidence-contract
 twin](../examples/experiments/evidence-contract-twin-v1/) is a separate frozen
