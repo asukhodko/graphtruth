@@ -64,12 +64,18 @@ and no-repair/no-run flags; no closed path or report content is published.
 That evaluation identity is terminal and cannot be repaired, retried, resumed,
 or reused. The separate evaluation-freeze v2 controller now closes the two
 diagnosed gaps with a structured ten-class result contract, complete GraphTruth
-capture-tax accounting, and closed safe audit codes. Only public synthetic tests
-ran. The Python corpus is exploratory; a first confirmatory experiment requires
-a fresh corpus and identity with no transfer of disclosed Python material.
+capture-tax accounting, and closed safe audit codes. The owner accepted the
+exact v2 tooling identity and separately authorized one attempt. That sole
+invocation stopped fail-closed with `AUTHOR_MODEL_CALL` and exit status `1`,
+before a validated author artifact or independent audit. It returned no public
+JSON and created no release or accepted evaluation contract. The attempt cannot
+be retried, resumed, repaired, or reused. The Python corpus is exploratory; a
+first confirmatory experiment requires a fresh corpus and identity with no
+transfer of disclosed Python material.
 
-The next two decisions are separate: accept the exact v2 tooling identity, then
-decide whether to authorize one new v2 freeze. Neither is currently granted.
+The next decision is `continue`, `shrink`, or `stop`. Any continuation requires
+a fresh successor identity and separate authorization; it is not a retry of the
+terminal v2 attempt.
 `g6-evaluation-contract-accepted`, implementation, rehearsal, SUT, baseline
 execution, scoring, and an evaluated run remain planned and unauthorized.
 

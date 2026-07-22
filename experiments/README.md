@@ -64,10 +64,14 @@ content is published. This evaluation identity cannot be repaired, retried,
 resumed, or reused.
 
 The separate `evaluation-freeze v2` tooling closes both gaps and makes future
-audit rejection diagnosable through predeclared safe codes. It has run only on
-synthetic fixtures. The preparation record does not authorize a real v2 freeze;
-the owner must first accept the exact tooling identity and then separately
-authorize one attempt. Runtime adaptation, implementation, rehearsal, SUT,
+audit rejection diagnosable through predeclared safe codes. After its synthetic
+verification, the owner accepted the exact tooling identity and separately
+authorized one attempt. The sole invocation stopped fail-closed with fixed code
+`AUTHOR_MODEL_CALL` and exit status `1`, before a validated author artifact or
+independent audit. It returned no public JSON and produced no release or
+accepted evaluation contract. That attempt cannot be retried, resumed,
+repaired, or reused. Any continuation requires a fresh successor identity and
+separate authorization. Runtime adaptation, implementation, rehearsal, SUT,
 baseline execution, scoring, and an experimental run remain unauthorized.
 
 The Python corpus is now exploratory: it supports reproducible algorithm,
