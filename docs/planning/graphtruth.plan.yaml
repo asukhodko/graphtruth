@@ -1195,7 +1195,7 @@ nodes:
       applicable. The single-major-WIP slot may then move.
 
   m6-purge-author-call-qualification-v1-diagnostics:
-    title: "Delete retained raw qualification diagnostics after disposition"
+    title: "Delete retained raw diagnostics after diagnostic disposition or at deadline"
     kind: task
     parent: m6-python-sequential
     deps: [g6-author-call-qualification-v1-disposition]
@@ -1662,7 +1662,7 @@ execution:
     m6-purge-author-call-qualification-v1-diagnostics:
       progress: 0.0
       updated_at: "2026-07-23T19:39:58+03:00"
-      note: "Ready obligation; delete retained local raw diagnostics no later than 2026-08-22T16:39:58Z. The diagnostic invocation cannot perform deletion."
+      note: "Conditional deadline-bound obligation; normally delete only after diagnostic disposition, but delete no later than 2026-08-22T16:39:58Z if diagnosis remains unfinished. The diagnostic invocation cannot perform deletion."
 
 views:
   current-work:
