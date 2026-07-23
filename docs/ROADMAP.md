@@ -99,8 +99,8 @@ Its near path is:
 8. retain the owner's procedural `shrink`: keep the corpus, projection, and
    accepted v2 bytes unchanged, and narrow the admitted work to preparation of
    `codex-author-call-qualification-v1` on generated public synthetic input;
-9. retain the completed provider-free preparation, independent audit, exact
-   tooling acceptance, and separate one-call
+9. retain the completed public-synthetic preparation without a live provider
+   request, independent audit, exact tooling acceptance, and separate one-call
    [authorization](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5054897423);
    the sole call is consumed and its publication-safe
    [result](../examples/experiments/author-call-qualification-v1/CODEX-AUTHOR-CALL-QUALIFICATION.json)
@@ -115,30 +115,37 @@ Its near path is:
     and its one consumed public-code audit as terminal `audit-call-failed`;
     no auditor decision, accepted identity, tooling PR, or retained-output read
     exists;
-12. pause for a separate owner disposition: authorize preparation of a fresh
-    diagnostic-tooling candidate under a new manifest and a separately
-    authorized fresh audit path, separately authorize exploratory-learning
-    expansion, or stop this route; none of these choices by itself authorizes
-    retained-output reading;
-13. only after a future route makes one exact diagnostic identity admissible,
-    merge and present it, obtain separate identity acceptance and one-read
-    authorization, read the exact retained stdout once through the accepted
-    local analyzer, publish only a fixed-code safe receipt, and obtain a
-    separate disposition of that diagnosis;
-14. if continuation is then selected, separately authorize the exact
-    provider-free preparation scope, prepare and independently audit one
-    successor qualification identity, accept its exact bytes, and separately
-    authorize at most one synthetic call; dispose every terminal result, and
-    close the author-call boundary only after accepting an exact `qualified`
-    result;
-15. only after that boundary is qualified and the owner gives a new explicit
+12. retain the owner's exploratory-learning choice and its separate
+    authorization for public-only preparation of one exact goal and boundary
+    in the current session, without protected bytes or a separate external
+    call; the terminal diagnostic candidate does not transfer;
+13. merge the
+    [boundary proposal](../examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY.md),
+    present its exact SHA-256, and obtain a separate owner acceptance that still
+    grants no retained-output read;
+14. separately authorize and prepare a fresh public execution pack that binds
+    the accepted boundary, exact reader, accepted parser modules, closed result
+    schema, synthetic tests, and manifest; independently review it and obtain
+    separate owner acceptance of its exact identity;
+15. only after execution-pack acceptance, obtain a later owner authorization
+    naming the exact retained stdout, current-session OpenAI processor, one
+    continuous processing episode, safe outputs, budgets, retention, and
+    deletion; if authorized, publish one bounded learning result and separately
+    dispose it;
+16. if qualification continuation is then selected, separately authorize the
+    exact public-synthetic preparation scope without a live provider request,
+    prepare and independently audit one successor qualification identity,
+    accept its exact bytes, and separately authorize at most one synthetic
+    call; dispose every terminal result, and close the author-call boundary
+    only after accepting an exact `qualified` result;
+17. only after that boundary is qualified and the owner gives a new explicit
     authorization, define a fresh successor evaluation freeze; it is never a
     retry, resume, repair, or reuse of any terminal attempt;
-16. only after a successor freeze passes, have the owner accept its exact
+18. only after a successor freeze passes, have the owner accept its exact
     contract and separately authorize implementation;
-17. adapt and rehearse the deterministic whole-document runner, then separately
+19. adapt and rehearse the deterministic whole-document runner, then separately
     accept the exact rehearsal and authorize one evaluated run;
-18. execute the sequential GraphTruth and files-plus-search comparison, score
+20. execute the sequential GraphTruth and files-plus-search comparison, score
     the complete denominator, and record `sequential keep`, `sequential shrink`,
     or `sequential stop`.
 
@@ -176,35 +183,41 @@ and [safe terminal record](https://github.com/asukhodko/graphtruth/issues/24#iss
 bind the consumed call, zero retries and resumes, unchanged public subject, and
 safe receipt SHA-256
 `88678c27b2042fae198feac6b561c3b66e416cb419506c907b24ec017b918816`.
-The candidate is not accepted or published. The retained stdout remains unread.
+The candidate is not accepted or published. The owner subsequently selected
+exploratory learning in [Issue #24 comment
+5062645199](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5062645199)
+and separately authorized only public boundary preparation in the current
+session, without protected bytes or a separate external call. The resulting
+[proposal](../examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY.md)
+is neither accepted nor activated. The retained stdout and stderr remain unread.
 Manifest `45820302417fa577d89cfce46d3c3b6ea6e18ec4c891661a1af67404f423951d`
-cannot be accepted, re-audited, repaired, or reused on the current route.
-Diagnostic audit disposition, identity acceptance, one local read, diagnostic
-disposition, successor preparation, successor-freeze authorization, evaluation
-contract, implementation, rehearsal, SUT, baseline execution, scoring, and
-evaluated run all retain separate gates.
+cannot be accepted, re-audited, repaired, or reused on the learning route.
+Boundary acceptance, execution-pack preparation and acceptance, processing
+authorization, learning-result disposition, successor preparation,
+successor-freeze authorization, evaluation contract, implementation, rehearsal,
+SUT, baseline execution, scoring, and evaluated run all retain separate gates.
 
-### Routes available at this checkpoint
+### Route selected at this checkpoint
 
-The selected intent remains **diagnose first**, but its admitted execution path
-is stopped before identity acceptance: the sole audit authorization is consumed
-without an auditor verdict. The next action is an owner disposition among a
-fresh diagnostic-tooling candidate under a new manifest and separately
-authorized audit path, a separately authorized exploratory-learning expansion,
-or stopping this route. The learning branch is independent and cannot open an
-evaluation successor. No current choice, candidate, test result, or internal
-review authorizes a raw read.
+The selected route is **exploratory learning**. Its evidence ceiling is lower
+than the stopped diagnostic route: one future current-session exposure may
+identify the first observable failed result predicate and inform design, but it
+can never qualify the boundary or confirm GraphTruth. The immediate next action
+is exact owner acceptance of the merged boundary SHA-256. Acceptance still
+grants no raw read. A separate public execution pack must then be prepared,
+reviewed, and accepted by exact identity. Only a later processing authorization
+may supply the exact path and accept the stated OpenAI transcript and retention
+risk, one-episode budget, safe output, and deletion terms.
 
-If a later disposition makes an exact diagnostic identity admissible, two
-separate owner decisions remain mandatory: accept that identity, then authorize
-exactly one local deterministic read of the anchored stdout. A safe diagnostic
-receipt still grants no successor work. Its later disposition can select one of:
+After a terminal safe learning result, its separate disposition can select one
+of:
 
-- **Targeted fix.** Define and separately authorize one provider-free
-  preparation scope, prepare a new qualification tooling identity, audit it,
-  accept its exact bytes, and separately authorize one call. Dispose its exact
-  terminal result. This preserves the transport and isolation evidence while
-  targeting the localized failed stage.
+- **Targeted fix.** Define and separately authorize one public-synthetic
+  preparation scope without a live provider request, prepare a new
+  qualification tooling identity, audit it, accept its exact bytes, and
+  separately authorize one call. Dispose its exact terminal result. This
+  preserves the transport and isolation evidence while targeting the localized
+  failed stage.
 - **Use another execution method.** Replace the response or execution boundary
   under a fresh exact identity and pass the same preparation-authorization,
   audit, acceptance, one-call qualification, and terminal-disposition ladder.
@@ -215,19 +228,12 @@ receipt still grants no successor work. Its later disposition can select one of:
   single-major-WIP slot for a fresh confirmatory corpus, another public track,
   or renewed private dogfood under a new identity.
 
-An **expanded exploratory-learning boundary** is a separate optional permission,
-not a fourth primary disposition. Python is already exploratory as an
-epistemic status; that does not authorize broader reads or processing. A new
-owner decision may name exact readable artifacts, processors, outputs,
-retention, and deletion so the disclosed lane can support prototype learning
-alongside a continuing primary route. This favors implementation speed over
-confirmatory value: a fresh corpus and identity remain mandatory for the first
-confirmation.
-
-The routes after diagnosis are not concurrent work streams. No route or learning
-permission implicitly authorizes another route, an external call, a successor
-evaluation freeze, or corpus processing. The v1 disposition has started one
-30-day deadline: delete retained local raw synthetic diagnostics no later than
+The route is not an authorization bundle. Proposal preparation, boundary
+acceptance, execution-pack preparation and acceptance, processing, learning
+disposition, successor preparation, and every external call remain distinct
+gates. No gate implicitly authorizes another, a successor evaluation freeze, or
+corpus processing. The v1 disposition started one 30-day deadline: delete
+retained local raw synthetic diagnostics no later than
 `2026-08-22T16:39:58Z` while preserving the safe public result. Later successor
 dispositions do not reset that deadline and require their own predeclared
 retention rules. Issue #24 remains at repository-active date 3/5; work on

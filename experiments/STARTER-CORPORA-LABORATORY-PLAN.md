@@ -593,29 +593,41 @@ budget. The later progression is:
 2. retain the completed local diagnostic candidate preparation and the sole
    public-code audit as terminal `audit-call-failed`, with no auditor verdict,
    accepted identity, tooling publication, or retained-output read;
-3. obtain a separate owner disposition: a fresh diagnostic-tooling candidate
-   under a new manifest and separately authorized audit path, separately
-   authorized exploratory-learning expansion, or stop; none is authorized
-   implicitly and the terminal candidate cannot transfer;
-4. only if that disposition makes an exact diagnostic identity admissible,
-   merge and present it, separately obtain owner acceptance and one local
-   deterministic read authorization, publish only a fixed-code safe receipt,
-   and separately dispose its exact outcome;
-5. only if continuation is then selected, separately authorize its exact
-   provider-free preparation scope, prepare and independently audit a fresh
-   qualification identity, accept its exact bytes, and separately authorize at
-   most one synthetic call;
-6. dispose every terminal qualification result; only separate owner acceptance
+3. retain the owner's selected exploratory-learning disposition and separate
+   authorization to prepare only its public goal and boundary in the current
+   session, without protected bytes or a separate external call; the terminal
+   candidate cannot transfer;
+4. merge the exact
+   [boundary proposal](../examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY.md),
+   present its SHA-256, and separately obtain owner acceptance without reading
+   retained output;
+5. separately authorize and prepare a public execution pack that binds the
+   accepted boundary, exact reader, accepted parser modules, closed result
+   schema, artificial tests, and manifest; independently review it and obtain
+   separate owner acceptance of its exact identity;
+6. only after pack acceptance, obtain a later owner authorization naming its
+   exact hashes, the retained-stdout path, the current-session OpenAI processor,
+   one continuous processing episode, safe outputs, budgets, retention, and
+   local deletion;
+7. if authorized, execute the one-use research procedure, publish only its
+   bounded safe result, remove the declared local raw and derivative files, and
+   separately dispose the learning outcome;
+8. only if a later owner decision selects qualification continuation,
+   separately authorize its exact public-synthetic preparation scope without a
+   live provider request, prepare and independently audit a fresh qualification
+   identity, accept its exact bytes, and separately authorize at most one
+   synthetic call;
+9. dispose every terminal qualification result; only separate owner acceptance
    of an exact `qualified` result closes the author-call boundary;
-7. only after qualification, separately authorize and define a fresh successor
+10. only after qualification, separately authorize and define a fresh successor
    evaluation freeze;
-8. only if a successor produces an accepted freeze, accept that exact contract
+11. only if a successor produces an accepted freeze, accept that exact contract
    and separately authorize implementation;
-9. implement and rehearse only the S0-S1 vertical slice required to execute it;
-10. accept the exact rehearsal and separately authorize one evaluated run;
-11. execute, score the full denominator, and record `sequential keep`,
+12. implement and rehearse only the S0-S1 vertical slice required to execute it;
+13. accept the exact rehearsal and separately authorize one evaluated run;
+14. execute, score the full denominator, and record `sequential keep`,
    `sequential shrink`, or `sequential stop`;
-12. after a sequential keep, open only the 24-order successor and record its
+15. after a sequential keep, open only the 24-order successor and record its
    order-robustness decision before corpus 2 starts.
 
 GitLab, PostgreSQL, multi-domain composition, public benchmark packaging, and
@@ -623,25 +635,30 @@ model-assisted automation remain queued rather than parallel WIP.
 
 ## Current decision after terminal qualification
 
-The owner selected `diagnose-first`, but its admitted route stopped when the sole
-public-code audit ended `audit-call-failed` before an auditor verdict. The local
-candidate is unaccepted and unpublished, and retained stdout remains unread.
+The owner selected exploratory learning after the `diagnose-first` route
+stopped at terminal `audit-call-failed`. The diagnostic candidate remains
+unaccepted, unpublished, and non-reusable. The owner separately authorized only
+public preparation in the current session, without protected bytes or a
+separate external call, of the exact
+[learning boundary](../examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY.md).
+Retained stdout and stderr remain unread; no reader, external call, or
+experiment is authorized.
 
-1. Will the owner admit a fresh diagnostic-tooling candidate under a new
-   manifest and separately authorized audit path, separately authorize
-   exploratory-learning expansion, or stop this route?
-2. If an exact diagnostic identity later becomes admissible, will the owner
-   accept those exact merged bytes?
-3. Will the owner separately authorize one local deterministic read of the
-   anchored retained stdout?
-4. After a fixed-code receipt, should the owner select a targeted successor,
-   another execution method, expanded learning, or `stop`?
-5. After a later terminal qualification result, should the owner accept an exact `qualified`
-   outcome, choose another identity or method, expand learning separately, or
-   stop?
-6. Only after an accepted `qualified` result, should a fresh evaluation
+The next decisions remain deliberately separate:
+
+1. Will the owner accept the exact merged SHA-256 of the learning boundary?
+2. After boundary acceptance, will the owner separately authorize preparation
+   of the public execution pack?
+3. Will the owner accept the exact reviewed execution-pack manifest?
+4. After pack acceptance, will the owner separately authorize one exact
+   current-session processing episode, safe publication, and local deletion?
+5. After a safe learning result, should the owner select narrow successor
+   preparation, another execution method, prototype-only work, or `stop`?
+6. After a later terminal qualification result, should the owner accept an
+   exact `qualified` outcome, choose another identity or method, or stop?
+7. Only after an accepted `qualified` result, should a fresh evaluation
    successor be separately authorized and defined?
-7. Only after a successor contract is accepted, will the owner separately
+8. Only after a successor contract is accepted, will the owner separately
    authorize a whole-document adapter that preserves payload bytes, byte
    offsets, and RST media type without changing the common input?
 
@@ -652,11 +669,11 @@ must not reuse disclosed Python details in its tasks or oracle. A successor
 changes the evaluation identity and requires an explicit plan and authorization
 update.
 
-An expanded learning route is separate from this sequence. It may admit exact
-currently disclosed artifacts for prototype learning only after a new owner
-decision defines readers, processors, outputs, budgets, retention, and deletion.
-It cannot close any evaluation or run gate. A pre-run `stop` instead records no
-sequential effectiveness result and releases the single-major-WIP slot for a
-new track. The v1 disposition started one local raw-diagnostic deletion window
-ending `2026-08-22T16:39:58Z`. A later successor disposition does not reset it
-and must use its own predeclared retention rule.
+The prepared learning route defines readers, processors, outputs, budgets,
+retention, and deletion, but remains dormant until boundary acceptance,
+execution-pack preparation and acceptance, and a later processing
+authorization. It cannot close any qualification, evaluation, or run gate. A
+pre-run `stop` instead records no sequential effectiveness result and releases
+the single-major-WIP slot for a new track. The v1 disposition started one local
+raw-diagnostic deletion window ending `2026-08-22T16:39:58Z`. A later successor
+disposition does not reset it and must use its own predeclared retention rule.

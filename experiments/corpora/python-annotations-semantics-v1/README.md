@@ -40,15 +40,17 @@ The call is consumed without retry or resume. The owner chose `diagnose-first`
 in Issue #24 comment 5061017045 and authorized only public diagnostic-tool
 preparation plus one public-code audit. The sole audit ended
 `audit-call-failed` before an auditor verdict, so the local diagnostic candidate
-is neither accepted nor published. The retained output remains unread. A
-separate owner disposition must precede any fresh diagnostic-tooling candidate
-under a new manifest and separately authorized audit path, separately
-authorized exploratory-learning expansion, or stop. The terminal candidate
-cannot transfer. Even a continuing diagnostic route still requires separate
-identity acceptance and one-read authorization. Fresh-successor authorization,
-implementation, baseline, rehearsal, scoring, and experimental execution remain
-unauthorized. The local raw-diagnostic deletion deadline is
-`2026-08-22T16:39:58Z`.
+is terminal, unaccepted, unpublished, and non-reusable.
+
+The owner then selected exploratory learning and authorized only public
+preparation of its exact goal and boundary. The
+[proposal](../../../examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY.md)
+is not accepted or activated. Retained stdout and stderr remain unread. The
+proposal requires separate exact acceptance, execution-pack preparation and
+acceptance, and a later processing authorization before one current-session
+episode can occur. It grants no fresh-successor authorization, implementation,
+baseline, rehearsal, scoring, or experimental execution. The local
+raw-diagnostic deletion deadline remains `2026-08-22T16:39:58Z`.
 
 Any later result on this corpus remains exploratory because its diagnostic
 context has been disclosed during procedure development. The first
@@ -57,8 +59,9 @@ Python-specific disclosure from this lane may be copied into that corpus's
 tasks or oracle.
 
 “Exploratory” describes evidential weight; it does not grant broader access or
-processing. Reusing this lane as an implementation-learning corpus requires a
-new owner decision naming the exact readable artifacts, processors, outputs,
-budgets, retention, and deletion. That route can accelerate prototype work but
-cannot satisfy an evaluation-contract, baseline, scoring, run, or confirmation
-gate.
+processing. The prepared proposal names the exact prospective artifact,
+processors, outputs, budgets, retention, and deletion, but remains dormant
+until every named owner gate closes: exact boundary acceptance,
+execution-pack preparation authorization, exact pack acceptance, and protected
+processing authorization. That route can accelerate prototype work but cannot
+satisfy an evaluation-contract, baseline, scoring, run, or confirmation gate.

@@ -90,15 +90,18 @@ diagnostic-tool preparation plus one no-retry audit of its exact public bytes.
 The sole audit ended `audit-call-failed` before an auditor verdict; its
 [publication-safe terminal
 record](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5062148530)
-leaves the local candidate unaccepted and unpublished. The retained stdout
-remains unread. A separate owner disposition must now choose a fresh audit
-identity under a new diagnostic-tooling manifest and separately authorized audit
-path, separately authorized exploratory-learning expansion, or stop. The
-terminal candidate cannot transfer into any of these routes. Exact diagnostic
-identity acceptance, one local read, diagnostic disposition, successor
-preparation authorization, qualification identity, one-call authorization,
-terminal-result disposition, and any later evaluation successor remain distinct
-gates. The retained local raw diagnostics must be deleted no later than
+leaves the local candidate terminal, unaccepted, unpublished, and non-reusable.
+The owner next selected exploratory learning and authorized only public
+preparation of its exact goal and access boundary in the current session,
+without protected bytes or a separate external call. The resulting
+[boundary proposal](../examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY.md)
+is not accepted or activated. It proposes one future exposure of the exact
+retained stdout to the current GraphTruth session through a fresh one-use local
+reader. The retained stdout and stderr remain unread, and no reader or
+processing run exists. Exact boundary acceptance, execution-pack preparation
+and acceptance, and later processing authorization are distinct owner gates.
+The terminal diagnostic candidate cannot transfer into the learning route. The
+retained local raw diagnostics must be deleted no later than
 `2026-08-22T16:39:58Z`.
 Runtime adaptation, implementation, rehearsal, SUT, baseline execution,
 scoring, and an experimental run remain unauthorized.

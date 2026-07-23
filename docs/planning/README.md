@@ -89,20 +89,26 @@ and one no-retry read-only Codex audit of those exact public bytes. A local
 candidate was prepared, but the sole audit ended `audit-call-failed` before an
 auditor verdict. The [safe terminal
 record](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5062148530)
-leaves it unaccepted and unpublished. The retained stdout remains unread.
+leaves it terminal, unaccepted, unpublished, and non-reusable.
 
-The nearest work is now a separate owner disposition: admit preparation of a
-fresh diagnostic-tooling candidate under a new manifest and a separately
-authorized fresh audit path, separately authorize exploratory-learning
-expansion, or stop this route. Manifest
+The owner then selected exploratory learning and separately authorized only
+public preparation of its exact goal and boundary in the current session,
+without protected bytes or a separate external call. The resulting
+[proposal](../../examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY.md)
+admits one future current-session exposure of the retained stdout, but is
+neither accepted nor activated. The retained stdout and stderr remain unread;
+no reader, processing, external call, or experiment ran. Manifest
 `45820302417fa577d89cfce46d3c3b6ea6e18ec4c891661a1af67404f423951d`
-cannot be accepted, re-audited, repaired, or reused on the current route. The
-decision grants none of those routes implicitly and does not authorize raw
-access. If a future route makes an exact diagnostic identity admissible, the
-owner must still separately accept its exact bytes and authorize one local
-deterministic read. A safe diagnostic receipt grants no successor work. Only
-its later disposition may select a targeted fix, another execution method,
-expanded learning, or pre-run `stop`.
+cannot be accepted, re-audited, repaired, or reused on this route.
+
+The nearest work is exact owner acceptance of the merged proposal SHA-256.
+Acceptance grants no raw access. A fresh public execution pack must then receive
+separate preparation authorization, independent public-only review, and exact
+owner acceptance. Only a later processing authorization may name its hashes,
+the exact retained-stdout path, current-session processor, one-episode budget,
+safe outputs, retention, and deletion. A safe learning result grants no
+successor work. Only its later disposition may select a targeted successor,
+another execution method, prototype-only work, or pre-run `stop`.
 
 All later route nodes are `conditional`. In this map that means “possible after
 a future decision,” not “authorized.” The v1 disposition started its one
@@ -125,9 +131,10 @@ execution, scoring, and an evaluated run remain planned and unauthorized.
 - Update execution facts and gate statuses together with their evidence.
 - Represent every owner authorization that changes the permitted work boundary
   as its own milestone; completing a prerequisite never grants that authority.
-- Treat `conditional` nodes as possible routes rather than permission. Activate
-  at most one primary recovery route after the owner disposition; an expanded
-  learning boundary remains a separate permission even if used alongside it.
+- Treat `conditional` nodes as possible routes rather than permission. The
+  selected learning route still separates proposal preparation, exact
+  acceptance, execution-pack preparation and acceptance, processing
+  authorization, execution, and disposition.
 - Account for one issue-wide time box across all of its plan phases; never reset
   a budget by renaming or decomposing the work.
 - Issue #6 is closed at stop with four counted dates: 2026-07-12, 2026-07-13,
