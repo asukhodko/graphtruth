@@ -43,14 +43,15 @@ enter GraphTruth's protocol, schemas, runtime, or RFC authority chain. Rendering
 tools are not vendored because no generated planning view is currently a
 maintained artifact.
 
-## Current position — 2026-07-22
+## Current position — 2026-07-23
 
 Issue #24 is the single major WIP. Selection, source acquisition, and the
 byte-identical RST projection are complete and owner-accepted. The issue has
-used two of five repository-active dates: 2026-07-21 and 2026-07-22. The owner
-separately authorized one evaluation-freeze v1 attempt and two external Codex
-calls. Its independent read-only audit returned `reject`; no release or accepted
-evaluation contract exists. The publication-safe
+used three of five repository-active dates: 2026-07-21, 2026-07-22, and
+2026-07-23. The owner separately authorized one evaluation-freeze v1 attempt
+and two external Codex calls. Its independent read-only audit returned
+`reject`; no release or accepted evaluation contract exists. The
+publication-safe
 [terminal record](../../experiments/corpora/python-annotations-semantics-v1/EVALUATION-FREEZE-TERMINAL.json)
 contains only publication-safe identities, hashes, counts, toolchain and
 processing metadata, authorization flags, and the rejected outcome. It contains
@@ -73,9 +74,18 @@ be retried, resumed, repaired, or reused. The Python corpus is exploratory; a
 first confirmatory experiment requires a fresh corpus and identity with no
 transfer of disclosed Python material.
 
-The next decision is `continue`, `shrink`, or `stop`. Any continuation requires
-a fresh successor identity and separate authorization; it is not a retry of the
-terminal v2 attempt.
+The owner chose a procedural `shrink` on date 3/5. It leaves the corpus,
+projection, and accepted v2 bytes unchanged. The resulting
+`codex-author-call-qualification-v1` preparation and fake-provider tests are
+complete. The owner accepted the exact tooling-manifest identity and separately
+authorized one external public-synthetic call. The consumed call ended
+terminally at `result-schema`: Codex exited zero with a valid four-event
+zero-tool JSONL trace, but the structured answer was not strict schema-valid
+JSON matching the frozen payload. No retry or resume occurred. Its exact safe
+outcome now has a ready disposition gate, followed by a separate authorization
+gate before any fresh evaluation successor can begin. This shrink is not the
+experiment's `sequential shrink` and does not reset the issue-wide budget.
+
 `g6-evaluation-contract-accepted`, implementation, rehearsal, SUT, baseline
 execution, scoring, and an evaluated run remain planned and unauthorized.
 

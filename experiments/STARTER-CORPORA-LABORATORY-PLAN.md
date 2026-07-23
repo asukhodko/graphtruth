@@ -10,8 +10,12 @@
 > authorized for one attempt. That sole invocation stopped fail-closed with
 > `AUTHOR_MODEL_CALL` before a validated author artifact or independent audit;
 > it produced no public result JSON, release, or accepted contract. The Python
-> corpus is exploratory; confirmation requires a fresh corpus and identity.
-> Every later gate remains unauthorized.
+> corpus is exploratory; confirmation requires a fresh corpus and identity. On
+> repository-active date 3/5 the owner chose procedural `shrink` to preparation
+> of a generated-public-synthetic author-call qualification. The owner accepted
+> its exact identity and separately authorized one external call. That sole call
+> ended terminally `not-qualified / result-schema`; no successor gate is
+> authorized.
 >
 > **Created:** 2026-07-12.
 >
@@ -567,29 +571,44 @@ identities. A separate authorization admitted one attempt. The sole invocation
 stopped fail-closed with `AUTHOR_MODEL_CALL` and exit status `1`, before a
 validated author artifact or independent audit. It returned no public JSON and
 produced no release or accepted evaluation contract. That attempt cannot be
-retried, resumed, repaired, or reused. The later progression is blocked on one
-owner disposition:
+retried, resumed, repaired, or reused.
 
-1. choose `continue`, `shrink`, or `stop`; any continuation requires a fresh
-   successor identity and separate authorization;
-2. only if a successor produces an accepted freeze, accept that exact contract
+The owner chose procedural `shrink` on repository-active date 3/5. The corpus,
+projection, and accepted v2 bytes remain unchanged. Preparation and
+fake-provider testing of `codex-author-call-qualification-v1` with generated
+public synthetic RST completed without corpus, projection, terminal-state, or
+owner-authorization-record reads. The owner then accepted the exact
+tooling-manifest identity and separately authorized one external synthetic call.
+The sole call is consumed and its publication-safe
+[result](../examples/experiments/author-call-qualification-v1/CODEX-AUTHOR-CALL-QUALIFICATION.json)
+is terminal `not-qualified / result-schema`: the admitted process and zero-tool
+JSONL trace passed, while the structured answer failed strict JSON, schema, and
+payload-identity checks. No retry or resume occurred. This shrink is not the
+experiment's `sequential shrink` and does not reset the issue-wide budget. The
+later progression is:
+
+1. dispose the exact qualification outcome by choosing a fix under a new
+   tooling identity, another execution path, or `stop`;
+2. only if that disposition permits continuation, separately authorize and
+   then define a fresh successor evaluation freeze;
+3. only if a successor produces an accepted freeze, accept that exact contract
    and separately authorize implementation;
-3. implement and rehearse only the S0-S1 vertical slice required to execute it;
-4. accept the exact rehearsal and separately authorize one evaluated run;
-5. execute, score the full denominator, and record `sequential keep`,
+4. implement and rehearse only the S0-S1 vertical slice required to execute it;
+5. accept the exact rehearsal and separately authorize one evaluated run;
+6. execute, score the full denominator, and record `sequential keep`,
    `sequential shrink`, or `sequential stop`;
-6. after a sequential keep, open only the 24-order successor and record its
+7. after a sequential keep, open only the 24-order successor and record its
    order-robustness decision before corpus 2 starts.
 
 GitLab, PostgreSQL, multi-domain composition, public benchmark packaging, and
 model-assisted automation remain queued rather than parallel WIP.
 
-## Current decision after the terminal v2 attempt
+## Current decision after terminal qualification
 
-1. Will the owner choose `continue`, `shrink`, or `stop` for the Python lane?
-2. If continuing, what fresh successor identity and separately authorized scope
-   can diagnose or avoid `AUTHOR_MODEL_CALL` without reading, repairing, or
-   reusing either terminal attempt?
+1. Should the exact `not-qualified / result-schema` outcome lead to a fix under
+   a new tooling identity, another execution method, or `stop`?
+2. Only after that disposition, should a fresh evaluation successor be
+   separately authorized and defined?
 3. Only after a successor contract is accepted, will the owner separately
    authorize a whole-document adapter that preserves payload bytes, byte
    offsets, and RST media type without changing the common input?

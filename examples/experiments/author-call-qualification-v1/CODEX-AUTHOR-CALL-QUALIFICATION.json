@@ -1,0 +1,147 @@
+{
+  "documentKind": "graphtruth.codex-author-call-qualification-result/1",
+  "tooling": {
+    "identity": "codex-author-call-qualification-v1",
+    "manifestSha256": "bf6e7f671c60fb3a3748ff5a03aeca93500cb40fe2664c388634287049290200",
+    "baseCommit": "c92031086ef5a58ff5a29d30325c73b05f23423e",
+    "wrapperSha256": "f25e511ed64a421654e897672b32f8caf6ac2fe3f440ad3878ecbeed63498773",
+    "controllerSha256": "83f446d225dd8da6d86df1b5d0b4e409157937df9db211913b879e796dfd8f5f",
+    "testsSha256": "76ce207b576e9656722ba8ecbe13b4738ec521e4dad87821622278d49c13b0e2",
+    "syntheticManifestSha256": "ba2b8e825f05179b66ce874fc03a7540b59c15e96495b95764189bec33da1bda",
+    "resultSchemaSha256": "f1a773edaecc99ac6287f0974251745de94ed75b384926ed79d27548c0ed7a3a",
+    "sandboxPreflightModuleSha256": "28a821f843d71489974bfa65ed931de8a304eea3dff5ab570ea02f5a1d596025",
+    "strictJsonModuleSha256": "603553be7d0ca32cb11ccce7eadfb711277dc6ae9c55d2d68f08abafd9e5750b"
+  },
+  "runtime": {
+    "nodeVersion": "v24.4.1",
+    "codexVersion": "0.144.4",
+    "codexSha256": "3302acbda5f53de1a71ebdb0c0f2aae0d47f9324aa9fb6b4e78a47014fd51c7d",
+    "model": "gpt-5.6-sol",
+    "provider": "openai",
+    "permissionProfile": "graphtruth-zero-tools",
+    "permissionProfileSha256": "067bec78216284a13bb6dd9f4bd4b6a70a0a2f4d9a792f0d38a42daa8901ccf1",
+    "normalizedCommandShapeSha256": "33f658eb4af9b4ece4e141d37b2a9e7877ff9614d265e26f7acdd9a589bc35a7",
+    "timeoutMilliseconds": 900000,
+    "stdoutLimitBytes": 1048576,
+    "stderrLimitBytes": 1048576
+  },
+  "syntheticInput": {
+    "manifestSha256": "ba2b8e825f05179b66ce874fc03a7540b59c15e96495b95764189bec33da1bda",
+    "itemCount": 4,
+    "totalItemBytes": 157252,
+    "promptBytes": 232192,
+    "promptSha256": "f32dd908019a14348548b85bee85c14fc3718efc7ff977745559c8180245cb6e",
+    "payloadBytes": 32768,
+    "payloadSha256": "45f850be04f0c4bf0959754e8dd26f980ff23188b61f9460ed72de0fbb18631f",
+    "outputSchemaSha256": "fc53db78d5f4c04b0e0c5d94675771b4c2ddd22fd708c5a624952ee6a3edc23e"
+  },
+  "timing": {
+    "startedAtUtc": "2026-07-23T05:46:03.404Z",
+    "completedAtUtc": "2026-07-23T05:50:48.236Z",
+    "elapsedMilliseconds": 284832
+  },
+  "invocation": {
+    "controllerInvocations": 1,
+    "modelCallMaximum": 1,
+    "callSlotCommitted": true,
+    "modelCallsConsumed": 1,
+    "spawnAttempted": true,
+    "spawnSucceeded": true,
+    "retryPerformed": false,
+    "resumePerformed": false
+  },
+  "outcome": {
+    "status": "not-qualified",
+    "class": "result-schema",
+    "terminalStage": "result-schema",
+    "stages": {
+      "preflight-identity": "passed",
+      "synthetic-prompt-build": "passed",
+      "workspace-setup": "passed",
+      "auth-carrier-precheck": "passed",
+      "ephemeral-state-setup": "passed",
+      "call-slot-commit": "passed",
+      "process-spawn": "passed",
+      "stdin-write": "passed",
+      "process-wait": "passed",
+      "output-budget": "passed",
+      "process-exit": "passed",
+      "process-group-cleanup": "passed",
+      "output-utf8": "passed",
+      "jsonl-trace": "passed",
+      "model-identity": "passed",
+      "result-schema": "failed",
+      "state-cleanup": "passed",
+      "auth-carrier-recheck": "passed"
+    }
+  },
+  "process": {
+    "exitKind": "exit-code",
+    "exitCode": 0,
+    "signal": null,
+    "timeoutTriggered": false,
+    "terminationRequested": false,
+    "sigtermSent": false,
+    "sigkillSent": false,
+    "processGroupAbsent": true
+  },
+  "streams": {
+    "stdout": {
+      "observed": true,
+      "capturedBytes": 38920,
+      "capturedSha256": "75c118902a7b5104e642a3e1ae028e0dcff63f6f2431a67cf4fc575b48d72c0a",
+      "limitExceeded": false,
+      "truncated": false,
+      "utf8Valid": true
+    },
+    "stderr": {
+      "observed": true,
+      "capturedBytes": 0,
+      "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "limitExceeded": false,
+      "truncated": false,
+      "utf8Valid": true
+    }
+  },
+  "jsonl": {
+    "observed": true,
+    "valid": true,
+    "lineCount": 4,
+    "parsedEventCount": 4,
+    "eventTypes": [
+      "thread.started",
+      "turn.started",
+      "item.completed:agent_message",
+      "turn.completed"
+    ],
+    "toolEventCount": 0
+  },
+  "structuredResult": {
+    "observed": true,
+    "strictJsonValid": false,
+    "schemaValid": false,
+    "expectedPayloadMatched": false
+  },
+  "lifecycle": {
+    "diagnosticRootCreated": true,
+    "workspaceCreated": true,
+    "workspaceRemoved": true,
+    "ephemeralStateCreated": true,
+    "ephemeralStateRemoved": true,
+    "authCarrierValidatedBefore": true,
+    "authCarrierUnchangedAfter": true
+  },
+  "boundaries": {
+    "externalProcessing": true,
+    "localOnlyProcessing": false,
+    "providerSideDeletionVerified": false,
+    "controllerCredentialBytesRead": false,
+    "codexChildAuthenticationRequired": true,
+    "syntheticOnly": true,
+    "corpusRead": false,
+    "terminalStateRead": false,
+    "freezePerformed": false,
+    "runPerformed": false,
+    "rawDiagnosticsPublished": false
+  }
+}

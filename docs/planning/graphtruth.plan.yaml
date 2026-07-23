@@ -695,16 +695,19 @@ nodes:
       cost. It cannot establish private dogfood utility or current Python
       behavior beyond the retained corpus. The five-date budget starts on
       2026-07-21; owner decision is required before day five and the independent
-      hard stop is 2026-08-04. Date 2/5 is 2026-07-22. One separately authorized
+      hard stop is 2026-08-04. Date 3/5 is 2026-07-23. One separately authorized
       evaluation-freeze v1 attempt ended in a terminal independent-audit
       rejection. Its safe diagnosis is recorded. The exact v2 tooling identity
       was accepted and one separately authorized invocation stopped fail-closed
       with `AUTHOR_MODEL_CALL` before a validated author artifact or independent
       audit. No public result JSON, release, or accepted contract exists. The
-      next owner decision is `continue`, `shrink`, or `stop`; continuation needs
-      a fresh successor identity and authorization. Any result on this disclosed
-      Python corpus is exploratory. A first confirmatory result needs a fresh
-      corpus and identity.
+      owner chose a procedural `shrink`: preserve the corpus, projection, and v2
+      bytes while preparing a generated-public-synthetic author-call
+      qualification. The owner later accepted its exact identity and separately
+      authorized one external synthetic call. The consumed call ended
+      `not-qualified / result-schema`; outcome disposition is now ready. Any
+      result on this disclosed Python corpus is exploratory. A first
+      confirmatory result needs a fresh corpus and identity.
 
   m6-freeze-selection-rights:
     title: "Freeze Python corpus selection, chronology, rights, and boundary"
@@ -886,26 +889,111 @@ nodes:
     milestone: true
     parent: m6-python-sequential
     deps: [m6-freeze-evaluation-v2]
+    status: done
+    notes: |
+      The owner chose procedural `shrink` on repository-active date 3/5. The
+      corpus, projection, accepted v2 tooling, and both terminal attempts remain
+      unchanged. The smaller admitted scope was preparation and synthetic testing of
+      `codex-author-call-qualification-v1`. This is not `sequential shrink` and
+      authorizes no live model call, successor freeze, implementation, baseline,
+      rehearsal, scoring, or evaluated work.
+
+  m6-prepare-author-call-qualification-v1:
+    title: "Prepare the public-synthetic Codex author-call qualification v1"
+    kind: task
+    parent: m6-python-sequential
+    deps: [g6-evaluation-freeze-v2-disposition]
+    status: done
+    notes: |
+      Prepare a separate fail-closed wrapper, controller, and fake-provider test
+      suite. The controller admits only generated public synthetic RST, accepts
+      no corpus or projection path, and preserves the publicly fixed boundary
+      shape and size, the same zero-tool command configuration, and the
+      disposable-state lifecycle through shared preflight checks without
+      modifying v2. Its prompt and payload are separate synthetic shape-only
+      material; it imports no real v2 prompt or contract validation and creates
+      no evaluation contract. Normal repository checks make no OpenAI request
+      and create no live result.
+
+  g6-author-call-qualification-v1-tooling-accepted:
+    title: "Gate: exact author-call qualification v1 tooling identity accepted"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [m6-prepare-author-call-qualification-v1]
+    status: done
+    notes: |
+      The owner accepted the exact TOOLING-MANIFEST.json identity
+      bf6e7f671c60fb3a3748ff5a03aeca93500cb40fe2664c388634287049290200
+      and every component it binds in the first decision of Issue #24 comment
+      5054897423. That decision approved only those tooling bytes; it did not by
+      itself authorize external processing or a live qualification call.
+
+  g6-author-call-qualification-v1-authorized:
+    title: "Gate: one live public-synthetic author-call qualification authorized"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [g6-author-call-qualification-v1-tooling-accepted]
+    status: done
+    notes: |
+      The second, separate decision in Issue #24 comment 5054897423 authorized
+      OpenAI processing of only the generated public synthetic input, one
+      non-resumable call, its output boundary, and the no-corpus/no-run limits.
+      That sole authorization is consumed.
+
+  m6-run-author-call-qualification-v1:
+    title: "Run one public-synthetic author-call qualification"
+    kind: task
+    parent: m6-python-sequential
+    deps: [g6-author-call-qualification-v1-authorized]
+    status: stopped
+    notes: |
+      The sole call ended terminally `not-qualified / result-schema`. Codex
+      exited zero with a valid four-event zero-tool JSONL trace, but its
+      structured answer failed strict JSON, schema, and payload-identity checks.
+      The safe result has SHA-256
+      aa07980cd8b9a05d699f5a491733ea2dd2a710955d13a783249a4e9721979b94.
+      One call was consumed; retry and resume are false. Source, projection,
+      terminal state, freeze, implementation, baseline, rehearsal, scoring, and
+      evaluated run remained outside the boundary.
+
+  g6-author-call-qualification-v1-disposition:
+    title: "Gate: dispose the exact author-call qualification outcome"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [m6-run-author-call-qualification-v1]
     status: ready
     notes: |
-      The owner must choose `continue`, `shrink`, or `stop`. Continue or shrink
-      must name a fresh successor identity and receive separate authorization;
-      neither choice revives or reuses the terminal v1 or v2 state. Stop closes
-      the Python sequential lane without implementation or evaluated work.
+      The owner must dispose the exact terminal result: prepare a fix under a
+      new tooling identity, choose another execution path, or stop. No choice
+      automatically authorizes a successor evaluation freeze.
+
+  g6-evaluation-freeze-successor-authorized:
+    title: "Gate: fresh successor evaluation freeze authorized"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [g6-author-call-qualification-v1-disposition]
+    status: conditional
+    notes: |
+      This gate exists only after a satisfactory qualification disposition and
+      a new explicit owner decision naming a fresh successor evaluation and
+      execution identity, scope, call budget, and permitted processing. Neither
+      tooling acceptance nor qualification success satisfies it.
 
   m6-freeze-evaluation-successor:
     title: "Conditionally freeze a fresh successor evaluation contract"
     kind: task
     parent: m6-python-sequential
-    deps: [g6-evaluation-freeze-v2-disposition]
+    deps: [g6-evaluation-freeze-successor-authorized]
     status: conditional
     notes: |
-      This node exists only for an explicit owner `continue` or `shrink`
-      decision that names a fresh successor evaluation and execution identity,
-      scope, call budget, and separate authorization. A new tooling identity is
-      required only if the owner chooses different tooling. This node is never a
-      retry, resume, repair, or reuse of either terminal attempt. A `stop`
-      decision makes it not applicable.
+      This node exists only after the separate successor-authorization gate. A
+      new tooling identity is required only if the owner chooses different
+      tooling. This node is never a retry, resume, repair, or reuse of either
+      terminal attempt. A `stop` decision makes it not applicable.
 
   g6-evaluation-contract-accepted:
     title: "Gate: evaluation freeze accepted and implementation authorized"
@@ -1174,8 +1262,8 @@ execution:
       updated_at: "2026-07-21T08:03:17+03:00"
     m6-python-sequential:
       actual_start: "2026-07-21"
-      updated_at: "2026-07-22T23:04:14+03:00"
-      note: "Repo-active date 2/5 records the safe v1 diagnosis, accepted v2 tooling identity, consumed one-attempt authorization, and terminal AUTHOR_MODEL_CALL outcome. Python is exploratory; no evaluation contract or later gate is authorized."
+      updated_at: "2026-07-23T08:50:48+03:00"
+      note: "Repo-active date 3/5 now records the terminal public-synthetic qualification result: one call consumed, not-qualified/result-schema, with corpus, projection, terminal states, freeze, implementation, baseline, rehearsal, scoring, and evaluated run untouched."
     m6-freeze-selection-rights:
       progress: 1.0
       actual_start: "2026-07-21"
@@ -1240,6 +1328,36 @@ execution:
       actual_start: "2026-07-22"
       updated_at: "2026-07-22T23:04:14+03:00"
       note: "Stopped fail-closed at AUTHOR_MODEL_CALL with exit 1. The author-call slot was consumed before provider spawn; the auditor call was not reached and does not transfer. No public JSON, release, accepted contract, retry, resume, repair, or reuse."
+    g6-evaluation-freeze-v2-disposition:
+      progress: 1.0
+      actual_start: "2026-07-23"
+      actual_finish: "2026-07-23"
+      updated_at: "2026-07-23T07:35:43+03:00"
+      note: "Owner chose procedural shrink on date 3/5: prepare only a public-synthetic author-call qualification, with no live call or successor authorization."
+    m6-prepare-author-call-qualification-v1:
+      progress: 1.0
+      actual_start: "2026-07-23"
+      actual_finish: "2026-07-23"
+      updated_at: "2026-07-23T07:35:43+03:00"
+      note: "Prepared generated-public-synthetic qualification tooling and fake-provider tests. They read no corpus, projection, terminal state, or owner authorization record; no model provider was contacted and no live result exists."
+    g6-author-call-qualification-v1-tooling-accepted:
+      progress: 1.0
+      actual_start: "2026-07-23"
+      actual_finish: "2026-07-23"
+      updated_at: "2026-07-23T08:43:01+03:00"
+      note: "The first decision in Issue #24 comment 5054897423 accepted manifest SHA-256 bf6e7f671c60fb3a3748ff5a03aeca93500cb40fe2664c388634287049290200 and every bound component; it did not itself authorize processing."
+    g6-author-call-qualification-v1-authorized:
+      progress: 1.0
+      actual_start: "2026-07-23"
+      actual_finish: "2026-07-23"
+      updated_at: "2026-07-23T08:43:01+03:00"
+      note: "The second decision in Issue #24 comment 5054897423 separately authorized exactly one external synthetic call. The authorization is consumed; retry and resume are forbidden."
+    m6-run-author-call-qualification-v1:
+      progress: 1.0
+      actual_start: "2026-07-23"
+      actual_finish: "2026-07-23"
+      updated_at: "2026-07-23T08:50:48+03:00"
+      note: "Terminal not-qualified/result-schema. Codex exited 0; zero-tool JSONL was valid, but the structured result was not strict schema-valid JSON matching the payload. Public result SHA-256 aa07980cd8b9a05d699f5a491733ea2dd2a710955d13a783249a4e9721979b94."
 
 views:
   current-work:
@@ -1257,7 +1375,7 @@ views:
     title: "Decision gates"
     where:
       kind: [milestone]
-      status: [planned, conditional]
+      status: [ready, planned, conditional]
   future-horizons:
     title: "Deferred gates and horizons"
     where:
@@ -1266,8 +1384,8 @@ views:
 x:
   exec:
     program:
-      nearest_goal: "Have the owner choose continue, shrink, or stop after the terminal evaluation-freeze v2 attempt."
-      success_by_next_sync: "Record the disposition explicitly; any continuation needs a fresh successor identity and separate authorization, while implementation, rehearsal, baseline, scoring, and evaluated execution remain closed."
+      nearest_goal: "Have the owner dispose the exact terminal not-qualified/result-schema qualification outcome."
+      success_by_next_sync: "Choose a fix under a new tooling identity, another execution method, or stop. Do not infer successor-freeze authorization from any disposition."
     defaults:
       status_progress:
         done: 1.0
@@ -1301,8 +1419,8 @@ x:
         kind: main
         mgmt:
           health: yellow
-          sync_note: "Issue #24 is the single major WIP. Selection, acquisition, and projection are closed; v1 ended at audit rejection and the separately authorized v2 attempt stopped at AUTHOR_MODEL_CALL. No accepted evaluation contract or evaluated output exists."
-          next_sync_goal: "Record the owner choice of continue, shrink, or stop. A continuation must use a fresh explicitly authorized successor identity, never retry or reuse either terminal attempt."
+          sync_note: "Issue #24 is at date 3/5. The accepted and separately authorized public-synthetic qualification consumed one call and ended terminally not-qualified/result-schema. No evaluation contract or evaluated output exists."
+          next_sync_goal: "Dispose the exact qualification outcome: new tooling identity/fix, another execution path, or stop. Keep every successor gate closed."
       python-order-successor:
         title: "Python 24-order successor"
         scope_nodes: [m7-python-order-successor]
@@ -1329,7 +1447,7 @@ x:
         show_progress: false
         show_gate_date: false
         wrap_title_lines: 2
-        caption: "Private path stopped; the public Python v2 freeze attempt is terminal and later gates are closed."
+        caption: "Private path stopped; the synthetic qualification ended at result-schema and awaits disposition, while successor work remains closed."
         blocks: [integration, private-stop, python-sequential]
       exec-active-tracks:
         direction: TB
