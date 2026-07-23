@@ -38,8 +38,11 @@ nodes:
       is now explicitly exploratory: it can harden the experimental procedure
       but cannot serve as the first confirmation of GraphTruth. Confirmation
       requires a fresh corpus and identity with no transfer of disclosed Python
-      material. The lane cannot replace the still missing private dogfood
-      usefulness evidence.
+      material. After a terminal diagnostic-audit failure, the owner selected
+      exploratory learning and authorized only preparation of an exact boundary.
+      That proposal is unaccepted and inactive; retained output remains unread.
+      The lane cannot replace the still missing private dogfood usefulness
+      evidence.
 
   m0-rehearsal-integration:
     title: "Integrate the runtime-boundary rehearsal evidence"
@@ -710,12 +713,12 @@ nodes:
       deadline at 2026-08-22T16:39:58Z, and authorized only public-fixture
       preparation plus one public-code audit. A local candidate was prepared,
       but that sole audit ended `audit-call-failed` before an auditor verdict.
-      The candidate remains unaccepted and unpublished, the retained stdout
-      remains unread, and the diagnostic route now awaits a separate owner
-      disposition. The diagnostic route can continue only through a fresh
-      diagnostic-tooling candidate under a new manifest, separately authorized
-      audit, acceptance, and one-read authorization. A separately authorized
-      exploratory-learning expansion is an independent branch and can never
+      The candidate remains terminal, unaccepted, unpublished, and non-reusable.
+      The owner selected exploratory learning and separately authorized only
+      public preparation of its exact boundary. The proposal is prepared but
+      unaccepted and inactive; retained stdout and stderr remain unread. Exact
+      boundary acceptance, execution-pack preparation and acceptance, and later
+      processing authorization remain separate. The learning branch can never
       open an evaluation successor. Any continuing author-call route must later
       pass a fresh qualification identity, acceptance, one-call authorization,
       and terminal qualification before an evaluation successor can be
@@ -1036,17 +1039,91 @@ nodes:
     milestone: true
     parent: m6-python-sequential
     deps: [m6-audit-author-call-qualification-v1-diagnostic]
+    status: done
+    notes: |
+      Issue #24 comments 5062645199 and 5062674740 record the owner's
+      exploratory-learning choice. Manifest
+      45820302417fa577d89cfce46d3c3b6ea6e18ec4c891661a1af67404f423951d
+      remains terminal, unaccepted, unpublished, and non-reusable. The choice
+      grants no retained-output read, external call, successor preparation,
+      corpus processing, or evaluation work.
+
+  g6-python-learning-boundary-preparation-authorized:
+    title: "Gate: exploratory-learning boundary preparation authorized"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [g6-author-call-qualification-v1-diagnostic-audit-failure-disposition]
+    status: done
+    notes: |
+      Issue #24 comments 5062645199 and 5062674740 authorize only public
+      preparation and publication of one exact goal and boundary in the current
+      session, without protected bytes or a separate external call. They do not
+      accept or activate that boundary and authorize no raw reader,
+      current-session raw processing, corpus processing, or experiment.
+
+  m6-prepare-python-learning-boundary:
+    title: "Prepare the exact exploratory-learning goal and boundary"
+    kind: task
+    parent: m6-python-sequential
+    deps: [g6-python-learning-boundary-preparation-authorized]
+    status: done
+    notes: |
+      The public proposal at
+      examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY.md
+      fixes the prospective subject, processors, one-episode procedure, safe
+      outputs, budgets, retention, deletion, claim ceiling, and stop rules.
+      Preparation read no retained output or private material and ran no reader,
+      model call, implementation, baseline, rehearsal, scoring, or experiment.
+
+  g6-python-learning-boundary-accepted:
+    title: "Gate: exact exploratory-learning boundary accepted"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [m6-prepare-python-learning-boundary]
     status: ready
     notes: |
-      A separate owner decision must choose preparation of a fresh
-      diagnostic-tooling candidate under a new manifest and a separately
-      authorized fresh audit path, separately authorized exploratory-learning
-      expansion, or stop. Manifest
-      45820302417fa577d89cfce46d3c3b6ea6e18ec4c891661a1af67404f423951d
-      cannot be accepted, re-audited, repaired, or reused on the current route.
-      This gate grants no retained-output read, diagnostic identity acceptance,
-      external call, successor preparation, corpus processing, or evaluation
-      work.
+      Requires a separate owner decision naming the exact merged SHA-256 of the
+      boundary proposal. Acceptance freezes the proposal but grants no read or
+      processing. Activation remains a later, separate owner gate.
+
+  g6-python-learning-execution-preparation-authorized:
+    title: "Gate: exploratory-learning execution-pack preparation authorized"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [g6-python-learning-boundary-accepted]
+    status: conditional
+    notes: |
+      Requires a separate owner decision after boundary acceptance. It
+      authorizes only public preparation and review of a fresh reader, closed
+      result schema, synthetic fixtures, tests, and exact manifest. It grants no
+      retained-output path, read, protected-content processing, or live call.
+
+  m6-prepare-python-learning-execution-pack:
+    title: "Prepare and independently review the learning execution pack"
+    kind: task
+    parent: m6-python-sequential
+    deps: [g6-python-learning-execution-preparation-authorized]
+    status: conditional
+    notes: |
+      Build the pack from accepted public code and artificial fixtures only.
+      Bind the accepted boundary, exact parser modules, reader, closed result
+      schema, tests, and safe synthetic example. Publish and independently
+      review the exact pack without locating or reading retained output.
+
+  g6-python-learning-execution-pack-accepted:
+    title: "Gate: exact exploratory-learning execution pack accepted"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [m6-prepare-python-learning-execution-pack]
+    status: conditional
+    notes: |
+      Requires separate owner acceptance of the exact merged manifest SHA-256
+      and every bound component. Acceptance grants no retained-output read,
+      protected-content processing, or live call.
 
   g6-author-call-qualification-v1-diagnostic-tooling-accepted:
     title: "Gate: exact diagnostic tooling identity accepted"
@@ -1100,13 +1177,13 @@ nodes:
     kind: milestone
     milestone: true
     parent: m6-python-sequential
-    deps: [g6-author-call-qualification-v1-diagnostic-disposition]
+    deps: [g6-python-learning-result-disposition]
     status: conditional
     notes: |
-      Requires a separate post-diagnosis owner decision naming one exact route and its
-      provider-free public-synthetic preparation scope. It grants no raw
-      diagnostic read, external processing, live call, corpus processing,
-      evaluation freeze, implementation, or run.
+      Requires a separate post-learning owner decision naming one exact route
+      and its public-synthetic preparation scope without a live provider
+      request. It grants no raw read, protected-content processing, live call,
+      corpus processing, evaluation freeze, implementation, or run.
 
   m6-prepare-author-call-qualification-successor:
     title: "Conditionally prepare the selected author-call successor"
@@ -1186,19 +1263,20 @@ nodes:
       rehearsal, scoring, or run.
 
   g6-python-learning-expansion-authorized:
-    title: "Gate: expanded exploratory-learning boundary authorized"
+    title: "Gate: exploratory-learning processing authorized"
     kind: milestone
     milestone: true
     parent: m6-python-sequential
-    deps: [g6-author-call-qualification-v1-disposition]
+    deps: [g6-python-learning-execution-pack-accepted]
     status: conditional
     notes: |
-      Python is already exploratory, but that status grants no broader access.
-      This gate may be considered after the current result or any later terminal
-      successor result. A new owner decision must name exact readable artifacts,
-      processors, purpose, outputs, budgets, retention, and deletion. It cannot
-      repair, retry, resume, or reuse terminal identities and cannot satisfy an
-      evaluation-contract or experimental-run gate.
+      Requires a later owner decision naming the accepted boundary, execution
+      pack, reader, and result-schema SHA-256 values plus the exact diagnostic
+      root and retained-stdout path. The owner must accept one continuous
+      current-session OpenAI processing episode, transcript and retention risk,
+      safe outputs, budgets, and deletion. It grants no separately launched
+      model session or provider call, terminal-candidate reuse, successor work,
+      corpus processing, or experiment.
 
   m6-record-expanded-learning:
     title: "Conditionally extract and record exploratory learning"
@@ -1209,7 +1287,24 @@ nodes:
     notes: |
       Publish only predeclared safe learning. Keep every terminal outcome
       terminal and make no confirmatory, evaluation, baseline, scoring, or run
-      claim. A fresh corpus and identity remain required for confirmation.
+      claim. Use one fresh local reader and one current-session exposure only,
+      then apply the declared local deletion boundary. A fresh corpus and
+      identity remain required for confirmation.
+
+  g6-python-learning-result-disposition:
+    title: "Gate: dispose the exact exploratory-learning result"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps:
+      - m6-record-expanded-learning
+      - m6-purge-author-call-qualification-v1-diagnostics
+    status: conditional
+    notes: |
+      After a safe terminal learning result, separately choose narrow successor
+      preparation, another execution method, prototype-only work, or stop. The
+      result cannot close qualification or authorize a model call, evaluation
+      freeze, implementation, baseline, rehearsal, scoring, or run.
 
   g6-python-sequential-early-stop-recorded:
     title: "Gate: pre-run Python sequential stop recorded"
@@ -1225,7 +1320,7 @@ nodes:
       applicable. The single-major-WIP slot may then move.
 
   m6-purge-author-call-qualification-v1-diagnostics:
-    title: "Delete retained raw diagnostics after diagnostic disposition or at deadline"
+    title: "Delete retained qualification raw after staged learning or at deadline"
     kind: task
     parent: m6-python-sequential
     deps: [g6-author-call-qualification-v1-disposition]
@@ -1234,10 +1329,16 @@ nodes:
       Delete owner-only raw synthetic diagnostics no later than
       2026-08-22T16:39:58Z, 30 calendar days after the exact disposition.
       Retain the publication-safe result. Provider-side deletion remains
-      unverified. Normally delete only after disposition of the diagnostic
-      receipt; if diagnosis is unfinished, the deadline still requires
-      deletion. Until either condition, preserve the sole input unchanged. The
-      diagnostic invocation itself cannot delete raw state.
+      unverified. On the selected learning route, first validate the
+      schema-valid safe result locally and obtain owner review of its exact
+      hashes before the first commit or push. Push exactly those bytes to one
+      draft PR; then delete stdout after a no-open metadata identity check,
+      unlink the unread zero-byte stderr only after its fixed metadata checks,
+      change only the predeclared deletion flags, repeat local validation and
+      owner review of the new exact hashes, update that same PR, verify the
+      pushed hashes, rerun checks, and merge. Never recursively delete the
+      original diagnostic root. If learning is not activated or remains
+      unfinished, the deadline still requires exact raw deletion.
 
   g6-evaluation-freeze-successor-authorized:
     title: "Gate: fresh successor evaluation freeze authorized"
@@ -1577,8 +1678,8 @@ execution:
       updated_at: "2026-07-21T08:03:17+03:00"
     m6-python-sequential:
       actual_start: "2026-07-21"
-      updated_at: "2026-07-23T21:49:44+03:00"
-      note: "Repo-active date 3/5: the sole public diagnostic audit ended audit-call-failed before an auditor verdict. The candidate is unaccepted and unpublished, raw remains unread, and owner disposition is required."
+      updated_at: "2026-07-23T22:50:00+03:00"
+      note: "Repo-active date 3/5: exploratory learning is selected and its exact boundary proposal is prepared. The proposal is unaccepted and inactive; retained stdout and stderr remain unread."
     m6-freeze-selection-rights:
       progress: 1.0
       actual_start: "2026-07-21"
@@ -1714,13 +1815,55 @@ execution:
       updated_at: "2026-07-23T21:49:44+03:00"
       note: "Stopped because there is no raw-diagnostic result to dispose."
     g6-author-call-qualification-v1-diagnostic-audit-failure-disposition:
+      progress: 1.0
+      actual_start: "2026-07-23"
+      actual_finish: "2026-07-23"
+      updated_at: "2026-07-23T22:50:00+03:00"
+      note: "Issue #24 comments 5062645199 and 5062674740 select exploratory learning. The terminal candidate remains unaccepted, unpublished, and non-reusable."
+    g6-python-learning-boundary-preparation-authorized:
+      progress: 1.0
+      actual_start: "2026-07-23"
+      actual_finish: "2026-07-23"
+      updated_at: "2026-07-23T22:50:00+03:00"
+      note: "Only public preparation of one exact goal and boundary in the current session is authorized, without protected bytes or a separate external call. Raw reading and processing remain closed."
+    m6-prepare-python-learning-boundary:
+      progress: 1.0
+      actual_start: "2026-07-23"
+      actual_finish: "2026-07-23"
+      updated_at: "2026-07-23T22:50:00+03:00"
+      note: "Prepared a public immutable proposal without reading raw/private artifacts or running a reader, model call, implementation, or experiment."
+    g6-python-learning-boundary-accepted:
       progress: 0.0
-      updated_at: "2026-07-23T21:49:44+03:00"
-      note: "Ready for a separate owner choice: a new-manifest diagnostic candidate with a separately authorized fresh audit path, separately authorized exploratory-learning expansion, or stop. No choice is implied and the terminal candidate cannot transfer."
+      updated_at: "2026-07-23T22:50:00+03:00"
+      note: "Ready for separate owner acceptance of the exact merged boundary SHA-256. Acceptance grants no processing."
+    g6-python-learning-execution-preparation-authorized:
+      progress: 0.0
+      updated_at: "2026-07-23T22:50:00+03:00"
+      note: "Conditional on boundary acceptance and a separate owner authorization for public-only execution-pack preparation."
+    m6-prepare-python-learning-execution-pack:
+      progress: 0.0
+      updated_at: "2026-07-23T22:50:00+03:00"
+      note: "Conditional. No reader, result schema, tests, or execution manifest have been prepared."
+    g6-python-learning-execution-pack-accepted:
+      progress: 0.0
+      updated_at: "2026-07-23T22:50:00+03:00"
+      note: "Conditional on exact pack preparation, independent public-only review, and separate owner acceptance."
+    g6-python-learning-expansion-authorized:
+      progress: 0.0
+      updated_at: "2026-07-23T22:50:00+03:00"
+      note: "Conditional on exact execution-pack acceptance and a later separate owner processing authorization."
+    m6-record-expanded-learning:
+      progress: 0.0
+      updated_at: "2026-07-23T22:50:00+03:00"
+      note: "Conditional. No retained output, reader, current-session exposure, or learning result exists."
+    g6-python-learning-result-disposition:
+      progress: 0.0
+      updated_at: "2026-07-23T22:50:00+03:00"
+      note: "Conditional on one separately authorized terminal safe learning result."
     m6-purge-author-call-qualification-v1-diagnostics:
       progress: 0.0
-      updated_at: "2026-07-23T21:49:44+03:00"
-      note: "Conditional deadline-bound obligation. The public-audit failure does not reset the deadline or authorize raw access. Delete retained diagnostics no later than 2026-08-22T16:39:58Z if no earlier separately authorized disposition completes."
+      updated_at: "2026-07-23T22:50:00+03:00"
+      note: "Conditional deadline-bound obligation. If learning is authorized, delete exact raw after its safe result is staged and reviewed, then finalize the same PR. Otherwise delete no later than 2026-08-22T16:39:58Z. No raw access is authorized yet."
 
 views:
   current-work:
@@ -1747,8 +1890,8 @@ views:
 x:
   exec:
     program:
-      nearest_goal: "Obtain a separate owner disposition of the terminal diagnostic public-audit failure without reading retained stdout."
-      success_by_next_sync: "Record one explicit new-manifest diagnostic, exploratory-learning-expansion, or stop decision while keeping raw reading and every successor gate closed."
+      nearest_goal: "Obtain separate owner acceptance of the exact merged exploratory-learning boundary SHA-256 without activating it."
+      success_by_next_sync: "Freeze one accepted boundary identity while retained-output reading, processing, and every successor gate remain closed."
     defaults:
       status_progress:
         done: 1.0
@@ -1782,8 +1925,8 @@ x:
         kind: main
         mgmt:
           health: yellow
-          sync_note: "Issue #24 is at date 3/5. The sole diagnostic public-audit call ended audit-call-failed before an auditor verdict. The local candidate is unaccepted and unpublished; retained stdout remains unread."
-          next_sync_goal: "Obtain an explicit owner disposition: new-manifest diagnostic candidate, exploratory-learning expansion, or stop."
+          sync_note: "Issue #24 is at date 3/5. The owner selected exploratory learning and authorized only public boundary preparation. The proposal is prepared but unaccepted and inactive; retained stdout and stderr remain unread."
+          next_sync_goal: "Obtain separate owner acceptance of the exact merged boundary SHA-256 without activating raw processing."
       python-order-successor:
         title: "Python 24-order successor"
         scope_nodes: [m7-python-order-successor]
@@ -1810,7 +1953,7 @@ x:
         show_progress: false
         show_gate_date: false
         wrap_title_lines: 2
-        caption: "Diagnose-first is stopped at terminal public-audit failure: owner disposition is ready, raw reading and every successor remain closed."
+        caption: "Exploratory-learning boundary acceptance is ready; raw processing and every successor remain closed."
         blocks: [integration, private-stop, python-sequential]
       exec-active-tracks:
         direction: TB

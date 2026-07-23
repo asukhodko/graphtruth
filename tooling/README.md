@@ -731,13 +731,15 @@ consumed, cannot be retried or resumed, and ended terminally at `result-schema`.
 The owner chose `diagnose-first` in Issue #24 comment 5061017045 and authorized
 only deterministic public diagnostic-tool preparation plus one no-retry audit
 of those exact public bytes. The sole audit ended `audit-call-failed` before an
-auditor verdict; the local candidate remains unaccepted and unpublished. The
-retained stdout remains unread. A separate owner disposition is required before
-any fresh diagnostic-tooling candidate under a new manifest and separately
-authorized audit path, separately authorized exploratory-learning expansion, or
-stop. The terminal candidate cannot transfer. Even a continuing route must
-qualify a fresh selected boundary before a successor evaluation freeze can be
-authorized.
+auditor verdict; the local candidate remains terminal, unaccepted, unpublished,
+and non-reusable. The owner then selected exploratory learning and authorized
+only public preparation of its exact goal and boundary in the current session,
+without protected bytes or a separate external call. The resulting
+[proposal](../examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY.md)
+is neither accepted nor activated. Retained stdout and stderr remain unread.
+Exact proposal acceptance, execution-pack preparation and acceptance, and a
+later processing authorization remain separate owner gates. No fresh diagnostic
+identity, successor evaluation freeze, or raw reader is authorized.
 
 The acceptance unit is the complete
 [`TOOLING-MANIFEST.json`](../examples/experiments/author-call-qualification-v1/TOOLING-MANIFEST.json)
@@ -758,16 +760,19 @@ subcondition. Raw diagnostics remain owner-only and are not publication
 artifacts.
 
 The retained evidence records one completed local candidate preparation and one
-terminal public-audit call failure, not an accepted diagnostic identity. Reading
-raw still requires an admissible exact identity, its separate owner acceptance,
-and a separate one-read authorization. A resulting safe receipt would grant no
-successor work. A continuing route must later and separately authorize its
-provider-free preparation, create a fresh qualification identity, independently
-audit and accept it, authorize one call, and dispose the exact terminal result.
-Only an accepted exact `qualified` result closes the boundary. A different
-execution method follows the same ladder. None of these steps can repair,
-retry, resume, or reuse v1. Retained local raw diagnostics must be deleted no
-later than `2026-08-22T16:39:58Z`.
+terminal public-audit call failure, not an accepted diagnostic identity. The
+learning proposal deliberately bypasses diagnostic-tool acceptance only for a
+non-confirmatory, one-exposure research result. It does not reuse the terminal
+candidate and cannot close qualification. Its exact SHA must first be accepted.
+A fresh reader and closed result schema must then be prepared, publicly
+reviewed, and accepted by exact manifest identity. Only after that may the owner
+separately authorize the exact retained-stdout path, one current-session OpenAI
+processing episode, safe output, and local deletion. Any later qualification
+route still requires fresh public-synthetic preparation without a live provider
+request, independent audit, exact acceptance, one-call authorization, and
+disposition. Only an accepted exact `qualified` result closes the boundary.
+Retained local raw diagnostics must be deleted no later than
+`2026-08-22T16:39:58Z`.
 
 The normal `./tooling/check` path runs v1, v2, and the author-call qualification
 only with generated synthetic fixtures and fake model calls. It verifies the

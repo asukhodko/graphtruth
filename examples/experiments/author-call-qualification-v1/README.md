@@ -71,10 +71,19 @@ diagnostic-tool preparation, artificial fixtures, and one no-retry public-code
 audit were authorized. A local candidate was prepared, but the sole audit ended
 `audit-call-failed` before an auditor verdict. Its [safe terminal
 record](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5062148530)
-leaves the candidate unaccepted and unpublished. The retained stdout remains
-unread. A separate owner disposition must choose a fresh diagnostic-tooling
-candidate under a new manifest and separately authorized audit path, separately
-authorized exploratory-learning expansion, or stop. The terminal candidate
-cannot transfer, and the decision grants no raw read or successor work. The
-local raw-diagnostic deletion deadline is `2026-08-22T16:39:58Z`. No successor
-evaluation freeze is authorized.
+leaves the candidate unaccepted and unpublished.
+
+The owner then selected the exploratory-learning route and authorized only
+public preparation of its exact goal and boundary in the current session,
+without protected bytes or a separate external call, in
+[comment 5062645199](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5062645199)
+and the separate [gate-accounting
+record](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5062674740).
+The resulting [boundary proposal](EXPLORATORY-LEARNING-BOUNDARY.md) admits one
+future retained-stdout exposure to the current GraphTruth session, but it is
+neither accepted nor activated. The retained stdout and stderr remain unread.
+The terminal diagnostic candidate cannot transfer into this route. Exact
+boundary acceptance, execution-pack preparation and acceptance, and later
+processing authorization remain separate owner gates; no raw read, separate
+external call, successor work, corpus processing, or experiment is authorized.
+The raw-diagnostic deletion deadline remains `2026-08-22T16:39:58Z`.
