@@ -80,11 +80,32 @@ projection, and accepted v2 bytes unchanged. The resulting
 complete. The owner accepted the exact tooling-manifest identity and separately
 authorized one external public-synthetic call. The consumed call ended
 terminally at `result-schema`: Codex exited zero with a valid four-event
-zero-tool JSONL trace, but the structured answer was not strict schema-valid
-JSON matching the frozen payload. No retry or resume occurred. Its exact safe
-outcome now has a ready disposition gate, followed by a separate authorization
-gate before any fresh evaluation successor can begin. This shrink is not the
-experiment's `sequential shrink` and does not reset the issue-wide budget.
+zero-tool JSONL trace, but the structured answer did not pass the combined
+strict-JSON, exact-shape, and expected-payload check. The safe result does not
+localize which subcondition failed. No retry or resume occurred. The owner then
+chose `diagnose-first` in Issue #24 comment 5061017045. That same-date decision
+authorizes only deterministic public diagnostic tooling, artificial fixtures,
+and one no-retry read-only Codex audit of those exact public bytes. The retained
+stdout remains unread.
+
+The nearest work is now preparation and independent audit of one diagnostic
+identity. After it is merged, the owner must separately accept its exact bytes
+and authorize one local deterministic read. A safe diagnostic receipt still
+grants no successor work. Only its later disposition may select a targeted fix,
+another execution method, expanded learning, or pre-run `stop`. A continuing
+route must then obtain a separate provider-free preparation authorization,
+prepare and audit a fresh qualification identity, obtain exact identity
+acceptance, receive a separate one-call authorization, and dispose its terminal
+result. Only an accepted exact `qualified` result can precede a separately
+authorized evaluation successor. This shrink is not the experiment's
+`sequential shrink` and does not reset the issue-wide budget.
+
+All later route nodes are `conditional`. In this map that means “possible after
+a future decision,” not “authorized.” The v1 disposition started its one
+30-day deadline: retained local raw diagnostics must be deleted no later than
+`2026-08-22T16:39:58Z`; the safe public result is retained. Later successor
+dispositions do not reset that deadline and must carry their own retention
+rules.
 
 `g6-evaluation-contract-accepted`, implementation, rehearsal, SUT, baseline
 execution, scoring, and an evaluated run remain planned and unauthorized.
@@ -100,6 +121,9 @@ execution, scoring, and an evaluated run remain planned and unauthorized.
 - Update execution facts and gate statuses together with their evidence.
 - Represent every owner authorization that changes the permitted work boundary
   as its own milestone; completing a prerequisite never grants that authority.
+- Treat `conditional` nodes as possible routes rather than permission. Activate
+  at most one primary recovery route after the owner disposition; an expanded
+  learning boundary remains a separate permission even if used alongside it.
 - Account for one issue-wide time box across all of its plan phases; never reset
   a budget by renaming or decomposing the work.
 - Issue #6 is closed at stop with four counted dates: 2026-07-12, 2026-07-13,

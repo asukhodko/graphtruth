@@ -105,15 +105,30 @@ Its near path is:
    the sole call is consumed and its publication-safe
    [result](../examples/experiments/author-call-qualification-v1/CODEX-AUTHOR-CALL-QUALIFICATION.json)
    is terminal `not-qualified / result-schema`;
-10. obtain a separate owner disposition of that exact outcome: prepare a fix
-    under a new tooling identity, choose another execution method, or stop;
-11. only after a disposition that permits continuation and a new explicit owner
+10. retain the owner's exact `diagnose-first` disposition from Issue #24
+    comment 5061017045, its 2026-08-22T16:39:58Z raw-diagnostic deletion
+    deadline, and its authorization of public diagnostic preparation plus one
+    public-code audit only;
+11. prepare and independently audit one deterministic diagnostic identity
+    without reading retained output, merge it, then pause for exact identity
+    acceptance and a separate one-read authorization;
+12. after those two decisions, read the exact retained stdout once through the
+    accepted local analyzer, publish only a fixed-code safe receipt, and obtain
+    a separate disposition of that diagnosis;
+13. if continuation is then selected, separately authorize the exact
+    provider-free preparation scope, prepare and independently audit one
+    successor qualification identity, accept its exact bytes, and separately
+    authorize at most one synthetic call; dispose every terminal result, and
+    close the author-call boundary only after accepting an exact `qualified`
+    result;
+14. only after that boundary is qualified and the owner gives a new explicit
     authorization, define a fresh successor evaluation freeze; it is never a
     retry, resume, repair, or reuse of any terminal attempt;
-12. only after a successor freeze passes, the owner accepts its exact identity,
-    and the owner separately authorizes implementation, adapt and rehearse the
-    deterministic whole-document runner, then obtain separate run authorization;
-13. execute the sequential GraphTruth and files-plus-search comparison, score
+15. only after a successor freeze passes, have the owner accept its exact
+    contract and separately authorize implementation;
+16. adapt and rehearse the deterministic whole-document runner, then separately
+    accept the exact rehearsal and authorize one evaluated run;
+17. execute the sequential GraphTruth and files-plus-search comparison, score
     the complete denominator, and record `sequential keep`, `sequential shrink`,
     or `sequential stop`.
 
@@ -131,12 +146,70 @@ tooling-manifest identity and separately authorized one external
 public-synthetic call. The call is consumed without retry or resume. Codex
 exited zero after passing authentication, isolation, stream, process, UTF-8,
 zero-tool JSONL, model-identity, and cleanup checks, but its structured answer
-failed strict JSON, schema, and payload-identity validation. The safe result has
-SHA-256
+did not pass the combined strict-JSON, exact-shape, and expected-payload check.
+The safe result does not localize which subcondition failed. It has SHA-256
 `aa07980cd8b9a05d699f5a491733ea2dd2a710955d13a783249a4e9721979b94`.
-Outcome disposition, successor-freeze authorization, evaluation contract,
-implementation, rehearsal, SUT, baseline execution, scoring, and evaluated run
-all retain separate gates.
+PR
+[#33](https://github.com/asukhodko/graphtruth/pull/33) retained the exact
+tooling and result, passed both repository gates, and merged as
+`692f5c2420a5bb56ff06da42668962ebcfc01f68`.
+The owner has now chosen `diagnose-first` in
+[Issue #24 comment
+5061017045](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5061017045).
+That decision starts the single local raw-diagnostic deletion deadline at
+`2026-08-22T16:39:58Z` and authorizes only deterministic public diagnostic
+preparation plus one no-retry read-only Codex audit of those exact public bytes.
+The retained stdout remains unread. Diagnostic identity acceptance, one local
+read, diagnostic disposition, successor preparation, successor-freeze
+authorization, evaluation contract, implementation, rehearsal, SUT, baseline
+execution, scoring, and evaluated run all retain separate gates.
+
+### Routes available at this checkpoint
+
+The selected primary route is **diagnose first**. Work that needs no further
+permission is deliberately small: prepare a deterministic diagnostic wrapper,
+controller, closed receipt schema, artificial fixtures, tests, and manifest;
+then use at most one fresh isolated Codex audit over those exact public bytes.
+The retained raw synthetic output, a new model call, Python material, and every
+evaluation or run action remain outside that boundary.
+
+After the exact diagnostic identity is merged and presented, two separate owner
+decisions remain mandatory: accept that identity, then authorize exactly one
+local deterministic read of the anchored stdout. A safe receipt still grants no
+successor work. Its later disposition can select one of:
+
+- **Targeted fix.** Define and separately authorize one provider-free
+  preparation scope, prepare a new qualification tooling identity, audit it,
+  accept its exact bytes, and separately authorize one call. Dispose its exact
+  terminal result. This preserves the transport and isolation evidence while
+  targeting the localized failed stage.
+- **Use another execution method.** Replace the response or execution boundary
+  under a fresh exact identity and pass the same preparation-authorization,
+  audit, acceptance, one-call qualification, and terminal-disposition ladder.
+  This can remove dependence on the failed structured-output path, but transfers
+  less evidence and creates a wider validation surface.
+- **Stop the Python lane.** Record a pre-run procedural stop, not a
+  `sequential stop`, because no evaluated comparison exists. This frees the
+  single-major-WIP slot for a fresh confirmatory corpus, another public track,
+  or renewed private dogfood under a new identity.
+
+An **expanded exploratory-learning boundary** is a separate optional permission,
+not a fourth primary disposition. Python is already exploratory as an
+epistemic status; that does not authorize broader reads or processing. A new
+owner decision may name exact readable artifacts, processors, outputs,
+retention, and deletion so the disclosed lane can support prototype learning
+alongside a continuing primary route. This favors implementation speed over
+confirmatory value: a fresh corpus and identity remain mandatory for the first
+confirmation.
+
+The routes after diagnosis are not concurrent work streams. No route or learning
+permission implicitly authorizes another route, an external call, a successor
+evaluation freeze, or corpus processing. The v1 disposition has started one
+30-day deadline: delete retained local raw synthetic diagnostics no later than
+`2026-08-22T16:39:58Z` while preserving the safe public result. Later successor
+dispositions do not reset that deadline and require their own predeclared
+retention rules. Issue #24 remains at repository-active date 3/5; work on
+2026-07-23 does not consume another date or reset its budget.
 
 The selection record, projection contract, and projection manifest remain
 byte-for-byte records of their freeze points. Their earlier Markdown option and

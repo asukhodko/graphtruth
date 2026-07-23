@@ -728,8 +728,11 @@ OpenAI request. The owner chose this smaller preparation scope as procedural
 `shrink` on Issue #24 date 3/5, then separately accepted the exact tooling
 identity and authorized one live public-synthetic call. That sole call is
 consumed, cannot be retried or resumed, and ended terminally at `result-schema`.
-Its actual outcome still requires separate disposition before any successor
-evaluation freeze.
+The owner chose `diagnose-first` in Issue #24 comment 5061017045 and authorized
+only deterministic public diagnostic-tool preparation plus one no-retry audit
+of those exact public bytes. The retained stdout remains unread. Even a
+continuing route must qualify a fresh selected boundary before a successor
+evaluation freeze can be authorized.
 
 The acceptance unit is the complete
 [`TOOLING-MANIFEST.json`](../examples/experiments/author-call-qualification-v1/TOOLING-MANIFEST.json)
@@ -744,8 +747,22 @@ records the exact outcome under SHA-256
 `aa07980cd8b9a05d699f5a491733ea2dd2a710955d13a783249a4e9721979b94`.
 The Codex process exited zero and passed input, authentication, isolation,
 stream, process, UTF-8, zero-tool JSONL, model-identity, and cleanup boundaries.
-The structured answer failed strict JSON, schema, and payload-identity checks.
-Raw diagnostics remain owner-only and are not publication artifacts.
+The structured answer did not pass the combined strict-JSON, exact-shape, and
+expected-payload check; the safe result does not localize the failing
+subcondition. Raw diagnostics remain owner-only and are not publication
+artifacts.
+
+The retained evidence currently admits only construction and audit of one
+deterministic diagnostic identity against artificial fixtures. Reading raw
+requires exact identity acceptance and a separate one-read authorization. The
+resulting safe receipt grants no successor work. A continuing route must later
+and separately authorize its provider-free preparation, create a fresh
+qualification identity, independently audit and accept it, authorize one call,
+and dispose the exact terminal result. Only an accepted exact `qualified`
+result closes the boundary. A different execution method follows the same
+ladder. None of these steps can repair, retry, resume, or reuse v1. Retained
+local raw diagnostics must be deleted no later than
+`2026-08-22T16:39:58Z`.
 
 The normal `./tooling/check` path runs v1, v2, and the author-call qualification
 only with generated synthetic fixtures and fake model calls. It verifies the

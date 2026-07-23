@@ -705,9 +705,15 @@ nodes:
       bytes while preparing a generated-public-synthetic author-call
       qualification. The owner later accepted its exact identity and separately
       authorized one external synthetic call. The consumed call ended
-      `not-qualified / result-schema`; outcome disposition is now ready. Any
-      result on this disclosed Python corpus is exploratory. A first
-      confirmatory result needs a fresh corpus and identity.
+      `not-qualified / result-schema`. On the same repository-active date the
+      owner chose `diagnose-first`, started the single raw-diagnostic deletion
+      deadline at 2026-08-22T16:39:58Z, and authorized only public-fixture
+      preparation plus one public-code audit. Raw reading remains separately
+      gated. Any continuing author-call route must pass a fresh identity, audit,
+      acceptance, one-call authorization, and terminal qualification before an
+      evaluation successor can be authorized. Any result on this disclosed
+      Python corpus is exploratory. A first confirmatory result needs a fresh
+      corpus and identity.
 
   m6-freeze-selection-rights:
     title: "Freeze Python corpus selection, chronology, rights, and boundary"
@@ -951,7 +957,9 @@ nodes:
     notes: |
       The sole call ended terminally `not-qualified / result-schema`. Codex
       exited zero with a valid four-event zero-tool JSONL trace, but its
-      structured answer failed strict JSON, schema, and payload-identity checks.
+      structured answer did not pass the combined strict-JSON, exact-shape, and
+      expected-payload check. The safe result does not localize the failing
+      subcondition.
       The safe result has SHA-256
       aa07980cd8b9a05d699f5a491733ea2dd2a710955d13a783249a4e9721979b94.
       One call was consumed; retry and resume are false. Source, projection,
@@ -964,24 +972,256 @@ nodes:
     milestone: true
     parent: m6-python-sequential
     deps: [m6-run-author-call-qualification-v1]
+    status: done
+    notes: |
+      Issue #24 comment 5061017045 records `diagnose-first` for the exact
+      terminal v1 result. The decision preserves v1 unchanged, starts one
+      30-calendar-day raw-diagnostic deletion deadline at
+      2026-08-22T16:39:58Z, and grants no raw read, successor work, external
+      call, corpus processing, or evaluation freeze.
+
+  g6-author-call-qualification-v1-diagnostic-preparation-authorized:
+    title: "Gate: public diagnostic-tool preparation authorized"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [g6-author-call-qualification-v1-disposition]
+    status: done
+    notes: |
+      The launched goal and Issue #24 comment 5061017045 authorize deterministic
+      public tooling, a closed receipt schema, artificial fixtures, and at most
+      one isolated read-only Codex audit of those exact public bytes without
+      retry or resume. They authorize no retained-output read or successor work.
+
+  m6-prepare-author-call-qualification-v1-diagnostic:
+    title: "Prepare the deterministic result-schema diagnostic identity"
+    kind: task
+    parent: m6-python-sequential
+    deps: [g6-author-call-qualification-v1-diagnostic-preparation-authorized]
     status: ready
     notes: |
-      The owner must dispose the exact terminal result: prepare a fix under a
-      new tooling identity, choose another execution path, or stop. No choice
-      automatically authorizes a successor evaluation freeze.
+      Build and test only against public code and artificial fixtures. Freeze
+      exact input anchors, first-failing-predicate classification, a closed safe
+      receipt, one-read lifecycle, budgets, retention, and hard stops. Do not
+      receive the retained stdout path or bytes.
 
-  g6-evaluation-freeze-successor-authorized:
-    title: "Gate: fresh successor evaluation freeze authorized"
+  m6-audit-author-call-qualification-v1-diagnostic:
+    title: "Independently audit the exact public diagnostic tooling"
+    kind: task
+    parent: m6-python-sequential
+    deps: [m6-prepare-author-call-qualification-v1-diagnostic]
+    status: planned
+    notes: |
+      One fresh isolated read-only Codex auditor may inspect only the exact
+      public diagnostic code, schema, manifest, and artificial fixtures. Audit
+      rejection stops the path before raw access.
+
+  g6-author-call-qualification-v1-diagnostic-tooling-accepted:
+    title: "Gate: exact diagnostic tooling identity accepted"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [m6-audit-author-call-qualification-v1-diagnostic]
+    status: conditional
+    notes: |
+      Requires owner acceptance of the exact merged manifest and every bound
+      component. Acceptance alone grants no retained-output read.
+
+  g6-author-call-qualification-v1-diagnostic-read-authorized:
+    title: "Gate: one local retained-stdout read authorized"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [g6-author-call-qualification-v1-diagnostic-tooling-accepted]
+    status: conditional
+    notes: |
+      Requires a separate owner decision bound to the exact accepted diagnostic
+      identity, 38920-byte stdout SHA-256
+      75c118902a7b5104e642a3e1ae028e0dcff63f6f2431a67cf4fc575b48d72c0a,
+      one local deterministic open, closed output, zero retry/resume, and zero
+      model or external raw processing. Stderr remains unread.
+
+  m6-diagnose-author-call-qualification-v1:
+    title: "Publish the bounded deterministic result-schema diagnosis"
+    kind: task
+    parent: m6-python-sequential
+    deps: [g6-author-call-qualification-v1-diagnostic-read-authorized]
+    status: conditional
+    notes: |
+      One accepted deterministic analyzer may read only the exact retained
+      stdout and publish a schema-validated fixed-code receipt. Preserve v1
+      unchanged. A rejected or inconsistent result is terminal but does not
+      satisfy the diagnostic goal.
+
+  g6-author-call-qualification-v1-diagnostic-disposition:
+    title: "Gate: dispose the exact diagnostic outcome"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [m6-diagnose-author-call-qualification-v1]
+    status: conditional
+    notes: |
+      After a safe receipt, separately choose a targeted successor, another
+      execution method, expanded learning, or stop. The diagnosis grants no
+      successor preparation or external call.
+
+  g6-author-call-qualification-successor-preparation-authorized:
+    title: "Gate: selected successor preparation authorized"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [g6-author-call-qualification-v1-diagnostic-disposition]
+    status: conditional
+    notes: |
+      Requires a separate post-diagnosis owner decision naming one exact route and its
+      provider-free public-synthetic preparation scope. It grants no raw
+      diagnostic read, external processing, live call, corpus processing,
+      evaluation freeze, implementation, or run.
+
+  m6-prepare-author-call-qualification-successor:
+    title: "Conditionally prepare the selected author-call successor"
+    kind: task
+    parent: m6-python-sequential
+    deps:
+      - id: g6-author-call-qualification-successor-preparation-authorized
+        type: fs
+        hard: true
+      - id: m6-diagnose-author-call-qualification-v1
+        type: fs
+        hard: false
+        note: "Optional when public evidence is already sufficient."
+    status: conditional
+    notes: |
+      Exists only if the owner chooses a fix under a fresh tooling identity or
+      a different exact execution method. Preparation is public-synthetic only,
+      contacts no provider, and cannot repair or reuse v1. Independently audit
+      the complete resulting identity before presenting it for acceptance. A
+      stop makes this node not applicable.
+
+  g6-author-call-qualification-successor-identity-accepted:
+    title: "Gate: exact successor qualification identity accepted"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [m6-prepare-author-call-qualification-successor]
+    status: conditional
+    notes: |
+      Acceptance covers the exact audited bytes and execution method only. It
+      grants no external processing or call.
+
+  g6-author-call-qualification-successor-authorized:
+    title: "Gate: one successor qualification call authorized"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [g6-author-call-qualification-successor-identity-accepted]
+    status: conditional
+    notes: |
+      Requires a separate owner decision naming the exact identity, model or
+      provider, synthetic input, call budget, output boundary, retry and resume
+      policy, processing boundary, retention, and deletion.
+
+  m6-run-author-call-qualification-successor:
+    title: "Conditionally run one selected author-call successor"
+    kind: task
+    parent: m6-python-sequential
+    deps: [g6-author-call-qualification-successor-authorized]
+    status: conditional
+    notes: |
+      Run only the separately authorized synthetic qualification. Publish only
+      its schema-validated safe terminal result. An unfavorable result cannot
+      be retried into success.
+
+  g6-author-call-qualification-successor-disposition:
+    title: "Gate: dispose the exact successor qualification outcome"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [m6-run-author-call-qualification-successor]
+    status: conditional
+    notes: |
+      Required after every terminal successor result. For `qualified`, accept
+      that exact evidence before closing the boundary gate. For any other
+      result, choose a new identity or method, separately authorize expanded
+      learning, or stop. No outcome grants a retry, resume, or implicit next
+      authorization.
+
+  g6-author-call-boundary-qualified:
+    title: "Gate: selected author-call boundary qualification passed"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [g6-author-call-qualification-successor-disposition]
+    status: conditional
+    notes: |
+      Close only after the owner accepts an exact terminal `qualified` result.
+      It proves only the selected synthetic author-call boundary. It grants no
+      corpus processing, evaluation freeze, implementation, baseline,
+      rehearsal, scoring, or run.
+
+  g6-python-learning-expansion-authorized:
+    title: "Gate: expanded exploratory-learning boundary authorized"
     kind: milestone
     milestone: true
     parent: m6-python-sequential
     deps: [g6-author-call-qualification-v1-disposition]
     status: conditional
     notes: |
-      This gate exists only after a satisfactory qualification disposition and
-      a new explicit owner decision naming a fresh successor evaluation and
-      execution identity, scope, call budget, and permitted processing. Neither
-      tooling acceptance nor qualification success satisfies it.
+      Python is already exploratory, but that status grants no broader access.
+      This gate may be considered after the current result or any later terminal
+      successor result. A new owner decision must name exact readable artifacts,
+      processors, purpose, outputs, budgets, retention, and deletion. It cannot
+      repair, retry, resume, or reuse terminal identities and cannot satisfy an
+      evaluation-contract or experimental-run gate.
+
+  m6-record-expanded-learning:
+    title: "Conditionally extract and record exploratory learning"
+    kind: task
+    parent: m6-python-sequential
+    deps: [g6-python-learning-expansion-authorized]
+    status: conditional
+    notes: |
+      Publish only predeclared safe learning. Keep every terminal outcome
+      terminal and make no confirmatory, evaluation, baseline, scoring, or run
+      claim. A fresh corpus and identity remain required for confirmation.
+
+  g6-python-sequential-early-stop-recorded:
+    title: "Gate: pre-run Python sequential stop recorded"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [g6-author-call-qualification-v1-disposition]
+    status: conditional
+    notes: |
+      Close only if the owner stops Issue #24 before an evaluated comparison,
+      either now or after a later terminal qualification result. Record a
+      procedural stop, not `sequential stop`, and mark continuation nodes not
+      applicable. The single-major-WIP slot may then move.
+
+  m6-purge-author-call-qualification-v1-diagnostics:
+    title: "Delete retained raw qualification diagnostics after disposition"
+    kind: task
+    parent: m6-python-sequential
+    deps: [g6-author-call-qualification-v1-disposition]
+    status: ready
+    notes: |
+      Delete owner-only raw synthetic diagnostics no later than
+      2026-08-22T16:39:58Z, 30 calendar days after the exact disposition.
+      Retain the publication-safe result. Provider-side deletion remains
+      unverified. The diagnostic invocation itself cannot delete raw state.
+
+  g6-evaluation-freeze-successor-authorized:
+    title: "Gate: fresh successor evaluation freeze authorized"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [g6-author-call-boundary-qualified]
+    status: conditional
+    notes: |
+      This gate exists only after exact terminal qualification and a new
+      explicit owner decision naming a fresh successor evaluation and execution
+      identity, scope, call budget, and permitted processing. Qualification
+      success alone does not satisfy it.
 
   m6-freeze-evaluation-successor:
     title: "Conditionally freeze a fresh successor evaluation contract"
@@ -991,12 +1231,13 @@ nodes:
     status: conditional
     notes: |
       This node exists only after the separate successor-authorization gate. A
-      new tooling identity is required only if the owner chooses different
-      tooling. This node is never a retry, resume, repair, or reuse of either
+      fresh evaluation and execution identity is always required. Changed
+      tooling bytes or an alternate method also require exact tooling identity
+      acceptance. This node is never a retry, resume, repair, or reuse of either
       terminal attempt. A `stop` decision makes it not applicable.
 
   g6-evaluation-contract-accepted:
-    title: "Gate: evaluation freeze accepted and implementation authorized"
+    title: "Gate: exact successor evaluation contract accepted"
     kind: milestone
     milestone: true
     parent: m6-python-sequential
@@ -1005,14 +1246,25 @@ nodes:
     notes: |
       This gate remains open and unauthorized. The stopped v1 identity and the
       terminal v2 attempt cannot satisfy it. Only a successful, separately
-      authorized fresh successor freeze followed by exact owner acceptance and
-      separate implementation authorization could close this gate.
+      authorized fresh successor freeze followed by exact owner acceptance
+      could close this gate. Acceptance grants no implementation work.
+
+  g6-implementation-authorized:
+    title: "Gate: deterministic S0-S1 implementation authorized"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [g6-evaluation-contract-accepted]
+    status: planned
+    notes: |
+      Requires a separate owner decision bound to the exact accepted contract,
+      implementation identity, scope, and resource boundary.
 
   m6-implement-lane:
     title: "Implement only the deterministic S0-S1 lane required by the freeze"
     kind: task
     parent: m6-python-sequential
-    deps: [g6-evaluation-contract-accepted]
+    deps: [g6-implementation-authorized]
     status: planned
     notes: |
       Keep work in Zone 3. No LLM, embeddings, protocol promotion, public API,
@@ -1029,17 +1281,29 @@ nodes:
       crash/resume, exact redelivery, clean rebuild, deletion, and every frozen
       resource-budget exhaustion behavior for the exact runner identity.
 
-  g6-sequential-run-authorized:
-    title: "Gate: exact rehearsal accepted and sequential run authorized"
+  g6-rehearsal-accepted:
+    title: "Gate: exact synthetic rehearsal accepted"
     kind: milestone
     milestone: true
     parent: m6-python-sequential
     deps: [m6-rehearse-runner]
     status: planned
     notes: |
-      The owner must accept the exact synthetic rehearsal and separately
-      authorize one evaluated run. Rehearsal success alone does not admit
-      GraphTruth, baseline, oracle, or scoring execution on the frozen corpus.
+      The owner must accept the exact rehearsal identity and evidence. Rehearsal
+      success or acceptance alone does not admit GraphTruth, baseline, oracle,
+      or scoring execution on the frozen corpus.
+
+  g6-sequential-run-authorized:
+    title: "Gate: one sequential evaluated run authorized"
+    kind: milestone
+    milestone: true
+    parent: m6-python-sequential
+    deps: [g6-rehearsal-accepted]
+    status: planned
+    notes: |
+      Requires a separate owner decision bound to the accepted contract,
+      implementation, rehearsal, complete run identity, processing boundary,
+      denominator, budget, and no-retry rule.
 
   m6-run-comparison:
     title: "Run the sequential GraphTruth and files-plus-search comparison"
@@ -1071,6 +1335,28 @@ nodes:
     deps: [m6-score-decision]
     status: planned
 
+  g6-python-sequential-path-disposed:
+    title: "Gate: Python sequential path disposed"
+    kind: milestone
+    milestone: true
+    parent: graphtruth
+    deps:
+      - id: g6-author-call-qualification-v1-disposition
+        type: fs
+        hard: true
+      - id: g6-python-sequential-decision
+        type: fs
+        hard: false
+        note: "Used after an evaluated keep, shrink, or stop decision."
+      - id: g6-python-sequential-early-stop-recorded
+        type: fs
+        hard: false
+        note: "Used when the path stops before an evaluated comparison."
+    status: conditional
+    notes: |
+      Close through exactly one outcome branch. A pre-run stop is procedural,
+      records no effectiveness result, and does not count as `sequential stop`.
+
   m7-python-order-successor:
     title: "Run the separately frozen 24-order Python successor"
     kind: phase
@@ -1087,7 +1373,7 @@ nodes:
     kind: milestone
     milestone: true
     parent: graphtruth
-    deps: [g6-python-sequential-decision]
+    deps: [g6-python-sequential-path-disposed]
     status: conditional
     notes: |
       Python results are exploratory because procedure development disclosed
@@ -1262,8 +1548,8 @@ execution:
       updated_at: "2026-07-21T08:03:17+03:00"
     m6-python-sequential:
       actual_start: "2026-07-21"
-      updated_at: "2026-07-23T08:50:48+03:00"
-      note: "Repo-active date 3/5 now records the terminal public-synthetic qualification result: one call consumed, not-qualified/result-schema, with corpus, projection, terminal states, freeze, implementation, baseline, rehearsal, scoring, and evaluated run untouched."
+      updated_at: "2026-07-23T19:39:58+03:00"
+      note: "Repo-active date 3/5 now records diagnose-first for the terminal public-synthetic qualification result. Public diagnostic-tool preparation and one public-code audit are authorized; raw reading and every successor remain closed."
     m6-freeze-selection-rights:
       progress: 1.0
       actual_start: "2026-07-21"
@@ -1357,7 +1643,28 @@ execution:
       actual_start: "2026-07-23"
       actual_finish: "2026-07-23"
       updated_at: "2026-07-23T08:50:48+03:00"
-      note: "Terminal not-qualified/result-schema. Codex exited 0; zero-tool JSONL was valid, but the structured result was not strict schema-valid JSON matching the payload. Public result SHA-256 aa07980cd8b9a05d699f5a491733ea2dd2a710955d13a783249a4e9721979b94."
+      note: "Terminal not-qualified/result-schema. Codex exited 0 and zero-tool JSONL was valid, but the answer failed the combined strict-JSON/exact-shape/expected-payload check; the safe result does not localize the subcondition. Public result SHA-256 aa07980cd8b9a05d699f5a491733ea2dd2a710955d13a783249a4e9721979b94."
+    g6-author-call-qualification-v1-disposition:
+      progress: 1.0
+      actual_start: "2026-07-23"
+      actual_finish: "2026-07-23"
+      updated_at: "2026-07-23T19:39:58+03:00"
+      note: "Issue #24 comment 5061017045 records diagnose-first. The one raw-diagnostic deletion deadline is 2026-08-22T16:39:58Z."
+    g6-author-call-qualification-v1-diagnostic-preparation-authorized:
+      progress: 1.0
+      actual_start: "2026-07-23"
+      actual_finish: "2026-07-23"
+      updated_at: "2026-07-23T19:39:58+03:00"
+      note: "Only public diagnostic tooling, artificial fixtures, and one no-retry public-code audit are authorized. Retained stdout remains unread."
+    m6-prepare-author-call-qualification-v1-diagnostic:
+      progress: 0.0
+      actual_start: "2026-07-23"
+      updated_at: "2026-07-23T19:39:58+03:00"
+      note: "Ready after the plan-only synchronization PR. Preparation cannot receive the retained stdout path or bytes."
+    m6-purge-author-call-qualification-v1-diagnostics:
+      progress: 0.0
+      updated_at: "2026-07-23T19:39:58+03:00"
+      note: "Ready obligation; delete retained local raw diagnostics no later than 2026-08-22T16:39:58Z. The diagnostic invocation cannot perform deletion."
 
 views:
   current-work:
@@ -1384,8 +1691,8 @@ views:
 x:
   exec:
     program:
-      nearest_goal: "Have the owner dispose the exact terminal not-qualified/result-schema qualification outcome."
-      success_by_next_sync: "Choose a fix under a new tooling identity, another execution method, or stop. Do not infer successor-freeze authorization from any disposition."
+      nearest_goal: "Prepare and independently audit one deterministic result-schema diagnostic identity without reading retained stdout."
+      success_by_next_sync: "Merge the exact public diagnostic tooling, present its audited identity, and keep the raw-read gate closed until two separate owner decisions."
     defaults:
       status_progress:
         done: 1.0
@@ -1419,8 +1726,8 @@ x:
         kind: main
         mgmt:
           health: yellow
-          sync_note: "Issue #24 is at date 3/5. The accepted and separately authorized public-synthetic qualification consumed one call and ended terminally not-qualified/result-schema. No evaluation contract or evaluated output exists."
-          next_sync_goal: "Dispose the exact qualification outcome: new tooling identity/fix, another execution path, or stop. Keep every successor gate closed."
+          sync_note: "Issue #24 is at date 3/5. The owner chose diagnose-first for the terminal not-qualified/result-schema result and authorized only public diagnostic preparation plus one public-code audit. No raw read, evaluation contract, or evaluated output exists."
+          next_sync_goal: "Prepare and audit the exact deterministic diagnostic identity, then pause for separate identity acceptance and one-read authorization."
       python-order-successor:
         title: "Python 24-order successor"
         scope_nodes: [m7-python-order-successor]
@@ -1447,7 +1754,7 @@ x:
         show_progress: false
         show_gate_date: false
         wrap_title_lines: 2
-        caption: "Private path stopped; the synthetic qualification ended at result-schema and awaits disposition, while successor work remains closed."
+        caption: "Diagnose-first is active: public diagnostic preparation is ready, raw reading and every successor route remain separately gated."
         blocks: [integration, private-stop, python-sequential]
       exec-active-tracks:
         direction: TB

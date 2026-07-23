@@ -36,12 +36,23 @@ and separate one-call authorization, its sole external call ended terminally
 `not-qualified / result-schema`; the publication-safe
 [result](../../../examples/experiments/author-call-qualification-v1/CODEX-AUTHOR-CALL-QUALIFICATION.json)
 records no corpus, projection, terminal-state, freeze, or experimental access.
-The call is consumed without retry or resume. Result disposition and any
-fresh-successor authorization remain separate. Implementation, baseline,
-rehearsal, scoring, and experimental execution remain unauthorized.
+The call is consumed without retry or resume. The owner chose `diagnose-first`
+in Issue #24 comment 5061017045 and authorized only public diagnostic-tool
+preparation plus one public-code audit. The retained output remains unread;
+diagnostic identity acceptance and one local deterministic read require two
+separate later decisions. Fresh-successor authorization, implementation,
+baseline, rehearsal, scoring, and experimental execution remain unauthorized.
+The local raw-diagnostic deletion deadline is `2026-08-22T16:39:58Z`.
 
 Any later result on this corpus remains exploratory because its diagnostic
 context has been disclosed during procedure development. The first
 confirmatory GraphTruth experiment must use a fresh corpus and identity. No
 Python-specific disclosure from this lane may be copied into that corpus's
 tasks or oracle.
+
+“Exploratory” describes evidential weight; it does not grant broader access or
+processing. Reusing this lane as an implementation-learning corpus requires a
+new owner decision naming the exact readable artifacts, processors, outputs,
+budgets, retention, and deletion. That route can accelerate prototype work but
+cannot satisfy an evaluation-contract, baseline, scoring, run, or confirmation
+gate.

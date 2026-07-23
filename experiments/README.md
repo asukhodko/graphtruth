@@ -80,12 +80,18 @@ tooling-manifest identity and separately authorized one external call. Its
 publication-safe
 [terminal result](../examples/experiments/author-call-qualification-v1/CODEX-AUTHOR-CALL-QUALIFICATION.json)
 is `not-qualified / result-schema`: Codex exited zero with a valid four-event
-zero-tool JSONL trace, but the structured answer failed strict JSON, schema, and
-payload-identity checks. The sole call is consumed without retry or resume.
-Corpus, projection, terminal state, freeze, implementation, baseline,
-rehearsal, scoring, and evaluated run remained untouched. Outcome disposition
-and separate authorization of any fresh evaluation successor remain distinct
-gates.
+zero-tool JSONL trace, but the structured answer did not pass the combined
+strict-JSON, exact-shape, and expected-payload check. The safe result does not
+localize the failing subcondition. The sole call is consumed without retry or
+resume. Corpus, projection, terminal state, freeze, implementation, baseline,
+rehearsal, scoring, and evaluated run remained untouched. The owner selected
+`diagnose-first` in Issue #24 comment 5061017045 and authorized only public
+diagnostic-tool preparation plus one no-retry audit of its exact public bytes.
+The retained stdout remains unread. Exact diagnostic identity acceptance, one
+local read, diagnostic disposition, successor preparation authorization,
+qualification identity, one-call authorization, terminal-result disposition,
+and any later evaluation successor remain distinct gates. The retained local
+raw diagnostics must be deleted no later than `2026-08-22T16:39:58Z`.
 Runtime adaptation, implementation, rehearsal, SUT, baseline execution,
 scoring, and an experimental run remain unauthorized.
 
