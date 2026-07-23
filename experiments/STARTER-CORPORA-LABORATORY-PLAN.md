@@ -12,8 +12,10 @@
 > it produced no public result JSON, release, or accepted contract. The Python
 > corpus is exploratory; confirmation requires a fresh corpus and identity. On
 > repository-active date 3/5 the owner chose procedural `shrink` to preparation
-> of a generated-public-synthetic author-call qualification. No live
-> qualification or later gate is authorized.
+> of a generated-public-synthetic author-call qualification. The owner accepted
+> its exact identity and separately authorized one external call. That sole call
+> ended terminally `not-qualified / result-schema`; no successor gate is
+> authorized.
 >
 > **Created:** 2026-07-12.
 >
@@ -574,41 +576,40 @@ retried, resumed, repaired, or reused.
 The owner chose procedural `shrink` on repository-active date 3/5. The corpus,
 projection, and accepted v2 bytes remain unchanged. Preparation and
 fake-provider testing of `codex-author-call-qualification-v1` with generated
-public synthetic RST are complete and ready for acceptance of the exact
-tooling-manifest identity. This work read no corpus, projection, terminal state,
-or owner authorization record, contacted no model provider, and created no live
-result. It is not the experiment's `sequential shrink` and does not reset the
-issue-wide budget. The later progression is:
+public synthetic RST completed without corpus, projection, terminal-state, or
+owner-authorization-record reads. The owner then accepted the exact
+tooling-manifest identity and separately authorized one external synthetic call.
+The sole call is consumed and its publication-safe
+[result](../examples/experiments/author-call-qualification-v1/CODEX-AUTHOR-CALL-QUALIFICATION.json)
+is terminal `not-qualified / result-schema`: the admitted process and zero-tool
+JSONL trace passed, while the structured answer failed strict JSON, schema, and
+payload-identity checks. No retry or resume occurred. This shrink is not the
+experiment's `sequential shrink` and does not reset the issue-wide budget. The
+later progression is:
 
-1. obtain a separate owner decision on the exact qualification tooling
-   identity;
-2. only after acceptance, obtain a separate authorization for one live
-   public-synthetic qualification call;
-3. dispose its exact outcome separately; no result automatically authorizes a
-   successor freeze;
-4. only if that disposition permits continuation, separately authorize and
+1. dispose the exact qualification outcome by choosing a fix under a new
+   tooling identity, another execution path, or `stop`;
+2. only if that disposition permits continuation, separately authorize and
    then define a fresh successor evaluation freeze;
-5. only if a successor produces an accepted freeze, accept that exact contract
+3. only if a successor produces an accepted freeze, accept that exact contract
    and separately authorize implementation;
-6. implement and rehearse only the S0-S1 vertical slice required to execute it;
-7. accept the exact rehearsal and separately authorize one evaluated run;
-8. execute, score the full denominator, and record `sequential keep`,
+4. implement and rehearse only the S0-S1 vertical slice required to execute it;
+5. accept the exact rehearsal and separately authorize one evaluated run;
+6. execute, score the full denominator, and record `sequential keep`,
    `sequential shrink`, or `sequential stop`;
-9. after a sequential keep, open only the 24-order successor and record its
+7. after a sequential keep, open only the 24-order successor and record its
    order-robustness decision before corpus 2 starts.
 
 GitLab, PostgreSQL, multi-domain composition, public benchmark packaging, and
 model-assisted automation remain queued rather than parallel WIP.
 
-## Current decision after procedural shrink
+## Current decision after terminal qualification
 
-1. Will the owner accept the exact
-   `codex-author-call-qualification-v1` tooling identity?
-2. If accepted, will the owner separately authorize one live call using only
-   generated public synthetic input?
-3. Only after the exact qualification outcome is separately disposed, should a
-   fresh evaluation successor be defined?
-4. Only after a successor contract is accepted, will the owner separately
+1. Should the exact `not-qualified / result-schema` outcome lead to a fix under
+   a new tooling identity, another execution method, or `stop`?
+2. Only after that disposition, should a fresh evaluation successor be
+   separately authorized and defined?
+3. Only after a successor contract is accepted, will the owner separately
    authorize a whole-document adapter that preserves payload bytes, byte
    offsets, and RST media type without changing the common input?
 

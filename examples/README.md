@@ -32,10 +32,13 @@ shape.
 
 The
 [public-synthetic author-call qualification](experiments/author-call-qualification-v1/)
-isolates one future Codex transport and lifecycle call from every corpus,
+isolates one separately authorized Codex transport and lifecycle call from every corpus,
 projection, terminal state, and evaluation contract. Its checked-in tooling
 manifest is the complete unit of owner acceptance; repository tests use only
-fake runners and never contact a model provider.
+fake runners and never contact a model provider. Its separately authorized sole
+live call reached a valid zero-tool JSONL trace but ended terminally at
+`result-schema`; the linked safe result records one consumed call and no corpus,
+freeze, or evaluated work.
 
 If repeated experiments demonstrate stable portable semantics, a separately
 reviewed minimal example may later be promoted into this directory under an

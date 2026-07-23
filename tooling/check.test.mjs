@@ -4,11 +4,13 @@ import { lstat, readFile } from "node:fs/promises";
 import test from "node:test";
 
 import {
+  authorCallQualificationResultPins,
   classifyPublicG1ReceiptPath,
   codexSandboxPreflightEvidencePins,
   pythonEvaluationFreezeEvidencePins,
   pythonEvaluationFreezeV2ToolingPins,
   pythonProjectionEvidencePins,
+  validateAuthorCallQualificationResultEvidence,
   validateCodexSandboxPreflightReportContent,
   validatePythonEvaluationFreezeTerminalEvidence,
   validatePythonEvaluationFreezeV2ToolingEvidence,
@@ -178,6 +180,17 @@ async function pythonEvaluationFreezeV2ToolingEvidence() {
   );
   const wrapperStat = await lstat(new URL("./codex-evaluation-freeze-v2", import.meta.url));
   return { ...evidence, controllerWrapperMode: wrapperStat.mode & 0o777 };
+}
+
+async function authorCallQualificationResultEvidence() {
+  return {
+    resultBytes: await readFile(
+      new URL(
+        "../examples/experiments/author-call-qualification-v1/CODEX-AUTHOR-CALL-QUALIFICATION.json",
+        import.meta.url,
+      ),
+    ),
+  };
 }
 
 function mutateProjection(evidence, mutate) {
@@ -432,6 +445,92 @@ test("evaluation-freeze v2 tooling pins fail closed on missing or changed eviden
       controllerWrapperMode: 0o644,
     }).includes("controller-mode"),
   );
+});
+
+test("the exact public author-call qualification result is accepted", async () => {
+  assert.deepEqual(
+    validateAuthorCallQualificationResultEvidence(
+      await authorCallQualificationResultEvidence(),
+    ),
+    [],
+  );
+  assert.deepEqual(authorCallQualificationResultPins, {
+    resultFileSha256: "aa07980cd8b9a05d699f5a491733ea2dd2a710955d13a783249a4e9721979b94",
+    toolingManifestSha256:
+      "bf6e7f671c60fb3a3748ff5a03aeca93500cb40fe2664c388634287049290200",
+    syntheticManifestSha256:
+      "ba2b8e825f05179b66ce874fc03a7540b59c15e96495b95764189bec33da1bda",
+    startedAtUtc: "2026-07-23T05:46:03.404Z",
+    completedAtUtc: "2026-07-23T05:50:48.236Z",
+    elapsedMilliseconds: 284832,
+    stdoutBytes: 38920,
+    stdoutSha256: "75c118902a7b5104e642a3e1ae028e0dcff63f6f2431a67cf4fc575b48d72c0a",
+    stderrSha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  });
+});
+
+test("the author-call qualification result fails closed on malformed or changed evidence", async () => {
+  const evidence = await authorCallQualificationResultEvidence();
+  assert.deepEqual(validateAuthorCallQualificationResultEvidence({}), ["missing-evidence"]);
+
+  const duplicate = Buffer.from(
+    evidence.resultBytes
+      .toString("utf8")
+      .replace(
+        '"documentKind": "graphtruth.codex-author-call-qualification-result/1",',
+        '"documentKind": "graphtruth.codex-author-call-qualification-result/1",\n' +
+          '  "documentKind": "graphtruth.codex-author-call-qualification-result/1",',
+      ),
+  );
+  assert.deepEqual(
+    validateAuthorCallQualificationResultEvidence({ resultBytes: duplicate }),
+    ["strict-json"],
+  );
+  assert.deepEqual(
+    validateAuthorCallQualificationResultEvidence({
+      resultBytes: evidence.resultBytes.subarray(0, evidence.resultBytes.length - 1),
+    }),
+    ["result-digest"],
+  );
+
+  const mutate = (change) => {
+    const value = JSON.parse(evidence.resultBytes.toString("utf8"));
+    change(value);
+    return {
+      resultBytes: Buffer.from(`${JSON.stringify(value, null, 2)}\n`),
+    };
+  };
+  const leakedPath = validateAuthorCallQualificationResultEvidence(
+    mutate((value) => {
+      value.privatePath = "/Users/example/private/stdout.bin";
+    }),
+  );
+  assert.ok(leakedPath.includes("result-digest"));
+  assert.ok(leakedPath.includes("public-contract"));
+
+  const changedOutcome = validateAuthorCallQualificationResultEvidence(
+    mutate((value) => {
+      value.outcome.class = "unknown-terminal-failure";
+    }),
+  );
+  assert.ok(changedOutcome.includes("result-digest"));
+  assert.ok(changedOutcome.includes("terminal-outcome"));
+
+  const changedBudget = validateAuthorCallQualificationResultEvidence(
+    mutate((value) => {
+      value.invocation.retryPerformed = true;
+    }),
+  );
+  assert.ok(changedBudget.includes("result-digest"));
+  assert.ok(changedBudget.includes("call-budget"));
+
+  const broadenedBoundary = validateAuthorCallQualificationResultEvidence(
+    mutate((value) => {
+      value.boundaries.corpusRead = true;
+    }),
+  );
+  assert.ok(broadenedBoundary.includes("result-digest"));
+  assert.ok(broadenedBoundary.includes("boundaries"));
 });
 
 test("evaluation-freeze terminal evidence fails closed when any required file is absent", async () => {

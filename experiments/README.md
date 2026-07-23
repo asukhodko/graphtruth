@@ -75,11 +75,15 @@ repaired, or reused.
 On repository-active date 3/5 the owner chose procedural `shrink`. The corpus,
 projection, and accepted v2 bytes stay fixed. The resulting
 `codex-author-call-qualification-v1` preparation and fake-provider tests use
-only generated public synthetic RST and are complete, ready for acceptance of
-the exact tooling-manifest identity. They read no corpus, projection, terminal
-state, or owner authorization record. No live qualification has run, no model
-provider was contacted, and no live result exists. Exact tooling acceptance,
-authorization of one public-synthetic call, disposition of its actual outcome,
+only generated public synthetic RST. The owner accepted the exact
+tooling-manifest identity and separately authorized one external call. Its
+publication-safe
+[terminal result](../examples/experiments/author-call-qualification-v1/CODEX-AUTHOR-CALL-QUALIFICATION.json)
+is `not-qualified / result-schema`: Codex exited zero with a valid four-event
+zero-tool JSONL trace, but the structured answer failed strict JSON, schema, and
+payload-identity checks. The sole call is consumed without retry or resume.
+Corpus, projection, terminal state, freeze, implementation, baseline,
+rehearsal, scoring, and evaluated run remained untouched. Outcome disposition
 and separate authorization of any fresh evaluation successor remain distinct
 gates.
 Runtime adaptation, implementation, rehearsal, SUT, baseline execution,

@@ -1,8 +1,9 @@
 # Codex author-call qualification v1
 
-This fixture defines a provider-free preparation for one future diagnostic call.
-It isolates the transport and lifecycle boundary that the terminal
-`evaluation-freeze v2` attempt reported only as `AUTHOR_MODEL_CALL`.
+This fixture records the separately prepared tooling and terminal outcome of one
+authorized diagnostic call. It isolates the transport and lifecycle boundary
+that the terminal `evaluation-freeze v2` attempt reported only as
+`AUTHOR_MODEL_CALL`.
 
 ## Synthetic boundary
 
@@ -26,16 +27,16 @@ only fixed identities, normalized stages, byte counts, digests, lifecycle
 flags, and the closed result classes. It excludes raw streams, free-form errors,
 thread identifiers, paths, environment variables, and authorization data.
 
-The future live controller may retain bounded raw stdout and stderr only under a
-new owner-only `.nosync` diagnostic root outside the repository. Those files are
+The live controller retained bounded raw stdout and stderr only under a new
+owner-only `.nosync` diagnostic root outside the repository. Those files are
 synthetic diagnostics, are never publication artifacts, and must be removed no
 later than 30 days after Issue #24 receives the qualification disposition.
 Provider-side retention or deletion is not claimed.
 
 ## Authorization boundary
 
-Repository tests use injected runners and make no OpenAI request. Preparing or
-merging this fixture does not authorize a live call. A live run requires both:
+Repository tests use injected runners and make no OpenAI request. Preparing this
+fixture did not authorize a live call. The sole live run required both:
 
 1. owner acceptance of the exact `TOOLING-MANIFEST.json` SHA-256 and every
    component it binds;
@@ -45,3 +46,25 @@ merging this fixture does not authorize a live call. A live run requires both:
 The controller commits the one-call slot durably before spawn. It has no retry
 or resume path. A success proves only that this synthetic author-call boundary
 works; a failure is terminal diagnostic evidence at its normalized stage.
+
+## Observed terminal result
+
+The owner accepted the exact tooling identity and separately authorized one
+external public-synthetic call in
+[Issue #24 comment 5054897423](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5054897423).
+The call is consumed and cannot be retried or resumed.
+
+The publication-safe
+[`CODEX-AUTHOR-CALL-QUALIFICATION.json`](CODEX-AUTHOR-CALL-QUALIFICATION.json)
+has SHA-256
+`aa07980cd8b9a05d699f5a491733ea2dd2a710955d13a783249a4e9721979b94`.
+It records `not-qualified / result-schema`: the admitted Codex process exited
+zero, remained within both stream budgets, produced the exact four-event
+zero-tool JSONL trace, and passed model identity and cleanup checks, but its
+structured answer was not strict JSON matching the frozen result schema and
+payload. No corpus, projection, terminal state, freeze, implementation,
+baseline, rehearsal, scoring, or experimental run was admitted or performed.
+
+The next gate is owner disposition of this exact terminal outcome: prepare a
+fix under a new tooling identity, choose another execution method, or stop. No
+successor evaluation freeze is authorized.

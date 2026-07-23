@@ -10,6 +10,7 @@ import {
   codexSandboxPreflightEvidencePins,
   validateCodexSandboxPreflightReportContent,
 } from "./codex-sandbox-qualification.mjs";
+import { validateAuthorCallQualificationReport } from "./codex-author-call-qualification-v1.mjs";
 import { parseStrictJson } from "./private-pack-lock.mjs";
 export {
   codexSandboxPreflightEvidencePins,
@@ -27,6 +28,8 @@ const pythonSourceManifestPath = `${pythonCorpusRoot}/SOURCE-MANIFEST.json`;
 const pythonProjectionManifestPath = `${pythonCorpusRoot}/PROJECTION-MANIFEST.json`;
 const pythonProjectionAcceptancePath = `${pythonCorpusRoot}/PROJECTION-ACCEPTANCE.json`;
 const pythonEvaluationFreezeTerminalPath = `${pythonCorpusRoot}/EVALUATION-FREEZE-TERMINAL.json`;
+const authorCallQualificationResultPath =
+  "examples/experiments/author-call-qualification-v1/CODEX-AUTHOR-CALL-QUALIFICATION.json";
 export const pythonProjectionEvidencePins = Object.freeze({
   projectionAcceptanceSha256: "4b15e68f9fca0d83f2cd87c3b9a072ae363eb0d9d4234cf2e3cb1437f9f1d435",
   projectionManifestSha256: "5aba6ebea40066ec1a12e6aa54913b5d39638d3b9a9e8807c1436a6b8e40cb6a",
@@ -64,6 +67,19 @@ export const pythonEvaluationFreezeV2ToolingPins = Object.freeze({
   controllerWrapperSha256: "8ed374fd19c2b2f3fde5663627aa50f0388918c95d5450d9fa465d2bed40d263",
   controllerModuleSha256: "6707723916f93c679112785260cfa8b472f407a4d62bc1ce51e971c5a59bc385",
   controllerTestSha256: "825044d3ceb3ab168c89e46320a60c2a22594d29b0ca8fda2f01914124da5deb",
+});
+export const authorCallQualificationResultPins = Object.freeze({
+  resultFileSha256: "aa07980cd8b9a05d699f5a491733ea2dd2a710955d13a783249a4e9721979b94",
+  toolingManifestSha256:
+    "bf6e7f671c60fb3a3748ff5a03aeca93500cb40fe2664c388634287049290200",
+  syntheticManifestSha256:
+    "ba2b8e825f05179b66ce874fc03a7540b59c15e96495b95764189bec33da1bda",
+  startedAtUtc: "2026-07-23T05:46:03.404Z",
+  completedAtUtc: "2026-07-23T05:50:48.236Z",
+  elapsedMilliseconds: 284832,
+  stdoutBytes: 38920,
+  stdoutSha256: "75c118902a7b5104e642a3e1ae028e0dcff63f6f2431a67cf4fc575b48d72c0a",
+  stderrSha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
 });
 const publicG1AttestationKeys = [
   "eligibleEpisodeSelected",
@@ -128,6 +144,10 @@ const requiredRepositoryPaths = new Map([
   ["docs/planning/graphtruth.plan.yaml", "file"],
   ["examples", "directory"],
   ["examples/experiments/author-call-qualification-v1", "directory"],
+  [
+    "examples/experiments/author-call-qualification-v1/CODEX-AUTHOR-CALL-QUALIFICATION.json",
+    "file",
+  ],
   ["examples/experiments/author-call-qualification-v1/QUALIFICATION-RESULT.schema.json", "file"],
   ["examples/experiments/author-call-qualification-v1/README.md", "file"],
   ["examples/experiments/author-call-qualification-v1/SYNTHETIC-MANIFEST.json", "file"],
@@ -1357,6 +1377,144 @@ export function validatePythonEvaluationFreezeV2ToolingEvidence(evidence) {
   return errors;
 }
 
+export function validateAuthorCallQualificationResultEvidence(evidence) {
+  if (evidence === null || typeof evidence !== "object" || !Buffer.isBuffer(evidence.resultBytes)) {
+    return ["missing-evidence"];
+  }
+
+  const errors = [];
+  const add = (code) => {
+    if (!errors.includes(code)) errors.push(code);
+  };
+  let result;
+  try {
+    result = parseStrictJson(evidence.resultBytes.toString("utf8"));
+  } catch {
+    return ["strict-json"];
+  }
+
+  if (sha256Bytes(evidence.resultBytes) !== authorCallQualificationResultPins.resultFileSha256) {
+    add("result-digest");
+  }
+  try {
+    validateAuthorCallQualificationReport(result);
+  } catch {
+    add("public-contract");
+  }
+  if (
+    result?.tooling?.identity !== "codex-author-call-qualification-v1" ||
+    result?.tooling?.manifestSha256 !==
+      authorCallQualificationResultPins.toolingManifestSha256 ||
+    result?.tooling?.syntheticManifestSha256 !==
+      authorCallQualificationResultPins.syntheticManifestSha256 ||
+    result?.runtime?.nodeVersion !== "v24.4.1" ||
+    result?.runtime?.codexVersion !== "0.144.4" ||
+    result?.runtime?.codexSha256 !==
+      "3302acbda5f53de1a71ebdb0c0f2aae0d47f9324aa9fb6b4e78a47014fd51c7d" ||
+    result?.runtime?.model !== "gpt-5.6-sol" ||
+    result?.runtime?.provider !== "openai" ||
+    result?.runtime?.permissionProfile !== "graphtruth-zero-tools"
+  ) {
+    add("identity");
+  }
+  if (
+    result?.timing?.startedAtUtc !== authorCallQualificationResultPins.startedAtUtc ||
+    result?.timing?.completedAtUtc !== authorCallQualificationResultPins.completedAtUtc ||
+    result?.timing?.elapsedMilliseconds !==
+      authorCallQualificationResultPins.elapsedMilliseconds
+  ) {
+    add("run-identity");
+  }
+  if (
+    result?.invocation?.controllerInvocations !== 1 ||
+    result?.invocation?.modelCallMaximum !== 1 ||
+    result?.invocation?.callSlotCommitted !== true ||
+    result?.invocation?.modelCallsConsumed !== 1 ||
+    result?.invocation?.spawnAttempted !== true ||
+    result?.invocation?.spawnSucceeded !== true ||
+    result?.invocation?.retryPerformed !== false ||
+    result?.invocation?.resumePerformed !== false
+  ) {
+    add("call-budget");
+  }
+  if (
+    result?.outcome?.status !== "not-qualified" ||
+    result?.outcome?.class !== "result-schema" ||
+    result?.outcome?.terminalStage !== "result-schema" ||
+    result?.outcome?.stages?.["result-schema"] !== "failed" ||
+    Object.values(result?.outcome?.stages ?? {}).filter((status) => status === "failed").length !== 1
+  ) {
+    add("terminal-outcome");
+  }
+  if (
+    result?.process?.exitKind !== "exit-code" ||
+    result?.process?.exitCode !== 0 ||
+    result?.process?.signal !== null ||
+    result?.process?.timeoutTriggered !== false ||
+    result?.process?.processGroupAbsent !== true
+  ) {
+    add("process");
+  }
+  if (
+    result?.streams?.stdout?.capturedBytes !== authorCallQualificationResultPins.stdoutBytes ||
+    result?.streams?.stdout?.capturedSha256 !==
+      authorCallQualificationResultPins.stdoutSha256 ||
+    result?.streams?.stdout?.limitExceeded !== false ||
+    result?.streams?.stdout?.truncated !== false ||
+    result?.streams?.stdout?.utf8Valid !== true ||
+    result?.streams?.stderr?.capturedBytes !== 0 ||
+    result?.streams?.stderr?.capturedSha256 !==
+      authorCallQualificationResultPins.stderrSha256 ||
+    result?.streams?.stderr?.limitExceeded !== false ||
+    result?.streams?.stderr?.truncated !== false ||
+    result?.streams?.stderr?.utf8Valid !== true
+  ) {
+    add("streams");
+  }
+  if (
+    result?.jsonl?.valid !== true ||
+    result?.jsonl?.lineCount !== 4 ||
+    result?.jsonl?.parsedEventCount !== 4 ||
+    JSON.stringify(result?.jsonl?.eventTypes) !==
+      JSON.stringify([
+        "thread.started",
+        "turn.started",
+        "item.completed:agent_message",
+        "turn.completed",
+      ]) ||
+    result?.jsonl?.toolEventCount !== 0 ||
+    result?.structuredResult?.observed !== true ||
+    result?.structuredResult?.strictJsonValid !== false ||
+    result?.structuredResult?.schemaValid !== false ||
+    result?.structuredResult?.expectedPayloadMatched !== false
+  ) {
+    add("result-boundary");
+  }
+  if (
+    result?.lifecycle?.workspaceRemoved !== true ||
+    result?.lifecycle?.ephemeralStateRemoved !== true ||
+    result?.lifecycle?.authCarrierValidatedBefore !== true ||
+    result?.lifecycle?.authCarrierUnchangedAfter !== true
+  ) {
+    add("lifecycle");
+  }
+  if (
+    result?.boundaries?.externalProcessing !== true ||
+    result?.boundaries?.localOnlyProcessing !== false ||
+    result?.boundaries?.providerSideDeletionVerified !== false ||
+    result?.boundaries?.controllerCredentialBytesRead !== false ||
+    result?.boundaries?.syntheticOnly !== true ||
+    result?.boundaries?.corpusRead !== false ||
+    result?.boundaries?.terminalStateRead !== false ||
+    result?.boundaries?.freezePerformed !== false ||
+    result?.boundaries?.runPerformed !== false ||
+    result?.boundaries?.rawDiagnosticsPublished !== false
+  ) {
+    add("boundaries");
+  }
+  return errors;
+}
+
 async function checkPythonProjectionManifest() {
   const absolute = (relative) => path.join(repositoryRoot, relative);
   let evidence;
@@ -1510,6 +1668,38 @@ async function checkPythonEvaluationFreezeV2Tooling() {
   };
   for (const validationError of validatePythonEvaluationFreezeV2ToolingEvidence(evidence)) {
     report(`evaluation-freeze v2 tooling: ${messages[validationError]}`);
+  }
+}
+
+async function checkAuthorCallQualificationResult() {
+  let evidence;
+  try {
+    evidence = {
+      resultBytes: await readFile(path.join(repositoryRoot, authorCallQualificationResultPath)),
+    };
+  } catch (error) {
+    const code = typeof error?.code === "string" ? error.code : "unknown error";
+    report(`${authorCallQualificationResultPath}: result evidence cannot be read (${code})`);
+    return;
+  }
+
+  const messages = {
+    "missing-evidence": "qualification result evidence is incomplete",
+    "strict-json": "qualification result must be strict JSON without duplicate keys",
+    "result-digest": "qualification result bytes changed from the terminal outcome",
+    "public-contract": "qualification result violates its closed public contract",
+    identity: "qualification tooling, runtime, model, or synthetic identity changed",
+    "run-identity": "qualification timing no longer identifies the one observed call",
+    "call-budget": "the one-call, zero-retry, zero-resume record changed",
+    "terminal-outcome": "the terminal result-schema outcome changed",
+    process: "the successful process exit or process-group evidence changed",
+    streams: "the bounded stdout or stderr identity changed",
+    "result-boundary": "the zero-tool JSONL or failed structured-result boundary changed",
+    lifecycle: "workspace, ephemeral-state, or auth-carrier evidence changed",
+    boundaries: "processing, corpus, terminal, freeze, run, or publication claims changed",
+  };
+  for (const validationError of validateAuthorCallQualificationResultEvidence(evidence)) {
+    report(`${authorCallQualificationResultPath}: ${messages[validationError]}`);
   }
 }
 
@@ -1692,6 +1882,7 @@ async function main() {
   await checkPythonProjectionAcceptance();
   await checkPythonEvaluationFreezeTerminal();
   await checkPythonEvaluationFreezeV2Tooling();
+  await checkAuthorCallQualificationResult();
 
   const publicRelativePaths = new Set(files.map((filePath) => relativePath(filePath)));
   for (const filePath of files) {

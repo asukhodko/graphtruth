@@ -77,10 +77,12 @@ transfer of disclosed Python material.
 The owner chose a procedural `shrink` on date 3/5. It leaves the corpus,
 projection, and accepted v2 bytes unchanged. The resulting
 `codex-author-call-qualification-v1` preparation and fake-provider tests are
-complete and ready for owner acceptance of the exact tooling-manifest identity.
-They contacted no model provider and created no live result. A separate owner
-authorization is still required for one live public-synthetic call. Its actual
-outcome then has its own disposition gate, followed by a separate authorization
+complete. The owner accepted the exact tooling-manifest identity and separately
+authorized one external public-synthetic call. The consumed call ended
+terminally at `result-schema`: Codex exited zero with a valid four-event
+zero-tool JSONL trace, but the structured answer was not strict schema-valid
+JSON matching the frozen payload. No retry or resume occurred. Its exact safe
+outcome now has a ready disposition gate, followed by a separate authorization
 gate before any fresh evaluation successor can begin. This shrink is not the
 experiment's `sequential shrink` and does not reset the issue-wide budget.
 

@@ -723,14 +723,13 @@ reusing the Python projection or either terminal state. Its fixed v1 shape:
 - rejects missing explicit authorization, tool events, trace or payload drift,
   lifecycle failure, retry, resume, and unsafe output.
 
-Repository preparation and tests use an injected fake provider. They make no
-OpenAI request and produce no live qualification result. The owner chose this
-smaller preparation scope as procedural `shrink` on Issue #24 date 3/5; that
-choice is not tooling acceptance or live-call authorization. The exact wrapper,
-controller, and test hashes require a separate owner decision. Even after
-acceptance, one live public-synthetic call requires another explicit
-authorization, and its actual outcome requires separate disposition before any
-successor evaluation freeze.
+Repository preparation and tests use an injected fake provider and make no
+OpenAI request. The owner chose this smaller preparation scope as procedural
+`shrink` on Issue #24 date 3/5, then separately accepted the exact tooling
+identity and authorized one live public-synthetic call. That sole call is
+consumed, cannot be retried or resumed, and ended terminally at `result-schema`.
+Its actual outcome still requires separate disposition before any successor
+evaluation freeze.
 
 The acceptance unit is the complete
 [`TOOLING-MANIFEST.json`](../examples/experiments/author-call-qualification-v1/TOOLING-MANIFEST.json)
@@ -739,13 +738,23 @@ identity
 and every component it binds, not an independently chosen subset of wrapper,
 controller, and tests.
 
+The publication-safe
+[`CODEX-AUTHOR-CALL-QUALIFICATION.json`](../examples/experiments/author-call-qualification-v1/CODEX-AUTHOR-CALL-QUALIFICATION.json)
+records the exact outcome under SHA-256
+`aa07980cd8b9a05d699f5a491733ea2dd2a710955d13a783249a4e9721979b94`.
+The Codex process exited zero and passed input, authentication, isolation,
+stream, process, UTF-8, zero-tool JSONL, model-identity, and cleanup boundaries.
+The structured answer failed strict JSON, schema, and payload-identity checks.
+Raw diagnostics remain owner-only and are not publication artifacts.
+
 The normal `./tooling/check` path runs v1, v2, and the author-call qualification
 only with generated synthetic fixtures and fake model calls. It verifies the
 diagnostic receipt, exact v1 hashes, v2 positive flow, terminal reject
 diagnostics, qualification transport and output boundaries, and mutations that
 try to drop or weaken a result class, capture-tax rule, audit code boundary, or
-no-run attestation. These tests create no real contract, live qualification, or
-provider request.
+no-run attestation. It also pins the one terminal public qualification result
+and rejects mutations of its digest, outcome, budget, boundaries, or public
+shape. Repository tests create no real contract or provider request.
 
 ## Operational plan validation
 

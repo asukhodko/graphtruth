@@ -99,34 +99,44 @@ Its near path is:
 8. retain the owner's procedural `shrink`: keep the corpus, projection, and
    accepted v2 bytes unchanged, and narrow the admitted work to preparation of
    `codex-author-call-qualification-v1` on generated public synthetic input;
-9. retain the completed provider-free preparation and synthetic tests, then
-   require separate owner decisions to accept the exact tooling-manifest
-   identity, authorize one live public-synthetic call, and dispose of its actual
-   outcome;
-10. only after an accepted qualification outcome and a new explicit owner
-    decision, define and authorize a fresh successor evaluation freeze; it is
-    never a retry, resume, repair, or reuse of either terminal attempt;
-11. only after a successor freeze passes, the owner accepts its exact identity,
+9. retain the completed provider-free preparation, independent audit, exact
+   tooling acceptance, and separate one-call
+   [authorization](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5054897423);
+   the sole call is consumed and its publication-safe
+   [result](../examples/experiments/author-call-qualification-v1/CODEX-AUTHOR-CALL-QUALIFICATION.json)
+   is terminal `not-qualified / result-schema`;
+10. obtain a separate owner disposition of that exact outcome: prepare a fix
+    under a new tooling identity, choose another execution method, or stop;
+11. only after a disposition that permits continuation and a new explicit owner
+    authorization, define a fresh successor evaluation freeze; it is never a
+    retry, resume, repair, or reuse of any terminal attempt;
+12. only after a successor freeze passes, the owner accepts its exact identity,
     and the owner separately authorizes implementation, adapt and rehearse the
     deterministic whole-document runner, then obtain separate run authorization;
-12. execute the sequential GraphTruth and files-plus-search comparison, score
+13. execute the sequential GraphTruth and files-plus-search comparison, score
     the complete denominator, and record `sequential keep`, `sequential shrink`,
     or `sequential stop`.
 
 The evaluation identity recorded in step 4 is terminal and cannot be repaired,
-retried, resumed, or reused. Both authorized model calls were consumed without
-retry or resume. Its exact audit result was read once through the authorized
-deterministic extractor; only fixed checklist flags, issue codes, counts,
-identities, and no-repair/no-run flags were exposed. No closed path or report
-content is published. The owner accepted the exact v2 tooling identity and
-authorized one attempt, but that authorization is spent and the attempt is
-terminal. The day-3 `shrink` authorizes only public preparation and synthetic
+retried, resumed, or reused. Its evaluation-freeze v1 author and auditor calls
+were consumed without retry or resume. Its exact audit result was read once
+through the authorized deterministic extractor; only fixed checklist flags,
+issue codes, counts, identities, and no-repair/no-run flags were exposed. No
+closed path or report content is published. The owner accepted the exact v2
+tooling identity and authorized one attempt, but that authorization is spent and
+the attempt is terminal. The day-3 `shrink` authorizes only public preparation and synthetic
 tests for the author-call qualification; it is not `sequential shrink` and does
-not authorize a live Codex call. That preparation is complete and ready for
-identity acceptance. The exact tooling-manifest identity, live call, actual
-outcome, successor-freeze authorization, evaluation contract, implementation,
-rehearsal, SUT, baseline execution, scoring, and evaluated run all retain their
-separate gates.
+not by itself authorize a live Codex call. The owner later accepted the exact
+tooling-manifest identity and separately authorized one external
+public-synthetic call. The call is consumed without retry or resume. Codex
+exited zero after passing authentication, isolation, stream, process, UTF-8,
+zero-tool JSONL, model-identity, and cleanup checks, but its structured answer
+failed strict JSON, schema, and payload-identity validation. The safe result has
+SHA-256
+`aa07980cd8b9a05d699f5a491733ea2dd2a710955d13a783249a4e9721979b94`.
+Outcome disposition, successor-freeze authorization, evaluation contract,
+implementation, rehearsal, SUT, baseline execution, scoring, and evaluated run
+all retain separate gates.
 
 The selection record, projection contract, and projection manifest remain
 byte-for-byte records of their freeze points. Their earlier Markdown option and
