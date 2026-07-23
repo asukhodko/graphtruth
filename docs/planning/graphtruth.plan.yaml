@@ -1086,10 +1086,6 @@ nodes:
       - id: g6-author-call-qualification-successor-preparation-authorized
         type: fs
         hard: true
-      - id: m6-diagnose-author-call-qualification-v1
-        type: fs
-        hard: false
-        note: "Optional when public evidence is already sufficient."
     status: conditional
     notes: |
       Exists only if the owner chooses a fix under a fresh tooling identity or
@@ -1203,12 +1199,15 @@ nodes:
     kind: task
     parent: m6-python-sequential
     deps: [g6-author-call-qualification-v1-disposition]
-    status: ready
+    status: conditional
     notes: |
       Delete owner-only raw synthetic diagnostics no later than
       2026-08-22T16:39:58Z, 30 calendar days after the exact disposition.
       Retain the publication-safe result. Provider-side deletion remains
-      unverified. The diagnostic invocation itself cannot delete raw state.
+      unverified. Normally delete only after disposition of the diagnostic
+      receipt; if diagnosis is unfinished, the deadline still requires
+      deletion. Until either condition, preserve the sole input unchanged. The
+      diagnostic invocation itself cannot delete raw state.
 
   g6-evaluation-freeze-successor-authorized:
     title: "Gate: fresh successor evaluation freeze authorized"
@@ -1658,7 +1657,6 @@ execution:
       note: "Only public diagnostic tooling, artificial fixtures, and one no-retry public-code audit are authorized. Retained stdout remains unread."
     m6-prepare-author-call-qualification-v1-diagnostic:
       progress: 0.0
-      actual_start: "2026-07-23"
       updated_at: "2026-07-23T19:39:58+03:00"
       note: "Ready after the plan-only synchronization PR. Preparation cannot receive the retained stdout path or bytes."
     m6-purge-author-call-qualification-v1-diagnostics:
