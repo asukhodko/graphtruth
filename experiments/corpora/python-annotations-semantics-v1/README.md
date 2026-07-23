@@ -26,9 +26,18 @@ and separately authorized one attempt. Its sole invocation stopped fail-closed
 with fixed code `AUTHOR_MODEL_CALL` and exit status `1`, before a validated
 author artifact or independent audit. It returned no public JSON and produced
 no release or accepted evaluation contract. The terminal attempt cannot be
-retried, resumed, repaired, or reused. Any continuation requires a fresh
-successor identity and separate owner authorization. Implementation, baseline,
-rehearsal, scoring, and experimental execution remain unauthorized.
+retried, resumed, repaired, or reused.
+
+The owner chose procedural `shrink` on repository-active date 3/5. It does not
+change this corpus, its order, the accepted projection, or v2. The reduced
+scope produced `codex-author-call-qualification-v1` with generated public
+synthetic RST and fake-provider repository tests; it is ready for exact
+tooling-manifest acceptance. Preparation read no source, projection, terminal
+state, or owner authorization record. No live qualification, model call, or
+result is authorized or claimed. Exact tooling acceptance, live-call
+authorization, result disposition, and fresh-successor authorization remain
+separate. Implementation, baseline, rehearsal, scoring, and experimental
+execution remain unauthorized.
 
 Any later result on this corpus remains exploratory because its diagnostic
 context has been disclosed during procedure development. The first

@@ -1,0 +1,102 @@
+{
+  "documentKind": "graphtruth.codex-author-call-qualification-tooling-manifest/1",
+  "identity": "codex-author-call-qualification-v1",
+  "baseCommit": "c92031086ef5a58ff5a29d30325c73b05f23423e",
+  "runtime": {
+    "nodeVersion": "v24.4.1",
+    "codexVersion": "0.144.4",
+    "codexSha256": "3302acbda5f53de1a71ebdb0c0f2aae0d47f9324aa9fb6b4e78a47014fd51c7d",
+    "model": "gpt-5.6-sol",
+    "permissionProfile": "graphtruth-zero-tools",
+    "permissionProfileSha256": "067bec78216284a13bb6dd9f4bd4b6a70a0a2f4d9a792f0d38a42daa8901ccf1",
+    "normalizedCommandShapeSha256": "33f658eb4af9b4ece4e141d37b2a9e7877ff9614d265e26f7acdd9a589bc35a7",
+    "timeoutMilliseconds": 900000,
+    "maximumBufferBytesPerStream": 1048576,
+    "modelCallMaximum": 1,
+    "retryAllowed": false,
+    "resumeAllowed": false
+  },
+  "synthetic": {
+    "manifestSha256": "ba2b8e825f05179b66ce874fc03a7540b59c15e96495b95764189bec33da1bda",
+    "seed": "graphtruth-author-call-qualification-v1-seed-2026-07-23",
+    "items": [
+      {
+        "id": "synthetic-0001",
+        "filename": "synthetic-0001.rst",
+        "bytes": 10781,
+        "sha256": "ff9af83b1c1bcc9458cf335ce60ceae97d75aa020239f2920a754ea882bb6885"
+      },
+      {
+        "id": "synthetic-0002",
+        "filename": "synthetic-0002.rst",
+        "bytes": 27736,
+        "sha256": "06f8a6866ac3adcf727644b31bf5029620bd59699312216a31a1420f781b29de"
+      },
+      {
+        "id": "synthetic-0003",
+        "filename": "synthetic-0003.rst",
+        "bytes": 63824,
+        "sha256": "d572da401c1e82be62680968877343be93ab351a468329f59d24000711fda780"
+      },
+      {
+        "id": "synthetic-0004",
+        "filename": "synthetic-0004.rst",
+        "bytes": 54911,
+        "sha256": "84787afb2b16e7fe2a46fd349302193ab3dd2863e518c598654b82920f04e9d2"
+      }
+    ],
+    "prompt": {
+      "bytes": 232192,
+      "sha256": "f32dd908019a14348548b85bee85c14fc3718efc7ff977745559c8180245cb6e"
+    },
+    "payload": {
+      "bytes": 32768,
+      "sha256": "45f850be04f0c4bf0959754e8dd26f980ff23188b61f9460ed72de0fbb18631f"
+    },
+    "outputSchema": {
+      "sha256": "fc53db78d5f4c04b0e0c5d94675771b4c2ddd22fd708c5a624952ee6a3edc23e"
+    }
+  },
+  "components": [
+    {
+      "path": "tooling/codex-author-call-qualification-v1",
+      "sha256": "f25e511ed64a421654e897672b32f8caf6ac2fe3f440ad3878ecbeed63498773",
+      "mode": "0755"
+    },
+    {
+      "path": "tooling/codex-author-call-qualification-v1.mjs",
+      "sha256": "83f446d225dd8da6d86df1b5d0b4e409157937df9db211913b879e796dfd8f5f",
+      "mode": "0644"
+    },
+    {
+      "path": "tooling/codex-author-call-qualification-v1.test.mjs",
+      "sha256": "76ce207b576e9656722ba8ecbe13b4738ec521e4dad87821622278d49c13b0e2",
+      "mode": "0644"
+    },
+    {
+      "path": "examples/experiments/author-call-qualification-v1/SYNTHETIC-MANIFEST.json",
+      "sha256": "ba2b8e825f05179b66ce874fc03a7540b59c15e96495b95764189bec33da1bda",
+      "mode": "0644"
+    },
+    {
+      "path": "examples/experiments/author-call-qualification-v1/QUALIFICATION-RESULT.schema.json",
+      "sha256": "f1a773edaecc99ac6287f0974251745de94ed75b384926ed79d27548c0ed7a3a",
+      "mode": "0644"
+    },
+    {
+      "path": "tooling/codex-sandbox-preflight.mjs",
+      "sha256": "28a821f843d71489974bfa65ed931de8a304eea3dff5ab570ea02f5a1d596025",
+      "mode": "0644"
+    },
+    {
+      "path": "tooling/private-pack-lock.mjs",
+      "sha256": "603553be7d0ca32cb11ccce7eadfb711277dc6ae9c55d2d68f08abafd9e5750b",
+      "mode": "0644"
+    }
+  ],
+  "acceptedV2Boundary": {
+    "tooling/codex-evaluation-freeze-v2": "8ed374fd19c2b2f3fde5663627aa50f0388918c95d5450d9fa465d2bed40d263",
+    "tooling/codex-evaluation-freeze-v2.mjs": "6707723916f93c679112785260cfa8b472f407a4d62bc1ce51e971c5a59bc385",
+    "tooling/codex-evaluation-freeze-v2.test.mjs": "825044d3ceb3ab168c89e46320a60c2a22594d29b0ca8fda2f01914124da5deb"
+  }
+}

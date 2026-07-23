@@ -1,0 +1,721 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://graphtruth.dev/schemas/codex-author-call-qualification-result-v1.json",
+  "title": "GraphTruth Codex author-call qualification result v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "documentKind",
+    "tooling",
+    "runtime",
+    "syntheticInput",
+    "timing",
+    "invocation",
+    "outcome",
+    "process",
+    "streams",
+    "jsonl",
+    "structuredResult",
+    "lifecycle",
+    "boundaries"
+  ],
+  "properties": {
+    "documentKind": {
+      "const": "graphtruth.codex-author-call-qualification-result/1"
+    },
+    "tooling": {
+      "$ref": "#/$defs/tooling"
+    },
+    "runtime": {
+      "$ref": "#/$defs/runtime"
+    },
+    "syntheticInput": {
+      "$ref": "#/$defs/syntheticInput"
+    },
+    "timing": {
+      "$ref": "#/$defs/timing"
+    },
+    "invocation": {
+      "$ref": "#/$defs/invocation"
+    },
+    "outcome": {
+      "$ref": "#/$defs/outcome"
+    },
+    "process": {
+      "$ref": "#/$defs/process"
+    },
+    "streams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stdout",
+        "stderr"
+      ],
+      "properties": {
+        "stdout": {
+          "$ref": "#/$defs/stream"
+        },
+        "stderr": {
+          "$ref": "#/$defs/stream"
+        }
+      }
+    },
+    "jsonl": {
+      "$ref": "#/$defs/jsonl"
+    },
+    "structuredResult": {
+      "$ref": "#/$defs/structuredResult"
+    },
+    "lifecycle": {
+      "$ref": "#/$defs/lifecycle"
+    },
+    "boundaries": {
+      "$ref": "#/$defs/boundaries"
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "nullableSha256": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/sha256"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "nullableBoolean": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "nullableNonNegativeInteger": {
+      "oneOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "tooling": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "identity",
+        "manifestSha256",
+        "baseCommit",
+        "wrapperSha256",
+        "controllerSha256",
+        "testsSha256",
+        "syntheticManifestSha256",
+        "resultSchemaSha256",
+        "sandboxPreflightModuleSha256",
+        "strictJsonModuleSha256"
+      ],
+      "properties": {
+        "identity": {
+          "const": "codex-author-call-qualification-v1"
+        },
+        "manifestSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "baseCommit": {
+          "const": "c92031086ef5a58ff5a29d30325c73b05f23423e"
+        },
+        "wrapperSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "controllerSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "testsSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "syntheticManifestSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "resultSchemaSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "sandboxPreflightModuleSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "strictJsonModuleSha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "nodeVersion",
+        "codexVersion",
+        "codexSha256",
+        "model",
+        "provider",
+        "permissionProfile",
+        "permissionProfileSha256",
+        "normalizedCommandShapeSha256",
+        "timeoutMilliseconds",
+        "stdoutLimitBytes",
+        "stderrLimitBytes"
+      ],
+      "properties": {
+        "nodeVersion": {
+          "const": "v24.4.1"
+        },
+        "codexVersion": {
+          "const": "0.144.4"
+        },
+        "codexSha256": {
+          "const": "3302acbda5f53de1a71ebdb0c0f2aae0d47f9324aa9fb6b4e78a47014fd51c7d"
+        },
+        "model": {
+          "const": "gpt-5.6-sol"
+        },
+        "provider": {
+          "const": "openai"
+        },
+        "permissionProfile": {
+          "const": "graphtruth-zero-tools"
+        },
+        "permissionProfileSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "normalizedCommandShapeSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "timeoutMilliseconds": {
+          "const": 900000
+        },
+        "stdoutLimitBytes": {
+          "const": 1048576
+        },
+        "stderrLimitBytes": {
+          "const": 1048576
+        }
+      }
+    },
+    "syntheticInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "manifestSha256",
+        "itemCount",
+        "totalItemBytes",
+        "promptBytes",
+        "promptSha256",
+        "payloadBytes",
+        "payloadSha256",
+        "outputSchemaSha256"
+      ],
+      "properties": {
+        "manifestSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "itemCount": {
+          "const": 4
+        },
+        "totalItemBytes": {
+          "const": 157252
+        },
+        "promptBytes": {
+          "const": 232192
+        },
+        "promptSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "payloadBytes": {
+          "const": 32768
+        },
+        "payloadSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "outputSchemaSha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "timing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "startedAtUtc",
+        "completedAtUtc",
+        "elapsedMilliseconds"
+      ],
+      "properties": {
+        "startedAtUtc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "completedAtUtc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "elapsedMilliseconds": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "invocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "controllerInvocations",
+        "modelCallMaximum",
+        "callSlotCommitted",
+        "modelCallsConsumed",
+        "spawnAttempted",
+        "spawnSucceeded",
+        "retryPerformed",
+        "resumePerformed"
+      ],
+      "properties": {
+        "controllerInvocations": {
+          "const": 1
+        },
+        "modelCallMaximum": {
+          "const": 1
+        },
+        "callSlotCommitted": {
+          "type": "boolean"
+        },
+        "modelCallsConsumed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "spawnAttempted": {
+          "type": "boolean"
+        },
+        "spawnSucceeded": {
+          "type": "boolean"
+        },
+        "retryPerformed": {
+          "const": false
+        },
+        "resumePerformed": {
+          "const": false
+        }
+      }
+    },
+    "outcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "class",
+        "terminalStage",
+        "stages"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "qualified",
+            "not-qualified"
+          ]
+        },
+        "class": {
+          "enum": [
+            "qualified",
+            "preflight-identity",
+            "auth-carrier",
+            "workspace-setup",
+            "ephemeral-state-setup",
+            "process-spawn",
+            "stdin-write",
+            "timeout",
+            "output-limit",
+            "nonzero-exit",
+            "signal",
+            "process-group-cleanup",
+            "output-utf8",
+            "jsonl-trace",
+            "model-identity",
+            "result-schema",
+            "state-cleanup",
+            "auth-carrier-changed",
+            "unknown-terminal-failure"
+          ]
+        },
+        "terminalStage": {
+          "enum": [
+            "preflight-identity",
+            "synthetic-prompt-build",
+            "workspace-setup",
+            "auth-carrier-precheck",
+            "ephemeral-state-setup",
+            "call-slot-commit",
+            "process-spawn",
+            "stdin-write",
+            "process-wait",
+            "output-budget",
+            "process-exit",
+            "process-group-cleanup",
+            "output-utf8",
+            "jsonl-trace",
+            "model-identity",
+            "result-schema",
+            "state-cleanup",
+            "auth-carrier-recheck",
+            "completed"
+          ]
+        },
+        "stages": {
+          "$ref": "#/$defs/stages"
+        }
+      }
+    },
+    "stages": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "preflight-identity",
+        "synthetic-prompt-build",
+        "workspace-setup",
+        "auth-carrier-precheck",
+        "ephemeral-state-setup",
+        "call-slot-commit",
+        "process-spawn",
+        "stdin-write",
+        "process-wait",
+        "output-budget",
+        "process-exit",
+        "process-group-cleanup",
+        "output-utf8",
+        "jsonl-trace",
+        "model-identity",
+        "result-schema",
+        "state-cleanup",
+        "auth-carrier-recheck"
+      ],
+      "properties": {
+        "preflight-identity": {
+          "$ref": "#/$defs/stageStatus"
+        },
+        "synthetic-prompt-build": {
+          "$ref": "#/$defs/stageStatus"
+        },
+        "workspace-setup": {
+          "$ref": "#/$defs/stageStatus"
+        },
+        "auth-carrier-precheck": {
+          "$ref": "#/$defs/stageStatus"
+        },
+        "ephemeral-state-setup": {
+          "$ref": "#/$defs/stageStatus"
+        },
+        "call-slot-commit": {
+          "$ref": "#/$defs/stageStatus"
+        },
+        "process-spawn": {
+          "$ref": "#/$defs/stageStatus"
+        },
+        "stdin-write": {
+          "$ref": "#/$defs/stageStatus"
+        },
+        "process-wait": {
+          "$ref": "#/$defs/stageStatus"
+        },
+        "output-budget": {
+          "$ref": "#/$defs/stageStatus"
+        },
+        "process-exit": {
+          "$ref": "#/$defs/stageStatus"
+        },
+        "process-group-cleanup": {
+          "$ref": "#/$defs/stageStatus"
+        },
+        "output-utf8": {
+          "$ref": "#/$defs/stageStatus"
+        },
+        "jsonl-trace": {
+          "$ref": "#/$defs/stageStatus"
+        },
+        "model-identity": {
+          "$ref": "#/$defs/stageStatus"
+        },
+        "result-schema": {
+          "$ref": "#/$defs/stageStatus"
+        },
+        "state-cleanup": {
+          "$ref": "#/$defs/stageStatus"
+        },
+        "auth-carrier-recheck": {
+          "$ref": "#/$defs/stageStatus"
+        }
+      }
+    },
+    "stageStatus": {
+      "enum": [
+        "passed",
+        "failed",
+        "not-reached"
+      ]
+    },
+    "process": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "exitKind",
+        "exitCode",
+        "signal",
+        "timeoutTriggered",
+        "terminationRequested",
+        "sigtermSent",
+        "sigkillSent",
+        "processGroupAbsent"
+      ],
+      "properties": {
+        "exitKind": {
+          "enum": [
+            "not-started",
+            "unobserved",
+            "exit-code",
+            "signal"
+          ]
+        },
+        "exitCode": {
+          "$ref": "#/$defs/nullableNonNegativeInteger"
+        },
+        "signal": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            null,
+            "SIGABRT",
+            "SIGALRM",
+            "SIGBUS",
+            "SIGFPE",
+            "SIGHUP",
+            "SIGILL",
+            "SIGINT",
+            "SIGKILL",
+            "SIGPIPE",
+            "SIGQUIT",
+            "SIGSEGV",
+            "SIGTERM",
+            "SIGTRAP",
+            "OTHER"
+          ]
+        },
+        "timeoutTriggered": {
+          "type": "boolean"
+        },
+        "terminationRequested": {
+          "type": "boolean"
+        },
+        "sigtermSent": {
+          "type": "boolean"
+        },
+        "sigkillSent": {
+          "type": "boolean"
+        },
+        "processGroupAbsent": {
+          "$ref": "#/$defs/nullableBoolean"
+        }
+      }
+    },
+    "stream": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observed",
+        "capturedBytes",
+        "capturedSha256",
+        "limitExceeded",
+        "truncated",
+        "utf8Valid"
+      ],
+      "properties": {
+        "observed": {
+          "type": "boolean"
+        },
+        "capturedBytes": {
+          "$ref": "#/$defs/nullableNonNegativeInteger"
+        },
+        "capturedSha256": {
+          "$ref": "#/$defs/nullableSha256"
+        },
+        "limitExceeded": {
+          "$ref": "#/$defs/nullableBoolean"
+        },
+        "truncated": {
+          "$ref": "#/$defs/nullableBoolean"
+        },
+        "utf8Valid": {
+          "$ref": "#/$defs/nullableBoolean"
+        }
+      }
+    },
+    "jsonl": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observed",
+        "valid",
+        "lineCount",
+        "parsedEventCount",
+        "eventTypes",
+        "toolEventCount"
+      ],
+      "properties": {
+        "observed": {
+          "type": "boolean"
+        },
+        "valid": {
+          "$ref": "#/$defs/nullableBoolean"
+        },
+        "lineCount": {
+          "$ref": "#/$defs/nullableNonNegativeInteger"
+        },
+        "parsedEventCount": {
+          "$ref": "#/$defs/nullableNonNegativeInteger"
+        },
+        "eventTypes": {
+          "type": "array",
+          "maxItems": 1024,
+          "items": {
+            "enum": [
+              "thread.started",
+              "turn.started",
+              "item.completed:agent_message",
+              "item.completed:reasoning",
+              "turn.completed",
+              "tool-like",
+              "other"
+            ]
+          }
+        },
+        "toolEventCount": {
+          "$ref": "#/$defs/nullableNonNegativeInteger"
+        }
+      }
+    },
+    "structuredResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observed",
+        "strictJsonValid",
+        "schemaValid",
+        "expectedPayloadMatched"
+      ],
+      "properties": {
+        "observed": {
+          "type": "boolean"
+        },
+        "strictJsonValid": {
+          "$ref": "#/$defs/nullableBoolean"
+        },
+        "schemaValid": {
+          "$ref": "#/$defs/nullableBoolean"
+        },
+        "expectedPayloadMatched": {
+          "$ref": "#/$defs/nullableBoolean"
+        }
+      }
+    },
+    "lifecycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "diagnosticRootCreated",
+        "workspaceCreated",
+        "workspaceRemoved",
+        "ephemeralStateCreated",
+        "ephemeralStateRemoved",
+        "authCarrierValidatedBefore",
+        "authCarrierUnchangedAfter"
+      ],
+      "properties": {
+        "diagnosticRootCreated": {
+          "type": "boolean"
+        },
+        "workspaceCreated": {
+          "type": "boolean"
+        },
+        "workspaceRemoved": {
+          "$ref": "#/$defs/nullableBoolean"
+        },
+        "ephemeralStateCreated": {
+          "type": "boolean"
+        },
+        "ephemeralStateRemoved": {
+          "$ref": "#/$defs/nullableBoolean"
+        },
+        "authCarrierValidatedBefore": {
+          "type": "boolean"
+        },
+        "authCarrierUnchangedAfter": {
+          "$ref": "#/$defs/nullableBoolean"
+        }
+      }
+    },
+    "boundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "externalProcessing",
+        "localOnlyProcessing",
+        "providerSideDeletionVerified",
+        "controllerCredentialBytesRead",
+        "codexChildAuthenticationRequired",
+        "syntheticOnly",
+        "corpusRead",
+        "terminalStateRead",
+        "freezePerformed",
+        "runPerformed",
+        "rawDiagnosticsPublished"
+      ],
+      "properties": {
+        "externalProcessing": {
+          "const": true
+        },
+        "localOnlyProcessing": {
+          "const": false
+        },
+        "providerSideDeletionVerified": {
+          "const": false
+        },
+        "controllerCredentialBytesRead": {
+          "const": false
+        },
+        "codexChildAuthenticationRequired": {
+          "const": true
+        },
+        "syntheticOnly": {
+          "const": true
+        },
+        "corpusRead": {
+          "const": false
+        },
+        "terminalStateRead": {
+          "const": false
+        },
+        "freezePerformed": {
+          "const": false
+        },
+        "runPerformed": {
+          "const": false
+        },
+        "rawDiagnosticsPublished": {
+          "const": false
+        }
+      }
+    }
+  }
+}

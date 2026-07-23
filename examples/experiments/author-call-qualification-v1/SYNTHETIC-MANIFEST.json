@@ -1,0 +1,55 @@
+{
+  "documentKind": "graphtruth.codex-author-call-qualification-synthetic-manifest/1",
+  "identity": "codex-author-call-qualification-v1-synthetic-shape",
+  "seed": "graphtruth-author-call-qualification-v1-seed-2026-07-23",
+  "sourceBoundary": {
+    "generatedOnly": true,
+    "pythonOrPepMaterial": false,
+    "corpusOrProjectionInput": false,
+    "evaluationContract": false
+  },
+  "items": [
+    {
+      "id": "synthetic-0001",
+      "filename": "synthetic-0001.rst",
+      "mediaType": "text/x-rst",
+      "bytes": 10781,
+      "sha256": "ff9af83b1c1bcc9458cf335ce60ceae97d75aa020239f2920a754ea882bb6885"
+    },
+    {
+      "id": "synthetic-0002",
+      "filename": "synthetic-0002.rst",
+      "mediaType": "text/x-rst",
+      "bytes": 27736,
+      "sha256": "06f8a6866ac3adcf727644b31bf5029620bd59699312216a31a1420f781b29de"
+    },
+    {
+      "id": "synthetic-0003",
+      "filename": "synthetic-0003.rst",
+      "mediaType": "text/x-rst",
+      "bytes": 63824,
+      "sha256": "d572da401c1e82be62680968877343be93ab351a468329f59d24000711fda780"
+    },
+    {
+      "id": "synthetic-0004",
+      "filename": "synthetic-0004.rst",
+      "mediaType": "text/x-rst",
+      "bytes": 54911,
+      "sha256": "84787afb2b16e7fe2a46fd349302193ab3dd2863e518c598654b82920f04e9d2"
+    }
+  ],
+  "prompt": {
+    "bytes": 232192,
+    "sha256": "f32dd908019a14348548b85bee85c14fc3718efc7ff977745559c8180245cb6e"
+  },
+  "payload": {
+    "bytes": 32768,
+    "sha256": "45f850be04f0c4bf0959754e8dd26f980ff23188b61f9460ed72de0fbb18631f",
+    "workUnitCount": 8,
+    "matrixCellCount": 64,
+    "checkCount": 32
+  },
+  "outputSchema": {
+    "sha256": "fc53db78d5f4c04b0e0c5d94675771b4c2ddd22fd708c5a624952ee6a3edc23e"
+  }
+}

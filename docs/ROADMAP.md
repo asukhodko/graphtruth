@@ -16,7 +16,7 @@ This roadmap is ordered by evidence and maturity, not dates. It deliberately avo
   structure; do not require a closed domain list or design a universal ontology
   in advance.
 
-## Current evidence checkpoint — 2026-07-22
+## Current evidence checkpoint — 2026-07-23
 
 Issue #6 has reached a project-level `stop` before its private evidence-contract
 gate. The repository foundation, public synthetic fixtures, native permission
@@ -51,9 +51,10 @@ The new single major WIP is
 [`python-annotations-semantics-v1`](https://github.com/asukhodko/graphtruth/issues/24),
 the first public corpus already selected by the
 [starter-corpora laboratory plan](../experiments/STARTER-CORPORA-LABORATORY-PLAN.md).
-Issue #24 has its own five repo-active-date budget: 2026-07-21 is day 1 and
-2026-07-22 is day 2. The owner must explicitly choose continue, shrink, or stop
-before day 5 begins, and the independent hard stop is 2026-08-04.
+Issue #24 has its own five repo-active-date budget: 2026-07-21 is day 1,
+2026-07-22 is day 2, and 2026-07-23 is day 3. The owner chose a procedural
+`shrink` on day 3, before day 5. The issue-wide budget is not reset, and the
+independent hard stop remains 2026-08-04.
 
 Its near path is:
 
@@ -95,13 +96,20 @@ Its near path is:
    or independent audit; no public result JSON, release, or accepted evaluation
    contract exists, as recorded in the
    [terminal update](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5050811940);
-8. obtain an explicit owner disposition of `continue`, `shrink`, or `stop`;
-   continuation requires a fresh successor identity and separate authorization,
-   never a retry, resume, repair, or reuse of the terminal v2 attempt;
-9. only after a successor freeze passes, the owner accepts its exact identity,
-   and the owner separately authorizes implementation, adapt and rehearse the
-   deterministic whole-document runner, then obtain separate run authorization;
-10. execute the sequential GraphTruth and files-plus-search comparison, score
+8. retain the owner's procedural `shrink`: keep the corpus, projection, and
+   accepted v2 bytes unchanged, and narrow the admitted work to preparation of
+   `codex-author-call-qualification-v1` on generated public synthetic input;
+9. retain the completed provider-free preparation and synthetic tests, then
+   require separate owner decisions to accept the exact tooling-manifest
+   identity, authorize one live public-synthetic call, and dispose of its actual
+   outcome;
+10. only after an accepted qualification outcome and a new explicit owner
+    decision, define and authorize a fresh successor evaluation freeze; it is
+    never a retry, resume, repair, or reuse of either terminal attempt;
+11. only after a successor freeze passes, the owner accepts its exact identity,
+    and the owner separately authorizes implementation, adapt and rehearse the
+    deterministic whole-document runner, then obtain separate run authorization;
+12. execute the sequential GraphTruth and files-plus-search comparison, score
     the complete denominator, and record `sequential keep`, `sequential shrink`,
     or `sequential stop`.
 
@@ -112,9 +120,13 @@ deterministic extractor; only fixed checklist flags, issue codes, counts,
 identities, and no-repair/no-run flags were exposed. No closed path or report
 content is published. The owner accepted the exact v2 tooling identity and
 authorized one attempt, but that authorization is spent and the attempt is
-terminal. The owner has not accepted an evaluation contract or authorized any
-successor gate, implementation, rehearsal, SUT, baseline execution, scoring,
-or evaluated run.
+terminal. The day-3 `shrink` authorizes only public preparation and synthetic
+tests for the author-call qualification; it is not `sequential shrink` and does
+not authorize a live Codex call. That preparation is complete and ready for
+identity acceptance. The exact tooling-manifest identity, live call, actual
+outcome, successor-freeze authorization, evaluation contract, implementation,
+rehearsal, SUT, baseline execution, scoring, and evaluated run all retain their
+separate gates.
 
 The selection record, projection contract, and projection manifest remain
 byte-for-byte records of their freeze points. Their earlier Markdown option and

@@ -10,8 +10,10 @@
 > authorized for one attempt. That sole invocation stopped fail-closed with
 > `AUTHOR_MODEL_CALL` before a validated author artifact or independent audit;
 > it produced no public result JSON, release, or accepted contract. The Python
-> corpus is exploratory; confirmation requires a fresh corpus and identity.
-> Every later gate remains unauthorized.
+> corpus is exploratory; confirmation requires a fresh corpus and identity. On
+> repository-active date 3/5 the owner chose procedural `shrink` to preparation
+> of a generated-public-synthetic author-call qualification. No live
+> qualification or later gate is authorized.
 >
 > **Created:** 2026-07-12.
 >
@@ -567,30 +569,46 @@ identities. A separate authorization admitted one attempt. The sole invocation
 stopped fail-closed with `AUTHOR_MODEL_CALL` and exit status `1`, before a
 validated author artifact or independent audit. It returned no public JSON and
 produced no release or accepted evaluation contract. That attempt cannot be
-retried, resumed, repaired, or reused. The later progression is blocked on one
-owner disposition:
+retried, resumed, repaired, or reused.
 
-1. choose `continue`, `shrink`, or `stop`; any continuation requires a fresh
-   successor identity and separate authorization;
-2. only if a successor produces an accepted freeze, accept that exact contract
+The owner chose procedural `shrink` on repository-active date 3/5. The corpus,
+projection, and accepted v2 bytes remain unchanged. Preparation and
+fake-provider testing of `codex-author-call-qualification-v1` with generated
+public synthetic RST are complete and ready for acceptance of the exact
+tooling-manifest identity. This work read no corpus, projection, terminal state,
+or owner authorization record, contacted no model provider, and created no live
+result. It is not the experiment's `sequential shrink` and does not reset the
+issue-wide budget. The later progression is:
+
+1. obtain a separate owner decision on the exact qualification tooling
+   identity;
+2. only after acceptance, obtain a separate authorization for one live
+   public-synthetic qualification call;
+3. dispose its exact outcome separately; no result automatically authorizes a
+   successor freeze;
+4. only if that disposition permits continuation, separately authorize and
+   then define a fresh successor evaluation freeze;
+5. only if a successor produces an accepted freeze, accept that exact contract
    and separately authorize implementation;
-3. implement and rehearse only the S0-S1 vertical slice required to execute it;
-4. accept the exact rehearsal and separately authorize one evaluated run;
-5. execute, score the full denominator, and record `sequential keep`,
+6. implement and rehearse only the S0-S1 vertical slice required to execute it;
+7. accept the exact rehearsal and separately authorize one evaluated run;
+8. execute, score the full denominator, and record `sequential keep`,
    `sequential shrink`, or `sequential stop`;
-6. after a sequential keep, open only the 24-order successor and record its
+9. after a sequential keep, open only the 24-order successor and record its
    order-robustness decision before corpus 2 starts.
 
 GitLab, PostgreSQL, multi-domain composition, public benchmark packaging, and
 model-assisted automation remain queued rather than parallel WIP.
 
-## Current decision after the terminal v2 attempt
+## Current decision after procedural shrink
 
-1. Will the owner choose `continue`, `shrink`, or `stop` for the Python lane?
-2. If continuing, what fresh successor identity and separately authorized scope
-   can diagnose or avoid `AUTHOR_MODEL_CALL` without reading, repairing, or
-   reusing either terminal attempt?
-3. Only after a successor contract is accepted, will the owner separately
+1. Will the owner accept the exact
+   `codex-author-call-qualification-v1` tooling identity?
+2. If accepted, will the owner separately authorize one live call using only
+   generated public synthetic input?
+3. Only after the exact qualification outcome is separately disposed, should a
+   fresh evaluation successor be defined?
+4. Only after a successor contract is accepted, will the owner separately
    authorize a whole-document adapter that preserves payload bytes, byte
    offsets, and RST media type without changing the common input?
 

@@ -70,9 +70,20 @@ authorized one attempt. The sole invocation stopped fail-closed with fixed code
 `AUTHOR_MODEL_CALL` and exit status `1`, before a validated author artifact or
 independent audit. It returned no public JSON and produced no release or
 accepted evaluation contract. That attempt cannot be retried, resumed,
-repaired, or reused. Any continuation requires a fresh successor identity and
-separate authorization. Runtime adaptation, implementation, rehearsal, SUT,
-baseline execution, scoring, and an experimental run remain unauthorized.
+repaired, or reused.
+
+On repository-active date 3/5 the owner chose procedural `shrink`. The corpus,
+projection, and accepted v2 bytes stay fixed. The resulting
+`codex-author-call-qualification-v1` preparation and fake-provider tests use
+only generated public synthetic RST and are complete, ready for acceptance of
+the exact tooling-manifest identity. They read no corpus, projection, terminal
+state, or owner authorization record. No live qualification has run, no model
+provider was contacted, and no live result exists. Exact tooling acceptance,
+authorization of one public-synthetic call, disposition of its actual outcome,
+and separate authorization of any fresh evaluation successor remain distinct
+gates.
+Runtime adaptation, implementation, rehearsal, SUT, baseline execution,
+scoring, and an experimental run remain unauthorized.
 
 The Python corpus is now exploratory: it supports reproducible algorithm,
 procedure, and replay diagnostics, but its result cannot be the first

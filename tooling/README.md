@@ -702,11 +702,50 @@ The authorization is consumed and the attempt cannot be retried, resumed,
 repaired, or reused. Any continuation requires a fresh successor identity and
 separate authorization.
 
-The normal `./tooling/check` path runs v1 and v2 only with generated synthetic
-fixtures and fake model calls. It verifies the diagnostic receipt, exact v1
-hashes, v2 positive flow, terminal reject diagnostics, and mutations that try to
-drop or weaken a result class, capture-tax rule, audit code boundary, or no-run
-attestation. These tests create no real contract and contact no model provider.
+### Public-synthetic author-call qualification v1
+
+[`codex-author-call-qualification-v1`](codex-author-call-qualification-v1) is a
+separate preparation for diagnosing the author-call boundary without reading or
+reusing the Python projection or either terminal state. Its fixed v1 shape:
+
+- uses a closed generated-public-synthetic fixture of four RST items and accepts
+  no corpus or projection path;
+- preserves the publicly fixed shape and size of the boundary, the same
+  zero-tool Codex command configuration, and the disposable-state lifecycle
+  through shared preflight checks, without modifying v2;
+- uses a separate shape-only synthetic prompt and payload; it neither imports
+  the real v2 author prompt or contract validation nor creates an evaluation
+  contract;
+- permits at most one non-resumable author-shaped call and no auditor, CORE,
+  release, implementation, baseline, rehearsal, scoring, or evaluated run;
+- keeps provider payload, trace, state, and paths outside publication and emits
+  only a closed safe outcome;
+- rejects missing explicit authorization, tool events, trace or payload drift,
+  lifecycle failure, retry, resume, and unsafe output.
+
+Repository preparation and tests use an injected fake provider. They make no
+OpenAI request and produce no live qualification result. The owner chose this
+smaller preparation scope as procedural `shrink` on Issue #24 date 3/5; that
+choice is not tooling acceptance or live-call authorization. The exact wrapper,
+controller, and test hashes require a separate owner decision. Even after
+acceptance, one live public-synthetic call requires another explicit
+authorization, and its actual outcome requires separate disposition before any
+successor evaluation freeze.
+
+The acceptance unit is the complete
+[`TOOLING-MANIFEST.json`](../examples/experiments/author-call-qualification-v1/TOOLING-MANIFEST.json)
+identity
+`bf6e7f671c60fb3a3748ff5a03aeca93500cb40fe2664c388634287049290200`
+and every component it binds, not an independently chosen subset of wrapper,
+controller, and tests.
+
+The normal `./tooling/check` path runs v1, v2, and the author-call qualification
+only with generated synthetic fixtures and fake model calls. It verifies the
+diagnostic receipt, exact v1 hashes, v2 positive flow, terminal reject
+diagnostics, qualification transport and output boundaries, and mutations that
+try to drop or weaken a result class, capture-tax rule, audit code boundary, or
+no-run attestation. These tests create no real contract, live qualification, or
+provider request.
 
 ## Operational plan validation
 
