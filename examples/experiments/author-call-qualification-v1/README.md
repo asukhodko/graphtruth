@@ -61,10 +61,19 @@ has SHA-256
 It records `not-qualified / result-schema`: the admitted Codex process exited
 zero, remained within both stream budgets, produced the exact four-event
 zero-tool JSONL trace, and passed model identity and cleanup checks, but its
-structured answer was not strict JSON matching the frozen result schema and
-payload. No corpus, projection, terminal state, freeze, implementation,
-baseline, rehearsal, scoring, or experimental run was admitted or performed.
+structured answer did not pass the combined strict-JSON, exact-shape, and
+expected-payload check. The safe result does not localize which subcondition
+failed. No corpus, projection, terminal state, freeze, implementation, baseline,
+rehearsal, scoring, or experimental run was admitted or performed.
 
-The next gate is owner disposition of this exact terminal outcome: prepare a
-fix under a new tooling identity, choose another execution method, or stop. No
+The owner chose `diagnose-first` in Issue #24 comment 5061017045. Only public
+diagnostic-tool preparation, artificial fixtures, and one no-retry public-code
+audit are authorized. The retained stdout remains unread until the exact merged
+diagnostic identity is separately accepted and one local deterministic read is
+separately authorized. Its fixed-code safe receipt will require another
+disposition before any targeted fix, alternative execution method, expanded
+learning, or stop. A continuing route must then pass fresh preparation, audit,
+identity acceptance, one-call authorization, and terminal disposition. Only an
+accepted exact `qualified` result can precede an evaluation-successor proposal.
+The local raw-diagnostic deletion deadline is `2026-08-22T16:39:58Z`. No
 successor evaluation freeze is authorized.

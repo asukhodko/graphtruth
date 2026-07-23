@@ -582,22 +582,35 @@ tooling-manifest identity and separately authorized one external synthetic call.
 The sole call is consumed and its publication-safe
 [result](../examples/experiments/author-call-qualification-v1/CODEX-AUTHOR-CALL-QUALIFICATION.json)
 is terminal `not-qualified / result-schema`: the admitted process and zero-tool
-JSONL trace passed, while the structured answer failed strict JSON, schema, and
-payload-identity checks. No retry or resume occurred. This shrink is not the
-experiment's `sequential shrink` and does not reset the issue-wide budget. The
-later progression is:
+JSONL trace passed, while the structured answer did not pass the combined
+strict-JSON, exact-shape, and expected-payload check. The safe result does not
+localize the failing subcondition. No retry or resume occurred. This shrink is
+not the experiment's `sequential shrink` and does not reset the issue-wide
+budget. The later progression is:
 
-1. dispose the exact qualification outcome by choosing a fix under a new
-   tooling identity, another execution path, or `stop`;
-2. only if that disposition permits continuation, separately authorize and
-   then define a fresh successor evaluation freeze;
-3. only if a successor produces an accepted freeze, accept that exact contract
+1. retain the owner's exact `diagnose-first` disposition from Issue #24 comment
+   5061017045 and the `2026-08-22T16:39:58Z` raw-diagnostic deletion deadline;
+2. prepare and independently audit one deterministic public diagnostic
+   identity without receiving retained output;
+3. merge and present that exact identity, then separately obtain owner
+   acceptance and one local deterministic read authorization;
+4. publish only a fixed-code safe receipt and separately dispose its exact
+   outcome;
+5. only if continuation is selected, separately authorize its exact
+   provider-free preparation scope, prepare and independently audit a fresh
+   qualification identity, accept its exact bytes, and separately authorize at
+   most one synthetic call;
+6. dispose every terminal qualification result; only separate owner acceptance
+   of an exact `qualified` result closes the author-call boundary;
+7. only after qualification, separately authorize and define a fresh successor
+   evaluation freeze;
+8. only if a successor produces an accepted freeze, accept that exact contract
    and separately authorize implementation;
-4. implement and rehearse only the S0-S1 vertical slice required to execute it;
-5. accept the exact rehearsal and separately authorize one evaluated run;
-6. execute, score the full denominator, and record `sequential keep`,
+9. implement and rehearse only the S0-S1 vertical slice required to execute it;
+10. accept the exact rehearsal and separately authorize one evaluated run;
+11. execute, score the full denominator, and record `sequential keep`,
    `sequential shrink`, or `sequential stop`;
-7. after a sequential keep, open only the 24-order successor and record its
+12. after a sequential keep, open only the 24-order successor and record its
    order-robustness decision before corpus 2 starts.
 
 GitLab, PostgreSQL, multi-domain composition, public benchmark packaging, and
@@ -605,11 +618,23 @@ model-assisted automation remain queued rather than parallel WIP.
 
 ## Current decision after terminal qualification
 
-1. Should the exact `not-qualified / result-schema` outcome lead to a fix under
-   a new tooling identity, another execution method, or `stop`?
-2. Only after that disposition, should a fresh evaluation successor be
-   separately authorized and defined?
-3. Only after a successor contract is accepted, will the owner separately
+The owner selected `diagnose-first`. Current work is limited to a deterministic
+public wrapper, controller, closed receipt schema, artificial fixtures, tests,
+manifest, and one no-retry audit of those exact public bytes. The retained
+stdout remains unread.
+
+1. Does the exact prepared diagnostic identity pass independent audit?
+2. Will the owner accept those exact merged bytes?
+3. Will the owner separately authorize one local deterministic read of the
+   anchored retained stdout?
+4. After its fixed-code receipt, should the owner select a targeted successor,
+   another execution method, expanded learning, or `stop`?
+5. After a later terminal qualification result, should the owner accept an exact `qualified`
+   outcome, choose another identity or method, expand learning separately, or
+   stop?
+6. Only after an accepted `qualified` result, should a fresh evaluation
+   successor be separately authorized and defined?
+7. Only after a successor contract is accepted, will the owner separately
    authorize a whole-document adapter that preserves payload bytes, byte
    offsets, and RST media type without changing the common input?
 
@@ -619,3 +644,12 @@ first confirmation. That confirmation requires a fresh corpus and identity and
 must not reuse disclosed Python details in its tasks or oracle. A successor
 changes the evaluation identity and requires an explicit plan and authorization
 update.
+
+An expanded learning route is separate from this sequence. It may admit exact
+currently disclosed artifacts for prototype learning only after a new owner
+decision defines readers, processors, outputs, budgets, retention, and deletion.
+It cannot close any evaluation or run gate. A pre-run `stop` instead records no
+sequential effectiveness result and releases the single-major-WIP slot for a
+new track. The v1 disposition started one local raw-diagnostic deletion window
+ending `2026-08-22T16:39:58Z`. A later successor disposition does not reset it
+and must use its own predeclared retention rule.
