@@ -730,9 +730,14 @@ identity and authorized one live public-synthetic call. That sole call is
 consumed, cannot be retried or resumed, and ended terminally at `result-schema`.
 The owner chose `diagnose-first` in Issue #24 comment 5061017045 and authorized
 only deterministic public diagnostic-tool preparation plus one no-retry audit
-of those exact public bytes. The retained stdout remains unread. Even a
-continuing route must qualify a fresh selected boundary before a successor
-evaluation freeze can be authorized.
+of those exact public bytes. The sole audit ended `audit-call-failed` before an
+auditor verdict; the local candidate remains unaccepted and unpublished. The
+retained stdout remains unread. A separate owner disposition is required before
+any fresh diagnostic-tooling candidate under a new manifest and separately
+authorized audit path, separately authorized exploratory-learning expansion, or
+stop. The terminal candidate cannot transfer. Even a continuing route must
+qualify a fresh selected boundary before a successor evaluation freeze can be
+authorized.
 
 The acceptance unit is the complete
 [`TOOLING-MANIFEST.json`](../examples/experiments/author-call-qualification-v1/TOOLING-MANIFEST.json)
@@ -752,17 +757,17 @@ expected-payload check; the safe result does not localize the failing
 subcondition. Raw diagnostics remain owner-only and are not publication
 artifacts.
 
-The retained evidence currently admits only construction and audit of one
-deterministic diagnostic identity against artificial fixtures. Reading raw
-requires exact identity acceptance and a separate one-read authorization. The
-resulting safe receipt grants no successor work. A continuing route must later
-and separately authorize its provider-free preparation, create a fresh
-qualification identity, independently audit and accept it, authorize one call,
-and dispose the exact terminal result. Only an accepted exact `qualified`
-result closes the boundary. A different execution method follows the same
-ladder. None of these steps can repair, retry, resume, or reuse v1. Retained
-local raw diagnostics must be deleted no later than
-`2026-08-22T16:39:58Z`.
+The retained evidence records one completed local candidate preparation and one
+terminal public-audit call failure, not an accepted diagnostic identity. Reading
+raw still requires an admissible exact identity, its separate owner acceptance,
+and a separate one-read authorization. A resulting safe receipt would grant no
+successor work. A continuing route must later and separately authorize its
+provider-free preparation, create a fresh qualification identity, independently
+audit and accept it, authorize one call, and dispose the exact terminal result.
+Only an accepted exact `qualified` result closes the boundary. A different
+execution method follows the same ladder. None of these steps can repair,
+retry, resume, or reuse v1. Retained local raw diagnostics must be deleted no
+later than `2026-08-22T16:39:58Z`.
 
 The normal `./tooling/check` path runs v1, v2, and the author-call qualification
 only with generated synthetic fixtures and fake model calls. It verifies the

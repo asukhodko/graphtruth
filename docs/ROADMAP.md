@@ -109,26 +109,36 @@ Its near path is:
     comment 5061017045, its 2026-08-22T16:39:58Z raw-diagnostic deletion
     deadline, and its authorization of public diagnostic preparation plus one
     public-code audit only;
-11. prepare and independently audit one deterministic diagnostic identity
-    without reading retained output, merge it, then pause for exact identity
-    acceptance and a separate one-read authorization;
-12. after those two decisions, read the exact retained stdout once through the
-    accepted local analyzer, publish only a fixed-code safe receipt, and obtain
-    a separate disposition of that diagnosis;
-13. if continuation is then selected, separately authorize the exact
+11. record the terminal attempt bound to the unpublished local diagnostic
+    candidate with manifest SHA-256
+    `45820302417fa577d89cfce46d3c3b6ea6e18ec4c891661a1af67404f423951d`
+    and its one consumed public-code audit as terminal `audit-call-failed`;
+    no auditor decision, accepted identity, tooling PR, or retained-output read
+    exists;
+12. pause for a separate owner disposition: authorize preparation of a fresh
+    diagnostic-tooling candidate under a new manifest and a separately
+    authorized fresh audit path, separately authorize exploratory-learning
+    expansion, or stop this route; none of these choices by itself authorizes
+    retained-output reading;
+13. only after a future route makes one exact diagnostic identity admissible,
+    merge and present it, obtain separate identity acceptance and one-read
+    authorization, read the exact retained stdout once through the accepted
+    local analyzer, publish only a fixed-code safe receipt, and obtain a
+    separate disposition of that diagnosis;
+14. if continuation is then selected, separately authorize the exact
     provider-free preparation scope, prepare and independently audit one
     successor qualification identity, accept its exact bytes, and separately
     authorize at most one synthetic call; dispose every terminal result, and
     close the author-call boundary only after accepting an exact `qualified`
     result;
-14. only after that boundary is qualified and the owner gives a new explicit
+15. only after that boundary is qualified and the owner gives a new explicit
     authorization, define a fresh successor evaluation freeze; it is never a
     retry, resume, repair, or reuse of any terminal attempt;
-15. only after a successor freeze passes, have the owner accept its exact
+16. only after a successor freeze passes, have the owner accept its exact
     contract and separately authorize implementation;
-16. adapt and rehearse the deterministic whole-document runner, then separately
+17. adapt and rehearse the deterministic whole-document runner, then separately
     accept the exact rehearsal and authorize one evaluated run;
-17. execute the sequential GraphTruth and files-plus-search comparison, score
+18. execute the sequential GraphTruth and files-plus-search comparison, score
     the complete denominator, and record `sequential keep`, `sequential shrink`,
     or `sequential stop`.
 
@@ -159,24 +169,36 @@ The owner has now chosen `diagnose-first` in
 That decision starts the single local raw-diagnostic deletion deadline at
 `2026-08-22T16:39:58Z` and authorizes only deterministic public diagnostic
 preparation plus one no-retry read-only Codex audit of those exact public bytes.
-The retained stdout remains unread. Diagnostic identity acceptance, one local
-read, diagnostic disposition, successor preparation, successor-freeze
-authorization, evaluation contract, implementation, rehearsal, SUT, baseline
-execution, scoring, and evaluated run all retain separate gates.
+The exact local candidate was prepared, but its single authorized public-code
+audit ended `failed / audit-call-failed` before an auditor decision. The
+[authorization record](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5062112148)
+and [safe terminal record](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5062148530)
+bind the consumed call, zero retries and resumes, unchanged public subject, and
+safe receipt SHA-256
+`88678c27b2042fae198feac6b561c3b66e416cb419506c907b24ec017b918816`.
+The candidate is not accepted or published. The retained stdout remains unread.
+Manifest `45820302417fa577d89cfce46d3c3b6ea6e18ec4c891661a1af67404f423951d`
+cannot be accepted, re-audited, repaired, or reused on the current route.
+Diagnostic audit disposition, identity acceptance, one local read, diagnostic
+disposition, successor preparation, successor-freeze authorization, evaluation
+contract, implementation, rehearsal, SUT, baseline execution, scoring, and
+evaluated run all retain separate gates.
 
 ### Routes available at this checkpoint
 
-The selected primary route is **diagnose first**. Work that needs no further
-permission is deliberately small: prepare a deterministic diagnostic wrapper,
-controller, closed receipt schema, artificial fixtures, tests, and manifest;
-then use at most one fresh isolated Codex audit over those exact public bytes.
-The retained raw synthetic output, a new model call, Python material, and every
-evaluation or run action remain outside that boundary.
+The selected intent remains **diagnose first**, but its admitted execution path
+is stopped before identity acceptance: the sole audit authorization is consumed
+without an auditor verdict. The next action is an owner disposition among a
+fresh diagnostic-tooling candidate under a new manifest and separately
+authorized audit path, a separately authorized exploratory-learning expansion,
+or stopping this route. The learning branch is independent and cannot open an
+evaluation successor. No current choice, candidate, test result, or internal
+review authorizes a raw read.
 
-After the exact diagnostic identity is merged and presented, two separate owner
-decisions remain mandatory: accept that identity, then authorize exactly one
-local deterministic read of the anchored stdout. A safe receipt still grants no
-successor work. Its later disposition can select one of:
+If a later disposition makes an exact diagnostic identity admissible, two
+separate owner decisions remain mandatory: accept that identity, then authorize
+exactly one local deterministic read of the anchored stdout. A safe diagnostic
+receipt still grants no successor work. Its later disposition can select one of:
 
 - **Targeted fix.** Define and separately authorize one provider-free
   preparation scope, prepare a new qualification tooling identity, audit it,

@@ -85,20 +85,24 @@ strict-JSON, exact-shape, and expected-payload check. The safe result does not
 localize which subcondition failed. No retry or resume occurred. The owner then
 chose `diagnose-first` in Issue #24 comment 5061017045. That same-date decision
 authorizes only deterministic public diagnostic tooling, artificial fixtures,
-and one no-retry read-only Codex audit of those exact public bytes. The retained
-stdout remains unread.
+and one no-retry read-only Codex audit of those exact public bytes. A local
+candidate was prepared, but the sole audit ended `audit-call-failed` before an
+auditor verdict. The [safe terminal
+record](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5062148530)
+leaves it unaccepted and unpublished. The retained stdout remains unread.
 
-The nearest work is now preparation and independent audit of one diagnostic
-identity. After it is merged, the owner must separately accept its exact bytes
-and authorize one local deterministic read. A safe diagnostic receipt still
-grants no successor work. Only its later disposition may select a targeted fix,
-another execution method, expanded learning, or pre-run `stop`. A continuing
-route must then obtain a separate provider-free preparation authorization,
-prepare and audit a fresh qualification identity, obtain exact identity
-acceptance, receive a separate one-call authorization, and dispose its terminal
-result. Only an accepted exact `qualified` result can precede a separately
-authorized evaluation successor. This shrink is not the experiment's
-`sequential shrink` and does not reset the issue-wide budget.
+The nearest work is now a separate owner disposition: admit preparation of a
+fresh diagnostic-tooling candidate under a new manifest and a separately
+authorized fresh audit path, separately authorize exploratory-learning
+expansion, or stop this route. Manifest
+`45820302417fa577d89cfce46d3c3b6ea6e18ec4c891661a1af67404f423951d`
+cannot be accepted, re-audited, repaired, or reused on the current route. The
+decision grants none of those routes implicitly and does not authorize raw
+access. If a future route makes an exact diagnostic identity admissible, the
+owner must still separately accept its exact bytes and authorize one local
+deterministic read. A safe diagnostic receipt grants no successor work. Only
+its later disposition may select a targeted fix, another execution method,
+expanded learning, or pre-run `stop`.
 
 All later route nodes are `conditional`. In this map that means “possible after
 a future decision,” not “authorized.” The v1 disposition started its one

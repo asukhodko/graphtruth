@@ -590,13 +590,18 @@ budget. The later progression is:
 
 1. retain the owner's exact `diagnose-first` disposition from Issue #24 comment
    5061017045 and the `2026-08-22T16:39:58Z` raw-diagnostic deletion deadline;
-2. prepare and independently audit one deterministic public diagnostic
-   identity without receiving retained output;
-3. merge and present that exact identity, then separately obtain owner
-   acceptance and one local deterministic read authorization;
-4. publish only a fixed-code safe receipt and separately dispose its exact
-   outcome;
-5. only if continuation is selected, separately authorize its exact
+2. retain the completed local diagnostic candidate preparation and the sole
+   public-code audit as terminal `audit-call-failed`, with no auditor verdict,
+   accepted identity, tooling publication, or retained-output read;
+3. obtain a separate owner disposition: a fresh diagnostic-tooling candidate
+   under a new manifest and separately authorized audit path, separately
+   authorized exploratory-learning expansion, or stop; none is authorized
+   implicitly and the terminal candidate cannot transfer;
+4. only if that disposition makes an exact diagnostic identity admissible,
+   merge and present it, separately obtain owner acceptance and one local
+   deterministic read authorization, publish only a fixed-code safe receipt,
+   and separately dispose its exact outcome;
+5. only if continuation is then selected, separately authorize its exact
    provider-free preparation scope, prepare and independently audit a fresh
    qualification identity, accept its exact bytes, and separately authorize at
    most one synthetic call;
@@ -618,16 +623,18 @@ model-assisted automation remain queued rather than parallel WIP.
 
 ## Current decision after terminal qualification
 
-The owner selected `diagnose-first`. Current work is limited to a deterministic
-public wrapper, controller, closed receipt schema, artificial fixtures, tests,
-manifest, and one no-retry audit of those exact public bytes. The retained
-stdout remains unread.
+The owner selected `diagnose-first`, but its admitted route stopped when the sole
+public-code audit ended `audit-call-failed` before an auditor verdict. The local
+candidate is unaccepted and unpublished, and retained stdout remains unread.
 
-1. Does the exact prepared diagnostic identity pass independent audit?
-2. Will the owner accept those exact merged bytes?
+1. Will the owner admit a fresh diagnostic-tooling candidate under a new
+   manifest and separately authorized audit path, separately authorize
+   exploratory-learning expansion, or stop this route?
+2. If an exact diagnostic identity later becomes admissible, will the owner
+   accept those exact merged bytes?
 3. Will the owner separately authorize one local deterministic read of the
    anchored retained stdout?
-4. After its fixed-code receipt, should the owner select a targeted successor,
+4. After a fixed-code receipt, should the owner select a targeted successor,
    another execution method, expanded learning, or `stop`?
 5. After a later terminal qualification result, should the owner accept an exact `qualified`
    outcome, choose another identity or method, expand learning separately, or

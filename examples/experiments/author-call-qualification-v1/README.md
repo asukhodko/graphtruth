@@ -68,12 +68,13 @@ rehearsal, scoring, or experimental run was admitted or performed.
 
 The owner chose `diagnose-first` in Issue #24 comment 5061017045. Only public
 diagnostic-tool preparation, artificial fixtures, and one no-retry public-code
-audit are authorized. The retained stdout remains unread until the exact merged
-diagnostic identity is separately accepted and one local deterministic read is
-separately authorized. Its fixed-code safe receipt will require another
-disposition before any targeted fix, alternative execution method, expanded
-learning, or stop. A continuing route must then pass fresh preparation, audit,
-identity acceptance, one-call authorization, and terminal disposition. Only an
-accepted exact `qualified` result can precede an evaluation-successor proposal.
-The local raw-diagnostic deletion deadline is `2026-08-22T16:39:58Z`. No
-successor evaluation freeze is authorized.
+audit were authorized. A local candidate was prepared, but the sole audit ended
+`audit-call-failed` before an auditor verdict. Its [safe terminal
+record](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5062148530)
+leaves the candidate unaccepted and unpublished. The retained stdout remains
+unread. A separate owner disposition must choose a fresh diagnostic-tooling
+candidate under a new manifest and separately authorized audit path, separately
+authorized exploratory-learning expansion, or stop. The terminal candidate
+cannot transfer, and the decision grants no raw read or successor work. The
+local raw-diagnostic deletion deadline is `2026-08-22T16:39:58Z`. No successor
+evaluation freeze is authorized.
