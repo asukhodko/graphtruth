@@ -38,11 +38,17 @@ and separate one-call authorization, its sole external call ended terminally
 records no corpus, projection, terminal-state, freeze, or experimental access.
 The call is consumed without retry or resume. The owner chose `diagnose-first`
 in Issue #24 comment 5061017045 and authorized only public diagnostic-tool
-preparation plus one public-code audit. The retained output remains unread;
-diagnostic identity acceptance and one local deterministic read require two
-separate later decisions. Fresh-successor authorization, implementation,
-baseline, rehearsal, scoring, and experimental execution remain unauthorized.
-The local raw-diagnostic deletion deadline is `2026-08-22T16:39:58Z`.
+preparation plus one public-code audit. The sole audit ended
+`audit-call-failed` before an auditor verdict, so the local diagnostic candidate
+is neither accepted nor published. The retained output remains unread. A
+separate owner disposition must precede any fresh diagnostic-tooling candidate
+under a new manifest and separately authorized audit path, separately
+authorized exploratory-learning expansion, or stop. The terminal candidate
+cannot transfer. Even a continuing diagnostic route still requires separate
+identity acceptance and one-read authorization. Fresh-successor authorization,
+implementation, baseline, rehearsal, scoring, and experimental execution remain
+unauthorized. The local raw-diagnostic deletion deadline is
+`2026-08-22T16:39:58Z`.
 
 Any later result on this corpus remains exploratory because its diagnostic
 context has been disclosed during procedure development. The first
