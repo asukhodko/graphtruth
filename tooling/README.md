@@ -750,8 +750,23 @@ SHA-256
 `205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4`.
 The deterministic audit receipt has SHA-256
 `5257e6229e2eacd15fdd2df655c6a3db00d394e94b660100dac0564cb9f237f4`.
-The pack is unaccepted and inactive. No fresh diagnostic identity, protected
-read, successor evaluation freeze or processing run is authorized.
+The owner accepted that exact pack, but v1 then stopped before a protected read
+after the required locator was absent from owner-visible records and one
+owner-run filename-and-size metadata search occurred. No candidate content was
+opened or hashed and no read slot was committed.
+
+The replacement [v2
+boundary](../examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY-V2.md)
+has SHA-256
+`4fd2f38bb230436a7cedb2610eaedc3d0ccae036a8163ba91b732f17c6bd96a3`.
+Its [new execution-pack
+manifest](../examples/experiments/author-call-qualification-v1/exploratory-learning-v2/EXECUTION-PACK-MANIFEST.json)
+has SHA-256
+`e7a95f4002c9e24e421ab41074ec52362fd9a054cd958f13c294f5458de3341c`,
+and its deterministic audit receipt has SHA-256
+`fdd4a5dc1a7ca4472ac8e29433b16936d984d07a12fe800ec7c989e6a6406580`.
+Both remain unaccepted and inactive. No protected read, successor evaluation
+freeze, or processing run is authorized.
 
 The acceptance unit is the complete
 [`TOOLING-MANIFEST.json`](../examples/experiments/author-call-qualification-v1/TOOLING-MANIFEST.json)
@@ -773,16 +788,17 @@ artifacts.
 
 The retained evidence records one completed local candidate preparation and one
 terminal public-audit call failure, not an accepted diagnostic identity. The
-learning proposal deliberately bypasses diagnostic-tool acceptance only for a
+learning route deliberately bypasses diagnostic-tool acceptance only for a
 non-confirmatory, one-exposure research result. It does not reuse the terminal
-candidate and cannot close qualification. Its exact boundary SHA is accepted,
-and the separately authorized public pack is now prepared and
-deterministically checked. The manifest itself still needs exact owner
-acceptance. Only after that may the owner separately authorize the exact
-retained-stdout path, one current-session OpenAI processing episode, safe
-output, and local deletion. Any later qualification route still requires fresh
-public-synthetic preparation without a live provider request, independent
-audit, exact acceptance, one-call authorization, and disposition.
+candidate and cannot close qualification. V1 stopped before reading protected
+bytes. V2 binds that stop, the declared metadata-only locator recovery, and the
+same public result semantics to a new reader identity. Its boundary and
+manifest still need separate exact owner acceptance. Only after both
+acceptances may the owner separately authorize the owner-only locator, one
+current-session OpenAI processing episode, safe output, and local deletion. Any
+later qualification route still requires fresh public-synthetic preparation
+without a live provider request, independent audit, exact acceptance, one-call
+authorization, and disposition.
 Only an accepted exact `qualified` result closes the boundary. Retained local
 raw diagnostics must be deleted no later than
 `2026-08-22T16:39:58Z`.
@@ -794,9 +810,10 @@ diagnostics, qualification transport and output boundaries, and mutations that
 try to drop or weaken a result class, capture-tax rule, audit code boundary, or
 no-run attestation. It also pins the one terminal public qualification result
 and rejects mutations of its digest, outcome, budget, boundaries, or public
-shape. It also verifies the exact inactive exploratory-learning pack, its
-closed 33-case artificial matrix and its non-circular audit receipt. Repository
-tests create no protected read, real contract or provider request.
+shape. It also verifies both exact inactive exploratory-learning packs, the v2
+lineage, their closed 33- and 35-case artificial matrices, and their
+non-circular audit receipts. Repository tests create no protected read, real
+contract, or provider request.
 
 ## Operational plan validation
 

@@ -1,0 +1,497 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/asukhodko/graphtruth/blob/main/examples/experiments/author-call-qualification-v1/exploratory-learning-v1/SAFE-RESULT.schema.json",
+  "title": "GraphTruth exploratory-learning safe result v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "documentKind",
+    "identity",
+    "bindings",
+    "budgets",
+    "predicates",
+    "firstFailure",
+    "measurements",
+    "routes",
+    "attestations",
+    "deletion"
+  ],
+  "properties": {
+    "documentKind": {
+      "const": "graphtruth.author-call-result-schema-exploratory-learning-result/1"
+    },
+    "identity": {
+      "const": "author-call-result-schema-exploratory-learning-v1"
+    },
+    "bindings": {
+      "$ref": "#/$defs/bindings"
+    },
+    "budgets": {
+      "$ref": "#/$defs/budgets"
+    },
+    "predicates": {
+      "$ref": "#/$defs/predicates"
+    },
+    "firstFailure": {
+      "$ref": "#/$defs/firstFailure"
+    },
+    "measurements": {
+      "$ref": "#/$defs/measurements"
+    },
+    "routes": {
+      "$ref": "#/$defs/routes"
+    },
+    "attestations": {
+      "$ref": "#/$defs/attestations"
+    },
+    "deletion": {
+      "$ref": "#/$defs/deletion"
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "basis": {
+      "enum": [
+        "directly-observed",
+        "deterministically-derived",
+        "conjectural"
+      ]
+    },
+    "bindings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "boundarySha256",
+        "executionPackManifestSha256",
+        "readerSha256",
+        "resultSchemaSha256",
+        "toolingManifestSha256",
+        "qualificationResultSha256",
+        "traceParserSha256",
+        "strictJsonParserSha256",
+        "syntheticManifestSha256",
+        "qualificationOutputSchemaSha256",
+        "processingAuthorizationRecord"
+      ],
+      "properties": {
+        "boundarySha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "executionPackManifestSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "readerSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "resultSchemaSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "toolingManifestSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "qualificationResultSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "traceParserSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "strictJsonParserSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "syntheticManifestSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "qualificationOutputSchemaSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "processingAuthorizationRecord": {
+          "type": "string",
+          "pattern": "^https://github\\.com/asukhodko/graphtruth/issues/24#issuecomment-[1-9][0-9]{0,19}$",
+          "maxLength": 128
+        }
+      }
+    },
+    "budgets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "protectedInputFilesOpened",
+        "admittedInputBytes",
+        "protectedFilePasses",
+        "readerRunsCommitted",
+        "currentSessionMessageExposures",
+        "currentSessionProcessingEpisodes",
+        "otherRawReaders",
+        "separatelyLaunchedModelSessions",
+        "retries",
+        "resumes",
+        "stderrReads",
+        "corpusReads",
+        "projectionReads",
+        "privateM1Reads",
+        "localReaderNetworkRequests",
+        "readerWallTimeLimitSeconds",
+        "readerMemoryLimitBytes",
+        "derivedStateLimitBytes",
+        "publicRecordLimitBytes"
+      ],
+      "properties": {
+        "protectedInputFilesOpened": {
+          "const": 1
+        },
+        "admittedInputBytes": {
+          "const": 38920
+        },
+        "protectedFilePasses": {
+          "const": 1
+        },
+        "readerRunsCommitted": {
+          "const": 1
+        },
+        "currentSessionMessageExposures": {
+          "const": 1
+        },
+        "currentSessionProcessingEpisodes": {
+          "const": 1
+        },
+        "otherRawReaders": {
+          "const": 0
+        },
+        "separatelyLaunchedModelSessions": {
+          "const": 0
+        },
+        "retries": {
+          "const": 0
+        },
+        "resumes": {
+          "const": 0
+        },
+        "stderrReads": {
+          "const": 0
+        },
+        "corpusReads": {
+          "const": 0
+        },
+        "projectionReads": {
+          "const": 0
+        },
+        "privateM1Reads": {
+          "const": 0
+        },
+        "localReaderNetworkRequests": {
+          "const": 0
+        },
+        "readerWallTimeLimitSeconds": {
+          "const": 60
+        },
+        "readerMemoryLimitBytes": {
+          "const": 134217728
+        },
+        "derivedStateLimitBytes": {
+          "const": 131072
+        },
+        "publicRecordLimitBytes": {
+          "const": 16384
+        }
+      }
+    },
+    "predicate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "basis"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "passed",
+            "failed",
+            "not-evaluated"
+          ]
+        },
+        "basis": {
+          "$ref": "#/$defs/basis"
+        }
+      }
+    },
+    "predicates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "strictJson",
+        "closedObjectShape",
+        "payloadJsonString",
+        "expectedPayloadBytes"
+      ],
+      "properties": {
+        "strictJson": {
+          "$ref": "#/$defs/predicate"
+        },
+        "closedObjectShape": {
+          "$ref": "#/$defs/predicate"
+        },
+        "payloadJsonString": {
+          "$ref": "#/$defs/predicate"
+        },
+        "expectedPayloadBytes": {
+          "$ref": "#/$defs/predicate"
+        }
+      }
+    },
+    "firstFailure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "basis"
+      ],
+      "properties": {
+        "code": {
+          "enum": [
+            "strict-json",
+            "closed-object-shape",
+            "payload-json-type",
+            "payload-json-byte-mismatch",
+            "evidence-inconsistent"
+          ]
+        },
+        "basis": {
+          "$ref": "#/$defs/basis"
+        }
+      }
+    },
+    "nullableCount": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "basis"
+      ],
+      "properties": {
+        "value": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 4096
+        },
+        "basis": {
+          "$ref": "#/$defs/basis"
+        }
+      }
+    },
+    "nullableByteCount": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "basis"
+      ],
+      "properties": {
+        "value": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 65536
+        },
+        "basis": {
+          "$ref": "#/$defs/basis"
+        }
+      }
+    },
+    "nullableDelta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "basis"
+      ],
+      "properties": {
+        "value": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": -32768,
+          "maximum": 32768
+        },
+        "basis": {
+          "$ref": "#/$defs/basis"
+        }
+      }
+    },
+    "measurements": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "finalMessageBytes",
+        "rootKeyCount",
+        "missingRootKeyCount",
+        "unexpectedRootKeyCount",
+        "payloadJsonBytes",
+        "expectedObservedByteDelta"
+      ],
+      "properties": {
+        "finalMessageBytes": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "basis"
+          ],
+          "properties": {
+            "value": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65536
+            },
+            "basis": {
+              "$ref": "#/$defs/basis"
+            }
+          }
+        },
+        "rootKeyCount": {
+          "$ref": "#/$defs/nullableCount"
+        },
+        "missingRootKeyCount": {
+          "$ref": "#/$defs/nullableCount"
+        },
+        "unexpectedRootKeyCount": {
+          "$ref": "#/$defs/nullableCount"
+        },
+        "payloadJsonBytes": {
+          "$ref": "#/$defs/nullableByteCount"
+        },
+        "expectedObservedByteDelta": {
+          "$ref": "#/$defs/nullableDelta"
+        }
+      }
+    },
+    "route": {
+      "enum": [
+        "prompt-schema-adjustment",
+        "reduced-echo-contract",
+        "alternate-execution",
+        "stop"
+      ]
+    },
+    "routes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "recommended",
+        "alternatives"
+      ],
+      "properties": {
+        "recommended": {
+          "$ref": "#/$defs/route"
+        },
+        "alternatives": {
+          "type": "array",
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/route"
+          }
+        }
+      }
+    },
+    "attestations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "boundaryRespected",
+        "noRepair",
+        "noRetry",
+        "noResume",
+        "noFallbackParsing",
+        "noNormalization",
+        "noExperimentalRun",
+        "finalMessageTreatedAsUntrusted",
+        "noMessageDigestPublished",
+        "noProtectedPathPublished",
+        "providerCopiesUnverified"
+      ],
+      "properties": {
+        "boundaryRespected": {
+          "const": true
+        },
+        "noRepair": {
+          "const": true
+        },
+        "noRetry": {
+          "const": true
+        },
+        "noResume": {
+          "const": true
+        },
+        "noFallbackParsing": {
+          "const": true
+        },
+        "noNormalization": {
+          "const": true
+        },
+        "noExperimentalRun": {
+          "const": true
+        },
+        "finalMessageTreatedAsUntrusted": {
+          "const": true
+        },
+        "noMessageDigestPublished": {
+          "const": true
+        },
+        "noProtectedPathPublished": {
+          "const": true
+        },
+        "providerCopiesUnverified": {
+          "const": true
+        }
+      }
+    },
+    "deletion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stdout",
+        "stderr",
+        "workRoot"
+      ],
+      "properties": {
+        "stdout": {
+          "enum": [
+            "pending",
+            "deleted",
+            "identity-mismatch",
+            "unlink-failed",
+            "not-attempted"
+          ]
+        },
+        "stderr": {
+          "enum": [
+            "pending",
+            "deleted-unread",
+            "metadata-mismatch",
+            "unlink-failed",
+            "not-attempted"
+          ]
+        },
+        "workRoot": {
+          "enum": [
+            "pending",
+            "deleted",
+            "unexpected-entry",
+            "remove-failed",
+            "not-attempted"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"artificial-thread"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"type":"agent_message","text":"{\"payloadJson\":\"{\\\"artificial\\\":true}\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":1,"output_tokens":1}}

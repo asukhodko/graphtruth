@@ -1,0 +1,4 @@
+{"type":"thread.started"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"type":"reasoning","text":"artificial reasoning"}}
+{"type":"turn.completed"}

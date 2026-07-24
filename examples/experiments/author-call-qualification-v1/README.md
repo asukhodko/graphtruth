@@ -98,8 +98,24 @@ manifest SHA-256
 and deterministic audit-result SHA-256
 `5257e6229e2eacd15fdd2df655c6a3db00d394e94b660100dac0564cb9f237f4`.
 It was prepared and checked only with artificial public data. The pack remains
-unaccepted and inactive: exact owner acceptance and a later, separate
-processing authorization are still required. No raw read, separate external
-call, successor work, corpus processing, or experiment is authorized. The
-raw-diagnostic deletion deadline remains
+inactive. The owner later accepted its exact identity, but the route stopped
+before a protected read after the required locator was absent from
+owner-visible records and the owner performed one filename-and-size metadata
+search. No candidate content was opened or hashed, no read slot was committed,
+and the v1 boundary and pack cannot be reused.
+
+The separately prepared [v2 boundary](EXPLORATORY-LEARNING-BOUNDARY-V2.md)
+records that pre-read stop and locator-recovery shape without publishing a
+private path. Its SHA-256 is
+`4fd2f38bb230436a7cedb2610eaedc3d0ccae036a8163ba91b732f17c6bd96a3`.
+The new [v2 execution pack](exploratory-learning-v2/README.md) has manifest
+SHA-256
+`e7a95f4002c9e24e421ab41074ec52362fd9a054cd958f13c294f5458de3341c`
+and deterministic audit-result SHA-256
+`fdd4a5dc1a7ca4472ac8e29433b16936d984d07a12fe800ec7c989e6a6406580`.
+It reuses the public v1 result semantics and artificial fixtures under a new
+reader and boundary identity. Both v2 identities remain unaccepted and
+inactive. No protected read, separate external call, successor work, corpus
+processing, or experiment is authorized. The raw-diagnostic deletion deadline
+remains
 `2026-08-22T16:39:58Z`.

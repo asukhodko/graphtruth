@@ -1,0 +1,33 @@
+{
+  "documentKind": "graphtruth.author-call-result-schema-exploratory-learning-pack-audit/1",
+  "identity": "author-call-result-schema-exploratory-learning-execution-pack-v2",
+  "manifestSha256": "e7a95f4002c9e24e421ab41074ec52362fd9a054cd958f13c294f5458de3341c",
+  "verifierSha256": "6a5b497367b0000bf6fb24c203a0a98d0306227d86ef31fb740fd361405bc718",
+  "status": "pass",
+  "componentCount": 15,
+  "anchorCount": 10,
+  "fixtureCount": 6,
+  "mutationCaseCount": 35,
+  "checks": {
+    "manifestAndInventoryClosed": true,
+    "componentHashesAndModesValid": true,
+    "acceptedParserExportsBound": true,
+    "readerOnePassAndNoRecovery": true,
+    "readerHasNoNetworkOrDiscovery": true,
+    "schemaObjectsClosed": true,
+    "routeAndFailureCodesClosed": true,
+    "syntheticMatrixDeclared": true,
+    "safeExampleValid": true,
+    "verifierIndependentFromReader": true,
+    "protectedMaterialAbsent": true
+  },
+  "boundaries": {
+    "artificialPublicDataOnly": true,
+    "retainedOutputRead": false,
+    "terminalCandidateRead": false,
+    "corpusOrProjectionRead": false,
+    "newModelCallPerformed": false,
+    "graphTruthRunPerformed": false,
+    "repairRetryOrResumePerformed": false
+  }
+}

@@ -40,6 +40,12 @@ live call reached a valid zero-tool JSONL trace but ended terminally at
 `result-schema`; the linked safe result records one consumed call and no corpus,
 freeze, or evaluated work.
 
+Its first exploratory-learning reader stopped before a protected read when the
+owner-visible locator was missing. The publication-safe [v2 boundary and
+execution pack](experiments/author-call-qualification-v1/exploratory-learning-v2/)
+bind the declared metadata-only recovery to a fresh inactive identity. They do
+not contain the locator or authorize processing.
+
 If repeated experiments demonstrate stable portable semantics, a separately
 reviewed minimal example may later be promoted into this directory under an
 applicable specification version. Copying the laboratory files here does not
