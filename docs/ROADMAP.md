@@ -121,9 +121,12 @@ Its near path is:
     call; the terminal diagnostic candidate does not transfer;
 13. merge the
     [boundary proposal](../examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY.md),
-    present its exact SHA-256, and obtain a separate owner acceptance that still
-    grants no retained-output read;
-14. separately authorize and prepare a fresh public execution pack that binds
+    present its exact SHA-256, and retain the owner's separate
+    [acceptance](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5066292679)
+    of identity
+    `4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e`,
+    which grants no execution-pack preparation or retained-output read;
+14. separately authorize, then prepare a fresh public execution pack that binds
     the accepted boundary, exact reader, accepted parser modules, closed result
     schema, synthetic tests, and manifest; independently review it and obtain
     separate owner acceptance of its exact identity;
@@ -189,25 +192,34 @@ exploratory learning in [Issue #24 comment
 and separately authorized only public boundary preparation in the current
 session, without protected bytes or a separate external call. The resulting
 [proposal](../examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY.md)
-is neither accepted nor activated. The retained stdout and stderr remain unread.
+was accepted by exact SHA-256
+`4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e`
+in [Issue #24 comment
+5066292679](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5066292679).
+The boundary is frozen but inactive. The retained stdout and stderr remain
+unread, and execution-pack preparation is not authorized. The boundary file's
+internal proposal-state text remains the immutable pre-acceptance record;
+[Issue #24](https://github.com/asukhodko/graphtruth/issues/24) is the current
+authority for its accepted gate state.
 Manifest `45820302417fa577d89cfce46d3c3b6ea6e18ec4c891661a1af67404f423951d`
 cannot be accepted, re-audited, repaired, or reused on the learning route.
-Boundary acceptance, execution-pack preparation and acceptance, processing
-authorization, learning-result disposition, successor preparation,
-successor-freeze authorization, evaluation contract, implementation, rehearsal,
-SUT, baseline execution, scoring, and evaluated run all retain separate gates.
+Execution-pack preparation and acceptance, processing authorization,
+learning-result disposition, successor preparation, successor-freeze
+authorization, evaluation contract, implementation, rehearsal, SUT, baseline
+execution, scoring, and evaluated run all retain separate gates.
 
 ### Route selected at this checkpoint
 
 The selected route is **exploratory learning**. Its evidence ceiling is lower
 than the stopped diagnostic route: one future current-session exposure may
 identify the first observable failed result predicate and inform design, but it
-can never qualify the boundary or confirm GraphTruth. The immediate next action
-is exact owner acceptance of the merged boundary SHA-256. Acceptance still
-grants no raw read. A separate public execution pack must then be prepared,
-reviewed, and accepted by exact identity. Only a later processing authorization
-may supply the exact path and accept the stated OpenAI transcript and retention
-risk, one-episode budget, safe output, and deletion terms.
+can never qualify the author-call boundary or confirm GraphTruth. The
+exploratory-learning boundary is accepted, but the immediate next action still
+requires a separate owner decision: authorize public-only execution-pack
+preparation without a retained-output path or read. The resulting pack must then
+be reviewed and accepted by exact identity. Only a later processing
+authorization may supply the exact path and accept the stated OpenAI transcript
+and retention risk, one-episode budget, safe output, and deletion terms.
 
 After a terminal safe learning result, its separate disposition can select one
 of:
@@ -236,8 +248,9 @@ corpus processing. The v1 disposition started one 30-day deadline: delete
 retained local raw synthetic diagnostics no later than
 `2026-08-22T16:39:58Z` while preserving the safe public result. Later successor
 dispositions do not reset that deadline and require their own predeclared
-retention rules. Issue #24 remains at repository-active date 3/5; work on
-2026-07-23 does not consume another date or reset its budget.
+retention rules. Issue #24 is at repository-active date 4/5 after the
+2026-07-24 boundary acceptance. Before any Issue or repository activity begins
+on date 5/5, the owner must choose `continue`, `shrink`, or `stop`.
 
 The selection record, projection contract, and projection manifest remain
 byte-for-byte records of their freeze points. Their earlier Markdown option and

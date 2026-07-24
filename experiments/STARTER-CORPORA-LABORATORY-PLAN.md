@@ -15,7 +15,9 @@
 > of a generated-public-synthetic author-call qualification. The owner accepted
 > its exact identity and separately authorized one external call. That sole call
 > ended terminally `not-qualified / result-schema`; no successor gate is
-> authorized.
+> authorized. On repository-active date 4/5 the owner accepted the exact
+> exploratory-learning boundary; execution-pack preparation and every protected
+> read remain separately gated.
 >
 > **Created:** 2026-07-12.
 >
@@ -599,9 +601,12 @@ budget. The later progression is:
    candidate cannot transfer;
 4. merge the exact
    [boundary proposal](../examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY.md),
-   present its SHA-256, and separately obtain owner acceptance without reading
-   retained output;
-5. separately authorize and prepare a public execution pack that binds the
+   present its SHA-256, and retain the owner's separate
+   [acceptance](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5066292679)
+   of identity
+   `4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e`
+   without reading retained output or authorizing pack preparation;
+5. separately authorize, then prepare a public execution pack that binds the
    accepted boundary, exact reader, accepted parser modules, closed result
    schema, artificial tests, and manifest; independently review it and obtain
    separate owner acceptance of its exact identity;
@@ -641,24 +646,28 @@ unaccepted, unpublished, and non-reusable. The owner separately authorized only
 public preparation in the current session, without protected bytes or a
 separate external call, of the exact
 [learning boundary](../examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY.md).
-Retained stdout and stderr remain unread; no reader, external call, or
+The owner accepted its exact merged SHA-256
+`4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e`
+on repository-active date 4/5 in [Issue #24 comment
+5066292679](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5066292679).
+The boundary is frozen but inactive. Retained stdout and stderr remain unread;
+no execution-pack preparation, reader, separate external/model call, or
 experiment is authorized.
 
 The next decisions remain deliberately separate:
 
-1. Will the owner accept the exact merged SHA-256 of the learning boundary?
-2. After boundary acceptance, will the owner separately authorize preparation
-   of the public execution pack?
-3. Will the owner accept the exact reviewed execution-pack manifest?
-4. After pack acceptance, will the owner separately authorize one exact
+1. Will the owner separately authorize preparation of the public execution
+   pack?
+2. Will the owner accept the exact reviewed execution-pack manifest?
+3. After pack acceptance, will the owner separately authorize one exact
    current-session processing episode, safe publication, and local deletion?
-5. After a safe learning result, should the owner select narrow successor
+4. After a safe learning result, should the owner select narrow successor
    preparation, another execution method, prototype-only work, or `stop`?
-6. After a later terminal qualification result, should the owner accept an
+5. After a later terminal qualification result, should the owner accept an
    exact `qualified` outcome, choose another identity or method, or stop?
-7. Only after an accepted `qualified` result, should a fresh evaluation
+6. Only after an accepted `qualified` result, should a fresh evaluation
    successor be separately authorized and defined?
-8. Only after a successor contract is accepted, will the owner separately
+7. Only after a successor contract is accepted, will the owner separately
    authorize a whole-document adapter that preserves payload bytes, byte
    offsets, and RST media type without changing the common input?
 
@@ -669,11 +678,13 @@ must not reuse disclosed Python details in its tasks or oracle. A successor
 changes the evaluation identity and requires an explicit plan and authorization
 update.
 
-The prepared learning route defines readers, processors, outputs, budgets,
-retention, and deletion, but remains dormant until boundary acceptance,
-execution-pack preparation and acceptance, and a later processing
+The accepted learning boundary defines readers, processors, outputs, budgets,
+retention, and deletion, but remains dormant until separate execution-pack
+preparation authorization, exact pack acceptance, and a later processing
 authorization. It cannot close any qualification, evaluation, or run gate. A
 pre-run `stop` instead records no sequential effectiveness result and releases
-the single-major-WIP slot for a new track. The v1 disposition started one local
+the single-major-WIP slot for a new track. Issue #24 is now at
+repository-active date 4/5; activity on date 5/5 requires a prior
+`continue / shrink / stop` decision. The v1 disposition started one local
 raw-diagnostic deletion window ending `2026-08-22T16:39:58Z`. A later successor
 disposition does not reset it and must use its own predeclared retention rule.
