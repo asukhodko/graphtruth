@@ -95,20 +95,27 @@ The owner then selected exploratory learning and separately authorized only
 public preparation of its exact goal and boundary in the current session,
 without protected bytes or a separate external call. The resulting
 [proposal](../../examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY.md)
-admits one future current-session exposure of the retained stdout, but is
-neither accepted nor activated. The retained stdout and stderr remain unread;
-no reader, processing, external call, or experiment ran. Manifest
+admits one future current-session exposure of the retained stdout. The owner
+accepted its exact merged SHA-256
+`4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e`
+in [Issue #24 comment
+5066292679](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5066292679).
+The boundary is frozen but inactive. The retained stdout and stderr remain
+unread; no reader, protected processing, separate external/model call, or
+experiment ran. Manifest
 `45820302417fa577d89cfce46d3c3b6ea6e18ec4c891661a1af67404f423951d`
 cannot be accepted, re-audited, repaired, or reused on this route.
 
-The nearest work is exact owner acceptance of the merged proposal SHA-256.
-Acceptance grants no raw access. A fresh public execution pack must then receive
-separate preparation authorization, independent public-only review, and exact
-owner acceptance. Only a later processing authorization may name its hashes,
-the exact retained-stdout path, current-session processor, one-episode budget,
-safe outputs, retention, and deletion. A safe learning result grants no
-successor work. Only its later disposition may select a targeted successor,
-another execution method, prototype-only work, or pre-run `stop`.
+The nearest work is a separate owner authorization for public-only preparation
+of a fresh execution pack. The accepted boundary itself grants no such
+authority and no raw access. The pack must receive independent public-only
+review and exact owner acceptance. Only a later processing authorization may
+name its hashes, the exact retained-stdout path, current-session processor,
+one-episode budget, safe outputs, retention, and deletion. A safe learning
+result grants no successor work. Only its later disposition may select a
+targeted successor, another execution method, prototype-only work, or pre-run
+`stop`. Issue #24 is now at repository-active date 4/5; activity on date 5/5
+requires a prior owner choice of `continue`, `shrink`, or `stop`.
 
 All later route nodes are `conditional`. In this map that means “possible after
 a future decision,” not “authorized.” The v1 disposition started its one

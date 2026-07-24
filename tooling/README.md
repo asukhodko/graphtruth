@@ -736,9 +736,13 @@ and non-reusable. The owner then selected exploratory learning and authorized
 only public preparation of its exact goal and boundary in the current session,
 without protected bytes or a separate external call. The resulting
 [proposal](../examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY.md)
-is neither accepted nor activated. Retained stdout and stderr remain unread.
-Exact proposal acceptance, execution-pack preparation and acceptance, and a
-later processing authorization remain separate owner gates. No fresh diagnostic
+was accepted by exact merged SHA-256
+`4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e`
+on repository-active date 4/5 in [Issue #24 comment
+5066292679](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5066292679).
+It is frozen but inactive. Retained stdout and stderr remain unread.
+Execution-pack preparation still requires separate authorization, followed by
+exact pack acceptance and a later processing authorization. No fresh diagnostic
 identity, successor evaluation freeze, or raw reader is authorized.
 
 The acceptance unit is the complete
@@ -763,15 +767,16 @@ The retained evidence records one completed local candidate preparation and one
 terminal public-audit call failure, not an accepted diagnostic identity. The
 learning proposal deliberately bypasses diagnostic-tool acceptance only for a
 non-confirmatory, one-exposure research result. It does not reuse the terminal
-candidate and cannot close qualification. Its exact SHA must first be accepted.
-A fresh reader and closed result schema must then be prepared, publicly
-reviewed, and accepted by exact manifest identity. Only after that may the owner
-separately authorize the exact retained-stdout path, one current-session OpenAI
-processing episode, safe output, and local deletion. Any later qualification
-route still requires fresh public-synthetic preparation without a live provider
-request, independent audit, exact acceptance, one-call authorization, and
-disposition. Only an accepted exact `qualified` result closes the boundary.
-Retained local raw diagnostics must be deleted no later than
+candidate and cannot close qualification. Its exact SHA is accepted, but that
+decision authorizes no pack preparation or raw access. A fresh reader and closed
+result schema require separate preparation authorization, then public review
+and exact manifest acceptance. Only after that may the owner separately
+authorize the exact retained-stdout path, one current-session OpenAI processing
+episode, safe output, and local deletion. Any later qualification route still
+requires fresh public-synthetic preparation without a live provider request,
+independent audit, exact acceptance, one-call authorization, and disposition.
+Only an accepted exact `qualified` result closes the boundary. Retained local
+raw diagnostics must be deleted no later than
 `2026-08-22T16:39:58Z`.
 
 The normal `./tooling/check` path runs v1, v2, and the author-call qualification

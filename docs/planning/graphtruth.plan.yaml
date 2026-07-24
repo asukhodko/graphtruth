@@ -40,9 +40,10 @@ nodes:
       requires a fresh corpus and identity with no transfer of disclosed Python
       material. After a terminal diagnostic-audit failure, the owner selected
       exploratory learning and authorized only preparation of an exact boundary.
-      That proposal is unaccepted and inactive; retained output remains unread.
-      The lane cannot replace the still missing private dogfood usefulness
-      evidence.
+      The owner accepted its exact merged SHA-256 on repository-active date 4/5.
+      The boundary is frozen but inactive; execution-pack preparation is not
+      authorized and retained output remains unread. The lane cannot replace the
+      still missing private dogfood usefulness evidence.
 
   m0-rehearsal-integration:
     title: "Integrate the runtime-boundary rehearsal evidence"
@@ -698,7 +699,7 @@ nodes:
       cost. It cannot establish private dogfood utility or current Python
       behavior beyond the retained corpus. The five-date budget starts on
       2026-07-21; owner decision is required before day five and the independent
-      hard stop is 2026-08-04. Date 3/5 is 2026-07-23. One separately authorized
+      hard stop is 2026-08-04. Date 4/5 is 2026-07-24. One separately authorized
       evaluation-freeze v1 attempt ended in a terminal independent-audit
       rejection. Its safe diagnosis is recorded. The exact v2 tooling identity
       was accepted and one separately authorized invocation stopped fail-closed
@@ -715,15 +716,18 @@ nodes:
       but that sole audit ended `audit-call-failed` before an auditor verdict.
       The candidate remains terminal, unaccepted, unpublished, and non-reusable.
       The owner selected exploratory learning and separately authorized only
-      public preparation of its exact boundary. The proposal is prepared but
-      unaccepted and inactive; retained stdout and stderr remain unread. Exact
-      boundary acceptance, execution-pack preparation and acceptance, and later
-      processing authorization remain separate. The learning branch can never
-      open an evaluation successor. Any continuing author-call route must later
-      pass a fresh qualification identity, acceptance, one-call authorization,
-      and terminal qualification before an evaluation successor can be
-      authorized. Any result on this disclosed Python corpus is exploratory. A
-      first confirmatory result needs a fresh corpus and identity.
+      public preparation of its exact boundary. On date 4/5 the owner accepted
+      merged SHA-256
+      4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e.
+      The boundary is frozen but inactive; retained stdout and stderr remain
+      unread. Execution-pack preparation authorization, exact pack acceptance,
+      and later processing authorization remain separate. The learning branch
+      can never open an evaluation successor. Any continuing author-call route
+      must later pass a fresh qualification identity, acceptance, one-call
+      authorization, and terminal qualification before an evaluation successor
+      can be authorized. Any result on this disclosed Python corpus is
+      exploratory. A first confirmatory result needs a fresh corpus and
+      identity.
 
   m6-freeze-selection-rights:
     title: "Freeze Python corpus selection, chronology, rights, and boundary"
@@ -1082,11 +1086,13 @@ nodes:
     milestone: true
     parent: m6-python-sequential
     deps: [m6-prepare-python-learning-boundary]
-    status: ready
+    status: done
     notes: |
-      Requires a separate owner decision naming the exact merged SHA-256 of the
-      boundary proposal. Acceptance freezes the proposal but grants no read or
-      processing. Activation remains a later, separate owner gate.
+      Issue #24 comment 5066292679 records owner acceptance of exact merged
+      boundary SHA-256
+      4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e.
+      Acceptance freezes the boundary but grants no execution-pack preparation,
+      retained-output path, read, or processing.
 
   g6-python-learning-execution-preparation-authorized:
     title: "Gate: exploratory-learning execution-pack preparation authorized"
@@ -1094,7 +1100,7 @@ nodes:
     milestone: true
     parent: m6-python-sequential
     deps: [g6-python-learning-boundary-accepted]
-    status: conditional
+    status: ready
     notes: |
       Requires a separate owner decision after boundary acceptance. It
       authorizes only public preparation and review of a fresh reader, closed
@@ -1678,8 +1684,8 @@ execution:
       updated_at: "2026-07-21T08:03:17+03:00"
     m6-python-sequential:
       actual_start: "2026-07-21"
-      updated_at: "2026-07-23T22:50:00+03:00"
-      note: "Repo-active date 3/5: exploratory learning is selected and its exact boundary proposal is prepared. The proposal is unaccepted and inactive; retained stdout and stderr remain unread."
+      updated_at: "2026-07-24T07:57:24+03:00"
+      note: "Repo-active date 4/5: exact exploratory-learning boundary SHA-256 4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e is accepted and frozen but inactive. Pack preparation is unauthorized; retained stdout and stderr remain unread."
     m6-freeze-selection-rights:
       progress: 1.0
       actual_start: "2026-07-21"
@@ -1833,13 +1839,15 @@ execution:
       updated_at: "2026-07-23T22:50:00+03:00"
       note: "Prepared a public immutable proposal without reading raw/private artifacts or running a reader, model call, implementation, or experiment."
     g6-python-learning-boundary-accepted:
-      progress: 0.0
-      updated_at: "2026-07-23T22:50:00+03:00"
-      note: "Ready for separate owner acceptance of the exact merged boundary SHA-256. Acceptance grants no processing."
+      progress: 1.0
+      actual_start: "2026-07-24"
+      actual_finish: "2026-07-24"
+      updated_at: "2026-07-24T07:57:24+03:00"
+      note: "Issue #24 comment 5066292679 accepts exact merged boundary SHA-256 4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e without authorizing pack preparation, raw access, or processing."
     g6-python-learning-execution-preparation-authorized:
       progress: 0.0
-      updated_at: "2026-07-23T22:50:00+03:00"
-      note: "Conditional on boundary acceptance and a separate owner authorization for public-only execution-pack preparation."
+      updated_at: "2026-07-24T07:57:24+03:00"
+      note: "Ready for a separate owner authorization for public-only execution-pack preparation. The accepted boundary does not close this gate."
     m6-prepare-python-learning-execution-pack:
       progress: 0.0
       updated_at: "2026-07-23T22:50:00+03:00"
@@ -1890,8 +1898,8 @@ views:
 x:
   exec:
     program:
-      nearest_goal: "Obtain separate owner acceptance of the exact merged exploratory-learning boundary SHA-256 without activating it."
-      success_by_next_sync: "Freeze one accepted boundary identity while retained-output reading, processing, and every successor gate remain closed."
+      nearest_goal: "Obtain separate owner authorization for public-only exploratory-learning execution-pack preparation without a raw path or read."
+      success_by_next_sync: "Freeze one reviewed execution-pack identity while retained-output reading, processing, and every successor gate remain closed."
     defaults:
       status_progress:
         done: 1.0
@@ -1925,8 +1933,8 @@ x:
         kind: main
         mgmt:
           health: yellow
-          sync_note: "Issue #24 is at date 3/5. The owner selected exploratory learning and authorized only public boundary preparation. The proposal is prepared but unaccepted and inactive; retained stdout and stderr remain unread."
-          next_sync_goal: "Obtain separate owner acceptance of the exact merged boundary SHA-256 without activating raw processing."
+          sync_note: "Issue #24 is at date 4/5. The owner accepted exact exploratory-learning boundary SHA-256 4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e. The boundary is frozen but inactive; pack preparation remains unauthorized and retained stdout and stderr remain unread."
+          next_sync_goal: "Obtain separate owner authorization for public-only execution-pack preparation without admitting a raw path, read, or processing."
       python-order-successor:
         title: "Python 24-order successor"
         scope_nodes: [m7-python-order-successor]

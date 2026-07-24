@@ -80,10 +80,17 @@ without protected bytes or a separate external call, in
 and the separate [gate-accounting
 record](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5062674740).
 The resulting [boundary proposal](EXPLORATORY-LEARNING-BOUNDARY.md) admits one
-future retained-stdout exposure to the current GraphTruth session, but it is
-neither accepted nor activated. The retained stdout and stderr remain unread.
-The terminal diagnostic candidate cannot transfer into this route. Exact
-boundary acceptance, execution-pack preparation and acceptance, and later
-processing authorization remain separate owner gates; no raw read, separate
-external call, successor work, corpus processing, or experiment is authorized.
-The raw-diagnostic deletion deadline remains `2026-08-22T16:39:58Z`.
+future retained-stdout exposure to the current GraphTruth session. On
+repository-active date 4/5 the owner accepted its exact merged SHA-256
+`4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e`
+in [comment
+5066292679](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5066292679).
+The boundary is frozen but inactive. The retained stdout and stderr remain
+unread. Its internal proposal-state text remains unchanged because those exact
+bytes define the accepted identity; Issue #24 records the current gate state.
+The terminal diagnostic candidate cannot transfer into this route.
+Execution-pack preparation still requires separate authorization, followed by
+exact pack acceptance and later processing authorization; no raw read,
+separate external call, successor work, corpus processing, or experiment is
+authorized. The raw-diagnostic deletion deadline remains
+`2026-08-22T16:39:58Z`.

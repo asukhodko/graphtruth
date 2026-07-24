@@ -95,12 +95,16 @@ The owner next selected exploratory learning and authorized only public
 preparation of its exact goal and access boundary in the current session,
 without protected bytes or a separate external call. The resulting
 [boundary proposal](../examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY.md)
-is not accepted or activated. It proposes one future exposure of the exact
-retained stdout to the current GraphTruth session through a fresh one-use local
-reader. The retained stdout and stderr remain unread, and no reader or
-processing run exists. Exact boundary acceptance, execution-pack preparation
-and acceptance, and later processing authorization are distinct owner gates.
-The terminal diagnostic candidate cannot transfer into the learning route. The
+was accepted by exact merged SHA-256
+`4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e`
+on repository-active date 4/5 in [Issue #24 comment
+5066292679](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5066292679).
+It is frozen but inactive and proposes one future exposure of the exact retained
+stdout to the current GraphTruth session through a fresh one-use local reader.
+The retained stdout and stderr remain unread, and no reader or processing run
+exists. Execution-pack preparation still requires separate authorization,
+followed by exact pack acceptance and later processing authorization. The
+terminal diagnostic candidate cannot transfer into the learning route. The
 retained local raw diagnostics must be deleted no later than
 `2026-08-22T16:39:58Z`.
 Runtime adaptation, implementation, rehearsal, SUT, baseline execution,
