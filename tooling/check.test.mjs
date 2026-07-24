@@ -7,6 +7,7 @@ import {
   authorCallQualificationResultPins,
   classifyPublicG1ReceiptPath,
   codexSandboxPreflightEvidencePins,
+  exploratoryLearningExecutionPackPins,
   pythonEvaluationFreezeEvidencePins,
   pythonEvaluationFreezeV2ToolingPins,
   pythonProjectionEvidencePins,
@@ -466,6 +467,14 @@ test("the exact public author-call qualification result is accepted", async () =
     stdoutBytes: 38920,
     stdoutSha256: "75c118902a7b5104e642a3e1ae028e0dcff63f6f2431a67cf4fc575b48d72c0a",
     stderrSha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  });
+});
+
+test("the exploratory-learning execution pack and audit identities are pinned", () => {
+  assert.deepEqual(exploratoryLearningExecutionPackPins, {
+    boundarySha256: "4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e",
+    manifestSha256: "205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4",
+    auditResultSha256: "5257e6229e2eacd15fdd2df655c6a3db00d394e94b660100dac0564cb9f237f4",
   });
 });
 

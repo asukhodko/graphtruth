@@ -1100,24 +1100,30 @@ nodes:
     milestone: true
     parent: m6-python-sequential
     deps: [g6-python-learning-boundary-accepted]
-    status: ready
+    status: done
     notes: |
-      Requires a separate owner decision after boundary acceptance. It
-      authorizes only public preparation and review of a fresh reader, closed
-      result schema, synthetic fixtures, tests, and exact manifest. It grants no
-      retained-output path, read, protected-content processing, or live call.
+      Issue #24 comment 5067065118 separately authorizes only public
+      preparation and deterministic review of a fresh reader, closed result
+      schema, semantic validator, artificial fixtures, tests, verifier, and
+      exact manifest. It grants no retained-output path, read,
+      protected-content processing, live call, or experiment.
 
   m6-prepare-python-learning-execution-pack:
     title: "Prepare and independently review the learning execution pack"
     kind: task
     parent: m6-python-sequential
     deps: [g6-python-learning-execution-preparation-authorized]
-    status: conditional
+    status: done
     notes: |
-      Build the pack from accepted public code and artificial fixtures only.
-      Bind the accepted boundary, exact parser modules, reader, closed result
-      schema, tests, and safe synthetic example. Publish and independently
-      review the exact pack without locating or reading retained output.
+      The public-only pack binds the accepted boundary, exact parser modules,
+      one-use reader, closed result schema, semantic validator, artificial
+      fixtures, 33 mutation cases, safe example, future run card, and
+      reader-independent verifier. Exact manifest SHA-256
+      205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4
+      passed deterministic review; safe audit-result SHA-256 is
+      5257e6229e2eacd15fdd2df655c6a3db00d394e94b660100dac0564cb9f237f4.
+      Preparation located or read no retained output, candidate, corpus,
+      projection, or closed state and made no model call or experiment.
 
   g6-python-learning-execution-pack-accepted:
     title: "Gate: exact exploratory-learning execution pack accepted"
@@ -1125,11 +1131,13 @@ nodes:
     milestone: true
     parent: m6-python-sequential
     deps: [m6-prepare-python-learning-execution-pack]
-    status: conditional
+    status: ready
     notes: |
-      Requires separate owner acceptance of the exact merged manifest SHA-256
-      and every bound component. Acceptance grants no retained-output read,
-      protected-content processing, or live call.
+      Requires separate owner acceptance of exact merged manifest SHA-256
+      205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4
+      and every bound component. The deterministic audit does not close this
+      gate. Acceptance grants no retained-output read, protected-content
+      processing, live call, or experiment.
 
   g6-author-call-qualification-v1-diagnostic-tooling-accepted:
     title: "Gate: exact diagnostic tooling identity accepted"
@@ -1845,17 +1853,21 @@ execution:
       updated_at: "2026-07-24T07:57:24+03:00"
       note: "Issue #24 comment 5066292679 accepts exact merged boundary SHA-256 4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e without authorizing pack preparation, raw access, or processing."
     g6-python-learning-execution-preparation-authorized:
-      progress: 0.0
-      updated_at: "2026-07-24T07:57:24+03:00"
-      note: "Ready for a separate owner authorization for public-only execution-pack preparation. The accepted boundary does not close this gate."
+      progress: 1.0
+      actual_start: "2026-07-24"
+      actual_finish: "2026-07-24"
+      updated_at: "2026-07-24T10:31:51+03:00"
+      note: "Issue #24 comment 5067065118 separately authorized public-only execution-pack preparation and deterministic review. It grants no raw path, read, model call, processing, or experiment."
     m6-prepare-python-learning-execution-pack:
-      progress: 0.0
-      updated_at: "2026-07-23T22:50:00+03:00"
-      note: "Conditional. No reader, result schema, tests, or execution manifest have been prepared."
+      progress: 1.0
+      actual_start: "2026-07-24"
+      actual_finish: "2026-07-24"
+      updated_at: "2026-07-24T10:31:51+03:00"
+      note: "Prepared and deterministically checked the public-only one-use reader, closed schema, validator, artificial fixtures, 33 mutation cases, verifier, run card, manifest 205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4, and safe audit receipt 5257e6229e2eacd15fdd2df655c6a3db00d394e94b660100dac0564cb9f237f4. No protected or terminal input was read."
     g6-python-learning-execution-pack-accepted:
       progress: 0.0
-      updated_at: "2026-07-23T22:50:00+03:00"
-      note: "Conditional on exact pack preparation, independent public-only review, and separate owner acceptance."
+      updated_at: "2026-07-24T10:31:51+03:00"
+      note: "Ready for separate owner acceptance of exact manifest 205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4 and all bound components. Audit success alone does not close this gate or authorize processing."
     g6-python-learning-expansion-authorized:
       progress: 0.0
       updated_at: "2026-07-23T22:50:00+03:00"

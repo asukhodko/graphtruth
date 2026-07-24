@@ -101,11 +101,19 @@ on repository-active date 4/5 in [Issue #24 comment
 5066292679](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5066292679).
 It is frozen but inactive and proposes one future exposure of the exact retained
 stdout to the current GraphTruth session through a fresh one-use local reader.
-The retained stdout and stderr remain unread, and no reader or processing run
-exists. Execution-pack preparation still requires separate authorization,
-followed by exact pack acceptance and later processing authorization. The
-terminal diagnostic candidate cannot transfer into the learning route. The
-retained local raw diagnostics must be deleted no later than
+The retained stdout and stderr remain unread. Issue #24 comment 5067065118
+separately authorized public-only execution-pack preparation. The prepared
+[pack](../examples/experiments/author-call-qualification-v1/exploratory-learning-v1/README.md)
+binds a one-use reader, closed safe-result schema, semantic validator,
+artificial fixtures, 33 mutation cases and a reader-independent verifier under
+manifest SHA-256
+`205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4`.
+Its deterministic safe audit passed under receipt SHA-256
+`5257e6229e2eacd15fdd2df655c6a3db00d394e94b660100dac0564cb9f237f4`.
+The pack is not accepted or active. Separate exact owner acceptance and later
+processing authorization remain required. The terminal diagnostic candidate
+cannot transfer into the learning route. The retained local raw diagnostics
+must be deleted no later than
 `2026-08-22T16:39:58Z`.
 Runtime adaptation, implementation, rehearsal, SUT, baseline execution,
 scoring, and an experimental run remain unauthorized.

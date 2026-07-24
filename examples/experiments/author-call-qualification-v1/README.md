@@ -89,8 +89,17 @@ The boundary is frozen but inactive. The retained stdout and stderr remain
 unread. Its internal proposal-state text remains unchanged because those exact
 bytes define the accepted identity; Issue #24 records the current gate state.
 The terminal diagnostic candidate cannot transfer into this route.
-Execution-pack preparation still requires separate authorization, followed by
-exact pack acceptance and later processing authorization; no raw read,
-separate external call, successor work, corpus processing, or experiment is
-authorized. The raw-diagnostic deletion deadline remains
+The owner separately authorized public-only execution-pack preparation in
+[comment
+5067065118](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5067065118).
+The resulting [execution pack](exploratory-learning-v1/README.md) has canonical
+manifest SHA-256
+`205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4`
+and deterministic audit-result SHA-256
+`5257e6229e2eacd15fdd2df655c6a3db00d394e94b660100dac0564cb9f237f4`.
+It was prepared and checked only with artificial public data. The pack remains
+unaccepted and inactive: exact owner acceptance and a later, separate
+processing authorization are still required. No raw read, separate external
+call, successor work, corpus processing, or experiment is authorized. The
+raw-diagnostic deletion deadline remains
 `2026-08-22T16:39:58Z`.

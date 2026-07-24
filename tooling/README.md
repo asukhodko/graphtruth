@@ -741,9 +741,17 @@ was accepted by exact merged SHA-256
 on repository-active date 4/5 in [Issue #24 comment
 5066292679](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5066292679).
 It is frozen but inactive. Retained stdout and stderr remain unread.
-Execution-pack preparation still requires separate authorization, followed by
-exact pack acceptance and a later processing authorization. No fresh diagnostic
-identity, successor evaluation freeze, or raw reader is authorized.
+Issue #24 comment 5067065118 separately authorized public-only execution-pack
+preparation. The resulting one-use reader, closed result schema, semantic
+validator, artificial fixtures, mutation tests and reader-independent verifier
+are bound by
+[`EXECUTION-PACK-MANIFEST.json`](../examples/experiments/author-call-qualification-v1/exploratory-learning-v1/EXECUTION-PACK-MANIFEST.json)
+SHA-256
+`205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4`.
+The deterministic audit receipt has SHA-256
+`5257e6229e2eacd15fdd2df655c6a3db00d394e94b660100dac0564cb9f237f4`.
+The pack is unaccepted and inactive. No fresh diagnostic identity, protected
+read, successor evaluation freeze or processing run is authorized.
 
 The acceptance unit is the complete
 [`TOOLING-MANIFEST.json`](../examples/experiments/author-call-qualification-v1/TOOLING-MANIFEST.json)
@@ -767,14 +775,14 @@ The retained evidence records one completed local candidate preparation and one
 terminal public-audit call failure, not an accepted diagnostic identity. The
 learning proposal deliberately bypasses diagnostic-tool acceptance only for a
 non-confirmatory, one-exposure research result. It does not reuse the terminal
-candidate and cannot close qualification. Its exact SHA is accepted, but that
-decision authorizes no pack preparation or raw access. A fresh reader and closed
-result schema require separate preparation authorization, then public review
-and exact manifest acceptance. Only after that may the owner separately
-authorize the exact retained-stdout path, one current-session OpenAI processing
-episode, safe output, and local deletion. Any later qualification route still
-requires fresh public-synthetic preparation without a live provider request,
-independent audit, exact acceptance, one-call authorization, and disposition.
+candidate and cannot close qualification. Its exact boundary SHA is accepted,
+and the separately authorized public pack is now prepared and
+deterministically checked. The manifest itself still needs exact owner
+acceptance. Only after that may the owner separately authorize the exact
+retained-stdout path, one current-session OpenAI processing episode, safe
+output, and local deletion. Any later qualification route still requires fresh
+public-synthetic preparation without a live provider request, independent
+audit, exact acceptance, one-call authorization, and disposition.
 Only an accepted exact `qualified` result closes the boundary. Retained local
 raw diagnostics must be deleted no later than
 `2026-08-22T16:39:58Z`.
@@ -786,7 +794,9 @@ diagnostics, qualification transport and output boundaries, and mutations that
 try to drop or weaken a result class, capture-tax rule, audit code boundary, or
 no-run attestation. It also pins the one terminal public qualification result
 and rejects mutations of its digest, outcome, budget, boundaries, or public
-shape. Repository tests create no real contract or provider request.
+shape. It also verifies the exact inactive exploratory-learning pack, its
+closed 33-case artificial matrix and its non-circular audit receipt. Repository
+tests create no protected read, real contract or provider request.
 
 ## Operational plan validation
 

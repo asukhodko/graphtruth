@@ -50,11 +50,17 @@ was accepted by exact merged SHA-256
 on repository-active date 4/5 in [Issue #24 comment
 5066292679](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5066292679).
 It is frozen but inactive. Retained stdout and stderr remain unread.
-Execution-pack preparation still requires separate authorization, followed by
-exact pack acceptance and a later processing authorization before one
-current-session episode can occur. It grants no fresh-successor authorization,
-implementation, baseline, rehearsal, scoring, or experimental execution. The
-local raw-diagnostic deletion deadline remains `2026-08-22T16:39:58Z`.
+Issue #24 comment 5067065118 separately authorized public-only execution-pack
+preparation. The exact [pack](../../../examples/experiments/author-call-qualification-v1/exploratory-learning-v1/README.md)
+passed its deterministic audit under manifest SHA-256
+`205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4`
+and audit-result SHA-256
+`5257e6229e2eacd15fdd2df655c6a3db00d394e94b660100dac0564cb9f237f4`.
+It remains unaccepted and inactive. Exact pack acceptance and a later
+processing authorization are required before one current-session episode can
+occur. It grants no fresh-successor authorization, implementation, baseline,
+rehearsal, scoring, or experimental execution. The local raw-diagnostic
+deletion deadline remains `2026-08-22T16:39:58Z`.
 
 Any later result on this corpus remains exploratory because its diagnostic
 context has been disclosed during procedure development. The first
@@ -66,6 +72,6 @@ tasks or oracle.
 processing. The prepared proposal names the exact prospective artifact,
 processors, outputs, budgets, retention, and deletion. The accepted boundary
 remains dormant until the remaining named owner gates close: execution-pack
-preparation authorization, exact pack acceptance, and protected processing
-authorization. That route can accelerate prototype work but cannot satisfy an
-evaluation-contract, baseline, scoring, run, or confirmation gate.
+acceptance and protected processing authorization. That route can accelerate
+prototype work but cannot satisfy an evaluation-contract, baseline, scoring,
+run, or confirmation gate.

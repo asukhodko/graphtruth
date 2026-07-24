@@ -1,0 +1,111 @@
+{
+  "documentKind": "graphtruth.author-call-result-schema-exploratory-learning-result/1",
+  "identity": "author-call-result-schema-exploratory-learning-v1",
+  "bindings": {
+    "boundarySha256": "4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e",
+    "executionPackManifestSha256": "3993e9873d2362820a3c7ad60f6a05404fc5d86e0955e42626f99546cb7ef7a7",
+    "readerSha256": "90cd88e591168449e2adaf8e7abf8dd795af83dae1abbe7a33ec7e6c97863cf6",
+    "resultSchemaSha256": "31839e5d1e7e4fd8858a9b33bf257b00f83e903325ae7c94b12bb5616b04dba1",
+    "toolingManifestSha256": "bf6e7f671c60fb3a3748ff5a03aeca93500cb40fe2664c388634287049290200",
+    "qualificationResultSha256": "aa07980cd8b9a05d699f5a491733ea2dd2a710955d13a783249a4e9721979b94",
+    "traceParserSha256": "28a821f843d71489974bfa65ed931de8a304eea3dff5ab570ea02f5a1d596025",
+    "strictJsonParserSha256": "603553be7d0ca32cb11ccce7eadfb711277dc6ae9c55d2d68f08abafd9e5750b",
+    "syntheticManifestSha256": "ba2b8e825f05179b66ce874fc03a7540b59c15e96495b95764189bec33da1bda",
+    "qualificationOutputSchemaSha256": "fc53db78d5f4c04b0e0c5d94675771b4c2ddd22fd708c5a624952ee6a3edc23e",
+    "processingAuthorizationRecord": "https://github.com/asukhodko/graphtruth/issues/24#issuecomment-9999999999999999999"
+  },
+  "budgets": {
+    "protectedInputFilesOpened": 1,
+    "admittedInputBytes": 38920,
+    "protectedFilePasses": 1,
+    "readerRunsCommitted": 1,
+    "currentSessionMessageExposures": 1,
+    "currentSessionProcessingEpisodes": 1,
+    "otherRawReaders": 0,
+    "separatelyLaunchedModelSessions": 0,
+    "retries": 0,
+    "resumes": 0,
+    "stderrReads": 0,
+    "corpusReads": 0,
+    "projectionReads": 0,
+    "privateM1Reads": 0,
+    "localReaderNetworkRequests": 0,
+    "readerWallTimeLimitSeconds": 60,
+    "readerMemoryLimitBytes": 134217728,
+    "derivedStateLimitBytes": 131072,
+    "publicRecordLimitBytes": 16384
+  },
+  "predicates": {
+    "strictJson": {
+      "state": "passed",
+      "basis": "directly-observed"
+    },
+    "closedObjectShape": {
+      "state": "failed",
+      "basis": "directly-observed"
+    },
+    "payloadJsonString": {
+      "state": "not-evaluated",
+      "basis": "deterministically-derived"
+    },
+    "expectedPayloadBytes": {
+      "state": "not-evaluated",
+      "basis": "deterministically-derived"
+    }
+  },
+  "firstFailure": {
+    "code": "closed-object-shape",
+    "basis": "directly-observed"
+  },
+  "measurements": {
+    "finalMessageBytes": {
+      "value": 42,
+      "basis": "directly-observed"
+    },
+    "rootKeyCount": {
+      "value": 2,
+      "basis": "directly-observed"
+    },
+    "missingRootKeyCount": {
+      "value": 0,
+      "basis": "deterministically-derived"
+    },
+    "unexpectedRootKeyCount": {
+      "value": 1,
+      "basis": "deterministically-derived"
+    },
+    "payloadJsonBytes": {
+      "value": null,
+      "basis": "deterministically-derived"
+    },
+    "expectedObservedByteDelta": {
+      "value": null,
+      "basis": "deterministically-derived"
+    }
+  },
+  "routes": {
+    "recommended": "prompt-schema-adjustment",
+    "alternatives": [
+      "reduced-echo-contract",
+      "stop"
+    ]
+  },
+  "attestations": {
+    "boundaryRespected": true,
+    "noRepair": true,
+    "noRetry": true,
+    "noResume": true,
+    "noFallbackParsing": true,
+    "noNormalization": true,
+    "noExperimentalRun": true,
+    "finalMessageTreatedAsUntrusted": true,
+    "noMessageDigestPublished": true,
+    "noProtectedPathPublished": true,
+    "providerCopiesUnverified": true
+  },
+  "deletion": {
+    "stdout": "pending",
+    "stderr": "pending",
+    "workRoot": "pending"
+  }
+}
