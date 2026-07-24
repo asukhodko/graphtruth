@@ -126,10 +126,15 @@ Its near path is:
     of identity
     `4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e`,
     which grants no execution-pack preparation or retained-output read;
-14. separately authorize, then prepare a fresh public execution pack that binds
-    the accepted boundary, exact reader, accepted parser modules, closed result
-    schema, synthetic tests, and manifest; independently review it and obtain
-    separate owner acceptance of its exact identity;
+14. retain the separate public-only pack-preparation authorization from Issue
+    #24 comment 5067065118 and the prepared
+    [execution pack](../examples/experiments/author-call-qualification-v1/exploratory-learning-v1/README.md):
+    its one-use reader, accepted parser modules, closed result schema, semantic
+    validator and 33-case artificial matrix are bound by manifest SHA-256
+    `205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4`
+    and passed the reader-independent deterministic audit with receipt SHA-256
+    `5257e6229e2eacd15fdd2df655c6a3db00d394e94b660100dac0564cb9f237f4`;
+    obtain separate owner acceptance of that exact manifest;
 15. only after execution-pack acceptance, obtain a later owner authorization
     naming the exact retained stdout, current-session OpenAI processor, one
     continuous processing episode, safe outputs, budgets, retention, and
@@ -197,16 +202,22 @@ was accepted by exact SHA-256
 in [Issue #24 comment
 5066292679](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5066292679).
 The boundary is frozen but inactive. The retained stdout and stderr remain
-unread, and execution-pack preparation is not authorized. The boundary file's
-internal proposal-state text remains the immutable pre-acceptance record;
+unread. Issue #24 comment 5067065118 separately authorized public-only
+execution-pack preparation. The exact pack is now prepared and
+deterministically checked under manifest SHA-256
+`205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4`
+and audit-result SHA-256
+`5257e6229e2eacd15fdd2df655c6a3db00d394e94b660100dac0564cb9f237f4`.
+It remains unaccepted and inactive. The boundary file's internal proposal-state
+text remains the immutable pre-acceptance record;
 [Issue #24](https://github.com/asukhodko/graphtruth/issues/24) is the current
 authority for its accepted gate state.
 Manifest `45820302417fa577d89cfce46d3c3b6ea6e18ec4c891661a1af67404f423951d`
 cannot be accepted, re-audited, repaired, or reused on the learning route.
-Execution-pack preparation and acceptance, processing authorization,
-learning-result disposition, successor preparation, successor-freeze
-authorization, evaluation contract, implementation, rehearsal, SUT, baseline
-execution, scoring, and evaluated run all retain separate gates.
+Execution-pack acceptance, processing authorization, learning-result
+disposition, successor preparation, successor-freeze authorization, evaluation
+contract, implementation, rehearsal, SUT, baseline execution, scoring, and
+evaluated run all retain separate gates.
 
 ### Route selected at this checkpoint
 
@@ -214,10 +225,11 @@ The selected route is **exploratory learning**. Its evidence ceiling is lower
 than the stopped diagnostic route: one future current-session exposure may
 identify the first observable failed result predicate and inform design, but it
 can never qualify the author-call boundary or confirm GraphTruth. The
-exploratory-learning boundary is accepted, but the immediate next action still
-requires a separate owner decision: authorize public-only execution-pack
-preparation without a retained-output path or read. The resulting pack must then
-be reviewed and accepted by exact identity. Only a later processing
+exploratory-learning boundary is accepted, and the separately authorized public
+execution pack has passed its deterministic review. The immediate next action
+is exact owner acceptance of manifest SHA-256
+`205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4`.
+Only a later processing
 authorization may supply the exact path and accept the stated OpenAI transcript
 and retention risk, one-episode budget, safe output, and deletion terms.
 

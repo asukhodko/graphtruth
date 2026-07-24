@@ -43,12 +43,12 @@ enter GraphTruth's protocol, schemas, runtime, or RFC authority chain. Rendering
 tools are not vendored because no generated planning view is currently a
 maintained artifact.
 
-## Current position — 2026-07-23
+## Current position — 2026-07-24
 
 Issue #24 is the single major WIP. Selection, source acquisition, and the
 byte-identical RST projection are complete and owner-accepted. The issue has
-used three of five repository-active dates: 2026-07-21, 2026-07-22, and
-2026-07-23. The owner separately authorized one evaluation-freeze v1 attempt
+used four of five repository-active dates: 2026-07-21, 2026-07-22, 2026-07-23,
+and 2026-07-24. The owner separately authorized one evaluation-freeze v1 attempt
 and two external Codex calls. Its independent read-only audit returned
 `reject`; no release or accepted evaluation contract exists. The
 publication-safe
@@ -101,21 +101,28 @@ accepted its exact merged SHA-256
 in [Issue #24 comment
 5066292679](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5066292679).
 The boundary is frozen but inactive. The retained stdout and stderr remain
-unread; no reader, protected processing, separate external/model call, or
-experiment ran. Manifest
+unread; no protected processing, separate external/model call, or experiment
+ran. Issue #24 comment 5067065118 separately authorized only public
+execution-pack preparation. The resulting
+[pack](../../examples/experiments/author-call-qualification-v1/exploratory-learning-v1/README.md)
+binds its one-use reader, closed schema, semantic validator, artificial
+fixtures, tests and reader-independent verifier under manifest SHA-256
+`205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4`.
+The deterministic audit passed under receipt SHA-256
+`5257e6229e2eacd15fdd2df655c6a3db00d394e94b660100dac0564cb9f237f4`.
+Manifest
 `45820302417fa577d89cfce46d3c3b6ea6e18ec4c891661a1af67404f423951d`
 cannot be accepted, re-audited, repaired, or reused on this route.
 
-The nearest work is a separate owner authorization for public-only preparation
-of a fresh execution pack. The accepted boundary itself grants no such
-authority and no raw access. The pack must receive independent public-only
-review and exact owner acceptance. Only a later processing authorization may
-name its hashes, the exact retained-stdout path, current-session processor,
-one-episode budget, safe outputs, retention, and deletion. A safe learning
-result grants no successor work. Only its later disposition may select a
-targeted successor, another execution method, prototype-only work, or pre-run
-`stop`. Issue #24 is now at repository-active date 4/5; activity on date 5/5
-requires a prior owner choice of `continue`, `shrink`, or `stop`.
+The prepared pack remains unaccepted and inactive. The nearest work is a
+separate owner decision accepting that exact manifest and all components it
+binds. Only a later processing authorization may name the accepted hashes, the
+exact retained-stdout path, current-session processor, one-episode budget, safe
+outputs, retention, and deletion. A safe learning result grants no successor
+work. Only its later disposition may select a targeted successor, another
+execution method, prototype-only work, or pre-run `stop`. Issue #24 remains at
+repository-active date 4/5; activity on date 5/5 requires a prior owner choice
+of `continue`, `shrink`, or `stop`.
 
 All later route nodes are `conditional`. In this map that means “possible after
 a future decision,” not “authorized.” The v1 disposition started its one

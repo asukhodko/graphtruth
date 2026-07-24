@@ -16,8 +16,10 @@
 > its exact identity and separately authorized one external call. That sole call
 > ended terminally `not-qualified / result-schema`; no successor gate is
 > authorized. On repository-active date 4/5 the owner accepted the exact
-> exploratory-learning boundary; execution-pack preparation and every protected
-> read remain separately gated.
+> exploratory-learning boundary, then separately authorized public-only
+> execution-pack preparation. The exact pack passed its deterministic public
+> audit and remains unaccepted and inactive; every protected read remains
+> separately gated.
 >
 > **Created:** 2026-07-12.
 >
@@ -606,10 +608,15 @@ budget. The later progression is:
    of identity
    `4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e`
    without reading retained output or authorizing pack preparation;
-5. separately authorize, then prepare a public execution pack that binds the
-   accepted boundary, exact reader, accepted parser modules, closed result
-   schema, artificial tests, and manifest; independently review it and obtain
-   separate owner acceptance of its exact identity;
+5. retain Issue #24 comment 5067065118 as the separate public-only
+   preparation authorization and the prepared
+   [execution pack](../examples/experiments/author-call-qualification-v1/exploratory-learning-v1/README.md):
+   its reader, accepted parser modules, closed schema, semantic validator and
+   33-case artificial matrix are bound by manifest SHA-256
+   `205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4`
+   and passed the reader-independent audit with receipt SHA-256
+   `5257e6229e2eacd15fdd2df655c6a3db00d394e94b660100dac0564cb9f237f4`;
+   obtain separate owner acceptance of that exact manifest;
 6. only after pack acceptance, obtain a later owner authorization naming its
    exact hashes, the retained-stdout path, the current-session OpenAI processor,
    one continuous processing episode, safe outputs, budgets, retention, and
@@ -651,23 +658,26 @@ The owner accepted its exact merged SHA-256
 on repository-active date 4/5 in [Issue #24 comment
 5066292679](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5066292679).
 The boundary is frozen but inactive. Retained stdout and stderr remain unread;
-no execution-pack preparation, reader, separate external/model call, or
-experiment is authorized.
+no protected reader run, separate external/model call, or experiment is
+authorized. Issue #24 comment 5067065118 separately authorized only public
+execution-pack preparation. The resulting exact pack has manifest SHA-256
+`205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4`
+and deterministic audit-result SHA-256
+`5257e6229e2eacd15fdd2df655c6a3db00d394e94b660100dac0564cb9f237f4`.
+It remains unaccepted and inactive.
 
 The next decisions remain deliberately separate:
 
-1. Will the owner separately authorize preparation of the public execution
-   pack?
-2. Will the owner accept the exact reviewed execution-pack manifest?
-3. After pack acceptance, will the owner separately authorize one exact
+1. Will the owner accept the exact reviewed execution-pack manifest?
+2. After pack acceptance, will the owner separately authorize one exact
    current-session processing episode, safe publication, and local deletion?
-4. After a safe learning result, should the owner select narrow successor
+3. After a safe learning result, should the owner select narrow successor
    preparation, another execution method, prototype-only work, or `stop`?
-5. After a later terminal qualification result, should the owner accept an
+4. After a later terminal qualification result, should the owner accept an
    exact `qualified` outcome, choose another identity or method, or stop?
-6. Only after an accepted `qualified` result, should a fresh evaluation
+5. Only after an accepted `qualified` result, should a fresh evaluation
    successor be separately authorized and defined?
-7. Only after a successor contract is accepted, will the owner separately
+6. Only after a successor contract is accepted, will the owner separately
    authorize a whole-document adapter that preserves payload bytes, byte
    offsets, and RST media type without changing the common input?
 
@@ -679,8 +689,8 @@ changes the evaluation identity and requires an explicit plan and authorization
 update.
 
 The accepted learning boundary defines readers, processors, outputs, budgets,
-retention, and deletion, but remains dormant until separate execution-pack
-preparation authorization, exact pack acceptance, and a later processing
+retention, and deletion. The separately authorized public pack is prepared but
+remains dormant until exact pack acceptance and a later processing
 authorization. It cannot close any qualification, evaluation, or run gate. A
 pre-run `stop` instead records no sequential effectiveness result and releases
 the single-major-WIP slot for a new track. Issue #24 is now at

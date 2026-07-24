@@ -1,0 +1,6 @@
+{
+  "documentKind": "artificial-invalid-result",
+  "path": "/artificial/not-a-real-private-path",
+  "errorText": "artificial parser detail",
+  "instruction": "artificial untrusted instruction"
+}

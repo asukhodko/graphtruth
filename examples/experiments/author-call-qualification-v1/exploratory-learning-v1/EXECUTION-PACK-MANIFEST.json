@@ -1,0 +1,220 @@
+{
+  "documentKind": "graphtruth.author-call-result-schema-exploratory-learning-execution-pack/1",
+  "identity": "author-call-result-schema-exploratory-learning-execution-pack-v1",
+  "boundarySha256": "4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e",
+  "subject": {
+    "identity": "author-call-result-schema-exploratory-learning-v1",
+    "qualificationToolingManifestSha256": "bf6e7f671c60fb3a3748ff5a03aeca93500cb40fe2664c388634287049290200",
+    "qualificationResultSha256": "aa07980cd8b9a05d699f5a491733ea2dd2a710955d13a783249a4e9721979b94",
+    "outcomeStatus": "not-qualified",
+    "outcomeClass": "result-schema",
+    "retainedStdoutBytes": 38920,
+    "retainedStdoutSha256": "75c118902a7b5104e642a3e1ae028e0dcff63f6f2431a67cf4fc575b48d72c0a",
+    "retainedStderrBytes": 0,
+    "retainedStderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "expectedPayloadBytes": 32768,
+    "expectedPayloadSha256": "45f850be04f0c4bf0959754e8dd26f980ff23188b61f9460ed72de0fbb18631f",
+    "controllerSha256": "83f446d225dd8da6d86df1b5d0b4e409157937df9db211913b879e796dfd8f5f",
+    "strictJsonParserSha256": "603553be7d0ca32cb11ccce7eadfb711277dc6ae9c55d2d68f08abafd9e5750b",
+    "traceParserSha256": "28a821f843d71489974bfa65ed931de8a304eea3dff5ab570ea02f5a1d596025",
+    "syntheticManifestSha256": "ba2b8e825f05179b66ce874fc03a7540b59c15e96495b95764189bec33da1bda",
+    "qualificationOutputSchemaSha256": "fc53db78d5f4c04b0e0c5d94675771b4c2ddd22fd708c5a624952ee6a3edc23e"
+  },
+  "anchors": [
+    {
+      "id": "qualificationResult",
+      "path": "examples/experiments/author-call-qualification-v1/CODEX-AUTHOR-CALL-QUALIFICATION.json",
+      "sha256": "aa07980cd8b9a05d699f5a491733ea2dd2a710955d13a783249a4e9721979b94",
+      "exports": []
+    },
+    {
+      "id": "boundary",
+      "path": "examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY.md",
+      "sha256": "4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e",
+      "exports": []
+    },
+    {
+      "id": "syntheticManifest",
+      "path": "examples/experiments/author-call-qualification-v1/SYNTHETIC-MANIFEST.json",
+      "sha256": "ba2b8e825f05179b66ce874fc03a7540b59c15e96495b95764189bec33da1bda",
+      "exports": []
+    },
+    {
+      "id": "qualificationToolingManifest",
+      "path": "examples/experiments/author-call-qualification-v1/TOOLING-MANIFEST.json",
+      "sha256": "bf6e7f671c60fb3a3748ff5a03aeca93500cb40fe2664c388634287049290200",
+      "exports": []
+    },
+    {
+      "id": "traceParser",
+      "path": "tooling/codex-sandbox-preflight.mjs",
+      "sha256": "28a821f843d71489974bfa65ed931de8a304eea3dff5ab570ea02f5a1d596025",
+      "exports": [
+        "parseToolEventTrace",
+        "validateToolEventTrace"
+      ]
+    },
+    {
+      "id": "strictJsonParser",
+      "path": "tooling/private-pack-lock.mjs",
+      "sha256": "603553be7d0ca32cb11ccce7eadfb711277dc6ae9c55d2d68f08abafd9e5750b",
+      "exports": [
+        "parseStrictJson"
+      ]
+    },
+    {
+      "id": "qualificationController",
+      "path": "tooling/codex-author-call-qualification-v1.mjs",
+      "sha256": "83f446d225dd8da6d86df1b5d0b4e409157937df9db211913b879e796dfd8f5f",
+      "exports": []
+    }
+  ],
+  "files": [
+    {
+      "path": "examples/experiments/author-call-qualification-v1/exploratory-learning-v1/README.md",
+      "role": "pack-documentation",
+      "mode": "0644",
+      "sha256": "1c2240fce61fb45940bcb10f7738a9a80a71eef892950911fa76fc8bc2ebe52c"
+    },
+    {
+      "path": "examples/experiments/author-call-qualification-v1/exploratory-learning-v1/RUN-CARD.template.md",
+      "role": "run-card-template",
+      "mode": "0644",
+      "sha256": "94d180abf3b5063c0fe08afcce5875a39061fa3cd5f2c4eed712d3f5ec19bb74"
+    },
+    {
+      "path": "examples/experiments/author-call-qualification-v1/exploratory-learning-v1/SAFE-RESULT.example.json",
+      "role": "safe-result-example",
+      "mode": "0644",
+      "sha256": "46b40bb020d883ba34a7dc07b4379fc4f5913c3492cf2712fcbbb995016d9282"
+    },
+    {
+      "path": "examples/experiments/author-call-qualification-v1/exploratory-learning-v1/SAFE-RESULT.schema.json",
+      "role": "safe-result-schema",
+      "mode": "0644",
+      "sha256": "527ae1b36665c21c00325bed27606b3b3a813012019ca8f43e7db4f0cf6435dc"
+    },
+    {
+      "path": "examples/experiments/author-call-qualification-v1/exploratory-learning-v1/SYNTHETIC-TRACE.jsonl",
+      "role": "synthetic-positive-fixture",
+      "mode": "0644",
+      "sha256": "b696d6a2a967f2aff25806b2c4490e3d38b9f2b981241f717157e80543b2da21"
+    },
+    {
+      "path": "examples/experiments/author-call-qualification-v1/exploratory-learning-v1/fixtures/negative/duplicate-key-jsonl.jsonl",
+      "role": "negative-fixture",
+      "mode": "0644",
+      "sha256": "8fde69e3a82d623641789df2f16ba18933f7caa6cd2623d27f9b884774a0bf41"
+    },
+    {
+      "path": "examples/experiments/author-call-qualification-v1/exploratory-learning-v1/fixtures/negative/leaking-result.json",
+      "role": "negative-fixture",
+      "mode": "0644",
+      "sha256": "a17c2544d478e8604b00089950388669adf4341f75b42ff34f8648762191d879"
+    },
+    {
+      "path": "examples/experiments/author-call-qualification-v1/exploratory-learning-v1/fixtures/negative/malformed-jsonl.jsonl",
+      "role": "negative-fixture",
+      "mode": "0644",
+      "sha256": "cb5a3e9421b3541f794a79660c8d1a14c57c2c02048c58e44751ed62c64c861a"
+    },
+    {
+      "path": "examples/experiments/author-call-qualification-v1/exploratory-learning-v1/fixtures/negative/missing-final-message.jsonl",
+      "role": "negative-fixture",
+      "mode": "0644",
+      "sha256": "ea7fd7ec7e723da3d5ae4ed0eba36f8c33dc6687494b701c490941e0be20d217"
+    },
+    {
+      "path": "examples/experiments/author-call-qualification-v1/exploratory-learning-v1/fixtures/negative/tool-event-jsonl.jsonl",
+      "role": "negative-fixture",
+      "mode": "0644",
+      "sha256": "6251258827579a6888463d6b71b358718b8b8fc6f397da6705d4466682c9ebbc"
+    },
+    {
+      "path": "tooling/author-call-result-schema-learning-v1",
+      "role": "reader-wrapper",
+      "mode": "0755",
+      "sha256": "1be39fc3dd3a8898f43e72c1f191e683d2238155e7d1a30062e7610b1fe63a48"
+    },
+    {
+      "path": "tooling/author-call-result-schema-learning-v1-validator.mjs",
+      "role": "semantic-validator",
+      "mode": "0644",
+      "sha256": "b83fbbd24536b4631b63b516077194ddbe186450dc4f2b7a2ca4accd0994541c"
+    },
+    {
+      "path": "tooling/author-call-result-schema-learning-v1-verifier.mjs",
+      "role": "independent-verifier",
+      "mode": "0644",
+      "sha256": "35488d73c9ae6c9628d8aba029cc74a77e0fcc5f0a8ca749c64e92d77ae14b46"
+    },
+    {
+      "path": "tooling/author-call-result-schema-learning-v1.mjs",
+      "role": "one-use-reader",
+      "mode": "0644",
+      "sha256": "a33ffa5f251eeedbe6b048b445ee98496959d12596715a2687eb8320349e189d"
+    },
+    {
+      "path": "tooling/author-call-result-schema-learning-v1.test.mjs",
+      "role": "mutation-tests",
+      "mode": "0644",
+      "sha256": "501179c6030c609109a289a0d91de693eea82490845b215df98d5c12de70854c"
+    }
+  ],
+  "budgets": {
+    "protectedInputBytes": 38920,
+    "protectedFilePasses": 1,
+    "readerRunsAfterCommit": 1,
+    "maximumFinalMessageBytes": 65536,
+    "maximumWallTimeSeconds": 60,
+    "maximumMemoryBytes": 134217728,
+    "maximumDerivedStateBytes": 131072,
+    "maximumPublicRecordBytes": 16384,
+    "networkRequests": 0,
+    "retries": 0,
+    "resumes": 0
+  },
+  "claims": {
+    "artificialFixturesOnly": true,
+    "readerNotRunOnRetainedOutput": true,
+    "newModelCallPerformed": false,
+    "terminalCandidateUsed": false,
+    "corpusOrProjectionRead": false,
+    "graphTruthRunPerformed": false
+  },
+  "mutationMatrix": [
+    "valid-zero-tool-jsonl",
+    "malformed-jsonl",
+    "duplicate-json-key",
+    "extra-event",
+    "tool-event",
+    "missing-final-message",
+    "duplicate-final-message",
+    "non-strict-result-json",
+    "missing-root-key",
+    "extra-root-key",
+    "payload-json-wrong-type",
+    "payload-byte-mismatch",
+    "all-predicates-pass-evidence-inconsistent",
+    "input-size-limit",
+    "message-size-limit",
+    "reader-wall-time-limit",
+    "public-record-size-limit",
+    "parser-module-tamper",
+    "stdout-symlink",
+    "stdout-hardlink",
+    "work-root-symlink",
+    "file-race-before-open",
+    "marker-replay",
+    "no-retry",
+    "one-protected-pass",
+    "leak-instruction",
+    "leak-path",
+    "leak-error-text",
+    "undeclared-field",
+    "valid-deletion-transition",
+    "invalid-deletion-transition",
+    "verifier-manifest-mutation",
+    "verifier-source-mutation"
+  ]
+}

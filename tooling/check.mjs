@@ -11,6 +11,10 @@ import {
   validateCodexSandboxPreflightReportContent,
 } from "./codex-sandbox-qualification.mjs";
 import { validateAuthorCallQualificationReport } from "./codex-author-call-qualification-v1.mjs";
+import {
+  ExecutionPackVerificationError,
+  verifyCheckedInAudit,
+} from "./author-call-result-schema-learning-v1-verifier.mjs";
 import { parseStrictJson } from "./private-pack-lock.mjs";
 export {
   codexSandboxPreflightEvidencePins,
@@ -80,6 +84,11 @@ export const authorCallQualificationResultPins = Object.freeze({
   stdoutBytes: 38920,
   stdoutSha256: "75c118902a7b5104e642a3e1ae028e0dcff63f6f2431a67cf4fc575b48d72c0a",
   stderrSha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+});
+export const exploratoryLearningExecutionPackPins = Object.freeze({
+  boundarySha256: "4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e",
+  manifestSha256: "205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4",
+  auditResultSha256: "5257e6229e2eacd15fdd2df655c6a3db00d394e94b660100dac0564cb9f237f4",
 });
 const publicG1AttestationKeys = [
   "eligibleEpisodeSelected",
@@ -152,6 +161,42 @@ const requiredRepositoryPaths = new Map([
   ["examples/experiments/author-call-qualification-v1/README.md", "file"],
   ["examples/experiments/author-call-qualification-v1/SYNTHETIC-MANIFEST.json", "file"],
   ["examples/experiments/author-call-qualification-v1/TOOLING-MANIFEST.json", "file"],
+  [
+    "examples/experiments/author-call-qualification-v1/exploratory-learning-v1",
+    "directory",
+  ],
+  [
+    "examples/experiments/author-call-qualification-v1/exploratory-learning-v1/EXECUTION-PACK-MANIFEST.json",
+    "file",
+  ],
+  [
+    "examples/experiments/author-call-qualification-v1/exploratory-learning-v1/PACK-AUDIT-RESULT.json",
+    "file",
+  ],
+  [
+    "examples/experiments/author-call-qualification-v1/exploratory-learning-v1/README.md",
+    "file",
+  ],
+  [
+    "examples/experiments/author-call-qualification-v1/exploratory-learning-v1/RUN-CARD.template.md",
+    "file",
+  ],
+  [
+    "examples/experiments/author-call-qualification-v1/exploratory-learning-v1/SAFE-RESULT.example.json",
+    "file",
+  ],
+  [
+    "examples/experiments/author-call-qualification-v1/exploratory-learning-v1/SAFE-RESULT.schema.json",
+    "file",
+  ],
+  [
+    "examples/experiments/author-call-qualification-v1/exploratory-learning-v1/SYNTHETIC-TRACE.jsonl",
+    "file",
+  ],
+  [
+    "examples/experiments/author-call-qualification-v1/exploratory-learning-v1/fixtures/negative",
+    "directory",
+  ],
   ["examples/experiments/evidence-contract-twin-v1", "directory"],
   ["examples/experiments/preflight", "directory"],
   ["experiments", "directory"],
@@ -189,6 +234,11 @@ const requiredRepositoryPaths = new Map([
   ["tooling/codex-author-call-qualification-v1", "file"],
   ["tooling/codex-author-call-qualification-v1.mjs", "file"],
   ["tooling/codex-author-call-qualification-v1.test.mjs", "file"],
+  ["tooling/author-call-result-schema-learning-v1", "file"],
+  ["tooling/author-call-result-schema-learning-v1.mjs", "file"],
+  ["tooling/author-call-result-schema-learning-v1-validator.mjs", "file"],
+  ["tooling/author-call-result-schema-learning-v1-verifier.mjs", "file"],
+  ["tooling/author-call-result-schema-learning-v1.test.mjs", "file"],
   ["tooling/codex-g1-review", "file"],
   ["tooling/codex-g1-review.mjs", "file"],
   ["tooling/codex-g1-review.test.mjs", "file"],
@@ -1703,6 +1753,21 @@ async function checkAuthorCallQualificationResult() {
   }
 }
 
+async function checkExploratoryLearningExecutionPack() {
+  try {
+    await verifyCheckedInAudit(
+      exploratoryLearningExecutionPackPins.manifestSha256,
+      exploratoryLearningExecutionPackPins.auditResultSha256,
+    );
+  } catch (error) {
+    const codes =
+      error instanceof ExecutionPackVerificationError
+        ? error.codes.join(",")
+        : "unexpected-failure";
+    report(`exploratory-learning execution pack rejected (${codes})`);
+  }
+}
+
 async function checkCodexSandboxPreflightReport(filePath, content) {
   const displayPath = relativePath(filePath);
   const messages = {
@@ -1883,6 +1948,7 @@ async function main() {
   await checkPythonEvaluationFreezeTerminal();
   await checkPythonEvaluationFreezeV2Tooling();
   await checkAuthorCallQualificationResult();
+  await checkExploratoryLearningExecutionPack();
 
   const publicRelativePaths = new Set(files.map((filePath) => relativePath(filePath)));
   for (const filePath of files) {

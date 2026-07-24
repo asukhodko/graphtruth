@@ -38,6 +38,7 @@ fi
 shasum -a 256 --check tooling/vendor/opskarta/UPSTREAM.sha256
 ./tooling/opskarta --strict docs/planning/graphtruth.plan.yaml
 node --test \
+  tooling/author-call-result-schema-learning-v1.test.mjs \
   tooling/codex-author-call-qualification-v1.test.mjs \
   tooling/codex-evaluation-freeze.test.mjs \
   tooling/codex-evaluation-freeze-v2.test.mjs \
