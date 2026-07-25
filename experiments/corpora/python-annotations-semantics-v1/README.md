@@ -13,6 +13,30 @@ byte-identical RST projection are fixed by:
 - [projection contract](PROJECTION-CONTRACT.md);
 - [projection manifest](PROJECTION-MANIFEST.json) and [owner acceptance](PROJECTION-ACCEPTANCE.json).
 
+## Final disposition — 2026-07-25
+
+Issue #24 ended in a pre-run procedural `stop` on repository-active date 5/5.
+The lane produced no accepted evaluation contract, implementation, baseline,
+rehearsal, scoring, evaluated run, sequential decision, or GraphTruth utility
+claim.
+
+The final exploratory-learning v2 [safe
+result](../../../examples/experiments/author-call-qualification-v1/exploratory-learning-v2/SAFE-RESULT.md)
+localizes the public-synthetic author-call failure to
+`payload-json-byte-mismatch` and recommends `reduced-echo-contract`. It is
+procedure-development evidence only. A separate metadata-only retention cleanup
+later removed the exact local stdout, unread zero-byte stderr, and bounded work
+root; the diagnostic root remains, and deletion from backups, snapshots, swap,
+task logs, or provider systems is not claimed.
+
+This corpus, its original-source identities, and its projection remain frozen
+research artifacts. They cannot provide the first confirmation of GraphTruth.
+Any confirmatory comparison needs a fresh corpus and identity without transfer
+of Python-specific task or oracle knowledge. No successor route is currently
+authorized.
+
+## Frozen lineage and historical route
+
 The only evaluation-freeze v1 attempt ended in terminal audit rejection. Its
 [terminal status](EVALUATION-FREEZE-TERMINAL.json) is immutable. A later
 one-time deterministic diagnostic exposed two safe protocol codes, recorded in
@@ -50,8 +74,10 @@ was accepted by exact merged SHA-256
 on repository-active date 4/5 in [Issue #24 comment
 5066292679](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5066292679).
 It is frozen but inactive. Retained stdout and stderr remain unread.
-Issue #24 comment 5067065118 separately authorized public-only execution-pack
-preparation. The exact [pack](../../../examples/experiments/author-call-qualification-v1/exploratory-learning-v1/README.md)
+[Issue #24 comment
+5067065118](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5067065118)
+separately authorized public-only execution-pack preparation. The exact
+[pack](../../../examples/experiments/author-call-qualification-v1/exploratory-learning-v1/README.md)
 passed its deterministic audit under manifest SHA-256
 `205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4`
 and audit-result SHA-256
@@ -61,6 +87,9 @@ processing authorization are required before one current-session episode can
 occur. It grants no fresh-successor authorization, implementation, baseline,
 rehearsal, scoring, or experimental execution. The local raw-diagnostic
 deletion deadline remains `2026-08-22T16:39:58Z`.
+The boundary's one-new-active-date budget is already occupied by 2026-07-24.
+Issue-level `continue` cannot extend it; later protected processing requires a
+new boundary identity and a new bound pack.
 
 Any later result on this corpus remains exploratory because its diagnostic
 context has been disclosed during procedure development. The first

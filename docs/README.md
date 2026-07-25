@@ -10,6 +10,9 @@ and which constraints should survive implementation changes.
 - [Invariant map](INVARIANTS.md) — current mechanisms, evidence, and gaps for
   the foundational invariants.
 - [Architecture](ARCHITECTURE.md) — the three zones, canonical data, derived views, and data flow.
+- [Idea map and research agenda](IDEAS.md) — the visible line from the original
+  automatic-documentation idea to current product hypotheses, RFC candidates,
+  evidence gates, and deferred work.
 - [Glossary](GLOSSARY.md) — the project's current vocabulary.
 - [Development process](DEVELOPMENT.md) — the evidence-driven workflow, change gates, and definitions of done.
 - [Monorepo strategy](MONOREPO.md) — why the project stays together and what would justify a split.

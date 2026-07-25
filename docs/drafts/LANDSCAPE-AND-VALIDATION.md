@@ -8,6 +8,10 @@
 > positioning, or procurement decisions.
 > **No novelty/FTO claim:** This is a bounded landscape scan, not an exhaustive
 > prior-art search, patent analysis, legal opinion, or freedom-to-operate review.
+> **Planning status:** The six-month slice and three-year contract below are
+> historical research hypotheses, not the current schedule. Use the
+> [roadmap](../ROADMAP.md), [idea map](../IDEAS.md), and
+> [operational plan](../planning/README.md) for current ordering and gates.
 
 ## Purpose and limits
 

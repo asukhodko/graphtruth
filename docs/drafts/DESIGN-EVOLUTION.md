@@ -13,6 +13,11 @@
 > repetition or implementation. A durable semantic choice needs concrete
 > examples, evidence from use, and the RFC/specification/conformance path
 > required by the development process.
+>
+> Planning status: the candidate sequence and evidence list below are
+> historical design hypotheses. The current [roadmap](../ROADMAP.md),
+> [idea map](../IDEAS.md), and [operational plan](../planning/README.md)
+> determine present ordering and status.
 
 ## Purpose
 

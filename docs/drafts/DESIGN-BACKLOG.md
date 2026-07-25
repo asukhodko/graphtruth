@@ -4,6 +4,8 @@
 > **Captured:** 2026-07-11.
 > **Expanded:** 2026-07-12 after the cross-surface algorithm completeness
 > review and the continuous domain-topology design in Issue #8.
+> **Status reviewed:** 2026-07-25 against the current roadmap and retained
+> S0–S1 evidence.
 > **Authority:** The identifiers below organize ideas; they are not accepted
 > roadmap commitments or protocol requirements.
 > **Promotion:** Create a focused Issue or Draft RFC only when its prerequisite
@@ -18,6 +20,24 @@ dependency-ordered investigation map.
 
 It is intentionally broader than the active roadmap. The project WIP limit is
 still one major hypothesis or feature. Preservation is not prioritization.
+
+## Partial evidence already earned
+
+The retained S0–S1 runtime and experiment-control work exercises parts of
+several backlog items. It closes none of them: the formats remain Zone 3,
+independent protocol evidence is absent, and no evaluated usefulness result
+exists.
+
+| Backlog item | Partial evidence | Remaining proof |
+| --- | --- | --- |
+| `GT-D006` — atomic file-vault publication | The synthetic runtime used immutable commit directories, a selected head, external digest anchors, and injected failures around publication. | General record envelopes, compare-and-swap publication, operating-system/power-loss durability, concurrent readers, and protocol status. |
+| `GT-D014` — projection manifest and rebuild | Projection deletion and same-identity clean rebuild preserved the recorded S0–S1 semantic digest. | Identity-independent equivalence, generation cutover, incremental-versus-clean comparison, cross-version rebuild, and a portable manifest. |
+| `GT-D015` — baseline dossier | The runtime rendered deterministic current and recorded-as-of dossiers over its narrow anchored-passage candidates. | Policy-scoped acceptance, counterevidence closure, broader record roles, an ordinary-search comparison, and demonstrated user value. |
+| `GT-D019` — source ingestion and evidence alignment | The worker retained exact source bytes and deterministic passage candidates with byte-and-line locators. | Source-snapshot closure, field-level semantic grounding, multiple source types, reviewable assertion/question candidates, and correction in real use. |
+| `GT-D054` — runtime orchestration | The controller bounded child processes, crash points, exact redelivery, rebuild, cleanup, and selected resources in one local run. | A demonstrated need for jobs or queues, leases, backpressure, dead letters, broader budget exhaustion, observability, and provider-loss recovery. |
+
+See the current [invariant map](../INVARIANTS.md) for the narrower claims and
+gaps supported by repository evidence.
 
 ## Task record convention
 
@@ -85,6 +105,25 @@ observed second writer or independent corpus
   └─ deferred multi-writer/federation pressure test
 ```
 
+## Experimental-method backlog
+
+### GT-D056 — Reduced-echo author-call contract
+
+- **Evidence needed:** Issue #24's accepted exploratory-learning result found
+  `payload-json-byte-mismatch` after response shape, string type, and exact
+  payload length all passed.
+- **Deliverable:** a fresh public-synthetic qualification identity that asks the
+  model for bounded semantic commitments or small digests instead of exact
+  reproduction of a 32,768-byte payload.
+- **Exit evidence:** one predeclared, no-retry call either satisfies the reduced
+  contract or yields a more local fixed failure class under the same transport
+  and lifecycle controls.
+- **Limits:** this is procedure development. It cannot validate GraphTruth,
+  reuse the terminal candidate, touch the Python corpus, or become active
+  without a new issue, budget, identity, and authorization.
+- **Dependencies:** the terminal Issue #24 safe result; no product-schema
+  dependency.
+
 ## P0 — earn the first durable record
 
 ### GT-D001 — Representative synthetic golden journeys
@@ -102,8 +141,10 @@ observed second writer or independent corpus
 - **Experiment history:** [Issue #6](https://github.com/asukhodko/graphtruth/issues/6)
   retained the synthetic twin and boundary evidence, then stopped before an
   admissible private contract or evaluated run. [Issue
-  #24](https://github.com/asukhodko/graphtruth/issues/24) now tests the first
-  public sequential journey before any normative promotion.
+  #24](https://github.com/asukhodko/graphtruth/issues/24) later stopped
+  procedurally after localizing an author-call contract failure. It produced no
+  accepted evaluation contract or run and did not close the first
+  representative journey.
 
 ### GT-D002 — Minimal record and bundle envelope
 
@@ -196,10 +237,13 @@ observed second writer or independent corpus
   node counts, prose volume, or subjective fluency as the success measure.
 - **Dependencies:** GT-D001.
 - **Current experiment:** [Issue
-  #24](https://github.com/asukhodko/graphtruth/issues/24) freezes a public Python
-  corpus, tasks, oracle, baseline, budgets, and sequential comparison. [Issue
-  #6](https://github.com/asukhodko/graphtruth/issues/6) remains the stopped
-  private-path predecessor and supplies no utility result.
+  #24](https://github.com/asukhodko/graphtruth/issues/24) froze a public Python
+  corpus and projection, but its evaluation-freeze attempts stopped without an
+  accepted task/oracle/baseline/budget contract or comparison. Its current
+  exploratory route can improve the measurement procedure but supplies no
+  utility result. [Issue #6](https://github.com/asukhodko/graphtruth/issues/6)
+  remains the stopped private-path predecessor and likewise supplies no utility
+  result.
 
 ## P1 — smallest executable ledger and access loop
 
@@ -536,9 +580,11 @@ for the full alternatives, failure modes, and retained open questions.
   cost, topology churn overwhelms review, or the shock cannot be distinguished
   from model/configuration change and retrospective storytelling.
 - **Dependencies:** GT-D038 and stable revision/time semantics.
-- **Active design:** [Issue #8](https://github.com/asukhodko/graphtruth/issues/8)
-  owns the continuous actualization and missing-link structural-shock hypothesis
-  without adding a duplicate GT-D task.
+- **Deferred design owner:** [Issue
+  #8](https://github.com/asukhodko/graphtruth/issues/8) owns the continuous
+  actualization and missing-link structural-shock hypothesis without adding a
+  duplicate GT-D task. The operational plan keeps this horizon deferred until
+  its prerequisite public-corpus evidence exists.
 
 ### GT-D040 — Generated-view invalidation and circularity test
 

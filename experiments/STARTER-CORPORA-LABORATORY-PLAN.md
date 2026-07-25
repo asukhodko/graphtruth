@@ -1,25 +1,16 @@
 # Starter corpora laboratory plan
 
-> **Status:** Non-normative Zone 3 laboratory plan; the first Python sequential
-> lane is active under Issue #24. Its corpus selection and rights are frozen;
-> original source acquisition and the byte-identical RST text projection are
-> verified and accepted. One separately authorized evaluation-freeze attempt
-> ended in terminal independent-audit rejection without a release. No accepted
-> evaluation or run pack exists. Its safe diagnosis is published. A separate
-> v2 controller was synthetically verified, accepted by exact identity, and
-> authorized for one attempt. That sole invocation stopped fail-closed with
-> `AUTHOR_MODEL_CALL` before a validated author artifact or independent audit;
-> it produced no public result JSON, release, or accepted contract. The Python
-> corpus is exploratory; confirmation requires a fresh corpus and identity. On
-> repository-active date 3/5 the owner chose procedural `shrink` to preparation
-> of a generated-public-synthetic author-call qualification. The owner accepted
-> its exact identity and separately authorized one external call. That sole call
-> ended terminally `not-qualified / result-schema`; no successor gate is
-> authorized. On repository-active date 4/5 the owner accepted the exact
-> exploratory-learning boundary, then separately authorized public-only
-> execution-pack preparation. The exact pack passed its deterministic public
-> audit and remains unaccepted and inactive; every protected read remains
-> separately gated.
+> **Status:** Non-normative Zone 3 laboratory plan. The first Python sequential
+> lane reached a pre-run procedural `stop` on Issue #24 repository-active date
+> 5/5. It produced no accepted evaluation contract, implementation, baseline,
+> rehearsal, scoring, evaluated run, or sequential decision. One accepted v2
+> exploratory-learning procedure localized the public-synthetic author-call
+> failure to `payload-json-byte-mismatch` and recommends
+> `reduced-echo-contract`. A separate metadata-only retention procedure removed
+> its exact local stdout, unread zero-byte stderr, and bounded work root; the
+> diagnostic root and non-local copies remain outside that claim. The Python
+> corpus and projection are research-only. Confirmation requires a fresh corpus
+> and identity. No successor is active; the single-major-WIP slot is free.
 >
 > **Created:** 2026-07-12.
 >
@@ -539,7 +530,32 @@ The repository's lack of a license does not cancel third-party attribution or
 share-alike duties and does not make public readability permission to copy,
 transform, process, or redistribute material.
 
-## Immediate deliverables
+## Final Issue #24 disposition — 2026-07-25
+
+The issue-wide date ledger is 2026-07-21 through 2026-07-25. The owner selected
+pre-run `stop` before beginning the fifth date. This closes the procedural lane,
+not its untouched sequential decision gate.
+
+The accepted v2 execution pack and terminal [safe
+result](../examples/experiments/author-call-qualification-v1/exploratory-learning-v2/SAFE-RESULT.md)
+preserve the reusable learning: exact reproduction of a 32,768-byte payload is
+the first failed predicate even though shape, type, and length passed.
+`reduced-echo-contract` is therefore the leading candidate if the author-call
+path is revisited. It remains backlog evidence, not current authorization.
+
+The terminal result retains the original deletion outcome
+`identity-mismatch / not-attempted / not-attempted`. A later, separate
+retention-only attempt accepted the missing historical fingerprint as residual
+uncertainty and removed the exact local stdout, unread zero-byte stderr, and
+bounded work root using metadata only. The diagnostic root remains, and no
+backup, snapshot, swap, task-log, or provider-side deletion is claimed.
+
+No current corpus lane is active. The next major WIP must be selected
+separately. The rational near-term choices are the smallest independent
+record-and-bundle golden journey or a fresh confirmatory corpus; neither is
+authorized by this plan.
+
+## Historical Issue #24 execution plan through 2026-07-24
 
 The owner recorded a project-level `stop` for Issue #6, and Issue #24 activates
 `python-annotations-semantics-v1` as the single major WIP. Its accepted public
@@ -608,8 +624,9 @@ budget. The later progression is:
    of identity
    `4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e`
    without reading retained output or authorizing pack preparation;
-5. retain Issue #24 comment 5067065118 as the separate public-only
-   preparation authorization and the prepared
+5. retain [Issue #24 comment
+   5067065118](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5067065118)
+   as the separate public-only preparation authorization and the prepared
    [execution pack](../examples/experiments/author-call-qualification-v1/exploratory-learning-v1/README.md):
    its reader, accepted parser modules, closed schema, semantic validator and
    33-case artificial matrix are bound by manifest SHA-256
@@ -645,7 +662,7 @@ budget. The later progression is:
 GitLab, PostgreSQL, multi-domain composition, public benchmark packaging, and
 model-assisted automation remain queued rather than parallel WIP.
 
-## Current decision after terminal qualification
+## Historical decision route after terminal qualification
 
 The owner selected exploratory learning after the `diagnose-first` route
 stopped at terminal `audit-call-failed`. The diagnostic candidate remains
@@ -659,8 +676,10 @@ on repository-active date 4/5 in [Issue #24 comment
 5066292679](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5066292679).
 The boundary is frozen but inactive. Retained stdout and stderr remain unread;
 no protected reader run, separate external/model call, or experiment is
-authorized. Issue #24 comment 5067065118 separately authorized only public
-execution-pack preparation. The resulting exact pack has manifest SHA-256
+authorized. [Issue #24 comment
+5067065118](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5067065118)
+separately authorized only public execution-pack preparation. The resulting
+exact pack has manifest SHA-256
 `205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4`
 and deterministic audit-result SHA-256
 `5257e6229e2eacd15fdd2df655c6a3db00d394e94b660100dac0564cb9f237f4`.
@@ -698,3 +717,10 @@ repository-active date 4/5; activity on date 5/5 requires a prior
 `continue / shrink / stop` decision. The v1 disposition started one local
 raw-diagnostic deletion window ending `2026-08-22T16:39:58Z`. A later successor
 disposition does not reset it and must use its own predeclared retention rule.
+
+The accepted learning boundary is stricter than the Issue-wide budget. It
+allows at most one new repository-active date from boundary acceptance through
+result publication, and 2026-07-24 is that date. `Continue` can extend only the
+Issue-wide route; it cannot amend the frozen boundary. If the v1 result is not
+published on 2026-07-24 Europe/Moscow, any later protected processing requires
+a new boundary identity and a new execution pack bound to it.
