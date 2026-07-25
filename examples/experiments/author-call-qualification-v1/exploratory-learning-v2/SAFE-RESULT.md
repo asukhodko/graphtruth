@@ -33,5 +33,7 @@ This is exploratory evidence only. It does not qualify the author call, accept
 an evaluation contract, validate GraphTruth, authorize corpus processing, or
 permit an experimental run.
 
-All deletion states remain `pending`. Publication, commit, push, deletion, and
-successor selection require separate owner decisions.
+Terminal deletion states are `identity-mismatch` for stdout and
+`not-attempted` for stderr and the work root. No retained stdout or stderr was
+opened or hashed, and no deletion target was unlinked or removed. Retry,
+repair, and successor selection remain unauthorized.

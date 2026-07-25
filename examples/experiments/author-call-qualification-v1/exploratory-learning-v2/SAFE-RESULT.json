@@ -104,8 +104,8 @@
     "providerCopiesUnverified": true
   },
   "deletion": {
-    "stdout": "pending",
-    "stderr": "pending",
-    "workRoot": "pending"
+    "stdout": "identity-mismatch",
+    "stderr": "not-attempted",
+    "workRoot": "not-attempted"
   }
 }
