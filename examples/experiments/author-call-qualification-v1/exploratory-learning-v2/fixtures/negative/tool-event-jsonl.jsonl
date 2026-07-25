@@ -1,0 +1,4 @@
+{"type":"thread.started"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"type":"function_call","name":"artificial_tool"}}
+{"type":"turn.completed"}

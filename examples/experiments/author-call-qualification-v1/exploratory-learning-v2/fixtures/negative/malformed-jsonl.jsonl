@@ -1,0 +1,4 @@
+{"type":"thread.started"}
+{"type":"turn.started"
+{"type":"item.completed","item":{"type":"agent_message","text":"artificial"}}
+{"type":"turn.completed"}
