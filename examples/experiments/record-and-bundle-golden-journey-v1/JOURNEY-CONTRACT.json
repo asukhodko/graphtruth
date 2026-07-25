@@ -1,0 +1,784 @@
+{
+  "format": "graphtruth.experimental.record-bundle-journey-contract.v1",
+  "identity": "record-and-bundle-golden-journey-v1",
+  "zone": 3,
+  "status": "frozen-before-implementation",
+  "baseCommit": "eec5e6a6342c33b8ddb1bca790fbe822f6557524",
+  "owningIssue": "https://github.com/asukhodko/graphtruth/issues/42",
+  "decisionQuestion": "Can the minimal GraphTruth record model portably and reproducibly represent evidence, challenge, acceptance, revocation, and correction over recorded and valid time?",
+  "fact": {
+    "factKey": "service.retry-limit",
+    "valueType": "integer",
+    "unit": "attempts"
+  },
+  "actors": [
+    {
+      "actorId": "actor.runbook-maintainer",
+      "role": "synthetic-source-author"
+    },
+    {
+      "actorId": "actor.operations-observer",
+      "role": "synthetic-observation-author"
+    },
+    {
+      "actorId": "actor.change-review-board",
+      "role": "synthetic-document-decision-owner"
+    },
+    {
+      "actorId": "actor.site-reliability-reviewer",
+      "role": "synthetic-assessor"
+    },
+    {
+      "actorId": "actor.operations-review-board",
+      "role": "synthetic-observation-decision-owner"
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "source.runbook-v1",
+      "path": "sources/0001-runbook-v1.md",
+      "mediaType": "text/markdown; charset=utf-8",
+      "size": 121,
+      "sha256": "b43cc49a03065ba67139654e72a2a1ecb98719cef8d87f774e4397f1a90f48f9",
+      "authoredByActorId": "actor.runbook-maintainer",
+      "eventTime": "2026-01-10T00:00:00Z"
+    },
+    {
+      "sourceId": "source.observation",
+      "path": "sources/0002-observation.md",
+      "mediaType": "text/markdown; charset=utf-8",
+      "size": 110,
+      "sha256": "3fb80e491ccc1feaef5695b7354dcee23183977686b5482ac8fffe557d050534",
+      "authoredByActorId": "actor.operations-observer",
+      "eventTime": "2026-01-12T08:00:00Z"
+    },
+    {
+      "sourceId": "source.runbook-v2",
+      "path": "sources/0003-runbook-v2.md",
+      "mediaType": "text/markdown; charset=utf-8",
+      "size": 133,
+      "sha256": "6571496fccbc34ca9e318dcce4aa90679ab3a1f0be9dc90f8c849e799ff3361d",
+      "authoredByActorId": "actor.runbook-maintainer",
+      "eventTime": "2026-01-14T00:00:00Z"
+    }
+  ],
+  "horizons": [
+    {
+      "horizonId": "H1",
+      "recordedAsOf": "2026-01-10T09:03:00Z",
+      "validAt": "2026-01-10T12:00:00Z",
+      "lastRecordedSequence": 4
+    },
+    {
+      "horizonId": "H2",
+      "recordedAsOf": "2026-01-12T10:04:00Z",
+      "validAt": "2026-01-12T12:00:00Z",
+      "lastRecordedSequence": 9
+    },
+    {
+      "horizonId": "H3",
+      "recordedAsOf": "2026-01-14T11:04:00Z",
+      "validAt": "2026-01-14T12:00:00Z",
+      "lastRecordedSequence": 14
+    }
+  ],
+  "policies": [
+    {
+      "policyId": "document-authority-v0",
+      "purpose": "operational-retry-configuration",
+      "eligibleAssertionId": "assertion.retry-limit.document",
+      "selectionRule": "Select the sole non-revoked accept decision for this policy and purpose whose target revision is valid at the query time and was recorded by the horizon. Zero active decisions means abstain; more than one means error. Assessments annotate the selected result but never select or revoke it."
+    },
+    {
+      "policyId": "observed-state-v0",
+      "purpose": "operational-retry-configuration",
+      "eligibleAssertionId": "assertion.retry-limit.observed",
+      "selectionRule": "Select the sole non-revoked accept decision for this policy and purpose whose target revision is valid at the query time and was recorded by the horizon. Zero active decisions means abstain; more than one means error. Assessments annotate the selected result but never select or revoke it."
+    }
+  ],
+  "recordFormat": {
+    "format": "graphtruth.experimental.record.v1",
+    "serialization": "UTF-8 JSON with lexicographically sorted object keys, compact separators, and one trailing LF",
+    "requiredEnvelopeFields": [
+      "format",
+      "recordId",
+      "recordedSequence",
+      "recordedAt",
+      "previousRecordSha256",
+      "kind",
+      "body"
+    ],
+    "allowedKinds": [
+      "SourceSnapshot",
+      "EvidenceSpan",
+      "AssertionRevision",
+      "Assessment",
+      "AcceptanceDecision"
+    ],
+    "unknownFields": "reject",
+    "unknownFormatOrKind": "reject",
+    "recordIdRule": "Opaque assigned identity; never derived from mutable content.",
+    "integrityRule": "Each record after the first carries the SHA-256 of the exact previous record bytes."
+  },
+  "records": [
+    {
+      "recordId": "record.source.runbook-v1.01",
+      "recordedSequence": 1,
+      "recordedAt": "2026-01-10T09:00:00Z",
+      "horizonId": "H1",
+      "kind": "SourceSnapshot",
+      "body": {
+        "sourceId": "source.runbook-v1",
+        "path": "sources/0001-runbook-v1.md",
+        "mediaType": "text/markdown; charset=utf-8",
+        "size": 121,
+        "sha256": "b43cc49a03065ba67139654e72a2a1ecb98719cef8d87f774e4397f1a90f48f9",
+        "authoredByActorId": "actor.runbook-maintainer",
+        "eventTime": "2026-01-10T00:00:00Z"
+      }
+    },
+    {
+      "recordId": "record.evidence.runbook-v1-limit.01",
+      "recordedSequence": 2,
+      "recordedAt": "2026-01-10T09:01:00Z",
+      "horizonId": "H1",
+      "kind": "EvidenceSpan",
+      "body": {
+        "evidenceId": "evidence.runbook-v1-limit",
+        "sourceRecordId": "record.source.runbook-v1.01",
+        "byteStart": 87,
+        "byteEnd": 119,
+        "lineStart": 5,
+        "lineEnd": 5,
+        "sha256": "ba3232011d054e0372a00e8d6202b2b1d35d24aa1fe867cd7ef5e94aea4c34b9",
+        "text": "make at most 3 attempts in total"
+      }
+    },
+    {
+      "recordId": "record.assertion.document.01",
+      "recordedSequence": 3,
+      "recordedAt": "2026-01-10T09:02:00Z",
+      "horizonId": "H1",
+      "kind": "AssertionRevision",
+      "body": {
+        "assertionId": "assertion.retry-limit.document",
+        "revisionId": "revision.retry-limit.document.01",
+        "predecessorRevisionId": null,
+        "factKey": "service.retry-limit",
+        "value": 3,
+        "unit": "attempts",
+        "validFrom": "2026-01-10T00:00:00Z",
+        "evidenceIds": [
+          "evidence.runbook-v1-limit"
+        ]
+      }
+    },
+    {
+      "recordId": "record.decision.document-accept.01",
+      "recordedSequence": 4,
+      "recordedAt": "2026-01-10T09:03:00Z",
+      "horizonId": "H1",
+      "kind": "AcceptanceDecision",
+      "body": {
+        "decisionId": "decision.document-accept.01",
+        "action": "accept",
+        "actorId": "actor.change-review-board",
+        "policyId": "document-authority-v0",
+        "purpose": "operational-retry-configuration",
+        "targetRevisionId": "revision.retry-limit.document.01",
+        "revokesDecisionId": null
+      }
+    },
+    {
+      "recordId": "record.source.observation.01",
+      "recordedSequence": 5,
+      "recordedAt": "2026-01-12T10:00:00Z",
+      "horizonId": "H2",
+      "kind": "SourceSnapshot",
+      "body": {
+        "sourceId": "source.observation",
+        "path": "sources/0002-observation.md",
+        "mediaType": "text/markdown; charset=utf-8",
+        "size": 110,
+        "sha256": "3fb80e491ccc1feaef5695b7354dcee23183977686b5482ac8fffe557d050534",
+        "authoredByActorId": "actor.operations-observer",
+        "eventTime": "2026-01-12T08:00:00Z"
+      }
+    },
+    {
+      "recordId": "record.evidence.observation-limit.01",
+      "recordedSequence": 6,
+      "recordedAt": "2026-01-12T10:01:00Z",
+      "horizonId": "H2",
+      "kind": "EvidenceSpan",
+      "body": {
+        "evidenceId": "evidence.observation-limit",
+        "sourceRecordId": "record.source.observation.01",
+        "byteStart": 68,
+        "byteEnd": 108,
+        "lineStart": 5,
+        "lineEnd": 5,
+        "sha256": "54e738bdb4191b67aab14a1f8a9d08540cf2affee15c642b91c87eea0f485d04",
+        "text": "made 5 attempts before reporting failure"
+      }
+    },
+    {
+      "recordId": "record.assertion.observed.01",
+      "recordedSequence": 7,
+      "recordedAt": "2026-01-12T10:02:00Z",
+      "horizonId": "H2",
+      "kind": "AssertionRevision",
+      "body": {
+        "assertionId": "assertion.retry-limit.observed",
+        "revisionId": "revision.retry-limit.observed.01",
+        "predecessorRevisionId": null,
+        "factKey": "service.retry-limit",
+        "value": 5,
+        "unit": "attempts",
+        "validFrom": "2026-01-12T08:00:00Z",
+        "evidenceIds": [
+          "evidence.observation-limit"
+        ]
+      }
+    },
+    {
+      "recordId": "record.assessment.challenge-document.01",
+      "recordedSequence": 8,
+      "recordedAt": "2026-01-12T10:03:00Z",
+      "horizonId": "H2",
+      "kind": "Assessment",
+      "body": {
+        "assessmentId": "assessment.challenge-document.01",
+        "actorId": "actor.site-reliability-reviewer",
+        "targetRevisionId": "revision.retry-limit.document.01",
+        "stance": "challenge",
+        "basisRevisionIds": [
+          "revision.retry-limit.observed.01"
+        ],
+        "evidenceIds": [
+          "evidence.observation-limit"
+        ],
+        "reasonCode": "observed-value-conflict"
+      }
+    },
+    {
+      "recordId": "record.decision.observed-accept.01",
+      "recordedSequence": 9,
+      "recordedAt": "2026-01-12T10:04:00Z",
+      "horizonId": "H2",
+      "kind": "AcceptanceDecision",
+      "body": {
+        "decisionId": "decision.observed-accept.01",
+        "action": "accept",
+        "actorId": "actor.operations-review-board",
+        "policyId": "observed-state-v0",
+        "purpose": "operational-retry-configuration",
+        "targetRevisionId": "revision.retry-limit.observed.01",
+        "revokesDecisionId": null
+      }
+    },
+    {
+      "recordId": "record.source.runbook-v2.01",
+      "recordedSequence": 10,
+      "recordedAt": "2026-01-14T11:00:00Z",
+      "horizonId": "H3",
+      "kind": "SourceSnapshot",
+      "body": {
+        "sourceId": "source.runbook-v2",
+        "path": "sources/0003-runbook-v2.md",
+        "mediaType": "text/markdown; charset=utf-8",
+        "size": 133,
+        "sha256": "6571496fccbc34ca9e318dcce4aa90679ab3a1f0be9dc90f8c849e799ff3361d",
+        "authoredByActorId": "actor.runbook-maintainer",
+        "eventTime": "2026-01-14T00:00:00Z"
+      }
+    },
+    {
+      "recordId": "record.evidence.runbook-v2-limit.01",
+      "recordedSequence": 11,
+      "recordedAt": "2026-01-14T11:01:00Z",
+      "horizonId": "H3",
+      "kind": "EvidenceSpan",
+      "body": {
+        "evidenceId": "evidence.runbook-v2-limit",
+        "sourceRecordId": "record.source.runbook-v2.01",
+        "byteStart": 99,
+        "byteEnd": 131,
+        "lineStart": 5,
+        "lineEnd": 5,
+        "sha256": "3897793a5cdc08d444db3fb732c1d9b97c93e769a5e34c4a49a432dca47a23c4",
+        "text": "make at most 5 attempts in total"
+      }
+    },
+    {
+      "recordId": "record.assertion.document.02",
+      "recordedSequence": 12,
+      "recordedAt": "2026-01-14T11:02:00Z",
+      "horizonId": "H3",
+      "kind": "AssertionRevision",
+      "body": {
+        "assertionId": "assertion.retry-limit.document",
+        "revisionId": "revision.retry-limit.document.02",
+        "predecessorRevisionId": "revision.retry-limit.document.01",
+        "factKey": "service.retry-limit",
+        "value": 5,
+        "unit": "attempts",
+        "validFrom": "2026-01-10T00:00:00Z",
+        "evidenceIds": [
+          "evidence.runbook-v2-limit"
+        ]
+      }
+    },
+    {
+      "recordId": "record.decision.document-revoke.01",
+      "recordedSequence": 13,
+      "recordedAt": "2026-01-14T11:03:00Z",
+      "horizonId": "H3",
+      "kind": "AcceptanceDecision",
+      "body": {
+        "decisionId": "decision.document-revoke.01",
+        "action": "revoke",
+        "actorId": "actor.change-review-board",
+        "policyId": "document-authority-v0",
+        "purpose": "operational-retry-configuration",
+        "targetRevisionId": "revision.retry-limit.document.01",
+        "revokesDecisionId": "decision.document-accept.01"
+      }
+    },
+    {
+      "recordId": "record.decision.document-accept.02",
+      "recordedSequence": 14,
+      "recordedAt": "2026-01-14T11:04:00Z",
+      "horizonId": "H3",
+      "kind": "AcceptanceDecision",
+      "body": {
+        "decisionId": "decision.document-accept.02",
+        "action": "accept",
+        "actorId": "actor.change-review-board",
+        "policyId": "document-authority-v0",
+        "purpose": "operational-retry-configuration",
+        "targetRevisionId": "revision.retry-limit.document.02",
+        "revokesDecisionId": null
+      }
+    }
+  ],
+  "bundleFormat": {
+    "format": "graphtruth.experimental.record-bundle.v1",
+    "manifestPath": "manifest.json",
+    "profilePath": "profile.json",
+    "manifestSerialization": "UTF-8 JSON with lexicographically sorted object keys, compact separators, and one trailing LF",
+    "manifestSelfEntry": "forbidden",
+    "externalAnchor": "Exact SHA-256 of manifest.json passed explicitly to every verifier.",
+    "inventory": "All and only no-follow regular files below the bundle root except manifest.json.",
+    "manifestFileFields": [
+      "path",
+      "role",
+      "mediaType",
+      "size",
+      "sha256"
+    ],
+    "canonicalAuthority": [
+      "profile.json",
+      "sources/",
+      "records/"
+    ],
+    "excludedFromAuthority": [
+      "expected results",
+      "oracle",
+      "current projections",
+      "as-of projections",
+      "Markdown dossiers",
+      "local paths",
+      "Git state",
+      "runtime state"
+    ],
+    "limits": {
+      "maximumFilesIncludingManifest": 64,
+      "maximumBytes": 1048576,
+      "maximumRecords": 32
+    }
+  },
+  "profile": {
+    "format": "graphtruth.experimental.record-bundle-profile.v1",
+    "identity": "record-and-bundle-golden-journey-v1",
+    "fact": {
+      "factKey": "service.retry-limit",
+      "valueType": "integer",
+      "unit": "attempts"
+    },
+    "horizons": [
+      {
+        "horizonId": "H1",
+        "recordedAsOf": "2026-01-10T09:03:00Z",
+        "validAt": "2026-01-10T12:00:00Z"
+      },
+      {
+        "horizonId": "H2",
+        "recordedAsOf": "2026-01-12T10:04:00Z",
+        "validAt": "2026-01-12T12:00:00Z"
+      },
+      {
+        "horizonId": "H3",
+        "recordedAsOf": "2026-01-14T11:04:00Z",
+        "validAt": "2026-01-14T12:00:00Z"
+      }
+    ],
+    "policies": [
+      {
+        "policyId": "document-authority-v0",
+        "purpose": "operational-retry-configuration",
+        "eligibleAssertionId": "assertion.retry-limit.document"
+      },
+      {
+        "policyId": "observed-state-v0",
+        "purpose": "operational-retry-configuration",
+        "eligibleAssertionId": "assertion.retry-limit.observed"
+      }
+    ]
+  },
+  "semanticOutput": {
+    "format": "graphtruth.experimental.semantic-view-set.v1",
+    "canonicalSerialization": "UTF-8 JSON with lexicographically sorted object keys, compact separators, and one trailing LF",
+    "digestRule": "SHA-256 of the exact canonical semantic output bytes.",
+    "forbiddenDigestInputs": [
+      "local path",
+      "run ID",
+      "wall-clock execution time",
+      "runtime HEAD",
+      "implementation identity",
+      "temporary root"
+    ],
+    "viewFields": [
+      "horizonId",
+      "recordedAsOf",
+      "validAt",
+      "policyId",
+      "status",
+      "value",
+      "unit",
+      "revisionId",
+      "acceptanceDecisionId",
+      "assessmentIds",
+      "evidenceIds",
+      "reasonCode"
+    ]
+  },
+  "expectedLogicalViews": [
+    {
+      "horizonId": "H1",
+      "policyId": "document-authority-v0",
+      "status": "selected",
+      "value": 3,
+      "unit": "attempts",
+      "revisionId": "revision.retry-limit.document.01",
+      "acceptanceDecisionId": "decision.document-accept.01",
+      "assessmentIds": [],
+      "evidenceIds": [
+        "evidence.runbook-v1-limit"
+      ],
+      "reasonCode": "sole-active-policy-acceptance"
+    },
+    {
+      "horizonId": "H1",
+      "policyId": "observed-state-v0",
+      "status": "abstain",
+      "value": null,
+      "unit": "attempts",
+      "revisionId": null,
+      "acceptanceDecisionId": null,
+      "assessmentIds": [],
+      "evidenceIds": [],
+      "reasonCode": "no-active-policy-acceptance"
+    },
+    {
+      "horizonId": "H2",
+      "policyId": "document-authority-v0",
+      "status": "selected",
+      "value": 3,
+      "unit": "attempts",
+      "revisionId": "revision.retry-limit.document.01",
+      "acceptanceDecisionId": "decision.document-accept.01",
+      "assessmentIds": [
+        "assessment.challenge-document.01"
+      ],
+      "evidenceIds": [
+        "evidence.runbook-v1-limit",
+        "evidence.observation-limit"
+      ],
+      "reasonCode": "sole-active-policy-acceptance-with-challenge"
+    },
+    {
+      "horizonId": "H2",
+      "policyId": "observed-state-v0",
+      "status": "selected",
+      "value": 5,
+      "unit": "attempts",
+      "revisionId": "revision.retry-limit.observed.01",
+      "acceptanceDecisionId": "decision.observed-accept.01",
+      "assessmentIds": [],
+      "evidenceIds": [
+        "evidence.observation-limit"
+      ],
+      "reasonCode": "sole-active-policy-acceptance"
+    },
+    {
+      "horizonId": "H3",
+      "policyId": "document-authority-v0",
+      "status": "selected",
+      "value": 5,
+      "unit": "attempts",
+      "revisionId": "revision.retry-limit.document.02",
+      "acceptanceDecisionId": "decision.document-accept.02",
+      "assessmentIds": [],
+      "evidenceIds": [
+        "evidence.runbook-v2-limit"
+      ],
+      "reasonCode": "sole-active-policy-acceptance"
+    },
+    {
+      "horizonId": "H3",
+      "policyId": "observed-state-v0",
+      "status": "selected",
+      "value": 5,
+      "unit": "attempts",
+      "revisionId": "revision.retry-limit.observed.01",
+      "acceptanceDecisionId": "decision.observed-accept.01",
+      "assessmentIds": [],
+      "evidenceIds": [
+        "evidence.observation-limit"
+      ],
+      "reasonCode": "sole-active-policy-acceptance"
+    }
+  ],
+  "denominator": {
+    "horizonIds": [
+      "H1",
+      "H2",
+      "H3"
+    ],
+    "policyIds": [
+      "document-authority-v0",
+      "observed-state-v0"
+    ],
+    "materializations": [
+      "node-writer",
+      "node-rebuild",
+      "python-detached-reader"
+    ],
+    "cellCount": 18,
+    "rule": "The Cartesian product is closed before implementation. Every materialization must emit all six logical views; no missing or failed cell may be removed."
+  },
+  "mutations": [
+    {
+      "mutationId": "M01-source-byte-changed",
+      "class": "source-integrity",
+      "operation": "Change one source byte and reseal only the outer manifest.",
+      "expectedCode": "SOURCE_HASH_MISMATCH",
+      "severeIfAccepted": true
+    },
+    {
+      "mutationId": "M02-evidence-bounds-invalid",
+      "class": "evidence-integrity",
+      "operation": "Move one evidence byte boundary and reseal the record chain and manifest.",
+      "expectedCode": "EVIDENCE_BOUNDS_INVALID",
+      "severeIfAccepted": true
+    },
+    {
+      "mutationId": "M03-evidence-hash-invalid",
+      "class": "evidence-integrity",
+      "operation": "Replace one evidence SHA-256 and reseal the record chain and manifest.",
+      "expectedCode": "EVIDENCE_HASH_MISMATCH",
+      "severeIfAccepted": true
+    },
+    {
+      "mutationId": "M04-declared-file-missing",
+      "class": "bundle-inventory",
+      "operation": "Remove one file still declared by the manifest.",
+      "expectedCode": "BUNDLE_FILE_MISSING",
+      "severeIfAccepted": true
+    },
+    {
+      "mutationId": "M05-undeclared-file-added",
+      "class": "bundle-inventory",
+      "operation": "Add one regular file not declared by the manifest.",
+      "expectedCode": "BUNDLE_FILE_UNDECLARED",
+      "severeIfAccepted": true
+    },
+    {
+      "mutationId": "M06-unsafe-entry",
+      "class": "bundle-inventory",
+      "operation": "Replace a declared regular file with a symbolic link.",
+      "expectedCode": "BUNDLE_ENTRY_UNSAFE",
+      "severeIfAccepted": true
+    },
+    {
+      "mutationId": "M07-invalid-utf8",
+      "class": "strict-decoding",
+      "operation": "Inject an invalid UTF-8 byte into a record and reseal the outer manifest.",
+      "expectedCode": "UTF8_INVALID",
+      "severeIfAccepted": true
+    },
+    {
+      "mutationId": "M08-duplicate-json-key",
+      "class": "strict-decoding",
+      "operation": "Add a duplicate JSON object key to a record and reseal the outer manifest.",
+      "expectedCode": "JSON_DUPLICATE_KEY",
+      "severeIfAccepted": true
+    },
+    {
+      "mutationId": "M09-record-id-conflict",
+      "class": "record-identity",
+      "operation": "Make two records carry the same recordId, then reseal the record chain and manifest.",
+      "expectedCode": "RECORD_ID_CONFLICT",
+      "severeIfAccepted": true
+    },
+    {
+      "mutationId": "M10-dangling-reference",
+      "class": "record-reference",
+      "operation": "Point an assertion at an absent evidenceId, then reseal the record chain and manifest.",
+      "expectedCode": "REFERENCE_DANGLING",
+      "severeIfAccepted": true
+    },
+    {
+      "mutationId": "M11-revision-chain-invalid",
+      "class": "revision-history",
+      "operation": "Make the second document revision name itself as predecessor, then reseal the record chain and manifest.",
+      "expectedCode": "REVISION_CHAIN_INVALID",
+      "severeIfAccepted": true
+    },
+    {
+      "mutationId": "M12-historical-record-overwritten",
+      "class": "append-only-history",
+      "operation": "Change the first document revision bytes without changing the accepted external manifest anchor.",
+      "expectedCode": "MANIFEST_HASH_MISMATCH",
+      "severeIfAccepted": true
+    },
+    {
+      "mutationId": "M13-recorded-order-invalid",
+      "class": "recorded-time",
+      "operation": "Duplicate one recordedSequence, then reseal the record chain and manifest.",
+      "expectedCode": "RECORDED_ORDER_INVALID",
+      "severeIfAccepted": true
+    },
+    {
+      "mutationId": "M14-assessment-cannot-decide",
+      "class": "assessment-versus-decision",
+      "operation": "Remove the H1 document accept decision and reseal the record chain and manifest; the H2 Assessment must not select a fact.",
+      "expectedCode": "EXPECTED_ABSTENTION",
+      "severeIfAccepted": true
+    },
+    {
+      "mutationId": "M15-decision-invalid",
+      "class": "acceptance-lifecycle",
+      "operation": "Make the H3 revocation precede or target a different accept decision, then reseal the record chain and manifest.",
+      "expectedCode": "DECISION_INVALID",
+      "severeIfAccepted": true
+    },
+    {
+      "mutationId": "M16-boundary-leak-or-unknown-version",
+      "class": "horizon-and-format-boundary",
+      "operation": "Run the final bundle through all earlier as-of queries, then separately replace one record format with an unknown version and reseal the chain and manifest.",
+      "expectedCode": "NO_FUTURE_LEAK_AND_UNKNOWN_FORMAT_REJECTED",
+      "severeIfAccepted": true
+    }
+  ],
+  "hardcodingVariant": {
+    "variantId": "retry-limit-remap-v1",
+    "storage": "Generated only in a goal-owned temporary root; not a fourth committed source.",
+    "transformations": {
+      "sourceText": [
+        {
+          "from": "3 attempts",
+          "to": "2 attempts"
+        },
+        {
+          "from": "5 attempts",
+          "to": "7 attempts"
+        }
+      ],
+      "integerValues": [
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 5,
+          "to": 7
+        }
+      ],
+      "identifierRule": "Prefix every opaque source, record, evidence, assertion, revision, assessment, and decision identifier with variant."
+    },
+    "expectedPolicyValues": {
+      "document-authority-v0": [
+        2,
+        2,
+        7
+      ],
+      "observed-state-v0": [
+        null,
+        7,
+        7
+      ]
+    },
+    "claimBoundary": "A hardcoding guard only; not a second experiment and not evidence of generality."
+  },
+  "severeFailures": [
+    "A corrupt or incomplete bundle is accepted.",
+    "An invalid evidence span is treated as valid.",
+    "A historical canonical record is overwritten without rejection.",
+    "Later knowledge changes an earlier recorded-as-of view.",
+    "An Assessment changes the selected fact without an AcceptanceDecision.",
+    "A decision affects the wrong revision, policy, purpose, or actor boundary.",
+    "Node.js and Python produce different semantic output.",
+    "The detached reader needs hidden state or a projection.",
+    "Expected results are changed after the contract anchor.",
+    "Any denominator cell is omitted."
+  ],
+  "decisionRules": {
+    "keep": "All 18 cells pass; exact evidence, append-only correction, assessment/decision separation, both policy views, two byte-identical clean builds, Node rebuild, detached Python reading, semantic digest equality, every mutation, repository checks, CI, and budgets pass with zero unresolved severe failures.",
+    "shrink": "Allowed only as record-and-correction-core-v1 when all 12 Node writer/rebuild cells and the complete semantic core pass without severe failures, but portable bundle or detached Python reading cannot honestly finish within budget. No source, horizon, policy, or failed result may be removed.",
+    "stop": "Required when the semantic core fails, history must be overwritten, hidden state or forbidden scope is required, expected results would need fitting, future leakage remains, implementations disagree semantically, the active-date budget is exhausted without an honest shrink, or any other unresolved severe failure remains."
+  },
+  "budgets": {
+    "activeDatesEuropeMoscow": 4,
+    "firstActiveDate": "2026-07-25",
+    "calendarHardStop": null,
+    "journeys": 1,
+    "committedSourceFiles": 3,
+    "policies": 2,
+    "horizons": 3,
+    "denominatorCells": 18,
+    "maximumCanonicalRecords": 32,
+    "maximumBundleFiles": 64,
+    "maximumBundleBytes": 1048576,
+    "maximumDetachedReaderOutputBytes": 65536,
+    "newRuntimeDependencies": 0,
+    "productNetworkCalls": 0,
+    "externalModelCalls": 0,
+    "protectedOrRealDataInputs": 0,
+    "localReferenceCommandTimeoutSeconds": 60
+  },
+  "nonClaims": [
+    "This is not a GraphTruth protocol or normative schema.",
+    "This is not personal-v0 or proof of product utility.",
+    "This is not evidence of generality, representativeness, scale, or performance.",
+    "This does not prove concurrency or crash/power-loss durability.",
+    "This does not defend against a hostile same-user process.",
+    "This does not define a general policy language, ontology, entity model, question model, or contradiction detector.",
+    "This does not promise compatibility or migration from this experimental JSON.",
+    "The Python reader is structurally independent code, not a blind human or model review."
+  ],
+  "forbiddenInputsAndWork": [
+    "Project Lantern frozen artifacts as journey input",
+    "private M1 or other terminal private state",
+    "python-annotations-semantics-v1 source or projection bytes",
+    "retained diagnostics or Issue 24 result bytes as experimental input",
+    "fresh confirmatory corpus",
+    "reduced-echo-contract successor",
+    "LLM or embeddings",
+    "baseline, scoring, or evaluated run",
+    "server, database, UI, search, or general CLI",
+    "general policy DSL, ontology, entity resolution, or complex temporal algebra",
+    "normative changes under spec/, schemas/, or rfcs/"
+  ]
+}
