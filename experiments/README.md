@@ -20,7 +20,36 @@ multi-domain experiments. It is a candidate program, not a frozen run pack or
 benchmark. Every evaluated lane still requires the templates and integrity
 seal described below.
 
-Issue #24 activates the first sequential lane,
+### Final Issue #24 disposition — 2026-07-25
+
+Issue #24 ended in a pre-run procedural `stop` on repository-active date 5/5.
+No accepted evaluation contract, implementation, baseline, rehearsal, scoring,
+evaluated run, or sequential decision exists.
+
+The exploratory-learning v2 boundary and execution pack admitted one protected
+read by the designated current session, without a separate model call. Its
+terminal [safe
+result](../examples/experiments/author-call-qualification-v1/exploratory-learning-v2/SAFE-RESULT.md)
+identifies `payload-json-byte-mismatch` as the first failed predicate and
+recommends `reduced-echo-contract`. The terminal deletion fields remain
+`identity-mismatch / not-attempted / not-attempted`; they are immutable evidence
+of that procedure, not the later retention state.
+
+A separately authorized metadata-only retention cleanup subsequently removed
+the exact local stdout, unread zero-byte stderr, and bounded work root. It did
+not delete the diagnostic root and cannot establish deletion from backups,
+snapshots, swap, task logs, or provider systems. The publication-safe record is
+[Issue #24 comment
+5077805340](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5077805340).
+
+The Python corpus and projection remain research-only. Confirmation requires a
+fresh corpus and identity, and no Python-specific task or oracle knowledge may
+transfer. `reduced-echo-contract` is retained as a candidate route; it is not
+authorized or active. The single-major-WIP slot is free.
+
+### Historical Issue #24 execution record through 2026-07-24
+
+Issue #24 activated the first sequential lane,
 [`python-annotations-semantics-v1`](corpora/python-annotations-semantics-v1/README.md),
 as the single major WIP. Its public
 [corpus-selection and rights record](corpora/python-annotations-semantics-v1/CORPUS-SELECTION.md)
@@ -101,7 +130,8 @@ on repository-active date 4/5 in [Issue #24 comment
 5066292679](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5066292679).
 It is frozen but inactive and proposes one future exposure of the exact retained
 stdout to the current GraphTruth session through a fresh one-use local reader.
-The retained stdout and stderr remain unread. Issue #24 comment 5067065118
+The retained stdout and stderr remain unread. [Issue #24 comment
+5067065118](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5067065118)
 separately authorized public-only execution-pack preparation. The prepared
 [pack](../examples/experiments/author-call-qualification-v1/exploratory-learning-v1/README.md)
 binds a one-use reader, closed safe-result schema, semantic validator,
@@ -115,6 +145,10 @@ processing authorization remain required. The terminal diagnostic candidate
 cannot transfer into the learning route. The retained local raw diagnostics
 must be deleted no later than
 `2026-08-22T16:39:58Z`.
+The boundary permits only one new repository-active date from acceptance
+through result publication; 2026-07-24 is that date. An Issue-level `continue`
+cannot amend it. Processing after that date requires a new boundary identity
+and a new pack bound to it.
 Runtime adaptation, implementation, rehearsal, SUT, baseline execution,
 scoring, and an experimental run remain unauthorized.
 

@@ -4,7 +4,8 @@ GraphTruth uses three planning layers with different responsibilities:
 
 1. `README.md`, the stable documents under `docs/`, and the non-normative
    design archive explain the mission, constraints, architecture, and idea
-   space.
+   space. The [idea map](../IDEAS.md) is the curated bridge from the original
+   product threads to evidence gates and candidate RFCs.
 2. [`docs/ROADMAP.md`](../ROADMAP.md) defines capability stages and the evidence
    required to move between them.
 3. [`graphtruth.plan.yaml`](graphtruth.plan.yaml) is the current operational map:
@@ -43,7 +44,44 @@ enter GraphTruth's protocol, schemas, runtime, or RFC authority chain. Rendering
 tools are not vendored because no generated planning view is currently a
 maintained artifact.
 
-## Current position — 2026-07-24
+## Current position — 2026-07-25
+
+Issue #24 reached a pre-run procedural `stop` after using its five
+repository-active dates: 2026-07-21 through 2026-07-25. No evaluation contract,
+implementation, baseline, rehearsal, scoring, evaluated run, or sequential
+decision exists, so this must not be described as `sequential stop` or evidence
+of GraphTruth utility.
+
+The exact exploratory-learning v2 boundary and execution pack were accepted and
+published in PR
+[#39](https://github.com/asukhodko/graphtruth/pull/39). One authorized protected
+read then produced the terminal [safe
+result](../../examples/experiments/author-call-qualification-v1/exploratory-learning-v2/SAFE-RESULT.md),
+published in PR [#40](https://github.com/asukhodko/graphtruth/pull/40). It
+localizes the first author-call failure to `payload-json-byte-mismatch` and
+recommends `reduced-echo-contract`. This is exploratory procedure evidence
+only.
+
+The terminal v2 result correctly retains deletion states
+`identity-mismatch / not-attempted / not-attempted`: the original deletion-only
+route could not prove byte continuity because the read-time metadata
+fingerprint had not been saved. A later, separately authorized one-shot
+retention cleanup accepted that residual uncertainty and removed the exact
+local stdout, unread zero-byte stderr, and bounded work root using no-follow
+metadata only. The diagnostic root remains. Local deletion does not establish
+deletion from backups, snapshots, swap, task logs, or provider systems. The
+publication-safe cleanup record is [Issue #24 comment
+5077805340](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5077805340).
+
+The Python corpus and projection remain immutable research artifacts and cannot
+be the first confirmatory corpus. `reduced-echo-contract` remains a backlog
+candidate rather than active work. The single-major-WIP slot is free; selecting
+the next track requires a separate issue, budget, acceptance criteria, and
+authorization. OpsKarta therefore records the Issue #24 lane as stopped and
+does not silently activate either a minimal GraphTruth golden journey or a
+fresh confirmatory corpus.
+
+## Historical execution record — 2026-07-24
 
 Issue #24 is the single major WIP. Selection, source acquisition, and the
 byte-identical RST projection are complete and owner-accepted. The issue has
@@ -102,14 +140,19 @@ in [Issue #24 comment
 5066292679](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5066292679).
 The boundary is frozen but inactive. The retained stdout and stderr remain
 unread; no protected processing, separate external/model call, or experiment
-ran. Issue #24 comment 5067065118 separately authorized only public
-execution-pack preparation. The resulting
+ran. [Issue #24 comment
+5067065118](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5067065118)
+separately authorized only public execution-pack preparation. The resulting
 [pack](../../examples/experiments/author-call-qualification-v1/exploratory-learning-v1/README.md)
 binds its one-use reader, closed schema, semantic validator, artificial
 fixtures, tests and reader-independent verifier under manifest SHA-256
 `205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4`.
 The deterministic audit passed under receipt SHA-256
 `5257e6229e2eacd15fdd2df655c6a3db00d394e94b660100dac0564cb9f237f4`.
+PR [#38](https://github.com/asukhodko/graphtruth/pull/38) merged those exact
+public bytes after both repository checks passed; [Issue #24 comment
+5067639751](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5067639751)
+records the safe completion state.
 Manifest
 `45820302417fa577d89cfce46d3c3b6ea6e18ec4c891661a1af67404f423951d`
 cannot be accepted, re-audited, repaired, or reused on this route.
@@ -124,9 +167,20 @@ execution method, prototype-only work, or pre-run `stop`. Issue #24 remains at
 repository-active date 4/5; activity on date 5/5 requires a prior owner choice
 of `continue`, `shrink`, or `stop`.
 
-All later route nodes are `conditional`. In this map that means “possible after
-a future decision,” not “authorized.” The v1 disposition started its one
-30-day deadline: retained local raw diagnostics must be deleted no later than
+The accepted learning boundary has a narrower immutable budget: at most one new
+repository-active date from boundary acceptance through result publication.
+2026-07-24 is that date. An Issue-level `continue` before date 5/5 would not
+amend the accepted boundary. If the v1 result is not published on 2026-07-24
+Europe/Moscow, later protected processing requires a new boundary identity and,
+because the current pack binds the old boundary, a new pack and separate
+acceptances. Retained output remains unread unless and until an exact boundary
+authorizes otherwise.
+
+Later route-choice nodes are `conditional`. In this map that means “possible
+after a future decision,” not “authorized.” Downstream successor evaluation,
+implementation, rehearsal, and run nodes remain `planned`, but their
+prerequisites do not grant authority. The v1 disposition started its one 30-day
+deadline: retained local raw diagnostics must be deleted no later than
 `2026-08-22T16:39:58Z`; the safe public result is retained. Later successor
 dispositions do not reset that deadline and must carry their own retention
 rules.
@@ -134,10 +188,17 @@ rules.
 `g6-evaluation-contract-accepted`, implementation, rehearsal, SUT, baseline
 execution, scoring, and an evaluated run remain planned and unauthorized.
 
+The operational map deliberately does not expand every preserved product idea
+into tasks. Guarded project documentation, emergent organization, active
+acquisition, and experience transfer remain visible in the [idea
+map](../IDEAS.md) and enter OpsKarta only when evidence makes one of them the
+single major WIP.
+
 ## Maintenance rules
 
-- Keep the current Issue #24 Python sequential path detailed through its
-  selection, freeze, rehearsal, run, and decision gates.
+- Keep the stopped Issue #24 lineage detailed through its terminal procedural
+  disposition; leave its unstarted evaluation, implementation, rehearsal, run,
+  and sequential-decision nodes visibly unfulfilled.
 - Keep later capabilities as horizon nodes until one becomes the single major
   work item.
 - Do not copy private corpus names, paths, tasks, answers, or metrics into the
@@ -145,20 +206,17 @@ execution, scoring, and an evaluated run remain planned and unauthorized.
 - Update execution facts and gate statuses together with their evidence.
 - Represent every owner authorization that changes the permitted work boundary
   as its own milestone; completing a prerequisite never grants that authority.
-- Treat `conditional` nodes as possible routes rather than permission. The
-  selected learning route still separates proposal preparation, exact
-  acceptance, execution-pack preparation and acceptance, processing
-  authorization, execution, and disposition.
+- Treat `conditional` nodes as possible routes rather than permission. A future
+  route must still separate proposal preparation, exact acceptance,
+  execution-pack preparation and acceptance, processing authorization,
+  execution, and disposition.
 - Account for one issue-wide time box across all of its plan phases; never reset
   a budget by renaming or decomposing the work.
 - Issue #6 is closed at stop with four counted dates: 2026-07-12, 2026-07-13,
   2026-07-14, and 2026-07-21. Do not reuse its remaining nominal day.
-- For Issue #24, count one working day per distinct Europe/Moscow date with
-  material GraphTruth repository or issue activity on or after the issue was
-  opened. Multiple events on one date count once; a date with no activity
-  counts zero. Keep the ledger in Issue #24 and the roadmap. Day 1 is
-  2026-07-21; require an explicit owner continue/shrink/stop decision before
-  day 5 begins, and retain the independent 2026-08-04 hard stop.
+- Issue #24 closed its five-date ledger with 2026-07-21, 2026-07-22,
+  2026-07-23, 2026-07-24, and 2026-07-25. The owner chose `stop` before date 5
+  activity; the independent 2026-08-04 hard stop was not reached.
 - Revise the textual roadmap only when capability ordering or transition
   evidence changes; routine task movement belongs here and in the relevant
   issue.

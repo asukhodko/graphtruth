@@ -3,6 +3,7 @@
 > **Status:** Non-normative design archive.
 > **Archive established:** 2026-07-11.
 > **Latest expansion:** 2026-07-12.
+> **Latest status review:** 2026-07-25.
 > **Authority:** None. These notes do not define GraphTruth conformance and do
 > not amend an accepted RFC, the specification, schemas, or project principles.
 
@@ -10,6 +11,13 @@ This directory preserves valuable reasoning that would otherwise remain only in
 design conversations: precursor formulations, alternatives, working hypotheses,
 failure analyses, algorithm candidates, research snapshots, and tasks that may
 later deserve experiments or RFCs.
+
+The curated [idea map and research agenda](../IDEAS.md) is the visible entry
+point for this material. It identifies which original product threads remain
+strategic, which are evidence-gated, and which backlog items or RFC candidates
+own their next proof. This archive retains the full alternatives and history;
+the idea map prevents the most valuable threads from becoming discoverable only
+through long draft files.
 
 The archive is deliberately more inclusive than the normative project surface.
 It may contain mutually exclusive options and superseded sketches. That is a

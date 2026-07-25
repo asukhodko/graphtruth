@@ -119,3 +119,30 @@ inactive. No protected read, separate external call, successor work, corpus
 processing, or experiment is authorized. The raw-diagnostic deletion deadline
 remains
 `2026-08-22T16:39:58Z`.
+The accepted boundary permits only one new repository-active date from
+acceptance through result publication, and 2026-07-24 is that date. A later
+Issue-level `continue` cannot amend the frozen boundary; protected processing
+on a later date requires a new boundary identity and a new pack bound to it.
+
+## Final disposition — 2026-07-25
+
+The preceding route narrative is a chronological record. The current authority
+is the terminal state below:
+
+- the v2 boundary and execution pack were accepted and merged in PR
+  [#39](https://github.com/asukhodko/graphtruth/pull/39);
+- one authorized protected read, with no separate model call, produced the
+  terminal [safe result](exploratory-learning-v2/SAFE-RESULT.md), merged in PR
+  [#40](https://github.com/asukhodko/graphtruth/pull/40);
+- the first failed predicate is `payload-json-byte-mismatch`; the recommended
+  successor is `reduced-echo-contract`;
+- the safe result's deletion state remains
+  `identity-mismatch / not-attempted / not-attempted`;
+- a later, separate retention-only procedure removed the exact local stdout,
+  unread zero-byte stderr, and bounded work root using metadata only. The
+  diagnostic root remains, and provider-side or backup deletion is not claimed;
+- Issue #24 stopped procedurally before implementation or an evaluated run.
+
+No successor is authorized. The qualification remains `not-qualified`; this
+evidence does not accept an evaluation contract or establish GraphTruth
+utility.

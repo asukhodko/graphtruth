@@ -31,19 +31,20 @@ nodes:
       evidence contract or evaluated private run existed; its fourth and final
       repo-active date is the 2026-07-21 stop synchronization. Terminal local
       states remain outside the repository and later work must not inspect,
-      repair, delete, retry, or reuse them. Issue #24 now owns the single major
-      WIP: the public `python-annotations-semantics-v1` sequential lane. Its
-      five-date budget starts on 2026-07-21, requires an owner decision before
-      day five, and has an independent 2026-08-04 hard stop. This public lane
-      is now explicitly exploratory: it can harden the experimental procedure
-      but cannot serve as the first confirmation of GraphTruth. Confirmation
-      requires a fresh corpus and identity with no transfer of disclosed Python
-      material. After a terminal diagnostic-audit failure, the owner selected
-      exploratory learning and authorized only preparation of an exact boundary.
-      The owner accepted its exact merged SHA-256 on repository-active date 4/5.
-      The boundary is frozen but inactive; execution-pack preparation is not
-      authorized and retained output remains unread. The lane cannot replace the
-      still missing private dogfood usefulness evidence.
+      repair, delete, retry, or reuse them. Issue #24 used its separate
+      five-date budget from 2026-07-21 through 2026-07-25 and ended in a pre-run
+      procedural stop. No evaluation contract, implementation, baseline,
+      rehearsal, scoring, evaluated run, sequential decision, or GraphTruth
+      usefulness result exists. The accepted exploratory-learning v2 pack and
+      one bounded current-session read produced terminal safe result
+      0e78a589d8b13dbb986a597c404e9582be1a1c402305a7ddb7dc8780f10451c0:
+      first failure `payload-json-byte-mismatch`, recommended route
+      `reduced-echo-contract`. A later separate metadata-only retention
+      procedure removed the exact local stdout, unread zero-byte stderr, and
+      bounded work root. The diagnostic root remains, and non-local deletion is
+      not claimed. The Python corpus and projection are research-only;
+      confirmation requires a fresh corpus and identity. No successor is
+      authorized and the single-major-WIP slot is free.
 
   m0-rehearsal-integration:
     title: "Integrate the runtime-boundary rehearsal evidence"
@@ -686,48 +687,32 @@ nodes:
     status: done
 
   m6-python-sequential:
-    title: "Run the Python annotation-semantics sequential experiment"
+    title: "Python annotation-semantics sequential lane"
     kind: phase
     parent: graphtruth
     deps: [g5-next-track-selected]
-    status: current
+    status: stopped
     issue: "https://github.com/asukhodko/graphtruth/issues/24"
     notes: |
-      Single major WIP. The four-item public PEP decision lineage tests
-      reproducible deterministic S0-S1 capture, chronology, rationale,
-      replacement, supplementation, gaps, retrieval, rebuild, and comparison
-      cost. It cannot establish private dogfood utility or current Python
-      behavior beyond the retained corpus. The five-date budget starts on
-      2026-07-21; owner decision is required before day five and the independent
-      hard stop is 2026-08-04. Date 4/5 is 2026-07-24. One separately authorized
-      evaluation-freeze v1 attempt ended in a terminal independent-audit
-      rejection. Its safe diagnosis is recorded. The exact v2 tooling identity
-      was accepted and one separately authorized invocation stopped fail-closed
-      with `AUTHOR_MODEL_CALL` before a validated author artifact or independent
-      audit. No public result JSON, release, or accepted contract exists. The
-      owner chose a procedural `shrink`: preserve the corpus, projection, and v2
-      bytes while preparing a generated-public-synthetic author-call
-      qualification. The owner later accepted its exact identity and separately
-      authorized one external synthetic call. The consumed call ended
-      `not-qualified / result-schema`. On the same repository-active date the
-      owner chose `diagnose-first`, started the single raw-diagnostic deletion
-      deadline at 2026-08-22T16:39:58Z, and authorized only public-fixture
-      preparation plus one public-code audit. A local candidate was prepared,
-      but that sole audit ended `audit-call-failed` before an auditor verdict.
-      The candidate remains terminal, unaccepted, unpublished, and non-reusable.
-      The owner selected exploratory learning and separately authorized only
-      public preparation of its exact boundary. On date 4/5 the owner accepted
-      merged SHA-256
-      4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e.
-      The boundary is frozen but inactive; retained stdout and stderr remain
-      unread. Execution-pack preparation authorization, exact pack acceptance,
-      and later processing authorization remain separate. The learning branch
-      can never open an evaluation successor. Any continuing author-call route
-      must later pass a fresh qualification identity, acceptance, one-call
-      authorization, and terminal qualification before an evaluation successor
-      can be authorized. Any result on this disclosed Python corpus is
-      exploratory. A first confirmatory result needs a fresh corpus and
-      identity.
+      Issue #24 stopped procedurally on repository-active date 5/5 before an
+      accepted evaluation contract or evaluated comparison. The accepted v2
+      boundary SHA-256 is
+      4fd2f38bb230436a7cedb2610eaedc3d0ccae036a8163ba91b732f17c6bd96a3;
+      execution-pack manifest SHA-256 is
+      e7a95f4002c9e24e421ab41074ec52362fd9a054cd958f13c294f5458de3341c;
+      audit result SHA-256 is
+      fdd4a5dc1a7ca4472ac8e29433b16936d984d07a12fe800ec7c989e6a6406580.
+      One authorized protected read used no separate model call. Terminal JSON
+      SHA-256
+      0e78a589d8b13dbb986a597c404e9582be1a1c402305a7ddb7dc8780f10451c0
+      records first failure `payload-json-byte-mismatch`, recommended route
+      `reduced-echo-contract`, and deletion states
+      `identity-mismatch / not-attempted / not-attempted`. A separate
+      retention-only procedure later removed the exact local stdout, unread
+      zero-byte stderr, and bounded work root without changing that result.
+      The diagnostic root remains and non-local deletion is unverified. The
+      corpus and projection remain immutable research artifacts. No successor,
+      implementation, baseline, rehearsal, scoring, or run is authorized.
 
   m6-freeze-selection-rights:
     title: "Freeze Python corpus selection, chronology, rights, and boundary"
@@ -1073,11 +1058,13 @@ nodes:
     deps: [g6-python-learning-boundary-preparation-authorized]
     status: done
     notes: |
-      The public proposal at
+      The v1 public proposal at
       examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY.md
-      fixes the prospective subject, processors, one-episode procedure, safe
-      outputs, budgets, retention, deletion, claim ceiling, and stop rules.
-      Preparation read no retained output or private material and ran no reader,
+      was accepted, then stopped before protected reading when its private
+      locator was absent from owner-visible records. V2 preserved that pre-read
+      stop under a fresh publication-safe boundary at
+      examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY-V2.md.
+      Neither preparation read retained output or private material or ran a
       model call, implementation, baseline, rehearsal, scoring, or experiment.
 
   g6-python-learning-boundary-accepted:
@@ -1088,11 +1075,12 @@ nodes:
     deps: [m6-prepare-python-learning-boundary]
     status: done
     notes: |
-      Issue #24 comment 5066292679 records owner acceptance of exact merged
+      The v1 boundary SHA-256
+      4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e
+      remains stopped and non-reusable. The owner later accepted exact v2
       boundary SHA-256
-      4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e.
-      Acceptance freezes the boundary but grants no execution-pack preparation,
-      retained-output path, read, or processing.
+      4fd2f38bb230436a7cedb2610eaedc3d0ccae036a8163ba91b732f17c6bd96a3.
+      Boundary acceptance alone granted no protected read or processing.
 
   g6-python-learning-execution-preparation-authorized:
     title: "Gate: exploratory-learning execution-pack preparation authorized"
@@ -1102,11 +1090,11 @@ nodes:
     deps: [g6-python-learning-boundary-accepted]
     status: done
     notes: |
-      Issue #24 comment 5067065118 separately authorizes only public
-      preparation and deterministic review of a fresh reader, closed result
-      schema, semantic validator, artificial fixtures, tests, verifier, and
-      exact manifest. It grants no retained-output path, read,
-      protected-content processing, live call, or experiment.
+      Public-only preparation and deterministic review were separately
+      authorized for both the stopped v1 pack and its v2 successor. Preparation
+      covered a fresh reader, closed result schema, semantic validator,
+      artificial fixtures, tests, verifier, and exact manifest. It granted no
+      protected read, separate model call, or experiment.
 
   m6-prepare-python-learning-execution-pack:
     title: "Prepare and independently review the learning execution pack"
@@ -1115,15 +1103,14 @@ nodes:
     deps: [g6-python-learning-execution-preparation-authorized]
     status: done
     notes: |
-      The public-only pack binds the accepted boundary, exact parser modules,
-      one-use reader, closed result schema, semantic validator, artificial
-      fixtures, 33 mutation cases, safe example, future run card, and
-      reader-independent verifier. Exact manifest SHA-256
-      205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4
-      passed deterministic review; safe audit-result SHA-256 is
-      5257e6229e2eacd15fdd2df655c6a3db00d394e94b660100dac0564cb9f237f4.
-      Preparation located or read no retained output, candidate, corpus,
-      projection, or closed state and made no model call or experiment.
+      The accepted v2 public-only pack binds 15 components and 10 anchors under
+      manifest SHA-256
+      e7a95f4002c9e24e421ab41074ec52362fd9a054cd958f13c294f5458de3341c.
+      Its reader-independent deterministic audit passed under result SHA-256
+      fdd4a5dc1a7ca4472ac8e29433b16936d984d07a12fe800ec7c989e6a6406580.
+      PR #39 merged the exact boundary and pack. Preparation read no protected
+      output, candidate, corpus, projection, or closed state and made no model
+      call or experiment.
 
   g6-python-learning-execution-pack-accepted:
     title: "Gate: exact exploratory-learning execution pack accepted"
@@ -1131,13 +1118,13 @@ nodes:
     milestone: true
     parent: m6-python-sequential
     deps: [m6-prepare-python-learning-execution-pack]
-    status: ready
+    status: done
     notes: |
-      Requires separate owner acceptance of exact merged manifest SHA-256
-      205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4
-      and every bound component. The deterministic audit does not close this
-      gate. Acceptance grants no retained-output read, protected-content
-      processing, live call, or experiment.
+      The owner accepted exact v2 manifest SHA-256
+      e7a95f4002c9e24e421ab41074ec52362fd9a054cd958f13c294f5458de3341c
+      and every bound component. PR #39 merged that identity at
+      11ca663e22acd7f606f96163548dbf47bc159f05. Acceptance granted no
+      protected read, processing, separate model call, or experiment.
 
   g6-author-call-qualification-v1-diagnostic-tooling-accepted:
     title: "Gate: exact diagnostic tooling identity accepted"
@@ -1282,28 +1269,29 @@ nodes:
     milestone: true
     parent: m6-python-sequential
     deps: [g6-python-learning-execution-pack-accepted]
-    status: conditional
+    status: done
     notes: |
-      Requires a later owner decision naming the accepted boundary, execution
-      pack, reader, and result-schema SHA-256 values plus the exact diagnostic
-      root and retained-stdout path. The owner must accept one continuous
-      current-session OpenAI processing episode, transcript and retention risk,
-      safe outputs, budgets, and deletion. It grants no separately launched
-      model session or provider call, terminal-candidate reuse, successor work,
-      corpus processing, or experiment.
+      Issue #24 comment 5073995561 authorized one exact v2 protected read by the
+      deterministic reader and one delivery to the current GraphTruth session.
+      No separately launched model session, other processor, terminal-candidate
+      reuse, corpus or projection processing, or experiment was admitted.
 
   m6-record-expanded-learning:
-    title: "Conditionally extract and record exploratory learning"
+    title: "Extract and record exploratory learning"
     kind: task
     parent: m6-python-sequential
     deps: [g6-python-learning-expansion-authorized]
-    status: conditional
+    status: done
     notes: |
-      Publish only predeclared safe learning. Keep every terminal outcome
-      terminal and make no confirmatory, evaluation, baseline, scoring, or run
-      claim. Use one fresh local reader and one current-session exposure only,
-      then apply the declared local deletion boundary. A fresh corpus and
-      identity remain required for confirmation.
+      One accepted reader pass and one current-session exposure produced the
+      terminal safe JSON SHA-256
+      0e78a589d8b13dbb986a597c404e9582be1a1c402305a7ddb7dc8780f10451c0
+      and Markdown SHA-256
+      a1f45f948db67e9082e9d9b91113fb717d7398845261775e0f06ffeeedd81ff9.
+      PR #40 merged them at 7baa8af5bc4b3135f79bab8da5e70131b18f4f78.
+      The first failure is `payload-json-byte-mismatch`; the recommended route
+      is `reduced-echo-contract`. No confirmatory, evaluation, baseline,
+      scoring, or run claim follows.
 
   g6-python-learning-result-disposition:
     title: "Gate: dispose the exact exploratory-learning result"
@@ -1313,12 +1301,13 @@ nodes:
     deps:
       - m6-record-expanded-learning
       - m6-purge-author-call-qualification-v1-diagnostics
-    status: conditional
+    status: done
     notes: |
-      After a safe terminal learning result, separately choose narrow successor
-      preparation, another execution method, prototype-only work, or stop. The
-      result cannot close qualification or authorize a model call, evaluation
-      freeze, implementation, baseline, rehearsal, scoring, or run.
+      The owner accepted the terminal safe bytes and chose pre-run procedural
+      stop before repository-active date 5/5. `reduced-echo-contract` remains a
+      backlog candidate, not current WIP. The result did not close
+      qualification or authorize a model call, evaluation freeze,
+      implementation, baseline, rehearsal, scoring, or run.
 
   g6-python-sequential-early-stop-recorded:
     title: "Gate: pre-run Python sequential stop recorded"
@@ -1326,33 +1315,29 @@ nodes:
     milestone: true
     parent: m6-python-sequential
     deps: [g6-author-call-qualification-v1-disposition]
-    status: conditional
+    status: done
     notes: |
-      Close only if the owner stops Issue #24 before an evaluated comparison,
-      either now or after a later terminal qualification result. Record a
-      procedural stop, not `sequential stop`, and mark continuation nodes not
-      applicable. The single-major-WIP slot may then move.
+      The owner stopped Issue #24 before date 5/5 and before an accepted
+      evaluation contract or evaluated comparison. This is a procedural stop,
+      not `sequential stop`. The five counted dates are 2026-07-21 through
+      2026-07-25. The single-major-WIP slot is free.
 
   m6-purge-author-call-qualification-v1-diagnostics:
-    title: "Delete retained qualification raw after staged learning or at deadline"
+    title: "Complete retained qualification diagnostics cleanup"
     kind: task
     parent: m6-python-sequential
     deps: [g6-author-call-qualification-v1-disposition]
-    status: conditional
+    status: done
     notes: |
-      Delete owner-only raw synthetic diagnostics no later than
-      2026-08-22T16:39:58Z, 30 calendar days after the exact disposition.
-      Retain the publication-safe result. Provider-side deletion remains
-      unverified. On the selected learning route, first validate the
-      schema-valid safe result locally and obtain owner review of its exact
-      hashes before the first commit or push. Push exactly those bytes to one
-      draft PR; then delete stdout after a no-open metadata identity check,
-      unlink the unread zero-byte stderr only after its fixed metadata checks,
-      change only the predeclared deletion flags, repeat local validation and
-      owner review of the new exact hashes, update that same PR, verify the
-      pushed hashes, rerun checks, and merge. Never recursively delete the
-      original diagnostic root. If learning is not activated or remains
-      unfinished, the deadline still requires exact raw deletion.
+      The v2 deletion-only route stopped terminally at
+      `identity-mismatch / not-attempted / not-attempted`; that accepted result
+      remains unchanged. Under separate
+      `author-call-retained-diagnostics-cleanup-v1`, the owner accepted the
+      missing historical fingerprint risk. One metadata-only attempt removed
+      the exact local stdout, unread zero-byte stderr, and bounded work root.
+      The diagnostic root remains; recursive deletion did not occur. Issue #24
+      comment 5077805340 records the safe result. Backup, snapshot, swap,
+      task-log, and provider-side deletion remain unverified.
 
   g6-evaluation-freeze-successor-authorized:
     title: "Gate: fresh successor evaluation freeze authorized"
@@ -1496,21 +1481,22 @@ nodes:
         type: fs
         hard: false
         note: "Used when the path stops before an evaluated comparison."
-    status: conditional
+    status: done
     notes: |
-      Close through exactly one outcome branch. A pre-run stop is procedural,
-      records no effectiveness result, and does not count as `sequential stop`.
+      Closed through the pre-run stop branch. This procedural disposition
+      records no effectiveness result and does not count as `sequential stop`.
 
   m7-python-order-successor:
     title: "Run the separately frozen 24-order Python successor"
     kind: phase
     parent: graphtruth
     deps: [g6-python-sequential-decision]
-    status: conditional
+    status: stopped
     notes: |
-      Eligible only after `sequential keep`, under a new issue, budget, run
-      identity, semantic-equivalence freeze, and worst-order gate. Shrink or
-      stop disposes this path without execution.
+      Not applicable because Issue #24 stopped before a sequential decision.
+      Any later order-robustness experiment needs a fresh precursor result,
+      issue, budget, identity, semantic-equivalence freeze, and worst-order
+      gate.
 
   h-fresh-confirmatory-corpus:
     title: "Horizon: first GraphTruth confirmation on a fresh corpus"
@@ -1533,7 +1519,13 @@ nodes:
     parent: graphtruth
     deps: [g0-foundation-exit, g5-next-track-selected]
     status: deferred
-    notes: "Regular use, correction, second access path, backup/restore, migration, and rebuild without a parallel notebook."
+    notes: |
+      Regular use without a parallel notebook; declared source-snapshot
+      coverage; field-level evidence grounding; distinct assertion,
+      Assessment, and AcceptanceDecision handling; correction; a second access
+      path; backup/restore; migration; rebuild; static human fallback; and an
+      exercised privacy, retention, and deletion boundary for the selected
+      workflow.
 
   h-public-corpora:
     title: "Horizon: Python, GitLab, and PostgreSQL public corpus program"
@@ -1563,6 +1555,22 @@ nodes:
     status: deferred
     issue: "https://github.com/asukhodko/graphtruth/issues/8"
     notes: "Eligible only after the complete three-corpus public horizon reaches keep."
+
+  h-generated-project-views:
+    title: "Horizon: guarded project documentation from code and work evidence"
+    kind: milestone
+    milestone: true
+    parent: graphtruth
+    deps: [h-personal-v0]
+    status: deferred
+    notes: |
+      Preserve the original automatic-documentation thread as a Stage 2 product
+      experiment. Combine versioned code with schemas, tests, repository
+      history, decisions, incidents, and runtime observations. Generated
+      documents remain attributable, freshness-aware derived views and cannot
+      corroborate themselves. Activate only for one bounded maintenance task
+      with source-plus-search as the baseline; code alone is not expected to
+      recover intent or operational truth.
 
   h-protocol-hardening:
     title: "Horizon: earn protocol schemas, conformance, migrations, and an independent reader"
@@ -1691,9 +1699,11 @@ execution:
       actual_finish: "2026-07-21"
       updated_at: "2026-07-21T08:03:17+03:00"
     m6-python-sequential:
+      progress: 1.0
       actual_start: "2026-07-21"
-      updated_at: "2026-07-24T07:57:24+03:00"
-      note: "Repo-active date 4/5: exact exploratory-learning boundary SHA-256 4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e is accepted and frozen but inactive. Pack preparation is unauthorized; retained stdout and stderr remain unread."
+      actual_finish: "2026-07-25"
+      updated_at: "2026-07-25T15:35:12+03:00"
+      note: "Pre-run procedural stop on date 5/5. V2 safe result localizes payload-json-byte-mismatch; reduced-echo-contract is backlog only. No accepted evaluation contract, implementation, baseline, rehearsal, scoring, run, sequential decision, or utility claim."
     m6-freeze-selection-rights:
       progress: 1.0
       actual_start: "2026-07-21"
@@ -1850,40 +1860,56 @@ execution:
       progress: 1.0
       actual_start: "2026-07-24"
       actual_finish: "2026-07-24"
-      updated_at: "2026-07-24T07:57:24+03:00"
-      note: "Issue #24 comment 5066292679 accepts exact merged boundary SHA-256 4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e without authorizing pack preparation, raw access, or processing."
+      updated_at: "2026-07-25T15:35:12+03:00"
+      note: "V1 stopped before read. Owner separately accepted v2 boundary SHA-256 4fd2f38bb230436a7cedb2610eaedc3d0ccae036a8163ba91b732f17c6bd96a3; acceptance alone granted no processing."
     g6-python-learning-execution-preparation-authorized:
       progress: 1.0
       actual_start: "2026-07-24"
       actual_finish: "2026-07-24"
-      updated_at: "2026-07-24T10:31:51+03:00"
-      note: "Issue #24 comment 5067065118 separately authorized public-only execution-pack preparation and deterministic review. It grants no raw path, read, model call, processing, or experiment."
+      updated_at: "2026-07-25T15:35:12+03:00"
+      note: "Public-only v2 pack preparation and deterministic audit were separately authorized without a protected read, model call, or experiment."
     m6-prepare-python-learning-execution-pack:
       progress: 1.0
       actual_start: "2026-07-24"
-      actual_finish: "2026-07-24"
-      updated_at: "2026-07-24T10:31:51+03:00"
-      note: "Prepared and deterministically checked the public-only one-use reader, closed schema, validator, artificial fixtures, 33 mutation cases, verifier, run card, manifest 205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4, and safe audit receipt 5257e6229e2eacd15fdd2df655c6a3db00d394e94b660100dac0564cb9f237f4. No protected or terminal input was read."
+      actual_finish: "2026-07-25"
+      updated_at: "2026-07-25T15:35:12+03:00"
+      note: "PR #39 merged v2 manifest e7a95f4002c9e24e421ab41074ec52362fd9a054cd958f13c294f5458de3341c and passing audit fdd4a5dc1a7ca4472ac8e29433b16936d984d07a12fe800ec7c989e6a6406580 without protected input or a model call."
     g6-python-learning-execution-pack-accepted:
-      progress: 0.0
-      updated_at: "2026-07-24T10:31:51+03:00"
-      note: "Ready for separate owner acceptance of exact manifest 205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4 and all bound components. Audit success alone does not close this gate or authorize processing."
+      progress: 1.0
+      actual_start: "2026-07-24"
+      actual_finish: "2026-07-24"
+      updated_at: "2026-07-25T15:35:12+03:00"
+      note: "Owner accepted exact v2 manifest e7a95f4002c9e24e421ab41074ec52362fd9a054cd958f13c294f5458de3341c and all bound components; this did not itself authorize processing."
     g6-python-learning-expansion-authorized:
-      progress: 0.0
-      updated_at: "2026-07-23T22:50:00+03:00"
-      note: "Conditional on exact execution-pack acceptance and a later separate owner processing authorization."
+      progress: 1.0
+      actual_start: "2026-07-24"
+      actual_finish: "2026-07-24"
+      updated_at: "2026-07-25T15:35:12+03:00"
+      note: "Issue #24 comment 5073995561 authorized one exact reader pass and one current-session delivery with zero separate model calls."
     m6-record-expanded-learning:
-      progress: 0.0
-      updated_at: "2026-07-23T22:50:00+03:00"
-      note: "Conditional. No retained output, reader, current-session exposure, or learning result exists."
+      progress: 1.0
+      actual_start: "2026-07-24"
+      actual_finish: "2026-07-25"
+      updated_at: "2026-07-25T15:35:12+03:00"
+      note: "PR #40 merged terminal JSON 0e78a589d8b13dbb986a597c404e9582be1a1c402305a7ddb7dc8780f10451c0 and Markdown a1f45f948db67e9082e9d9b91113fb717d7398845261775e0f06ffeeedd81ff9."
     g6-python-learning-result-disposition:
-      progress: 0.0
-      updated_at: "2026-07-23T22:50:00+03:00"
-      note: "Conditional on one separately authorized terminal safe learning result."
+      progress: 1.0
+      actual_start: "2026-07-25"
+      actual_finish: "2026-07-25"
+      updated_at: "2026-07-25T15:35:12+03:00"
+      note: "Owner accepted the terminal safe result, retained reduced-echo-contract as backlog, and chose pre-run procedural stop."
     m6-purge-author-call-qualification-v1-diagnostics:
-      progress: 0.0
-      updated_at: "2026-07-23T22:50:00+03:00"
-      note: "Conditional deadline-bound obligation. If learning is authorized, delete exact raw after its safe result is staged and reviewed, then finalize the same PR. Otherwise delete no later than 2026-08-22T16:39:58Z. No raw access is authorized yet."
+      progress: 1.0
+      actual_start: "2026-07-25"
+      actual_finish: "2026-07-25"
+      updated_at: "2026-07-25T15:35:12+03:00"
+      note: "Separate metadata-only retention cleanup removed exact local stdout, unread zero-byte stderr, and bounded work root; diagnostic root remains and non-local deletion is unverified."
+    g6-python-sequential-early-stop-recorded:
+      progress: 1.0
+      actual_start: "2026-07-25"
+      actual_finish: "2026-07-25"
+      updated_at: "2026-07-25T15:35:12+03:00"
+      note: "Issue #24 closed procedurally before implementation or evaluated comparison; this is not sequential stop."
 
 views:
   current-work:
@@ -1892,7 +1918,7 @@ views:
       status: [current, ready]
     order_by: status
   near-decision-path:
-    title: "Near public Python decision path"
+    title: "Stopped Python lane and conditional successors"
     where:
       parent: m6-python-sequential
       status: [done, stopped, current, ready, planned, conditional]
@@ -1910,8 +1936,8 @@ views:
 x:
   exec:
     program:
-      nearest_goal: "Obtain separate owner authorization for public-only exploratory-learning execution-pack preparation without a raw path or read."
-      success_by_next_sync: "Freeze one reviewed execution-pack identity while retained-output reading, processing, and every successor gate remain closed."
+      nearest_goal: "Select exactly one next major WIP from the terminal Issue #24 evidence: the smallest independent record-and-bundle golden journey or a fresh confirmatory corpus."
+      success_by_next_sync: "Record one explicit choice with its own issue, budget, acceptance criteria, identity, and authorization; start no implementation or experiment implicitly."
     defaults:
       status_progress:
         done: 1.0
@@ -1940,20 +1966,20 @@ x:
           sync_note: "Owner chose stop. Issue #6 closes on repo-active day 4 without an admissible private contract, evaluated run, or usefulness claim."
           next_sync_goal: "Preserve all terminal local states and keep them outside every successor dependency."
       python-sequential:
-        title: "Python sequential experiment"
+        title: "Python procedural stop"
         scope_nodes: [m6-python-sequential]
         kind: main
         mgmt:
-          health: yellow
-          sync_note: "Issue #24 is at date 4/5. The owner accepted exact exploratory-learning boundary SHA-256 4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e. The boundary is frozen but inactive; pack preparation remains unauthorized and retained stdout and stderr remain unread."
-          next_sync_goal: "Obtain separate owner authorization for public-only execution-pack preparation without admitting a raw path, read, or processing."
+          health: green
+          sync_note: "Issue #24 stopped procedurally on date 5/5. PR #39 published the accepted v2 pack; PR #40 published terminal safe result payload-json-byte-mismatch with reduced-echo-contract as backlog. Separate retention cleanup removed exact local raw streams and work root while retaining the diagnostic root. No evaluation contract, implementation, baseline, rehearsal, scoring, run, sequential decision, or utility claim exists."
+          next_sync_goal: "Preserve terminal identities and select the next major WIP separately; require a fresh corpus and identity for confirmation."
       python-order-successor:
         title: "Python 24-order successor"
         scope_nodes: [m7-python-order-successor]
         kind: risk_sidecar
         mgmt:
           health: neutral
-          sync_note: "Conditional on sequential keep and a separate issue, budget, freeze, and identity."
+          sync_note: "Not applicable to Issue #24 because no sequential keep exists. Any later order experiment needs a fresh precursor and identity."
     edges:
       - from: integration
         to: private-stop
@@ -1973,7 +1999,7 @@ x:
         show_progress: false
         show_gate_date: false
         wrap_title_lines: 2
-        caption: "Exploratory-learning boundary acceptance is ready; raw processing and every successor remain closed."
+        caption: "Issue #24 is stopped before implementation or run; the major-WIP slot is free and the next track requires a separate decision."
         blocks: [integration, private-stop, python-sequential]
       exec-active-tracks:
         direction: TB

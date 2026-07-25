@@ -8,11 +8,14 @@ import {
   classifyPublicG1ReceiptPath,
   codexSandboxPreflightEvidencePins,
   exploratoryLearningExecutionPackPins,
+  exploratoryLearningV2ExecutionPackPins,
+  exploratoryLearningV2ResultPins,
   pythonEvaluationFreezeEvidencePins,
   pythonEvaluationFreezeV2ToolingPins,
   pythonProjectionEvidencePins,
   validateAuthorCallQualificationResultEvidence,
   validateCodexSandboxPreflightReportContent,
+  validateExploratoryLearningV2ResultEvidence,
   validatePythonEvaluationFreezeTerminalEvidence,
   validatePythonEvaluationFreezeV2ToolingEvidence,
   validatePythonProjectionAcceptanceEvidence,
@@ -191,6 +194,15 @@ async function authorCallQualificationResultEvidence() {
         import.meta.url,
       ),
     ),
+  };
+}
+
+async function exploratoryLearningV2ResultEvidence() {
+  const root =
+    "../examples/experiments/author-call-qualification-v1/exploratory-learning-v2";
+  return {
+    jsonBytes: await readFile(new URL(`${root}/SAFE-RESULT.json`, import.meta.url)),
+    markdownBytes: await readFile(new URL(`${root}/SAFE-RESULT.md`, import.meta.url)),
   };
 }
 
@@ -476,6 +488,41 @@ test("the exploratory-learning execution pack and audit identities are pinned", 
     manifestSha256: "205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4",
     auditResultSha256: "5257e6229e2eacd15fdd2df655c6a3db00d394e94b660100dac0564cb9f237f4",
   });
+  assert.deepEqual(exploratoryLearningV2ExecutionPackPins, {
+    boundarySha256: "4fd2f38bb230436a7cedb2610eaedc3d0ccae036a8163ba91b732f17c6bd96a3",
+    manifestSha256: "e7a95f4002c9e24e421ab41074ec52362fd9a054cd958f13c294f5458de3341c",
+    auditResultSha256: "fdd4a5dc1a7ca4472ac8e29433b16936d984d07a12fe800ec7c989e6a6406580",
+  });
+});
+
+test("the exact exploratory-learning v2 terminal result is pinned", async () => {
+  const evidence = await exploratoryLearningV2ResultEvidence();
+  assert.deepEqual(validateExploratoryLearningV2ResultEvidence(evidence), []);
+  assert.deepEqual(exploratoryLearningV2ResultPins, {
+    jsonSha256: "0e78a589d8b13dbb986a597c404e9582be1a1c402305a7ddb7dc8780f10451c0",
+    markdownSha256: "a1f45f948db67e9082e9d9b91113fb717d7398845261775e0f06ffeeedd81ff9",
+  });
+
+  assert.deepEqual(validateExploratoryLearningV2ResultEvidence({}), [
+    "missing-evidence",
+  ]);
+  assert.deepEqual(
+    validateExploratoryLearningV2ResultEvidence({
+      ...evidence,
+      jsonBytes: evidence.jsonBytes.subarray(0, evidence.jsonBytes.length - 1),
+    }),
+    ["json-digest"],
+  );
+
+  const changed = JSON.parse(evidence.jsonBytes.toString("utf8"));
+  changed.routes.recommended = "stop";
+  assert.deepEqual(
+    validateExploratoryLearningV2ResultEvidence({
+      ...evidence,
+      jsonBytes: Buffer.from(`${JSON.stringify(changed, null, 2)}\n`),
+    }),
+    ["json-digest", "terminal-disposition"],
+  );
 });
 
 test("the author-call qualification result fails closed on malformed or changed evidence", async () => {

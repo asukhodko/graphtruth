@@ -43,8 +43,16 @@ freeze, or evaluated work.
 Its first exploratory-learning reader stopped before a protected read when the
 owner-visible locator was missing. The publication-safe [v2 boundary and
 execution pack](experiments/author-call-qualification-v1/exploratory-learning-v2/)
-bind the declared metadata-only recovery to a fresh inactive identity. They do
-not contain the locator or authorize processing.
+then bound the declared metadata-only recovery to a fresh identity. One
+separately authorized read produced the accepted terminal
+[safe result](experiments/author-call-qualification-v1/exploratory-learning-v2/SAFE-RESULT.md):
+the first localized failure was `payload-json-byte-mismatch`. The result is
+exploratory procedure evidence only; it contains no locator, retained trace,
+corpus material, evaluation contract, or GraphTruth utility claim. A later
+metadata-only retention procedure removed the exact local raw streams and
+bounded work root without changing the terminal result; the diagnostic root and
+non-local copies remain outside that claim. Issue #24 then stopped procedurally
+before implementation or an evaluated run.
 
 If repeated experiments demonstrate stable portable semantics, a separately
 reviewed minimal example may later be promoted into this directory under an

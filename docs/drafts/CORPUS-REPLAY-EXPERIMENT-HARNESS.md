@@ -7,8 +7,8 @@
 > **Created:** 2026-07-12.
 >
 > **Related work:** [Issue #6 — stopped local future-reveal corpus replay
-> harness](https://github.com/asukhodko/graphtruth/issues/6); [Issue #24 — current
-> public Python annotation-semantics sequential
+> harness](https://github.com/asukhodko/graphtruth/issues/6); [Issue #24 — stopped
+> public Python annotation-semantics procedure-development
 > experiment](https://github.com/asukhodko/graphtruth/issues/24).
 >
 > **Authority / promotion:** This draft describes a Zone 3 laboratory and a
@@ -1117,7 +1117,9 @@ GraphTruth repository activity on or after the issue was opened. Multiple
 events on one date count once; a date with no repository activity counts zero.
 The historical counted-date ledger is retained in Issue #6. That experiment
 stopped after four of five repo-active dates; its unused nominal day is not
-reused. Issue #24 is now the single major WIP item and owns a separate budget.
+reused. Issue #24 later used its own five-date budget and stopped before an
+accepted evaluation contract or run. No successor currently owns the
+single-major-WIP slot.
 
 The first time box covers S0–S1; A; B on 3–5 items; exact-redelivery idempotency
 from C; one interruption plus clean rebuild from G; the controller/SUT canary

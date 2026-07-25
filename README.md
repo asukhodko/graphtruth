@@ -36,8 +36,10 @@ transform, index, and use it.
 
 Read [the vision](docs/VISION.md) for the full problem statement and destination,
 [the principles](docs/PRINCIPLES.md) for the constraints that guide design
-decisions, and [the invariant map](docs/INVARIANTS.md) for the current link from
-those constraints to executable evidence and open gaps.
+decisions, [the idea map](docs/IDEAS.md) for the line from the original
+automatic-documentation concept to current evidence-gated research, and
+[the invariant map](docs/INVARIANTS.md) for the current link from those
+constraints to executable evidence and open gaps.
 
 ## The central idea
 
@@ -134,6 +136,11 @@ experiments/   Non-normative Zone 3 laboratory templates and public preflight pa
 tooling/       Validators, transformers, and developer tools
 runtime/       Replaceable default runtime and personal dogfood system
 ```
+
+Repository guides: [documentation](docs/README.md),
+[RFCs](rfcs/README.md), [examples](examples/README.md),
+[experiments](experiments/README.md), [tooling](tooling/README.md), and
+[runtime](runtime/README.md).
 
 These directories are module boundaries, not promises of future repositories.
 Code should be separable in design without paying the coordination cost of

@@ -19,6 +19,10 @@ import {
   ExecutionPackVerificationError as ExecutionPackV2VerificationError,
   verifyCheckedInAudit as verifyCheckedInV2Audit,
 } from "./author-call-result-schema-learning-v2-verifier.mjs";
+import {
+  LearningResultValidationError,
+  validateLearningResult,
+} from "./author-call-result-schema-learning-v2-validator.mjs";
 import { parseStrictJson } from "./private-pack-lock.mjs";
 export {
   codexSandboxPreflightEvidencePins,
@@ -38,6 +42,10 @@ const pythonProjectionAcceptancePath = `${pythonCorpusRoot}/PROJECTION-ACCEPTANC
 const pythonEvaluationFreezeTerminalPath = `${pythonCorpusRoot}/EVALUATION-FREEZE-TERMINAL.json`;
 const authorCallQualificationResultPath =
   "examples/experiments/author-call-qualification-v1/CODEX-AUTHOR-CALL-QUALIFICATION.json";
+const exploratoryLearningV2ResultJsonPath =
+  "examples/experiments/author-call-qualification-v1/exploratory-learning-v2/SAFE-RESULT.json";
+const exploratoryLearningV2ResultMarkdownPath =
+  "examples/experiments/author-call-qualification-v1/exploratory-learning-v2/SAFE-RESULT.md";
 export const pythonProjectionEvidencePins = Object.freeze({
   projectionAcceptanceSha256: "4b15e68f9fca0d83f2cd87c3b9a072ae363eb0d9d4234cf2e3cb1437f9f1d435",
   projectionManifestSha256: "5aba6ebea40066ec1a12e6aa54913b5d39638d3b9a9e8807c1436a6b8e40cb6a",
@@ -99,6 +107,10 @@ export const exploratoryLearningV2ExecutionPackPins = Object.freeze({
   manifestSha256: "e7a95f4002c9e24e421ab41074ec52362fd9a054cd958f13c294f5458de3341c",
   auditResultSha256: "fdd4a5dc1a7ca4472ac8e29433b16936d984d07a12fe800ec7c989e6a6406580",
 });
+export const exploratoryLearningV2ResultPins = Object.freeze({
+  jsonSha256: "0e78a589d8b13dbb986a597c404e9582be1a1c402305a7ddb7dc8780f10451c0",
+  markdownSha256: "a1f45f948db67e9082e9d9b91113fb717d7398845261775e0f06ffeeedd81ff9",
+});
 const publicG1AttestationKeys = [
   "eligibleEpisodeSelected",
   "sourceSetWithinApprovedBound",
@@ -156,6 +168,7 @@ const requiredRepositoryPaths = new Map([
   ["THIRD_PARTY_NOTICES.md", "file"],
   ["docs", "directory"],
   ["docs/DEVELOPMENT.md", "file"],
+  ["docs/IDEAS.md", "file"],
   ["docs/INVARIANTS.md", "file"],
   ["docs/planning", "directory"],
   ["docs/planning/README.md", "file"],
@@ -232,6 +245,14 @@ const requiredRepositoryPaths = new Map([
   ],
   [
     "examples/experiments/author-call-qualification-v1/exploratory-learning-v2/SAFE-RESULT.example.json",
+    "file",
+  ],
+  [
+    "examples/experiments/author-call-qualification-v1/exploratory-learning-v2/SAFE-RESULT.json",
+    "file",
+  ],
+  [
+    "examples/experiments/author-call-qualification-v1/exploratory-learning-v2/SAFE-RESULT.md",
     "file",
   ],
   [
@@ -1837,6 +1858,76 @@ async function checkExploratoryLearningV2ExecutionPack() {
   }
 }
 
+export function validateExploratoryLearningV2ResultEvidence(evidence) {
+  if (
+    !Buffer.isBuffer(evidence?.jsonBytes) ||
+    !Buffer.isBuffer(evidence?.markdownBytes)
+  ) {
+    return ["missing-evidence"];
+  }
+
+  const errors = [];
+  if (sha256Bytes(evidence.jsonBytes) !== exploratoryLearningV2ResultPins.jsonSha256) {
+    errors.push("json-digest");
+  }
+  if (
+    sha256Bytes(evidence.markdownBytes) !== exploratoryLearningV2ResultPins.markdownSha256
+  ) {
+    errors.push("markdown-digest");
+  }
+
+  let result;
+  try {
+    result = parseStrictJson(evidence.jsonBytes.toString("utf8"));
+  } catch {
+    errors.push("strict-json");
+    return errors;
+  }
+  try {
+    validateLearningResult(result);
+  } catch (error) {
+    errors.push(
+      error instanceof LearningResultValidationError
+        ? `result-contract:${error.codes.join(",")}`
+        : "result-contract:unexpected",
+    );
+    return errors;
+  }
+
+  if (
+    result.firstFailure.code !== "payload-json-byte-mismatch" ||
+    result.routes.recommended !== "reduced-echo-contract" ||
+    result.deletion.stdout !== "identity-mismatch" ||
+    result.deletion.stderr !== "not-attempted" ||
+    result.deletion.workRoot !== "not-attempted"
+  ) {
+    errors.push("terminal-disposition");
+  }
+  return errors;
+}
+
+async function checkExploratoryLearningV2Result() {
+  let jsonBytes;
+  let markdownBytes;
+  try {
+    [jsonBytes, markdownBytes] = await Promise.all([
+      readFile(path.join(repositoryRoot, exploratoryLearningV2ResultJsonPath)),
+      readFile(path.join(repositoryRoot, exploratoryLearningV2ResultMarkdownPath)),
+    ]);
+  } catch (error) {
+    const code = typeof error?.code === "string" ? error.code : "unknown error";
+    report(`exploratory-learning v2 result cannot be read (${code})`);
+    return;
+  }
+
+  for (const error of validateExploratoryLearningV2ResultEvidence({
+    jsonBytes,
+    markdownBytes,
+  })) {
+    report(`exploratory-learning v2 terminal result rejected (${error})`);
+  }
+}
+
 async function checkCodexSandboxPreflightReport(filePath, content) {
   const displayPath = relativePath(filePath);
   const messages = {
@@ -2019,6 +2110,7 @@ async function main() {
   await checkAuthorCallQualificationResult();
   await checkExploratoryLearningExecutionPack();
   await checkExploratoryLearningV2ExecutionPack();
+  await checkExploratoryLearningV2Result();
 
   const publicRelativePaths = new Set(files.map((filePath) => relativePath(filePath)));
   for (const filePath of files) {

@@ -16,7 +16,86 @@ This roadmap is ordered by evidence and maturity, not dates. It deliberately avo
   structure; do not require a closed domain list or design a universal ontology
   in advance.
 
-## Current evidence checkpoint — 2026-07-23
+## Strategic line of sight
+
+Experiments are a means of earning implementation boundaries, not the end
+product. GraphTruth's original product thread remains continuous,
+evidence-backed documentation over changing notes, code, decisions,
+observations, and questions. The current design places a durable epistemic
+ledger underneath those generated documents so that organization and prose can
+change without becoming hidden authority.
+
+The intended progression is:
+
+```text
+exact evidence and attributable history
+  → minimal ledger, correction, rebuild, and contextual dossier
+  → contradictions, dark zones, and useful acquisition
+  → guarded project documentation and evolving domain views
+  → prospective experience, mechanism, and transfer experiments
+  → protocol hardening only after independent use earns it
+```
+
+The [idea map and research agenda](IDEAS.md) keeps these product threads, their
+evidence gates, and the candidate RFC pipeline visible. It is not a parallel
+task queue: the single-major-WIP rule and the operational plan still determine
+what may run now.
+
+## Current evidence checkpoint — 2026-07-25
+
+[Issue #24](https://github.com/asukhodko/graphtruth/issues/24) reached a
+pre-run procedural `stop` on its fifth and final repository-active date. The
+ledger is 2026-07-21 through 2026-07-25, one count per Europe/Moscow date with
+material repository or issue activity. This is not `sequential stop`: no
+accepted evaluation contract, implementation, baseline, rehearsal, scoring,
+evaluated run, or sequential decision existed.
+
+The stopped lane nevertheless produced reusable procedural evidence:
+
+1. corpus selection, original-source acquisition, and the byte-identical RST
+   projection remain accepted, immutable research artifacts;
+2. evaluation-freeze v1 and v2, the original author-call qualification, and its
+   first diagnostic candidate remain terminal and non-reusable;
+3. the accepted exploratory-learning v2
+   [boundary](../examples/experiments/author-call-qualification-v1/EXPLORATORY-LEARNING-BOUNDARY-V2.md)
+   and [execution
+   pack](../examples/experiments/author-call-qualification-v1/exploratory-learning-v2/README.md)
+   admitted one protected read by the already designated current session, with
+   no separate model call;
+4. the exact terminal [safe
+   result](../examples/experiments/author-call-qualification-v1/exploratory-learning-v2/SAFE-RESULT.md)
+   localizes the first failure to `payload-json-byte-mismatch` and recommends
+   `reduced-echo-contract`;
+5. the first deletion-only route stopped at `identity-mismatch` because no
+   historical read-time fingerprint had been retained. After the owner
+   explicitly accepted that residual uncertainty, a separate one-shot
+   retention cleanup removed the exact local stdout, unread zero-byte stderr,
+   and bounded work root using metadata only. The diagnostic root remains, and
+   local removal says nothing about backups, snapshots, swap, task logs, or
+   provider copies. The safe cleanup record is in [Issue #24 comment
+   5077805340](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5077805340).
+
+The Python corpus and projection are now research-only. They may support
+reproducible tooling and procedure work, but cannot supply the first
+confirmation of GraphTruth. A confirmatory comparison needs a fresh corpus and
+identity without transferring disclosed Python-specific task or oracle
+knowledge.
+
+`reduced-echo-contract` is a candidate successor, not current authorization or
+the active WIP. The single-major-WIP slot is free. The next explicit project
+choice should select one bounded evidence-producing track:
+
+- earn the smallest independent record-and-bundle golden journey needed for a
+  usable GraphTruth slice; or
+- prepare a fresh confirmatory corpus if continuing the experimental procedure
+  is more valuable.
+
+Neither track is active until it has an owning issue, a budget, acceptance
+criteria, and a separate authorization boundary. The current GraphTruth session
+is excluded from future primary, blind, and confirmatory roles touched by its
+prior exposures.
+
+## Historical execution record — 2026-07-24
 
 Issue #6 has reached a project-level `stop` before its private evidence-contract
 gate. The repository foundation, public synthetic fixtures, native permission
@@ -126,8 +205,10 @@ Its near path is:
     of identity
     `4065f91cd930181eae6eeed520b978fb31361b636944e4bed4b8b7b11b02d58e`,
     which grants no execution-pack preparation or retained-output read;
-14. retain the separate public-only pack-preparation authorization from Issue
-    #24 comment 5067065118 and the prepared
+14. retain the separate public-only pack-preparation authorization from [Issue
+    #24 comment
+    5067065118](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5067065118)
+    and the prepared
     [execution pack](../examples/experiments/author-call-qualification-v1/exploratory-learning-v1/README.md):
     its one-use reader, accepted parser modules, closed result schema, semantic
     validator and 33-case artificial matrix are bound by manifest SHA-256
@@ -202,8 +283,10 @@ was accepted by exact SHA-256
 in [Issue #24 comment
 5066292679](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5066292679).
 The boundary is frozen but inactive. The retained stdout and stderr remain
-unread. Issue #24 comment 5067065118 separately authorized public-only
-execution-pack preparation. The exact pack is now prepared and
+unread. [Issue #24 comment
+5067065118](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5067065118)
+separately authorized public-only execution-pack preparation. The exact pack is
+now prepared and
 deterministically checked under manifest SHA-256
 `205d1bcc3fe7e4331ef209c93cd07e61ddaecf2e37d1428e19c9afaa29312ab4`
 and audit-result SHA-256
@@ -264,6 +347,13 @@ retention rules. Issue #24 is at repository-active date 4/5 after the
 2026-07-24 boundary acceptance. Before any Issue or repository activity begins
 on date 5/5, the owner must choose `continue`, `shrink`, or `stop`.
 
+The accepted learning boundary independently permits at most one new
+repository-active date from boundary acceptance through result publication.
+2026-07-24 is that date. An Issue-level `continue` does not rewrite this frozen
+budget. If no v1 result is published on 2026-07-24 Europe/Moscow, later
+protected processing needs a new boundary identity and a new execution pack
+bound to it; acceptance of the current pack cannot extend the old boundary.
+
 The selection record, projection contract, and projection manifest remain
 byte-for-byte records of their freeze points. Their earlier Markdown option and
 pre-acceptance status text are historical: the accepted projection narrows this
@@ -290,7 +380,7 @@ authority.
 
 The remainder of this checkpoint is retained as the plan that was current on
 that date. Its future-tense G1 statements are historical and are superseded by
-the 2026-07-21 checkpoint above.
+the current evidence checkpoint above.
 
 GraphTruth is moving from foundation work toward its first real utility test.
 The foundation documents, experiment method, public synthetic preflight, and an
@@ -475,26 +565,46 @@ Deliver one narrow but fully working vertical slice for daily personal use.
 
 The loop must cover:
 
-1. capture a real event or source fragment;
-2. preserve exact evidence and provenance;
+1. capture a real event or source fragment and declare whether its source
+   snapshot is complete, partial, inaccessible, or otherwise bounded;
+2. preserve exact evidence and provenance while distinguishing a valid locator
+   from evidence that actually supports the extracted field or claim;
 3. identify entities, form or revise assertions, and record questions;
-4. validate and store canonical files;
-5. rebuild every projection that the v0 implementation claims to support from retained canonical records and artifacts;
-6. find relevant knowledge through more than one access path;
-7. return a contextual dossier rather than an isolated search hit;
-8. expose contradiction, uncertainty, provenance, and revision history;
-9. correct a mistaken extraction without losing the original record;
-10. back up, restore, and verify the corpus without the original indexes.
+4. review candidates and record `Assessment` and policy-scoped
+   `AcceptanceDecision` events without folding them into assertion lifecycle;
+5. validate and store canonical files;
+6. rebuild every projection that the v0 implementation claims to support from retained canonical records and artifacts;
+7. find relevant knowledge through more than one access path;
+8. return a contextual dossier rather than an isolated search hit;
+9. expose contradiction, uncertainty, provenance, and revision history;
+10. correct a mistaken extraction without losing the original record;
+11. back up, restore, and verify the corpus without the original indexes;
+12. render a useful static human fallback and exercise the declared privacy,
+    external-processing, retention, and deletion boundary on a safe fixture.
 
 The implementation may support only a limited set of inputs, a single user, and modest corpus sizes. Reliability and reversibility matter more than breadth.
+
+Before the personal slice admits sensitive material, it must declare its data
+classes, readable and writable boundaries, external processors, retained and
+derived copies, retention, deletion, and known limits. Until that boundary has
+an exercised safe failure and deletion path, keep the slice on public or
+synthetic material.
 
 Exit evidence:
 
 - the owner uses GraphTruth on real work repeatedly rather than maintaining a parallel authoritative notebook;
 - a clean installation can rebuild all supported disposable projections from the retained canonical corpus and declared retained artifacts;
 - every displayed claim can be traced to evidence, transformations, and policy decisions;
+- a partial source snapshot cannot silently become evidence of absence, and a
+  syntactically valid source locator cannot substitute for semantic support;
+- assessment, acceptance, and assertion revision remain visibly distinct in an
+  end-to-end workflow, and two declared policies can produce different current
+  views without rewriting shared assertions;
 - interrupted ingestion and partial failures do not corrupt the canonical corpus;
 - useful corrections and schema changes have been exercised through migrations;
+- basic inspection remains possible without the running service, and the
+  selected workflow's disclosure and retention limits have an exercised safe
+  failure path;
 - the system has surfaced at least some forgotten context, contradiction, or actionable unanswered question that ordinary search missed.
 
 ## Stage 2 — Dogfood expansion and model correction
@@ -510,6 +620,10 @@ Outcomes may include:
 - active questions that prioritize valuable missing knowledge;
 - experience records connecting situations, decisions, interventions, observations, and outcomes;
 - mechanism-oriented and cross-context retrieval;
+- guarded project-document views assembled from versioned code, schemas,
+  tests, repository history, decisions, incidents, and runtime evidence;
+- explicit freshness and invalidation for generated views, with exact support
+  boundaries and protection against self-corroborating generated prose;
 - discovery of initially unknown domains, soft multi-membership, and explicit
   unclassified states;
 - versioned continuous domain-topology updates, including impact-previewed
@@ -524,6 +638,9 @@ Exit evidence:
 - a future-reveal corpus demonstrates domain birth, multi-membership, drift, and
   at least one missing-link structural shock while preserving prior as-of views;
 - false merges, false contradictions, and misleading confidence displays are measurable and correctable;
+- one bounded generated project view improves a maintenance, troubleshooting,
+  or change-design task over source plus ordinary search, while every material
+  claim remains traceable and stale sections invalidate predictably;
 - the system remains useful when inference or embedding providers are removed or replaced;
 - extension mechanisms have been exercised without weakening core invariants.
 
@@ -534,6 +651,8 @@ Turn a successful personal protocol into one that another implementation could r
 Outcomes:
 
 - precise normative language and declared conformance levels;
+- capability claims that distinguish read, preserve, validate, apply, render,
+  rebuild, migrate, and refuse rather than using one compatibility boolean;
 - stable identifiers, canonicalization rules, and deterministic validation behavior;
 - positive and negative conformance fixtures;
 - explicit version negotiation, profiles, extensions, and migration rules;
@@ -548,6 +667,9 @@ Exit evidence:
 - normative behavior does not depend on a particular database, model, language, or deployment architecture;
 - incompatible files fail explicitly and diagnostically;
 - supported old corpora can be migrated and audited without losing provenance.
+- every migration reports whether it is lossless, representation-losing,
+  semantics-losing, evidence-losing, or unsupported, and preserves the original
+  archive when loss is admitted.
 
 ## Stage 4 — Open-source readiness
 
@@ -591,6 +713,11 @@ The roadmap does not currently commit to:
 - release dates or a promise of backward compatibility before its rules are specified.
 
 Deferral keeps these choices open. It is not a claim that they will never be useful.
+In particular, evidence-backed project documentation, emergent domain views,
+contextual dossiers, active acquisition, and experience transfer are preserved
+product threads, not discarded ideas. Their activation conditions and failure
+signals live in the [idea map](IDEAS.md); implementing them before the minimal
+ledger and personal workflow would make their output difficult to trust.
 
 ## How priorities change
 

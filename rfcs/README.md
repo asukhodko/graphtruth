@@ -64,3 +64,16 @@ Sections may be omitted when genuinely irrelevant. Important uncertainty should 
 During the project's personal incubation phase, the project founder accepts or rejects RFCs after the proposal has enough concrete examples to evaluate. Publishing a draft does not make it normative. Acceptance records a decision; conformance begins only when the specification identifies the corresponding requirement and the relevant artifacts implement it.
 
 The decision process may be replaced by a governance RFC before external contributions are invited.
+
+## Current register and candidate pipeline
+
+| RFC | Decision status | Implementation status | Role |
+| --- | --- | --- | --- |
+| [0000 — Project foundation](0000-project-foundation.md) | Accepted | Partial | Establishes the file-first epistemic-ledger direction, three zones, authority boundaries, and open protocol questions. |
+
+There is no allocated next RFC. The evidence-gated candidate clusters are kept
+in the [idea map](../docs/IDEAS.md#evidence-gated-rfc-pipeline), with the fuller
+dependency sequence and stop conditions in the [design
+backlog](../docs/drafts/DESIGN-BACKLOG.md#candidate-rfc-sequence). This keeps
+early protocol questions visible without treating a topic list as accepted
+design or implementation priority.
