@@ -45,15 +45,15 @@ nodes:
       not claimed. The Python corpus and projection are research-only;
       confirmation requires a fresh corpus and identity.
 
-      Issue #42 is the current single major WIP. Its public-synthetic
-      `record-and-bundle-golden-journey-v1` contract was frozen before
+      Issue #42 completed the public-synthetic
+      `record-and-bundle-golden-journey-v1`. Its contract was frozen before
       implementation. The exact reference run passed 18/18 fixed cells and
       16/16 mutation classes in both Node and the detached Python reader; clean
       bundles and rebuilt projections are exact, and no severe failure remains.
-      The result recommends `keep` only for this Zone 3 slice. Owner
-      `keep / shrink / stop` disposition is pending, so the PR remains draft
-      and no successor is authorized. Active dates are 2026-07-25 and
-      2026-07-28: 2/4 Europe/Moscow.
+      The owner chose `keep` only for this Zone 3 slice. PR #43 integrated it
+      as merge commit 221a4d81a5df891571b60de98d46b505dffd44b3.
+      Active dates are 2026-07-25 and 2026-07-28: 2/4 Europe/Moscow. The
+      single-major-WIP slot is free and no successor is authorized.
 
   m0-rehearsal-integration:
     title: "Integrate the runtime-boundary rehearsal evidence"
@@ -1512,16 +1512,16 @@ nodes:
     kind: phase
     parent: graphtruth
     deps: [g6-python-sequential-path-disposed]
-    status: current
+    status: done
     issue: "https://github.com/asukhodko/graphtruth/issues/42"
     notes: |
-      Current single major WIP. Public-synthetic Zone 3 identity
+      Completed public-synthetic Zone 3 identity
       `record-and-bundle-golden-journey-v1` uses three sources, fourteen
       canonical records, two fixed policies, three knowledge horizons, and a
       detached Python standard-library reader. Exact evidence is 18/18 cells
-      and 16/16 mutations passed, with no severe failure. Recommendation is
-      `keep`; owner disposition is pending. The goal has used active dates
-      2026-07-25 and 2026-07-28: 2/4 Europe/Moscow.
+      and 16/16 mutations passed, with no severe failure. The owner chose
+      `keep`, and PR #43 integrated the exact slice. The goal used active dates
+      2026-07-25 and 2026-07-28: 2/4 Europe/Moscow. No successor is implied.
 
   g8-journey-contract-frozen:
     title: "Gate: record-and-bundle journey contract frozen"
@@ -1570,12 +1570,12 @@ nodes:
     milestone: true
     parent: m8-record-bundle-golden-journey
     deps: [m8-verify-detached-reader]
-    status: ready
+    status: done
     notes: |
-      Current evidence recommends `keep`, but recommendation is not
-      disposition. The owner must explicitly choose `keep`, the single frozen
-      shrink identity, or stop after seeing the final PR head, report hashes,
-      full check, and GitHub checks. No successor scope follows implicitly.
+      The owner explicitly chose `keep` on 2026-07-28 after seeing the final
+      tested head, report hashes, full local check, and green GitHub checks.
+      Issue #42 comment 5100258203 records the exact decision. No successor
+      scope follows.
 
   g8-record-bundle-integrated:
     title: "Gate: selected record-and-bundle terminal path integrated"
@@ -1583,12 +1583,12 @@ nodes:
     milestone: true
     parent: m8-record-bundle-golden-journey
     deps: [g8-record-bundle-disposition]
-    status: planned
+    status: done
     notes: |
-      Complete only after the selected mechanical path leaves Issue #42, the
-      PR, repository documents, roadmap, and OpsKarta in one terminal state.
-      `Keep` permits ready and squash-merge; shrink and stop follow only their
-      predeclared closure paths.
+      PR #43 was made ready only after owner `keep` and green required checks,
+      then squash-merged as
+      221a4d81a5df891571b60de98d46b505dffd44b3. The terminal documentation
+      synchronization records the same bounded result before Issue #42 closes.
 
   h-fresh-confirmatory-corpus:
     title: "Horizon: first GraphTruth confirmation on a fresh corpus"
@@ -2003,10 +2003,11 @@ execution:
       updated_at: "2026-07-25T15:35:12+03:00"
       note: "Issue #24 closed procedurally before implementation or evaluated comparison; this is not sequential stop."
     m8-record-bundle-golden-journey:
-      progress: 0.8
+      progress: 1.0
       actual_start: "2026-07-25"
-      updated_at: "2026-07-28T08:06:48+03:00"
-      note: "Exact local evidence is complete and recommends keep; draft publication, checks, and explicit owner disposition remain."
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T08:17:39+03:00"
+      note: "Owner keep, PR #43 integration, and terminal state synchronization completed on active date 2/4."
     g8-journey-contract-frozen:
       progress: 1.0
       actual_start: "2026-07-25"
@@ -2026,14 +2027,17 @@ execution:
       updated_at: "2026-07-28T08:06:48+03:00"
       note: "Detached Python reader, 18-cell denominator, 16-class mutation matrix, exact rebuild, and hardcoding variation passed."
     g8-record-bundle-disposition:
-      progress: 0.0
+      progress: 1.0
       actual_start: "2026-07-28"
-      updated_at: "2026-07-28T08:06:48+03:00"
-      note: "Ready after final-head evidence and GitHub checks; owner keep, shrink, or stop is required."
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T08:16:43+03:00"
+      note: "Owner explicitly selected keep for the exact evidence identity."
     g8-record-bundle-integrated:
-      progress: 0.0
-      updated_at: "2026-07-28T08:06:48+03:00"
-      note: "Pending the explicit disposition and its mechanical terminal path."
+      progress: 1.0
+      actual_start: "2026-07-28"
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T08:17:39+03:00"
+      note: "PR #43 squash-merged as 221a4d81a5df891571b60de98d46b505dffd44b3 after green required checks."
 
 views:
   current-work:
@@ -2066,8 +2070,8 @@ views:
 x:
   exec:
     program:
-      nearest_goal: "Publish the exact Issue #42 record-and-bundle evidence as a checked draft PR and obtain the owner's explicit keep, shrink, or stop disposition."
-      success_by_next_sync: "Anchor the final tested PR head and report hashes in Issue #42, pass the full local and required GitHub checks, then execute no terminal path until the owner chooses."
+      nearest_goal: "Select one separate successor: test the kept slice on a fresh small public episode, or extract a candidate format from the evidence."
+      success_by_next_sync: "Open no implementation implicitly; record one choice with its own issue, identity, budget, acceptance criteria, claim boundary, and authorization."
     defaults:
       status_progress:
         done: 1.0
@@ -2116,8 +2120,8 @@ x:
         kind: main
         mgmt:
           health: green
-          sync_note: "Issue #42 contract was frozen before code. Exact local evidence passed 18/18 cells and 16/16 mutation classes in Node and detached Python, with exact clean rebuild and no severe failure. Recommendation is keep; owner disposition is pending."
-          next_sync_goal: "Publish the draft PR, anchor its final tested head and report hashes, pass required checks, and ask the owner for keep, shrink, or stop."
+          sync_note: "Issue #42 contract was frozen before code. Evidence passed 18/18 cells and 16/16 mutation classes in Node and detached Python, with exact clean rebuild and no severe failure. The owner chose keep and PR #43 integrated the exact Zone 3 slice."
+          next_sync_goal: "Preserve the bounded evidence unchanged and choose any successor under a separate goal and authorization."
     edges:
       - from: integration
         to: private-stop
@@ -2141,7 +2145,7 @@ x:
         show_progress: false
         show_gate_date: false
         wrap_title_lines: 2
-        caption: "Issue #42 is the current major WIP: local record-and-bundle evidence passes, while owner disposition and terminal integration remain open."
+        caption: "Issue #42 is kept and integrated through PR #43; the major-WIP slot is free and no successor is authorized."
         blocks: [integration, private-stop, python-sequential, record-bundle]
       exec-active-tracks:
         direction: TB

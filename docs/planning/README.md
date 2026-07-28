@@ -46,25 +46,30 @@ maintained artifact.
 
 ## Current position — 2026-07-28
 
-[Issue #42](https://github.com/asukhodko/graphtruth/issues/42) is the current
-single major WIP. Its public-synthetic
-`record-and-bundle-golden-journey-v1` contract was frozen and externally
-anchored before implementation. The exact local reference evidence now passes
+[Issue #42](https://github.com/asukhodko/graphtruth/issues/42) completed the
+public-synthetic `record-and-bundle-golden-journey-v1`. Its contract was frozen
+and externally anchored before implementation. The exact local reference
+evidence passes
 all 18 horizon × policy × materialization cells and all 16 frozen mutation
 classes in both Node and the detached Python standard-library reader. Clean
 bundles and rebuilt projections are exact, and no severe failure remains.
 
-The result recommends `keep` for this exact Zone 3 slice. That is not owner
-disposition, protocol acceptance, product-utility evidence, or authorization
-for a successor. The PR remains draft until its final tested head, report
-hashes, full local check, and required GitHub checks are anchored in Issue #42
-and the owner explicitly chooses `keep`, `shrink`, or `stop`. The goal has used
-two of four repository-active dates: 2026-07-25 and 2026-07-28.
+The owner chose `keep` for this exact Zone 3 slice after its final tested head,
+report hashes, full local check, and required GitHub checks were anchored in
+Issue #42. PR [#43](https://github.com/asukhodko/graphtruth/pull/43) integrated
+the evidence as merge commit
+`221a4d81a5df891571b60de98d46b505dffd44b3`. This is not protocol acceptance,
+product-utility evidence, or authorization for a successor. The goal used two
+of four repository-active dates: 2026-07-25 and 2026-07-28.
 
 Issue #24 remains a terminal pre-run procedural `stop`, not `sequential stop`.
 Its Python corpus is research-only, and `reduced-echo-contract` remains an
 inactive backlog candidate. Its retained identities and cleanup limits are
 unchanged and are not inputs to Issue #42.
+
+The single-major-WIP slot is free. A bounded real/public dogfood episode and
+extraction of a candidate format are possible next choices, but neither is
+active or authorized.
 
 ## Historical execution record — 2026-07-24
 

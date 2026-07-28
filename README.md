@@ -163,13 +163,14 @@ detection, and active knowledge acquisition. Premature compatibility promises
 would make the protocol less durable, so the design may change substantially
 while the project is pre-alpha.
 
-The current single major WIP is the public-synthetic
-[record-and-bundle golden journey](examples/experiments/record-and-bundle-golden-journey-v1/README.md).
-Its frozen Zone 3 contract now has an exact 18-cell reference run, a detached
-Python reader, and 16 mutation classes. The observed evidence recommends
-`keep`; that recommendation is not an owner decision, protocol acceptance, or
-product-utility result. [Issue #42](https://github.com/asukhodko/graphtruth/issues/42)
-owns the pending `keep / shrink / stop` disposition.
+The public-synthetic
+[record-and-bundle golden journey](examples/experiments/record-and-bundle-golden-journey-v1/README.md)
+earned the first narrow executable ledger slice: its frozen Zone 3 contract
+passed all 18 reference cells and 16 mutation classes with a detached Python
+reader. The owner chose `keep`, and PR
+[#43](https://github.com/asukhodko/graphtruth/pull/43) integrated the exact
+evidence. This is not protocol acceptance or a product-utility result. No
+successor is active.
 
 The capability-oriented stages and their exit evidence are described in the
 [roadmap](docs/ROADMAP.md). The current work sequence and decision gates live
