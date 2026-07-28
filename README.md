@@ -169,8 +169,16 @@ earned the first narrow executable ledger slice: its frozen Zone 3 contract
 passed all 18 reference cells and 16 mutation classes with a detached Python
 reader. The owner chose `keep`, and PR
 [#43](https://github.com/asukhodko/graphtruth/pull/43) integrated the exact
-evidence. This is not protocol acceptance or a product-utility result. No
-successor is active.
+evidence. PR [#44](https://github.com/asukhodko/graphtruth/pull/44) synchronized
+the terminal project state and closed Issue #42. This is not protocol acceptance
+or a product-utility result.
+
+The selected next evidence track is one bounded retrospective dogfood episode
+over the public MIT-licensed MurmurMark correction from commit `e256363` to
+`9b7ef91`. It will test real capture, correction, historical reconstruction,
+ordinary-search comparison, and dossier usefulness before any candidate format
+is extracted. The track is planned but not active; execution requires its own
+goal, issue, frozen identity, budget, and authorization.
 
 The capability-oriented stages and their exit evidence are described in the
 [roadmap](docs/ROADMAP.md). The current work sequence and decision gates live

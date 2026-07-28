@@ -45,9 +45,8 @@ This is the substrate for every other thread. Issue #42 now supplies the first
 small independently readable record-and-bundle slice: exact evidence, linear
 revision, policy-scoped acceptance, rebuildable views, and a detached
 standard-library reader over one frozen public-synthetic journey. It is
-experimental evidence, not a general or normative record model. The next
-missing proof is use on a real bounded workflow, provided the owner keeps this
-slice.
+experimental evidence, not a general or normative record model. The owner kept
+that exact slice. The selected next proof is use on a real bounded workflow.
 
 Sources: [RFC 0000](../rfcs/0000-project-foundation.md),
 [Vision](VISION.md), and backlog `GT-D001`–`GT-D018`.
@@ -228,16 +227,26 @@ the Node and detached Python readers. Rebuilds are byte-identical, the
 experimental semantic digest is portable across the two readers, and the two
 development failures remain in the run report. PR
 [#43](https://github.com/asukhodko/graphtruth/pull/43) integrated that bounded
-evidence without promoting its format or semantics.
+evidence without promoting its format or semantics. PR
+[#44](https://github.com/asukhodko/graphtruth/pull/44) synchronized the terminal
+state and Issue #42 is closed.
 
-The rational next move is one bounded real/public dogfood workflow
-that tests capture cost, correction, retrieval, and dossier usefulness while
-preserving the exact synthetic fixture as regression evidence. A fresh
-confirmatory corpus and the reduced-echo procedure remain alternatives, not
-implicit successors. Generated project documentation, richer domain topology,
-active acquisition, and experience-transfer machinery stay behind evidence
-from the minimal ledger and real use. The major-WIP slot is free, and no
-successor is authorized.
+The selected next route is one bounded real/public dogfood workflow that tests
+capture cost, correction, historical reconstruction, retrieval, and dossier
+usefulness while preserving the exact synthetic fixture as regression evidence.
+Its proposed episode is the public MIT-licensed MurmurMark controlled-echo lab
+between the introducing commit `e256363` and corrective commit `9b7ef91`. The
+episode is deliberately retrospective and targeted: it has a real correction
+but no separate public incident report, so it can expose missing evidence and
+must not be presented as blind or representative.
+
+A candidate format comes only after comparing the synthetic journey with this
+materially different episode. A fresh confirmatory corpus and the reduced-echo
+procedure remain alternatives, not implicit successors. Generated project
+documentation, richer domain topology, active acquisition, and
+experience-transfer machinery stay behind evidence from the minimal ledger and
+real use. The major-WIP slot is free; the dogfood route is selected for the next
+goal but is not active or authorized.
 
 This ordering protects the early ideas rather than discarding them. It gives
 them a durable substrate and an observable reason to exist.

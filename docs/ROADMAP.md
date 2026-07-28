@@ -65,7 +65,10 @@ The owner chose `keep` for this exact Zone 3 slice, and PR
 `221a4d81a5df891571b60de98d46b505dffd44b3`. The work used active repository
 or Issue dates 2026-07-25 and 2026-07-28: 2/4 Europe/Moscow. The decision is not
 a protocol decision, compatibility promise, product-utility result, or
-evidence of generality.
+evidence of generality. PR
+[#44](https://github.com/asukhodko/graphtruth/pull/44) then synchronized the
+terminal project state as
+`9ec98ea984f02ad515079013b84fa8c48221f9cb`, and Issue #42 closed.
 
 This supplies partial Stage 1 evidence for exact evidence, linear
 revision, policy-scoped acceptance, portable rebuild, deterministic dossier,
@@ -74,6 +77,48 @@ a second retrieval path, measured capture and correction cost, migration,
 backup/restore, static fallback, and an exercised privacy boundary. The
 single-major-WIP slot is free; the next track requires a separate goal, issue,
 identity, budget, and authorization.
+
+### Selected next track — one real public correction episode
+
+The next track is `m9-public-dogfood-episode`, ahead of candidate-format
+extraction. A second, materially different journey is needed to distinguish
+reusable record mechanics from facts fitted to one synthetic fixture.
+
+The proposed identity is `murmurmark-echo-lab-correction-v1`. It uses only
+public MIT-licensed material from the MurmurMark controlled-echo lab introduced
+at commit
+[`e256363`](https://github.com/asukhodko/murmurmark/commit/e256363a2cf98c1ea1a2ef3eb30628039b46e246)
+and corrected at
+[`9b7ef91`](https://github.com/asukhodko/murmurmark/commit/9b7ef91363f698113042b20f3e540d21cf30bb6e).
+The practical question is whether `echo-lab prepare` can be judged bounded and
+safely repeatable from the available public evidence, which safeguards the
+correction actually adds, and what remains unproved.
+
+The episode is retrospective and targeted. The corrective commit provides a
+real code-and-test change, but there is no separate public incident record.
+Owner familiarity is high. The result therefore cannot claim blind evaluation,
+representativeness, causal proof, production safety, or superiority over
+ordinary search.
+
+The goal must:
+
+1. freeze exact source bytes, natural commit horizons, the practical question,
+   familiarity, rights, budgets, and the files-plus-`rg` baseline before
+   adaptation or scoring;
+2. use the kept Issue #42 slice unchanged as regression evidence and make only
+   the smallest reversible Zone 3 adaptation required by the real episode;
+3. preserve exact support, counterevidence, unknowns, recorded versus applicable
+   time, and correction by addition;
+4. build and cleanly rebuild a query-specific dossier, compare it with the same
+   files plus `rg`, and count full capture, review, correction, and adaptation
+   cost;
+5. produce a design-pressure table rather than a format proposal, followed by
+   an owner `keep / shrink / stop` decision.
+
+Candidate-format extraction becomes eligible only if the synthetic and real
+journeys expose a small common envelope without hiding episode-specific gaps.
+The route is selected in planning, but implementation has not started and
+requires a separate `/goal`.
 
 ### Retained Issue #24 background
 

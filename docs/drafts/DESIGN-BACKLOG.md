@@ -4,7 +4,7 @@
 > **Captured:** 2026-07-11.
 > **Expanded:** 2026-07-12 after the cross-surface algorithm completeness
 > review and the continuous domain-topology design in Issue #8.
-> **Status reviewed:** 2026-07-25 against the current roadmap and retained
+> **Status reviewed:** 2026-07-28 against the current roadmap and retained
 > S0–S1 evidence.
 > **Authority:** The identifiers below organize ideas; they are not accepted
 > roadmap commitments or protocol requirements.
@@ -162,8 +162,10 @@ observed second writer or independent corpus
   admissible private contract or evaluated run. [Issue
   #24](https://github.com/asukhodko/graphtruth/issues/24) later stopped
   procedurally after localizing an author-call contract failure. It produced no
-  accepted evaluation contract or run and did not close the first
-  representative journey.
+  accepted evaluation contract or run. [Issue
+  #42](https://github.com/asukhodko/graphtruth/issues/42) then supplied one kept
+  narrow public-synthetic journey, but did not close this item: it lacks a
+  question workflow, redaction, broad record roles, and real use.
 
 ### GT-D002 — Minimal record and bundle envelope
 
@@ -255,14 +257,13 @@ observed second writer or independent corpus
 - **Exit evidence:** an algorithm or schema change can be compared without using
   node counts, prose volume, or subjective fluency as the success measure.
 - **Dependencies:** GT-D001.
-- **Current experiment:** [Issue
+- **Experiment history:** [Issue
   #24](https://github.com/asukhodko/graphtruth/issues/24) froze a public Python
   corpus and projection, but its evaluation-freeze attempts stopped without an
-  accepted task/oracle/baseline/budget contract or comparison. Its current
-  exploratory route can improve the measurement procedure but supplies no
-  utility result. [Issue #6](https://github.com/asukhodko/graphtruth/issues/6)
-  remains the stopped private-path predecessor and likewise supplies no utility
-  result.
+  accepted task/oracle/baseline/budget contract or comparison. Its terminal
+  exploratory result can inform measurement procedure but supplies no utility
+  result. [Issue #6](https://github.com/asukhodko/graphtruth/issues/6) remains
+  the stopped private-path predecessor and likewise supplies no utility result.
 
 ## P1 — smallest executable ledger and access loop
 

@@ -52,8 +52,14 @@ nodes:
       bundles and rebuilt projections are exact, and no severe failure remains.
       The owner chose `keep` only for this Zone 3 slice. PR #43 integrated it
       as merge commit 221a4d81a5df891571b60de98d46b505dffd44b3.
-      Active dates are 2026-07-25 and 2026-07-28: 2/4 Europe/Moscow. The
-      single-major-WIP slot is free and no successor is authorized.
+      PR #44 synchronized the terminal state as
+      9ec98ea984f02ad515079013b84fa8c48221f9cb and Issue #42 closed. Active
+      dates are 2026-07-25 and 2026-07-28: 2/4 Europe/Moscow.
+
+      The next route is selected but not active:
+      `m9-public-dogfood-episode` will pressure the kept slice with one bounded
+      public MurmurMark correction before candidate-format extraction. It still
+      requires its own goal, issue, frozen identity, budget, and authorization.
 
   m0-rehearsal-integration:
     title: "Integrate the runtime-boundary rehearsal evidence"
@@ -1587,8 +1593,109 @@ nodes:
     notes: |
       PR #43 was made ready only after owner `keep` and green required checks,
       then squash-merged as
-      221a4d81a5df891571b60de98d46b505dffd44b3. The terminal documentation
-      synchronization records the same bounded result before Issue #42 closes.
+      221a4d81a5df891571b60de98d46b505dffd44b3. PR #44 synchronized the
+      terminal documentation as
+      9ec98ea984f02ad515079013b84fa8c48221f9cb, after which Issue #42 closed.
+
+  m9-public-dogfood-episode:
+    title: "Pressure the kept slice with one real public correction episode"
+    kind: phase
+    parent: graphtruth
+    deps: [g8-record-bundle-integrated]
+    status: ready
+    notes: |
+      Selected next route, not yet active. Proposed identity
+      `murmurmark-echo-lab-correction-v1` uses only public MIT-licensed material
+      from MurmurMark commits e256363a2cf98c1ea1a2ef3eb30628039b46e246 and
+      9b7ef91363f698113042b20f3e540d21cf30bb6e. It is a targeted retrospective
+      dogfood episode with high owner familiarity and no separate public
+      incident report. Plan for at most three Europe/Moscow repository-active
+      dates. No implementation, processing, or utility claim is authorized by
+      this planning selection.
+
+  m9-freeze-public-episode-contract:
+    title: "Freeze the MurmurMark episode, question, baseline, and claim boundary"
+    kind: task
+    parent: m9-public-dogfood-episode
+    status: ready
+    notes: |
+      Pin exact source bytes and natural commit horizons, rights, familiarity,
+      the practical maintenance question, files-plus-rg baseline, denominators,
+      budgets, severe failures, and keep/shrink/stop conditions before adapting
+      or scoring. Explicitly exclude blind, representative, causal, production
+      safety, general-format, and superiority claims.
+
+  g9-public-episode-contract-frozen:
+    title: "Gate: exact public dogfood contract frozen before adaptation"
+    kind: milestone
+    milestone: true
+    parent: m9-public-dogfood-episode
+    deps: [m9-freeze-public-episode-contract]
+    status: planned
+
+  m9-adapt-and-capture:
+    title: "Make the smallest Zone 3 adaptation and capture the correction"
+    kind: task
+    parent: m9-public-dogfood-episode
+    deps: [g9-public-episode-contract-frozen]
+    status: planned
+    notes: |
+      Preserve the kept Issue #42 fixture byte-for-byte as regression evidence.
+      Represent exact support, counterevidence, unknowns, recorded versus
+      applicable time, and correction by addition. Do not promote experimental
+      shapes into spec, schemas, or an RFC.
+
+  m9-compare-dossier-and-rebuild:
+    title: "Compare the dossier with files plus rg and verify clean rebuild"
+    kind: task
+    parent: m9-public-dogfood-episode
+    deps: [m9-adapt-and-capture]
+    status: planned
+    notes: |
+      Run the predeclared maintenance question over the same evidence boundary,
+      retain adverse and abstaining results, account for capture, review,
+      correction, adaptation, and query cost, and rebuild every supported
+      projection from declared retained inputs.
+
+  m9-record-design-pressure:
+    title: "Record episode-driven design pressure without extracting a format"
+    kind: task
+    parent: m9-public-dogfood-episode
+    deps: [m9-compare-dossier-and-rebuild]
+    status: planned
+    notes: |
+      Map each real requirement to supported, minimally changed, or unsupported
+      behavior with cost and consequence. Candidate-format extraction remains a
+      later conditional goal based on comparison of both journeys.
+
+  g9-public-dogfood-disposition:
+    title: "Gate: owner chooses public-dogfood keep, shrink, or stop"
+    kind: milestone
+    milestone: true
+    parent: m9-public-dogfood-episode
+    deps: [m9-record-design-pressure]
+    status: planned
+
+  g9-public-dogfood-integrated:
+    title: "Gate: selected public-dogfood terminal path integrated"
+    kind: milestone
+    milestone: true
+    parent: m9-public-dogfood-episode
+    deps: [g9-public-dogfood-disposition]
+    status: planned
+
+  h-record-bundle-candidate-format:
+    title: "Horizon: extract a candidate format from two unlike journeys"
+    kind: milestone
+    milestone: true
+    parent: graphtruth
+    deps: [g9-public-dogfood-disposition]
+    status: conditional
+    notes: |
+      Eligible only if the M9 evidence and owner disposition expose a small
+      common envelope across the synthetic and real episodes. Any extraction is
+      a separate goal; it must compare both journeys, preserve unresolved
+      pressure, and cannot make a normative or compatibility claim.
 
   h-fresh-confirmatory-corpus:
     title: "Horizon: first GraphTruth confirmation on a fresh corpus"
@@ -2036,8 +2143,16 @@ execution:
       progress: 1.0
       actual_start: "2026-07-28"
       actual_finish: "2026-07-28"
-      updated_at: "2026-07-28T08:17:39+03:00"
-      note: "PR #43 squash-merged as 221a4d81a5df891571b60de98d46b505dffd44b3 after green required checks."
+      updated_at: "2026-07-28T11:09:37+03:00"
+      note: "PR #43 squash-merged as 221a4d81a5df891571b60de98d46b505dffd44b3 after green required checks; PR #44 synchronized terminal state as 9ec98ea984f02ad515079013b84fa8c48221f9cb and Issue #42 closed."
+    m9-public-dogfood-episode:
+      progress: 0.0
+      updated_at: "2026-07-28T11:09:37+03:00"
+      note: "Planning selected the MurmurMark e256363-to-9b7ef91 correction episode ahead of candidate-format extraction. Execution awaits a separate goal, issue, exact freeze, three-date budget, and authorization."
+    m9-freeze-public-episode-contract:
+      progress: 0.0
+      updated_at: "2026-07-28T11:09:37+03:00"
+      note: "Ready as the first task of the selected route; no source pack, contract identity, adaptation, baseline run, or scoring exists yet."
 
 views:
   current-work:
@@ -2057,6 +2172,12 @@ views:
       parent: m8-record-bundle-golden-journey
       status: [done, current, ready, planned]
     order_by: status
+  public-dogfood-decision-path:
+    title: "Selected public dogfood route"
+    where:
+      parent: m9-public-dogfood-episode
+      status: [done, stopped, current, ready, planned]
+    order_by: status
   decision-gates:
     title: "Decision gates"
     where:
@@ -2070,8 +2191,8 @@ views:
 x:
   exec:
     program:
-      nearest_goal: "Select one separate successor: test the kept slice on a fresh small public episode, or extract a candidate format from the evidence."
-      success_by_next_sync: "Open no implementation implicitly; record one choice with its own issue, identity, budget, acceptance criteria, claim boundary, and authorization."
+      nearest_goal: "Freeze and execute `murmurmark-echo-lab-correction-v1` as one bounded real/public dogfood episode before extracting any candidate format."
+      success_by_next_sync: "Create one owning issue and exact contract; preserve the M8 fixture; capture, compare, rebuild, and record design pressure within three active dates; stop for owner keep/shrink/stop."
     defaults:
       status_progress:
         done: 1.0
@@ -2120,8 +2241,16 @@ x:
         kind: main
         mgmt:
           health: green
-          sync_note: "Issue #42 contract was frozen before code. Evidence passed 18/18 cells and 16/16 mutation classes in Node and detached Python, with exact clean rebuild and no severe failure. The owner chose keep and PR #43 integrated the exact Zone 3 slice."
-          next_sync_goal: "Preserve the bounded evidence unchanged and choose any successor under a separate goal and authorization."
+          sync_note: "Issue #42 contract was frozen before code. Evidence passed 18/18 cells and 16/16 mutation classes in Node and detached Python, with exact clean rebuild and no severe failure. The owner chose keep, PR #43 integrated the exact Zone 3 slice, and PR #44 closed terminal synchronization."
+          next_sync_goal: "Preserve the bounded evidence unchanged as regression input while the selected public dogfood episode uses a separate identity."
+      public-dogfood:
+        title: "MurmurMark public correction dogfood"
+        scope_nodes: [m9-public-dogfood-episode]
+        kind: main
+        mgmt:
+          health: neutral
+          sync_note: "Selected ahead of candidate-format extraction. The proposed e256363-to-9b7ef91 episode is public and MIT-licensed, but targeted and retrospective; no implementation or run exists."
+          next_sync_goal: "Freeze the exact episode contract, baseline, claim boundary, budget, and decision rules before adaptation."
     edges:
       - from: integration
         to: private-stop
@@ -2137,6 +2266,10 @@ x:
         to: record-bundle
         type: required
         label: "separate public-synthetic track"
+      - from: record-bundle
+        to: public-dogfood
+        type: required
+        label: "kept slice under real-episode pressure"
     views:
       exec-top:
         direction: LR
@@ -2145,12 +2278,12 @@ x:
         show_progress: false
         show_gate_date: false
         wrap_title_lines: 2
-        caption: "Issue #42 is kept and integrated through PR #43; the major-WIP slot is free and no successor is authorized."
-        blocks: [integration, private-stop, python-sequential, record-bundle]
+        caption: "Issue #42 is closed after PR #44. The MurmurMark public correction episode is selected and ready for its own goal; execution has not started."
+        blocks: [integration, private-stop, python-sequential, record-bundle, public-dogfood]
       exec-active-tracks:
         direction: TB
         color_mode: mgmt_hybrid
         highlight_current: true
         show_progress: false
         show_gate_date: false
-        blocks: [integration, private-stop, python-sequential, python-order-successor, record-bundle]
+        blocks: [integration, private-stop, python-sequential, python-order-successor, record-bundle, public-dogfood]

@@ -60,16 +60,22 @@ Issue #42. PR [#43](https://github.com/asukhodko/graphtruth/pull/43) integrated
 the evidence as merge commit
 `221a4d81a5df891571b60de98d46b505dffd44b3`. This is not protocol acceptance,
 product-utility evidence, or authorization for a successor. The goal used two
-of four repository-active dates: 2026-07-25 and 2026-07-28.
+of four repository-active dates: 2026-07-25 and 2026-07-28. PR
+[#44](https://github.com/asukhodko/graphtruth/pull/44) synchronized the terminal
+state as `9ec98ea984f02ad515079013b84fa8c48221f9cb`, and Issue #42 is closed.
 
 Issue #24 remains a terminal pre-run procedural `stop`, not `sequential stop`.
 Its Python corpus is research-only, and `reduced-echo-contract` remains an
 inactive backlog candidate. Its retained identities and cleanup limits are
 unchanged and are not inputs to Issue #42.
 
-The single-major-WIP slot is free. A bounded real/public dogfood episode and
-extraction of a candidate format are possible next choices, but neither is
-active or authorized.
+The single-major-WIP slot is free. The next route is selected:
+`m9-public-dogfood-episode`, using the public MIT-licensed MurmurMark
+controlled-echo correction from commit `e256363` to `9b7ef91`. It precedes
+candidate-format extraction because one real, materially different episode is
+needed to expose accidental fixture-specific fields. The route is ready for a
+separate goal, issue, frozen identity, three-date budget, claim boundary, and
+authorization; no implementation or episode run is active.
 
 ## Historical execution record — 2026-07-24
 
