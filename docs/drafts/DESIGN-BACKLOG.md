@@ -39,7 +39,8 @@ exists.
 Issue #42 adds a second, deliberately narrower body of Zone 3 evidence. Its
 frozen public-synthetic journey passed 18/18 horizon × policy ×
 materialization cells and 16/16 mutation classes in both Node and a detached
-Python standard-library reader. It still closes none of these backlog items.
+Python standard-library reader, and the owner kept that exact slice in PR #43.
+It still closes none of these backlog items.
 
 | Backlog item | Issue #42 partial evidence | Remaining proof |
 | --- | --- | --- |

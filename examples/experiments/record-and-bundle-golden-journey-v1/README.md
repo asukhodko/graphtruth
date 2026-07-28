@@ -8,6 +8,13 @@ bundle?
 It is not a protocol, normative schema, compatibility promise, personal
 runtime, or product-utility result.
 
+## Disposition
+
+The owner selected `keep` for this exact Zone 3 slice after the complete
+evidence and required checks passed. PR
+[#43](https://github.com/asukhodko/graphtruth/pull/43) integrated it. See the
+[owner disposition](DISPOSITION.md) for the bound identities and limits.
+
 ## Frozen identity
 
 - Identity: `record-and-bundle-golden-journey-v1`
@@ -49,7 +56,10 @@ An Assessment annotates a selected assertion; it never accepts or revokes one.
   reader. It imports no GraphTruth or Node.js code.
 - [`projections/`](projections/) contains disposable JSON and Markdown views.
 - [`RUN-REPORT.md`](RUN-REPORT.md) records expected, observed, and learned
-  evidence after the exact reference run.
+  evidence after the exact reference run. It remains the immutable
+  pre-disposition report.
+- [`DISPOSITION.md`](DISPOSITION.md) records the later owner `keep` decision
+  without rewriting that report.
 
 Expected answers, the contract, and derived projections are deliberately absent
 from the bundle. A detached reader receives only its own code, the bundle, and

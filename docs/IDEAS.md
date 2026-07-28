@@ -219,23 +219,25 @@ Issue #24 reached a pre-run procedural `stop` after producing bounded procedure
 evidence, not GraphTruth utility. Its Python corpus remains research-only and
 `reduced-echo-contract` remains an inactive candidate.
 
-The single-major-WIP slot is now occupied by
-[Issue #42](https://github.com/asukhodko/graphtruth/issues/42). Its contract was
-frozen before implementation. The exact public-synthetic run passed all 18
+The owner kept the exact
+[Issue #42](https://github.com/asukhodko/graphtruth/issues/42) Zone 3 slice
+after its contract was frozen before implementation. The public-synthetic run
+passed all 18
 horizon × policy × materialization cells and all 16 mutation classes in both
 the Node and detached Python readers. Rebuilds are byte-identical, the
 experimental semantic digest is portable across the two readers, and the two
-development failures remain in the run report. This supports a `keep`
-recommendation for the exact Zone 3 slice; the owner has not yet chosen
-`keep`, `shrink`, or `stop`.
+development failures remain in the run report. PR
+[#43](https://github.com/asukhodko/graphtruth/pull/43) integrated that bounded
+evidence without promoting its format or semantics.
 
-If kept, the rational next move is one bounded real/public dogfood workflow
+The rational next move is one bounded real/public dogfood workflow
 that tests capture cost, correction, retrieval, and dossier usefulness while
 preserving the exact synthetic fixture as regression evidence. A fresh
 confirmatory corpus and the reduced-echo procedure remain alternatives, not
 implicit successors. Generated project documentation, richer domain topology,
 active acquisition, and experience-transfer machinery stay behind evidence
-from the minimal ledger and real use.
+from the minimal ledger and real use. The major-WIP slot is free, and no
+successor is authorized.
 
 This ordering protects the early ideas rather than discarding them. It gives
 them a durable substrate and an observable reason to exist.

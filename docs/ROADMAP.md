@@ -43,8 +43,8 @@ what may run now.
 
 ## Current evidence checkpoint — 2026-07-28
 
-[Issue #42](https://github.com/asukhodko/graphtruth/issues/42) is the single
-major WIP. Its public-synthetic `record-and-bundle-golden-journey-v1` contract
+[Issue #42](https://github.com/asukhodko/graphtruth/issues/42) completed the
+public-synthetic `record-and-bundle-golden-journey-v1`. Its contract
 was frozen before implementation and anchored in
 [the owning issue](https://github.com/asukhodko/graphtruth/issues/42#issuecomment-5078988410).
 The exact reference run now reports:
@@ -60,19 +60,20 @@ The exact reference run now reports:
 - both development failures (`DEV-001`, `DEV-002`) remain in the
   [observed report](../examples/experiments/record-and-bundle-golden-journey-v1/RUN-REPORT.md).
 
-The evidence recommends `keep` for this exact Zone 3 slice. The owner has not
-yet chosen `keep`, `shrink`, or `stop`; the PR must remain draft and the
-single-major-WIP slot remains occupied until that disposition. The work uses
-active repository or Issue dates 2026-07-25 and 2026-07-28: 2/4
-Europe/Moscow. It is not a protocol decision, compatibility promise, product
-utility result, or evidence of generality.
+The owner chose `keep` for this exact Zone 3 slice, and PR
+[#43](https://github.com/asukhodko/graphtruth/pull/43) squash-merged it as
+`221a4d81a5df891571b60de98d46b505dffd44b3`. The work used active repository
+or Issue dates 2026-07-25 and 2026-07-28: 2/4 Europe/Moscow. The decision is not
+a protocol decision, compatibility promise, product-utility result, or
+evidence of generality.
 
-If kept, this supplies partial Stage 1 evidence for exact evidence, linear
+This supplies partial Stage 1 evidence for exact evidence, linear
 revision, policy-scoped acceptance, portable rebuild, deterministic dossier,
 and a second-language reader. Stage 1 still lacks real repeated use, questions,
 a second retrieval path, measured capture and correction cost, migration,
-backup/restore, static fallback, and an exercised privacy boundary. The next
-track must be chosen separately after disposition.
+backup/restore, static fallback, and an exercised privacy boundary. The
+single-major-WIP slot is free; the next track requires a separate goal, issue,
+identity, budget, and authorization.
 
 ### Retained Issue #24 background
 
