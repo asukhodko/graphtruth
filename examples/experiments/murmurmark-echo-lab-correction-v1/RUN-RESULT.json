@@ -1,0 +1,145 @@
+{
+  "format": "graphtruth.experimental.public-dogfood-run-result.v1",
+  "identity": "murmurmark-echo-lab-correction-v1",
+  "status": "awaiting-owner-disposition",
+  "contractSha256": "fa382ab9888f417337775b60b80b0011bb4e0767992e46b95ad7360412ea9c5e",
+  "sourceManifestSha256": "3ab4aaaf26dc983434f5ff7fe034df7f64573af823a87e5876dc905460650b38",
+  "implementationManifestSha256": "f97e9d747545c92ae024ad30d6863574feff95494897a819931a2765fea62baf",
+  "implementationCommit": "6d9721c36159f5a8f218f0c49343a03e73313b1c",
+  "activeDates": {
+    "timezone": "Europe/Moscow",
+    "used": [
+      "2026-07-28"
+    ],
+    "maximum": 3
+  },
+  "baseline": {
+    "attempts": 1,
+    "queryCount": 8,
+    "planSha256": "8400fe85511d0bd85ad42ff54748bfe0b6bf90f25e243ca4b565a19b56d1669e",
+    "attemptMarkerSha256": "744165c5ede44f305482965965dec8774f8d9aced2de9dba3f352cb8b8c288e7",
+    "transcriptSha256": "008f23eab5effb8671feeff792f560b9ed3c51edc8239e221d10fbd2a5628e99",
+    "searchDurationMilliseconds": 54.630292,
+    "cells": [
+      {
+        "taskId": "task.pre-fix-bounds",
+        "status": "pass"
+      },
+      {
+        "taskId": "task.post-fix-safeguards",
+        "status": "fail",
+        "reason": "The exhausted retained query output does not expose the helper body and therefore cannot establish exact-frame computation, tiling and truncation, clipping rejection, or temporary-file replacement."
+      },
+      {
+        "taskId": "task.residual-unknowns",
+        "status": "pass"
+      }
+    ]
+  },
+  "graphtruth": {
+    "retainedFullRuns": 1,
+    "startedAt": "2026-07-28T09:10:13Z",
+    "finishedAt": "2026-07-28T09:10:21Z",
+    "captureSha256": "e09b321cd5b1554415dbee526b72279e38de9428bdf94cd52f6602fb7613a63c",
+    "bundle": {
+      "manifestSha256": "c86a4e275e3f51c40589dbbf52b72671b26c606e72323565af55f1c7b072be82",
+      "recordHeadSha256": "08e3d61dfab97507cc8d01dd1bccf31c0347feaa4d68804f65ac0cf65e0d2258",
+      "recordCount": 27,
+      "fileCount": 40,
+      "bundleBytes": 260447,
+      "sourceArtifactCount": 8,
+      "sourceArtifactBytes": 199242
+    },
+    "projectionRebuild": {
+      "initialProjectionDeleted": true,
+      "fileCount": 3,
+      "exactMatch": true,
+      "hashes": {
+        "dossier.md": "891b47952803328f26d76f858562d83597409e1fb2d84d3e06865c73bf4e7842",
+        "semantic-digest.txt": "b8216af1a134d06757fd6fbb7cfe2646c286ccc6c670b67ba219d71c95029159",
+        "views.json": "c6d33f12149447cf58035c7e1dfc5799c9aca2a821dda48fcff3b989ddf3d45d"
+      }
+    },
+    "cells": [
+      {
+        "taskId": "task.pre-fix-bounds",
+        "status": "pass"
+      },
+      {
+        "taskId": "task.post-fix-safeguards",
+        "status": "pass"
+      },
+      {
+        "taskId": "task.residual-unknowns",
+        "status": "pass"
+      }
+    ]
+  },
+  "denominator": {
+    "cellCount": 6,
+    "passCount": 5,
+    "failCount": 1,
+    "droppedCount": 0
+  },
+  "severeErrors": [],
+  "structuralBenefits": [
+    "H1 remains independently reconstructable after H2 is appended.",
+    "Every material positive claim is linked to an exact byte and line span with its own hash.",
+    "The missing incident report remains an explicit open question tied to a closed source boundary."
+  ],
+  "cost": {
+    "oneTimeAdaptationSeconds": 558,
+    "oneTimeAdaptationMeasurement": "Filesystem birth of core.mjs at 2026-07-28T11:59:42+03:00 through implementation freeze commit at 2026-07-28T12:09:00+03:00.",
+    "recurringCaptureReviewCorrectionUpperBoundSeconds": 595,
+    "recurringMeasurement": "CAPTURE.json birth through its final correction, plus final retained dossier review. This conservative elapsed upper bound includes interleaved adaptation work.",
+    "ownerManualInterventionBeforeDispositionMinutes": 0
+  },
+  "developmentFailures": [
+    {
+      "stage": "evidence-marker diagnostic",
+      "code": "duplicate-end-marker-observed",
+      "effect": "No bundle was retained. Extraction was defined by a unique start marker and the first following end marker."
+    },
+    {
+      "stage": "development bundle verification",
+      "code": "BUNDLE_INVENTORY_MISMATCH",
+      "effect": "Different JavaScript sort comparators disagreed. One comparator was used consistently before the implementation freeze."
+    },
+    {
+      "stage": "baseline pre-commit",
+      "code": "ENOENT",
+      "effect": "The parent output directory was absent. No attempt marker or query existed; directory creation was fixed before the single committed attempt."
+    },
+    {
+      "stage": "development dossier review",
+      "code": "capture-vs-prepare-link-omitted",
+      "effect": "The retained evidence existed but was absent from the residual-unknowns view. The capture declaration was corrected before the implementation freeze and retained run."
+    },
+    {
+      "stage": "first full repository check after retained run",
+      "code": "MD012",
+      "effect": "The byte-verified generated dossier contains a double blank at a section boundary. The immutable projection was explicitly excluded from hand-editable Markdown style lint; bundle verification, link checks, and exact rebuild tests remain authoritative."
+    }
+  ],
+  "m8": {
+    "changed": false,
+    "baseCommit": "c08de89164795a6ecf29cc9c7a7e7fb06f23fe33",
+    "exampleGitTreeSha1": "a9a7165cf50a7eb0a679fbbcd6ef672f1668452d",
+    "runtimeGitTreeSha1": "4dd762c0e101f82486bb60c4dc0754ba31f4c1e2"
+  },
+  "repositoryCheck": {
+    "status": "pass",
+    "completedAt": "2026-07-28T12:17:03+03:00",
+    "tests": 373,
+    "pass": 369,
+    "fail": 0,
+    "skipped": 4,
+    "firstAttemptFailure": "MD012 on the exact generated dossier; resolved by excluding that immutable projection only from hand-editable Markdown style lint."
+  },
+  "decisionGate": {
+    "ownerDecision": "pending",
+    "keepEligibleUnderFrozenContract": false,
+    "reason": "The frozen keep rule requires all six cells to pass; the files-rg post-fix-safeguards cell failed.",
+    "decisionGap": "The observed 5/6 outcome, in which GraphTruth passes the cell that the baseline misses, is not directly classified by the frozen keep, shrink, or stop rules. Resolving that rule defect requires an explicit owner disposition and must not silently rewrite this identity."
+  }
+}

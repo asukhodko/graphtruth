@@ -1,0 +1,48 @@
+{
+  "format": "graphtruth.experimental.public-dogfood-result-manifest.v1",
+  "identity": "murmurmark-echo-lab-correction-v1",
+  "status": "awaiting-owner-disposition",
+  "implementationManifestSha256": "f97e9d747545c92ae024ad30d6863574feff95494897a819931a2765fea62baf",
+  "artifacts": [
+    {
+      "path": "RUN-RESULT.json",
+      "sha256": "8e4f145d18c981cc7c70d7b5ea9705852247613ef5aa315169f7e9aa7a7cc704"
+    },
+    {
+      "path": "RUN-REPORT.md",
+      "sha256": "0c151b033688cfb7e2292cd027799b35554af1d0533391179723f051a1d15e6a"
+    },
+    {
+      "path": "DESIGN-PRESSURE.md",
+      "sha256": "3c520495475e71bbf54822aac7b754442f174d09d7df796888e996456ecc9805"
+    },
+    {
+      "path": "baseline/REPORT.md",
+      "sha256": "7d689b7465d35e7cde1dc459feaa3f13b2f1d1b990d8487e6af74de4b93ebbc3"
+    },
+    {
+      "path": "bundle/manifest.json",
+      "sha256": "c86a4e275e3f51c40589dbbf52b72671b26c606e72323565af55f1c7b072be82"
+    },
+    {
+      "path": "projections/dossier.md",
+      "sha256": "891b47952803328f26d76f858562d83597409e1fb2d84d3e06865c73bf4e7842"
+    },
+    {
+      "path": "projections/semantic-digest.txt",
+      "sha256": "b8216af1a134d06757fd6fbb7cfe2646c286ccc6c670b67ba219d71c95029159"
+    },
+    {
+      "path": "projections/views.json",
+      "sha256": "c6d33f12149447cf58035c7e1dfc5799c9aca2a821dda48fcff3b989ddf3d45d"
+    }
+  ],
+  "repositoryCheck": {
+    "status": "pass",
+    "tests": 373,
+    "pass": 369,
+    "fail": 0,
+    "skipped": 4
+  },
+  "decision": "pending"
+}

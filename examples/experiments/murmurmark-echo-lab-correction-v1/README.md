@@ -1,6 +1,6 @@
 # MurmurMark echo-lab correction dogfood v1
 
-> **Status:** contract frozen before adaptation; no run result yet.
+> **Status:** retained run complete; owner disposition pending.
 
 This Zone 3 experiment pressures the kept synthetic record-and-bundle slice
 with one real public correction. It asks:
@@ -48,8 +48,22 @@ and contract binding from the repository root:
 node examples/experiments/murmurmark-echo-lab-correction-v1/verify-inputs.mjs
 ```
 
-## Expected later artifacts
+## Retained result
 
-After adaptation, this directory may add only the contract-declared public
-bundle, projections, baseline report, run report, and design-pressure table.
-Until those artifacts exist, no GraphTruth utility result is available.
+- [`IMPLEMENTATION-MANIFEST.json`](IMPLEMENTATION-MANIFEST.json) freezes the
+  exact Zone 3 adapter used by the retained run.
+- [`baseline/REPORT.md`](baseline/REPORT.md) preserves the single
+  files-plus-`rg` result.
+- [`bundle/manifest.json`](bundle/manifest.json) anchors the 27-record,
+  40-file canonical bundle.
+- [`projections/dossier.md`](projections/dossier.md) is the generated H1/H2
+  evidence dossier.
+- [`RUN-REPORT.md`](RUN-REPORT.md) compares all six cells, reports cost, and
+  explains the pending decision.
+- [`DESIGN-PRESSURE.md`](DESIGN-PRESSURE.md) records what the episode
+  supported, changed, or left premature.
+
+The retained run passed all three GraphTruth cells and two of three baseline
+cells, with no severe error. The frozen `keep` rule nevertheless requires all
+six cells to pass. The experiment is therefore paused for an explicit owner
+disposition; no `keep`, `shrink`, or `stop` has been recorded.
