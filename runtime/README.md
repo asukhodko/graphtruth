@@ -34,7 +34,11 @@ verified bundle.
 
 The adapter is deliberately tied to this episode. It contains no acceptance
 decision, does not change the M8 runtime below, and makes no protocol,
-generality, safety, or superiority claim.
+generality, safety, or superiority claim. The terminal owner decision was
+`shrink`: the source snapshots, exact spans, additive revisions, distinct
+horizons, and open question are retained as useful evidence. The richer
+assessment shape and this adapter were not admitted as reusable or default
+runtime machinery.
 
 ## Experimental record-and-bundle journey
 

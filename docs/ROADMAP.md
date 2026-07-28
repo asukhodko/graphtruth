@@ -43,82 +43,80 @@ what may run now.
 
 ## Current evidence checkpoint — 2026-07-28
 
-[Issue #42](https://github.com/asukhodko/graphtruth/issues/42) completed the
-public-synthetic `record-and-bundle-golden-journey-v1`. Its contract
-was frozen before implementation and anchored in
-[the owning issue](https://github.com/asukhodko/graphtruth/issues/42#issuecomment-5078988410).
-The exact reference run now reports:
+[Issue #42](https://github.com/asukhodko/graphtruth/issues/42) supplied the
+first kept public-synthetic record-and-bundle slice. Its frozen reference run
+passed 18/18 cells and 16/16 mutation classes in Node and a detached Python
+reader, with exact clean rebuilds. PR
+[#43](https://github.com/asukhodko/graphtruth/pull/43) integrated that bounded
+Zone 3 evidence; PR [#44](https://github.com/asukhodko/graphtruth/pull/44)
+synchronized the terminal state. It remains non-normative and makes no product
+utility or generality claim.
 
-- 18/18 fixed horizon × policy × materialization cells passed;
-- 16/16 frozen mutation classes produced the expected result in both Node and
-  the detached Python standard-library reader;
-- two clean 19-file bundles are byte-identical, and Node writer, Node rebuild,
-  and Python derive the same path-independent semantic digest;
-- deleting every projection and rebuilding from the bundle is exact;
-- the detached root contains only the closed bundle and reader;
-- the frozen hardcoding variation passes without fitting journey values;
-- both development failures (`DEV-001`, `DEV-002`) remain in the
-  [observed report](../examples/experiments/record-and-bundle-golden-journey-v1/RUN-REPORT.md).
+[Issue #45](https://github.com/asukhodko/graphtruth/issues/45) then exercised
+the kept mechanics on the real public
+[`murmurmark-echo-lab-correction-v1`](../examples/experiments/murmurmark-echo-lab-correction-v1/README.md)
+episode. The contract and eight MIT-licensed source snapshots were frozen
+before adaptation. The retained result reports:
 
-The owner chose `keep` for this exact Zone 3 slice, and PR
-[#43](https://github.com/asukhodko/graphtruth/pull/43) squash-merged it as
-`221a4d81a5df891571b60de98d46b505dffd44b3`. The work used active repository
-or Issue dates 2026-07-25 and 2026-07-28: 2/4 Europe/Moscow. The decision is not
-a protocol decision, compatibility promise, product-utility result, or
-evidence of generality. PR
-[#44](https://github.com/asukhodko/graphtruth/pull/44) then synchronized the
-terminal project state as
-`9ec98ea984f02ad515079013b84fa8c48221f9cb`, and Issue #42 closed.
+- GraphTruth 3/3 tasks and the same files plus `rg` 2/3;
+- the unchanged six-cell denominator at 5/6, with no dropped cells or severe
+  errors;
+- 27 canonical records, 40 bundle files, and 260,447 bytes;
+- three projections deleted and rebuilt byte-for-byte;
+- an independently stable H1 view after the H2 correction;
+- exact hashed support spans and an open question tied to the closed source
+  boundary;
+- a recurring capture, review, and correction upper bound of 595 seconds,
+  plus 558 seconds of one-time adapter work.
 
-This supplies partial Stage 1 evidence for exact evidence, linear
-revision, policy-scoped acceptance, portable rebuild, deterministic dossier,
-and a second-language reader. Stage 1 still lacks real repeated use, questions,
-a second retrieval path, measured capture and correction cost, migration,
-backup/restore, static fallback, and an exercised privacy boundary. The
-single-major-WIP slot is free; the next track requires a separate goal, issue,
-identity, budget, and authorization.
+The failed baseline cell is informative: its frozen `rg` output did not expose
+the helper body needed to establish the H2 safeguards, while the GraphTruth
+dossier retained those exact spans. This is one targeted, familiar,
+retrospective episode, so it does not establish blind evaluation,
+representativeness, causality, production safety, or general superiority over
+search.
 
-### Selected next track — one real public correction episode
+The frozen `keep` rule incorrectly required both branches to pass all six
+cells. It therefore could not classify the observed case in which GraphTruth
+passed the task missed by the baseline. The owner chose
+[`shrink`](../examples/experiments/murmurmark-echo-lab-correction-v1/DISPOSITION.md)
+without changing the rule or rescoring the denominator. The admitted subset is:
 
-The next track is `m9-public-dogfood-episode`, ahead of candidate-format
-extraction. A second, materially different journey is needed to distinguish
-reusable record mechanics from facts fitted to one synthetic fixture.
+- byte-exact source snapshots and a closed inventory;
+- exact evidence spans;
+- additive assertion revisions;
+- distinct source and record horizons;
+- an explicit open question.
 
-The proposed identity is `murmurmark-echo-lab-correction-v1`. It uses only
-public MIT-licensed material from the MurmurMark controlled-echo lab introduced
-at commit
-[`e256363`](https://github.com/asukhodko/murmurmark/commit/e256363a2cf98c1ea1a2ef3eb30628039b46e246)
-and corrected at
-[`9b7ef91`](https://github.com/asukhodko/murmurmark/commit/9b7ef91363f698113042b20f3e540d21cf30bb6e).
-The practical question is whether `echo-lab prepare` can be judged bounded and
-safely repeatable from the available public evidence, which safeguards the
-correction actually adds, and what remains unproved.
+The richer `Assessment` shape, current adapter, flawed decision rule, and file
+formats were not admitted as reusable or normative machinery. The full bundle
+and reports remain immutable experiment evidence.
 
-The episode is retrospective and targeted. The corrective commit provides a
-real code-and-test change, but there is no separate public incident record.
-Owner familiarity is high. The result therefore cannot claim blind evaluation,
-representativeness, causal proof, production safety, or superiority over
-ordinary search.
+This adds partial Stage 1 evidence for one real capture-and-correction workflow,
+historical reconstruction, an explicit question, measured capture cost, and
+exact projection rebuild. Stage 1 still lacks repeated personal use, a second
+retrieval path, acceptance review in a real workflow, migration,
+backup/restore, static fallback, and an exercised privacy boundary.
 
-The goal must:
+### Recommended next track — incremental capture on a second correction
 
-1. freeze exact source bytes, natural commit horizons, the practical question,
-   familiarity, rights, budgets, and the files-plus-`rg` baseline before
-   adaptation or scoring;
-2. use the kept Issue #42 slice unchanged as regression evidence and make only
-   the smallest reversible Zone 3 adaptation required by the real episode;
-3. preserve exact support, counterevidence, unknowns, recorded versus applicable
-   time, and correction by addition;
-4. build and cleanly rebuild a query-specific dossier, compare it with the same
-   files plus `rg`, and count full capture, review, correction, and adaptation
-   cost;
-5. produce a design-pressure table rather than a format proposal, followed by
-   an owner `keep / shrink / stop` decision.
+The nearest useful step is a separate Zone 3 goal that freezes a minimal
+incremental capture interface for only the admitted subset, then exercises it
+on a second fresh public correction. It must also repair the comparison
+contract by separating cell validity, branch task success, comparative
+advantage, and product admission before results exist.
 
-Candidate-format extraction becomes eligible only if the synthetic and real
-journeys expose a small common envelope without hiding episode-specific gaps.
-The route is selected in planning, but implementation has not started and
-requires a separate `/goal`.
+That successor should answer two questions:
+
+1. can the useful subset be captured and reviewed without hand-authoring a
+   27-event declaration;
+2. do the same mechanics survive a materially different real correction
+   without growing episode-specific shapes?
+
+Only a second favorable disposition can make candidate-format extraction
+eligible. No successor, schema, RFC, or default-runtime change is authorized by
+the M9 `shrink`; the single-major-WIP slot is free until a separate goal, issue,
+identity, budget, and authorization exist.
 
 ### Retained Issue #24 background
 

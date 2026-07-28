@@ -70,8 +70,10 @@ The
 [MurmurMark echo-lab correction dogfood](experiments/murmurmark-echo-lab-correction-v1/)
 freezes eight MIT-licensed public source blobs across two adjacent commits. It
 is the first real/public pressure test of the kept record-and-bundle mechanics.
-Its contract is frozen before adaptation; until its run report exists, it
-supplies no utility result.
+GraphTruth passed 3/3 fixed tasks and the files-plus-`rg` branch passed 2/3;
+all six cells remain visible. The owner chose `shrink`, retaining exact
+snapshots, spans, revisions, horizons, and the open question while declining to
+promote the adapter, richer assessment shape, decision rule, or format.
 
 If repeated experiments demonstrate stable portable semantics, a separately
 reviewed minimal example may later be promoted into this directory under an

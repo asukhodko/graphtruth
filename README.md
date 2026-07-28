@@ -173,12 +173,21 @@ evidence. PR [#44](https://github.com/asukhodko/graphtruth/pull/44) synchronized
 the terminal project state and closed Issue #42. This is not protocol acceptance
 or a product-utility result.
 
-The selected next evidence track is one bounded retrospective dogfood episode
-over the public MIT-licensed MurmurMark correction from commit `e256363` to
-`9b7ef91`. It will test real capture, correction, historical reconstruction,
-ordinary-search comparison, and dossier usefulness before any candidate format
-is extracted. The track is planned but not active; execution requires its own
-goal, issue, frozen identity, budget, and authorization.
+The first real/public
+[MurmurMark correction dogfood](examples/experiments/murmurmark-echo-lab-correction-v1/README.md)
+is complete. GraphTruth answered 3/3 fixed tasks while the same files plus
+`rg` answered 2/3; the six-cell denominator remains 5/6 with no dropped cells
+or severe errors. The owner chose
+[`shrink`](examples/experiments/murmurmark-echo-lab-correction-v1/DISPOSITION.md):
+retain exact snapshots, evidence spans, additive revisions, distinct horizons,
+and an explicit open question. The episode does not promote its richer
+assessment shape, adapter, decision rule, or file formats into product or
+protocol machinery.
+
+The recommended next evidence track is a small incremental capture interface
+for that admitted subset, exercised on a second fresh public correction. It
+requires a separate goal, issue, frozen identity, budget, and authorization;
+candidate-format extraction remains premature.
 
 The capability-oriented stages and their exit evidence are described in the
 [roadmap](docs/ROADMAP.md). The current work sequence and decision gates live

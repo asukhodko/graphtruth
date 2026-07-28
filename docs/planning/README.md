@@ -69,13 +69,26 @@ Its Python corpus is research-only, and `reduced-echo-contract` remains an
 inactive backlog candidate. Its retained identities and cleanup limits are
 unchanged and are not inputs to Issue #42.
 
-The single-major-WIP slot is free. The next route is selected:
-`m9-public-dogfood-episode`, using the public MIT-licensed MurmurMark
-controlled-echo correction from commit `e256363` to `9b7ef91`. It precedes
-candidate-format extraction because one real, materially different episode is
-needed to expose accidental fixture-specific fields. The route is ready for a
-separate goal, issue, frozen identity, three-date budget, claim boundary, and
-authorization; no implementation or episode run is active.
+[Issue #45](https://github.com/asukhodko/graphtruth/issues/45) completed
+`m9-public-dogfood-episode` over the public MIT-licensed MurmurMark correction
+from commit `e256363` to `9b7ef91`. Its exact contract and eight source
+snapshots were frozen before adaptation. GraphTruth passed 3/3 tasks and the
+same files plus `rg` passed 2/3; the result remains 5/6 with no dropped cells
+or severe errors. All three projections rebuilt byte-for-byte, and the complete
+M8 example and runtime remained unchanged.
+
+The frozen 6/6 `keep` rule could not classify GraphTruth passing the task
+missed by the baseline. The owner chose `shrink` without changing or rescoring
+the result. The admitted subset is exact snapshots and closure, exact spans,
+additive revisions, distinct horizons, and an open question. The richer
+assessment shape, adapter, decision rule, and serialized format were not
+promoted.
+
+The single-major-WIP slot is free after terminal integration. The recommended
+next route is a small incremental capture interface for that subset, exercised
+on a second fresh public correction under a corrected comparison contract.
+Candidate-format extraction remains conditional. Execution requires its own
+goal, issue, identity, budget, and authorization.
 
 ## Historical execution record — 2026-07-24
 

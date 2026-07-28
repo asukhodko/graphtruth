@@ -56,10 +56,21 @@ nodes:
       9ec98ea984f02ad515079013b84fa8c48221f9cb and Issue #42 closed. Active
       dates are 2026-07-25 and 2026-07-28: 2/4 Europe/Moscow.
 
-      The next route is selected but not active:
-      `m9-public-dogfood-episode` will pressure the kept slice with one bounded
-      public MurmurMark correction before candidate-format extraction. It still
-      requires its own goal, issue, frozen identity, budget, and authorization.
+      Issue #45 completed `murmurmark-echo-lab-correction-v1` over one bounded
+      public MurmurMark correction. Its contract and eight source snapshots were
+      frozen before adaptation. GraphTruth passed 3/3 tasks and files plus rg
+      passed 2/3; the unchanged denominator is 5/6 with no dropped cell or
+      severe error. Three projections rebuilt exactly, and M8 remained
+      unchanged. The owner chose `shrink`: retain exact snapshots and closure,
+      exact spans, additive revisions, distinct horizons, and an open question.
+      The assessment shape, episode adapter, flawed decision rule, and formats
+      were not promoted.
+
+      The recommended next route is a minimal incremental capture interface for
+      that subset, tested on a second fresh public correction under a corrected
+      comparison contract. It requires a separate goal, issue, identity,
+      budget, and authorization. Candidate-format extraction remains
+      conditional.
 
   m0-rehearsal-integration:
     title: "Integrate the runtime-boundary rehearsal evidence"
@@ -1602,28 +1613,30 @@ nodes:
     kind: phase
     parent: graphtruth
     deps: [g8-record-bundle-integrated]
-    status: ready
+    status: done
+    issue: "https://github.com/asukhodko/graphtruth/issues/45"
     notes: |
-      Selected next route, not yet active. Proposed identity
-      `murmurmark-echo-lab-correction-v1` uses only public MIT-licensed material
-      from MurmurMark commits e256363a2cf98c1ea1a2ef3eb30628039b46e246 and
-      9b7ef91363f698113042b20f3e540d21cf30bb6e. It is a targeted retrospective
-      dogfood episode with high owner familiarity and no separate public
-      incident report. Plan for at most three Europe/Moscow repository-active
-      dates. No implementation, processing, or utility claim is authorized by
-      this planning selection.
+      Completed targeted retrospective identity
+      `murmurmark-echo-lab-correction-v1` over public MIT-licensed material from
+      MurmurMark commits e256363a2cf98c1ea1a2ef3eb30628039b46e246 and
+      9b7ef91363f698113042b20f3e540d21cf30bb6e. GraphTruth passed 3/3 tasks
+      and the files-plus-rg baseline passed 2/3. The owner chose `shrink`
+      without changing the 5/6 denominator. The goal used one of three
+      Europe/Moscow repository-active dates: 2026-07-28.
 
   m9-freeze-public-episode-contract:
     title: "Freeze the MurmurMark episode, question, baseline, and claim boundary"
     kind: task
     parent: m9-public-dogfood-episode
-    status: ready
+    status: done
     notes: |
-      Pin exact source bytes and natural commit horizons, rights, familiarity,
-      the practical maintenance question, files-plus-rg baseline, denominators,
-      budgets, severe failures, and keep/shrink/stop conditions before adapting
-      or scoring. Explicitly exclude blind, representative, causal, production
-      safety, general-format, and superiority claims.
+      DOGFOOD-CONTRACT.json SHA-256 is
+      fa382ab9888f417337775b60b80b0011bb4e0767992e46b95ad7360412ea9c5e;
+      SOURCE-MANIFEST.json SHA-256 is
+      3ab4aaaf26dc983434f5ff7fe034df7f64573af823a87e5876dc905460650b38.
+      Contract-only commit 1e3cb73a966126cc0253c7ae2f9125f8645b82cf
+      precedes adaptation and freezes all six cells, budgets, severe errors,
+      claims, and decision rules.
 
   g9-public-episode-contract-frozen:
     title: "Gate: exact public dogfood contract frozen before adaptation"
@@ -1631,42 +1644,51 @@ nodes:
     milestone: true
     parent: m9-public-dogfood-episode
     deps: [m9-freeze-public-episode-contract]
-    status: planned
+    status: done
+    issue: "https://github.com/asukhodko/graphtruth/issues/45#issuecomment-5101971404"
+    notes: |
+      Issue #45 comment 5101971404 anchors the exact contract and source
+      manifest before any adaptation, baseline result, or GraphTruth run.
 
   m9-adapt-and-capture:
     title: "Make the smallest Zone 3 adaptation and capture the correction"
     kind: task
     parent: m9-public-dogfood-episode
     deps: [g9-public-episode-contract-frozen]
-    status: planned
+    status: done
     notes: |
-      Preserve the kept Issue #42 fixture byte-for-byte as regression evidence.
-      Represent exact support, counterevidence, unknowns, recorded versus
-      applicable time, and correction by addition. Do not promote experimental
-      shapes into spec, schemas, or an RFC.
+      Implementation manifest SHA-256 is
+      f97e9d747545c92ae024ad30d6863574feff95494897a819931a2765fea62baf;
+      freeze commit is 6d9721c36159f5a8f218f0c49343a03e73313b1c.
+      The episode-specific Zone 3 adapter captures exact support,
+      counterevidence, unknowns, separate horizons, and correction by addition.
+      The M8 example and runtime trees remain unchanged.
 
   m9-compare-dossier-and-rebuild:
     title: "Compare the dossier with files plus rg and verify clean rebuild"
     kind: task
     parent: m9-public-dogfood-episode
     deps: [m9-adapt-and-capture]
-    status: planned
+    status: done
     notes: |
-      Run the predeclared maintenance question over the same evidence boundary,
-      retain adverse and abstaining results, account for capture, review,
-      correction, adaptation, and query cost, and rebuild every supported
-      projection from declared retained inputs.
+      Result manifest SHA-256 is
+      8e9d309f6295203d061e9f39bbf8f5d471505dfe35187aa664d56792c4592190.
+      GraphTruth passed 3/3 and files plus rg passed 2/3; no cell was dropped.
+      The 27-record, 40-file bundle and all three rebuilt projections verify
+      exactly. Recurring capture, review, and correction cost is bounded above
+      by 595 seconds; one-time adapter work is 558 seconds.
 
   m9-record-design-pressure:
     title: "Record episode-driven design pressure without extracting a format"
     kind: task
     parent: m9-public-dogfood-episode
     deps: [m9-compare-dossier-and-rebuild]
-    status: planned
+    status: done
     notes: |
-      Map each real requirement to supported, minimally changed, or unsupported
-      behavior with cost and consequence. Candidate-format extraction remains a
-      later conditional goal based on comparison of both journeys.
+      The design-pressure report retains the useful subset and records capture
+      ergonomics as the main weakness. It also exposes the frozen decision-rule
+      defect: requiring all baseline cells to pass cannot classify GraphTruth
+      succeeding on a task missed by the baseline.
 
   g9-public-dogfood-disposition:
     title: "Gate: owner chooses public-dogfood keep, shrink, or stop"
@@ -1674,7 +1696,13 @@ nodes:
     milestone: true
     parent: m9-public-dogfood-episode
     deps: [m9-record-design-pressure]
-    status: planned
+    status: done
+    issue: "https://github.com/asukhodko/graphtruth/issues/45#issuecomment-5102364604"
+    notes: |
+      Owner chose `shrink` in Issue #45 comment 5102364604, bound to the exact
+      result manifest and commit. Exact snapshots and closure, spans, additive
+      revisions, distinct horizons, and the open question are admitted. The
+      full observed evidence is immutable and was not rescored.
 
   g9-public-dogfood-integrated:
     title: "Gate: selected public-dogfood terminal path integrated"
@@ -1682,6 +1710,80 @@ nodes:
     milestone: true
     parent: m9-public-dogfood-episode
     deps: [g9-public-dogfood-disposition]
+    status: done
+    notes: |
+      The pull request carrying the terminal disposition, documentation, and
+      operational-plan synchronization is the integration vehicle. Issue #45
+      closes only after its required checks pass and it is squash-merged.
+
+  m10-incremental-capture-second-public-episode:
+    title: "Test minimal incremental capture on a second public correction"
+    kind: phase
+    parent: graphtruth
+    deps: [g9-public-dogfood-integrated]
+    status: ready
+    notes: |
+      Recommended successor after M9 `shrink`, not authorized for execution.
+      Retain only the admitted snapshot, span, additive revision, horizon, and
+      open-question subset. Freeze a corrected comparison model before results,
+      reduce manual capture friction, and exercise the interface on a materially
+      different fresh public correction. Requires a separate goal, issue,
+      identity, budget, and authorization.
+
+  m10-freeze-incremental-capture-contract:
+    title: "Freeze the minimal interface and corrected comparison contract"
+    kind: task
+    parent: m10-incremental-capture-second-public-episode
+    status: ready
+    notes: |
+      Select a fresh public correction and freeze source closure, tasks,
+      baseline, budgets, and roles. Define cell validity, per-branch task
+      success, comparative advantage, and capability admission separately.
+
+  g10-incremental-capture-contract-frozen:
+    title: "Gate: second-episode contract frozen before implementation"
+    kind: milestone
+    milestone: true
+    parent: m10-incremental-capture-second-public-episode
+    deps: [m10-freeze-incremental-capture-contract]
+    status: planned
+
+  m10-implement-incremental-capture:
+    title: "Implement the smallest incremental capture interface in Zone 3"
+    kind: task
+    parent: m10-incremental-capture-second-public-episode
+    deps: [g10-incremental-capture-contract-frozen]
+    status: planned
+    notes: |
+      Reduce hand-authored capture while preserving exact evidence, additive
+      history, horizon reconstruction, and explicit unknowns. Do not promote
+      the M9 adapter or assessment shape into schemas, specs, or RFCs.
+
+  m10-run-second-public-correction:
+    title: "Run and compare the second fresh public correction"
+    kind: task
+    parent: m10-incremental-capture-second-public-episode
+    deps: [m10-implement-incremental-capture]
+    status: planned
+    notes: |
+      Preserve the full denominator, count capture and review tax, rebuild every
+      supported projection, and report whether the admitted M9 subset transfers
+      without episode-specific growth.
+
+  g10-second-public-correction-disposition:
+    title: "Gate: owner chooses second-episode keep, shrink, or stop"
+    kind: milestone
+    milestone: true
+    parent: m10-incremental-capture-second-public-episode
+    deps: [m10-run-second-public-correction]
+    status: planned
+
+  g10-incremental-capture-integrated:
+    title: "Gate: selected second-episode terminal path integrated"
+    kind: milestone
+    milestone: true
+    parent: m10-incremental-capture-second-public-episode
+    deps: [g10-second-public-correction-disposition]
     status: planned
 
   h-record-bundle-candidate-format:
@@ -1689,13 +1791,14 @@ nodes:
     kind: milestone
     milestone: true
     parent: graphtruth
-    deps: [g9-public-dogfood-disposition]
+    deps: [g10-incremental-capture-integrated]
     status: conditional
     notes: |
-      Eligible only if the M9 evidence and owner disposition expose a small
-      common envelope across the synthetic and real episodes. Any extraction is
-      a separate goal; it must compare both journeys, preserve unresolved
-      pressure, and cannot make a normative or compatibility claim.
+      M9 `shrink` did not admit candidate-format extraction. It becomes eligible
+      only if the second fresh public episode retains a small common envelope
+      without episode-specific growth. Any extraction is a separate goal; it
+      must preserve unresolved pressure and cannot make a normative or
+      compatibility claim.
 
   h-fresh-confirmatory-corpus:
     title: "Horizon: first GraphTruth confirmation on a fresh corpus"
@@ -2146,13 +2249,61 @@ execution:
       updated_at: "2026-07-28T11:09:37+03:00"
       note: "PR #43 squash-merged as 221a4d81a5df891571b60de98d46b505dffd44b3 after green required checks; PR #44 synchronized terminal state as 9ec98ea984f02ad515079013b84fa8c48221f9cb and Issue #42 closed."
     m9-public-dogfood-episode:
-      progress: 0.0
-      updated_at: "2026-07-28T11:09:37+03:00"
-      note: "Planning selected the MurmurMark e256363-to-9b7ef91 correction episode ahead of candidate-format extraction. Execution awaits a separate goal, issue, exact freeze, three-date budget, and authorization."
+      progress: 1.0
+      actual_start: "2026-07-28"
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T12:29:08+03:00"
+      note: "The frozen public MurmurMark episode completed in one active date; owner shrink retains five narrow capabilities without rescoring the 5/6 denominator."
     m9-freeze-public-episode-contract:
+      progress: 1.0
+      actual_start: "2026-07-28"
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T11:49:48+03:00"
+      note: "Exact source and contract identities were anchored before adaptation."
+    g9-public-episode-contract-frozen:
+      progress: 1.0
+      actual_start: "2026-07-28"
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T11:49:48+03:00"
+      note: "Issue #45 comment 5101971404 is the external pre-adaptation anchor."
+    m9-adapt-and-capture:
+      progress: 1.0
+      actual_start: "2026-07-28"
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T12:09:13+03:00"
+      note: "Episode-specific Zone 3 adapter and exact capture froze before the retained GraphTruth run; M8 stayed unchanged."
+    m9-compare-dossier-and-rebuild:
+      progress: 1.0
+      actual_start: "2026-07-28"
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T12:20:19+03:00"
+      note: "GraphTruth 3/3, files plus rg 2/3, exact three-projection rebuild, zero dropped cells, zero severe errors."
+    m9-record-design-pressure:
+      progress: 1.0
+      actual_start: "2026-07-28"
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T12:20:19+03:00"
+      note: "Captured the useful subset, manual-capture cost, and the 6/6 decision-rule defect without extracting a format."
+    g9-public-dogfood-disposition:
+      progress: 1.0
+      actual_start: "2026-07-28"
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T12:29:08+03:00"
+      note: "Owner chose shrink in Issue #45 comment 5102364604; result evidence remains immutable and unrescored."
+    g9-public-dogfood-integrated:
+      progress: 1.0
+      actual_start: "2026-07-28"
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T12:29:08+03:00"
+      note: "Terminal disposition, project documentation, and operational plan are carried by the integration PR."
+    m10-incremental-capture-second-public-episode:
       progress: 0.0
-      updated_at: "2026-07-28T11:09:37+03:00"
-      note: "Ready as the first task of the selected route; no source pack, contract identity, adaptation, baseline run, or scoring exists yet."
+      updated_at: "2026-07-28T12:29:08+03:00"
+      note: "Recommended next route after M9 shrink; execution awaits a separate goal, issue, exact contract, budget, and authorization."
+    m10-freeze-incremental-capture-contract:
+      progress: 0.0
+      updated_at: "2026-07-28T12:29:08+03:00"
+      note: "Ready to define the fresh episode, minimal capture surface, and corrected four-layer comparison decision model."
 
 views:
   current-work:
@@ -2173,9 +2324,15 @@ views:
       status: [done, current, ready, planned]
     order_by: status
   public-dogfood-decision-path:
-    title: "Selected public dogfood route"
+    title: "Completed public dogfood route"
     where:
       parent: m9-public-dogfood-episode
+      status: [done, stopped, current, ready, planned]
+    order_by: status
+  incremental-capture-decision-path:
+    title: "Recommended incremental-capture route"
+    where:
+      parent: m10-incremental-capture-second-public-episode
       status: [done, stopped, current, ready, planned]
     order_by: status
   decision-gates:
@@ -2191,8 +2348,8 @@ views:
 x:
   exec:
     program:
-      nearest_goal: "Freeze and execute `murmurmark-echo-lab-correction-v1` as one bounded real/public dogfood episode before extracting any candidate format."
-      success_by_next_sync: "Create one owning issue and exact contract; preserve the M8 fixture; capture, compare, rebuild, and record design pressure within three active dates; stop for owner keep/shrink/stop."
+      nearest_goal: "Freeze a minimal incremental capture interface and corrected comparison contract, then test them on one second fresh public correction."
+      success_by_next_sync: "Create a separate goal and issue; freeze the fresh episode and four-layer decision model before implementation; measure capture tax and transfer of the five admitted M9 capabilities; stop for owner keep/shrink/stop."
     defaults:
       status_progress:
         done: 1.0
@@ -2248,9 +2405,17 @@ x:
         scope_nodes: [m9-public-dogfood-episode]
         kind: main
         mgmt:
+          health: green
+          sync_note: "Issue #45 froze the exact public episode before adaptation. GraphTruth passed 3/3 tasks and files plus rg 2/3; all three projections rebuilt exactly. Owner shrink admits five narrow capabilities and leaves the full 5/6 evidence unchanged."
+          next_sync_goal: "Preserve the full terminal evidence and use only the admitted subset in a separately authorized successor."
+      incremental-capture:
+        title: "Incremental capture on a second public correction"
+        scope_nodes: [m10-incremental-capture-second-public-episode]
+        kind: main
+        mgmt:
           health: neutral
-          sync_note: "Selected ahead of candidate-format extraction. The proposed e256363-to-9b7ef91 episode is public and MIT-licensed, but targeted and retrospective; no implementation or run exists."
-          next_sync_goal: "Freeze the exact episode contract, baseline, claim boundary, budget, and decision rules before adaptation."
+          sync_note: "Recommended after M9 shrink; no issue, contract, implementation, episode, or authorization exists."
+          next_sync_goal: "Freeze the minimal interface, fresh source boundary, and corrected comparison model before implementation."
     edges:
       - from: integration
         to: private-stop
@@ -2270,6 +2435,10 @@ x:
         to: public-dogfood
         type: required
         label: "kept slice under real-episode pressure"
+      - from: public-dogfood
+        to: incremental-capture
+        type: required
+        label: "shrunk subset under repeated real-use pressure"
     views:
       exec-top:
         direction: LR
@@ -2278,12 +2447,12 @@ x:
         show_progress: false
         show_gate_date: false
         wrap_title_lines: 2
-        caption: "Issue #42 is closed after PR #44. The MurmurMark public correction episode is selected and ready for its own goal; execution has not started."
-        blocks: [integration, private-stop, python-sequential, record-bundle, public-dogfood]
+        caption: "The first real/public MurmurMark episode ended at shrink. A minimal incremental-capture successor on a second fresh correction is recommended but not authorized."
+        blocks: [integration, private-stop, python-sequential, record-bundle, public-dogfood, incremental-capture]
       exec-active-tracks:
         direction: TB
         color_mode: mgmt_hybrid
         highlight_current: true
         show_progress: false
         show_gate_date: false
-        blocks: [integration, private-stop, python-sequential, python-order-successor, record-bundle, public-dogfood]
+        blocks: [integration, private-stop, python-sequential, python-order-successor, record-bundle, public-dogfood, incremental-capture]

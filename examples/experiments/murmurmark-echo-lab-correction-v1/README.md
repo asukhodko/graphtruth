@@ -1,6 +1,6 @@
 # MurmurMark echo-lab correction dogfood v1
 
-> **Status:** retained run complete; owner disposition pending.
+> **Status:** retained run complete; owner disposition `shrink`.
 
 This Zone 3 experiment pressures the kept synthetic record-and-bundle slice
 with one real public correction. It asks:
@@ -59,11 +59,15 @@ node examples/experiments/murmurmark-echo-lab-correction-v1/verify-inputs.mjs
 - [`projections/dossier.md`](projections/dossier.md) is the generated H1/H2
   evidence dossier.
 - [`RUN-REPORT.md`](RUN-REPORT.md) compares all six cells, reports cost, and
-  explains the pending decision.
+  records the pre-disposition comparison.
 - [`DESIGN-PRESSURE.md`](DESIGN-PRESSURE.md) records what the episode
   supported, changed, or left premature.
+- [`DISPOSITION.md`](DISPOSITION.md) binds the owner's terminal `shrink`
+  decision without changing the frozen result.
 
 The retained run passed all three GraphTruth cells and two of three baseline
 cells, with no severe error. The frozen `keep` rule nevertheless requires all
-six cells to pass. The experiment is therefore paused for an explicit owner
-disposition; no `keep`, `shrink`, or `stop` has been recorded.
+six cells to pass. The owner chose `shrink` without rewriting that rule or the
+5/6 denominator. Exact snapshots, evidence spans, additive revisions, distinct
+horizons, and the open question are admitted; the richer assessment shape,
+episode adapter, decision rule, and serialized format are not.
