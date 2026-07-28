@@ -22,6 +22,20 @@ Default runtime behavior is not automatically protocol behavior.
 Interoperability requirements belong in `spec/`, schemas, and conformance
 fixtures.
 
+## Experimental public dogfood
+
+The
+[public-dogfood v1 runtime](experimental/public-dogfood-v1/)
+is a separate Zone 3 adapter for the first real-public GraphTruth episode,
+`murmurmark-echo-lab-correction-v1`. It preserves two source horizons, exact
+evidence spans, provisional revision history, scoped limitations, and an open
+question; it then derives a dossier and two machine-readable views from the
+verified bundle.
+
+The adapter is deliberately tied to this episode. It contains no acceptance
+decision, does not change the M8 runtime below, and makes no protocol,
+generality, safety, or superiority claim.
+
 ## Experimental record-and-bundle journey
 
 The

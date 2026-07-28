@@ -1,0 +1,39 @@
+{
+  "format": "graphtruth.experimental.public-dogfood-implementation-manifest.v1",
+  "identity": "murmurmark-echo-lab-correction-v1",
+  "status": "frozen-before-retained-graphtruth-run",
+  "contractSha256": "fa382ab9888f417337775b60b80b0011bb4e0767992e46b95ad7360412ea9c5e",
+  "sourceManifestSha256": "3ab4aaaf26dc983434f5ff7fe034df7f64573af823a87e5876dc905460650b38",
+  "captureSha256": "e09b321cd5b1554415dbee526b72279e38de9428bdf94cd52f6602fb7613a63c",
+  "baselinePlanSha256": "8400fe85511d0bd85ad42ff54748bfe0b6bf90f25e243ca4b565a19b56d1669e",
+  "components": [
+    {
+      "path": "runtime/experimental/public-dogfood-v1/core.mjs",
+      "sha256": "8c38dc3313213a3cdf8cf3e45d85f51f52b938e450405ad04dface397a9ea907"
+    },
+    {
+      "path": "runtime/experimental/public-dogfood-v1/cli.mjs",
+      "sha256": "82b40174228ee70d17eed4904804766aa0e3bc0984b9cbb65d46b99ab68fe5cb"
+    },
+    {
+      "path": "runtime/experimental/public-dogfood-v1/core.test.mjs",
+      "sha256": "9f9f88845b82f4692e087d16b2285a574e25c6e08c8d73d60a28e9badf276c71"
+    },
+    {
+      "path": "runtime/experimental/public-dogfood-v1/README.md",
+      "sha256": "34b0f3a9abeaf4c867559dcd37e71f4502b8c962dd52dc4cede6cebf27d759bc"
+    },
+    {
+      "path": "examples/experiments/murmurmark-echo-lab-correction-v1/baseline-run.mjs",
+      "sha256": "cc63519882db07ece944bc50c6dce15af6aef598c7f629645ae920b3e4030fbf"
+    }
+  ],
+  "keptM8": {
+    "baseCommit": "c08de89164795a6ecf29cc9c7a7e7fb06f23fe33",
+    "examplePath": "examples/experiments/record-and-bundle-golden-journey-v1",
+    "exampleGitTreeSha1": "a9a7165cf50a7eb0a679fbbcd6ef672f1668452d",
+    "runtimePath": "runtime/experimental/record-bundle-v1",
+    "runtimeGitTreeSha1": "4dd762c0e101f82486bb60c4dc0754ba31f4c1e2"
+  },
+  "runRule": "The retained GraphTruth build, verification, projection, deletion, and exact rebuild use these bytes once. Any component or input mismatch stops without an unfavorable-result retry."
+}
