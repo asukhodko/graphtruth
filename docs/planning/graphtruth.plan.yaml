@@ -74,11 +74,13 @@ nodes:
       reads; no severe error, retry, repair, dropped cell, or rescore occurred.
       The owner chose `stop`, so M10 admits no product capability.
 
-      The recommended next route is a new implementation identity with one
-      canonical inventory comparator, mixed-case and permutation qualification,
-      regression against the stopped corpus, and confirmation on a third fresh
-      public correction. It requires a separate goal, issue, identity, budget,
-      and authorization. Candidate-format extraction remains conditional.
+      Issue #50 opened that proposed successor as
+      `incremental-capture-portable-inventory-v2-third-public-correction-v1`,
+      but the owner selected `stop` before any semantic or selection freeze.
+      Only public repository and license metadata had been consulted. No
+      candidate source, v2 implementation, qualification, M10 regression,
+      comparison branch, or result exists. The stop adds no technical evidence,
+      and candidate-format extraction remains conditional.
 
   m0-rehearsal-integration:
     title: "Integrate the runtime-boundary rehearsal evidence"
@@ -1816,23 +1818,25 @@ nodes:
     kind: phase
     parent: graphtruth
     deps: [g10-incremental-capture-integrated]
-    status: ready
+    status: stopped
+    issue: "https://github.com/asukhodko/graphtruth/issues/50"
     notes: |
-      Recommended successor after the M10 `stop`, not authorized for execution.
-      Use a new implementation and experiment identity. Freeze one canonical
-      path comparator, mixed-case and permutation qualification, the research-
-      only M10 regression boundary, and a third fresh public correction before
-      implementation or source reveal.
+      The owner selected `stop` before semantic or selection freeze. Preparation
+      verified protected identities and consulted public repository and license
+      metadata only. No candidate source, v2 implementation, qualification,
+      M10 regression, baseline, GraphTruth run, or score exists. The identity
+      admits no capability.
 
   m11-freeze-portable-inventory-contract:
     title: "Freeze v2 inventory semantics and the third-episode contract"
     kind: task
     parent: m11-portable-inventory-third-public-episode
-    status: ready
+    status: stopped
+    issue: "https://github.com/asukhodko/graphtruth/issues/50"
     notes: |
-      Specify comparator bytes and equality semantics, close adversarial
-      fixtures, exclude prior episodes from confirmation, mechanically select
-      a fresh correction, and freeze tasks, baseline, budgets, and decisions.
+      Not reached. No semantic manifest, selection contract, candidate identity,
+      task denominator, baseline contract, budget freeze, or decision contract
+      was created.
 
   g11-portable-inventory-contract-frozen:
     title: "Gate: v2 and third-episode contract frozen before implementation"
@@ -1840,28 +1844,31 @@ nodes:
     milestone: true
     parent: m11-portable-inventory-third-public-episode
     deps: [m11-freeze-portable-inventory-contract]
-    status: planned
+    status: stopped
+    issue: "https://github.com/asukhodko/graphtruth/issues/50"
+    notes: "Not reached before the owner stop."
 
   m11-implement-and-regress-incremental-capture-v2:
     title: "Implement v2 and pass adversarial plus stopped-corpus regression"
     kind: task
     parent: m11-portable-inventory-third-public-episode
     deps: [g11-portable-inventory-contract-frozen]
-    status: planned
+    status: stopped
+    issue: "https://github.com/asukhodko/graphtruth/issues/50"
     notes: |
-      Create a new Zone 3 implementation identity. Never patch or resume M10.
-      Prove order invariance across mixed case and permutations, then replay the
-      M10 corpus only as regression input before freezing implementation.
+      Not started. No v2 runtime, implementation identity, synthetic
+      qualification, or M10 regression exists.
 
   m11-run-third-public-correction:
     title: "Run one baseline and one GraphTruth capture on the fresh episode"
     kind: task
     parent: m11-portable-inventory-third-public-episode
     deps: [m11-implement-and-regress-incremental-capture-v2]
-    status: planned
+    status: stopped
+    issue: "https://github.com/asukhodko/graphtruth/issues/50"
     notes: |
-      Preserve the fixed denominator and one-attempt rule. Confirmation comes
-      only from the fresh episode; stopped M10 evidence cannot count as success.
+      Not started. No fresh source was selected or revealed, and baseline and
+      GraphTruth run counts are both zero.
 
   g11-third-public-correction-disposition:
     title: "Gate: owner chooses v2 keep, shrink, or stop"
@@ -1869,15 +1876,35 @@ nodes:
     milestone: true
     parent: m11-portable-inventory-third-public-episode
     deps: [m11-run-third-public-correction]
-    status: planned
+    status: stopped
+    issue: "https://github.com/asukhodko/graphtruth/issues/50"
+    notes: |
+      The post-result decision gate was not reached because no result exists.
+
+  g11-pre-execution-stop-disposition:
+    title: "Gate: owner stops M11 before freeze"
+    kind: milestone
+    milestone: true
+    parent: m11-portable-inventory-third-public-episode
+    status: done
+    issue: "https://github.com/asukhodko/graphtruth/issues/50"
+    notes: |
+      Owner `stop` is recorded by disposition SHA-256
+      df94aca3b0c564dc5cefdcc1e4c39d69ba309b6829033ea00724c105ca3b2a9e.
+      It admits no comparator, candidate, implementation, result, or product
+      capability.
 
   g11-portable-inventory-integrated:
     title: "Gate: selected v2 terminal path integrated"
     kind: milestone
     milestone: true
     parent: m11-portable-inventory-third-public-episode
-    deps: [g11-third-public-correction-disposition]
-    status: planned
+    deps: [g11-pre-execution-stop-disposition]
+    status: current
+    issue: "https://github.com/asukhodko/graphtruth/issues/50"
+    notes: |
+      Integrate the terminal pre-execution disposition, synchronize project
+      state, pass both required gates, merge, verify main, and close Issue #50.
 
   h-record-bundle-candidate-format:
     title: "Horizon: extract a candidate format from two unlike journeys"
@@ -1887,11 +1914,11 @@ nodes:
     deps: [g11-portable-inventory-integrated]
     status: conditional
     notes: |
-      M9 `shrink` and M10 `stop` did not admit candidate-format extraction. It
-      becomes eligible only if a fresh M11 disposition retains a small common
-      envelope without episode-specific growth. Any extraction is a separate
-      goal; it must preserve unresolved pressure and cannot make a normative or
-      compatibility claim.
+      M9 `shrink`, M10 `stop`, and the M11 pre-execution `stop` did not admit
+      candidate-format extraction. It becomes eligible only if a later fresh
+      disposition retains a small common envelope without episode-specific
+      growth. Any extraction is a separate goal; it must preserve unresolved
+      pressure and cannot make a normative or compatibility claim.
 
   h-fresh-confirmatory-corpus:
     title: "Horizon: first GraphTruth confirmation on a fresh corpus"
@@ -2432,13 +2459,42 @@ execution:
       updated_at: "2026-07-28T18:36:26+03:00"
       note: "PR #49 retains the exact stop evidence, synchronizes public project state, and closes Issue #48 on squash merge."
     m11-portable-inventory-third-public-episode:
-      progress: 0.0
-      updated_at: "2026-07-28T18:36:26+03:00"
-      note: "Recommended after M10 stop; execution awaits a separate goal, issue, frozen identities, budget, and authorization."
+      progress: 1.0
+      actual_start: "2026-07-28"
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T19:12:10+03:00"
+      note: "Owner stopped Issue #50 before semantic or selection freeze; no candidate, implementation, qualification, run, score, or admitted capability exists."
     m11-freeze-portable-inventory-contract:
       progress: 0.0
-      updated_at: "2026-07-28T18:36:26+03:00"
-      note: "Ready to freeze canonical inventory semantics, adversarial qualification, regression boundaries, and a fresh third episode."
+      updated_at: "2026-07-28T19:12:10+03:00"
+      note: "Stopped before any semantic manifest or selection contract was created."
+    g11-portable-inventory-contract-frozen:
+      progress: 0.0
+      updated_at: "2026-07-28T19:12:10+03:00"
+      note: "Not reached."
+    m11-implement-and-regress-incremental-capture-v2:
+      progress: 0.0
+      updated_at: "2026-07-28T19:12:10+03:00"
+      note: "Not started; no v2 code or regression invocation exists."
+    m11-run-third-public-correction:
+      progress: 0.0
+      updated_at: "2026-07-28T19:12:10+03:00"
+      note: "Not started; both branch run counts are zero."
+    g11-third-public-correction-disposition:
+      progress: 0.0
+      updated_at: "2026-07-28T19:12:10+03:00"
+      note: "Post-result decision gate not reached."
+    g11-pre-execution-stop-disposition:
+      progress: 1.0
+      actual_start: "2026-07-28"
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T19:12:10+03:00"
+      note: "Owner selected terminal pre-execution stop; disposition SHA-256 df94aca3b0c564dc5cefdcc1e4c39d69ba309b6829033ea00724c105ca3b2a9e."
+    g11-portable-inventory-integrated:
+      progress: 0.5
+      actual_start: "2026-07-28"
+      updated_at: "2026-07-28T19:12:10+03:00"
+      note: "Terminal synchronization is in progress."
 
 views:
   current-work:
@@ -2471,7 +2527,7 @@ views:
       status: [done, stopped, current, ready, planned]
     order_by: status
   portable-inventory-decision-path:
-    title: "Recommended portable-inventory route"
+    title: "Stopped portable-inventory route"
     where:
       parent: m11-portable-inventory-third-public-episode
       status: [done, stopped, current, ready, planned]
@@ -2489,8 +2545,8 @@ views:
 x:
   exec:
     program:
-      nearest_goal: "Create a new incremental-capture identity with canonical inventory semantics, then confirm it on one third fresh public correction."
-      success_by_next_sync: "Freeze comparator semantics, adversarial fixtures, the stopped-corpus regression role, and a fresh episode before implementation; run one baseline and one GraphTruth capture; stop for owner keep/shrink/stop."
+      nearest_goal: "Select one separately authorized major goal; no M11 successor is implicit."
+      success_by_next_sync: "Preserve the M9 and M10 evidence boundaries, keep the M11 stop explicit, and authorize only work whose decision value justifies a new identity and budget."
     defaults:
       status_progress:
         done: 1.0
@@ -2563,8 +2619,8 @@ x:
         kind: main
         mgmt:
           health: neutral
-          sync_note: "Recommended after M10 stop; no goal, issue, contract, implementation identity, fresh episode, or authorization exists."
-          next_sync_goal: "Freeze one canonical comparator, mixed-case and permutation qualification, regression boundaries, and a fresh third episode before implementation."
+          sync_note: "Issue #50 stopped before semantic or selection freeze. Public repository and license metadata were the only candidate-side inputs consulted; no candidate, v2 implementation, qualification, regression, comparison run, result, or admitted capability exists."
+          next_sync_goal: "Preserve the terminal disposition and select any successor through a separate goal, identity, budget, and authorization."
     edges:
       - from: integration
         to: private-stop

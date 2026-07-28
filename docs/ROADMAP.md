@@ -117,21 +117,26 @@ synthetic qualification did not cover mixed-case or permuted inventories. PR
 [#49](https://github.com/asukhodko/graphtruth/pull/49) integrates the terminal
 evidence and synchronized project state.
 
-### Recommended next track — portable inventory semantics and fresh confirmation
+### M11 pre-execution stop
 
-The nearest useful step is a new Zone 3 identity that:
+[Issue #50](https://github.com/asukhodko/graphtruth/issues/50) opened the exact
+successor identity
+[`incremental-capture-portable-inventory-v2-third-public-correction-v1`](../examples/experiments/incremental-capture-portable-inventory-v2-third-public-correction-v1/README.md).
+The owner selected `stop` before the portable-inventory semantics or candidate
+selection contract was frozen.
 
-1. freezes one canonical inventory comparator before implementation;
-2. qualifies equal inventories across mixed case and input permutations;
-3. treats the Issue #48 corpus only as regression input;
-4. freezes a third fresh public correction and the comparison before source
-   reveal and real execution;
-5. performs at most one baseline and one GraphTruth run under a new identity.
+Preparation had verified the protected M8–M10 identities and consulted only
+public repository and license metadata. It did not inspect a candidate commit
+history, diff, or source-file content. It created no candidate identity, v2
+runtime, qualification, M10 regression, comparison contract, baseline,
+GraphTruth run, or score.
 
-Only a favorable fresh disposition can make candidate-format extraction
-eligible. No successor, schema, RFC, or default-runtime change is authorized by
-the M10 `stop`; the single-major-WIP slot is free until a separate goal, issue,
-identity, budget, and authorization exist.
+This stop adds no technical evidence and does not resolve the mixed-case
+inventory gap found by M10. The M9 capability subset and M10 terminal evidence
+remain unchanged. The single-major-WIP slot is free; a portable-inventory
+reattempt or a different product-facing route needs a new goal, identity,
+budget, and authorization. Candidate-format extraction still requires a
+favorable fresh disposition.
 
 ### Retained Issue #24 background
 

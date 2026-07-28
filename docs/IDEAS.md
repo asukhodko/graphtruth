@@ -282,16 +282,22 @@ ran.
 
 This result does not retract the five M9 capabilities; it shows that their
 incremental implementation was not qualified for portable inventories. The
-current corpus is now research and regression input only. The recommended
-next route is a new implementation identity with one canonical comparator,
-mixed-case and permutation fixtures, regression against the stopped corpus,
-and confirmation on a third fresh public correction. Candidate-format
-extraction stays conditional until a favorable fresh episode shows a stable
-common envelope. The reduced-echo procedure remains an alternative, not an
-implicit successor. Generated project documentation, richer domain topology,
-active acquisition, and experience-transfer machinery stay behind evidence
-from the minimal ledger and repeated real use. The major-WIP slot is free; the
-successor needs its own goal, issue, identity, budget, and authorization.
+current corpus is now research and regression input only.
+
+[Issue #50](https://github.com/asukhodko/graphtruth/issues/50) briefly opened
+the proposed portable-inventory v2 and third-public-correction route. The owner
+[`stopped`](../examples/experiments/incremental-capture-portable-inventory-v2-third-public-correction-v1/DISPOSITION.md)
+it before any semantic or selection freeze. No candidate source, implementation,
+qualification, regression, or real run exists, so the attempt adds no technical
+evidence and leaves the M10 gap open.
+
+Candidate-format extraction stays conditional until a favorable fresh episode
+shows a stable common envelope. The reduced-echo procedure remains an
+alternative, not an implicit successor. Generated project documentation,
+richer domain topology, active acquisition, and experience-transfer machinery
+stay behind evidence from the minimal ledger and repeated real use. The
+major-WIP slot is free; any successor needs its own goal, identity, budget, and
+authorization.
 
 This ordering protects the early ideas rather than discarding them. It gives
 them a durable substrate and an observable reason to exist.

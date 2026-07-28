@@ -39,6 +39,12 @@ regression evidence and is not admitted as reusable or default runtime
 machinery. Any repair requires a new implementation identity and fresh
 confirmation.
 
+The proposed
+[`incremental-capture-portable-inventory-v2-third-public-correction-v1`](../examples/experiments/incremental-capture-portable-inventory-v2-third-public-correction-v1/README.md)
+successor stopped before its semantic or selection contract was frozen. No v2
+runtime directory or implementation identity exists. That administrative stop
+does not qualify the missing portable-inventory behavior.
+
 ## Experimental public dogfood
 
 The

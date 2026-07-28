@@ -192,11 +192,16 @@ sole run rejected equal mixed-case file sets ordered by different comparators.
 The guard failed closed before reading selected source-file bytes, so no severe
 error occurred, but no capability prefix was demonstrated or admitted.
 
-The recommended next evidence track is a new incremental-capture identity with
-one canonical inventory order, mixed-case and permutation tests, regression
-against the stopped public corpus, and confirmation on a third fresh public
-correction. It requires a separate goal, issue, frozen identities, budget, and
-authorization. Candidate-format extraction remains premature.
+The proposed successor,
+[`incremental-capture-portable-inventory-v2-third-public-correction-v1`](examples/experiments/incremental-capture-portable-inventory-v2-third-public-correction-v1/README.md),
+was then stopped by owner decision before its semantic or selection contract
+was frozen. No candidate source was revealed, no v2 runtime was written, and
+neither comparison branch ran. This adds no technical evidence or capability.
+
+The major-work slot is free. Portable-inventory qualification, a different
+product-facing route, and candidate-format extraction all require a separate
+goal and authorization; candidate-format extraction remains premature without
+a favorable fresh episode.
 
 The capability-oriented stages and their exit evidence are described in the
 [roadmap](docs/ROADMAP.md). The current work sequence and decision gates live
