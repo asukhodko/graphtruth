@@ -1,0 +1,52 @@
+{
+  "format": "graphtruth.experimental.incremental-capture-disposition.v1",
+  "identity": "incremental-capture-second-public-correction-v1",
+  "status": "terminal",
+  "decision": "stop",
+  "decidedAt": "2026-07-28T15:36:26Z",
+  "timezone": "Europe/Moscow",
+  "owner": "asukhodko",
+  "bindings": {
+    "resultManifestSha256": "a8038484cb6a488b61a6f7327b57afd2e7246f9e4e30fa5756c0921febbeeb7d",
+    "terminalResultSha256": "404e6bc929119838d5d9daab0387d81532186a6f339079079751365b13a1a75a",
+    "scoresSha256": "8f6f21034e3dd737d82d1a86e84ac5ad3fcbad06380e16d9adc1d5ea0f2509d3",
+    "ownerDecisionUrl": "https://github.com/asukhodko/graphtruth/issues/48#issuecomment-5106255396"
+  },
+  "observedDenominator": {
+    "graphtruthPass": 0,
+    "graphtruthTotal": 4,
+    "baselinePass": 3,
+    "baselineTotal": 4,
+    "combinedPass": 3,
+    "combinedTotal": 8,
+    "invalidAdverseCells": 4,
+    "dropped": 0,
+    "severeErrors": 0,
+    "rescored": false
+  },
+  "decisionBasis": {
+    "keepAvailable": false,
+    "shrinkAvailable": false,
+    "stopRequired": true,
+    "triggerCodes": [
+      "graphtruth-worse-than-baseline",
+      "shrink-prefix-1-failed"
+    ]
+  },
+  "admittedProductCapabilities": [],
+  "retainedLearning": [
+    "the inventory guard failed closed before reading selected source-file bytes",
+    "mixed-case path ordering was absent from the synthetic qualification",
+    "default JavaScript sort and localeCompare are not interchangeable canonical-order definitions"
+  ],
+  "evidencePolicy": {
+    "resultAndRunStateRemainImmutable": true,
+    "retryResumeRepairAllowed": false,
+    "currentCorpusRole": "research-and-regression-only",
+    "freshPublicCorrectionRequiredForConfirmation": true
+  },
+  "successorBoundary": {
+    "authorized": false,
+    "recommendedRoute": "A separate goal may create a new incremental-capture implementation identity with one canonical inventory comparator, mixed-case and permutation fixtures, regression against this public corpus, and confirmation on a fresh public correction."
+  }
+}

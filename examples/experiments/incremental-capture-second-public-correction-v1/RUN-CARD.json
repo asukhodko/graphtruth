@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "identity": "incremental-capture-second-public-correction-v1-run-card-v1",
+  "experimentContractSha256": "2926c463a7a19253649b60426dd08fd0e9864549e6da33a7aad84c7d9754efca",
+  "oracleSha256": "ec094b52b653af44837f91cfd818f79f0c338181a48e18ed5e03d00b675d9f85",
+  "issue": "https://github.com/asukhodko/graphtruth/issues/48",
+  "roles": {
+    "owner": [
+      "decision-owner"
+    ],
+    "currentGraphTruthSession": [
+      "curator",
+      "task-author",
+      "oracle-author",
+      "implementation-author",
+      "baseline-operator",
+      "graphtruth-operator",
+      "evaluator"
+    ]
+  },
+  "familiarity": {
+    "owner": "not-assessed; does not answer",
+    "currentGraphTruthSession": "known after frozen candidate selection; non-blind workflow evidence only"
+  },
+  "paths": {
+    "experimentRoot": "examples/experiments/incremental-capture-second-public-correction-v1",
+    "sourceRoot": "examples/experiments/incremental-capture-second-public-correction-v1/sources",
+    "runtimeRoot": "runtime/experimental/incremental-capture-v1",
+    "baselineOutputRoot": "examples/experiments/incremental-capture-second-public-correction-v1/baseline",
+    "graphTruthOutputRoot": "examples/experiments/incremental-capture-second-public-correction-v1/graphtruth"
+  },
+  "orderedProcedure": [
+    {
+      "step": 1,
+      "name": "implement-zone-3",
+      "state": "pending",
+      "rule": "Implement only the five admitted capabilities with Node built-ins."
+    },
+    {
+      "step": 2,
+      "name": "synthetic-verification",
+      "state": "pending",
+      "rule": "Exercise append-only capture, horizon isolation, open-question persistence, fail-closed behavior, and exact rebuild on synthetic bytes."
+    },
+    {
+      "step": 3,
+      "name": "freeze-implementation",
+      "state": "pending",
+      "rule": "Hash the exact runtime and tests before either real branch begins."
+    },
+    {
+      "step": 4,
+      "name": "baseline-h1",
+      "state": "pending",
+      "rule": "Execute fixed queries q1 through q3 once and retain the t1 answer before any H2 query."
+    },
+    {
+      "step": 5,
+      "name": "baseline-h2",
+      "state": "pending",
+      "rule": "Execute fixed queries q4 through q6 once and retain t2 through t4. Freeze the full baseline output."
+    },
+    {
+      "step": 6,
+      "name": "graphtruth-h1",
+      "state": "pending",
+      "rule": "Start the sole GraphTruth run, ingest H1, capture its spans and assertions, close H1, build the H1 dossier, and retain t1 before ingesting H2."
+    },
+    {
+      "step": 7,
+      "name": "graphtruth-h2",
+      "state": "pending",
+      "rule": "Append H2 snapshots, spans, revisions, residual assertions, and the frozen open question; close the corpus; retain t2 through t4."
+    },
+    {
+      "step": 8,
+      "name": "rebuild-and-score",
+      "state": "pending",
+      "rule": "Rebuild the generated projection exactly, verify hashes, score all eight cells, and retain the report without retry."
+    },
+    {
+      "step": 9,
+      "name": "owner-disposition",
+      "state": "pending",
+      "rule": "Stop after full repository checks and ask the owner for keep, shrink, or stop."
+    }
+  ],
+  "attemptCounters": {
+    "baseline": {
+      "allowed": 1,
+      "used": 0
+    },
+    "graphtruth": {
+      "allowed": 1,
+      "used": 0
+    },
+    "externalModelCalls": {
+      "allowed": 0,
+      "used": 0
+    }
+  },
+  "timing": {
+    "baselineSearchSeconds": null,
+    "baselineAnswerSeconds": null,
+    "graphTruthInitialCaptureSeconds": null,
+    "graphTruthRecurringCaptureReviewCorrectionSeconds": null,
+    "graphTruthAnswerSeconds": null
+  },
+  "freezeState": {
+    "selection": "frozen",
+    "sources": "frozen",
+    "tasks": "frozen",
+    "oracle": "frozen",
+    "baseline": "frozen",
+    "budgets": "frozen",
+    "decisionRules": "frozen",
+    "implementation": "pending",
+    "baselineRun": "pending",
+    "graphTruthRun": "pending",
+    "result": "pending",
+    "ownerDisposition": "pending"
+  }
+}

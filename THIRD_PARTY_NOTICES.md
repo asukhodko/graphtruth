@@ -30,3 +30,17 @@ are eight unmodified public Git blobs from two revisions of
   [`UPSTREAM.md`](examples/experiments/murmurmark-echo-lab-correction-v1/UPSTREAM.md)
 - License text:
   [`LICENSE`](examples/experiments/murmurmark-echo-lab-correction-v1/upstream/license/LICENSE)
+
+## dify-markdown-chunker experiment snapshots
+
+The files under
+[`examples/experiments/incremental-capture-second-public-correction-v1/sources/`](examples/experiments/incremental-capture-second-public-correction-v1/sources/)
+are seven unmodified public Git blobs from two revisions of
+[`asukhodko/dify-markdown-chunker`](https://github.com/asukhodko/dify-markdown-chunker).
+
+- License: MIT
+- Copyright: 2025 dify-markdown-chunker contributors
+- Exact source, revision, and imported-file inventory:
+  [`UPSTREAM.md`](examples/experiments/incremental-capture-second-public-correction-v1/UPSTREAM.md)
+- License text:
+  [`LICENSE`](examples/experiments/incremental-capture-second-public-correction-v1/upstream-license/LICENSE)

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "branch": "baseline",
+  "taskId": "t1-pre-fix-bounds",
+  "status": "answered",
+  "answer": "At H1, run_chunking obtains raw chunks through one _perform_chunking path and only then chooses a renderer using include_metadata. The content-only renderer returns each chunk's content field. Although its comment says overlap is supplied in previous_content and next_content metadata, this method does not embed those fields. The H1 changelog is internally tense: it advertises embedded overlap for include_metadata=False and also says the plugin removed embedded-overlap handling. The exact method body is the stronger evidence for this closed source question. These files do not establish installed chunkana behavior, real output, exact runtime boundaries, or successful test execution.",
+  "citations": [
+    {
+      "path": "sources/H1/adapter.py",
+      "lineStart": 110,
+      "lineEnd": 134,
+      "supports": "one chunking path precedes the rendering branch"
+    },
+    {
+      "path": "sources/H1/adapter.py",
+      "lineStart": 172,
+      "lineEnd": 220,
+      "supports": "include_metadata selects the renderer and content-only output returns content without embedding metadata"
+    },
+    {
+      "path": "sources/H1/CHANGELOG.md",
+      "lineStart": 7,
+      "lineEnd": 12,
+      "supports": "the changelog claims embedded overlap in content mode"
+    },
+    {
+      "path": "sources/H1/CHANGELOG.md",
+      "lineStart": 83,
+      "lineEnd": 90,
+      "supports": "the changelog also says embedded-overlap handling was removed and makes an unverified test-pass claim"
+    }
+  ],
+  "counterevidence": [
+    {
+      "id": "h1-changelog-embedding-claim",
+      "text": "The changelog says content-mode overlap is embedded, but the selected method body returns content only."
+    },
+    {
+      "id": "h1-boundary-comments-not-execution",
+      "text": "Boundary-invariance comments and changelog statements are declarations, not retained execution evidence."
+    }
+  ],
+  "abstentions": [
+    {
+      "id": "no-verified-h1-runtime-overlap",
+      "text": "No claim that a real H1 content-only run preserved overlap."
+    },
+    {
+      "id": "no-verified-exact-boundaries-or-test-pass",
+      "text": "No claim that exact boundaries or test success were independently observed."
+    }
+  ],
+  "openQuestions": [
+    "What overlap metadata did the exact installed H1 dependency produce at runtime?",
+    "Did any retained H1 execution verify exact boundary identity?"
+  ],
+  "searchSha256": "baf71f84cd2c86a51f069f0af0d9014862048901c6fa75b52b8b45c0ca2455ed",
+  "searchCompletedAt": "2026-07-28T14:59:59.313Z",
+  "answerCompletedAt": "2026-07-28T15:00:29Z"
+}

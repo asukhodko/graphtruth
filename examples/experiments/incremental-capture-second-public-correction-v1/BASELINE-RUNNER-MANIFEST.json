@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "identity": "incremental-capture-second-public-correction-v1-baseline-runner-v1",
+  "frozenAt": "2026-07-28T14:58:58Z",
+  "contractSha256": "2926c463a7a19253649b60426dd08fd0e9864549e6da33a7aad84c7d9754efca",
+  "sourceManifestSha256": "fc374ebf427cb94f500781d1d5c6d4e066e1ae98ee1a09cfcdf7a1ab50f38ba9",
+  "implementationManifestSha256": "75fd60a377044bc96a59af5534c828b21c26748d601114cc9246fb94594af004",
+  "runner": {
+    "path": "BASELINE-RUNNER.mjs",
+    "sha256": "e1c43ada4830864990df456f6b2ce63f1144e31cf154637baabddc2ec0dbc37c"
+  },
+  "ripgrep": {
+    "path": "/opt/homebrew/bin/rg",
+    "version": "15.1.0",
+    "sha256": "2fb61b6e5b3e2d89b115fe6c18fd8805670fdf4bdfde85954d40855a76830e5f"
+  },
+  "attempts": 1,
+  "queries": {
+    "H1": [
+      "q1-h1-flow",
+      "q2-h1-claims",
+      "q3-h1-dependency"
+    ],
+    "H2": [
+      "q4-h2-embedding",
+      "q5-h2-claims",
+      "q6-h2-dependency-tests"
+    ]
+  },
+  "phaseBoundary": "H1-ANSWER.json must exist and match the supplied SHA-256 before any H2 query executes.",
+  "retryPolicy": "none",
+  "runState": "not-started",
+  "status": "frozen"
+}

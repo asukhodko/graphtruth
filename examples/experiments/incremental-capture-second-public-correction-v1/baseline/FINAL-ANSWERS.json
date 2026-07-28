@@ -1,0 +1,209 @@
+{
+  "schemaVersion": 1,
+  "branch": "baseline",
+  "answers": [
+    {
+      "taskId": "t2-post-fix-change",
+      "status": "answered",
+      "answer": "H2 changes _render_without_metadata from returning content fields to calling _embed_overlap for every raw chunk. The new helper strips previous_content, content, and next_content, removes empty parts, joins the remainder with two newlines, and returns content alone if an exception occurs. The dependency changes from chunkana==0.1.3 at H1 to the lower bound chunkana>=0.1.5 at H2. The overlap test source is absent from the H1 inventory and present at H2 with helper, rendering, and contract checks. The chunking/rendering split and the source-level boundary-invariance assertion were already visible in H1; the H2 narrative therefore cannot establish that split as newly introduced. The selected outputs do not prove an OutputFilter change or an executed passing test suite.",
+      "citations": [
+        {
+          "path": "sources/H1/adapter.py",
+          "lineStart": 110,
+          "lineEnd": 186,
+          "supports": "H1 already has the chunking-then-rendering structure"
+        },
+        {
+          "path": "sources/H1/adapter.py",
+          "lineStart": 214,
+          "lineEnd": 220,
+          "supports": "H1 content-only rendering"
+        },
+        {
+          "path": "sources/H2/adapter.py",
+          "lineStart": 214,
+          "lineEnd": 274,
+          "supports": "H2 embedding algorithm and fallback"
+        },
+        {
+          "path": "sources/H1/requirements.txt",
+          "lineStart": 1,
+          "lineEnd": 5,
+          "supports": "H1 exact dependency constraint"
+        },
+        {
+          "path": "sources/H2/requirements.txt",
+          "lineStart": 1,
+          "lineEnd": 5,
+          "supports": "H2 lower-bound dependency constraint"
+        },
+        {
+          "path": "SOURCE-MANIFEST.json",
+          "lineStart": 24,
+          "lineEnd": 103,
+          "supports": "test source absent at H1 and present at H2"
+        },
+        {
+          "path": "sources/H2/tests/test_overlap_embedding.py",
+          "lineStart": 20,
+          "lineEnd": 392,
+          "supports": "new helper, rendering, and contract test declarations"
+        }
+      ],
+      "counterevidence": [
+        {
+          "id": "h1-already-has-stage-separation",
+          "text": "H1 already calls _perform_chunking before choosing a renderer."
+        },
+        {
+          "id": "no-selected-output-filter-change",
+          "text": "The fixed query output contains an H2 OutputFilter changelog claim but no selected OutputFilter implementation change."
+        }
+      ],
+      "abstentions": [
+        {
+          "id": "no-whole-changelog-attribution",
+          "text": "No attribution of every H2 changelog claim to this selected code change."
+        },
+        {
+          "id": "no-test-run-or-pass-claim",
+          "text": "No claim that the declared tests ran or passed."
+        },
+        {
+          "id": "no-exact-0.1.5-version-claim",
+          "text": "The H2 requirement is a lower bound, not an exact 0.1.5 pin."
+        }
+      ],
+      "openQuestions": [
+        "Which chunkana version was actually installed for any H2 execution?"
+      ]
+    },
+    {
+      "taskId": "t3-residual-limits",
+      "status": "abstained",
+      "answer": "The fixed search output establishes several residual limits: H2 permits any chunkana version at or above 0.1.5 while its changelog describes 0.1.3; the less-than-five-percent overhead appears only as a changelog claim; and the included checks show same chunk count, content containment, and a heuristic length test rather than exact arbitrary-input boundary identity. It does not expose enough of the import and closed-inventory boundary to prove the required statement about every omitted validator, filter, configuration, and external package byte. I therefore abstain from a complete answer. The compatibility of overlap metadata and exact boundaries across supported installed versions remains open.",
+      "citations": [
+        {
+          "path": "sources/H2/requirements.txt",
+          "lineStart": 1,
+          "lineEnd": 5,
+          "supports": "open-ended dependency lower bound"
+        },
+        {
+          "path": "sources/H2/CHANGELOG.md",
+          "lineStart": 31,
+          "lineEnd": 51,
+          "supports": "0.1.3 wording, performance claim, and migration claims"
+        },
+        {
+          "path": "sources/H2/tests/test_overlap_embedding.py",
+          "lineStart": 307,
+          "lineEnd": 392,
+          "supports": "same-count, containment, heuristic, and zero-overlap checks"
+        }
+      ],
+      "counterevidence": [
+        {
+          "id": "comments-weaker-than-execution",
+          "text": "The retrieved guarantee and performance statements are source assertions without a retained execution log."
+        },
+        {
+          "id": "same-count-not-exact-boundaries",
+          "text": "Equal result length does not prove exact boundary-coordinate identity."
+        }
+      ],
+      "abstentions": [
+        {
+          "id": "no-general-production-guarantee",
+          "text": "No generalization to arbitrary documents, installed versions, or production."
+        },
+        {
+          "id": "open-question-remains-open",
+          "text": "No closure of the dependency-metadata and exact-boundary question."
+        },
+        {
+          "id": "missing-import-boundary-evidence",
+          "text": "The fixed search output is insufficient to enumerate all missing imported components."
+        }
+      ],
+      "openQuestions": [
+        "Does every supported installed chunkana version populate compatible previous_content and next_content metadata while preserving exact boundaries across metadata modes?"
+      ]
+    },
+    {
+      "taskId": "t4-historical-reconstruction",
+      "status": "answered",
+      "answer": "H1 is the selected direct parent view and H2 its corrective child. H1 already has one chunking stage followed by the include_metadata rendering choice and already asserts boundary invariance. Its content-only renderer nevertheless returns content alone, while its changelog both advertises embedded overlap and says the plugin removed embedding. H2 preserves the two-stage account, adds explicit previous/content/next embedding with fallback, changes chunkana==0.1.3 to chunkana>=0.1.5, and adds the overlap test source. The H1 contradiction remains part of the history, and H2 still does not prove test execution, the performance claim, exact arbitrary-input boundaries, or installed-version behavior. Nothing here proves author motive, broader causation, or current production behavior.",
+      "citations": [
+        {
+          "path": "SOURCE-MANIFEST.json",
+          "lineStart": 24,
+          "lineEnd": 103,
+          "supports": "direct H1/H2 identity and closed inventory transition"
+        },
+        {
+          "path": "sources/H1/adapter.py",
+          "lineStart": 110,
+          "lineEnd": 220,
+          "supports": "H1 architecture and content-only behavior"
+        },
+        {
+          "path": "sources/H2/adapter.py",
+          "lineStart": 181,
+          "lineEnd": 274,
+          "supports": "H2 rendering branch and added embedding"
+        },
+        {
+          "path": "sources/H1/CHANGELOG.md",
+          "lineStart": 7,
+          "lineEnd": 90,
+          "supports": "H1 claims and contradiction"
+        },
+        {
+          "path": "sources/H2/CHANGELOG.md",
+          "lineStart": 14,
+          "lineEnd": 51,
+          "supports": "H2 correction narrative and residual claims"
+        },
+        {
+          "path": "sources/H1/requirements.txt",
+          "lineStart": 1,
+          "lineEnd": 5,
+          "supports": "H1 dependency constraint"
+        },
+        {
+          "path": "sources/H2/requirements.txt",
+          "lineStart": 1,
+          "lineEnd": 5,
+          "supports": "H2 dependency constraint"
+        }
+      ],
+      "counterevidence": [
+        {
+          "id": "do-not-rewrite-h1",
+          "text": "The H2 account cannot replace H1's exact content-only renderer or contradictory changelog."
+        },
+        {
+          "id": "unchanged-architecture-limits-h2-attribution",
+          "text": "H1 already contains the two-stage architecture broadly attributed to H2."
+        }
+      ],
+      "abstentions": [
+        {
+          "id": "no-author-motive-inference",
+          "text": "No inference about author motive beyond the source transition."
+        },
+        {
+          "id": "no-test-execution-inference",
+          "text": "No inference that the added test source was executed."
+        }
+      ],
+      "openQuestions": [
+        "Which H2 claims hold for an exact installed dependency and real document set?"
+      ]
+    }
+  ],
+  "searchSha256": "bf51624a35126491c9184729bcd8f76c8eec59cc264a2e6becba0241d4428505",
+  "searchCompletedAt": "2026-07-28T15:01:06.464Z",
+  "answersCompletedAt": "2026-07-28T15:01:34Z"
+}

@@ -22,6 +22,23 @@ Default runtime behavior is not automatically protocol behavior.
 Interoperability requirements belong in `spec/`, schemas, and conformance
 fixtures.
 
+## Stopped experimental incremental capture
+
+The
+[incremental-capture v1 runtime](experimental/incremental-capture-v1/)
+implements the five narrow operations selected after the first public dogfood:
+closed source snapshots, exact spans, additive revisions, separate horizons,
+and an open question. It passed its frozen synthetic qualification before the
+second public correction ran.
+
+The sole real run then stopped before H1 acquisition because default JavaScript
+sorting and `localeCompare` ordered equal mixed-case file sets differently.
+The guard failed closed before reading selected source-file bytes. The owner
+selected `stop`; this implementation remains immutable experiment and
+regression evidence and is not admitted as reusable or default runtime
+machinery. Any repair requires a new implementation identity and fresh
+confirmation.
+
 ## Experimental public dogfood
 
 The

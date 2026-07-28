@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "identity": "incremental-capture-second-public-correction-v1-result-v1",
+  "createdAt": "2026-07-28T15:07:01Z",
+  "upstreamIdentities": {
+    "selectionContractSha256": "2033f9c3bb575472f9a8c63e9a73aae84f6195574caf48bf16d147609feffc22",
+    "selectionResultSha256": "b5c4d70279eccfaad7d45a9722d0f55f89a6d41aab95f090abbdf2f671340113",
+    "sourceManifestSha256": "fc374ebf427cb94f500781d1d5c6d4e066e1ae98ee1a09cfcdf7a1ab50f38ba9",
+    "contractManifestSha256": "f612a2f664a4e02f49b0e8d1be90868bf278f1606efdc419c34b2956f48fb1d3",
+    "implementationManifestSha256": "75fd60a377044bc96a59af5534c828b21c26748d601114cc9246fb94594af004",
+    "baselineRunnerManifestSha256": "50f15f7fb17fd5c889423ed1b751b43ef3333371aecbdccdba3107213d830e81",
+    "baselineResultManifestSha256": "85b9f159b7b011f42551eeca05a920a206bf35be4a5f1b2c86a9566902fa064b"
+  },
+  "components": [
+    {
+      "path": "graphtruth/GRAPH-TRUTH-RUN-START.json",
+      "sha256": "9d633c42a8ff275d348b0185f0030a09a6c7819970beb56c5330c167238b1ac2"
+    },
+    {
+      "path": "graphtruth/store/CONTROL.json",
+      "sha256": "07749f3f0d7f5f1d69a72a2f5cee30eed4504e68f5d910b584008b19fafcc467"
+    },
+    {
+      "path": "graphtruth/store/records.jsonl",
+      "sha256": "f130e4d9bc01fab0d13519ed641d9aea0333610729addbd6df5573135846cf7d"
+    },
+    {
+      "path": "graphtruth/TERMINAL-RESULT.json",
+      "sha256": "404e6bc929119838d5d9daab0387d81532186a6f339079079751365b13a1a75a"
+    },
+    {
+      "path": "SCORES.json",
+      "sha256": "8f6f21034e3dd737d82d1a86e84ac5ad3fcbad06380e16d9adc1d5ea0f2509d3"
+    },
+    {
+      "path": "RUN-REPORT.md",
+      "sha256": "f7a22019cc50f9fa95a24d72c1cc6fe77fa8e97a133d7c8a3b3fd5e58f44896d"
+    },
+    {
+      "path": "DESIGN-PRESSURE.md",
+      "sha256": "831477bd4b6ea538e9ece9d9f177301b8917974382fc4dd95ad7db0d54c4eb99"
+    }
+  ],
+  "denominator": {
+    "cells": 8,
+    "baselineSuccessfulTasks": 3,
+    "graphTruthSuccessfulTasks": 0,
+    "droppedCells": 0,
+    "rescoredCells": 0
+  },
+  "decision": {
+    "keepAvailable": false,
+    "shrinkAvailable": false,
+    "stopRequired": true,
+    "triggerCodes": [
+      "graphtruth-worse-than-baseline",
+      "shrink-prefix-1-failed"
+    ],
+    "ownerDisposition": null
+  },
+  "budgets": {
+    "activeRepositoryDatesUsed": 1,
+    "activeRepositoryDatesAllowed": 3,
+    "baselineAttemptsUsed": 1,
+    "graphTruthRunsUsed": 1,
+    "externalModelCallsUsed": 0,
+    "manualCanonicalEditsUsed": 0
+  },
+  "severeErrors": [],
+  "mutationRule": "The result, denominator, terminal state, and scores are immutable. The later owner disposition may reference but not change them.",
+  "status": "frozen-awaiting-owner-stop"
+}

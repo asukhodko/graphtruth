@@ -50,6 +50,7 @@ node --test \
   tooling/project-verbatim-rst.test.mjs \
   tooling/preflight.test.mjs \
   tooling/opskarta.test.mjs \
+  runtime/experimental/incremental-capture-v1/core.test.mjs \
   runtime/experimental/public-dogfood-v1/core.test.mjs \
   runtime/experimental/record-bundle-v1/core.test.mjs \
   runtime/lib.test.mjs \

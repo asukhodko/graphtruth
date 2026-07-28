@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "identity": "incremental-capture-second-public-correction-v1-graphtruth-terminal-v1",
+  "runIdentity": "incremental-capture-second-public-correction-v1-graphtruth-run-v1",
+  "contractManifestSha256": "f612a2f664a4e02f49b0e8d1be90868bf278f1606efdc419c34b2956f48fb1d3",
+  "implementationManifestSha256": "75fd60a377044bc96a59af5534c828b21c26748d601114cc9246fb94594af004",
+  "baselineResultManifestSha256": "85b9f159b7b011f42551eeca05a920a206bf35be4a5f1b2c86a9566902fa064b",
+  "attempts": {
+    "allowed": 1,
+    "used": 1,
+    "retryOrResume": false
+  },
+  "startedAt": "2026-07-28T15:03:19Z",
+  "corpusOpenedAt": "2026-07-28T15:03:45Z",
+  "failure": {
+    "stage": "append-horizon-H1",
+    "code": "SOURCE_INVENTORY_MISMATCH",
+    "failedClosed": true,
+    "sourceFileBytesReadByRuntime": 0,
+    "sourceSnapshotsWritten": 0,
+    "evidenceSpansWritten": 0,
+    "assertionRevisionsWritten": 0,
+    "questionsWritten": 0,
+    "canonicalRecordsWritten": 1,
+    "diagnosedAt": "2026-07-28T15:04:16Z",
+    "cause": {
+      "code": "inconsistent-path-order-comparators",
+      "expectedDefaultSort": [
+        "CHANGELOG.md",
+        "adapter.py",
+        "requirements.txt"
+      ],
+      "observedLocaleSort": [
+        "adapter.py",
+        "CHANGELOG.md",
+        "requirements.txt"
+      ],
+      "setsAreEqual": true,
+      "orderedArraysAreEqual": false
+    }
+  },
+  "retainedState": {
+    "files": [
+      {
+        "path": "GRAPH-TRUTH-RUN-START.json",
+        "sizeBytes": 573,
+        "sha256": "9d633c42a8ff275d348b0185f0030a09a6c7819970beb56c5330c167238b1ac2"
+      },
+      {
+        "path": "store/CONTROL.json",
+        "sizeBytes": 534,
+        "sha256": "07749f3f0d7f5f1d69a72a2f5cee30eed4504e68f5d910b584008b19fafcc467"
+      },
+      {
+        "path": "store/records.jsonl",
+        "sizeBytes": 639,
+        "sha256": "f130e4d9bc01fab0d13519ed641d9aea0333610729addbd6df5573135846cf7d"
+      }
+    ],
+    "recordHeadSha256": "e85069bb3df14985dac7e3dd355e1275b9757d745ed9d098d589e35a7f8366cc",
+    "corpusClosed": false,
+    "h1Reconstructible": false,
+    "projectionBuilt": false
+  },
+  "classification": {
+    "sourceIdentityMismatch": false,
+    "sourceByteMismatch": false,
+    "evidenceSpanMismatch": false,
+    "severeError": false,
+    "interfaceDefect": true,
+    "failureIsAdverseAndRetained": true
+  },
+  "decisionConsequences": [
+    "GraphTruth has zero successful tasks and is worse than the completed baseline.",
+    "Shrink prefix 1 fails because no source snapshot or evidence span was captured.",
+    "The keep and shrink routes are unavailable for this result identity.",
+    "The contract therefore requires stop; an owner decision is still required before project integration."
+  ],
+  "forbiddenFollowupWithinIdentity": [
+    "retry",
+    "resume",
+    "repair",
+    "implementation change",
+    "source replacement",
+    "cell removal",
+    "rescore"
+  ],
+  "status": "terminal-failed"
+}

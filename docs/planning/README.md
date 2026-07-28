@@ -85,9 +85,20 @@ assessment shape, adapter, decision rule, and serialized format were not
 promoted. PR [#46](https://github.com/asukhodko/graphtruth/pull/46) integrates
 the terminal disposition and synchronized project state.
 
+[Issue #48](https://github.com/asukhodko/graphtruth/issues/48) executed that
+M10 route with a frozen eight-cell comparison and the public
+`dify-markdown-chunker` correction. Baseline completed 3/4 tasks. The sole
+GraphTruth run completed 0/4 after equal mixed-case inventories were sorted
+with different comparators and rejected before source-file reads. All cells
+remain visible, no severe error occurred, and the owner chose
+[`stop`](../../examples/experiments/incremental-capture-second-public-correction-v1/DISPOSITION.md).
+PR [#49](https://github.com/asukhodko/graphtruth/pull/49) carries the terminal
+evidence and synchronized project state.
+
 The single-major-WIP slot is free after terminal integration. The recommended
-next route is a small incremental capture interface for that subset, exercised
-on a second fresh public correction under a corrected comparison contract.
+next route is a new Zone 3 implementation identity with one canonical inventory
+comparator, mixed-case and permutation qualification, regression against the
+stopped corpus, and confirmation on a third fresh public correction.
 Candidate-format extraction remains conditional. Execution requires its own
 goal, issue, identity, budget, and authorization.
 

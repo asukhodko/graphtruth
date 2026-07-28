@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "identity": "incremental-capture-second-public-correction-v1-selection-v1",
+  "selectionContractSha256": "2033f9c3bb575472f9a8c63e9a73aae84f6195574caf48bf16d147609feffc22",
+  "status": "selected-before-source-read",
+  "orderedDecisions": [
+    {
+      "repository": "asukhodko/chunkana",
+      "commitSha1": "fa92049616da12d682347fa7558073346772159a",
+      "committerTimestamp": "2026-01-12T08:23:18Z",
+      "subject": "Fix Quick Start code block rendering",
+      "decision": "reject",
+      "reasonCodes": [
+        "changed-file-count-below-two",
+        "formatting-only"
+      ]
+    },
+    {
+      "repository": "asukhodko/dify-markdown-chunker",
+      "commitSha1": "b04f8700e0137b9be3132cb9e7719dfeaa2f0f9e",
+      "committerTimestamp": "2026-01-10T13:25:57Z",
+      "subject": "chore(test-cleanup): fix code quality issues and finalize test infrastructure",
+      "decision": "reject",
+      "reasonCodes": [
+        "changed-file-count-above-six"
+      ]
+    },
+    {
+      "repository": "asukhodko/dify-markdown-chunker",
+      "commitSha1": "3257ee6763ea8b89c8e61d542d05b4f9ddc10b9f",
+      "committerTimestamp": "2026-01-08T19:36:56Z",
+      "subject": "feat(adapter): implement overlap embedding and boundary invariance fixes",
+      "decision": "select",
+      "reasonCodes": [
+        "first-eligible-in-frozen-order",
+        "four-text-files",
+        "implementation-and-test-evidence",
+        "not-m9-equivalent",
+        "selected-bytes-within-budget"
+      ]
+    }
+  ],
+  "selectedEpisode": {
+    "repository": "asukhodko/dify-markdown-chunker",
+    "repositoryUrl": "https://github.com/asukhodko/dify-markdown-chunker",
+    "defaultBranchAtSelection": "main",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "licenseGitBlobSha1": "42c5b9a351431f9b2627af71a913231344a03776",
+    "horizons": [
+      {
+        "horizonId": "H1",
+        "commitSha1": "4540fff19eb6ebe6a4a632d8d2bfc90fa6cb4c63",
+        "meaning": "The exact parent of the selected correction.",
+        "files": [
+          {
+            "path": "CHANGELOG.md",
+            "gitBlobSha1": "df9067b155d2573f2e38167d9d1b4cda418ee8e1",
+            "sizeBytes": 21796,
+            "state": "present"
+          },
+          {
+            "path": "adapter.py",
+            "gitBlobSha1": "0f1457ff46f54322dc4f56634d7cd7f2a5426523",
+            "sizeBytes": 9514,
+            "state": "present"
+          },
+          {
+            "path": "requirements.txt",
+            "gitBlobSha1": "f324dd20278ef8cd42d77df07db3c1bd6b93ee37",
+            "sizeBytes": 377,
+            "state": "present"
+          },
+          {
+            "path": "tests/test_overlap_embedding.py",
+            "state": "absent"
+          }
+        ]
+      },
+      {
+        "horizonId": "H2",
+        "commitSha1": "3257ee6763ea8b89c8e61d542d05b4f9ddc10b9f",
+        "meaning": "The selected corrective commit.",
+        "files": [
+          {
+            "path": "CHANGELOG.md",
+            "gitBlobSha1": "747ccf1df7a6393d78d10eb53b2219fe04f6c850",
+            "sizeBytes": 19470,
+            "state": "present"
+          },
+          {
+            "path": "adapter.py",
+            "gitBlobSha1": "d6412c291a5b6003e40a5f59b819625d05f95853",
+            "sizeBytes": 11243,
+            "state": "present"
+          },
+          {
+            "path": "requirements.txt",
+            "gitBlobSha1": "5a9930ba1d5464f26dc703405f8be0b7993d07f3",
+            "sizeBytes": 377,
+            "state": "present"
+          },
+          {
+            "path": "tests/test_overlap_embedding.py",
+            "gitBlobSha1": "b6991264c4d421ae94ead9816b1d54aca9b1d6c5",
+            "sizeBytes": 13882,
+            "state": "present"
+          }
+        ]
+      }
+    ],
+    "selectedBytesAcrossHorizons": 76659,
+    "maximumSelectedBytes": 307200,
+    "changedFileStats": [
+      {
+        "path": "CHANGELOG.md",
+        "status": "modified",
+        "additions": 39,
+        "deletions": 87
+      },
+      {
+        "path": "adapter.py",
+        "status": "modified",
+        "additions": 58,
+        "deletions": 4
+      },
+      {
+        "path": "requirements.txt",
+        "status": "modified",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "path": "tests/test_overlap_embedding.py",
+        "status": "added",
+        "additions": 392,
+        "deletions": 0
+      }
+    ],
+    "practicalQuestionBoundary": "What overlap and section-boundary behavior was justified before and after this correction, what evidence supports it, and what remains unproved?",
+    "materialDifferenceFromM9": "Markdown chunk-boundary behavior and adapter invariants are distinct from M9 audio-stimulus generation and process supervision."
+  },
+  "sourceReadState": "not-started",
+  "replacementPolicy": "none"
+}

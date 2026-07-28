@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "identity": "incremental-capture-second-public-correction-v1-baseline-result-v1",
+  "contractSha256": "2926c463a7a19253649b60426dd08fd0e9864549e6da33a7aad84c7d9754efca",
+  "runnerManifestSha256": "50f15f7fb17fd5c889423ed1b751b43ef3333371aecbdccdba3107213d830e81",
+  "implementationManifestSha256": "75fd60a377044bc96a59af5534c828b21c26748d601114cc9246fb94594af004",
+  "completedAt": "2026-07-28T15:02:22Z",
+  "attempts": {
+    "allowed": 1,
+    "used": 1,
+    "retryOrResume": false
+  },
+  "queries": {
+    "allowed": 12,
+    "used": 6,
+    "failed": 0,
+    "searchElapsedMilliseconds": 63.65375
+  },
+  "answering": {
+    "h1AnswerElapsedMilliseconds": 29687,
+    "h2AnswerElapsedMilliseconds": 27536,
+    "totalAnswerElapsedMilliseconds": 57223,
+    "statuses": {
+      "t1-pre-fix-bounds": "answered",
+      "t2-post-fix-change": "answered",
+      "t3-residual-limits": "abstained",
+      "t4-historical-reconstruction": "answered"
+    }
+  },
+  "files": [
+    {
+      "path": "ATTEMPT-START.json",
+      "sizeBytes": 548,
+      "sha256": "60f0e5d64a0ff00630a1475afefc4a77196dfa3fba0a0864a838130f31dab0f8"
+    },
+    {
+      "path": "FINAL-ANSWERS.json",
+      "sizeBytes": 9020,
+      "sha256": "8581cf6491e55e58cd0f824c0daa6deab31da8ca1387881f098e9e992e017a85"
+    },
+    {
+      "path": "H1-ANSWER.json",
+      "sizeBytes": 2685,
+      "sha256": "997aee24b2c249db960bf372a622a5cb422ca289e66e9086d1b18fcb14bec6bd"
+    },
+    {
+      "path": "PHASE-H1-COMPLETE.json",
+      "sizeBytes": 196,
+      "sha256": "57eaec3e5097d13fd97fa3c4acc8b080c9f9fe631bcfc3e697f58b7c685b2397"
+    },
+    {
+      "path": "PHASE-H2-COMPLETE.json",
+      "sizeBytes": 193,
+      "sha256": "17eca2eac0d6aa2ee863f9d9c6f3aa3d59f53a34416ce9bc76b9cc07ed71e024"
+    },
+    {
+      "path": "PHASE-H2-START.json",
+      "sizeBytes": 228,
+      "sha256": "d4356621dfacf4bc45814e6468a20f4212e4c67aa0a32f55e0c83c7a12eecc01"
+    },
+    {
+      "path": "SEARCH-H1.json",
+      "sizeBytes": 7178,
+      "sha256": "baf71f84cd2c86a51f069f0af0d9014862048901c6fa75b52b8b45c0ca2455ed"
+    },
+    {
+      "path": "SEARCH-H2.json",
+      "sizeBytes": 23149,
+      "sha256": "bf51624a35126491c9184729bcd8f76c8eec59cc264a2e6becba0241d4428505"
+    }
+  ],
+  "denominator": [
+    "baseline:t1-pre-fix-bounds",
+    "baseline:t2-post-fix-change",
+    "baseline:t3-residual-limits",
+    "baseline:t4-historical-reconstruction"
+  ],
+  "scoringState": "pending-joint-scoring-after-graphtruth-run",
+  "status": "frozen"
+}

@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "identity": "incremental-capture-second-public-correction-v1",
+  "status": "frozen-before-candidate-history-inspection",
+  "baseCommitSha1": "015e48769002be53531208dee5c9f86a3eb91b69",
+  "goalStartedAt": "2026-07-28T17:29:15+03:00",
+  "candidateCutoff": "2026-07-28T14:29:15Z",
+  "repositoryUniverse": {
+    "owner": "asukhodko",
+    "predicate": "Public, non-fork source repositories owned by asukhodko and visible through the GitHub API at the frozen cutoff.",
+    "orderedNames": [
+      "3dp-bed-mesh",
+      "Beertown",
+      "chunkana",
+      "cognitive-engineering-book",
+      "contest",
+      "day-parts",
+      "dify-markdown-chunker",
+      "dify-plugin-git-datasource",
+      "diplodoc-example",
+      "dotnet-tarantool-client",
+      "epic-flow",
+      "gb-cs-sem",
+      "gb-ver-work-1",
+      "go-grpc-cache-and-consumer",
+      "go-grpc-price-fetcher",
+      "graphtruth",
+      "murmurmark",
+      "opskarta",
+      "quietbind",
+      "scope-timer",
+      "serilog-sinks-logstash-http",
+      "timeskein",
+      "tune-steps-trainer",
+      "uopilot-scripts",
+      "wb-leetcode"
+    ]
+  },
+  "repositoryExclusions": {
+    "alwaysExcluded": [
+      {
+        "name": "graphtruth",
+        "reason": "experiment host repository"
+      },
+      {
+        "name": "murmurmark",
+        "reason": "source of the previously studied M9 correction"
+      },
+      {
+        "name": "opskarta",
+        "reason": "explicitly excluded planning-tool repository"
+      }
+    ],
+    "licenseRule": "The default-branch root must contain a GitHub-license-API-recognized MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC, Unlicense, or CC0-1.0 license file at the cutoff. Repositories without such a file are excluded without reading commit history.",
+    "eligibleRepositories": [
+      {
+        "name": "3dp-bed-mesh",
+        "defaultBranch": "main",
+        "license": "MIT",
+        "licensePath": "LICENSE",
+        "licenseGitBlobSha1": "60b702a89f279fe092a3f8abd8ab95f897fc6a0c"
+      },
+      {
+        "name": "chunkana",
+        "defaultBranch": "main",
+        "license": "MIT",
+        "licensePath": "LICENSE",
+        "licenseGitBlobSha1": "8b838ef33db7b83388dfc04f8b44588133ecbb78"
+      },
+      {
+        "name": "dify-markdown-chunker",
+        "defaultBranch": "main",
+        "license": "MIT",
+        "licensePath": "LICENSE",
+        "licenseGitBlobSha1": "42c5b9a351431f9b2627af71a913231344a03776"
+      },
+      {
+        "name": "dify-plugin-git-datasource",
+        "defaultBranch": "main",
+        "license": "MIT",
+        "licensePath": "LICENSE",
+        "licenseGitBlobSha1": "486fbf94320d9acbe5585565ab32901d8ac420e5"
+      },
+      {
+        "name": "dotnet-tarantool-client",
+        "defaultBranch": "develop",
+        "license": "MIT",
+        "licensePath": "LICENSE.md",
+        "licenseGitBlobSha1": "dc761b308320e0a4a322f51ead4c89fe7ee990ef"
+      },
+      {
+        "name": "scope-timer",
+        "defaultBranch": "master",
+        "license": "MIT",
+        "licensePath": "LICENSE",
+        "licenseGitBlobSha1": "d049a0159db9f8f7a80d9142636a23703d156944"
+      },
+      {
+        "name": "serilog-sinks-logstash-http",
+        "defaultBranch": "master",
+        "license": "Apache-2.0",
+        "licensePath": "LICENSE",
+        "licenseGitBlobSha1": "5c304d1a4a7b439f767990bf1360d3283e45d0ee"
+      }
+    ]
+  },
+  "commitEligibility": {
+    "historyBoundary": "Default-branch commits whose committer timestamp is not later than candidateCutoff.",
+    "fixSubjectPattern": "(?i)(^|[^[:alnum:]])(fix|fixes|fixed|bugfix|correct|corrects|corrected|repair|repairs|repaired|resolve|resolves|resolved|prevent|prevents|prevented)([^[:alnum:]]|$)",
+    "parentCount": 1,
+    "changedFileCount": {
+      "minimum": 2,
+      "maximum": 6
+    },
+    "allowedTextBasenames": [
+      "Dockerfile",
+      "Makefile"
+    ],
+    "allowedTextExtensions": [
+      ".bash",
+      ".c",
+      ".cc",
+      ".cfg",
+      ".conf",
+      ".cpp",
+      ".cs",
+      ".css",
+      ".go",
+      ".h",
+      ".hpp",
+      ".html",
+      ".ini",
+      ".java",
+      ".js",
+      ".json",
+      ".jsx",
+      ".md",
+      ".mjs",
+      ".py",
+      ".rb",
+      ".rs",
+      ".scss",
+      ".sh",
+      ".toml",
+      ".ts",
+      ".tsx",
+      ".txt",
+      ".xml",
+      ".yaml",
+      ".yml",
+      ".zsh"
+    ],
+    "excludedPathSegments": [
+      ".git",
+      "build",
+      "coverage",
+      "dist",
+      "generated",
+      "node_modules",
+      "third_party",
+      "vendor"
+    ],
+    "excludedBasenames": [
+      "Cargo.lock",
+      "composer.lock",
+      "package-lock.json",
+      "pnpm-lock.yaml",
+      "poetry.lock",
+      "yarn.lock"
+    ],
+    "maximumSelectedBytes": 307200,
+    "metadataOnlyJudgments": [
+      "Reject dependency-only, formatting-only, vendored, generated, or secret-bearing changes from subject, paths, statuses, and diff statistics.",
+      "Require at least one implementation file and one test, documentation, example, or configuration file so that a practical before/after question can be asked.",
+      "Reject audio-capture, echo-supervision, or other MurmurMark-M9-equivalent topics as not materially different."
+    ]
+  },
+  "ordering": [
+    {
+      "field": "committerTimestamp",
+      "direction": "descending"
+    },
+    {
+      "field": "commitSha1",
+      "direction": "ascending"
+    }
+  ],
+  "selectionRule": "Choose the first eligible commit in the frozen ordering. Before that choice is externally anchored, inspect only repository and Git metadata, path lists, file sizes, diff statistics, and license data. After anchoring, read only the selected H1/H2 source bytes. If the revealed episode violates the frozen boundary, stop without replacement.",
+  "sourceReadState": "not-started"
+}

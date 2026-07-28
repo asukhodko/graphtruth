@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "identity": "incremental-capture-second-public-correction-v1-contract-package-v1",
+  "createdAt": "2026-07-28T14:43:48Z",
+  "components": [
+    {
+      "path": "SELECTION-CONTRACT.json",
+      "sha256": "2033f9c3bb575472f9a8c63e9a73aae84f6195574caf48bf16d147609feffc22"
+    },
+    {
+      "path": "SELECTION-RESULT.json",
+      "sha256": "b5c4d70279eccfaad7d45a9722d0f55f89a6d41aab95f090abbdf2f671340113"
+    },
+    {
+      "path": "SOURCE-MANIFEST.json",
+      "sha256": "fc374ebf427cb94f500781d1d5c6d4e066e1ae98ee1a09cfcdf7a1ab50f38ba9"
+    },
+    {
+      "path": "EXPERIMENT-CONTRACT.json",
+      "sha256": "2926c463a7a19253649b60426dd08fd0e9864549e6da33a7aad84c7d9754efca"
+    },
+    {
+      "path": "ORACLE.json",
+      "sha256": "ec094b52b653af44837f91cfd818f79f0c338181a48e18ed5e03d00b675d9f85"
+    },
+    {
+      "path": "RUN-CARD.json",
+      "sha256": "e203e407ddc533768455c9f403d650b458bd724c9b717a8b5051f2eebc9055f2"
+    }
+  ],
+  "counts": {
+    "tasks": 4,
+    "branches": 2,
+    "cells": 8,
+    "sourceHorizons": 2,
+    "presentSourceSnapshots": 7,
+    "fixedBaselineQueries": 6
+  },
+  "implementationState": "not-started",
+  "runState": "not-started",
+  "mutationRule": "Any content change to a component creates a new contract-package identity. Silent repair is forbidden.",
+  "status": "frozen"
+}

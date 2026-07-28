@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "identity": "incremental-capture-v1-implementation-v1",
+  "experimentIdentity": "incremental-capture-second-public-correction-v1",
+  "contractManifestSha256": "f612a2f664a4e02f49b0e8d1be90868bf278f1606efdc419c34b2956f48fb1d3",
+  "frozenAt": "2026-07-28T14:56:43Z",
+  "runtime": {
+    "nodeVersion": "v24.4.1",
+    "dependencies": "Node.js built-ins only",
+    "zone": 3,
+    "normative": false
+  },
+  "components": [
+    {
+      "path": "runtime/experimental/incremental-capture-v1/core.mjs",
+      "sha256": "63e82de33814a2fcc7b1adf4fcc26b842305569067d6aa67bea6a7e90a6334e8"
+    },
+    {
+      "path": "runtime/experimental/incremental-capture-v1/cli.mjs",
+      "sha256": "b763cedf1fd1b69d7f629c49bac8e392caffbb796adad515a3a3b6a57ea94001"
+    },
+    {
+      "path": "runtime/experimental/incremental-capture-v1/core.test.mjs",
+      "sha256": "5e3eba82e4bfb584400378477454e82a1288b7d1151c57827811ea8e5a78a23d"
+    },
+    {
+      "path": "runtime/experimental/incremental-capture-v1/README.md",
+      "sha256": "74e2ba05d8801c4b2a0efdd16f0f435301124c34fab01666a03b02e8028862f6"
+    },
+    {
+      "path": "tooling/check",
+      "sha256": "d34a616c652665c516b2a3417e7ab88e44ab6841c554e2a7289255193b422d02"
+    },
+    {
+      "path": "tooling/check.mjs",
+      "sha256": "ca8468eefe3372e1f4666d961a9cce78c4e414e3c43fc4a70dc949c9bc4ed9d2"
+    }
+  ],
+  "implementedCapabilities": [
+    "exact source snapshots and closed corpus",
+    "exact evidence spans",
+    "additive assertion history",
+    "distinct source and record horizons",
+    "explicit open question"
+  ],
+  "excludedShapes": [
+    "Assessment",
+    "AcceptanceDecision",
+    "normative schema",
+    "RFC",
+    "general-purpose storage format",
+    "default runtime"
+  ],
+  "syntheticVerification": {
+    "focusedTests": {
+      "total": 8,
+      "passed": 8,
+      "failed": 0
+    },
+    "fullRepositoryCheck": {
+      "status": "pass",
+      "tests": 381,
+      "passed": 377,
+      "failed": 0,
+      "skipped": 4
+    },
+    "covered": [
+      "complete CLI lifecycle",
+      "H1 reconstruction after H2",
+      "exact projection rebuild",
+      "source hash drift",
+      "closed source inventory",
+      "closed-horizon append rejection",
+      "revision-chain rewrite rejection",
+      "future-evidence rejection",
+      "output-root containment",
+      "M8 and M9 byte identity",
+      "spec, schema, and RFC byte identity"
+    ]
+  },
+  "realSourceProcessing": "not-started",
+  "baselineRun": "not-started",
+  "graphTruthRun": "not-started",
+  "mutationRule": "Any change to a component creates a new implementation identity. The retained baseline and GraphTruth runs may use only these exact bytes.",
+  "status": "frozen-before-real-runs"
+}

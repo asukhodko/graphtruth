@@ -33,8 +33,9 @@ normative. An item moves into active work only through the evidence-driven
 
 ### Durable epistemic ledger
 
-**Status:** foundation accepted; one synthetic slice kept and one real/public
-episode shrunk; protocol still unimplemented.
+**Status:** foundation accepted; one synthetic slice kept, one real/public
+episode shrunk, and one incremental real/public attempt stopped; protocol
+still unimplemented.
 
 Preserve exact evidence, provenance, assertion revisions, assessments,
 policy-scoped acceptance, questions, time, and disagreement in portable files.
@@ -52,8 +53,15 @@ Issue #45 applied related mechanics to one real public correction. Its
 `shrink` admits source snapshots, exact spans, additive revisions, distinct
 horizons, and an open question. It does not admit the richer assessment shape,
 episode adapter, decision rule, or serialized records as reusable product
-machinery. The next proof must make that smaller subset easier to capture and
-repeat it on a second fresh episode.
+machinery.
+
+Issue #48 tested a smaller incremental interface on a second public
+correction. Its one GraphTruth run failed before source capture because two
+path comparators ordered equal mixed-case inventories differently. The
+fail-closed guard worked, but no capability prefix was demonstrated; the owner
+selected `stop`. The next proof needs a new implementation identity, explicit
+canonical inventory semantics, mixed-case and permutation qualification, and a
+fresh confirming episode.
 
 Sources: [RFC 0000](../rfcs/0000-project-foundation.md),
 [Vision](VISION.md), and backlog `GT-D001`–`GT-D018`.
@@ -261,15 +269,29 @@ episode-specific `Assessment` shape and adapter did not earn promotion. The
 friction: the useful subset needs a smaller incremental capture and review
 interface.
 
-The recommended next route is therefore a second fresh public correction under
-a corrected comparison contract, using only that subset. Candidate-format
-extraction stays conditional until this second episode shows a stable common
-envelope. A fresh confirmatory corpus and the reduced-echo procedure remain
-alternatives, not implicit successors. Generated project documentation,
-richer domain topology, active acquisition, and experience-transfer machinery
-stay behind evidence from the minimal ledger and repeated real use. The
-major-WIP slot is free; the successor needs its own goal, issue, identity,
-budget, and authorization.
+[Issue #48](https://github.com/asukhodko/graphtruth/issues/48) then froze a
+corrected eight-cell comparison and a minimal incremental interface before
+using the public `dify-markdown-chunker` correction. Baseline completed 3/4
+tasks. The sole GraphTruth run completed 0/4 because default JavaScript sorting
+and `localeCompare` disagreed on mixed-case path order. The guard rejected the
+equal source sets before reading selected source-file bytes. No cell was
+dropped or rescored, no severe error occurred, and the owner
+[`stopped`](../examples/experiments/incremental-capture-second-public-correction-v1/DISPOSITION.md)
+the identity because GraphTruth was worse than baseline and prefix 1 never
+ran.
+
+This result does not retract the five M9 capabilities; it shows that their
+incremental implementation was not qualified for portable inventories. The
+current corpus is now research and regression input only. The recommended
+next route is a new implementation identity with one canonical comparator,
+mixed-case and permutation fixtures, regression against the stopped corpus,
+and confirmation on a third fresh public correction. Candidate-format
+extraction stays conditional until a favorable fresh episode shows a stable
+common envelope. The reduced-echo procedure remains an alternative, not an
+implicit successor. Generated project documentation, richer domain topology,
+active acquisition, and experience-transfer machinery stay behind evidence
+from the minimal ledger and repeated real use. The major-WIP slot is free; the
+successor needs its own goal, issue, identity, budget, and authorization.
 
 This ordering protects the early ideas rather than discarding them. It gives
 them a durable substrate and an observable reason to exist.
