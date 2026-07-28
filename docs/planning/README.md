@@ -92,6 +92,8 @@ GraphTruth run completed 0/4 after equal mixed-case inventories were sorted
 with different comparators and rejected before source-file reads. All cells
 remain visible, no severe error occurred, and the owner chose
 [`stop`](../../examples/experiments/incremental-capture-second-public-correction-v1/DISPOSITION.md).
+PR [#49](https://github.com/asukhodko/graphtruth/pull/49) carries the terminal
+evidence and synchronized project state.
 
 The single-major-WIP slot is free after terminal integration. The recommended
 next route is a new Zone 3 implementation identity with one canonical inventory

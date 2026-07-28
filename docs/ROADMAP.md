@@ -113,7 +113,9 @@ The owner chose
 [`stop`](../examples/experiments/incremental-capture-second-public-correction-v1/DISPOSITION.md).
 This admits no M10 product capability and leaves the result and implementation
 identity immutable. It does establish one useful engineering fact: the
-synthetic qualification did not cover mixed-case or permuted inventories.
+synthetic qualification did not cover mixed-case or permuted inventories. PR
+[#49](https://github.com/asukhodko/graphtruth/pull/49) integrates the terminal
+evidence and synchronized project state.
 
 ### Recommended next track — portable inventory semantics and fresh confirmation
 

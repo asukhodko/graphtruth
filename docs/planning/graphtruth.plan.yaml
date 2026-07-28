@@ -1807,9 +1807,9 @@ nodes:
     deps: [g10-second-public-correction-disposition]
     status: done
     notes: |
-      The integration change retains the immutable result and stop disposition,
-      synchronizes project state, and closes Issue #48 after required checks and
-      squash merge.
+      PR #49 retains the immutable result and stop disposition, synchronizes
+      project state, and closes Issue #48 after required checks and squash
+      merge.
 
   m11-portable-inventory-third-public-episode:
     title: "Qualify portable inventory semantics on a third public correction"
@@ -2430,7 +2430,7 @@ execution:
       actual_start: "2026-07-28"
       actual_finish: "2026-07-28"
       updated_at: "2026-07-28T18:36:26+03:00"
-      note: "The integration PR retains the exact stop evidence, synchronizes public project state, and closes Issue #48 on squash merge."
+      note: "PR #49 retains the exact stop evidence, synchronizes public project state, and closes Issue #48 on squash merge."
     m11-portable-inventory-third-public-episode:
       progress: 0.0
       updated_at: "2026-07-28T18:36:26+03:00"
@@ -2555,7 +2555,7 @@ x:
         kind: main
         mgmt:
           health: neutral
-          sync_note: "Issue #48 froze the second public correction, corrected eight-cell contract, and v1 implementation. Baseline completed 3/4; the one GraphTruth run completed 0/4 after a false mixed-case inventory-order mismatch stopped before source-file reads. Owner stop admits no capability and leaves all evidence immutable."
+          sync_note: "Issue #48 froze the second public correction, corrected eight-cell contract, and v1 implementation. Baseline completed 3/4; the one GraphTruth run completed 0/4 after a false mixed-case inventory-order mismatch stopped before source-file reads. Owner stop admits no capability and leaves all evidence immutable. PR #49 integrates the terminal state."
           next_sync_goal: "Preserve M10 as terminal regression evidence; never retry, resume, repair, or count it as confirmation."
       portable-inventory:
         title: "Portable inventory v2 on a third public correction"
