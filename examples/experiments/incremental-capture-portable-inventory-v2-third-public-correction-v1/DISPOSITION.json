@@ -1,0 +1,60 @@
+{
+  "format": "graphtruth.experimental.pre-execution-disposition.v1",
+  "identity": "incremental-capture-portable-inventory-v2-third-public-correction-v1",
+  "status": "terminal",
+  "decision": "stop",
+  "decidedAt": "2026-07-28T16:07:52Z",
+  "timezone": "Europe/Moscow",
+  "owner": "asukhodko",
+  "bindings": {
+    "repositoryBaseCommit": "cd51206b43162812339787838a6090c8c665ac07",
+    "ownerDecisionUrl": "https://github.com/asukhodko/graphtruth/issues/50"
+  },
+  "stage": "pre-freeze",
+  "completedPreparation": {
+    "protectedM8M9M10IdentitiesVerified": true,
+    "cleanWorktreeCreated": true,
+    "publicRepositoryMetadataRead": true,
+    "publicLicenseMetadataRead": true
+  },
+  "notStarted": {
+    "semanticManifest": true,
+    "selectionContract": true,
+    "candidateHistoryInspection": true,
+    "candidateDiffInspection": true,
+    "candidateSourceReveal": true,
+    "sourceManifest": true,
+    "comparisonContract": true,
+    "incrementalCaptureV2Implementation": true,
+    "syntheticQualification": true,
+    "m10CorpusRegression": true,
+    "baselineRun": true,
+    "graphtruthRun": true,
+    "scoring": true
+  },
+  "runCounts": {
+    "syntheticAndM10Regression": 0,
+    "baseline": 0,
+    "graphtruth": 0,
+    "baselineQueries": 0
+  },
+  "decisionBasis": {
+    "code": "owner-pre-execution-stop",
+    "frozenRuleTriggered": false,
+    "resultEvaluated": false
+  },
+  "admittedProductCapabilities": [],
+  "evidencePolicy": {
+    "m8M9M10RemainImmutable": true,
+    "incrementalCaptureV1RemainsImmutable": true,
+    "specSchemasRfcsRemainImmutable": true,
+    "candidateIdentityExists": false,
+    "sourceBytesRetained": false,
+    "implementationIdentityExists": false,
+    "experimentResultExists": false
+  },
+  "successorBoundary": {
+    "authorized": false,
+    "newGoalAndIdentityRequired": true
+  }
+}
