@@ -1,0 +1,412 @@
+{
+  "format": "graphtruth.experimental.public-dogfood-contract.v1",
+  "identity": "murmurmark-echo-lab-correction-v1",
+  "status": "frozen-before-adaptation",
+  "zone": 3,
+  "baseCommit": "c08de89164795a6ecf29cc9c7a7e7fb06f23fe33",
+  "owningIssue": "https://github.com/asukhodko/graphtruth/issues/45",
+  "sourceManifest": {
+    "path": "SOURCE-MANIFEST.json",
+    "sha256": "3ab4aaaf26dc983434f5ff7fe034df7f64573af823a87e5876dc905460650b38"
+  },
+  "decisionQuestion": "Can the kept GraphTruth slice represent a real public correction, reconstruct the before and after knowledge horizons, and produce a useful evidence dossier at acceptable capture and review cost?",
+  "practicalQuestion": "Can the public evidence establish that echo-lab prepare is bounded and safely repeatable, which safeguards the correction adds, and what remains unproved?",
+  "claimBoundary": {
+    "allowed": [
+      "Describe exact behavior stated by or directly inspectable in the eight retained public files.",
+      "Describe the two retained Git commits and their author and committer timestamps as Git metadata.",
+      "Compare H1 and H2 and identify code and test changes between them.",
+      "State an absence only within a declared complete retained file or the closed eight-file corpus.",
+      "State that the corrective commit subject names runaway stimulus generation as its purpose.",
+      "Evaluate traceability, historical reconstruction, rebuildability, explicit unknowns, and measured experiment cost."
+    ],
+    "forbidden": [
+      "Claim that a runaway incident actually occurred or that its root cause is known.",
+      "Treat the commit subject as an incident report, assessment, or acceptance decision.",
+      "Claim that echo-lab prepare is generally, operationally, or production safe.",
+      "Claim power-loss safety, resource exhaustion safety, cross-host exclusion, or complete subprocess bounding.",
+      "Treat a Git author or committer timestamp as proven GitHub publication, execution, or incident time.",
+      "Use H2 material in an H1 answer.",
+      "Claim blind evaluation, representativeness, causal proof, generality, compatibility, protocol status, or superiority over ordinary search."
+    ],
+    "explicitNonClaims": [
+      "No MurmurMark command or test is executed by this experiment.",
+      "No private MurmurMark audio, session, report, or other local state is read.",
+      "No result establishes a normative GraphTruth record format.",
+      "One targeted retrospective episode cannot establish recurring product utility."
+    ]
+  },
+  "rolesAndFamiliarity": {
+    "owner": {
+      "participant": "asukhodko",
+      "roles": [
+        "project owner",
+        "MurmurMark author",
+        "decision owner"
+      ],
+      "familiarity": "known",
+      "primaryAnswerEligible": false,
+      "independentEvaluationEligible": false
+    },
+    "currentSession": {
+      "participant": "current GraphTruth Codex session",
+      "roles": [
+        "curator",
+        "implementer",
+        "operator",
+        "reporter"
+      ],
+      "familiarity": "known",
+      "reason": "The session inspected the corrective diff while selecting the episode.",
+      "blindClaimEligible": false,
+      "independentEvaluationEligible": false
+    },
+    "additionalSessions": {
+      "allowed": false,
+      "externalModelCallsAllowed": 0
+    }
+  },
+  "dataBoundary": {
+    "allowedReads": [
+      "The GraphTruth repository worktree for this goal.",
+      "The eight retained public MurmurMark files named by SOURCE-MANIFEST.json.",
+      "The retained MurmurMark MIT license.",
+      "Public Git metadata for the two exact commits already named by SOURCE-MANIFEST.json.",
+      "Public Issue #45 and later public PR/check state created by this goal."
+    ],
+    "forbiddenReads": [
+      "Any other MurmurMark file, worktree state, session, audio, report, cache, credential, or private artifact after contract freeze.",
+      "The Python annotations corpus or projection.",
+      "Private M1, terminal diagnostic identities, retained private states, or recovery roots.",
+      "Any private GraphTruth or Obsidian material."
+    ],
+    "allowedProcessing": "The current GraphTruth session may process the named public bytes locally in the goal worktree. No additional model session or external processor is allowed.",
+    "publication": "The exact public upstream bytes may be retained as controlled MIT-licensed vendoring with their closed manifest and license. Experiment records, bundles, projections, baseline output, and reports may be public.",
+    "deletion": "No upstream or external state is deleted. Temporary build directories created by the goal may be removed after exact retained outputs exist."
+  },
+  "timeModel": {
+    "horizons": [
+      {
+        "horizonId": "H1",
+        "visibleSourceHorizonIds": [
+          "H1"
+        ],
+        "meaning": "The selected files at introducing commit e256363, before the corrective commit.",
+        "gitCommitterTimestamp": "2026-07-24T00:33:29+03:00"
+      },
+      {
+        "horizonId": "H2",
+        "visibleSourceHorizonIds": [
+          "H1",
+          "H2"
+        ],
+        "meaning": "The same selected files immediately after corrective commit 9b7ef91.",
+        "gitCommitterTimestamp": "2026-07-24T10:42:58+03:00"
+      }
+    ],
+    "rules": [
+      "Git time, source availability time, applicability time, incident time, and GraphTruth recorded time are distinct.",
+      "H1 remains byte-for-byte and semantically stable after H2 is recorded.",
+      "A later correction is represented by addition and explicit linkage, never by rewriting H1.",
+      "Unknown publication, execution, and incident times remain unknown."
+    ]
+  },
+  "tasks": [
+    {
+      "taskId": "task.pre-fix-bounds",
+      "horizonId": "H1",
+      "question": "What bounds and validation did the introducing implementation provide for echo-lab prepare, and which bounds were not established by the retained public files?",
+      "requiredElements": [
+        "The launcher invokes ffmpeg with both -stream_loop -1 and -t duration_sec.",
+        "The generated output is checked for exact frame duration, mono channel count, sample rate, finite samples, and peak limit.",
+        "The retained ffmpeg subprocess invocation has no explicit timeout.",
+        "The retained H1 prepare path has no owner-process exclusion lock.",
+        "The correct conclusion distinguishes intended output-duration and content validation from elapsed-process and concurrent-prepare bounds."
+      ],
+      "requiredEvidenceMarkers": [
+        "-stream_loop",
+        "f\"{duration_sec:.6f}\"",
+        "if frames != expected_frames:",
+        "if not finite:",
+        "if peak > maximum_peak:"
+      ],
+      "requiredAbstentions": [
+        "Do not claim that H1 was wholly unbounded: -t and post-generation validation are present.",
+        "Do not claim an observed runaway failure or known root cause.",
+        "Do not use any H2 safeguard."
+      ]
+    },
+    {
+      "taskId": "task.post-fix-safeguards",
+      "horizonId": "H2",
+      "question": "Which concrete safeguards does the corrective state add or strengthen, and what kind of evidence supports each?",
+      "requiredElements": [
+        "Stimulus materialization moves from the launcher ffmpeg call to an in-process helper.",
+        "The helper computes expected_frames, tiles and truncates to exactly that count, rejects invalid duration and clipping, and publishes through a temporary file plus os.replace.",
+        "prepare takes a non-blocking exclusive flock and refuses a concurrent prepare for the same lab root.",
+        "The say subprocess receives timeout=120.",
+        "The checker materializes a 2.5 second 48 kHz stimulus and requires 120000 frames.",
+        "These are source and test-code guarantees, not evidence that the test or production workflow ran successfully."
+      ],
+      "requiredEvidenceMarkers": [
+        "materialize_looped_stimulus(",
+        "fcntl.flock(lock.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)",
+        "timeout=120",
+        "expected_frames = int(round(duration_sec * sample_rate))",
+        "looped = np.tile(mono, repeats)[:expected_frames]",
+        "os.replace(temporary, destination)",
+        "looped_validation[\"frames\"] == 120_000"
+      ],
+      "requiredAbstentions": [
+        "Do not promote the checker source to observed test execution.",
+        "Do not generalize the lock beyond the process and filesystem behavior directly expressed by the code.",
+        "Do not call the complete command production safe."
+      ]
+    },
+    {
+      "taskId": "task.residual-unknowns",
+      "horizonId": "H2",
+      "question": "What important facts remain unknown after the correction, and why can the retained public corpus not answer them?",
+      "requiredElements": [
+        "The closed corpus contains no separate incident or runtime-observation report.",
+        "The corrective commit subject names prevention of runaway stimulus generation but does not establish an observed incident, root cause, impact, or frequency.",
+        "The runbook's approximately 7 minute 40 second automatic stop describes capture, not preparation.",
+        "The retained files do not prove actual test execution, production safety, power-loss behavior, cross-host exclusion, or complete resource bounds.",
+        "The practical question therefore receives a qualified partial answer, not a global yes."
+      ],
+      "requiredEvidenceMarkers": [
+        "fix: prevent runaway echo lab stimulus generation",
+        "stops automatically after about 7 minutes",
+        "murmurmark echo-lab prepare"
+      ],
+      "requiredAbstentions": [
+        "Do not invent an incident narrative.",
+        "Do not infer that the capture timeout bounds prepare.",
+        "Do not infer absence outside the closed eight-file corpus."
+      ]
+    }
+  ],
+  "denominator": {
+    "branches": [
+      "files-rg",
+      "graphtruth-dossier"
+    ],
+    "taskIds": [
+      "task.pre-fix-bounds",
+      "task.post-fix-safeguards",
+      "task.residual-unknowns"
+    ],
+    "cellCount": 6,
+    "rule": "Every task is answered once by each branch. No cell may be dropped, replaced, rescored, or omitted after output is seen.",
+    "invalidCell": "A missing, timed-out, malformed, out-of-horizon, or boundary-violating result remains in the denominator and fails its cell."
+  },
+  "baseline": {
+    "identity": "same-files-plus-rg-v1",
+    "sourceBytes": "Exactly the retained files allowed by the task horizon plus the corresponding exact public commit metadata fields in SOURCE-MANIFEST.json.",
+    "tool": {
+      "name": "ripgrep",
+      "version": "15.1.0",
+      "executableSha256": "2fb61b6e5b3e2d89b115fe6c18fd8805670fdf4bdfde85954d40855a76830e5f"
+    },
+    "allowedCommand": "rg --line-number --context 5 [--fixed-strings] PATTERN HORIZON_ROOT_OR_SOURCE_MANIFEST",
+    "allowedQueries": 8,
+    "allowedAssistance": "The current session may inspect context returned from the allowed files and compose a cited answer. It may not use Git history, network, unretained files, GraphTruth records, projections, or the oracle-like required-elements lists while executing the retained baseline run.",
+    "order": [
+      "task.pre-fix-bounds",
+      "task.post-fix-safeguards",
+      "task.residual-unknowns"
+    ],
+    "knowledgeCarry": "Search knowledge may carry forward between baseline tasks, but H2 source bytes remain unavailable during the H1 task.",
+    "measure": [
+      "wall-clock duration",
+      "query count",
+      "files inspected",
+      "answer elements present",
+      "exact evidence references",
+      "explicit unknowns"
+    ],
+    "claimLimit": "Because the operator is familiar with the episode and the sample is one, time and quality differences are descriptive only."
+  },
+  "graphtruthBranch": {
+    "input": "A new bundle built only from SOURCE-MANIFEST.json, exact retained upstream bytes, and frozen episode-specific record declarations.",
+    "requiredCapabilities": [
+      "exact source snapshot and closure declaration",
+      "exact evidence spans",
+      "provisional assertion history",
+      "support and limitation assessments",
+      "an explicit open question",
+      "recorded-as-of H1 and H2 dossier views",
+      "correction by addition",
+      "clean projection rebuild"
+    ],
+    "forbiddenAuthority": [
+      "No candidate or assessment accepts itself.",
+      "No acceptance decision is invented for MurmurMark.",
+      "No runtime behavior becomes protocol authority."
+    ],
+    "order": [
+      "task.pre-fix-bounds",
+      "task.post-fix-safeguards",
+      "task.residual-unknowns"
+    ]
+  },
+  "scoring": {
+    "dimensions": [
+      "correctness",
+      "exact traceability",
+      "horizon discipline",
+      "counterevidence and limitation handling",
+      "explicit uncertainty",
+      "practical usefulness"
+    ],
+    "cellPass": "Every required element and abstention for the task is satisfied, every material positive claim has an exact retained evidence reference or declared closed-file absence rule, and no severe error occurs.",
+    "severeErrors": [
+      {
+        "code": "SEV_FUTURE_LEAK",
+        "meaning": "H2 material changes or supports the H1 answer."
+      },
+      {
+        "code": "SEV_INCIDENT_INVENTED",
+        "meaning": "An observed runaway incident, root cause, impact, or frequency is asserted without a retained incident report."
+      },
+      {
+        "code": "SEV_SAFETY_OVERCLAIM",
+        "meaning": "The episode is used to claim general, operational, production, power-loss, resource, or cross-host safety."
+      },
+      {
+        "code": "SEV_TIME_CONFLATION",
+        "meaning": "Git, publication, execution, incident, applicability, or GraphTruth record times are conflated."
+      },
+      {
+        "code": "SEV_EVIDENCE_MISATTRIBUTED",
+        "meaning": "A commit subject, valid locator, source-code test, or later file is treated as stronger evidence than it is."
+      },
+      {
+        "code": "SEV_HISTORY_REWRITTEN",
+        "meaning": "H1 bytes or semantic output change after H2 is added."
+      },
+      {
+        "code": "SEV_AUTHORITY_COLLAPSE",
+        "meaning": "Assertion revision, assessment, question, or acceptance authority is silently collapsed."
+      },
+      {
+        "code": "SEV_DENOMINATOR_CHANGED",
+        "meaning": "A failed, adverse, abstaining, or missing cell is dropped or replaced."
+      },
+      {
+        "code": "SEV_M8_CHANGED",
+        "meaning": "A file in the kept M8 example or runtime implementation changes."
+      }
+    ]
+  },
+  "budgets": {
+    "activeDates": {
+      "timezone": "Europe/Moscow",
+      "maximumDistinctDates": 3,
+      "usedAtFreeze": [
+        "2026-07-28"
+      ],
+      "countRule": "A date counts once when Issue #45 or its repository branch receives material activity; inactive dates do not count."
+    },
+    "source": {
+      "artifactCount": 8,
+      "artifactBytes": 199242,
+      "replacementAllowed": false,
+      "additionalUpstreamMaterialAllowed": false
+    },
+    "bundle": {
+      "maximumCanonicalRecords": 32,
+      "maximumFiles": 64,
+      "maximumBytes": 1048576,
+      "maximumProjectionFiles": 4
+    },
+    "baseline": {
+      "maximumQueries": 8,
+      "maximumAttempts": 1,
+      "timeoutSeconds": 1200
+    },
+    "graphtruthRun": {
+      "retainedFullRuns": 1,
+      "timeoutSeconds": 1200,
+      "developmentFailuresMustBeReported": true,
+      "unfavorableResultRetryAllowed": false
+    },
+    "cost": {
+      "curationStartAt": "2026-07-28T08:39:31Z",
+      "recurringCaptureReviewCorrectionKeepMaximumMinutes": 60,
+      "recurringCaptureReviewCorrectionStopAboveMinutes": 90,
+      "ownerManualInterventionBeforeDispositionMaximumMinutes": 30,
+      "adaptationTimeReportedSeparately": true,
+      "selectionAndPriorPlanningTimeExcluded": true
+    },
+    "externalProcessing": {
+      "additionalModelSessions": 0,
+      "networkedProcessors": 0
+    }
+  },
+  "decision": {
+    "keep": {
+      "requirements": [
+        "All 6 denominator cells pass.",
+        "No severe error occurs.",
+        "H1 remains stable after H2 and correction is represented by addition.",
+        "Every supported projection is deleted and rebuilt exactly.",
+        "All M8 example and runtime files remain byte-identical and the full M8 tests pass.",
+        "Recurring capture, review, and correction tax is at most 60 minutes, excluding one-time adaptation.",
+        "The dossier provides at least two explicit structural benefits among horizon separation, exact support graph, and retained unknown or omission that the ordinary files-plus-rg answer does not provide as maintained structure.",
+        "The owner judges the dossier practically useful enough to avoid a second authoritative notebook for this episode."
+      ]
+    },
+    "shrink": {
+      "predeclaredSubset": "source snapshots, exact evidence spans, provisional assertion revisions, time horizons, and the explicit open question; omit richer assessment or policy machinery not justified by the episode",
+      "requirements": [
+        "No severe error occurs.",
+        "The full route is structurally correct but exceeds the keep cost or only the predeclared subset provides decision-relevant value.",
+        "No winning task or cell is removed; shrink changes the retained capability scope, not the observed denominator."
+      ]
+    },
+    "stop": {
+      "conditions": [
+        "Any severe error cannot be fixed without changing the frozen contract.",
+        "The exact source identity, horizon boundary, or M8 immutability fails.",
+        "A useful answer requires Zone 1, Zone 2, spec, schema, or RFC changes.",
+        "Recurring capture, review, and correction tax exceeds 90 minutes.",
+        "The files-plus-rg branch passes all cells and the dossier adds no maintained structural benefit.",
+        "The active-date or processing budget is exhausted."
+      ]
+    },
+    "ownerGate": "The experiment stops after the report and full repository check. The owner alone records keep, shrink, or stop before terminal documentation, PR publication, or merge."
+  },
+  "allowedRepositoryChangesBeforeDisposition": [
+    "examples/experiments/murmurmark-echo-lab-correction-v1/**",
+    "runtime/experimental/public-dogfood-v1/**",
+    "runtime/README.md",
+    "examples/README.md",
+    "THIRD_PARTY_NOTICES.md",
+    "tooling/check",
+    "tooling/check.mjs",
+    "tooling/check.test.mjs"
+  ],
+  "forbiddenRepositoryChanges": [
+    "spec/**",
+    "schemas/**",
+    "rfcs/**",
+    "examples/experiments/record-and-bundle-golden-journey-v1/**",
+    "runtime/experimental/record-bundle-v1/**",
+    "package.json",
+    "package-lock.json"
+  ],
+  "requiredPreDispositionArtifacts": [
+    "SOURCE-MANIFEST.json",
+    "DOGFOOD-CONTRACT.json",
+    "DOGFOOD-CONTRACT.sha256",
+    "upstream license and closed inventory",
+    "canonical bundle",
+    "H1 and H2 projections",
+    "baseline report",
+    "run report",
+    "design-pressure table",
+    "full repository check result"
+  ],
+  "mutationRule": "Any substantive contract, source, task, denominator, scoring, budget, severe-error, or decision change after the freeze creates a new identity. Silent repair is forbidden."
+}

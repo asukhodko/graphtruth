@@ -16,3 +16,17 @@ unchanged subset of OpsKarta v3 from
   [`UPSTREAM.md`](tooling/vendor/opskarta/UPSTREAM.md)
 - License text: [`LICENSE`](tooling/vendor/opskarta/LICENSE)
 - Upstream notices: [`NOTICE`](tooling/vendor/opskarta/NOTICE)
+
+## MurmurMark experiment snapshots
+
+The files under
+[`examples/experiments/murmurmark-echo-lab-correction-v1/upstream/`](examples/experiments/murmurmark-echo-lab-correction-v1/upstream/)
+are eight unmodified public Git blobs from two revisions of
+[`asukhodko/murmurmark`](https://github.com/asukhodko/murmurmark).
+
+- License: MIT
+- Copyright: 2026 MurmurMark contributors
+- Exact source, revision, and imported-file inventory:
+  [`UPSTREAM.md`](examples/experiments/murmurmark-echo-lab-correction-v1/UPSTREAM.md)
+- License text:
+  [`LICENSE`](examples/experiments/murmurmark-echo-lab-correction-v1/upstream/license/LICENSE)

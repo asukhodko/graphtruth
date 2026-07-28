@@ -66,6 +66,13 @@ the bundle contains neither expected answers nor reader-specific state. This
 is portable semantic evidence for one exact journey, not a conformance fixture
 or utility result.
 
+The
+[MurmurMark echo-lab correction dogfood](experiments/murmurmark-echo-lab-correction-v1/)
+freezes eight MIT-licensed public source blobs across two adjacent commits. It
+is the first real/public pressure test of the kept record-and-bundle mechanics.
+Its contract is frozen before adaptation; until its run report exists, it
+supplies no utility result.
+
 If repeated experiments demonstrate stable portable semantics, a separately
 reviewed minimal example may later be promoted into this directory under an
 applicable specification version. Copying the laboratory files here does not
