@@ -1712,9 +1712,9 @@ nodes:
     deps: [g9-public-dogfood-disposition]
     status: done
     notes: |
-      The pull request carrying the terminal disposition, documentation, and
-      operational-plan synchronization is the integration vehicle. Issue #45
-      closes only after its required checks pass and it is squash-merged.
+      PR #46 carries the terminal disposition, documentation, and
+      operational-plan synchronization. It closes Issue #45 after required
+      checks pass and the PR is squash-merged.
 
   m10-incremental-capture-second-public-episode:
     title: "Test minimal incremental capture on a second public correction"
@@ -2295,7 +2295,7 @@ execution:
       actual_start: "2026-07-28"
       actual_finish: "2026-07-28"
       updated_at: "2026-07-28T12:29:08+03:00"
-      note: "Terminal disposition, project documentation, and operational plan are carried by the integration PR."
+      note: "PR #46 carries the terminal disposition, project documentation, and operational plan and closes Issue #45 on squash merge."
     m10-incremental-capture-second-public-episode:
       progress: 0.0
       updated_at: "2026-07-28T12:29:08+03:00"

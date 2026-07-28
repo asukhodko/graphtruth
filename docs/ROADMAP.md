@@ -90,7 +90,9 @@ without changing the rule or rescoring the denominator. The admitted subset is:
 
 The richer `Assessment` shape, current adapter, flawed decision rule, and file
 formats were not admitted as reusable or normative machinery. The full bundle
-and reports remain immutable experiment evidence.
+and reports remain immutable experiment evidence. PR
+[#46](https://github.com/asukhodko/graphtruth/pull/46) integrates this terminal
+state and closes Issue #45.
 
 This adds partial Stage 1 evidence for one real capture-and-correction workflow,
 historical reconstruction, an explicit question, measured capture cost, and

@@ -82,7 +82,8 @@ missed by the baseline. The owner chose `shrink` without changing or rescoring
 the result. The admitted subset is exact snapshots and closure, exact spans,
 additive revisions, distinct horizons, and an open question. The richer
 assessment shape, adapter, decision rule, and serialized format were not
-promoted.
+promoted. PR [#46](https://github.com/asukhodko/graphtruth/pull/46) integrates
+the terminal disposition and synchronized project state.
 
 The single-major-WIP slot is free after terminal integration. The recommended
 next route is a small incremental capture interface for that subset, exercised
