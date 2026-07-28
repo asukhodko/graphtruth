@@ -22,6 +22,21 @@ Default runtime behavior is not automatically protocol behavior.
 Interoperability requirements belong in `spec/`, schemas, and conformance
 fixtures.
 
+## Experimental record-and-bundle journey
+
+The
+[record-bundle v1 runtime](experimental/record-bundle-v1/)
+implements one separately identified public-synthetic Zone 3 journey. It adds
+the first executable `AssertionRevision`, `Assessment`, policy-scoped
+`AcceptanceDecision`, explicit revocation, recorded-as-of reconstruction, and
+portable directory-bundle slice. A Python standard-library reader independently
+checks the exported bytes and derives the same semantic output without
+importing this runtime.
+
+The implementation is deliberately journey-specific. It does not replace the
+S0-S1 replay below, populate normative schemas, or establish a default storage
+format.
+
 ## Experimental S0-S1 replay
 
 This retained Zone 3 walking skeleton is intentionally narrower than the

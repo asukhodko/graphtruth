@@ -41,7 +41,40 @@ evidence gates, and the candidate RFC pipeline visible. It is not a parallel
 task queue: the single-major-WIP rule and the operational plan still determine
 what may run now.
 
-## Current evidence checkpoint — 2026-07-25
+## Current evidence checkpoint — 2026-07-28
+
+[Issue #42](https://github.com/asukhodko/graphtruth/issues/42) is the single
+major WIP. Its public-synthetic `record-and-bundle-golden-journey-v1` contract
+was frozen before implementation and anchored in
+[the owning issue](https://github.com/asukhodko/graphtruth/issues/42#issuecomment-5078988410).
+The exact reference run now reports:
+
+- 18/18 fixed horizon × policy × materialization cells passed;
+- 16/16 frozen mutation classes produced the expected result in both Node and
+  the detached Python standard-library reader;
+- two clean 19-file bundles are byte-identical, and Node writer, Node rebuild,
+  and Python derive the same path-independent semantic digest;
+- deleting every projection and rebuilding from the bundle is exact;
+- the detached root contains only the closed bundle and reader;
+- the frozen hardcoding variation passes without fitting journey values;
+- both development failures (`DEV-001`, `DEV-002`) remain in the
+  [observed report](../examples/experiments/record-and-bundle-golden-journey-v1/RUN-REPORT.md).
+
+The evidence recommends `keep` for this exact Zone 3 slice. The owner has not
+yet chosen `keep`, `shrink`, or `stop`; the PR must remain draft and the
+single-major-WIP slot remains occupied until that disposition. The work uses
+active repository or Issue dates 2026-07-25 and 2026-07-28: 2/4
+Europe/Moscow. It is not a protocol decision, compatibility promise, product
+utility result, or evidence of generality.
+
+If kept, this supplies partial Stage 1 evidence for exact evidence, linear
+revision, policy-scoped acceptance, portable rebuild, deterministic dossier,
+and a second-language reader. Stage 1 still lacks real repeated use, questions,
+a second retrieval path, measured capture and correction cost, migration,
+backup/restore, static fallback, and an exercised privacy boundary. The next
+track must be chosen separately after disposition.
+
+### Retained Issue #24 background
 
 [Issue #24](https://github.com/asukhodko/graphtruth/issues/24) reached a
 pre-run procedural `stop` on its fifth and final repository-active date. The
@@ -82,18 +115,10 @@ identity without transferring disclosed Python-specific task or oracle
 knowledge.
 
 `reduced-echo-contract` is a candidate successor, not current authorization or
-the active WIP. The single-major-WIP slot is free. The next explicit project
-choice should select one bounded evidence-producing track:
-
-- earn the smallest independent record-and-bundle golden journey needed for a
-  usable GraphTruth slice; or
-- prepare a fresh confirmatory corpus if continuing the experimental procedure
-  is more valuable.
-
-Neither track is active until it has an owning issue, a budget, acceptance
-criteria, and a separate authorization boundary. The current GraphTruth session
-is excluded from future primary, blind, and confirmatory roles touched by its
-prior exposures.
+the active WIP. The independent record-and-bundle route was selected as Issue
+[#42](https://github.com/asukhodko/graphtruth/issues/42). The current GraphTruth
+session remains excluded from future primary,
+blind, and confirmatory roles touched by its prior Python-corpus exposures.
 
 ## Historical execution record — 2026-07-24
 

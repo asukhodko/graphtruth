@@ -33,15 +33,21 @@ normative. An item moves into active work only through the evidence-driven
 
 ### Durable epistemic ledger
 
-**Status:** foundation accepted; protocol still unimplemented.
+**Status:** foundation accepted; one narrow Zone 3 slice exercised; protocol
+still unimplemented.
 
 Preserve exact evidence, provenance, assertion revisions, assessments,
 policy-scoped acceptance, questions, time, and disagreement in portable files.
 A current fact or answer is a reconstructible view, not an authority-bearing
 primitive.
 
-This is the substrate for every other thread. The next missing proof is a small
-independently readable record-and-bundle slice rather than another broad model.
+This is the substrate for every other thread. Issue #42 now supplies the first
+small independently readable record-and-bundle slice: exact evidence, linear
+revision, policy-scoped acceptance, rebuildable views, and a detached
+standard-library reader over one frozen public-synthetic journey. It is
+experimental evidence, not a general or normative record model. The next
+missing proof is use on a real bounded workflow, provided the owner keeps this
+slice.
 
 Sources: [RFC 0000](../rfcs/0000-project-foundation.md),
 [Vision](VISION.md), and backlog `GT-D001`–`GT-D018`.
@@ -160,9 +166,12 @@ Version negotiation, unknown extensions, migrations, conformance fixtures,
 static human-readable views, and an independent reader are the mechanisms that
 could make that claim credible.
 
-The current runtime rehearsal proves only its named S0–S1 boundary. It does not
-prove a general protocol, cross-version recovery, or practical end-of-life
-usability.
+The runtime rehearsal proves only its named S0–S1 boundary. Issue #42 adds a
+narrow detached Python reader that reconstructs the same semantic output from
+the closed bundle without Git, Node, the source repository, contract, or
+projections. It still does not prove a general protocol, cross-version
+recovery, human usability, migration, backup/restore, or practical end-of-life
+recovery.
 
 Sources: [protocol longevity](drafts/PROTOCOL-LONGEVITY.md),
 [EOL recovery drill](drafts/EOL-RECOVERY-DRILL.md), and backlog `GT-D030`,
@@ -206,24 +215,27 @@ RFC.
 
 ## Line of sight from current work
 
-Issue #24 reached a pre-run procedural `stop` after producing bounded evidence
-about procedure and reproducibility, not GraphTruth utility. Its accepted v2
-learning result localized the first public-synthetic author-call failure to
-`payload-json-byte-mismatch`; `reduced-echo-contract` is now a candidate
-successor. The Python corpus is research-only, and a first confirmation requires
-a fresh identity.
+Issue #24 reached a pre-run procedural `stop` after producing bounded procedure
+evidence, not GraphTruth utility. Its Python corpus remains research-only and
+`reduced-echo-contract` remains an inactive candidate.
 
-The single-major-WIP slot is free. The next project choice should be made
-explicitly from evidence:
+The single-major-WIP slot is now occupied by
+[Issue #42](https://github.com/asukhodko/graphtruth/issues/42). Its contract was
+frozen before implementation. The exact public-synthetic run passed all 18
+horizon × policy × materialization cells and all 16 mutation classes in both
+the Node and detached Python readers. Rebuilds are byte-identical, the
+experimental semantic digest is portable across the two readers, and the two
+development failures remain in the run report. This supports a `keep`
+recommendation for the exact Zone 3 slice; the owner has not yet chosen
+`keep`, `shrink`, or `stop`.
 
-1. use a fresh corpus for the first confirmatory comparison if the procedure is
-   worth continuing;
-2. use the learned fixtures to finish representative golden journeys and the
-   comparison harness (`GT-D001`, `GT-D009`);
-3. earn the smallest record, evidence, revision, acceptance, projection, and
-   dossier slice (`GT-D002`–`GT-D018`);
-4. dogfood that slice before activating generated project views, richer domain
-   topology, active acquisition, or experience-transfer machinery.
+If kept, the rational next move is one bounded real/public dogfood workflow
+that tests capture cost, correction, retrieval, and dossier usefulness while
+preserving the exact synthetic fixture as regression evidence. A fresh
+confirmatory corpus and the reduced-echo procedure remain alternatives, not
+implicit successors. Generated project documentation, richer domain topology,
+active acquisition, and experience-transfer machinery stay behind evidence
+from the minimal ledger and real use.
 
 This ordering protects the early ideas rather than discarding them. It gives
 them a durable substrate and an observable reason to exist.

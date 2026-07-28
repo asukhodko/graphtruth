@@ -43,8 +43,17 @@ nodes:
       procedure removed the exact local stdout, unread zero-byte stderr, and
       bounded work root. The diagnostic root remains, and non-local deletion is
       not claimed. The Python corpus and projection are research-only;
-      confirmation requires a fresh corpus and identity. No successor is
-      authorized and the single-major-WIP slot is free.
+      confirmation requires a fresh corpus and identity.
+
+      Issue #42 is the current single major WIP. Its public-synthetic
+      `record-and-bundle-golden-journey-v1` contract was frozen before
+      implementation. The exact reference run passed 18/18 fixed cells and
+      16/16 mutation classes in both Node and the detached Python reader; clean
+      bundles and rebuilt projections are exact, and no severe failure remains.
+      The result recommends `keep` only for this Zone 3 slice. Owner
+      `keep / shrink / stop` disposition is pending, so the PR remains draft
+      and no successor is authorized. Active dates are 2026-07-25 and
+      2026-07-28: 2/4 Europe/Moscow.
 
   m0-rehearsal-integration:
     title: "Integrate the runtime-boundary rehearsal evidence"
@@ -1320,7 +1329,7 @@ nodes:
       The owner stopped Issue #24 before date 5/5 and before an accepted
       evaluation contract or evaluated comparison. This is a procedural stop,
       not `sequential stop`. The five counted dates are 2026-07-21 through
-      2026-07-25. The single-major-WIP slot is free.
+      2026-07-25. This closure freed the slot later occupied by Issue #42.
 
   m6-purge-author-call-qualification-v1-diagnostics:
     title: "Complete retained qualification diagnostics cleanup"
@@ -1497,6 +1506,89 @@ nodes:
       Any later order-robustness experiment needs a fresh precursor result,
       issue, budget, identity, semantic-equivalence freeze, and worst-order
       gate.
+
+  m8-record-bundle-golden-journey:
+    title: "Build the first portable record-and-bundle golden journey"
+    kind: phase
+    parent: graphtruth
+    deps: [g6-python-sequential-path-disposed]
+    status: current
+    issue: "https://github.com/asukhodko/graphtruth/issues/42"
+    notes: |
+      Current single major WIP. Public-synthetic Zone 3 identity
+      `record-and-bundle-golden-journey-v1` uses three sources, fourteen
+      canonical records, two fixed policies, three knowledge horizons, and a
+      detached Python standard-library reader. Exact evidence is 18/18 cells
+      and 16/16 mutations passed, with no severe failure. Recommendation is
+      `keep`; owner disposition is pending. The goal has used active dates
+      2026-07-25 and 2026-07-28: 2/4 Europe/Moscow.
+
+  g8-journey-contract-frozen:
+    title: "Gate: record-and-bundle journey contract frozen"
+    kind: milestone
+    milestone: true
+    parent: m8-record-bundle-golden-journey
+    status: done
+    issue: "https://github.com/asukhodko/graphtruth/issues/42"
+    notes: |
+      Contract-only commit 338cdf95ea756ed6b3a250c15f6bd5cdf44a3b84
+      precedes implementation. JOURNEY-CONTRACT.json SHA-256 is
+      5365c408abf4a21d6be0523b7e1bd7dea39382241e316384c8b06c042603bf96;
+      Issue #42 comment 5078988410 is the external freeze anchor.
+
+  m8-implement-record-bundle:
+    title: "Implement the experimental canonical records and directory bundle"
+    kind: task
+    parent: m8-record-bundle-golden-journey
+    deps: [g8-journey-contract-frozen]
+    status: done
+    notes: |
+      Tested implementation commit
+      5fb58a4ad1951a4d37ec69157dadb0065878f6c8 writes and validates the
+      self-contained 19-file bundle, exact evidence, append-only history, two
+      fixed policy views, deterministic dossiers, clean rebuild, and portable
+      semantic digest. It uses Node built-ins only and makes no protocol or
+      crash/power-loss claim.
+
+  m8-verify-detached-reader:
+    title: "Verify the detached reader and closed evidence denominator"
+    kind: task
+    parent: m8-record-bundle-golden-journey
+    deps: [m8-implement-record-bundle]
+    status: done
+    notes: |
+      The detached Python standard-library reader sees only `bundle/` and
+      `reader.py`. Node writer, Node rebuild, and Python passed all 18 frozen
+      cells and both readers passed all 16 mutation classes. Two clean bundles,
+      projection rebuild, and the mechanical hardcoding variation also passed.
+      DEV-001 and DEV-002 remain in the observed report; neither changed the
+      frozen contract.
+
+  g8-record-bundle-disposition:
+    title: "Gate: owner chooses record-and-bundle keep, shrink, or stop"
+    kind: milestone
+    milestone: true
+    parent: m8-record-bundle-golden-journey
+    deps: [m8-verify-detached-reader]
+    status: ready
+    notes: |
+      Current evidence recommends `keep`, but recommendation is not
+      disposition. The owner must explicitly choose `keep`, the single frozen
+      shrink identity, or stop after seeing the final PR head, report hashes,
+      full check, and GitHub checks. No successor scope follows implicitly.
+
+  g8-record-bundle-integrated:
+    title: "Gate: selected record-and-bundle terminal path integrated"
+    kind: milestone
+    milestone: true
+    parent: m8-record-bundle-golden-journey
+    deps: [g8-record-bundle-disposition]
+    status: planned
+    notes: |
+      Complete only after the selected mechanical path leaves Issue #42, the
+      PR, repository documents, roadmap, and OpsKarta in one terminal state.
+      `Keep` permits ready and squash-merge; shrink and stop follow only their
+      predeclared closure paths.
 
   h-fresh-confirmatory-corpus:
     title: "Horizon: first GraphTruth confirmation on a fresh corpus"
@@ -1910,6 +2002,38 @@ execution:
       actual_finish: "2026-07-25"
       updated_at: "2026-07-25T15:35:12+03:00"
       note: "Issue #24 closed procedurally before implementation or evaluated comparison; this is not sequential stop."
+    m8-record-bundle-golden-journey:
+      progress: 0.8
+      actual_start: "2026-07-25"
+      updated_at: "2026-07-28T08:06:48+03:00"
+      note: "Exact local evidence is complete and recommends keep; draft publication, checks, and explicit owner disposition remain."
+    g8-journey-contract-frozen:
+      progress: 1.0
+      actual_start: "2026-07-25"
+      actual_finish: "2026-07-25"
+      updated_at: "2026-07-25T19:52:14+03:00"
+      note: "Contract-only commit and SHA-256 were anchored in Issue #42 before implementation."
+    m8-implement-record-bundle:
+      progress: 1.0
+      actual_start: "2026-07-28"
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T08:06:48+03:00"
+      note: "Experimental Node writer, validator, reducer, bundle, rebuild, dossiers, and portable digest are implemented."
+    m8-verify-detached-reader:
+      progress: 1.0
+      actual_start: "2026-07-28"
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T08:06:48+03:00"
+      note: "Detached Python reader, 18-cell denominator, 16-class mutation matrix, exact rebuild, and hardcoding variation passed."
+    g8-record-bundle-disposition:
+      progress: 0.0
+      actual_start: "2026-07-28"
+      updated_at: "2026-07-28T08:06:48+03:00"
+      note: "Ready after final-head evidence and GitHub checks; owner keep, shrink, or stop is required."
+    g8-record-bundle-integrated:
+      progress: 0.0
+      updated_at: "2026-07-28T08:06:48+03:00"
+      note: "Pending the explicit disposition and its mechanical terminal path."
 
 views:
   current-work:
@@ -1922,6 +2046,12 @@ views:
     where:
       parent: m6-python-sequential
       status: [done, stopped, current, ready, planned, conditional]
+    order_by: status
+  record-bundle-decision-path:
+    title: "Record-and-bundle evidence and disposition"
+    where:
+      parent: m8-record-bundle-golden-journey
+      status: [done, current, ready, planned]
     order_by: status
   decision-gates:
     title: "Decision gates"
@@ -1936,8 +2066,8 @@ views:
 x:
   exec:
     program:
-      nearest_goal: "Select exactly one next major WIP from the terminal Issue #24 evidence: the smallest independent record-and-bundle golden journey or a fresh confirmatory corpus."
-      success_by_next_sync: "Record one explicit choice with its own issue, budget, acceptance criteria, identity, and authorization; start no implementation or experiment implicitly."
+      nearest_goal: "Publish the exact Issue #42 record-and-bundle evidence as a checked draft PR and obtain the owner's explicit keep, shrink, or stop disposition."
+      success_by_next_sync: "Anchor the final tested PR head and report hashes in Issue #42, pass the full local and required GitHub checks, then execute no terminal path until the owner chooses."
     defaults:
       status_progress:
         done: 1.0
@@ -1980,6 +2110,14 @@ x:
         mgmt:
           health: neutral
           sync_note: "Not applicable to Issue #24 because no sequential keep exists. Any later order experiment needs a fresh precursor and identity."
+      record-bundle:
+        title: "Portable record-and-bundle golden journey"
+        scope_nodes: [m8-record-bundle-golden-journey]
+        kind: main
+        mgmt:
+          health: green
+          sync_note: "Issue #42 contract was frozen before code. Exact local evidence passed 18/18 cells and 16/16 mutation classes in Node and detached Python, with exact clean rebuild and no severe failure. Recommendation is keep; owner disposition is pending."
+          next_sync_goal: "Publish the draft PR, anchor its final tested head and report hashes, pass required checks, and ask the owner for keep, shrink, or stop."
     edges:
       - from: integration
         to: private-stop
@@ -1991,6 +2129,10 @@ x:
         to: python-order-successor
         type: context
         label: "only after sequential keep"
+      - from: python-sequential
+        to: record-bundle
+        type: required
+        label: "separate public-synthetic track"
     views:
       exec-top:
         direction: LR
@@ -1999,12 +2141,12 @@ x:
         show_progress: false
         show_gate_date: false
         wrap_title_lines: 2
-        caption: "Issue #24 is stopped before implementation or run; the major-WIP slot is free and the next track requires a separate decision."
-        blocks: [integration, private-stop, python-sequential]
+        caption: "Issue #42 is the current major WIP: local record-and-bundle evidence passes, while owner disposition and terminal integration remain open."
+        blocks: [integration, private-stop, python-sequential, record-bundle]
       exec-active-tracks:
         direction: TB
         color_mode: mgmt_hybrid
         highlight_current: true
         show_progress: false
         show_gate_date: false
-        blocks: [integration, private-stop, python-sequential, python-order-successor]
+        blocks: [integration, private-stop, python-sequential, python-order-successor, record-bundle]

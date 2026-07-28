@@ -54,6 +54,18 @@ bounded work root without changing the terminal result; the diagnostic root and
 non-local copies remain outside that claim. Issue #24 then stopped procedurally
 before implementation or an evaluated run.
 
+The
+[record-and-bundle golden journey](experiments/record-and-bundle-golden-journey-v1/)
+is a separate public-synthetic Zone 3 experiment. It freezes a three-source
+correction history before implementation, stores exact evidence and
+append-only assertion, assessment, acceptance, and revocation records, and
+exports a closed directory bundle. A Node.js reducer and a detached Python
+standard-library reader must derive the same six logical views across three
+horizons and two fixed policies. The checked-in projections are disposable;
+the bundle contains neither expected answers nor reader-specific state. This
+is portable semantic evidence for one exact journey, not a conformance fixture
+or utility result.
+
 If repeated experiments demonstrate stable portable semantics, a separately
 reviewed minimal example may later be promoted into this directory under an
 applicable specification version. Copying the laboratory files here does not

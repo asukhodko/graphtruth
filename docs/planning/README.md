@@ -44,42 +44,27 @@ enter GraphTruth's protocol, schemas, runtime, or RFC authority chain. Rendering
 tools are not vendored because no generated planning view is currently a
 maintained artifact.
 
-## Current position — 2026-07-25
+## Current position — 2026-07-28
 
-Issue #24 reached a pre-run procedural `stop` after using its five
-repository-active dates: 2026-07-21 through 2026-07-25. No evaluation contract,
-implementation, baseline, rehearsal, scoring, evaluated run, or sequential
-decision exists, so this must not be described as `sequential stop` or evidence
-of GraphTruth utility.
+[Issue #42](https://github.com/asukhodko/graphtruth/issues/42) is the current
+single major WIP. Its public-synthetic
+`record-and-bundle-golden-journey-v1` contract was frozen and externally
+anchored before implementation. The exact local reference evidence now passes
+all 18 horizon × policy × materialization cells and all 16 frozen mutation
+classes in both Node and the detached Python standard-library reader. Clean
+bundles and rebuilt projections are exact, and no severe failure remains.
 
-The exact exploratory-learning v2 boundary and execution pack were accepted and
-published in PR
-[#39](https://github.com/asukhodko/graphtruth/pull/39). One authorized protected
-read then produced the terminal [safe
-result](../../examples/experiments/author-call-qualification-v1/exploratory-learning-v2/SAFE-RESULT.md),
-published in PR [#40](https://github.com/asukhodko/graphtruth/pull/40). It
-localizes the first author-call failure to `payload-json-byte-mismatch` and
-recommends `reduced-echo-contract`. This is exploratory procedure evidence
-only.
+The result recommends `keep` for this exact Zone 3 slice. That is not owner
+disposition, protocol acceptance, product-utility evidence, or authorization
+for a successor. The PR remains draft until its final tested head, report
+hashes, full local check, and required GitHub checks are anchored in Issue #42
+and the owner explicitly chooses `keep`, `shrink`, or `stop`. The goal has used
+two of four repository-active dates: 2026-07-25 and 2026-07-28.
 
-The terminal v2 result correctly retains deletion states
-`identity-mismatch / not-attempted / not-attempted`: the original deletion-only
-route could not prove byte continuity because the read-time metadata
-fingerprint had not been saved. A later, separately authorized one-shot
-retention cleanup accepted that residual uncertainty and removed the exact
-local stdout, unread zero-byte stderr, and bounded work root using no-follow
-metadata only. The diagnostic root remains. Local deletion does not establish
-deletion from backups, snapshots, swap, task logs, or provider systems. The
-publication-safe cleanup record is [Issue #24 comment
-5077805340](https://github.com/asukhodko/graphtruth/issues/24#issuecomment-5077805340).
-
-The Python corpus and projection remain immutable research artifacts and cannot
-be the first confirmatory corpus. `reduced-echo-contract` remains a backlog
-candidate rather than active work. The single-major-WIP slot is free; selecting
-the next track requires a separate issue, budget, acceptance criteria, and
-authorization. OpsKarta therefore records the Issue #24 lane as stopped and
-does not silently activate either a minimal GraphTruth golden journey or a
-fresh confirmatory corpus.
+Issue #24 remains a terminal pre-run procedural `stop`, not `sequential stop`.
+Its Python corpus is research-only, and `reduced-echo-contract` remains an
+inactive backlog candidate. Its retained identities and cleanup limits are
+unchanged and are not inputs to Issue #42.
 
 ## Historical execution record — 2026-07-24
 
