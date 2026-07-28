@@ -36,6 +36,24 @@ exists.
 | `GT-D019` — source ingestion and evidence alignment | The worker retained exact source bytes and deterministic passage candidates with byte-and-line locators. | Source-snapshot closure, field-level semantic grounding, multiple source types, reviewable assertion/question candidates, and correction in real use. |
 | `GT-D054` — runtime orchestration | The controller bounded child processes, crash points, exact redelivery, rebuild, cleanup, and selected resources in one local run. | A demonstrated need for jobs or queues, leases, backpressure, dead letters, broader budget exhaustion, observability, and provider-loss recovery. |
 
+Issue #42 adds a second, deliberately narrower body of Zone 3 evidence. Its
+frozen public-synthetic journey passed 18/18 horizon × policy ×
+materialization cells and 16/16 mutation classes in both Node and a detached
+Python standard-library reader. It still closes none of these backlog items.
+
+| Backlog item | Issue #42 partial evidence | Remaining proof |
+| --- | --- | --- |
+| `GT-D001` | One complete frozen journey covers exact evidence, linear revision, disagreement, two policies, revocation, retroactive correction, and clean rebuild. | Questions, redaction, broader roles, and more than one representative journey. |
+| `GT-D002` | A 14-record envelope exercises source, evidence, assertion revision, assessment, acceptance, and revocation roles. | A general envelope, optional extensions, provenance breadth, and protocol status. |
+| `GT-D003` | Both readers verify three exact source files and their declared byte spans. | Transformed and binary evidence, source-version changes, and semantic grounding. |
+| `GT-D005` | Strict JSON parsing, duplicate-key rejection, and byte-identical semantic output work in two languages. | A second serialization, canonicalization rules, and independent conformance. |
+| `GT-D006` | Staging plus rename publishes the exact small bundle and refuses undeclared or unsafe entries. | Crash, power-loss, compare-and-swap, concurrent-reader, and operating-system evidence. |
+| `GT-D010` | H1–H3 exercise a linear append-only revision, recorded time, valid time, and retroactive correction. | Branching, withdrawal, uncertain or coarse time, identity change, and migration. |
+| `GT-D011` | Two fixed policies diverge and converge while assessment, acceptance, revocation, and assertion revision remain separate. | General policy semantics, review workflow, conflicts, and revocation beyond this fixture. |
+| `GT-D014` | All projections can be deleted and rebuilt exactly from the portable bundle. | Incremental builds, generations, migration, and cross-version comparison. |
+| `GT-D015` | The fixture renders a deterministic contextual dossier at each horizon and policy. | Retrieval comparison, real questions, repeated use, and demonstrated value. |
+| `GT-D017` | A detached Python standard-library reader needs only the bundle and reconstructs the Node semantic bytes. | A normative specification, human-independent implementation, extension handling, and cross-version recovery. |
+
 See the current [invariant map](../INVARIANTS.md) for the narrower claims and
 gaps supported by repository evidence.
 

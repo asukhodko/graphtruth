@@ -1,0 +1,315 @@
+{
+  "format": "graphtruth.experimental.record-bundle-run-report.v1",
+  "status": "pass",
+  "recommendation": "keep",
+  "observedAt": "2026-07-28T08:00:20+03:00",
+  "identity": {
+    "name": "record-and-bundle-golden-journey-v1",
+    "contractSha256": "5365c408abf4a21d6be0523b7e1bd7dea39382241e316384c8b06c042603bf96",
+    "baseCommit": "eec5e6a6342c33b8ddb1bca790fbe822f6557524",
+    "testedImplementationCommit": "5fb58a4ad1951a4d37ec69157dadb0065878f6c8",
+    "finalPrHead": "anchored-in-owning-issue-after-final-commit",
+    "owningIssue": "https://github.com/asukhodko/graphtruth/issues/42"
+  },
+  "tools": {
+    "node": "v24.4.1",
+    "python": "Python 3.9.13",
+    "runtimeDependenciesAdded": 0,
+    "productNetworkCalls": 0,
+    "externalModelCalls": 0,
+    "protectedOrRealDataInputs": 0
+  },
+  "expected": [
+    "All 18 fixed horizon x policy x materialization cells pass.",
+    "Both readers reject or correctly classify all 16 frozen mutation classes.",
+    "Two clean bundles and projection rebuilds are byte-identical.",
+    "Detached Python reading needs only reader.py, bundle, and the public manifest hash.",
+    "The frozen 2-to-7 hardcoding variation passes without fitted values or identifiers.",
+    "No unresolved severe failure remains."
+  ],
+  "observed": {
+    "bundleManifestSha256": "fd51f34038fac5ae40888d10007f7a27789e047515295a98e2bc661e5d49f243",
+    "semanticDigest": "7d849996a20e243e2df930d594eb86ec64a71551819dc8de96c81b43459d01b7",
+    "bundleFiles": 19,
+    "bundleBytes": 12385,
+    "canonicalRecords": 14,
+    "denominatorExpected": 18,
+    "denominatorObserved": 18,
+    "denominatorPassed": 18,
+    "mutationsExpected": 16,
+    "mutationsObserved": 16,
+    "mutationsPassed": 16,
+    "cleanBuildCount": 2,
+    "cleanBuildsByteIdentical": true,
+    "nodeWriterMatchesExpected": true,
+    "nodeRebuildMatchesExpected": true,
+    "pythonDetachedMatchesExpected": true,
+    "nodePythonSemanticBytesEqual": true,
+    "projectionsDeletedBeforeRebuild": true,
+    "projectionsRebuiltExactly": true,
+    "hardcodingVariantPassed": true,
+    "detachedRootInventory": [
+      "bundle",
+      "reader.py"
+    ],
+    "detachedContractPresent": false,
+    "detachedExpectedResultsPresent": false,
+    "detachedOutputBytes": 2395
+  },
+  "denominator": [
+    {
+      "cellId": "H1:document-authority-v0:node-writer",
+      "status": "pass"
+    },
+    {
+      "cellId": "H1:observed-state-v0:node-writer",
+      "status": "pass"
+    },
+    {
+      "cellId": "H2:document-authority-v0:node-writer",
+      "status": "pass"
+    },
+    {
+      "cellId": "H2:observed-state-v0:node-writer",
+      "status": "pass"
+    },
+    {
+      "cellId": "H3:document-authority-v0:node-writer",
+      "status": "pass"
+    },
+    {
+      "cellId": "H3:observed-state-v0:node-writer",
+      "status": "pass"
+    },
+    {
+      "cellId": "H1:document-authority-v0:node-rebuild",
+      "status": "pass"
+    },
+    {
+      "cellId": "H1:observed-state-v0:node-rebuild",
+      "status": "pass"
+    },
+    {
+      "cellId": "H2:document-authority-v0:node-rebuild",
+      "status": "pass"
+    },
+    {
+      "cellId": "H2:observed-state-v0:node-rebuild",
+      "status": "pass"
+    },
+    {
+      "cellId": "H3:document-authority-v0:node-rebuild",
+      "status": "pass"
+    },
+    {
+      "cellId": "H3:observed-state-v0:node-rebuild",
+      "status": "pass"
+    },
+    {
+      "cellId": "H1:document-authority-v0:python-detached-reader",
+      "status": "pass"
+    },
+    {
+      "cellId": "H1:observed-state-v0:python-detached-reader",
+      "status": "pass"
+    },
+    {
+      "cellId": "H2:document-authority-v0:python-detached-reader",
+      "status": "pass"
+    },
+    {
+      "cellId": "H2:observed-state-v0:python-detached-reader",
+      "status": "pass"
+    },
+    {
+      "cellId": "H3:document-authority-v0:python-detached-reader",
+      "status": "pass"
+    },
+    {
+      "cellId": "H3:observed-state-v0:python-detached-reader",
+      "status": "pass"
+    }
+  ],
+  "mutations": [
+    {
+      "mutationId": "M01-source-byte-changed",
+      "expectedCode": "SOURCE_HASH_MISMATCH",
+      "nodeCode": "SOURCE_HASH_MISMATCH",
+      "pythonCode": "SOURCE_HASH_MISMATCH",
+      "status": "pass"
+    },
+    {
+      "mutationId": "M02-evidence-bounds-invalid",
+      "expectedCode": "EVIDENCE_BOUNDS_INVALID",
+      "nodeCode": "EVIDENCE_BOUNDS_INVALID",
+      "pythonCode": "EVIDENCE_BOUNDS_INVALID",
+      "status": "pass"
+    },
+    {
+      "mutationId": "M03-evidence-hash-invalid",
+      "expectedCode": "EVIDENCE_HASH_MISMATCH",
+      "nodeCode": "EVIDENCE_HASH_MISMATCH",
+      "pythonCode": "EVIDENCE_HASH_MISMATCH",
+      "status": "pass"
+    },
+    {
+      "mutationId": "M04-declared-file-missing",
+      "expectedCode": "BUNDLE_FILE_MISSING",
+      "nodeCode": "BUNDLE_FILE_MISSING",
+      "pythonCode": "BUNDLE_FILE_MISSING",
+      "status": "pass"
+    },
+    {
+      "mutationId": "M05-undeclared-file-added",
+      "expectedCode": "BUNDLE_FILE_UNDECLARED",
+      "nodeCode": "BUNDLE_FILE_UNDECLARED",
+      "pythonCode": "BUNDLE_FILE_UNDECLARED",
+      "status": "pass"
+    },
+    {
+      "mutationId": "M06-unsafe-entry",
+      "expectedCode": "BUNDLE_ENTRY_UNSAFE",
+      "nodeCode": "BUNDLE_ENTRY_UNSAFE",
+      "pythonCode": "BUNDLE_ENTRY_UNSAFE",
+      "status": "pass"
+    },
+    {
+      "mutationId": "M07-invalid-utf8",
+      "expectedCode": "UTF8_INVALID",
+      "nodeCode": "UTF8_INVALID",
+      "pythonCode": "UTF8_INVALID",
+      "status": "pass"
+    },
+    {
+      "mutationId": "M08-duplicate-json-key",
+      "expectedCode": "JSON_DUPLICATE_KEY",
+      "nodeCode": "JSON_DUPLICATE_KEY",
+      "pythonCode": "JSON_DUPLICATE_KEY",
+      "status": "pass"
+    },
+    {
+      "mutationId": "M09-record-id-conflict",
+      "expectedCode": "RECORD_ID_CONFLICT",
+      "nodeCode": "RECORD_ID_CONFLICT",
+      "pythonCode": "RECORD_ID_CONFLICT",
+      "status": "pass"
+    },
+    {
+      "mutationId": "M10-dangling-reference",
+      "expectedCode": "REFERENCE_DANGLING",
+      "nodeCode": "REFERENCE_DANGLING",
+      "pythonCode": "REFERENCE_DANGLING",
+      "status": "pass"
+    },
+    {
+      "mutationId": "M11-revision-chain-invalid",
+      "expectedCode": "REVISION_CHAIN_INVALID",
+      "nodeCode": "REVISION_CHAIN_INVALID",
+      "pythonCode": "REVISION_CHAIN_INVALID",
+      "status": "pass"
+    },
+    {
+      "mutationId": "M12-historical-record-overwritten",
+      "expectedCode": "MANIFEST_HASH_MISMATCH",
+      "nodeCode": "MANIFEST_HASH_MISMATCH",
+      "pythonCode": "MANIFEST_HASH_MISMATCH",
+      "status": "pass"
+    },
+    {
+      "mutationId": "M13-recorded-order-invalid",
+      "expectedCode": "RECORDED_ORDER_INVALID",
+      "nodeCode": "RECORDED_ORDER_INVALID",
+      "pythonCode": "RECORDED_ORDER_INVALID",
+      "status": "pass"
+    },
+    {
+      "mutationId": "M14-assessment-cannot-decide",
+      "expectedCode": "EXPECTED_ABSTENTION",
+      "nodeCode": "EXPECTED_ABSTENTION",
+      "pythonCode": "EXPECTED_ABSTENTION",
+      "status": "pass"
+    },
+    {
+      "mutationId": "M15-decision-invalid",
+      "expectedCode": "DECISION_INVALID",
+      "nodeCode": "DECISION_INVALID",
+      "pythonCode": "DECISION_INVALID",
+      "status": "pass"
+    },
+    {
+      "mutationId": "M16-boundary-leak-or-unknown-version",
+      "expectedCode": "NO_FUTURE_LEAK_AND_UNKNOWN_FORMAT_REJECTED",
+      "nodeCode": "NO_FUTURE_LEAK_AND_UNKNOWN_FORMAT_REJECTED",
+      "pythonCode": "NO_FUTURE_LEAK_AND_UNKNOWN_FORMAT_REJECTED",
+      "status": "pass"
+    }
+  ],
+  "hardcodingVariant": {
+    "variantId": "retry-limit-remap-v1",
+    "semanticDigest": "c5ba3f4bb270589139d0a9af59db7847e17c127018c362f46570ff6309af90f7",
+    "nodePythonSemanticBytesEqual": true,
+    "values": {
+      "H1:document-authority-v0": 2,
+      "H1:observed-state-v0": null,
+      "H2:document-authority-v0": 2,
+      "H2:observed-state-v0": 7,
+      "H3:document-authority-v0": 7,
+      "H3:observed-state-v0": 7
+    },
+    "status": "pass"
+  },
+  "captureTax": {
+    "committedSourceFiles": 3,
+    "predeclaredCanonicalRecords": 14,
+    "manualInterventionsDuringReferenceRun": 0,
+    "elapsedMilliseconds": 1587,
+    "note": "Development effort is excluded; this measures the exact deterministic reference run."
+  },
+  "activeDates": {
+    "timezone": "Europe/Moscow",
+    "used": [
+      "2026-07-25",
+      "2026-07-28"
+    ],
+    "count": 2,
+    "budget": 4
+  },
+  "intermediateFailures": [
+    {
+      "failureId": "DEV-001",
+      "testedCommit": "uncommitted-before-a931f25c814d68dbc013dd852501dfacd7443633",
+      "observed": "The first smoke build rejected uppercase frozen horizon IDs as RECORD_SHAPE_INVALID.",
+      "resolution": "The experimental identifier validator was corrected to admit ASCII alphanumeric IDs.",
+      "contractChanged": false,
+      "adverseResultRetained": true
+    },
+    {
+      "failureId": "DEV-002",
+      "testedCommit": "a931f25c814d68dbc013dd852501dfacd7443633",
+      "observed": "The first reference run passed the 18 primary cells but the mutation runner resolved a relative Python reader path under its temporary working directory, so all 16 Python mutation invocations failed before reading a bundle.",
+      "resolution": "The evidence runner now resolves the journey and reader paths before entering any detached working directory; the regression test invokes it with a relative journey path.",
+      "contractChanged": false,
+      "adverseResultRetained": true
+    }
+  ],
+  "severeFailures": [],
+  "learned": [
+    "The minimal append-only record set preserves an accepted claim, a non-decisive challenge, an explicit revocation, and a retroactive correction for this exact journey.",
+    "Two fixed policies diverge at H2 and converge at H3 without a general policy language.",
+    "A closed directory bundle contains enough canonical state for Node rebuild and a Python standard-library reader to derive byte-identical semantic output.",
+    "Derived JSON and Markdown projections are disposable and add no canonical information.",
+    "The result remains synthetic Zone 3 evidence; utility, generality, compatibility, scale, and normative format decisions remain open."
+  ],
+  "exactCommands": [
+    "node --test runtime/experimental/record-bundle-v1/core.test.mjs",
+    "node -e 'const started=Date.now(); const m=await import(\"./runtime/experimental/record-bundle-v1/evidence.mjs\"); const result=await m.runGoldenJourneyEvidence({journeyRoot:\"examples/experiments/record-and-bundle-golden-journey-v1\",workRoot:\"/private/tmp/graphtruth-record-bundle-reference-28jul2026-v2\",pythonPath:\"python3\"}); process.stdout.write(JSON.stringify({elapsedMilliseconds:Date.now()-started,report:result.report},null,2)+\"\\n\");'",
+    "node runtime/experimental/record-bundle-v1/cli.mjs verify --bundle-root examples/experiments/record-and-bundle-golden-journey-v1/bundle --manifest-sha256 fd51f34038fac5ae40888d10007f7a27789e047515295a98e2bc661e5d49f243",
+    "python3 examples/experiments/record-and-bundle-golden-journey-v1/detached_reader.py --bundle-root examples/experiments/record-and-bundle-golden-journey-v1/bundle --manifest-sha256 fd51f34038fac5ae40888d10007f7a27789e047515295a98e2bc661e5d49f243",
+    "./tooling/check"
+  ],
+  "claimBoundary": [
+    "Zone 3 evidence for one exact public synthetic identity only.",
+    "No protocol, normative schema, compatibility, utility, generality, scale, concurrency, power-loss durability, hostile same-user defense, or blind-review claim.",
+    "The owner must choose keep, shrink, or stop before the PR becomes ready or is merged."
+  ]
+}
