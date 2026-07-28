@@ -65,6 +65,11 @@ node examples/experiments/murmurmark-echo-lab-correction-v1/verify-inputs.mjs
 - [`DISPOSITION.md`](DISPOSITION.md) binds the owner's terminal `shrink`
   decision without changing the frozen result.
 
+The reachability tag
+`murmurmark-echo-lab-correction-v1-result` points to the exact pre-disposition
+result commit. It keeps the frozen M8 base in CI history; the commit SHA-1 and
+SHA-256 identities above remain authoritative.
+
 The retained run passed all three GraphTruth cells and two of three baseline
 cells, with no severe error. The frozen `keep` rule nevertheless requires all
 six cells to pass. The owner chose `shrink` without rewriting that rule or the
