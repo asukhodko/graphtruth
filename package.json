@@ -7,6 +7,6 @@
     "node": ">=24"
   },
   "devDependencies": {
-    "markdownlint-cli2": "0.23.0"
+    "markdownlint-cli2": "0.23.2"
   }
 }
