@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "identity": "incremental-capture-second-public-correction-v1-sources-v1",
+  "selectionContractSha256": "2033f9c3bb575472f9a8c63e9a73aae84f6195574caf48bf16d147609feffc22",
+  "selectionResultSha256": "b5c4d70279eccfaad7d45a9722d0f55f89a6d41aab95f090abbdf2f671340113",
+  "repository": {
+    "slug": "asukhodko/dify-markdown-chunker",
+    "url": "https://github.com/asukhodko/dify-markdown-chunker",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "licenseGitBlobSha1": "42c5b9a351431f9b2627af71a913231344a03776"
+  },
+  "closedCorpus": {
+    "paths": [
+      "CHANGELOG.md",
+      "adapter.py",
+      "requirements.txt",
+      "tests/test_overlap_embedding.py"
+    ],
+    "horizonOrder": [
+      "H1",
+      "H2"
+    ],
+    "inventory": [
+      {
+        "horizonId": "H1",
+        "commitSha1": "4540fff19eb6ebe6a4a632d8d2bfc90fa6cb4c63",
+        "parentCommitSha1": "4419693f7f1f3ff7cf29bfc8de035ffcde401466",
+        "authorTimestamp": "2026-01-06T14:21:27+03:00",
+        "committerTimestamp": "2026-01-06T14:21:27+03:00",
+        "subject": "feat(adapter): upgrade to chunkana 0.1.3 with boundary invariance fixes",
+        "files": [
+          {
+            "path": "CHANGELOG.md",
+            "snapshotPath": "sources/H1/CHANGELOG.md",
+            "gitBlobSha1": "df9067b155d2573f2e38167d9d1b4cda418ee8e1",
+            "sha256": "11327a8189769a9bead1f6ccac12068d67b0740b55b5922ffa18c21056605ef3",
+            "sizeBytes": 21796,
+            "state": "present"
+          },
+          {
+            "path": "adapter.py",
+            "snapshotPath": "sources/H1/adapter.py",
+            "gitBlobSha1": "0f1457ff46f54322dc4f56634d7cd7f2a5426523",
+            "sha256": "ef0516b828295b5e9df09a0deb238855e8ef0dd3731a843e8840684b04ee6a3f",
+            "sizeBytes": 9514,
+            "state": "present"
+          },
+          {
+            "path": "requirements.txt",
+            "snapshotPath": "sources/H1/requirements.txt",
+            "gitBlobSha1": "f324dd20278ef8cd42d77df07db3c1bd6b93ee37",
+            "sha256": "36041e4c599aeda74b7f698c49ba77eb0d709fe6290de873e19435666b19632c",
+            "sizeBytes": 377,
+            "state": "present"
+          },
+          {
+            "path": "tests/test_overlap_embedding.py",
+            "state": "absent"
+          }
+        ]
+      },
+      {
+        "horizonId": "H2",
+        "commitSha1": "3257ee6763ea8b89c8e61d542d05b4f9ddc10b9f",
+        "parentCommitSha1": "4540fff19eb6ebe6a4a632d8d2bfc90fa6cb4c63",
+        "authorTimestamp": "2026-01-08T22:36:56+03:00",
+        "committerTimestamp": "2026-01-08T22:36:56+03:00",
+        "subject": "feat(adapter): implement overlap embedding and boundary invariance fixes",
+        "files": [
+          {
+            "path": "CHANGELOG.md",
+            "snapshotPath": "sources/H2/CHANGELOG.md",
+            "gitBlobSha1": "747ccf1df7a6393d78d10eb53b2219fe04f6c850",
+            "sha256": "d2205370f15566643f1050362259403a72cf597cbdedee3377eb7dd9df55b488",
+            "sizeBytes": 19470,
+            "state": "present"
+          },
+          {
+            "path": "adapter.py",
+            "snapshotPath": "sources/H2/adapter.py",
+            "gitBlobSha1": "d6412c291a5b6003e40a5f59b819625d05f95853",
+            "sha256": "087d3f798e5c029ff7060b1e674e08b26709074af700f64f714205cce6ab26be",
+            "sizeBytes": 11243,
+            "state": "present"
+          },
+          {
+            "path": "requirements.txt",
+            "snapshotPath": "sources/H2/requirements.txt",
+            "gitBlobSha1": "5a9930ba1d5464f26dc703405f8be0b7993d07f3",
+            "sha256": "0718f4863dcb63746c75f6f3d1137334f08bb99b995b8507b0e1f0ef1c25035c",
+            "sizeBytes": 377,
+            "state": "present"
+          },
+          {
+            "path": "tests/test_overlap_embedding.py",
+            "snapshotPath": "sources/H2/tests/test_overlap_embedding.py",
+            "gitBlobSha1": "b6991264c4d421ae94ead9816b1d54aca9b1d6c5",
+            "sha256": "415955461a7fe2d50fc3e06dd7f4f9c26b749e6da655aefad325aea237eb697d",
+            "sizeBytes": 13882,
+            "state": "present"
+          }
+        ]
+      }
+    ],
+    "totalPresentFiles": 7,
+    "totalPresentBytes": 76659
+  },
+  "timeModel": {
+    "eventOrApplicability": "No external runtime event is inferred. A statement applies only to the exact source horizon that supports it.",
+    "publicationOrAvailability": "Git author and committer timestamps are recorded as repository metadata, not as independently proven first-publication times.",
+    "syntheticReveal": "H1 is revealed first. H2 is then revealed as its direct corrective successor.",
+    "graphTruthRecord": "Source snapshots were acquired and verified at 2026-07-28T14:38:26Z; later capture records must carry their own record time."
+  },
+  "familiarity": {
+    "owner": {
+      "role": "decision-owner",
+      "level": "not-assessed",
+      "effect": "The owner does not produce either branch answer."
+    },
+    "currentGraphTruthSession": {
+      "roles": [
+        "curator",
+        "task-author",
+        "oracle-author",
+        "baseline-operator",
+        "graphtruth-operator",
+        "evaluator"
+      ],
+      "level": "known-after-frozen-selection",
+      "effect": "This is a non-blind workflow experiment. It cannot establish independent-answering performance."
+    }
+  },
+  "nonClaims": [
+    "The closed corpus does not include the chunkana package, Dify runtime, OutputFilter, InputValidator, configuration snapshots, or test execution logs.",
+    "Git timestamps do not prove when any person first knew a statement.",
+    "The snapshots do not prove behavior of an installed or current plugin version.",
+    "The snapshots do not prove the changelog's performance, compatibility, test-count, or test-pass claims.",
+    "The episode is intentionally selected from the owner's public repositories and is not representative."
+  ],
+  "acquisition": {
+    "method": "git archive of the exact selected commits and paths",
+    "verifiedAgainstGitBlobMetadata": true,
+    "acquiredAt": "2026-07-28T14:38:26Z"
+  },
+  "status": "frozen"
+}

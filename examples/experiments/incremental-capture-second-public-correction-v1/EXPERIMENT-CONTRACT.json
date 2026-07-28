@@ -1,0 +1,497 @@
+{
+  "schemaVersion": 1,
+  "identity": "incremental-capture-second-public-correction-v1-contract-v1",
+  "sourceManifestSha256": "fc374ebf427cb94f500781d1d5c6d4e066e1ae98ee1a09cfcdf7a1ab50f38ba9",
+  "decisionQuestion": "Can a minimal incremental GraphTruth interface preserve and retrieve the five M9-admitted capabilities on a materially different public correction, without losing an adverse result and at acceptable recurring capture cost?",
+  "allowedConclusions": [
+    "Whether each branch answered each of the four frozen tasks under the closed corpus.",
+    "Whether the five admitted capabilities transferred to this one episode.",
+    "Whether exact H1 reconstruction and deterministic projection rebuild worked.",
+    "Whether the exact Zone 3 interface is worth keeping, shrinking, or stopping as experimental code."
+  ],
+  "nonClaims": [
+    "No representativeness beyond this selected episode.",
+    "No independent or blind answering performance.",
+    "No proof of installed, production, or current dify-markdown-chunker or chunkana behavior.",
+    "No general GraphTruth format, protocol, schema, RFC, or public API.",
+    "No promotion of the M8 Assessment or AcceptanceDecision shapes.",
+    "No causal claim beyond the exact direct Git history.",
+    "No claim that the source changelog is internally consistent or independently verified."
+  ],
+  "timeModel": {
+    "sourceHorizon": "H1 and H2 identify exact Git source snapshots and determine which bytes may support an answer.",
+    "recordHorizon": "Each GraphTruth record receives an append order and recordedAt timestamp. It never changes the source horizon.",
+    "revealOrder": [
+      "H1",
+      "H2"
+    ],
+    "h1Rule": "H2 bytes, claims, and records are unavailable to an H1-only answer.",
+    "h2Rule": "An H2 answer may cite both H1 and H2 when the task explicitly asks for a correction or history.",
+    "retrospectiveRule": "A later changelog statement cannot be projected backward as H1 knowledge."
+  },
+  "tasks": [
+    {
+      "taskId": "t1-pre-fix-bounds",
+      "workingReason": "A maintainer needs to know what the parent revision actually did before relying on the correction.",
+      "question": "At H1, what does the selected adapter source establish about the include_metadata split and overlap in content-only output, and what must remain uncertain?",
+      "allowedHorizons": [
+        "H1"
+      ],
+      "requiredElements": [
+        "The adapter invokes one _perform_chunking path before branching in _render_chunks on include_metadata.",
+        "The H1 _render_without_metadata implementation returns each chunk's content field only.",
+        "previous_content and next_content are described as metadata but are not embedded by that H1 content-only method.",
+        "The H1 changelog contains tension: it claims content-mode overlap tests or embedding while also saying the plugin removed embedded-overlap handling.",
+        "Actual external-library and installed runtime behavior is not proven by the closed H1 files."
+      ],
+      "requiredEvidence": [
+        {
+          "path": "sources/H1/adapter.py",
+          "lineStart": 110,
+          "lineEnd": 134,
+          "purpose": "single chunking path followed by rendering"
+        },
+        {
+          "path": "sources/H1/adapter.py",
+          "lineStart": 172,
+          "lineEnd": 220,
+          "purpose": "metadata branch and content-only implementation"
+        },
+        {
+          "path": "sources/H1/CHANGELOG.md",
+          "lineStart": 7,
+          "lineEnd": 12,
+          "purpose": "early embedding claim"
+        },
+        {
+          "path": "sources/H1/CHANGELOG.md",
+          "lineStart": 83,
+          "lineEnd": 90,
+          "purpose": "removed embedded-overlap handling and test-pass claim"
+        }
+      ],
+      "requiredCounterevidence": [
+        "The H1 changelog's claim that include_metadata=False has embedded overlap cannot override the contrary exact method body.",
+        "The adapter's boundary-invariance comments are source claims, not retained execution proof."
+      ],
+      "correctAbstention": [
+        "Do not assert that overlap was preserved in real H1 content-only output.",
+        "Do not assert exact runtime boundaries or passing tests."
+      ],
+      "severeErrors": [
+        "Citing H2 evidence as available at H1.",
+        "Claiming verified runtime behavior from files outside the closed corpus."
+      ]
+    },
+    {
+      "taskId": "t2-post-fix-change",
+      "workingReason": "A reviewer needs the exact correction rather than the broad commit or changelog narrative.",
+      "question": "At H2, which exact selected-source changes address content-mode overlap, which related claims were already present at H1, and which dependency boundary changed?",
+      "allowedHorizons": [
+        "H1",
+        "H2"
+      ],
+      "requiredElements": [
+        "_render_without_metadata changes from returning content fields to calling _embed_overlap for every raw chunk.",
+        "_embed_overlap strips previous_content, content, and next_content, omits empty parts, joins retained parts with two newlines, and falls back to content on an exception.",
+        "requirements.txt changes from chunkana==0.1.3 to chunkana>=0.1.5.",
+        "tests/test_overlap_embedding.py is absent at H1 and added at H2; it contains helper, rendering, and contract checks.",
+        "The chunking-then-rendering split and source-level boundary-invariance claim already exist in the H1 adapter, so H2 does not establish that they were newly introduced by this correction."
+      ],
+      "requiredEvidence": [
+        {
+          "path": "sources/H1/adapter.py",
+          "lineStart": 214,
+          "lineEnd": 220,
+          "purpose": "pre-correction content-only renderer"
+        },
+        {
+          "path": "sources/H2/adapter.py",
+          "lineStart": 214,
+          "lineEnd": 274,
+          "purpose": "post-correction embedding and fallback"
+        },
+        {
+          "path": "sources/H1/adapter.py",
+          "lineStart": 110,
+          "lineEnd": 186,
+          "purpose": "pre-existing chunking and rendering split"
+        },
+        {
+          "path": "sources/H1/requirements.txt",
+          "lineStart": 1,
+          "lineEnd": 5,
+          "purpose": "old dependency constraint"
+        },
+        {
+          "path": "sources/H2/requirements.txt",
+          "lineStart": 1,
+          "lineEnd": 5,
+          "purpose": "new dependency constraint"
+        },
+        {
+          "path": "sources/H2/tests/test_overlap_embedding.py",
+          "lineStart": 1,
+          "lineEnd": 392,
+          "purpose": "new test source"
+        }
+      ],
+      "requiredCounterevidence": [
+        "H2 changelog language about newly separated stages is countered by the identical stage separation in H1.",
+        "The selected sources do not contain an H2 change to OutputFilter despite the changelog narrative."
+      ],
+      "correctAbstention": [
+        "Do not attribute every H2 changelog claim to a selected code change.",
+        "Do not claim the tests were executed or passed."
+      ],
+      "severeErrors": [
+        "Describing the H2 change without preserving the H1 implementation.",
+        "Claiming exact dependency version 0.1.5 when the constraint is a lower bound."
+      ]
+    },
+    {
+      "taskId": "t3-residual-limits",
+      "workingReason": "A maintainer must know what remains unproved before treating the correction as a guarantee.",
+      "question": "After H2, what important guarantees remain unproved by the closed corpus, which source inconsistencies constrain confidence, and what question must stay open?",
+      "allowedHorizons": [
+        "H1",
+        "H2"
+      ],
+      "requiredElements": [
+        "The corpus omits chunkana package bytes and the imported InputValidator, OutputFilter, and configuration snapshot.",
+        "There is no retained execution log, so test success, runtime integration, and the changelog's less-than-five-percent overhead claim are unproved.",
+        "The H2 requirements lower bound chunkana>=0.1.5 conflicts with adapter and changelog wording centered on 0.1.3.",
+        "The included contract checks establish same chunk count and content containment on one fixture, not exact equality of all source boundaries for arbitrary inputs.",
+        "The open question remains whether every supported installed chunkana version supplies compatible previous_content and next_content metadata while preserving exact boundaries across metadata modes."
+      ],
+      "requiredEvidence": [
+        {
+          "path": "sources/H2/adapter.py",
+          "lineStart": 24,
+          "lineEnd": 63,
+          "purpose": "external imports and missing configuration dependency"
+        },
+        {
+          "path": "sources/H2/requirements.txt",
+          "lineStart": 1,
+          "lineEnd": 5,
+          "purpose": "open-ended dependency lower bound"
+        },
+        {
+          "path": "sources/H2/CHANGELOG.md",
+          "lineStart": 31,
+          "lineEnd": 51,
+          "purpose": "version, performance, and migration claims"
+        },
+        {
+          "path": "sources/H2/tests/test_overlap_embedding.py",
+          "lineStart": 307,
+          "lineEnd": 392,
+          "purpose": "scope and strength of included contract checks"
+        }
+      ],
+      "requiredCounterevidence": [
+        "Source comments and changelog assertions are weaker than execution evidence.",
+        "A same-count assertion does not prove exact boundary identity."
+      ],
+      "correctAbstention": [
+        "Do not generalize to arbitrary documents, dependency versions, or current production.",
+        "Keep the dependency-metadata and exact-boundary question open."
+      ],
+      "severeErrors": [
+        "Silently closing the frozen open question.",
+        "Claiming broad production guarantees from the selected snapshots."
+      ]
+    },
+    {
+      "taskId": "t4-historical-reconstruction",
+      "workingReason": "A later maintainer needs to reconstruct what was known and implemented before and after the correction without rewriting history.",
+      "question": "Reconstruct the H1-to-H2 correction history: what persisted, what changed, what adverse evidence must remain visible, and what cannot be inferred?",
+      "allowedHorizons": [
+        "H1",
+        "H2"
+      ],
+      "requiredElements": [
+        "H1 and H2 are a direct parent-child pair over the closed path inventory.",
+        "The chunking-then-rendering architecture and its boundary-invariance assertion persist across both snapshots.",
+        "H1 content-only rendering drops overlap metadata; H2 adds explicit overlap embedding and fallback by addition to the history.",
+        "H2 also changes the chunkana dependency constraint and adds the overlap test file.",
+        "The H1 contradictory changelog claims and the H2 residual uncertainties remain visible rather than being replaced by the H2 account.",
+        "No causal, runtime, or current-version conclusion beyond the exact source transition is justified."
+      ],
+      "requiredEvidence": [
+        {
+          "path": "sources/H1/adapter.py",
+          "lineStart": 110,
+          "lineEnd": 220,
+          "purpose": "H1 architecture and content-only behavior"
+        },
+        {
+          "path": "sources/H2/adapter.py",
+          "lineStart": 110,
+          "lineEnd": 274,
+          "purpose": "persisting architecture and additive correction"
+        },
+        {
+          "path": "sources/H1/CHANGELOG.md",
+          "lineStart": 7,
+          "lineEnd": 99,
+          "purpose": "H1 claims and contradictions"
+        },
+        {
+          "path": "sources/H2/CHANGELOG.md",
+          "lineStart": 7,
+          "lineEnd": 51,
+          "purpose": "H2 correction narrative and residual claims"
+        },
+        {
+          "path": "sources/H1/requirements.txt",
+          "lineStart": 1,
+          "lineEnd": 5,
+          "purpose": "H1 dependency constraint"
+        },
+        {
+          "path": "sources/H2/requirements.txt",
+          "lineStart": 1,
+          "lineEnd": 5,
+          "purpose": "H2 dependency constraint"
+        }
+      ],
+      "requiredCounterevidence": [
+        "The later H2 narrative must not erase the exact H1 renderer or its contradictory changelog.",
+        "The unchanged architecture limits attribution of the broad H2 boundary-invariance claim."
+      ],
+      "correctAbstention": [
+        "Do not infer why the author made each change beyond the source and commit metadata.",
+        "Do not infer that a test file was run."
+      ],
+      "severeErrors": [
+        "Rewriting H1 as though H2 had already been present.",
+        "Dropping the adverse H1 or residual H2 evidence."
+      ]
+    }
+  ],
+  "denominator": {
+    "branches": [
+      "baseline",
+      "graphtruth"
+    ],
+    "cells": [
+      "baseline:t1-pre-fix-bounds",
+      "baseline:t2-post-fix-change",
+      "baseline:t3-residual-limits",
+      "baseline:t4-historical-reconstruction",
+      "graphtruth:t1-pre-fix-bounds",
+      "graphtruth:t2-post-fix-change",
+      "graphtruth:t3-residual-limits",
+      "graphtruth:t4-historical-reconstruction"
+    ],
+    "count": 8,
+    "dropPolicy": "No cell may be removed, replaced, retried, rescored, or omitted after either retained branch begins."
+  },
+  "answerFormat": {
+    "encoding": "UTF-8 JSON",
+    "perTaskRequiredFields": [
+      "taskId",
+      "status",
+      "answer",
+      "citations",
+      "counterevidence",
+      "abstentions",
+      "openQuestions"
+    ],
+    "allowedStatus": [
+      "answered",
+      "abstained",
+      "invalid"
+    ],
+    "baselineCitation": "relative source path plus inclusive lineStart and lineEnd",
+    "graphTruthCitation": "evidence span record identifier; the rebuilt dossier resolves it to source SHA-256, byte range, and line range"
+  },
+  "scoring": {
+    "cellValidity": "A cell is valid only when the single retained branch attempt produced parseable output in the frozen format under its allowed horizon. Failure, timeout, or missing output remains an invalid adverse cell.",
+    "taskSuccess": "Binary. Every required element, required counterevidence item, and correct abstention must be materially present; every factual claim must have sufficient allowed-horizon evidence; no severe error may occur. Partial credit does not make a task successful.",
+    "branchSuccess": "The number of successful tasks among the branch's four fixed cells.",
+    "comparativeAdvantage": "Evaluated after both branches. GraphTruth must not be worse on any valid task and must show at least one additional successful task or useful maintained structure absent from baseline. Baseline success is never a prerequisite for GraphTruth success.",
+    "productAdmission": "A separate owner decision after the frozen result. It cannot alter cell validity, scores, or comparative advantage."
+  },
+  "baseline": {
+    "identity": "fixed-rg-baseline-v1",
+    "inputRule": "Use the same byte-identical source snapshots and task horizons as GraphTruth.",
+    "attempts": 1,
+    "queryLimit": 12,
+    "fixedQueries": [
+      {
+        "queryId": "q1-h1-flow",
+        "argv": [
+          "rg",
+          "--line-number",
+          "--context",
+          "5",
+          "run_chunking|_render_without_metadata|previous_content|include_metadata",
+          "sources/H1/adapter.py"
+        ]
+      },
+      {
+        "queryId": "q2-h1-claims",
+        "argv": [
+          "rg",
+          "--line-number",
+          "--context",
+          "4",
+          "Overlap Contract|CHNK-CRIT|Removed render|embedded overlap",
+          "sources/H1/CHANGELOG.md"
+        ]
+      },
+      {
+        "queryId": "q3-h1-dependency",
+        "argv": [
+          "rg",
+          "--line-number",
+          "chunkana",
+          "sources/H1/requirements.txt"
+        ]
+      },
+      {
+        "queryId": "q4-h2-embedding",
+        "argv": [
+          "rg",
+          "--line-number",
+          "--context",
+          "5",
+          "_render_without_metadata|_embed_overlap|previous_content|next_content|except Exception",
+          "sources/H2/adapter.py"
+        ]
+      },
+      {
+        "queryId": "q5-h2-claims",
+        "argv": [
+          "rg",
+          "--line-number",
+          "--context",
+          "4",
+          "CRITICAL|Performance|Migration Notes|chunkana 0.1.3|19 new",
+          "sources/H2/CHANGELOG.md"
+        ]
+      },
+      {
+        "queryId": "q6-h2-dependency-tests",
+        "argv": [
+          "rg",
+          "--line-number",
+          "--context",
+          "3",
+          "chunkana|def test_|assert len|substring|heuristic",
+          "sources/H2/requirements.txt",
+          "sources/H2/tests/test_overlap_embedding.py"
+        ]
+      }
+    ],
+    "answerOrder": [
+      "t1-pre-fix-bounds",
+      "t2-post-fix-change",
+      "t3-residual-limits",
+      "t4-historical-reconstruction"
+    ],
+    "knowledgeTransfer": "No H2 query output may be used while drafting the H1-only task. Search and answer durations are recorded separately. No GraphTruth bundle or answer is visible until the baseline answer is retained.",
+    "retryPolicy": "none"
+  },
+  "graphTruthLane": {
+    "attempts": 1,
+    "inputRule": "Ingest the same source snapshots through the frozen incremental interface in H1 then H2 order.",
+    "requiredCapabilities": [
+      "exact source snapshots and closed corpus",
+      "exact evidence spans",
+      "additive assertion history",
+      "distinct source and record horizons",
+      "explicit open question"
+    ],
+    "canonicalEditRule": "All canonical records must be emitted by the frozen CLI. Manual canonical JSON or JSONL edits are prohibited.",
+    "rebuildRule": "Delete only the generated projection, rebuild it from canonical records, and require byte-identical projection hashes.",
+    "retryPolicy": "none"
+  },
+  "budgets": {
+    "activeRepositoryDatesEuropeMoscow": 3,
+    "hardStop": "2026-08-11T23:59:59+03:00",
+    "maximumCanonicalRecords": 64,
+    "maximumBundleFiles": 96,
+    "maximumBundleBytes": 2097152,
+    "baselineQueryLimit": 12,
+    "baselineAttempts": 1,
+    "graphTruthRuns": 1,
+    "externalModelCalls": 0,
+    "manualCanonicalEditsAfterRunStart": 0,
+    "targetRecurringCaptureReviewCorrectionSeconds": 360,
+    "terminalStopSeconds": 900
+  },
+  "decisionRules": {
+    "keep": [
+      "GraphTruth succeeds on all four tasks.",
+      "GraphTruth is no worse than baseline on every valid task.",
+      "No severe error occurs.",
+      "All five capabilities transfer.",
+      "The H1 view is independently reconstructible after H2.",
+      "The generated projection rebuilds byte-identically.",
+      "No manual canonical edit occurs.",
+      "Recurring capture, review, and correction takes no more than 360 seconds.",
+      "GraphTruth has at least one additional task success or useful maintained structure absent from baseline.",
+      "The owner judges the exact Zone 3 interface usable."
+    ],
+    "shrink": {
+      "rule": "Choose only the highest fully proven prefix; never choose tasks or capabilities post hoc.",
+      "prefixes": [
+        {
+          "prefix": 1,
+          "capabilities": [
+            "exact source snapshots and closed corpus",
+            "exact evidence spans"
+          ]
+        },
+        {
+          "prefix": 2,
+          "capabilities": [
+            "exact source snapshots and closed corpus",
+            "exact evidence spans",
+            "additive assertion history",
+            "distinct source and record horizons"
+          ]
+        },
+        {
+          "prefix": 3,
+          "capabilities": [
+            "exact source snapshots and closed corpus",
+            "exact evidence spans",
+            "additive assertion history",
+            "distinct source and record horizons",
+            "explicit open question"
+          ]
+        }
+      ],
+      "costRule": "If all capabilities work but recurring cost exceeds 360 seconds and does not exceed 900 seconds, the interface remains research-only."
+    },
+    "stop": [
+      "GraphTruth is worse than baseline by successful-task count.",
+      "Shrink prefix 1 fails.",
+      "Recurring capture, review, and correction exceeds 900 seconds.",
+      "Any severe error occurs.",
+      "The interface requires normative promotion or the richer rejected M9 model.",
+      "Source, license, horizon, or denominator validity fails.",
+      "M8, M9, spec, schema, or RFC artifacts change.",
+      "A budget or hard stop is exhausted."
+    ]
+  },
+  "globalSevereErrors": [
+    "H2 leakage into the H1 answer.",
+    "Source snapshot or evidence span mismatch.",
+    "Replacement or rewriting of an earlier assertion.",
+    "Silently closing the frozen open question.",
+    "Dropping an adverse cell or result.",
+    "Rescoring after answer inspection.",
+    "A projection that cannot be rebuilt exactly.",
+    "Changing the frozen source, contract, or implementation after its run begins.",
+    "Writing outside the declared output root.",
+    "Changing M8, M9, spec, schemas, or RFCs.",
+    "Reading private data or using an undeclared processor."
+  ],
+  "status": "frozen-before-implementation"
+}

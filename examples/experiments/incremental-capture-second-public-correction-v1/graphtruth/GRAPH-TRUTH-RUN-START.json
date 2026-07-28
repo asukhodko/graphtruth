@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "identity": "incremental-capture-second-public-correction-v1-graphtruth-run-v1",
+  "attempt": 1,
+  "allowedAttempts": 1,
+  "contractManifestSha256": "f612a2f664a4e02f49b0e8d1be90868bf278f1606efdc419c34b2956f48fb1d3",
+  "implementationManifestSha256": "75fd60a377044bc96a59af5534c828b21c26748d601114cc9246fb94594af004",
+  "baselineResultManifestSha256": "85b9f159b7b011f42551eeca05a920a206bf35be4a5f1b2c86a9566902fa064b",
+  "startedAt": "2026-07-28T15:03:19Z",
+  "retryOrResume": false,
+  "canonicalEditPolicy": "CLI-only",
+  "status": "started"
+}

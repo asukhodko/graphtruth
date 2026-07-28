@@ -164,7 +164,14 @@ const markdownLintExcludedPaths = new Set([
   // retained rebuild identity, rather than hand-editable Markdown style, own
   // its exact bytes.
   "examples/experiments/murmurmark-echo-lab-correction-v1/projections/dossier.md",
+  // These are byte-exact public upstream snapshots. Repository style rules
+  // must not rewrite evidence bytes.
+  "examples/experiments/incremental-capture-second-public-correction-v1/sources/H1/CHANGELOG.md",
+  "examples/experiments/incremental-capture-second-public-correction-v1/sources/H2/CHANGELOG.md",
 ]);
+const frozenEvidencePathPrefixes = [
+  "examples/experiments/incremental-capture-second-public-correction-v1/sources/",
+];
 const requiredRepositoryPaths = new Map([
   ["README.md", "file"],
   [".gitignore", "file"],
@@ -560,6 +567,13 @@ function isProbablyText(buffer) {
 
 function allowsVendoredTrailingWhitespace(filePath) {
   return unchangedVendorFilesWithTrailingWhitespace.has(relativePath(filePath));
+}
+
+function isFrozenEvidencePath(filePath) {
+  const displayPath = relativePath(filePath);
+  return frozenEvidencePathPrefixes.some((prefix) =>
+    displayPath.startsWith(prefix),
+  );
 }
 
 function checkTextHygiene(filePath, content) {
@@ -2137,14 +2151,19 @@ async function main() {
     }
 
     const content = buffer.toString("utf8");
-    checkTextHygiene(filePath, content);
+    if (!isFrozenEvidencePath(filePath)) {
+      checkTextHygiene(filePath, content);
+    }
     checkHighConfidenceSecrets(filePath, content);
 
     if (displayPath === codexSandboxPreflightReportPath) {
       await checkCodexSandboxPreflightReport(filePath, content);
     }
 
-    if (path.extname(filePath).toLowerCase() === ".md") {
+    if (
+      path.extname(filePath).toLowerCase() === ".md" &&
+      !isFrozenEvidencePath(filePath)
+    ) {
       await checkMarkdownLinks(filePath, content, publicRelativePaths);
     }
 

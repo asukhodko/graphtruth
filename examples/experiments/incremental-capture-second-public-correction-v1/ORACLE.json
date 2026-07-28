@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "identity": "incremental-capture-second-public-correction-v1-oracle-v1",
+  "experimentContractSha256": "2926c463a7a19253649b60426dd08fd0e9864549e6da33a7aad84c7d9754efca",
+  "visibility": "public-source-derived; unavailable to a hypothetical independent respondent, but known to the single non-blind session running this workflow experiment",
+  "scoringProcedure": [
+    "Check that the retained cell is parseable and uses only its allowed source horizon.",
+    "Mark every required claim, counterevidence item, and abstention present or absent.",
+    "Validate every material factual claim against an exact allowed citation.",
+    "Check all task-specific and global severe errors.",
+    "A task succeeds only when all required checks pass and no severe error is present.",
+    "Record failure, timeout, missing output, and invalid output in the fixed denominator without retry."
+  ],
+  "tasks": [
+    {
+      "taskId": "t1-pre-fix-bounds",
+      "requiredClaims": [
+        {
+          "id": "t1.c1",
+          "text": "H1 runs _perform_chunking before the include_metadata rendering branch."
+        },
+        {
+          "id": "t1.c2",
+          "text": "H1 content-only rendering returns chunk.content and does not embed overlap metadata."
+        },
+        {
+          "id": "t1.c3",
+          "text": "H1's changelog simultaneously claims content-mode overlap coverage and removed plugin embedding, so it cannot resolve the code-level conflict."
+        },
+        {
+          "id": "t1.c4",
+          "text": "Closed H1 sources do not prove external-library, installed-runtime, or test-execution behavior."
+        }
+      ],
+      "requiredCounterevidence": [
+        "h1-changelog-embedding-claim",
+        "h1-boundary-comments-not-execution"
+      ],
+      "requiredAbstentions": [
+        "no-verified-h1-runtime-overlap",
+        "no-verified-exact-boundaries-or-test-pass"
+      ],
+      "forbiddenClaims": [
+        "H2 was known at H1.",
+        "The H1 runtime certainly preserved overlap in content-only mode.",
+        "Boundary invariance was independently executed and verified."
+      ]
+    },
+    {
+      "taskId": "t2-post-fix-change",
+      "requiredClaims": [
+        {
+          "id": "t2.c1",
+          "text": "H2 routes content-only rendering through _embed_overlap."
+        },
+        {
+          "id": "t2.c2",
+          "text": "_embed_overlap strips, filters, and joins previous/content/next fields and falls back to content on exception."
+        },
+        {
+          "id": "t2.c3",
+          "text": "The dependency constraint changes from chunkana==0.1.3 to chunkana>=0.1.5."
+        },
+        {
+          "id": "t2.c4",
+          "text": "The overlap test source is absent at H1 and added at H2."
+        },
+        {
+          "id": "t2.c5",
+          "text": "Chunking/rendering separation and the source assertion of boundary invariance already exist at H1."
+        }
+      ],
+      "requiredCounterevidence": [
+        "h1-already-has-stage-separation",
+        "no-selected-output-filter-change"
+      ],
+      "requiredAbstentions": [
+        "no-whole-changelog-attribution",
+        "no-test-run-or-pass-claim",
+        "no-exact-0.1.5-version-claim"
+      ],
+      "forbiddenClaims": [
+        "H2 introduced the chunking/rendering split.",
+        "The dependency is pinned to exactly 0.1.5.",
+        "The included tests are proven passing."
+      ]
+    },
+    {
+      "taskId": "t3-residual-limits",
+      "requiredClaims": [
+        {
+          "id": "t3.c1",
+          "text": "The corpus lacks chunkana bytes and imported validator, filter, and configuration sources."
+        },
+        {
+          "id": "t3.c2",
+          "text": "No retained run proves tests, integration, compatibility, or the performance claim."
+        },
+        {
+          "id": "t3.c3",
+          "text": "The >=0.1.5 requirement conflicts with 0.1.3-centered adapter and changelog wording."
+        },
+        {
+          "id": "t3.c4",
+          "text": "The included tests check same count and containment on fixtures, not exact arbitrary-input boundary identity."
+        },
+        {
+          "id": "t3.c5",
+          "text": "Compatibility of overlap metadata and exact boundaries across all supported installed versions remains open."
+        }
+      ],
+      "requiredCounterevidence": [
+        "comments-weaker-than-execution",
+        "same-count-not-exact-boundaries"
+      ],
+      "requiredAbstentions": [
+        "no-general-production-guarantee",
+        "open-question-remains-open"
+      ],
+      "forbiddenClaims": [
+        "All chunkana>=0.1.5 releases have compatible overlap metadata.",
+        "The less-than-five-percent overhead was measured.",
+        "Same chunk count proves exact boundary equality."
+      ]
+    },
+    {
+      "taskId": "t4-historical-reconstruction",
+      "requiredClaims": [
+        {
+          "id": "t4.c1",
+          "text": "H1 is the direct parent of H2 for the closed episode."
+        },
+        {
+          "id": "t4.c2",
+          "text": "The two-stage architecture and its source-level invariance assertion persist."
+        },
+        {
+          "id": "t4.c3",
+          "text": "H1 drops overlap in content-only rendering; H2 adds explicit embedding and fallback."
+        },
+        {
+          "id": "t4.c4",
+          "text": "H2 changes the dependency constraint and adds the test source."
+        },
+        {
+          "id": "t4.c5",
+          "text": "H1 contradictions and H2 residual uncertainty remain attributable and visible."
+        },
+        {
+          "id": "t4.c6",
+          "text": "No broader cause or current-runtime conclusion follows."
+        }
+      ],
+      "requiredCounterevidence": [
+        "do-not-rewrite-h1",
+        "unchanged-architecture-limits-h2-attribution"
+      ],
+      "requiredAbstentions": [
+        "no-author-motive-inference",
+        "no-test-execution-inference"
+      ],
+      "forbiddenClaims": [
+        "H1 already contained _embed_overlap.",
+        "The later changelog replaces the H1 evidence.",
+        "The source transition proves current production behavior."
+      ]
+    }
+  ],
+  "status": "frozen"
+}

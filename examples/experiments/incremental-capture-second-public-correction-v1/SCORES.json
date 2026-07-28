@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "identity": "incremental-capture-second-public-correction-v1-scores-v1",
+  "contractSha256": "2926c463a7a19253649b60426dd08fd0e9864549e6da33a7aad84c7d9754efca",
+  "oracleSha256": "ec094b52b653af44837f91cfd818f79f0c338181a48e18ed5e03d00b675d9f85",
+  "baselineResultManifestSha256": "85b9f159b7b011f42551eeca05a920a206bf35be4a5f1b2c86a9566902fa064b",
+  "cells": [
+    {
+      "cellId": "baseline:t1-pre-fix-bounds",
+      "valid": true,
+      "success": true,
+      "requiredClaimsPresent": [
+        "t1.c1",
+        "t1.c2",
+        "t1.c3",
+        "t1.c4"
+      ],
+      "requiredClaimsMissing": [],
+      "counterevidenceComplete": true,
+      "abstentionsComplete": true,
+      "severeErrors": [],
+      "reason": "The H1-only retained answer covers the implementation split, dropped overlap metadata, changelog conflict, and runtime uncertainty with allowed citations."
+    },
+    {
+      "cellId": "baseline:t2-post-fix-change",
+      "valid": true,
+      "success": true,
+      "requiredClaimsPresent": [
+        "t2.c1",
+        "t2.c2",
+        "t2.c3",
+        "t2.c4",
+        "t2.c5"
+      ],
+      "requiredClaimsMissing": [],
+      "counterevidenceComplete": true,
+      "abstentionsComplete": true,
+      "severeErrors": [],
+      "reason": "The answer separates the exact embedding and dependency changes from the already-present architecture and unsupported changelog claims."
+    },
+    {
+      "cellId": "baseline:t3-residual-limits",
+      "valid": true,
+      "success": false,
+      "requiredClaimsPresent": [
+        "t3.c2",
+        "t3.c3",
+        "t3.c4",
+        "t3.c5"
+      ],
+      "requiredClaimsMissing": [
+        "t3.c1"
+      ],
+      "counterevidenceComplete": true,
+      "abstentionsComplete": true,
+      "severeErrors": [],
+      "reason": "The fixed search output did not expose enough import and closed-inventory evidence to enumerate the omitted dependency, validator, filter, and configuration bytes; the answer correctly abstained rather than inventing them."
+    },
+    {
+      "cellId": "baseline:t4-historical-reconstruction",
+      "valid": true,
+      "success": true,
+      "requiredClaimsPresent": [
+        "t4.c1",
+        "t4.c2",
+        "t4.c3",
+        "t4.c4",
+        "t4.c5",
+        "t4.c6"
+      ],
+      "requiredClaimsMissing": [],
+      "counterevidenceComplete": true,
+      "abstentionsComplete": true,
+      "severeErrors": [],
+      "reason": "The answer preserves the direct transition, unchanged architecture, correction, dependency and test changes, adverse H1 evidence, and residual uncertainty."
+    },
+    {
+      "cellId": "graphtruth:t1-pre-fix-bounds",
+      "valid": false,
+      "success": false,
+      "requiredClaimsPresent": [],
+      "requiredClaimsMissing": [
+        "t1.c1",
+        "t1.c2",
+        "t1.c3",
+        "t1.c4"
+      ],
+      "counterevidenceComplete": false,
+      "abstentionsComplete": false,
+      "severeErrors": [],
+      "reason": "The sole GraphTruth run failed closed before H1 source acquisition and produced no answer."
+    },
+    {
+      "cellId": "graphtruth:t2-post-fix-change",
+      "valid": false,
+      "success": false,
+      "requiredClaimsPresent": [],
+      "requiredClaimsMissing": [
+        "t2.c1",
+        "t2.c2",
+        "t2.c3",
+        "t2.c4",
+        "t2.c5"
+      ],
+      "counterevidenceComplete": false,
+      "abstentionsComplete": false,
+      "severeErrors": [],
+      "reason": "The terminal H1 acquisition failure prevented H2 ingestion and answer production."
+    },
+    {
+      "cellId": "graphtruth:t3-residual-limits",
+      "valid": false,
+      "success": false,
+      "requiredClaimsPresent": [],
+      "requiredClaimsMissing": [
+        "t3.c1",
+        "t3.c2",
+        "t3.c3",
+        "t3.c4",
+        "t3.c5"
+      ],
+      "counterevidenceComplete": false,
+      "abstentionsComplete": false,
+      "severeErrors": [],
+      "reason": "The terminal H1 acquisition failure prevented an H2 dossier and answer."
+    },
+    {
+      "cellId": "graphtruth:t4-historical-reconstruction",
+      "valid": false,
+      "success": false,
+      "requiredClaimsPresent": [],
+      "requiredClaimsMissing": [
+        "t4.c1",
+        "t4.c2",
+        "t4.c3",
+        "t4.c4",
+        "t4.c5",
+        "t4.c6"
+      ],
+      "counterevidenceComplete": false,
+      "abstentionsComplete": false,
+      "severeErrors": [],
+      "reason": "No two-horizon GraphTruth history exists in the terminal run."
+    }
+  ],
+  "branches": {
+    "baseline": {
+      "validCells": 4,
+      "successfulTasks": 3,
+      "totalTasks": 4
+    },
+    "graphtruth": {
+      "validCells": 0,
+      "successfulTasks": 0,
+      "totalTasks": 4
+    }
+  },
+  "comparison": {
+    "cellValidity": "All eight cells remain in the denominator; four GraphTruth cells are retained as invalid adverse outcomes.",
+    "branchSuccess": "baseline 3/4; graphtruth 0/4",
+    "comparativeAdvantage": "baseline",
+    "baselineSuccessPrerequisiteUsed": false,
+    "rescoreOrDrop": false,
+    "productAdmission": "pending-owner-stop"
+  },
+  "severeErrors": [],
+  "status": "frozen"
+}

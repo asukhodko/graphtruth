@@ -1,2 +1,5 @@
 config:
   MD013: false
+ignores:
+  # Frozen result byte; changing its table style would invalidate RESULT-MANIFEST.
+  - examples/experiments/incremental-capture-second-public-correction-v1/RUN-REPORT.md
