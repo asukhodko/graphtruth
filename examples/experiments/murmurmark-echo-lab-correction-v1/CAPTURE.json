@@ -1,0 +1,464 @@
+{
+  "format": "graphtruth.experimental.public-dogfood-capture.v1",
+  "identity": "murmurmark-echo-lab-correction-v1",
+  "contractSha256": "fa382ab9888f417337775b60b80b0011bb4e0767992e46b95ad7360412ea9c5e",
+  "sourceManifestSha256": "3ab4aaaf26dc983434f5ff7fe034df7f64573af823a87e5876dc905460650b38",
+  "profile": {
+    "format": "graphtruth.experimental.public-dogfood-profile.v1",
+    "identity": "murmurmark-echo-lab-correction-v1",
+    "authorityState": "no-acceptance-decisions",
+    "horizons": [
+      {
+        "horizonId": "H1",
+        "lastRecordedSequence": 10,
+        "recordedAsOf": "2026-07-28T08:52:15Z",
+        "sourceCommitSha1": "e256363a2cf98c1ea1a2ef3eb30628039b46e246"
+      },
+      {
+        "horizonId": "H2",
+        "lastRecordedSequence": 27,
+        "recordedAsOf": "2026-07-28T08:52:32Z",
+        "sourceCommitSha1": "9b7ef91363f698113042b20f3e540d21cf30bb6e"
+      }
+    ]
+  },
+  "events": [
+    {
+      "event": "source",
+      "recordId": "record.source.h1.runbook",
+      "recordedAt": "2026-07-28T08:52:06Z",
+      "sourceHorizonId": "H1",
+      "retainedPath": "upstream/H1/docs/runbooks/controlled-echo-supervision-lab.md"
+    },
+    {
+      "event": "source",
+      "recordId": "record.source.h1.launcher",
+      "recordedAt": "2026-07-28T08:52:07Z",
+      "sourceHorizonId": "H1",
+      "retainedPath": "upstream/H1/scripts/controlled-echo-supervision-lab.py"
+    },
+    {
+      "event": "source",
+      "recordId": "record.source.h1.helper",
+      "recordedAt": "2026-07-28T08:52:08Z",
+      "sourceHorizonId": "H1",
+      "retainedPath": "upstream/H1/scripts/controlled_echo_supervision.py"
+    },
+    {
+      "event": "source",
+      "recordId": "record.source.h1.checker",
+      "recordedAt": "2026-07-28T08:52:09Z",
+      "sourceHorizonId": "H1",
+      "retainedPath": "upstream/H1/scripts/check-controlled-echo-supervision-v1.py"
+    },
+    {
+      "event": "evidence",
+      "recordId": "record.evidence.h1.ffmpeg-call",
+      "recordedAt": "2026-07-28T08:52:10Z",
+      "sourceHorizonId": "H1",
+      "body": {
+        "evidenceId": "evidence.h1.ffmpeg-call",
+        "sourceRecordId": "record.source.h1.launcher",
+        "relation": "states",
+        "startMarker": "    subprocess.run(\n        [\n            command_path(\"ffmpeg\"),",
+        "endMarker": "        check=True,\n    )",
+        "endMarkerInclusive": true
+      }
+    },
+    {
+      "event": "evidence",
+      "recordId": "record.evidence.h1.output-validation",
+      "recordedAt": "2026-07-28T08:52:11Z",
+      "sourceHorizonId": "H1",
+      "body": {
+        "evidenceId": "evidence.h1.output-validation",
+        "sourceRecordId": "record.source.h1.helper",
+        "relation": "states",
+        "startMarker": "    expected_frames = int(round(duration_sec * sample_rate))",
+        "endMarker": "        raise RuntimeError(f\"invalid stimulus {path}: {', '.join(reasons)}\")",
+        "endMarkerInclusive": true
+      }
+    },
+    {
+      "event": "evidence",
+      "recordId": "record.evidence.h1.capture-stop",
+      "recordedAt": "2026-07-28T08:52:12Z",
+      "sourceHorizonId": "H1",
+      "body": {
+        "evidenceId": "evidence.h1.capture-stop",
+        "sourceRecordId": "record.source.h1.runbook",
+        "relation": "limits",
+        "startMarker": "Each capture uses the ordinary durable raw writer",
+        "endMarker": "Run it from a normal macOS Terminal session, not from a background agent.",
+        "endMarkerInclusive": true
+      }
+    },
+    {
+      "event": "assertion",
+      "recordId": "record.assertion.prepare-bounds.01",
+      "recordedAt": "2026-07-28T08:52:13Z",
+      "sourceHorizonId": "H1",
+      "body": {
+        "assertionId": "assertion.prepare-bounds",
+        "revisionId": "revision.prepare-bounds.01",
+        "predecessorRevisionId": null,
+        "statement": "At H1, stimulus output has an intended duration and post-generation validation, while elapsed subprocess time and concurrent prepare exclusion remain unestablished by the selected public files.",
+        "scope": "murmurmark echo-lab prepare at introducing commit e256363 within the selected files",
+        "evidenceIds": [
+          "evidence.h1.ffmpeg-call",
+          "evidence.h1.output-validation"
+        ]
+      }
+    },
+    {
+      "event": "assertion",
+      "recordId": "record.assertion.output-validation.01",
+      "recordedAt": "2026-07-28T08:52:14Z",
+      "sourceHorizonId": "H1",
+      "body": {
+        "assertionId": "assertion.output-validation",
+        "revisionId": "revision.output-validation.01",
+        "predecessorRevisionId": null,
+        "statement": "The retained validator requires exact frames, mono audio, the requested sample rate, finite samples, and a peak no greater than the configured maximum.",
+        "scope": "selected validate_stimulus_audio implementation at H1",
+        "evidenceIds": [
+          "evidence.h1.output-validation"
+        ]
+      }
+    },
+    {
+      "event": "assessment",
+      "recordId": "record.assessment.h1-safety-limit",
+      "recordedAt": "2026-07-28T08:52:15Z",
+      "sourceHorizonId": "H1",
+      "body": {
+        "assessmentId": "assessment.h1-safety-limit",
+        "targetRevisionId": "revision.prepare-bounds.01",
+        "stance": "limit",
+        "reasonCode": "selected-source-does-not-establish-process-or-concurrency-bound",
+        "statement": "The complete retained launcher file shows no explicit timeout on the selected ffmpeg invocation and no owner-process prepare lock, but this scoped absence is not an incident report.",
+        "evidenceIds": [
+          "evidence.h1.ffmpeg-call"
+        ],
+        "basisRevisionIds": [
+          "revision.output-validation.01"
+        ],
+        "closureSourceRecordIds": [
+          "record.source.h1.launcher"
+        ]
+      }
+    },
+    {
+      "event": "source",
+      "recordId": "record.source.h2.runbook",
+      "recordedAt": "2026-07-28T08:52:16Z",
+      "sourceHorizonId": "H2",
+      "retainedPath": "upstream/H2/docs/runbooks/controlled-echo-supervision-lab.md"
+    },
+    {
+      "event": "source",
+      "recordId": "record.source.h2.launcher",
+      "recordedAt": "2026-07-28T08:52:17Z",
+      "sourceHorizonId": "H2",
+      "retainedPath": "upstream/H2/scripts/controlled-echo-supervision-lab.py"
+    },
+    {
+      "event": "source",
+      "recordId": "record.source.h2.helper",
+      "recordedAt": "2026-07-28T08:52:18Z",
+      "sourceHorizonId": "H2",
+      "retainedPath": "upstream/H2/scripts/controlled_echo_supervision.py"
+    },
+    {
+      "event": "source",
+      "recordId": "record.source.h2.checker",
+      "recordedAt": "2026-07-28T08:52:19Z",
+      "sourceHorizonId": "H2",
+      "retainedPath": "upstream/H2/scripts/check-controlled-echo-supervision-v1.py"
+    },
+    {
+      "event": "evidence",
+      "recordId": "record.evidence.h2.materialize-call",
+      "recordedAt": "2026-07-28T08:52:20Z",
+      "sourceHorizonId": "H2",
+      "body": {
+        "evidenceId": "evidence.h2.materialize-call",
+        "sourceRecordId": "record.source.h2.launcher",
+        "relation": "states",
+        "startMarker": "def generate_stimulus(",
+        "endMarker": "        sample_rate=48_000,\n    )",
+        "endMarkerInclusive": true
+      }
+    },
+    {
+      "event": "evidence",
+      "recordId": "record.evidence.h2.prepare-lock",
+      "recordedAt": "2026-07-28T08:52:21Z",
+      "sourceHorizonId": "H2",
+      "body": {
+        "evidenceId": "evidence.h2.prepare-lock",
+        "sourceRecordId": "record.source.h2.launcher",
+        "relation": "states",
+        "startMarker": "def prepare(args: argparse.Namespace) -> int:",
+        "endMarker": "def prepare_locked(args: argparse.Namespace) -> int:",
+        "endMarkerInclusive": false
+      }
+    },
+    {
+      "event": "evidence",
+      "recordId": "record.evidence.h2.say-timeout",
+      "recordedAt": "2026-07-28T08:52:22Z",
+      "sourceHorizonId": "H2",
+      "body": {
+        "evidenceId": "evidence.h2.say-timeout",
+        "sourceRecordId": "record.source.h2.launcher",
+        "relation": "states",
+        "startMarker": "    subprocess.run(\n        [\n            command_path(\"say\"),",
+        "endMarker": "        timeout=120,\n    )",
+        "endMarkerInclusive": true
+      }
+    },
+    {
+      "event": "evidence",
+      "recordId": "record.evidence.h2.materializer",
+      "recordedAt": "2026-07-28T08:52:23Z",
+      "sourceHorizonId": "H2",
+      "body": {
+        "evidenceId": "evidence.h2.materializer",
+        "sourceRecordId": "record.source.h2.helper",
+        "relation": "states",
+        "startMarker": "def materialize_looped_stimulus(",
+        "endMarker": "def validate_stimulus_audio(",
+        "endMarkerInclusive": false
+      }
+    },
+    {
+      "event": "evidence",
+      "recordId": "record.evidence.h2.checker",
+      "recordedAt": "2026-07-28T08:52:24Z",
+      "sourceHorizonId": "H2",
+      "body": {
+        "evidenceId": "evidence.h2.checker",
+        "sourceRecordId": "record.source.h2.checker",
+        "relation": "supports",
+        "startMarker": "        source_aiff = repo / \"source.aiff\"",
+        "endMarker": "        require(looped_validation[\"frames\"] == 120_000, \"looped stimulus duration drifted\")",
+        "endMarkerInclusive": true
+      }
+    },
+    {
+      "event": "assertion",
+      "recordId": "record.assertion.prepare-bounds.02",
+      "recordedAt": "2026-07-28T08:52:25Z",
+      "sourceHorizonId": "H2",
+      "body": {
+        "assertionId": "assertion.prepare-bounds",
+        "revisionId": "revision.prepare-bounds.02",
+        "predecessorRevisionId": "revision.prepare-bounds.01",
+        "statement": "At H2, the selected implementation adds exact-frame in-process materialization, same-root prepare exclusion, a 120 second say timeout, atomic destination replacement, and source-level checker coverage; this still does not establish general operational safety.",
+        "scope": "murmurmark echo-lab prepare at corrective commit 9b7ef91 within the selected files",
+        "evidenceIds": [
+          "evidence.h2.materialize-call",
+          "evidence.h2.prepare-lock",
+          "evidence.h2.say-timeout",
+          "evidence.h2.materializer",
+          "evidence.h2.checker"
+        ]
+      }
+    },
+    {
+      "event": "assertion",
+      "recordId": "record.assertion.materialization-exact.01",
+      "recordedAt": "2026-07-28T08:52:26Z",
+      "sourceHorizonId": "H2",
+      "body": {
+        "assertionId": "assertion.materialization-exact",
+        "revisionId": "revision.materialization-exact.01",
+        "predecessorRevisionId": null,
+        "statement": "The H2 helper computes a positive expected frame count, resamples if needed, tiles and truncates to that count, rejects clipping, and replaces the destination through a temporary file.",
+        "scope": "selected materialize_looped_stimulus implementation at H2",
+        "evidenceIds": [
+          "evidence.h2.materializer"
+        ]
+      }
+    },
+    {
+      "event": "assertion",
+      "recordId": "record.assertion.prepare-lock.01",
+      "recordedAt": "2026-07-28T08:52:27Z",
+      "sourceHorizonId": "H2",
+      "body": {
+        "assertionId": "assertion.prepare-lock",
+        "revisionId": "revision.prepare-lock.01",
+        "predecessorRevisionId": null,
+        "statement": "The H2 launcher takes a non-blocking exclusive flock on the lab-root prepare lock and refuses a concurrent prepare that cannot acquire it.",
+        "scope": "selected prepare implementation at H2",
+        "evidenceIds": [
+          "evidence.h2.prepare-lock"
+        ]
+      }
+    },
+    {
+      "event": "assertion",
+      "recordId": "record.assertion.say-timeout.01",
+      "recordedAt": "2026-07-28T08:52:28Z",
+      "sourceHorizonId": "H2",
+      "body": {
+        "assertionId": "assertion.say-timeout",
+        "revisionId": "revision.say-timeout.01",
+        "predecessorRevisionId": null,
+        "statement": "The H2 launcher gives the selected say subprocess a 120 second timeout.",
+        "scope": "selected local TTS invocation at H2",
+        "evidenceIds": [
+          "evidence.h2.say-timeout"
+        ]
+      }
+    },
+    {
+      "event": "assertion",
+      "recordId": "record.assertion.checker-source.01",
+      "recordedAt": "2026-07-28T08:52:29Z",
+      "sourceHorizonId": "H2",
+      "body": {
+        "assertionId": "assertion.checker-source",
+        "revisionId": "revision.checker-source.01",
+        "predecessorRevisionId": null,
+        "statement": "The H2 checker source materializes 2.5 seconds at 48 kHz and requires the validated result to contain 120000 frames.",
+        "scope": "selected checker source at H2; execution is not asserted",
+        "evidenceIds": [
+          "evidence.h2.checker"
+        ]
+      }
+    },
+    {
+      "event": "assessment",
+      "recordId": "record.assessment.h2-test-not-run",
+      "recordedAt": "2026-07-28T08:52:30Z",
+      "sourceHorizonId": "H2",
+      "body": {
+        "assessmentId": "assessment.h2-test-not-run",
+        "targetRevisionId": "revision.checker-source.01",
+        "stance": "limit",
+        "reasonCode": "test-source-is-not-test-execution",
+        "statement": "The retained checker text supports what the test requires, not that the test ran or passed.",
+        "evidenceIds": [
+          "evidence.h2.checker"
+        ],
+        "basisRevisionIds": [],
+        "closureSourceRecordIds": [
+          "record.source.h2.checker"
+        ]
+      }
+    },
+    {
+      "event": "assessment",
+      "recordId": "record.assessment.h2-safety-limit",
+      "recordedAt": "2026-07-28T08:52:31Z",
+      "sourceHorizonId": "H2",
+      "body": {
+        "assessmentId": "assessment.h2-safety-limit",
+        "targetRevisionId": "revision.prepare-bounds.02",
+        "stance": "limit",
+        "reasonCode": "selected-correction-does-not-establish-general-safety",
+        "statement": "The runbook's approximately 7 minute 40 second automatic stop describes capture, not preparation. The selected H2 files strengthen local bounds but do not establish actual execution, power-loss safety, cross-host exclusion, complete resource limits, or a known incident cause.",
+        "evidenceIds": [
+          "evidence.h1.capture-stop",
+          "evidence.h2.materializer",
+          "evidence.h2.prepare-lock",
+          "evidence.h2.say-timeout",
+          "evidence.h2.checker"
+        ],
+        "basisRevisionIds": [
+          "revision.materialization-exact.01",
+          "revision.prepare-lock.01",
+          "revision.say-timeout.01",
+          "revision.checker-source.01"
+        ],
+        "closureSourceRecordIds": [
+          "record.source.h1.runbook",
+          "record.source.h1.launcher",
+          "record.source.h1.helper",
+          "record.source.h1.checker",
+          "record.source.h2.runbook",
+          "record.source.h2.launcher",
+          "record.source.h2.helper",
+          "record.source.h2.checker"
+        ]
+      }
+    },
+    {
+      "event": "question",
+      "recordId": "record.question.incident-report.01",
+      "recordedAt": "2026-07-28T08:52:32Z",
+      "sourceHorizonId": "H2",
+      "body": {
+        "questionId": "question.incident-report",
+        "status": "open",
+        "question": "Was there an observed runaway stimulus-generation incident, and if so what were its root cause, impact, and frequency?",
+        "reasonCode": "closed-selected-corpus-has-no-separate-incident-report",
+        "basisSourceRecordIds": [
+          "record.source.h1.runbook",
+          "record.source.h1.launcher",
+          "record.source.h1.helper",
+          "record.source.h1.checker",
+          "record.source.h2.runbook",
+          "record.source.h2.launcher",
+          "record.source.h2.helper",
+          "record.source.h2.checker"
+        ],
+        "missingEvidence": [
+          "a separate attributable public incident or runtime-observation report"
+        ]
+      }
+    }
+  ],
+  "taskViews": [
+    {
+      "taskId": "task.pre-fix-bounds",
+      "horizonId": "H1",
+      "assertionIds": [
+        "assertion.prepare-bounds",
+        "assertion.output-validation"
+      ],
+      "assessmentIds": [
+        "assessment.h1-safety-limit"
+      ],
+      "questionIds": [],
+      "sourceRecordIds": []
+    },
+    {
+      "taskId": "task.post-fix-safeguards",
+      "horizonId": "H2",
+      "assertionIds": [
+        "assertion.prepare-bounds",
+        "assertion.materialization-exact",
+        "assertion.prepare-lock",
+        "assertion.say-timeout",
+        "assertion.checker-source"
+      ],
+      "assessmentIds": [
+        "assessment.h2-test-not-run",
+        "assessment.h2-safety-limit"
+      ],
+      "questionIds": [],
+      "sourceRecordIds": []
+    },
+    {
+      "taskId": "task.residual-unknowns",
+      "horizonId": "H2",
+      "assertionIds": [
+        "assertion.prepare-bounds"
+      ],
+      "assessmentIds": [
+        "assessment.h2-safety-limit"
+      ],
+      "questionIds": [
+        "question.incident-report"
+      ],
+      "sourceRecordIds": [
+        "record.source.h1.runbook",
+        "record.source.h2.launcher"
+      ]
+    }
+  ]
+}

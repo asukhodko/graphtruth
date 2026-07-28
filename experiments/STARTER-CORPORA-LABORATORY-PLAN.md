@@ -10,7 +10,10 @@
 > its exact local stdout, unread zero-byte stderr, and bounded work root; the
 > diagnostic root and non-local copies remain outside that claim. The Python
 > corpus and projection are research-only. Confirmation requires a fresh corpus
-> and identity. No successor is active; the single-major-WIP slot is free.
+> and identity. The separate public MurmurMark correction dogfood completed at
+> `shrink`: it admits exact snapshots, spans, revisions, horizons, and an open
+> question, but does not revive or confirm this three-corpus program. No
+> successor is active; the single-major-WIP slot is free.
 >
 > **Created:** 2026-07-12.
 >
@@ -96,6 +99,14 @@ harness](../docs/drafts/CORPUS-REPLAY-EXPERIMENT-HARNESS.md). Run-specific
 decisions use [Corpus selection](templates/CORPUS-SELECTION.md),
 [Run card](templates/RUN-CARD.md), and [Review
 rubric](templates/REVIEW-RUBRIC.md).
+
+The separate
+[MurmurMark public correction dogfood](../examples/experiments/murmurmark-echo-lab-correction-v1/README.md)
+tested a smaller record-and-bundle route outside this ordered corpus program.
+Its targeted, familiar episode is useful design pressure, not corpus-level
+confirmation. Its decision-contract failure also adds a requirement for every
+future comparison here: distinguish cell validity, per-branch task success,
+comparative advantage, and capability admission before freezing thresholds.
 
 ## Common laboratory contract
 

@@ -20,6 +20,17 @@ multi-domain experiments. It is a candidate program, not a frozen run pack or
 benchmark. Every evaluated lane still requires the templates and integrity
 seal described below.
 
+### Separate public dogfood — 2026-07-28
+
+The real/public
+[MurmurMark correction dogfood](../examples/experiments/murmurmark-echo-lab-correction-v1/README.md)
+ran outside the ordered three-corpus program. Its frozen six-cell comparison
+ended GraphTruth 3/3 and files plus `rg` 2/3, with no dropped cells or severe
+errors. The owner chose `shrink`: retain exact snapshots, spans, additive
+revisions, distinct horizons, and the open question, but do not promote the
+episode adapter, assessment shape, decision rule, or format. A second fresh
+public correction is required before candidate-format extraction.
+
 ### Final Issue #24 disposition — 2026-07-25
 
 Issue #24 ended in a pre-run procedural `stop` on repository-active date 5/5.

@@ -1,0 +1,124 @@
+{
+  "format": "graphtruth.experimental.public-source-manifest.v1",
+  "identity": "murmurmark-echo-lab-correction-v1",
+  "status": "frozen-before-adaptation",
+  "owningIssue": "https://github.com/asukhodko/graphtruth/issues/45",
+  "upstream": {
+    "repository": "https://github.com/asukhodko/murmurmark",
+    "publicObservedAt": "2026-07-28T08:40:37Z",
+    "gitObjectFormat": "sha1",
+    "license": {
+      "spdx": "MIT",
+      "path": "upstream/license/LICENSE",
+      "size": 1080,
+      "sha256": "d5f2cba38d0339c640659b702601c443a361249c3cbd2c9e827e460ef05b4043"
+    }
+  },
+  "horizons": [
+    {
+      "horizonId": "H1",
+      "commitSha1": "e256363a2cf98c1ea1a2ef3eb30628039b46e246",
+      "parentCommitSha1": "0ed091d64b5b02b7d70c593365192bb06fe459ec",
+      "authorTimestamp": "2026-07-24T00:33:29+03:00",
+      "committerTimestamp": "2026-07-24T00:33:29+03:00",
+      "subject": "feat: add controlled echo supervision lab",
+      "meaning": "The selected public files as introduced, before the corrective commit."
+    },
+    {
+      "horizonId": "H2",
+      "commitSha1": "9b7ef91363f698113042b20f3e540d21cf30bb6e",
+      "parentCommitSha1": "e256363a2cf98c1ea1a2ef3eb30628039b46e246",
+      "authorTimestamp": "2026-07-24T10:42:58+03:00",
+      "committerTimestamp": "2026-07-24T10:42:58+03:00",
+      "subject": "fix: prevent runaway echo lab stimulus generation",
+      "meaning": "The same selected public files immediately after the corrective commit."
+    }
+  ],
+  "timeBoundary": {
+    "eventOrApplicabilityTime": "May be asserted only when an exact retained source states it.",
+    "gitAuthorAndCommitterTime": "Retained Git metadata, not proof of GitHub publication time or incident time.",
+    "sourceAvailabilityTime": "Known only to be public by publicObservedAt; earlier GitHub availability is not asserted.",
+    "graphtruthRecordedTime": "The later retrospective capture time; it must not replace either Git timestamp or an unknown event time."
+  },
+  "artifacts": [
+    {
+      "horizonId": "H1",
+      "commitSha1": "e256363a2cf98c1ea1a2ef3eb30628039b46e246",
+      "path": "docs/runbooks/controlled-echo-supervision-lab.md",
+      "retainedPath": "upstream/H1/docs/runbooks/controlled-echo-supervision-lab.md",
+      "gitBlobSha1": "4b57f6224b4446344bc1adde151fc852486b8270",
+      "size": 5268,
+      "sha256": "2a610812dd3a867cbd8c1c62eacf1512145be3fa377de84ba428583a830ebd55"
+    },
+    {
+      "horizonId": "H1",
+      "commitSha1": "e256363a2cf98c1ea1a2ef3eb30628039b46e246",
+      "path": "scripts/check-controlled-echo-supervision-v1.py",
+      "retainedPath": "upstream/H1/scripts/check-controlled-echo-supervision-v1.py",
+      "gitBlobSha1": "f9b3c92d6193a79f17e02214e74699f31ed0b7c9",
+      "size": 21053,
+      "sha256": "48ca9e2dde2efa1a2979533b0348a5aa697d5e31b04ffac83bb078641b924b2c"
+    },
+    {
+      "horizonId": "H1",
+      "commitSha1": "e256363a2cf98c1ea1a2ef3eb30628039b46e246",
+      "path": "scripts/controlled-echo-supervision-lab.py",
+      "retainedPath": "upstream/H1/scripts/controlled-echo-supervision-lab.py",
+      "gitBlobSha1": "152d1a45992803c81b9470a2340c881c287de009",
+      "size": 47848,
+      "sha256": "7bd6c275234a02dc13408edec9cf7010b64464dcee8ec3c7719ebbb5ed23fdb9"
+    },
+    {
+      "horizonId": "H1",
+      "commitSha1": "e256363a2cf98c1ea1a2ef3eb30628039b46e246",
+      "path": "scripts/controlled_echo_supervision.py",
+      "retainedPath": "upstream/H1/scripts/controlled_echo_supervision.py",
+      "gitBlobSha1": "29721517131394fc34cacd82680440bce9ac1af4",
+      "size": 24003,
+      "sha256": "a7bb319ac65f358fd6bb22b637742ff6d459569ca6d294f08e257c5b5f5b76fa"
+    },
+    {
+      "horizonId": "H2",
+      "commitSha1": "9b7ef91363f698113042b20f3e540d21cf30bb6e",
+      "path": "docs/runbooks/controlled-echo-supervision-lab.md",
+      "retainedPath": "upstream/H2/docs/runbooks/controlled-echo-supervision-lab.md",
+      "gitBlobSha1": "cf1e1f3e431b591a87f0097e3d0562abf0d2cd3e",
+      "size": 5244,
+      "sha256": "8fef47d4f07cc9016f709eed1090f0825ab870fe4581aad4e91bebeea5b73082"
+    },
+    {
+      "horizonId": "H2",
+      "commitSha1": "9b7ef91363f698113042b20f3e540d21cf30bb6e",
+      "path": "scripts/check-controlled-echo-supervision-v1.py",
+      "retainedPath": "upstream/H2/scripts/check-controlled-echo-supervision-v1.py",
+      "gitBlobSha1": "830fc5076011be1b0ce6ff8e3253e5196aaaf2f1",
+      "size": 21872,
+      "sha256": "27b166891b64cd41d5023cfdad2533178ba6ac98f8ecbcf9398839400d41b7fb"
+    },
+    {
+      "horizonId": "H2",
+      "commitSha1": "9b7ef91363f698113042b20f3e540d21cf30bb6e",
+      "path": "scripts/controlled-echo-supervision-lab.py",
+      "retainedPath": "upstream/H2/scripts/controlled-echo-supervision-lab.py",
+      "gitBlobSha1": "b0ccb3795df99dd52fdb7d05c306b9ae02a114a8",
+      "size": 48319,
+      "sha256": "9371403ce97a484c30d3d14296840334158e09bbc5c0134865f53a838de6a31b"
+    },
+    {
+      "horizonId": "H2",
+      "commitSha1": "9b7ef91363f698113042b20f3e540d21cf30bb6e",
+      "path": "scripts/controlled_echo_supervision.py",
+      "retainedPath": "upstream/H2/scripts/controlled_echo_supervision.py",
+      "gitBlobSha1": "124bdc59e001f2daf28fde9c2f183056e1058e3b",
+      "size": 25635,
+      "sha256": "63c1cf138e522ffa4bb96321d05335362839644c89479d2eaec106d7e9534c22"
+    }
+  ],
+  "closedInventory": {
+    "artifactCount": 8,
+    "artifactBytes": 199242,
+    "replacementAllowed": false,
+    "truncationAllowed": false,
+    "additionalUpstreamMaterialAllowed": false
+  }
+}

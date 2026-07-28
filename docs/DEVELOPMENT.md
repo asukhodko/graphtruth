@@ -198,6 +198,13 @@ Track measures that can change a decision, initially:
 Record the measurement method and denominator. Do not optimize counts of nodes,
 claims, embeddings, prompts, commits, or generated text as success metrics.
 
+For comparative experiments, freeze four decisions separately: whether an
+individual cell is valid, whether each branch completed the task, whether one
+branch improved on the other, and which product capability the result admits.
+A baseline failure must remain in the denominator, but a rule must not require
+that baseline to succeed on a task where the tested capability is expected to
+add value.
+
 ## Process and toolchain maintenance
 
 Review this process at each roadmap-stage boundary and whenever repeated friction

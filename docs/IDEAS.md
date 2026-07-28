@@ -33,8 +33,8 @@ normative. An item moves into active work only through the evidence-driven
 
 ### Durable epistemic ledger
 
-**Status:** foundation accepted; one narrow Zone 3 slice exercised; protocol
-still unimplemented.
+**Status:** foundation accepted; one synthetic slice kept and one real/public
+episode shrunk; protocol still unimplemented.
 
 Preserve exact evidence, provenance, assertion revisions, assessments,
 policy-scoped acceptance, questions, time, and disagreement in portable files.
@@ -45,9 +45,15 @@ This is the substrate for every other thread. Issue #42 now supplies the first
 small independently readable record-and-bundle slice: exact evidence, linear
 revision, policy-scoped acceptance, rebuildable views, and a detached
 standard-library reader over one frozen public-synthetic journey. It is
-experimental evidence, not a general or normative record model. The next
-missing proof is use on a real bounded workflow, provided the owner keeps this
-slice.
+experimental evidence, not a general or normative record model. The owner kept
+that exact slice.
+
+Issue #45 applied related mechanics to one real public correction. Its
+`shrink` admits source snapshots, exact spans, additive revisions, distinct
+horizons, and an open question. It does not admit the richer assessment shape,
+episode adapter, decision rule, or serialized records as reusable product
+machinery. The next proof must make that smaller subset easier to capture and
+repeat it on a second fresh episode.
 
 Sources: [RFC 0000](../rfcs/0000-project-foundation.md),
 [Vision](VISION.md), and backlog `GT-D001`–`GT-D018`.
@@ -113,6 +119,12 @@ canonical records, not a replacement for them.
 The first comparison is deterministic exact/lexical retrieval plus typed
 expansion against ordinary text search. Hybrid graph, vector, and model-assisted
 ranking remains replaceable.
+
+Issue #45 supplies one bounded positive observation: its dossier retained the
+helper-body support missed by the frozen `rg` transcript, kept an earlier
+horizon independently readable, and exposed the absent incident report as an
+open question. The familiar, targeted episode and 5/6 denominator do not prove
+general retrieval superiority or justify a portable dossier contract.
 
 Sources: [Vision](VISION.md#access-should-produce-knowledge-in-context),
 [retrieval and dossiers](drafts/RETRIEVAL-AND-DOSSIERS.md), and backlog
@@ -228,16 +240,36 @@ the Node and detached Python readers. Rebuilds are byte-identical, the
 experimental semantic digest is portable across the two readers, and the two
 development failures remain in the run report. PR
 [#43](https://github.com/asukhodko/graphtruth/pull/43) integrated that bounded
-evidence without promoting its format or semantics.
+evidence without promoting its format or semantics. PR
+[#44](https://github.com/asukhodko/graphtruth/pull/44) synchronized the terminal
+state and Issue #42 is closed.
 
-The rational next move is one bounded real/public dogfood workflow
-that tests capture cost, correction, retrieval, and dossier usefulness while
-preserving the exact synthetic fixture as regression evidence. A fresh
-confirmatory corpus and the reduced-echo procedure remain alternatives, not
-implicit successors. Generated project documentation, richer domain topology,
-active acquisition, and experience-transfer machinery stay behind evidence
-from the minimal ledger and real use. The major-WIP slot is free, and no
-successor is authorized.
+The
+[Issue #45](https://github.com/asukhodko/graphtruth/issues/45) MurmurMark
+episode completed that first real/public pressure test. GraphTruth answered
+3/3 fixed tasks and the same files plus `rg` answered 2/3; no cell was dropped
+and no severe error occurred. The frozen decision rule could not classify this
+5/6 outcome because it required the baseline to pass the very task on which
+GraphTruth added evidence. The owner
+[`shrank`](../examples/experiments/murmurmark-echo-lab-correction-v1/DISPOSITION.md)
+the admitted scope without rescoring it.
+
+What survived is deliberately small: exact source snapshots and closure, exact
+spans, additive revisions, separate horizons, and an open question. The
+episode-specific `Assessment` shape and adapter did not earn promotion. The
+27-event hand-authored capture declaration also exposed the immediate product
+friction: the useful subset needs a smaller incremental capture and review
+interface.
+
+The recommended next route is therefore a second fresh public correction under
+a corrected comparison contract, using only that subset. Candidate-format
+extraction stays conditional until this second episode shows a stable common
+envelope. A fresh confirmatory corpus and the reduced-echo procedure remain
+alternatives, not implicit successors. Generated project documentation,
+richer domain topology, active acquisition, and experience-transfer machinery
+stay behind evidence from the minimal ledger and repeated real use. The
+major-WIP slot is free; the successor needs its own goal, issue, identity,
+budget, and authorization.
 
 This ordering protects the early ideas rather than discarding them. It gives
 them a durable substrate and an observable reason to exist.

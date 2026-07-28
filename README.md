@@ -169,8 +169,25 @@ earned the first narrow executable ledger slice: its frozen Zone 3 contract
 passed all 18 reference cells and 16 mutation classes with a detached Python
 reader. The owner chose `keep`, and PR
 [#43](https://github.com/asukhodko/graphtruth/pull/43) integrated the exact
-evidence. This is not protocol acceptance or a product-utility result. No
-successor is active.
+evidence. PR [#44](https://github.com/asukhodko/graphtruth/pull/44) synchronized
+the terminal project state and closed Issue #42. This is not protocol acceptance
+or a product-utility result.
+
+The first real/public
+[MurmurMark correction dogfood](examples/experiments/murmurmark-echo-lab-correction-v1/README.md)
+is complete. GraphTruth answered 3/3 fixed tasks while the same files plus
+`rg` answered 2/3; the six-cell denominator remains 5/6 with no dropped cells
+or severe errors. The owner chose
+[`shrink`](examples/experiments/murmurmark-echo-lab-correction-v1/DISPOSITION.md):
+retain exact snapshots, evidence spans, additive revisions, distinct horizons,
+and an explicit open question. The episode does not promote its richer
+assessment shape, adapter, decision rule, or file formats into product or
+protocol machinery.
+
+The recommended next evidence track is a small incremental capture interface
+for that admitted subset, exercised on a second fresh public correction. It
+requires a separate goal, issue, frozen identity, budget, and authorization;
+candidate-format extraction remains premature.
 
 The capability-oriented stages and their exit evidence are described in the
 [roadmap](docs/ROADMAP.md). The current work sequence and decision gates live

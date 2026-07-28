@@ -159,6 +159,12 @@ const fallbackIgnoredDirectories = new Set([
   "private",
 ]);
 const fallbackIgnoredFiles = new Set([".DS_Store", "Desktop.ini", "Thumbs.db"]);
+const markdownLintExcludedPaths = new Set([
+  // This file is a byte-verified disposable projection. Its renderer and
+  // retained rebuild identity, rather than hand-editable Markdown style, own
+  // its exact bytes.
+  "examples/experiments/murmurmark-echo-lab-correction-v1/projections/dossier.md",
+]);
 const requiredRepositoryPaths = new Map([
   ["README.md", "file"],
   [".gitignore", "file"],
@@ -2095,6 +2101,9 @@ async function main() {
   if (command === "--list-markdown") {
     const markdownPaths = files
       .filter((filePath) => path.extname(filePath).toLowerCase() === ".md")
+      .filter(
+        (filePath) => !markdownLintExcludedPaths.has(relativePath(filePath)),
+      )
       .map((filePath) => `./${relativePath(filePath)}`);
     if (markdownPaths.length > 0) {
       process.stdout.write(`${markdownPaths.join("\0")}\0`);

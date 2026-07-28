@@ -1,0 +1,18 @@
+identity=murmurmark-echo-lab-correction-v1
+manifestSha256=c86a4e275e3f51c40589dbbf52b72671b26c606e72323565af55f1c7b072be82
+authorityState=no-acceptance-decisions
+horizon=H1 recordedAsOf=2026-07-28T08:52:15Z head=7d52efa0e637490029196d58fc0e6d06f3a72769960435887213336754004674
+assertion=H1/assertion.prepare-bounds/revision.prepare-bounds.01
+assertion=H1/assertion.output-validation/revision.output-validation.01
+limit=H1/assessment.h1-safety-limit/selected-source-does-not-establish-process-or-concurrency-bound
+horizon=H2 recordedAsOf=2026-07-28T08:52:32Z head=08e3d61dfab97507cc8d01dd1bccf31c0347feaa4d68804f65ac0cf65e0d2258
+assertion=H2/assertion.prepare-bounds/revision.prepare-bounds.02
+assertion=H2/assertion.materialization-exact/revision.materialization-exact.01
+assertion=H2/assertion.prepare-lock/revision.prepare-lock.01
+assertion=H2/assertion.say-timeout/revision.say-timeout.01
+assertion=H2/assertion.checker-source/revision.checker-source.01
+limit=H2/assessment.h2-test-not-run/test-source-is-not-test-execution
+limit=H2/assessment.h2-safety-limit/selected-correction-does-not-establish-general-safety
+assertion=H2/assertion.prepare-bounds/revision.prepare-bounds.02
+limit=H2/assessment.h2-safety-limit/selected-correction-does-not-establish-general-safety
+question=H2/question.incident-report/open

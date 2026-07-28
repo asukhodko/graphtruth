@@ -1,0 +1,76 @@
+{
+  "format": "graphtruth.experimental.files-rg-baseline-plan.v1",
+  "identity": "murmurmark-echo-lab-correction-v1",
+  "branch": "files-rg",
+  "attempt": 1,
+  "tool": {
+    "name": "ripgrep",
+    "version": "15.1.0",
+    "executableSha256": "2fb61b6e5b3e2d89b115fe6c18fd8805670fdf4bdfde85954d40855a76830e5f"
+  },
+  "queryLimit": 8,
+  "timeoutSeconds": 1200,
+  "questions": [
+    "task.pre-fix-bounds",
+    "task.post-fix-safeguards",
+    "task.residual-unknowns"
+  ],
+  "queries": [
+    {
+      "queryId": "q.h1.ffmpeg-loop",
+      "horizonId": "H1",
+      "fixedStrings": true,
+      "pattern": "stream_loop",
+      "target": "upstream/H1/scripts/controlled-echo-supervision-lab.py"
+    },
+    {
+      "queryId": "q.h1.validation",
+      "horizonId": "H1",
+      "fixedStrings": true,
+      "pattern": "expected_frames",
+      "target": "upstream/H1/scripts/controlled_echo_supervision.py"
+    },
+    {
+      "queryId": "q.h1.process-bounds",
+      "horizonId": "H1",
+      "fixedStrings": false,
+      "pattern": "timeout|flock|LOCK_",
+      "target": "upstream/H1/scripts/controlled-echo-supervision-lab.py"
+    },
+    {
+      "queryId": "q.h2.materialization",
+      "horizonId": "H2",
+      "fixedStrings": true,
+      "pattern": "materialize_looped_stimulus",
+      "target": "upstream/H2"
+    },
+    {
+      "queryId": "q.h2.process-bounds",
+      "horizonId": "H2",
+      "fixedStrings": false,
+      "pattern": "LOCK_EX|timeout=120",
+      "target": "upstream/H2/scripts/controlled-echo-supervision-lab.py"
+    },
+    {
+      "queryId": "q.h2.checker",
+      "horizonId": "H2",
+      "fixedStrings": true,
+      "pattern": "120_000",
+      "target": "upstream/H2/scripts/check-controlled-echo-supervision-v1.py"
+    },
+    {
+      "queryId": "q.h2.capture-and-incident",
+      "horizonId": "H2",
+      "fixedStrings": false,
+      "pattern": "stops automatically|incident|root cause",
+      "target": "upstream"
+    },
+    {
+      "queryId": "q.metadata.corrective-subject",
+      "horizonId": "H2",
+      "fixedStrings": false,
+      "pattern": "runaway|subject",
+      "target": "SOURCE-MANIFEST.json"
+    }
+  ]
+}
