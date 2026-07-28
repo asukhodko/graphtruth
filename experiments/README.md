@@ -28,8 +28,18 @@ ran outside the ordered three-corpus program. Its frozen six-cell comparison
 ended GraphTruth 3/3 and files plus `rg` 2/3, with no dropped cells or severe
 errors. The owner chose `shrink`: retain exact snapshots, spans, additive
 revisions, distinct horizons, and the open question, but do not promote the
-episode adapter, assessment shape, decision rule, or format. A second fresh
-public correction is required before candidate-format extraction.
+episode adapter, assessment shape, decision rule, or format. That disposition
+required another favorable fresh correction before candidate-format
+extraction.
+
+The second real/public
+[incremental-capture experiment](../examples/experiments/incremental-capture-second-public-correction-v1/README.md)
+froze four tasks, eight cells, one baseline attempt, and one GraphTruth run.
+Baseline completed 3/4 tasks. GraphTruth completed 0/4 after a mixed-case
+inventory-order mismatch stopped H1 acquisition before source-file reads. The
+owner selected `stop`; no capability or format was admitted, and the corpus is
+research and regression input only. A new implementation identity and third
+fresh correction are required for confirmation.
 
 ### Final Issue #24 disposition — 2026-07-25
 

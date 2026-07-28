@@ -184,10 +184,19 @@ and an explicit open question. The episode does not promote its richer
 assessment shape, adapter, decision rule, or file formats into product or
 protocol machinery.
 
-The recommended next evidence track is a small incremental capture interface
-for that admitted subset, exercised on a second fresh public correction. It
-requires a separate goal, issue, frozen identity, budget, and authorization;
-candidate-format extraction remains premature.
+The second real/public
+[incremental-capture experiment](examples/experiments/incremental-capture-second-public-correction-v1/README.md)
+ended at [`stop`](examples/experiments/incremental-capture-second-public-correction-v1/DISPOSITION.md).
+The frozen baseline completed 3/4 tasks; GraphTruth completed 0/4 after its
+sole run rejected equal mixed-case file sets ordered by different comparators.
+The guard failed closed before reading selected source-file bytes, so no severe
+error occurred, but no capability prefix was demonstrated or admitted.
+
+The recommended next evidence track is a new incremental-capture identity with
+one canonical inventory order, mixed-case and permutation tests, regression
+against the stopped public corpus, and confirmation on a third fresh public
+correction. It requires a separate goal, issue, frozen identities, budget, and
+authorization. Candidate-format extraction remains premature.
 
 The capability-oriented stages and their exit evidence are described in the
 [roadmap](docs/ROADMAP.md). The current work sequence and decision gates live

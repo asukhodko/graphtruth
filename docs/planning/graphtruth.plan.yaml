@@ -66,11 +66,19 @@ nodes:
       The assessment shape, episode adapter, flawed decision rule, and formats
       were not promoted.
 
-      The recommended next route is a minimal incremental capture interface for
-      that subset, tested on a second fresh public correction under a corrected
-      comparison contract. It requires a separate goal, issue, identity,
-      budget, and authorization. Candidate-format extraction remains
-      conditional.
+      Issue #48 then froze `incremental-capture-second-public-correction-v1`,
+      its corrected eight-cell comparison, and a minimal Zone 3 interface.
+      Baseline completed 3/4 tasks. The sole GraphTruth run completed 0/4
+      because default sort and localeCompare ordered an equal mixed-case
+      inventory differently. The guard stopped before selected source-file
+      reads; no severe error, retry, repair, dropped cell, or rescore occurred.
+      The owner chose `stop`, so M10 admits no product capability.
+
+      The recommended next route is a new implementation identity with one
+      canonical inventory comparator, mixed-case and permutation qualification,
+      regression against the stopped corpus, and confirmation on a third fresh
+      public correction. It requires a separate goal, issue, identity, budget,
+      and authorization. Candidate-format extraction remains conditional.
 
   m0-rehearsal-integration:
     title: "Integrate the runtime-boundary rehearsal evidence"
@@ -1721,24 +1729,25 @@ nodes:
     kind: phase
     parent: graphtruth
     deps: [g9-public-dogfood-integrated]
-    status: ready
+    status: stopped
+    issue: "https://github.com/asukhodko/graphtruth/issues/48"
     notes: |
-      Recommended successor after M9 `shrink`, not authorized for execution.
-      Retain only the admitted snapshot, span, additive revision, horizon, and
-      open-question subset. Freeze a corrected comparison model before results,
-      reduce manual capture friction, and exercise the interface on a materially
-      different fresh public correction. Requires a separate goal, issue,
-      identity, budget, and authorization.
+      The contract, public correction, implementation, baseline, and one
+      GraphTruth run froze under separate identities. Baseline completed 3/4;
+      GraphTruth completed 0/4 after a false mixed-case inventory-order
+      mismatch stopped H1 acquisition. The owner selected `stop`. The result
+      admits no product capability and cannot be retried, resumed, or repaired.
 
   m10-freeze-incremental-capture-contract:
     title: "Freeze the minimal interface and corrected comparison contract"
     kind: task
     parent: m10-incremental-capture-second-public-episode
-    status: ready
+    status: done
     notes: |
-      Select a fresh public correction and freeze source closure, tasks,
-      baseline, budgets, and roles. Define cell validity, per-branch task
-      success, comparative advantage, and capability admission separately.
+      The mechanical selection chose the public MIT-licensed
+      `dify-markdown-chunker` correction. Source closure, four tasks, eight
+      cells, baseline, budgets, roles, and all four decision layers froze
+      before implementation.
 
   g10-incremental-capture-contract-frozen:
     title: "Gate: second-episode contract frozen before implementation"
@@ -1746,29 +1755,37 @@ nodes:
     milestone: true
     parent: m10-incremental-capture-second-public-episode
     deps: [m10-freeze-incremental-capture-contract]
-    status: planned
+    status: done
+    issue: "https://github.com/asukhodko/graphtruth/issues/48#issuecomment-5105642042"
+    notes: |
+      Contract-package SHA-256
+      f612a2f664a4e02f49b0e8d1be90868bf278f1606efdc419c34b2956f48fb1d3
+      binds the exact source manifest, tasks, oracle, and run card.
 
   m10-implement-incremental-capture:
     title: "Implement the smallest incremental capture interface in Zone 3"
     kind: task
     parent: m10-incremental-capture-second-public-episode
     deps: [g10-incremental-capture-contract-frozen]
-    status: planned
+    status: done
     notes: |
-      Reduce hand-authored capture while preserving exact evidence, additive
-      history, horizon reconstruction, and explicit unknowns. Do not promote
-      the M9 adapter or assessment shape into schemas, specs, or RFCs.
+      Implementation SHA-256
+      75fd60a377044bc96a59af5534c828b21c26748d601114cc9246fb94594af004
+      passed eight focused synthetic tests and the full repository check before
+      real use. It changed no M8, M9, specification, schema, or RFC byte.
 
   m10-run-second-public-correction:
     title: "Run and compare the second fresh public correction"
     kind: task
     parent: m10-incremental-capture-second-public-episode
     deps: [m10-implement-incremental-capture]
-    status: planned
+    status: done
     notes: |
-      Preserve the full denominator, count capture and review tax, rebuild every
-      supported projection, and report whether the admitted M9 subset transfers
-      without episode-specific growth.
+      The sole baseline attempt completed 3/4. The sole GraphTruth run completed
+      0/4 after `SOURCE_INVENTORY_MISMATCH` before selected source-file reads.
+      All eight cells remain; there was no retry, repair, rescore, or severe
+      error. Result-manifest SHA-256 is
+      a8038484cb6a488b61a6f7327b57afd2e7246f9e4e30fa5756c0921febbeeb7d.
 
   g10-second-public-correction-disposition:
     title: "Gate: owner chooses second-episode keep, shrink, or stop"
@@ -1776,7 +1793,11 @@ nodes:
     milestone: true
     parent: m10-incremental-capture-second-public-episode
     deps: [m10-run-second-public-correction]
-    status: planned
+    status: done
+    issue: "https://github.com/asukhodko/graphtruth/issues/48#issuecomment-5106255396"
+    notes: |
+      Owner chose `stop`: GraphTruth was worse than baseline and the first fixed
+      shrink prefix was not reached. No capability or format was admitted.
 
   g10-incremental-capture-integrated:
     title: "Gate: selected second-episode terminal path integrated"
@@ -1784,6 +1805,78 @@ nodes:
     milestone: true
     parent: m10-incremental-capture-second-public-episode
     deps: [g10-second-public-correction-disposition]
+    status: done
+    notes: |
+      The integration change retains the immutable result and stop disposition,
+      synchronizes project state, and closes Issue #48 after required checks and
+      squash merge.
+
+  m11-portable-inventory-third-public-episode:
+    title: "Qualify portable inventory semantics on a third public correction"
+    kind: phase
+    parent: graphtruth
+    deps: [g10-incremental-capture-integrated]
+    status: ready
+    notes: |
+      Recommended successor after the M10 `stop`, not authorized for execution.
+      Use a new implementation and experiment identity. Freeze one canonical
+      path comparator, mixed-case and permutation qualification, the research-
+      only M10 regression boundary, and a third fresh public correction before
+      implementation or source reveal.
+
+  m11-freeze-portable-inventory-contract:
+    title: "Freeze v2 inventory semantics and the third-episode contract"
+    kind: task
+    parent: m11-portable-inventory-third-public-episode
+    status: ready
+    notes: |
+      Specify comparator bytes and equality semantics, close adversarial
+      fixtures, exclude prior episodes from confirmation, mechanically select
+      a fresh correction, and freeze tasks, baseline, budgets, and decisions.
+
+  g11-portable-inventory-contract-frozen:
+    title: "Gate: v2 and third-episode contract frozen before implementation"
+    kind: milestone
+    milestone: true
+    parent: m11-portable-inventory-third-public-episode
+    deps: [m11-freeze-portable-inventory-contract]
+    status: planned
+
+  m11-implement-and-regress-incremental-capture-v2:
+    title: "Implement v2 and pass adversarial plus stopped-corpus regression"
+    kind: task
+    parent: m11-portable-inventory-third-public-episode
+    deps: [g11-portable-inventory-contract-frozen]
+    status: planned
+    notes: |
+      Create a new Zone 3 implementation identity. Never patch or resume M10.
+      Prove order invariance across mixed case and permutations, then replay the
+      M10 corpus only as regression input before freezing implementation.
+
+  m11-run-third-public-correction:
+    title: "Run one baseline and one GraphTruth capture on the fresh episode"
+    kind: task
+    parent: m11-portable-inventory-third-public-episode
+    deps: [m11-implement-and-regress-incremental-capture-v2]
+    status: planned
+    notes: |
+      Preserve the fixed denominator and one-attempt rule. Confirmation comes
+      only from the fresh episode; stopped M10 evidence cannot count as success.
+
+  g11-third-public-correction-disposition:
+    title: "Gate: owner chooses v2 keep, shrink, or stop"
+    kind: milestone
+    milestone: true
+    parent: m11-portable-inventory-third-public-episode
+    deps: [m11-run-third-public-correction]
+    status: planned
+
+  g11-portable-inventory-integrated:
+    title: "Gate: selected v2 terminal path integrated"
+    kind: milestone
+    milestone: true
+    parent: m11-portable-inventory-third-public-episode
+    deps: [g11-third-public-correction-disposition]
     status: planned
 
   h-record-bundle-candidate-format:
@@ -1791,13 +1884,13 @@ nodes:
     kind: milestone
     milestone: true
     parent: graphtruth
-    deps: [g10-incremental-capture-integrated]
+    deps: [g11-portable-inventory-integrated]
     status: conditional
     notes: |
-      M9 `shrink` did not admit candidate-format extraction. It becomes eligible
-      only if the second fresh public episode retains a small common envelope
-      without episode-specific growth. Any extraction is a separate goal; it
-      must preserve unresolved pressure and cannot make a normative or
+      M9 `shrink` and M10 `stop` did not admit candidate-format extraction. It
+      becomes eligible only if a fresh M11 disposition retains a small common
+      envelope without episode-specific growth. Any extraction is a separate
+      goal; it must preserve unresolved pressure and cannot make a normative or
       compatibility claim.
 
   h-fresh-confirmatory-corpus:
@@ -2297,13 +2390,55 @@ execution:
       updated_at: "2026-07-28T12:29:08+03:00"
       note: "PR #46 carries the terminal disposition, project documentation, and operational plan and closes Issue #45 on squash merge."
     m10-incremental-capture-second-public-episode:
-      progress: 0.0
-      updated_at: "2026-07-28T12:29:08+03:00"
-      note: "Recommended next route after M9 shrink; execution awaits a separate goal, issue, exact contract, budget, and authorization."
+      progress: 1.0
+      actual_start: "2026-07-28"
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T18:36:26+03:00"
+      note: "One active date. Baseline completed 3/4; GraphTruth completed 0/4 after a false mixed-case inventory-order mismatch. Owner stop admits no capability."
     m10-freeze-incremental-capture-contract:
+      progress: 1.0
+      actual_start: "2026-07-28"
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T18:36:26+03:00"
+      note: "Public source boundary, four tasks, eight cells, baseline, budgets, and four-layer comparison froze before implementation."
+    g10-incremental-capture-contract-frozen:
+      progress: 1.0
+      actual_start: "2026-07-28"
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T18:36:26+03:00"
+      note: "Issue #48 anchors contract-package SHA-256 f612a2f664a4e02f49b0e8d1be90868bf278f1606efdc419c34b2956f48fb1d3."
+    m10-implement-incremental-capture:
+      progress: 1.0
+      actual_start: "2026-07-28"
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T18:36:26+03:00"
+      note: "The Zone 3 implementation froze after eight focused synthetic tests and a full green repository check."
+    m10-run-second-public-correction:
+      progress: 1.0
+      actual_start: "2026-07-28"
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T18:36:26+03:00"
+      note: "One baseline and one GraphTruth run. The eight-cell denominator and terminal failure remain immutable; no retry, repair, or rescore occurred."
+    g10-second-public-correction-disposition:
+      progress: 1.0
+      actual_start: "2026-07-28"
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T18:36:26+03:00"
+      note: "Owner chose stop in Issue #48 comment 5106255396; keep and shrink were unavailable under the frozen rules."
+    g10-incremental-capture-integrated:
+      progress: 1.0
+      actual_start: "2026-07-28"
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T18:36:26+03:00"
+      note: "The integration PR retains the exact stop evidence, synchronizes public project state, and closes Issue #48 on squash merge."
+    m11-portable-inventory-third-public-episode:
       progress: 0.0
-      updated_at: "2026-07-28T12:29:08+03:00"
-      note: "Ready to define the fresh episode, minimal capture surface, and corrected four-layer comparison decision model."
+      updated_at: "2026-07-28T18:36:26+03:00"
+      note: "Recommended after M10 stop; execution awaits a separate goal, issue, frozen identities, budget, and authorization."
+    m11-freeze-portable-inventory-contract:
+      progress: 0.0
+      updated_at: "2026-07-28T18:36:26+03:00"
+      note: "Ready to freeze canonical inventory semantics, adversarial qualification, regression boundaries, and a fresh third episode."
 
 views:
   current-work:
@@ -2330,9 +2465,15 @@ views:
       status: [done, stopped, current, ready, planned]
     order_by: status
   incremental-capture-decision-path:
-    title: "Recommended incremental-capture route"
+    title: "Stopped incremental-capture route"
     where:
       parent: m10-incremental-capture-second-public-episode
+      status: [done, stopped, current, ready, planned]
+    order_by: status
+  portable-inventory-decision-path:
+    title: "Recommended portable-inventory route"
+    where:
+      parent: m11-portable-inventory-third-public-episode
       status: [done, stopped, current, ready, planned]
     order_by: status
   decision-gates:
@@ -2348,8 +2489,8 @@ views:
 x:
   exec:
     program:
-      nearest_goal: "Freeze a minimal incremental capture interface and corrected comparison contract, then test them on one second fresh public correction."
-      success_by_next_sync: "Create a separate goal and issue; freeze the fresh episode and four-layer decision model before implementation; measure capture tax and transfer of the five admitted M9 capabilities; stop for owner keep/shrink/stop."
+      nearest_goal: "Create a new incremental-capture identity with canonical inventory semantics, then confirm it on one third fresh public correction."
+      success_by_next_sync: "Freeze comparator semantics, adversarial fixtures, the stopped-corpus regression role, and a fresh episode before implementation; run one baseline and one GraphTruth capture; stop for owner keep/shrink/stop."
     defaults:
       status_progress:
         done: 1.0
@@ -2414,8 +2555,16 @@ x:
         kind: main
         mgmt:
           health: neutral
-          sync_note: "Recommended after M9 shrink; no issue, contract, implementation, episode, or authorization exists."
-          next_sync_goal: "Freeze the minimal interface, fresh source boundary, and corrected comparison model before implementation."
+          sync_note: "Issue #48 froze the second public correction, corrected eight-cell contract, and v1 implementation. Baseline completed 3/4; the one GraphTruth run completed 0/4 after a false mixed-case inventory-order mismatch stopped before source-file reads. Owner stop admits no capability and leaves all evidence immutable."
+          next_sync_goal: "Preserve M10 as terminal regression evidence; never retry, resume, repair, or count it as confirmation."
+      portable-inventory:
+        title: "Portable inventory v2 on a third public correction"
+        scope_nodes: [m11-portable-inventory-third-public-episode]
+        kind: main
+        mgmt:
+          health: neutral
+          sync_note: "Recommended after M10 stop; no goal, issue, contract, implementation identity, fresh episode, or authorization exists."
+          next_sync_goal: "Freeze one canonical comparator, mixed-case and permutation qualification, regression boundaries, and a fresh third episode before implementation."
     edges:
       - from: integration
         to: private-stop
@@ -2439,6 +2588,10 @@ x:
         to: incremental-capture
         type: required
         label: "shrunk subset under repeated real-use pressure"
+      - from: incremental-capture
+        to: portable-inventory
+        type: required
+        label: "stopped v1 preserved as regression evidence"
     views:
       exec-top:
         direction: LR
@@ -2447,12 +2600,12 @@ x:
         show_progress: false
         show_gate_date: false
         wrap_title_lines: 2
-        caption: "The first real/public MurmurMark episode ended at shrink. A minimal incremental-capture successor on a second fresh correction is recommended but not authorized."
-        blocks: [integration, private-stop, python-sequential, record-bundle, public-dogfood, incremental-capture]
+        caption: "M10 ended at stop after a fail-closed inventory-order defect. A new v2 identity with adversarial qualification and a third fresh correction is recommended but not authorized."
+        blocks: [integration, private-stop, python-sequential, record-bundle, public-dogfood, incremental-capture, portable-inventory]
       exec-active-tracks:
         direction: TB
         color_mode: mgmt_hybrid
         highlight_current: true
         show_progress: false
         show_gate_date: false
-        blocks: [integration, private-stop, python-sequential, python-order-successor, record-bundle, public-dogfood, incremental-capture]
+        blocks: [integration, private-stop, python-sequential, python-order-successor, record-bundle, public-dogfood, incremental-capture, portable-inventory]

@@ -100,24 +100,35 @@ exact projection rebuild. Stage 1 still lacks repeated personal use, a second
 retrieval path, acceptance review in a real workflow, migration,
 backup/restore, static fallback, and an exercised privacy boundary.
 
-### Recommended next track — incremental capture on a second correction
+[Issue #48](https://github.com/asukhodko/graphtruth/issues/48) next froze a
+corrected eight-cell comparison, a minimal incremental interface, and a second
+public correction before either branch ran. The baseline completed 3/4 tasks.
+The one GraphTruth run failed closed before H1 acquisition and completed 0/4:
+default JavaScript sorting and `localeCompare` ordered the equal mixed-case
+source inventory differently. All eight cells remain in the denominator. No
+selected source-file byte entered the store, no severe error occurred, and no
+retry, repair, or rescore was performed.
 
-The nearest useful step is a separate Zone 3 goal that freezes a minimal
-incremental capture interface for only the admitted subset, then exercises it
-on a second fresh public correction. It must also repair the comparison
-contract by separating cell validity, branch task success, comparative
-advantage, and product admission before results exist.
+The owner chose
+[`stop`](../examples/experiments/incremental-capture-second-public-correction-v1/DISPOSITION.md).
+This admits no M10 product capability and leaves the result and implementation
+identity immutable. It does establish one useful engineering fact: the
+synthetic qualification did not cover mixed-case or permuted inventories.
 
-That successor should answer two questions:
+### Recommended next track — portable inventory semantics and fresh confirmation
 
-1. can the useful subset be captured and reviewed without hand-authoring a
-   27-event declaration;
-2. do the same mechanics survive a materially different real correction
-   without growing episode-specific shapes?
+The nearest useful step is a new Zone 3 identity that:
 
-Only a second favorable disposition can make candidate-format extraction
+1. freezes one canonical inventory comparator before implementation;
+2. qualifies equal inventories across mixed case and input permutations;
+3. treats the Issue #48 corpus only as regression input;
+4. freezes a third fresh public correction and the comparison before source
+   reveal and real execution;
+5. performs at most one baseline and one GraphTruth run under a new identity.
+
+Only a favorable fresh disposition can make candidate-format extraction
 eligible. No successor, schema, RFC, or default-runtime change is authorized by
-the M9 `shrink`; the single-major-WIP slot is free until a separate goal, issue,
+the M10 `stop`; the single-major-WIP slot is free until a separate goal, issue,
 identity, budget, and authorization exist.
 
 ### Retained Issue #24 background

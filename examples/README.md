@@ -75,6 +75,15 @@ all six cells remain visible. The owner chose `shrink`, retaining exact
 snapshots, spans, revisions, horizons, and the open question while declining to
 promote the adapter, richer assessment shape, decision rule, or format.
 
+The
+[incremental-capture second public correction](experiments/incremental-capture-second-public-correction-v1/)
+freezes a different MIT-licensed correction, four tasks, eight comparison
+cells, and a minimal append-only interface. Baseline completed 3/4 tasks. The
+sole GraphTruth run failed closed before source capture because two comparators
+ordered equal mixed-case inventories differently; GraphTruth completed 0/4.
+The owner selected `stop`. The retained failure admits no capability or format
+but supplies regression evidence for a separately identified successor.
+
 If repeated experiments demonstrate stable portable semantics, a separately
 reviewed minimal example may later be promoted into this directory under an
 applicable specification version. Copying the laboratory files here does not
