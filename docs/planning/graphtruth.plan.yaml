@@ -1900,11 +1900,11 @@ nodes:
     milestone: true
     parent: m11-portable-inventory-third-public-episode
     deps: [g11-pre-execution-stop-disposition]
-    status: current
+    status: done
     issue: "https://github.com/asukhodko/graphtruth/issues/50"
     notes: |
-      Integrate the terminal pre-execution disposition, synchronize project
-      state, pass both required gates, merge, verify main, and close Issue #50.
+      PR #51 retains the pre-execution disposition, synchronizes project state,
+      and closes Issue #50 after required checks and squash merge.
 
   h-record-bundle-candidate-format:
     title: "Horizon: extract a candidate format from two unlike journeys"
@@ -2491,10 +2491,11 @@ execution:
       updated_at: "2026-07-28T19:12:10+03:00"
       note: "Owner selected terminal pre-execution stop; disposition SHA-256 df94aca3b0c564dc5cefdcc1e4c39d69ba309b6829033ea00724c105ca3b2a9e."
     g11-portable-inventory-integrated:
-      progress: 0.5
+      progress: 1.0
       actual_start: "2026-07-28"
-      updated_at: "2026-07-28T19:12:10+03:00"
-      note: "Terminal synchronization is in progress."
+      actual_finish: "2026-07-28"
+      updated_at: "2026-07-28T19:16:44+03:00"
+      note: "PR #51 retains the pre-execution stop, synchronizes project state, and closes Issue #50 after required checks and squash merge."
 
 views:
   current-work:

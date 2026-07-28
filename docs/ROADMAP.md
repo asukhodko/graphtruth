@@ -136,7 +136,9 @@ inventory gap found by M10. The M9 capability subset and M10 terminal evidence
 remain unchanged. The single-major-WIP slot is free; a portable-inventory
 reattempt or a different product-facing route needs a new goal, identity,
 budget, and authorization. Candidate-format extraction still requires a
-favorable fresh disposition.
+favorable fresh disposition. PR
+[#51](https://github.com/asukhodko/graphtruth/pull/51) integrates this bounded
+terminal state.
 
 ### Retained Issue #24 background
 
