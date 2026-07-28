@@ -49,7 +49,7 @@ test("the complete golden journey evidence is closed and reproducible", async ()
   const workRoot = path.join(parent, "evidence");
   try {
     const { report } = await runGoldenJourneyEvidence({
-      journeyRoot,
+      journeyRoot: path.relative(process.cwd(), journeyRoot),
       workRoot,
       pythonPath: process.env.PYTHON ?? "python3",
     });

@@ -584,14 +584,16 @@ export async function runGoldenJourneyEvidence({
   workRoot,
   pythonPath = "python3",
 }) {
-  await mkdir(workRoot, { recursive: false });
-  const contract = await loadFrozenContract(journeyRoot);
+  const resolvedJourneyRoot = path.resolve(journeyRoot);
+  const resolvedWorkRoot = path.resolve(workRoot);
+  await mkdir(resolvedWorkRoot, { recursive: false });
+  const contract = await loadFrozenContract(resolvedJourneyRoot);
   const expected = expectedSemanticOutput(contract);
-  const buildOneRoot = path.join(workRoot, "build-one");
-  const buildTwoRoot = path.join(workRoot, "build-two");
-  const projectionRoot = path.join(workRoot, "projections");
-  const first = await buildFrozenJourneyBundle(journeyRoot, buildOneRoot);
-  const second = await buildFrozenJourneyBundle(journeyRoot, buildTwoRoot);
+  const buildOneRoot = path.join(resolvedWorkRoot, "build-one");
+  const buildTwoRoot = path.join(resolvedWorkRoot, "build-two");
+  const projectionRoot = path.join(resolvedWorkRoot, "projections");
+  const first = await buildFrozenJourneyBundle(resolvedJourneyRoot, buildOneRoot);
+  const second = await buildFrozenJourneyBundle(resolvedJourneyRoot, buildTwoRoot);
   const fingerprintsEqual =
     canonicalJson(await directoryFingerprint(buildOneRoot)).equals(
       canonicalJson(await directoryFingerprint(buildTwoRoot)),
@@ -606,12 +608,12 @@ export async function runGoldenJourneyEvidence({
     canonicalJson(secondProjectionFingerprint),
   );
 
-  const detachedRoot = path.join(workRoot, "detached");
+  const detachedRoot = path.join(resolvedWorkRoot, "detached");
   const detachedBundle = path.join(detachedRoot, "bundle");
   const detachedReader = path.join(detachedRoot, "reader.py");
   await mkdir(detachedRoot);
   await copyBundle(buildOneRoot, detachedBundle);
-  await cp(path.join(journeyRoot, "detached_reader.py"), detachedReader);
+  await cp(path.join(resolvedJourneyRoot, "detached_reader.py"), detachedReader);
   const detachedInventory = (await readdir(detachedRoot)).sort();
   const python = await runPythonReader(
     pythonPath,
@@ -650,21 +652,25 @@ export async function runGoldenJourneyEvidence({
   }
 
   const mutations = await mutationMatrix({
-    root: workRoot,
+    root: resolvedWorkRoot,
     baseBundle: buildOneRoot,
     manifestSha256: first.manifestSha256,
     expected,
     pythonPath,
-    readerPath: path.join(journeyRoot, "detached_reader.py"),
+    readerPath: path.join(resolvedJourneyRoot, "detached_reader.py"),
   });
 
-  const variant = await buildHardcodingVariant(contract, journeyRoot, workRoot);
+  const variant = await buildHardcodingVariant(
+    contract,
+    resolvedJourneyRoot,
+    resolvedWorkRoot,
+  );
   const variantPython = await runPythonReader(
     pythonPath,
-    path.join(journeyRoot, "detached_reader.py"),
+    path.join(resolvedJourneyRoot, "detached_reader.py"),
     variant.bundleRoot,
     variant.verification.manifestSha256,
-    workRoot,
+    resolvedWorkRoot,
   );
   const variantValues = Object.fromEntries(
     variant.verification.semanticOutput.views.map((view) => [
