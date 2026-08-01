@@ -32,11 +32,14 @@ capture, exact spans, additive corrections, sequential horizons, open
 questions, verification, dossiers, and exact projection rebuild. It embeds one
 locale-independent path comparator and the M10 ordering regression.
 
-Only the Markdown contract and future owner episode exist. Implementation,
-automated qualification, the owner walkthrough, and disposition are pending
-and require a separate goal bound to the exact contract identity. Nothing in
-this preparation creates a runtime, storage format, canonical corpus, protocol
-claim, or permission to execute the episode.
+The exact contract now has one frozen implementation candidate,
+`owner-facing-workbench-v1-rc1-sha256-994797211ae516ea2bd7d965991fabe48bbb26f25922fcbbfaaa52e368d44b5a`.
+Its [status](experimental/owner-facing-workbench-v1/STATUS.md), private
+[format](experimental/owner-facing-workbench-v1/FORMAT.md), and
+[manifest](experimental/owner-facing-workbench-v1/RELEASE-CANDIDATE.json) bind
+the 35/35 synthetic qualification. The owner walkthrough and disposition are
+pending. The candidate remains non-normative and creates no canonical corpus,
+protocol format, product-utility claim, or permission to execute the episode.
 
 ## Stopped experimental incremental capture
 

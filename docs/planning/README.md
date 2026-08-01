@@ -111,11 +111,13 @@ The route-selection gate is complete.
 [Issue #52](https://github.com/asukhodko/graphtruth/issues/52) owns the selected
 [`owner-facing-workbench-v1`](../../runtime/experimental/owner-facing-workbench-v1/)
 stage. Its product and CLI contract and fixed public GraphTruth H1/H2 owner
-episode are frozen; implementation, synthetic qualification, personal owner
-walkthrough, and disposition remain planned. The nearest goal may implement
-only that exact contract and must include one bytewise inventory comparator,
-mixed-case and permutation qualification, and the M10 regression. It cannot
-repair or rerun M10.
+episode now have one exact [release
+candidate](../../runtime/experimental/owner-facing-workbench-v1/STATUS.md).
+Implementation and 35/35 synthetic qualification are complete, including one
+bytewise inventory comparator, mixed-case and permutation coverage, and the
+M10 regression without repairing or rerunning M10. The nearest goal is one
+personal owner walkthrough of that exact candidate; disposition remains a
+separate decision.
 
 The [roadmap](../ROADMAP.md#selected-route-owner-facing-workbench-v1) retains
 the alternatives and their consequences. Recovery/static fallback and a

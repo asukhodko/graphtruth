@@ -171,10 +171,11 @@ path and its decision gates. It coordinates work but does not replace issues,
 review, or the evidence required to mark a learning loop complete.
 
 [Issue #52](https://github.com/asukhodko/graphtruth/issues/52) currently owns
-that slot for `owner-facing-workbench-v1`. Its exact Zone 3 contract is frozen;
-implementation, synthetic qualification, the personal owner walkthrough, and
-disposition are still pending. Contract completion is not implementation or
-product evidence.
+that slot for `owner-facing-workbench-v1`. Its exact Zone 3 contract now has one
+[frozen candidate](../runtime/experimental/owner-facing-workbench-v1/STATUS.md)
+that passed 35/35 synthetic tests. Implementation evidence still is not owner
+utility evidence: the personal walkthrough and disposition remain pending and
+separately gated.
 
 ## Private dogfood boundary
 

@@ -159,7 +159,7 @@ The route review compared these options:
 
 | Route | What it finishes | Main consequence |
 | --- | --- | --- |
-| **Owner-facing incremental workbench** — selected | A small CLI loop for named-file capture, exact spans, additive correction, horizons, questions, verification, readable current/as-of dossiers, and exact projection rebuild. The M10 ordering defect becomes a normal prerequisite and regression. | First product-shaped precursor to personal-v0 evidence; future implementation budget of at most three repository-active dates. |
+| **Owner-facing incremental workbench** — selected | A small CLI loop for named-file capture, exact spans, additive correction, horizons, questions, verification, readable current/as-of dossiers, and exact projection rebuild. The M10 ordering defect becomes a normal prerequisite and regression. | First product-shaped precursor to personal-v0 evidence; implementation and qualification used 1/3 allowed repository-active dates. |
 | **Portable inventory qualification only** | One explicit locale-independent comparator plus mixed-case, permutation, path-validation, and M10 regression tests. | Lowest-risk removal of the known engineering defect, but little direct user value; about 1–2 dates. |
 | **Recovery and static fallback slice** | Archive verification, restore, clean reconstruction, and a human-readable static export over the kept M8 boundary. | Advances trust and end-of-life evidence while leaving capture ergonomics open; about 2–3 dates. |
 | **Bounded project-document view** | One evidence-backed maintenance answer from code, tests, history, and issues against ordinary search. | Tests the original product idea, but currently risks another episode-specific adapter; about 2–4 dates. |
@@ -170,16 +170,20 @@ selected [`owner-facing-workbench-v1`](../runtime/experimental/owner-facing-work
 route. Its exact product, CLI, path, horizon, atomicity, budget, severe-error,
 and decision contract is frozen, together with a public two-horizon GraphTruth
 [owner episode](../runtime/experimental/owner-facing-workbench-v1/EPISODE.md).
-The preparation introduces no executable code, corpus, projection, or run.
+The contract now has one [frozen release
+candidate](../runtime/experimental/owner-facing-workbench-v1/STATUS.md),
+`owner-facing-workbench-v1-rc1-sha256-994797211ae516ea2bd7d965991fabe48bbb26f25922fcbbfaaa52e368d44b5a`.
+It passed 35/35 synthetic tests over the complete command and refusal surface,
+including bytewise path ordering, mixed-case and permutation inventories, and
+the exact M10 regression. This qualifies the candidate; it does not repair or
+rerun M10 and does not establish owner utility.
 
-The next goal is implementation and synthetic qualification tied to the exact
-contract identity, followed by the personally performed owner walkthrough and
-one `keep / shrink / stop` decision. It must embed bytewise path ordering,
-mixed-case and permutation qualification, and the M10 regression without
-repairing or rerunning M10. Recovery and static fallback remain the likely next
-slice after a favorable disposition. Generated project views should follow
-real workbench use. A fresh comparative episode is justified only by a named
-product decision, and candidate-format extraction remains conditional.
+The next goal is the personally performed owner walkthrough of the fixed H1/H2
+episode with this exact candidate, followed by one separate `keep / shrink /
+stop` decision. Recovery and static fallback remain the likely next slice after
+a favorable disposition. Generated project views should follow real workbench
+use. A fresh comparative episode is justified only by a named product decision,
+and candidate-format extraction remains conditional.
 
 ### Retained Issue #24 background
 

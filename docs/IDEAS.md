@@ -324,9 +324,10 @@ shows a stable common envelope. The reduced-echo procedure remains an
 alternative, not an implicit successor. Generated project documentation,
 richer domain topology, active acquisition, and experience-transfer machinery
 stay behind evidence from the minimal ledger and repeated real use. Issue #52
-now owns the major-WIP slot at its completed contract gate. Implementation,
-qualification, the owner's fixed H1/H2 walkthrough, and disposition remain
-pending under a separate exact goal.
+now owns the major-WIP slot at its completed candidate-freeze gate. The exact
+release candidate passed 35/35 synthetic tests, including portable ordering and
+the M10 regression. The owner's fixed H1/H2 walkthrough and disposition remain
+pending, so practical utility is still an open question.
 
 This ordering protects the early ideas rather than discarding them. It gives
 them a durable substrate and an observable reason to exist.

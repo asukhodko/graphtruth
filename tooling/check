@@ -37,6 +37,7 @@ if ! diff -u \
 fi
 shasum -a 256 --check tooling/vendor/opskarta/UPSTREAM.sha256
 ./tooling/opskarta --strict docs/planning/graphtruth.plan.yaml
+node runtime/experimental/owner-facing-workbench-v1/qualify.mjs
 node --test \
   tooling/author-call-result-schema-learning-v1.test.mjs \
   tooling/author-call-result-schema-learning-v2.test.mjs \

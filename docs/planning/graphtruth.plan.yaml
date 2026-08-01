@@ -87,9 +87,11 @@ nodes:
       Issue #8 remains open but deferred. The owner selected
       `owner-facing-workbench-v1` as the next major product route in Issue #52.
       Its non-normative product and CLI contract and public GraphTruth H1/H2
-      owner episode are frozen. No executable workbench, canonical store,
-      qualification, walkthrough, or disposition exists. The nearest goal is a
-      separately authorized implementation bound to those exact identities.
+      owner episode now have one frozen implementation candidate. The candidate
+      passed 35/35 synthetic tests, including the bytewise comparator,
+      permutation coverage, and exact M10 regression. No owner walkthrough or
+      disposition exists. The nearest goal is one separately authorized
+      personal walkthrough bound to the exact candidate identity.
 
   m0-rehearsal-integration:
     title: "Integrate the runtime-boundary rehearsal evidence"
@@ -1970,7 +1972,7 @@ nodes:
       Selected first operator-facing personal-v0 precursor. It is a
       non-normative Zone 3 CLI over explicitly selected public GraphTruth files
       and synthetic UTF-8 fixtures. The stage is currently at its completed
-      contract gate; implementation and execution require a separate goal.
+      candidate-freeze gate; personal owner execution requires a separate goal.
 
   m13-freeze-owner-workbench-contract:
     title: "Freeze product, CLI, and owner-episode contract"
@@ -1984,7 +1986,8 @@ nodes:
       episode SHA-256
       2156bbc089825dd36d38f86f85707d821d1f8f1dcb777149506356126fb48f59.
       H1 is commit 69f9f676e5bf5b9e488f33d4697bf8c184dec2c9; H2 is the
-      squash-merge commit of this preparation. No executable code exists.
+      squash-merge commit of this preparation. The contract and episode were
+      frozen before any executable candidate existed.
 
   g13-owner-workbench-contract-frozen:
     title: "Gate: exact owner workbench contract frozen"
@@ -2004,26 +2007,26 @@ nodes:
     kind: task
     parent: m13-owner-facing-workbench-v1
     deps: [g13-owner-workbench-contract-frozen]
-    status: planned
+    status: done
     issue: "https://github.com/asukhodko/graphtruth/issues/52"
     notes: |
-      Nearest goal. Implement only the accepted contract with Node.js 24
-      built-ins, public or synthetic data, zero product network/model calls,
-      and no episode adapter or manual canonical-data path. A separate goal is
-      required and has at most three Europe/Moscow repository-active dates.
+      Implemented only the accepted contract with Node.js 24 built-ins, public
+      or synthetic data, zero product network/model calls, and no episode
+      adapter or manual canonical-data path. Candidate implementation SHA-256
+      is 994797211ae516ea2bd7d965991fabe48bbb26f25922fcbbfaaa52e368d44b5a.
 
   m13-qualify-owner-workbench:
     title: "Qualify lifecycle, portability, atomicity, and rebuild"
     kind: task
     parent: m13-owner-facing-workbench-v1
     deps: [m13-implement-owner-workbench]
-    status: planned
+    status: done
     issue: "https://github.com/asukhodko/graphtruth/issues/52"
     notes: |
-      Exercise every command and refusal on synthetic fixtures, including
-      unsafe paths, canonical tamper, interrupted close, as-of isolation,
-      limits, exact rebuild, mixed-case and permutation inventories, and the
-      exact M10 ordering regression. Do not repair or rerun M10.
+      All 35 frozen synthetic tests pass. They exercise every command and
+      refusal, unsafe paths, canonical tamper, interrupted close, as-of
+      isolation, limits, exact rebuild, mixed-case and permutation inventories,
+      and the exact M10 ordering regression without repairing or rerunning M10.
 
   g13-owner-workbench-release-candidate-frozen:
     title: "Gate: one qualified release candidate frozen"
@@ -2031,12 +2034,15 @@ nodes:
     milestone: true
     parent: m13-owner-facing-workbench-v1
     deps: [m13-qualify-owner-workbench]
-    status: planned
+    status: done
     issue: "https://github.com/asukhodko/graphtruth/issues/52"
     notes: |
-      Bind implementation bytes, tests, and qualification evidence before the
-      owner sees or runs the candidate. Any semantic change creates a new
-      identity and requires a new decision.
+      Frozen identity is
+      owner-facing-workbench-v1-rc1-sha256-994797211ae516ea2bd7d965991fabe48bbb26f25922fcbbfaaa52e368d44b5a;
+      manifest SHA-256 is
+      e804a63cff85414f530cfa1964bd3544d7d49e43f5a34bad46024e1e1f299a1e.
+      It binds seven components and the 35/35 qualification before owner
+      exposure. Any semantic change creates a new identity and decision.
 
   m13-run-owner-workbench-walkthrough:
     title: "Owner performs the frozen public H1/H2 walkthrough"
@@ -2678,10 +2684,10 @@ execution:
       updated_at: "2026-08-01T10:14:42+03:00"
       note: "Issue #52 owns the exact owner-facing-workbench-v1 scope, three-active-date future budget, boundaries, and acceptance rules."
     m13-owner-facing-workbench-v1:
-      progress: 0.2
+      progress: 0.7
       actual_start: "2026-08-01"
-      updated_at: "2026-08-01T10:14:42+03:00"
-      note: "Selected stage. Contract complete; implementation, qualification, owner walkthrough, and disposition remain planned under a separate goal."
+      updated_at: "2026-08-01T20:16:20+03:00"
+      note: "Contract, implementation, 35/35 qualification, and exact candidate freeze are complete; owner walkthrough and disposition remain separately gated."
     m13-freeze-owner-workbench-contract:
       progress: 1.0
       actual_start: "2026-08-01"
@@ -2695,17 +2701,23 @@ execution:
       updated_at: "2026-08-01T10:14:42+03:00"
       note: "Exact product, CLI, H1/H2 episode, limits, severe errors, and disposition rules exist before code."
     m13-implement-owner-workbench:
-      progress: 0.0
-      updated_at: "2026-08-01T10:14:42+03:00"
-      note: "Planned nearest goal; no implementation authority or executable code in this preparation."
+      progress: 1.0
+      actual_start: "2026-08-01"
+      actual_finish: "2026-08-01"
+      updated_at: "2026-08-01T20:16:20+03:00"
+      note: "Exact Node.js 24 built-ins-only implementation complete; candidate digest 994797211ae516ea2bd7d965991fabe48bbb26f25922fcbbfaaa52e368d44b5a."
     m13-qualify-owner-workbench:
-      progress: 0.0
-      updated_at: "2026-08-01T10:14:42+03:00"
-      note: "Planned synthetic qualification, including portable comparator and exact M10 regression."
+      progress: 1.0
+      actual_start: "2026-08-01"
+      actual_finish: "2026-08-01"
+      updated_at: "2026-08-01T20:16:20+03:00"
+      note: "Frozen synthetic denominator passed 35/35, including portable byte ordering, all small permutations, limits, atomicity, rebuild, and exact M10 regression."
     g13-owner-workbench-release-candidate-frozen:
-      progress: 0.0
-      updated_at: "2026-08-01T10:14:42+03:00"
-      note: "Planned; no release candidate exists."
+      progress: 1.0
+      actual_start: "2026-08-01"
+      actual_finish: "2026-08-01"
+      updated_at: "2026-08-01T20:16:20+03:00"
+      note: "Frozen RC1 identity owner-facing-workbench-v1-rc1-sha256-994797211ae516ea2bd7d965991fabe48bbb26f25922fcbbfaaa52e368d44b5a; manifest e804a63cff85414f530cfa1964bd3544d7d49e43f5a34bad46024e1e1f299a1e."
     m13-run-owner-workbench-walkthrough:
       progress: 0.0
       updated_at: "2026-08-01T10:14:42+03:00"
@@ -2776,8 +2788,8 @@ views:
 x:
   exec:
     program:
-      nearest_goal: "Implement and synthetically qualify only the exact owner-facing-workbench-v1 contract; freeze one release candidate before owner exposure."
-      success_by_next_sync: "Preserve M8-M11 terminal evidence, pass every frozen command and refusal including the M10 regression, and bind one qualified candidate without running the owner episode."
+      nearest_goal: "Authorize and perform exactly one personal owner H1/H2 walkthrough with the frozen owner-facing-workbench-v1 RC1."
+      success_by_next_sync: "Preserve the exact candidate, record every owner action and elapsed budget without assistant-entered answers or retry, and stop before the separate keep, shrink, or stop decision."
     defaults:
       status_progress:
         done: 1.0
@@ -2865,9 +2877,9 @@ x:
         scope_nodes: [m13-owner-facing-workbench-v1]
         kind: main
         mgmt:
-          health: neutral
-          sync_note: "Issue #52 owns the selected Zone 3 route. Product and CLI contract plus the public GraphTruth H1/H2 episode are frozen; no executable code, store, qualification, walkthrough, or disposition exists."
-          next_sync_goal: "Implement only the exact accepted contract, pass synthetic lifecycle, atomicity, path-ordering, rebuild, and M10 regression checks, then freeze one candidate before owner exposure."
+          health: green
+          sync_note: "Issue #52 owns the selected Zone 3 route. Contract, public H1/H2 episode, implementation, 35/35 synthetic qualification, and exact RC1 freeze are complete. No owner walkthrough or disposition exists."
+          next_sync_goal: "Run one separately authorized personal H1/H2 walkthrough with exact RC1, preserve every outcome, and stop before the owner's separate disposition."
     edges:
       - from: integration
         to: private-stop
@@ -2911,7 +2923,7 @@ x:
         show_progress: false
         show_gate_date: false
         wrap_title_lines: 2
-        caption: "M11 remained terminal. Route selection completed and Issue #52 now owns owner-facing-workbench-v1 at its frozen contract gate; implementation and execution remain pending."
+        caption: "M11 remained terminal. Issue #52 now owns a 35/35-qualified frozen owner-facing-workbench-v1 RC1; the personal walkthrough and disposition remain pending."
         blocks: [integration, private-stop, python-sequential, record-bundle, public-dogfood, incremental-capture, portable-inventory, route-selection, owner-workbench]
       exec-active-tracks:
         direction: TB
