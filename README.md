@@ -204,12 +204,16 @@ The next product route is now selected:
 contract and its fixed public GraphTruth H1/H2 owner episode. The workbench is
 intended to replace episode-specific adapters and hand-edited canonical JSON
 with an ordinary named-file capture, correction, verification, dossier, and
-rebuild loop. Only its Markdown contract exists; implementation, qualification,
-the owner's walkthrough, and `keep / shrink / stop` disposition require a
-separate goal bound to the exact contract identity.
+rebuild loop. The exact contract now has one frozen release candidate,
+`owner-facing-workbench-v1-rc1-sha256-994797211ae516ea2bd7d965991fabe48bbb26f25922fcbbfaaa52e368d44b5a`,
+which passed its 35/35 synthetic qualification. The
+[candidate status](runtime/experimental/owner-facing-workbench-v1/STATUS.md)
+keeps its identities and decision boundary together. The owner's walkthrough
+and `keep / shrink / stop` disposition remain pending and separately gated.
 
-Portable-inventory ordering and the M10 regression are prerequisites inside
-that future implementation, not permission to repair or rerun M10.
+Portable-inventory ordering and the M10 regression were prerequisites for the
+candidate and are covered by its qualification. This is not permission to
+repair or rerun M10.
 Candidate-format extraction remains premature without later favorable evidence.
 
 The evidence-driven process itself is now learning-complete:
@@ -217,8 +221,8 @@ The evidence-driven process itself is now learning-complete:
 loop was exercised through bounded `keep`, `shrink`, and `stop` outcomes.
 [Issue #8](https://github.com/asukhodko/graphtruth/issues/8) remains an open,
 deferred design hypothesis rather than current work. Issue #52 is the selected
-major WIP, at its completed contract gate; this preparation does not authorize
-implementation or an operator run.
+major WIP, at its completed candidate-freeze gate. No operator run or product
+utility claim exists yet.
 
 The capability-oriented stages and their exit evidence are described in the
 [roadmap](docs/ROADMAP.md). The current work sequence and decision gates live
