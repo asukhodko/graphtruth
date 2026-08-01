@@ -59,9 +59,15 @@ Issue #48 tested a smaller incremental interface on a second public
 correction. Its one GraphTruth run failed before source capture because two
 path comparators ordered equal mixed-case inventories differently. The
 fail-closed guard worked, but no capability prefix was demonstrated; the owner
-selected `stop`. The next proof needs a new implementation identity, explicit
-canonical inventory semantics, mixed-case and permutation qualification, and a
-fresh confirming episode.
+selected `stop`.
+
+Issue #50 opened a proposed portable-inventory successor, then stopped before
+semantic or selection freeze. It added no implementation or experiment
+evidence. The known gap remains: any reusable multi-file capture path needs one
+explicit locale-independent inventory order plus mixed-case, permutation, and
+M10 regression tests. Those checks can be a bounded prerequisite inside the
+next operator-facing slice; a fresh comparison is needed only when it protects
+a concrete product decision.
 
 Sources: [RFC 0000](../rfcs/0000-project-foundation.md),
 [Vision](VISION.md), and backlog `GT-D001`–`GT-D018`.
@@ -97,8 +103,8 @@ Sources: [ontology and document views](drafts/ONTOLOGY-AND-DOCUMENT-VIEWS.md),
 
 ### Emergent, purpose-relative organization
 
-**Status:** durable product direction with an evidence-gated implementation;
-Issue #8 owns the later structural-shock experiment.
+**Status:** durable product direction; the open Issue #8 is a deferred parent
+hypothesis, not current work.
 
 Domains are overlapping, versioned views rather than a closed taxonomy imposed
 at capture. Records may be unclassified or belong to several views. A newly
@@ -109,6 +115,11 @@ lineage.
 Ordinary facets and saved queries are the baseline. Clustering, Formal Concept
 Analysis, or richer ontology machinery is justified only if it improves a real
 navigation or judgment task without unacceptable churn.
+
+[Issue #8](https://github.com/asukhodko/graphtruth/issues/8) becomes eligible
+only after the complete `h-public-corpora` horizon reaches `keep`. Any
+executable structural-shock experiment requires its own issue, identity,
+budget, and authorization.
 
 Sources: [Vision](VISION.md#domain-organization-evolves-with-the-corpus),
 [ontology and document views](drafts/ONTOLOGY-AND-DOCUMENT-VIEWS.md), and
@@ -291,13 +302,31 @@ it before any semantic or selection freeze. No candidate source, implementation,
 qualification, regression, or real run exists, so the attempt adds no technical
 evidence and leaves the M10 gap open.
 
+The next useful pressure is integration for an operator rather than another
+full comparison by default.
+[Issue #52](https://github.com/asukhodko/graphtruth/issues/52) selects
+[`owner-facing-workbench-v1`](../runtime/experimental/owner-facing-workbench-v1/):
+a small personal-v0 precursor that captures named public or synthetic files,
+exact spans, revisions, horizons, and questions without an episode-specific
+adapter or hand-edited canonical JSON. Its contract keeps the early ledger,
+contextual-dossier, temporal-reconstruction, explicit-unknown, and
+rebuildability ideas on the direct product path while refusing premature
+assessment, acceptance, search, domain, or protocol machinery.
+
+Portable inventory ordering enters that route as a tested engineering
+prerequisite, including mixed-case, permutation, and M10 regression coverage.
+This does not repair or rerun M10. Static recovery is a credible follow-up. A
+third comparative correction remains available only when a specific product
+decision needs it.
+
 Candidate-format extraction stays conditional until a favorable fresh episode
 shows a stable common envelope. The reduced-echo procedure remains an
 alternative, not an implicit successor. Generated project documentation,
 richer domain topology, active acquisition, and experience-transfer machinery
-stay behind evidence from the minimal ledger and repeated real use. The
-major-WIP slot is free; any successor needs its own goal, identity, budget, and
-authorization.
+stay behind evidence from the minimal ledger and repeated real use. Issue #52
+now owns the major-WIP slot at its completed contract gate. Implementation,
+qualification, the owner's fixed H1/H2 walkthrough, and disposition remain
+pending under a separate exact goal.
 
 This ordering protects the early ideas rather than discarding them. It gives
 them a durable substrate and an observable reason to exist.

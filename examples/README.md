@@ -84,6 +84,12 @@ ordered equal mixed-case inventories differently; GraphTruth completed 0/4.
 The owner selected `stop`. The retained failure admits no capability or format
 but supplies regression evidence for a separately identified successor.
 
+The proposed
+[portable-inventory v2 third public correction](experiments/incremental-capture-portable-inventory-v2-third-public-correction-v1/)
+was stopped before semantic or selection freeze. It contains the terminal
+disposition and planning boundary only: no candidate, v2 runtime,
+qualification, comparison run, or technical result exists.
+
 If repeated experiments demonstrate stable portable semantics, a separately
 reviewed minimal example may later be promoted into this directory under an
 applicable specification version. Copying the laboratory files here does not

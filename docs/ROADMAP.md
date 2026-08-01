@@ -41,7 +41,7 @@ evidence gates, and the candidate RFC pipeline visible. It is not a parallel
 task queue: the single-major-WIP rule and the operational plan still determine
 what may run now.
 
-## Current evidence checkpoint — 2026-07-28
+## Current evidence checkpoint — 2026-08-01
 
 [Issue #42](https://github.com/asukhodko/graphtruth/issues/42) supplied the
 first kept public-synthetic record-and-bundle slice. Its frozen reference run
@@ -133,12 +133,53 @@ GraphTruth run, or score.
 
 This stop adds no technical evidence and does not resolve the mixed-case
 inventory gap found by M10. The M9 capability subset and M10 terminal evidence
-remain unchanged. The single-major-WIP slot is free; a portable-inventory
-reattempt or a different product-facing route needs a new goal, identity,
-budget, and authorization. Candidate-format extraction still requires a
-favorable fresh disposition. PR
+remain unchanged. At that checkpoint the single-major-WIP slot was free; a
+portable-inventory reattempt or a different product-facing route required a new
+goal, identity, budget, and authorization. Candidate-format extraction still
+requires a favorable fresh disposition. PR
 [#51](https://github.com/asukhodko/graphtruth/pull/51) integrates this bounded
 terminal state.
+
+### Selected route: owner-facing-workbench-v1
+
+[Issue #2](https://github.com/asukhodko/graphtruth/issues/2) is now
+learning-complete and closed after the development loop produced honest
+`keep`, `shrink`, post-run `stop`, and pre-execution `stop` outcomes.
+[Issue #8](https://github.com/asukhodko/graphtruth/issues/8) remains an open,
+deferred parent design hypothesis. It is not the active WIP and does not
+authorize a structural-shock experiment.
+
+The evidence is now stronger than the product surface. M8 and M9 demonstrate a
+small useful ledger subset, while the repository still has no ordinary
+operator workflow independent of experiment-specific adapters and hand-authored
+capture declarations. Another full comparative corpus would improve confidence
+in the harness before it improves daily use.
+
+The route review compared these options:
+
+| Route | What it finishes | Main consequence |
+| --- | --- | --- |
+| **Owner-facing incremental workbench** — selected | A small CLI loop for named-file capture, exact spans, additive correction, horizons, questions, verification, readable current/as-of dossiers, and exact projection rebuild. The M10 ordering defect becomes a normal prerequisite and regression. | First product-shaped precursor to personal-v0 evidence; future implementation budget of at most three repository-active dates. |
+| **Portable inventory qualification only** | One explicit locale-independent comparator plus mixed-case, permutation, path-validation, and M10 regression tests. | Lowest-risk removal of the known engineering defect, but little direct user value; about 1–2 dates. |
+| **Recovery and static fallback slice** | Archive verification, restore, clean reconstruction, and a human-readable static export over the kept M8 boundary. | Advances trust and end-of-life evidence while leaving capture ergonomics open; about 2–3 dates. |
+| **Bounded project-document view** | One evidence-backed maintenance answer from code, tests, history, and issues against ordinary search. | Tests the original product idea, but currently risks another episode-specific adapter; about 2–4 dates. |
+| **Fresh comparative correction** | A new portable-inventory identity, qualification, regression, frozen comparison, and third public episode. | Could support a later candidate-format decision, but is most likely to continue the experiment loop without a usable product; about 2–4 dates. |
+
+[Issue #52](https://github.com/asukhodko/graphtruth/issues/52) now owns the
+selected [`owner-facing-workbench-v1`](../runtime/experimental/owner-facing-workbench-v1/)
+route. Its exact product, CLI, path, horizon, atomicity, budget, severe-error,
+and decision contract is frozen, together with a public two-horizon GraphTruth
+[owner episode](../runtime/experimental/owner-facing-workbench-v1/EPISODE.md).
+The preparation introduces no executable code, corpus, projection, or run.
+
+The next goal is implementation and synthetic qualification tied to the exact
+contract identity, followed by the personally performed owner walkthrough and
+one `keep / shrink / stop` decision. It must embed bytewise path ordering,
+mixed-case and permutation qualification, and the M10 regression without
+repairing or rerunning M10. Recovery and static fallback remain the likely next
+slice after a favorable disposition. Generated project views should follow
+real workbench use. A fresh comparative episode is justified only by a named
+product decision, and candidate-format extraction remains conditional.
 
 ### Retained Issue #24 background
 
@@ -680,6 +721,13 @@ classes, readable and writable boundaries, external processors, retained and
 derived copies, retention, deletion, and known limits. Until that boundary has
 an exercised safe failure and deletion path, keep the slice on public or
 synthetic material.
+
+The selected precursor is
+[`owner-facing-workbench-v1`](#selected-route-owner-facing-workbench-v1). It deliberately
+does not claim to complete Stage 1: its job is to replace experiment-specific
+capture declarations with one usable public/synthetic operator loop and expose
+the next real friction before assessment, acceptance, backup, privacy, and
+other later slices are designed.
 
 Exit evidence:
 

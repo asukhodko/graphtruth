@@ -22,6 +22,22 @@ Default runtime behavior is not automatically protocol behavior.
 Interoperability requirements belong in `spec/`, schemas, and conformance
 fixtures.
 
+## Selected owner-facing precursor
+
+The product and command boundary for
+[`owner-facing-workbench-v1`](experimental/owner-facing-workbench-v1/) is
+frozen under [Issue #52](https://github.com/asukhodko/graphtruth/issues/52).
+It is the selected next Zone 3 route: a small local CLI for explicit named-file
+capture, exact spans, additive corrections, sequential horizons, open
+questions, verification, dossiers, and exact projection rebuild. It embeds one
+locale-independent path comparator and the M10 ordering regression.
+
+Only the Markdown contract and future owner episode exist. Implementation,
+automated qualification, the owner walkthrough, and disposition are pending
+and require a separate goal bound to the exact contract identity. Nothing in
+this preparation creates a runtime, storage format, canonical corpus, protocol
+claim, or permission to execute the episode.
+
 ## Stopped experimental incremental capture
 
 The
