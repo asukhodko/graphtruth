@@ -12,8 +12,11 @@
 > corpus and projection are research-only. Confirmation requires a fresh corpus
 > and identity. The separate public MurmurMark correction dogfood completed at
 > `shrink`: it admits exact snapshots, spans, revisions, horizons, and an open
-> question, but does not revive or confirm this three-corpus program. No
-> successor is active; the single-major-WIP slot is free.
+> question, but does not revive or confirm this three-corpus program. The
+> later incremental-capture route ran outside this program and ended at
+> `stop`; its portable-inventory successor then stopped before freeze. Neither
+> advanced `h-public-corpora`. No successor is active; the single-major-WIP
+> slot is free.
 >
 > **Created:** 2026-07-12.
 >
@@ -23,6 +26,9 @@
 > harness](https://github.com/asukhodko/graphtruth/issues/6), and
 > [Issue #8 — Continuous emergent domain
 > topology](https://github.com/asukhodko/graphtruth/issues/8).
+> Issue #8 remains an open, deferred parent hypothesis rather than current
+> work; any later executable experiment requires a separate issue and
+> authorization.
 >
 > **Authority:** This document selects candidate public corpora and orders
 > bounded experiments. It is not a frozen run pack, benchmark, protocol rule,
@@ -561,10 +567,12 @@ uncertainty and removed the exact local stdout, unread zero-byte stderr, and
 bounded work root using metadata only. The diagnostic root remains, and no
 backup, snapshot, swap, task-log, or provider-side deletion is claimed.
 
-No current corpus lane is active. The next major WIP must be selected
-separately. The rational near-term choices are the smallest independent
-record-and-bundle golden journey or a fresh confirmatory corpus; neither is
-authorized by this plan.
+No current corpus lane is active. The later record-and-bundle journey completed
+outside this ordered program, and
+[Issue #52](https://github.com/asukhodko/graphtruth/issues/52) now owns the separately
+selected `owner-facing-workbench-v1` product precursor. Its contract does not
+activate a corpus, baseline, oracle, scoring path, or confirmatory experiment.
+A fresh confirmatory corpus remains conditional and requires its own decision.
 
 ## Historical Issue #24 execution plan through 2026-07-24
 

@@ -44,7 +44,7 @@ enter GraphTruth's protocol, schemas, runtime, or RFC authority chain. Rendering
 tools are not vendored because no generated planning view is currently a
 maintained artifact.
 
-## Current position — 2026-07-28
+## Current position — 2026-08-01
 
 [Issue #42](https://github.com/asukhodko/graphtruth/issues/42) completed the
 public-synthetic `record-and-bundle-golden-journey-v1`. Its contract was frozen
@@ -95,12 +95,32 @@ remain visible, no severe error occurred, and the owner chose
 PR [#49](https://github.com/asukhodko/graphtruth/pull/49) carries the terminal
 evidence and synchronized project state.
 
-The single-major-WIP slot is free after terminal integration. The recommended
-next route is a new Zone 3 implementation identity with one canonical inventory
-comparator, mixed-case and permutation qualification, regression against the
-stopped corpus, and confirmation on a third fresh public correction.
-Candidate-format extraction remains conditional. Execution requires its own
-goal, issue, identity, budget, and authorization.
+[Issue #50](https://github.com/asukhodko/graphtruth/issues/50) then opened the
+proposed portable-inventory v2 and third-public-correction route. The owner
+selected `stop` before semantic or selection freeze. No candidate, v2
+implementation, qualification, regression, branch run, or technical result
+exists; PR [#51](https://github.com/asukhodko/graphtruth/pull/51) retains that
+terminal state.
+
+[Issue #2](https://github.com/asukhodko/graphtruth/issues/2) is
+learning-complete and closed after practical use of the development loop.
+[Issue #8](https://github.com/asukhodko/graphtruth/issues/8) remains open but
+deferred. It is not current work.
+
+The route-selection gate is complete.
+[Issue #52](https://github.com/asukhodko/graphtruth/issues/52) owns the selected
+[`owner-facing-workbench-v1`](../../runtime/experimental/owner-facing-workbench-v1/)
+stage. Its product and CLI contract and fixed public GraphTruth H1/H2 owner
+episode are frozen; implementation, synthetic qualification, personal owner
+walkthrough, and disposition remain planned. The nearest goal may implement
+only that exact contract and must include one bytewise inventory comparator,
+mixed-case and permutation qualification, and the M10 regression. It cannot
+repair or rerun M10.
+
+The [roadmap](../ROADMAP.md#selected-route-owner-facing-workbench-v1) retains
+the alternatives and their consequences. Recovery/static fallback and a
+bounded project-document view remain later product slices; a fresh comparison
+requires a named decision. Candidate-format extraction remains conditional.
 
 ## Historical execution record — 2026-07-24
 

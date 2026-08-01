@@ -87,6 +87,21 @@ Until then, keep the issue open and mark it `needs-dogfood`. Merge may precede
 learning completion when integration is necessary to run the experiment, but
 merge must never be reported as proof that the hypothesis was correct.
 
+### Process evidence checkpoint — 2026-07-30
+
+[Issue #2](https://github.com/asukhodko/graphtruth/issues/2) is
+learning-complete and closed. The process was exercised on Issue #42's bounded
+`keep`, Issue #45's selective `shrink`, Issue #48's post-run `stop`, and Issue
+50's pre-execution `stop`. In each case the terminal evidence and the owner's
+decision remained separate from implementation and merge state.
+
+This validates the loop as a project control, not every layer of ceremony used
+inside earlier experiments. A task needs a frozen oracle, comparative baseline,
+or single-attempt execution boundary only when that gate protects a named
+decision from bias or ambiguity. Ordinary product engineering should use normal
+tests, review, dogfood, and the six merge gates unless it makes a comparative
+or generality claim that needs stronger controls.
+
 ## Definition of done by zone
 
 These requirements apply when a change touches the corresponding zone.
@@ -154,6 +169,12 @@ when issue volume makes it necessary.
 The [operational work map](planning/README.md) decomposes that single major
 path and its decision gates. It coordinates work but does not replace issues,
 review, or the evidence required to mark a learning loop complete.
+
+[Issue #52](https://github.com/asukhodko/graphtruth/issues/52) currently owns
+that slot for `owner-facing-workbench-v1`. Its exact Zone 3 contract is frozen;
+implementation, synthetic qualification, the personal owner walkthrough, and
+disposition are still pending. Contract completion is not implementation or
+product evidence.
 
 ## Private dogfood boundary
 

@@ -38,8 +38,14 @@ froze four tasks, eight cells, one baseline attempt, and one GraphTruth run.
 Baseline completed 3/4 tasks. GraphTruth completed 0/4 after a mixed-case
 inventory-order mismatch stopped H1 acquisition before source-file reads. The
 owner selected `stop`; no capability or format was admitted, and the corpus is
-research and regression input only. A new implementation identity and third
-fresh correction are required for confirmation.
+research and regression input only.
+
+The proposed
+[portable-inventory successor](../examples/experiments/incremental-capture-portable-inventory-v2-third-public-correction-v1/README.md)
+also ended at owner `stop`, before semantic or selection freeze. No candidate,
+v2 implementation, qualification, regression, branch run, or result exists.
+The portable-ordering gap remains open, but no reattempt or third correction is
+active or authorized.
 
 ### Final Issue #24 disposition — 2026-07-25
 
@@ -66,7 +72,9 @@ snapshots, swap, task logs, or provider systems. The publication-safe record is
 The Python corpus and projection remain research-only. Confirmation requires a
 fresh corpus and identity, and no Python-specific task or oracle knowledge may
 transfer. `reduced-echo-contract` is retained as a candidate route; it is not
-authorized or active. The single-major-WIP slot is free.
+authorized or active. The later selected major WIP is the separate
+[`owner-facing-workbench-v1`](../runtime/experimental/owner-facing-workbench-v1/)
+product precursor under Issue #52; it does not reopen this experiment route.
 
 ### Historical Issue #24 execution record through 2026-07-24
 

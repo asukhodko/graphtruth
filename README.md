@@ -198,10 +198,27 @@ was then stopped by owner decision before its semantic or selection contract
 was frozen. No candidate source was revealed, no v2 runtime was written, and
 neither comparison branch ran. This adds no technical evidence or capability.
 
-The major-work slot is free. Portable-inventory qualification, a different
-product-facing route, and candidate-format extraction all require a separate
-goal and authorization; candidate-format extraction remains premature without
-a favorable fresh episode.
+The next product route is now selected:
+[Issue #52](https://github.com/asukhodko/graphtruth/issues/52) owns the non-normative
+[`owner-facing-workbench-v1`](runtime/experimental/owner-facing-workbench-v1/)
+contract and its fixed public GraphTruth H1/H2 owner episode. The workbench is
+intended to replace episode-specific adapters and hand-edited canonical JSON
+with an ordinary named-file capture, correction, verification, dossier, and
+rebuild loop. Only its Markdown contract exists; implementation, qualification,
+the owner's walkthrough, and `keep / shrink / stop` disposition require a
+separate goal bound to the exact contract identity.
+
+Portable-inventory ordering and the M10 regression are prerequisites inside
+that future implementation, not permission to repair or rerun M10.
+Candidate-format extraction remains premature without later favorable evidence.
+
+The evidence-driven process itself is now learning-complete:
+[Issue #2](https://github.com/asukhodko/graphtruth/issues/2) closed after the
+loop was exercised through bounded `keep`, `shrink`, and `stop` outcomes.
+[Issue #8](https://github.com/asukhodko/graphtruth/issues/8) remains an open,
+deferred design hypothesis rather than current work. Issue #52 is the selected
+major WIP, at its completed contract gate; this preparation does not authorize
+implementation or an operator run.
 
 The capability-oriented stages and their exit evidence are described in the
 [roadmap](docs/ROADMAP.md). The current work sequence and decision gates live
